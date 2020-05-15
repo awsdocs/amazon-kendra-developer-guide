@@ -1,13 +1,9 @@
-## My Project
+## Amazon Kendra Developer Guide
 
-TODO: Fill this README out!
+The open source version of the Amazon Kendra docs. You can submit feedback & requests for changes by submitting issues in this repo or by making proposed changes & submitting a pull request.
 
-Be sure to:
+## License Summary
 
-* Change the title in this README
-* Edit your repository description on GitHub
+The documentation is made available under the Creative Commons Attribution-ShareAlike 4.0 International License. See the LICENSE file.
 
-## License
-
-This library is licensed under the MIT-0 License. See the LICENSE file.
-
+The sample code within this documentation is made available under a modified MIT license. See the LICENSE-SAMPLECODE file.
