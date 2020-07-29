@@ -14,38 +14,38 @@ The documents are indexed asynchronously\. You can see the progress of the batch
 
 ```
 {
-   "[Documents](#Kendra-BatchPutDocument-request-Documents)": [ 
+   "Documents": [ 
       { 
-         "[AccessControlList](API_Document.md#Kendra-Type-Document-AccessControlList)": [ 
+         "AccessControlList": [ 
             { 
-               "[Access](API_Principal.md#Kendra-Type-Principal-Access)": "string",
-               "[Name](API_Principal.md#Kendra-Type-Principal-Name)": "string",
-               "[Type](API_Principal.md#Kendra-Type-Principal-Type)": "string"
+               "Access": "string",
+               "Name": "string",
+               "Type": "string"
             }
          ],
-         "[Attributes](API_Document.md#Kendra-Type-Document-Attributes)": [ 
+         "Attributes": [ 
             { 
-               "[Key](API_DocumentAttribute.md#Kendra-Type-DocumentAttribute-Key)": "string",
-               "[Value](API_DocumentAttribute.md#Kendra-Type-DocumentAttribute-Value)": { 
-                  "[DateValue](API_DocumentAttributeValue.md#Kendra-Type-DocumentAttributeValue-DateValue)": number,
-                  "[LongValue](API_DocumentAttributeValue.md#Kendra-Type-DocumentAttributeValue-LongValue)": number,
-                  "[StringListValue](API_DocumentAttributeValue.md#Kendra-Type-DocumentAttributeValue-StringListValue)": [ "string" ],
-                  "[StringValue](API_DocumentAttributeValue.md#Kendra-Type-DocumentAttributeValue-StringValue)": "string"
+               "Key": "string",
+               "Value": { 
+                  "DateValue": number,
+                  "LongValue": number,
+                  "StringListValue": [ "string" ],
+                  "StringValue": "string"
                }
             }
          ],
-         "[Blob](API_Document.md#Kendra-Type-Document-Blob)": blob,
-         "[ContentType](API_Document.md#Kendra-Type-Document-ContentType)": "string",
-         "[Id](API_Document.md#Kendra-Type-Document-Id)": "string",
-         "[S3Path](API_Document.md#Kendra-Type-Document-S3Path)": { 
-            "[Bucket](API_S3Path.md#Kendra-Type-S3Path-Bucket)": "string",
-            "[Key](API_S3Path.md#Kendra-Type-S3Path-Key)": "string"
+         "Blob": blob,
+         "ContentType": "string",
+         "Id": "string",
+         "S3Path": { 
+            "Bucket": "string",
+            "Key": "string"
          },
-         "[Title](API_Document.md#Kendra-Type-Document-Title)": "string"
+         "Title": "string"
       }
    ],
-   "[IndexId](#Kendra-BatchPutDocument-request-IndexId)": "string",
-   "[RoleArn](#Kendra-BatchPutDocument-request-RoleArn)": "string"
+   "IndexId": "string",
+   "RoleArn": "string"
 }
 ```
 
@@ -84,11 +84,11 @@ Required: No
 
 ```
 {
-   "[FailedDocuments](#Kendra-BatchPutDocument-response-FailedDocuments)": [ 
+   "FailedDocuments": [ 
       { 
-         "[ErrorCode](API_BatchPutDocumentResponseFailedDocument.md#Kendra-Type-BatchPutDocumentResponseFailedDocument-ErrorCode)": "string",
-         "[ErrorMessage](API_BatchPutDocumentResponseFailedDocument.md#Kendra-Type-BatchPutDocumentResponseFailedDocument-ErrorMessage)": "string",
-         "[Id](API_BatchPutDocumentResponseFailedDocument.md#Kendra-Type-BatchPutDocumentResponseFailedDocument-Id)": "string"
+         "ErrorCode": "string",
+         "ErrorMessage": "string",
+         "Id": "string"
       }
    ]
 }

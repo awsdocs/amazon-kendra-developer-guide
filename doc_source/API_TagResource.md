@@ -10,11 +10,11 @@ Adds the specified tag to the specified index, FAQ, or data source resource\. If
 
 ```
 {
-   "[ResourceARN](#Kendra-TagResource-request-ResourceARN)": "string",
-   "[Tags](#Kendra-TagResource-request-Tags)": [ 
+   "ResourceARN": "string",
+   "Tags": [ 
       { 
-         "[Key](API_Tag.md#Kendra-Type-Tag-Key)": "string",
-         "[Value](API_Tag.md#Kendra-Type-Tag-Value)": "string"
+         "Key": "string",
+         "Value": "string"
       }
    ]
 }

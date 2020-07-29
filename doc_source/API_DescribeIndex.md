@@ -10,7 +10,7 @@ Describes an existing Amazon Kendra index
 
 ```
 {
-   "[Id](#Kendra-DescribeIndex-request-Id)": "string"
+   "Id": "string"
 }
 ```
 
@@ -31,51 +31,52 @@ Required: Yes
 
 ```
 {
-   "[CapacityUnits](#Kendra-DescribeIndex-response-CapacityUnits)": { 
-      "[QueryCapacityUnits](API_CapacityUnitsConfiguration.md#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits)": number,
-      "[StorageCapacityUnits](API_CapacityUnitsConfiguration.md#Kendra-Type-CapacityUnitsConfiguration-StorageCapacityUnits)": number
+   "CapacityUnits": { 
+      "QueryCapacityUnits": number,
+      "StorageCapacityUnits": number
    },
-   "[CreatedAt](#Kendra-DescribeIndex-response-CreatedAt)": number,
-   "[Description](#Kendra-DescribeIndex-response-Description)": "string",
-   "[DocumentMetadataConfigurations](#Kendra-DescribeIndex-response-DocumentMetadataConfigurations)": [ 
+   "CreatedAt": number,
+   "Description": "string",
+   "DocumentMetadataConfigurations": [ 
       { 
-         "[Name](API_DocumentMetadataConfiguration.md#Kendra-Type-DocumentMetadataConfiguration-Name)": "string",
-         "[Relevance](API_DocumentMetadataConfiguration.md#Kendra-Type-DocumentMetadataConfiguration-Relevance)": { 
-            "[Duration](API_Relevance.md#Kendra-Type-Relevance-Duration)": "string",
-            "[Freshness](API_Relevance.md#Kendra-Type-Relevance-Freshness)": boolean,
-            "[Importance](API_Relevance.md#Kendra-Type-Relevance-Importance)": number,
-            "[RankOrder](API_Relevance.md#Kendra-Type-Relevance-RankOrder)": "string",
-            "[ValueImportanceMap](API_Relevance.md#Kendra-Type-Relevance-ValueImportanceMap)": { 
+         "Name": "string",
+         "Relevance": { 
+            "Duration": "string",
+            "Freshness": boolean,
+            "Importance": number,
+            "RankOrder": "string",
+            "ValueImportanceMap": { 
                "string" : number 
             }
          },
-         "[Search](API_DocumentMetadataConfiguration.md#Kendra-Type-DocumentMetadataConfiguration-Search)": { 
-            "[Displayable](API_Search.md#Kendra-Type-Search-Displayable)": boolean,
-            "[Facetable](API_Search.md#Kendra-Type-Search-Facetable)": boolean,
-            "[Searchable](API_Search.md#Kendra-Type-Search-Searchable)": boolean
+         "Search": { 
+            "Displayable": boolean,
+            "Facetable": boolean,
+            "Searchable": boolean,
+            "Sortable": boolean
          },
-         "[Type](API_DocumentMetadataConfiguration.md#Kendra-Type-DocumentMetadataConfiguration-Type)": "string"
+         "Type": "string"
       }
    ],
-   "[Edition](#Kendra-DescribeIndex-response-Edition)": "string",
-   "[ErrorMessage](#Kendra-DescribeIndex-response-ErrorMessage)": "string",
-   "[Id](#Kendra-DescribeIndex-response-Id)": "string",
-   "[IndexStatistics](#Kendra-DescribeIndex-response-IndexStatistics)": { 
-      "[FaqStatistics](API_IndexStatistics.md#Kendra-Type-IndexStatistics-FaqStatistics)": { 
-         "[IndexedQuestionAnswersCount](API_FaqStatistics.md#Kendra-Type-FaqStatistics-IndexedQuestionAnswersCount)": number
+   "Edition": "string",
+   "ErrorMessage": "string",
+   "Id": "string",
+   "IndexStatistics": { 
+      "FaqStatistics": { 
+         "IndexedQuestionAnswersCount": number
       },
-      "[TextDocumentStatistics](API_IndexStatistics.md#Kendra-Type-IndexStatistics-TextDocumentStatistics)": { 
-         "[IndexedTextBytes](API_TextDocumentStatistics.md#Kendra-Type-TextDocumentStatistics-IndexedTextBytes)": number,
-         "[IndexedTextDocumentsCount](API_TextDocumentStatistics.md#Kendra-Type-TextDocumentStatistics-IndexedTextDocumentsCount)": number
+      "TextDocumentStatistics": { 
+         "IndexedTextBytes": number,
+         "IndexedTextDocumentsCount": number
       }
    },
-   "[Name](#Kendra-DescribeIndex-response-Name)": "string",
-   "[RoleArn](#Kendra-DescribeIndex-response-RoleArn)": "string",
-   "[ServerSideEncryptionConfiguration](#Kendra-DescribeIndex-response-ServerSideEncryptionConfiguration)": { 
-      "[KmsKeyId](API_ServerSideEncryptionConfiguration.md#Kendra-Type-ServerSideEncryptionConfiguration-KmsKeyId)": "string"
+   "Name": "string",
+   "RoleArn": "string",
+   "ServerSideEncryptionConfiguration": { 
+      "KmsKeyId": "string"
    },
-   "[Status](#Kendra-DescribeIndex-response-Status)": "string",
-   "[UpdatedAt](#Kendra-DescribeIndex-response-UpdatedAt)": number
+   "Status": "string",
+   "UpdatedAt": number
 }
 ```
 

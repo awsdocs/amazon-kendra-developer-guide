@@ -10,9 +10,9 @@ Lists the data sources that you have created\.
 
 ```
 {
-   "[IndexId](#Kendra-ListDataSources-request-IndexId)": "string",
-   "[MaxResults](#Kendra-ListDataSources-request-MaxResults)": number,
-   "[NextToken](#Kendra-ListDataSources-request-NextToken)": "string"
+   "IndexId": "string",
+   "MaxResults": number,
+   "NextToken": "string"
 }
 ```
 
@@ -45,15 +45,15 @@ Required: No
 
 ```
 {
-   "[NextToken](#Kendra-ListDataSources-response-NextToken)": "string",
-   "[SummaryItems](#Kendra-ListDataSources-response-SummaryItems)": [ 
+   "NextToken": "string",
+   "SummaryItems": [ 
       { 
-         "[CreatedAt](API_DataSourceSummary.md#Kendra-Type-DataSourceSummary-CreatedAt)": number,
-         "[Id](API_DataSourceSummary.md#Kendra-Type-DataSourceSummary-Id)": "string",
-         "[Name](API_DataSourceSummary.md#Kendra-Type-DataSourceSummary-Name)": "string",
-         "[Status](API_DataSourceSummary.md#Kendra-Type-DataSourceSummary-Status)": "string",
-         "[Type](API_DataSourceSummary.md#Kendra-Type-DataSourceSummary-Type)": "string",
-         "[UpdatedAt](API_DataSourceSummary.md#Kendra-Type-DataSourceSummary-UpdatedAt)": number
+         "CreatedAt": number,
+         "Id": "string",
+         "Name": "string",
+         "Status": "string",
+         "Type": "string",
+         "UpdatedAt": number
       }
    ]
 }

@@ -4,11 +4,11 @@
 
 # Using a ServiceNow data source<a name="data-source-servicenow"></a>
 
-Amazon Kendra can connect to your ServiceNow instance that contains a knowledge base and service catalog to provide an index of its contents\. For a walkthrough of creating a ServiceNow data source, see [Getting started with a ServiceNow data source \(Console\)](getting-started-servicenow.md)\.
+Amazon Kendra can connect to your ServiceNow instance that contains a public knowledge base and service catalog to provide an index of its contents\. For a walkthrough of creating a ServiceNow data source, see [Getting started with a ServiceNow data source \(Console\)](getting-started-servicenow.md)\.
 
 When you use Amazon Kendra to index a ServiceNow instance, you choose the instance to index and whether to index a public knowledge base, a public service catalog, or both\. You can optionally provide inclusion and exclusion patterns for document attachments stored in the knowledge base or service catalog\. 
 
-Amazon Kendra indexes only knowledge bases and service catalogs marked as public in your ServiceNow instance\. A knowledge base must have the public role under **Can Read** and **Cannot Read** must be null or not set
+For public knowledge bases in your ServiceNow instance, Amazon Kendra indexes only public articles\. A knowledge base must have the public role under **Can Read**, and **Cannot Read** must be null or not set
 
 You also must provide Amazon Kendra with the credentials for an administrative user for your ServiceNow instance\.
 
@@ -25,7 +25,7 @@ The secret must contain the username and password of the ServiceNow account that
 
 The secret can contain other information;but Amazon Kendra ignores it\. For more information, see [What is Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) in the *AWS Secrets Manager User Guide*\.
 
-When you create the ServiceNow data source you specify an IAM role that grants Amazon Kendra permission to access resources required to index your ServiceNow instance\. The data source IAM role must have permission to access the secret and to use the AWS Key Management Service \(AWS KMS\) key that was used to decrypt it\. For more information, see [IAM role for ServiceNow data sources](iam-roles.md#iam-roles-ds-sn)\.
+When you create the ServiceNow data source, you specify an IAM role that grants Amazon Kendra permission to access resources required to index your ServiceNow instance\. The data source IAM role must have permission to access the secret and to use the AWS Key Management Service \(AWS KMS\) key that was used to decrypt it\. For more information, see [IAM role for ServiceNow data sources](iam-roles.md#iam-roles-ds-sn)\.
 
 You provide ServiceNow connection information in the Amazon Kendra console or by using an instance of the [ServiceNowConfiguration](API_ServiceNowConfiguration.md) data type\. You must provide the following information:
 + The ARN of the Secrets Manager secret that contains the credentials required to access the ServiceNow instance\.

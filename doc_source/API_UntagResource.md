@@ -10,8 +10,8 @@ Removes a tag from an index, FAQ, or a data source\.
 
 ```
 {
-   "[ResourceARN](#Kendra-UntagResource-request-ResourceARN)": "string",
-   "[TagKeys](#Kendra-UntagResource-request-TagKeys)": [ "string" ]
+   "ResourceARN": "string",
+   "TagKeys": [ "string" ]
 }
 ```
 

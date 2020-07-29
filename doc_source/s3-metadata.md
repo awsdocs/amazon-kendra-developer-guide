@@ -8,7 +8,7 @@ You can add metadata, additional information about a document, to documents in a
 
 Your metadata files must be stored in the same bucket as your indexed files\. You can specify a location within the bucket for your metadata files using the console or the `S3Prefix` field of the `DocumentsMetadataConfiguration` parameter when you create an S3 data source\. If you don't specify an S3 prefix, your metadata files must be stored in the same location as your indexed documents\.
 
-If you specify an S3 prefix for your metadata files, they live in a directory structure parallel to your indexed documents\. Amazon Kendra only looks in the specified directory for your metadata\. If the metadata isn't read, check that the directory location matches the location of your metadata\.
+If you specify an S3 prefix for your metadata files, they live in a directory structure parallel to your indexed documents\. Amazon Kendra looks only in the specified directory for your metadata\. If the metadata isn't read, check that the directory location matches the location of your metadata\.
 
 The following examples show how the indexed document location maps to the metadata file location\. Note that the document's S3 key is appended to the metadata's S3 prefix and then suffixed with `.metatdata.json` to form the metadata file's S3 path\.
 

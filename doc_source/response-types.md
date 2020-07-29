@@ -2,14 +2,14 @@
 
 --------
 
-# Types of response<a name="response-types"></a>
+# Response types<a name="response-types"></a>
 
 Amazon Kendra returns three types of query response\.
 + Answer
 + Document
 + Question and answer
 
-The type of the response is returned in the `Type` response field of [QueryResultItem](API_QueryResultItem.md)\. 
+The type of the response is returned in the `Type` response field of the [QueryResultItem](API_QueryResultItem.md) operation\. 
 
 ## Answer<a name="query-answer"></a>
 
@@ -61,7 +61,7 @@ Amazon Kendra detected one or more question answers in the response\. A factoid 
 
 ## Document<a name="query-document"></a>
 
-Amazon Kendra returns ranked documents for those that match the search term\. The ranking is based on the confidence that Amazon Kendra has in the accuracy of the search result\. Information about the matching document is returned in the [QueryResultItem](API_QueryResultItem.md)\. It includes the title of the document, The excerpt includes highlight information for search text and the section of matching text in the document\. The URI for matching documents is in the `SourceURI` document attribute\. The following sample JSON show the document summary for a matching document\.
+Amazon Kendra returns ranked documents for those that match the search term\. The ranking is based on the confidence that Amazon Kendra has in the accuracy of the search result\. Information about the matching document is returned in the [QueryResultItem](API_QueryResultItem.md)\. It includes the title of the document\. The excerpt includes highlight information for search text and the section of matching text in the document\. The URI for matching documents is in the `SourceURI` document attribute\. The following sample JSON shows the document summary for a matching document\.
 
 ```
 {
@@ -103,7 +103,7 @@ Amazon Kendra returns ranked documents for those that match the search term\. Th
 
 ## Question and answer<a name="query-question-answer"></a>
 
-A question and answer response is returned when Amazon Kendra matches a question with one of the frequently asked questions in your index\. The response includes the matching question and answer in the [QueryResultItem](API_QueryResultItem.md) field\. It also includes highlight information for query terms detected in query string\. The following JSON shows a question and answer response\. Note that the response includes the question text 
+A question and answer response is returned when Amazon Kendra matches a question with one of the frequently asked questions in your index\. The response includes the matching question and answer in the [QueryResultItem](API_QueryResultItem.md) field\. It also includes highlight information for query terms detected in query string\. The following JSON shows a question and answer response\. Note that the response includes the question text\. 
 
 ```
 {

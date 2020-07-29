@@ -12,12 +12,12 @@ The documents are deleted asynchronously\. You can see the progress of the delet
 
 ```
 {
-   "[DataSourceSyncJobMetricTarget](#Kendra-BatchDeleteDocument-request-DataSourceSyncJobMetricTarget)": { 
-      "[DataSourceId](API_DataSourceSyncJobMetricTarget.md#Kendra-Type-DataSourceSyncJobMetricTarget-DataSourceId)": "string",
-      "[DataSourceSyncJobId](API_DataSourceSyncJobMetricTarget.md#Kendra-Type-DataSourceSyncJobMetricTarget-DataSourceSyncJobId)": "string"
+   "DataSourceSyncJobMetricTarget": { 
+      "DataSourceId": "string",
+      "DataSourceSyncJobId": "string"
    },
-   "[DocumentIdList](#Kendra-BatchDeleteDocument-request-DocumentIdList)": [ "string" ],
-   "[IndexId](#Kendra-BatchDeleteDocument-request-IndexId)": "string"
+   "DocumentIdList": [ "string" ],
+   "IndexId": "string"
 }
 ```
 
@@ -50,11 +50,11 @@ Required: Yes
 
 ```
 {
-   "[FailedDocuments](#Kendra-BatchDeleteDocument-response-FailedDocuments)": [ 
+   "FailedDocuments": [ 
       { 
-         "[ErrorCode](API_BatchDeleteDocumentResponseFailedDocument.md#Kendra-Type-BatchDeleteDocumentResponseFailedDocument-ErrorCode)": "string",
-         "[ErrorMessage](API_BatchDeleteDocumentResponseFailedDocument.md#Kendra-Type-BatchDeleteDocumentResponseFailedDocument-ErrorMessage)": "string",
-         "[Id](API_BatchDeleteDocumentResponseFailedDocument.md#Kendra-Type-BatchDeleteDocumentResponseFailedDocument-Id)": "string"
+         "ErrorCode": "string",
+         "ErrorMessage": "string",
+         "Id": "string"
       }
    ]
 }

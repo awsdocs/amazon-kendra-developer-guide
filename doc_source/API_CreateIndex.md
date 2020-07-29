@@ -12,18 +12,18 @@ Once the index is active you can index your documents using the [BatchPutDocumen
 
 ```
 {
-   "[ClientToken](#Kendra-CreateIndex-request-ClientToken)": "string",
-   "[Description](#Kendra-CreateIndex-request-Description)": "string",
-   "[Edition](#Kendra-CreateIndex-request-Edition)": "string",
-   "[Name](#Kendra-CreateIndex-request-Name)": "string",
-   "[RoleArn](#Kendra-CreateIndex-request-RoleArn)": "string",
-   "[ServerSideEncryptionConfiguration](#Kendra-CreateIndex-request-ServerSideEncryptionConfiguration)": { 
-      "[KmsKeyId](API_ServerSideEncryptionConfiguration.md#Kendra-Type-ServerSideEncryptionConfiguration-KmsKeyId)": "string"
+   "ClientToken": "string",
+   "Description": "string",
+   "Edition": "string",
+   "Name": "string",
+   "RoleArn": "string",
+   "ServerSideEncryptionConfiguration": { 
+      "KmsKeyId": "string"
    },
-   "[Tags](#Kendra-CreateIndex-request-Tags)": [ 
+   "Tags": [ 
       { 
-         "[Key](API_Tag.md#Kendra-Type-Tag-Key)": "string",
-         "[Value](API_Tag.md#Kendra-Type-Tag-Value)": "string"
+         "Key": "string",
+         "Value": "string"
       }
    ]
 }
@@ -83,7 +83,7 @@ Required: No
 
 ```
 {
-   "[Id](#Kendra-CreateIndex-response-Id)": "string"
+   "Id": "string"
 }
 ```
 

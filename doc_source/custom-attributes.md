@@ -16,7 +16,7 @@ Amazon Kendra has six reserved attributes that you can use\. The attributes are:
 + `_version` \(String\)
 + `_view_count` \(Long\)
 
-After you have created a custom attribute, you can use the attribute when you call the `Query` operation\. You can use it for faceted search, use it to filter the response, and choose whether or not the attribute should be returned in the response\. For more information, see [Filtering queries](filtering.md)\.
+After you have created a custom attribute, you can use the attribute when you call the `Query` operation\. You can use it for faceted search, use it to filter the response, and choose whether the attribute should be returned in the response\. For more information, see [Filtering queries](filtering.md)\.
 
 ## Adding custom attributes with the BatchPutDocument operation<a name="custom-attributes-batch"></a>
 
@@ -30,7 +30,7 @@ When you use the [BatchPutDocument](API_BatchPutDocument.md) operation to add a 
     }
 ```
 
-## Adding custom attributes to an S3 data source<a name="custom-attributes-batch"></a>
+## Adding custom attributes to an Amazon S3 data source<a name="custom-attributes-batch"></a>
 
 When you use an Amazon S3 bucket as a data source for your index, you add metadata to the documents with companion metadata files\. You place the metadata JSON files in a directory structure that is parallel to your documents\. For more information, see [S3 document metadata](s3-metadata.md)\.
 

@@ -10,15 +10,15 @@ Gets statistics about synchronizing Amazon Kendra with a data source\.
 
 ```
 {
-   "[Id](#Kendra-ListDataSourceSyncJobs-request-Id)": "string",
-   "[IndexId](#Kendra-ListDataSourceSyncJobs-request-IndexId)": "string",
-   "[MaxResults](#Kendra-ListDataSourceSyncJobs-request-MaxResults)": number,
-   "[NextToken](#Kendra-ListDataSourceSyncJobs-request-NextToken)": "string",
-   "[StartTimeFilter](#Kendra-ListDataSourceSyncJobs-request-StartTimeFilter)": { 
-      "[EndTime](API_TimeRange.md#Kendra-Type-TimeRange-EndTime)": number,
-      "[StartTime](API_TimeRange.md#Kendra-Type-TimeRange-StartTime)": number
+   "Id": "string",
+   "IndexId": "string",
+   "MaxResults": number,
+   "NextToken": "string",
+   "StartTimeFilter": { 
+      "EndTime": number,
+      "StartTime": number
    },
-   "[StatusFilter](#Kendra-ListDataSourceSyncJobs-request-StatusFilter)": "string"
+   "StatusFilter": "string"
 }
 ```
 
@@ -69,25 +69,25 @@ Required: No
 
 ```
 {
-   "[History](#Kendra-ListDataSourceSyncJobs-response-History)": [ 
+   "History": [ 
       { 
-         "[DataSourceErrorCode](API_DataSourceSyncJob.md#Kendra-Type-DataSourceSyncJob-DataSourceErrorCode)": "string",
-         "[EndTime](API_DataSourceSyncJob.md#Kendra-Type-DataSourceSyncJob-EndTime)": number,
-         "[ErrorCode](API_DataSourceSyncJob.md#Kendra-Type-DataSourceSyncJob-ErrorCode)": "string",
-         "[ErrorMessage](API_DataSourceSyncJob.md#Kendra-Type-DataSourceSyncJob-ErrorMessage)": "string",
-         "[ExecutionId](API_DataSourceSyncJob.md#Kendra-Type-DataSourceSyncJob-ExecutionId)": "string",
-         "[Metrics](API_DataSourceSyncJob.md#Kendra-Type-DataSourceSyncJob-Metrics)": { 
-            "[DocumentsAdded](API_DataSourceSyncJobMetrics.md#Kendra-Type-DataSourceSyncJobMetrics-DocumentsAdded)": "string",
-            "[DocumentsDeleted](API_DataSourceSyncJobMetrics.md#Kendra-Type-DataSourceSyncJobMetrics-DocumentsDeleted)": "string",
-            "[DocumentsFailed](API_DataSourceSyncJobMetrics.md#Kendra-Type-DataSourceSyncJobMetrics-DocumentsFailed)": "string",
-            "[DocumentsModified](API_DataSourceSyncJobMetrics.md#Kendra-Type-DataSourceSyncJobMetrics-DocumentsModified)": "string",
-            "[DocumentsScanned](API_DataSourceSyncJobMetrics.md#Kendra-Type-DataSourceSyncJobMetrics-DocumentsScanned)": "string"
+         "DataSourceErrorCode": "string",
+         "EndTime": number,
+         "ErrorCode": "string",
+         "ErrorMessage": "string",
+         "ExecutionId": "string",
+         "Metrics": { 
+            "DocumentsAdded": "string",
+            "DocumentsDeleted": "string",
+            "DocumentsFailed": "string",
+            "DocumentsModified": "string",
+            "DocumentsScanned": "string"
          },
-         "[StartTime](API_DataSourceSyncJob.md#Kendra-Type-DataSourceSyncJob-StartTime)": number,
-         "[Status](API_DataSourceSyncJob.md#Kendra-Type-DataSourceSyncJob-Status)": "string"
+         "StartTime": number,
+         "Status": "string"
       }
    ],
-   "[NextToken](#Kendra-ListDataSourceSyncJobs-response-NextToken)": "string"
+   "NextToken": "string"
 }
 ```
 

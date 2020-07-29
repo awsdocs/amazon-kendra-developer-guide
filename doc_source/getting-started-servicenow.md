@@ -22,7 +22,7 @@ Use the following procedure to create a basic ServiceNow data source using the d
 
 1. For the **ServiceNow host**, enter the URL of your ServiceNow instances\.
 
-1. From the **ServiceNow version** dropdown, choose the ServceNow version that your organization uses\. You can choose `London` or all other versions\.
+1. From the **ServiceNow version** dropdown, choose the ServiceNow version that your organization uses\. You can choose `London` or all other versions\.
 
 1. In the **IAM role** field choose **Create a new role\.** Enter a name for the role in the **Role name** field\. Choose **Next** to continue\.
 

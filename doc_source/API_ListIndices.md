@@ -10,8 +10,8 @@ Lists the Amazon Kendra indexes that you have created\.
 
 ```
 {
-   "[MaxResults](#Kendra-ListIndices-request-MaxResults)": number,
-   "[NextToken](#Kendra-ListIndices-request-NextToken)": "string"
+   "MaxResults": number,
+   "NextToken": "string"
 }
 ```
 
@@ -37,17 +37,17 @@ Required: No
 
 ```
 {
-   "[IndexConfigurationSummaryItems](#Kendra-ListIndices-response-IndexConfigurationSummaryItems)": [ 
+   "IndexConfigurationSummaryItems": [ 
       { 
-         "[CreatedAt](API_IndexConfigurationSummary.md#Kendra-Type-IndexConfigurationSummary-CreatedAt)": number,
-         "[Edition](API_IndexConfigurationSummary.md#Kendra-Type-IndexConfigurationSummary-Edition)": "string",
-         "[Id](API_IndexConfigurationSummary.md#Kendra-Type-IndexConfigurationSummary-Id)": "string",
-         "[Name](API_IndexConfigurationSummary.md#Kendra-Type-IndexConfigurationSummary-Name)": "string",
-         "[Status](API_IndexConfigurationSummary.md#Kendra-Type-IndexConfigurationSummary-Status)": "string",
-         "[UpdatedAt](API_IndexConfigurationSummary.md#Kendra-Type-IndexConfigurationSummary-UpdatedAt)": number
+         "CreatedAt": number,
+         "Edition": "string",
+         "Id": "string",
+         "Name": "string",
+         "Status": "string",
+         "UpdatedAt": number
       }
    ],
-   "[NextToken](#Kendra-ListIndices-response-NextToken)": "string"
+   "NextToken": "string"
 }
 ```
 

@@ -8,12 +8,12 @@ Amazon Kendra can use a data source to connect to Microsoft OneDrive sites to in
 
 To create a OneDrive data source, you must first create an Azure Active Directory \(AD\) application that Amazon Kendra connects to\. You must grant the application the following permissions on the Microsoft Graph option:
 + Read files in all site collections \(File\.Read\.All\)
-+ Read all users full profile \(User\.Read\.All\)
++ Read all users' full profile \(User\.Read\.All\)
 + Read directory data \(Directory\.Read\.All\)
 + Read all groups \(Group\.Read\.All\)
 + Read items in all site collections \(Site\.Read\.All\)
 
-When you create the active directory application, it is assigned an application ID\. You must use the active directory site to register a secret key for the application\. Amazon Kendra uses the ID and key as credentials to authenticate when it connects to the OneDrive site\. You store the ID and key in an AWS Secrets Manager secret\. If you are using the console to create your OneDrive data source, you can enter the credentials there to create a Secrets Manager secret or you can choose an existing Secrets Manager secret\. If you are using the API, you must provide the Amazon Resource Name \(ARN\) of an existing secret\.
+When you create the active directory application, it is assigned an application ID\. You must use the active directory site to register a secret key for the application\. Amazon Kendra uses the ID and key as credentials to authenticate when it connects to the OneDrive site\. You store the ID and key in an AWS Secrets Manager secret\. If you are using the console to create your OneDrive data source, you can enter the credentials there to create a Secrets Manager secret\. Or you can choose an existing Secrets Manager secret\. If you are using the API, you must provide the Amazon Resource Name \(ARN\) of an existing secret\.
 
 The secret must contain the application ID and secret key that Amazon Kendra uses to access the site in a JSON structure\. The following is the minimum JSON structure that must be stored in the secret:
 
@@ -35,20 +35,17 @@ You specify connection and other information in the console or using an instance
 + The tenant domain that contains the OneDrive site\.
 + A list of users whose documents should be indexed\. You can provide a list of user names, or you can provide the user names in a file stored in an Amazon Simple Storage Service \(Amazon S3\) bucket\. If you store the list of user names in an S3 bucket, the IAM policy for the data source must provide access to the bucket and access to the key that the bucket was encrypted with, if any\.
 
-After you create a data source, you can't change the list of users for that data source\. You can't:
-+ Change from a list of users to a list stored in an S3 bucket
-+ Change the S3 bucket location of a list of users
-+ Change the members of a list of users\. You can change the contents of a list of users stored in an S3 bucket\.
-
-After the first successful synchronization of a data source, you can't change the contents of a user list file stored in an S3 bucket\.
-
-To change the list of users for a data source, delete the data source and recreate it\.
+After you create a data source, you can:
++ Modify the list of users\.
++ Change from a list of users to a list stored in an S3 bucket\.
++ Change the S3 bucket location of a list of users\. If you change the bucket location, you must also update the IAM role for the data source so that it has access to the bucket\.
++ Change the content of a user list stored in an S3 bucket\.
 
 You can optionally provide the following information:
 + A list of inclusion and exclusion regular expressions that filter the documents that are included in the index\. The regular expressions are applied to the file name of the document\.
 + Field mappings that map fields from your OneDrive site to Amazon Kendra index fields\. For information, see [Mapping data source fields](field-mapping.md)\.
 
-After you sync the data source, you can't change the inclusion and exclusion patterns or the remove field mapping\. You can map addtional fields\.
+After you sync the data source, you can't change the inclusion and exclusion patterns or the remove field mapping\. You can map additional fields\.
 
 You can map OneDrive properties to Amazon Kendra index fields\. The following table shows the OneDrive properties that can be mapped and a suggested Amazon Kendra index field\.
 

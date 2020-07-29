@@ -10,8 +10,8 @@ Starts a synchronization job for a data source\. If a synchronization job is alr
 
 ```
 {
-   "[Id](#Kendra-StartDataSourceSyncJob-request-Id)": "string",
-   "[IndexId](#Kendra-StartDataSourceSyncJob-request-IndexId)": "string"
+   "Id": "string",
+   "IndexId": "string"
 }
 ```
 
@@ -39,7 +39,7 @@ Required: Yes
 
 ```
 {
-   "[ExecutionId](#Kendra-StartDataSourceSyncJob-response-ExecutionId)": "string"
+   "ExecutionId": "string"
 }
 ```
 

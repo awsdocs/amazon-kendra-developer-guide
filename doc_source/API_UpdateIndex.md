@@ -10,34 +10,35 @@ Updates an existing Amazon Kendra index\.
 
 ```
 {
-   "[CapacityUnits](#Kendra-UpdateIndex-request-CapacityUnits)": { 
-      "[QueryCapacityUnits](API_CapacityUnitsConfiguration.md#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits)": number,
-      "[StorageCapacityUnits](API_CapacityUnitsConfiguration.md#Kendra-Type-CapacityUnitsConfiguration-StorageCapacityUnits)": number
+   "CapacityUnits": { 
+      "QueryCapacityUnits": number,
+      "StorageCapacityUnits": number
    },
-   "[Description](#Kendra-UpdateIndex-request-Description)": "string",
-   "[DocumentMetadataConfigurationUpdates](#Kendra-UpdateIndex-request-DocumentMetadataConfigurationUpdates)": [ 
+   "Description": "string",
+   "DocumentMetadataConfigurationUpdates": [ 
       { 
-         "[Name](API_DocumentMetadataConfiguration.md#Kendra-Type-DocumentMetadataConfiguration-Name)": "string",
-         "[Relevance](API_DocumentMetadataConfiguration.md#Kendra-Type-DocumentMetadataConfiguration-Relevance)": { 
-            "[Duration](API_Relevance.md#Kendra-Type-Relevance-Duration)": "string",
-            "[Freshness](API_Relevance.md#Kendra-Type-Relevance-Freshness)": boolean,
-            "[Importance](API_Relevance.md#Kendra-Type-Relevance-Importance)": number,
-            "[RankOrder](API_Relevance.md#Kendra-Type-Relevance-RankOrder)": "string",
-            "[ValueImportanceMap](API_Relevance.md#Kendra-Type-Relevance-ValueImportanceMap)": { 
+         "Name": "string",
+         "Relevance": { 
+            "Duration": "string",
+            "Freshness": boolean,
+            "Importance": number,
+            "RankOrder": "string",
+            "ValueImportanceMap": { 
                "string" : number 
             }
          },
-         "[Search](API_DocumentMetadataConfiguration.md#Kendra-Type-DocumentMetadataConfiguration-Search)": { 
-            "[Displayable](API_Search.md#Kendra-Type-Search-Displayable)": boolean,
-            "[Facetable](API_Search.md#Kendra-Type-Search-Facetable)": boolean,
-            "[Searchable](API_Search.md#Kendra-Type-Search-Searchable)": boolean
+         "Search": { 
+            "Displayable": boolean,
+            "Facetable": boolean,
+            "Searchable": boolean,
+            "Sortable": boolean
          },
-         "[Type](API_DocumentMetadataConfiguration.md#Kendra-Type-DocumentMetadataConfiguration-Type)": "string"
+         "Type": "string"
       }
    ],
-   "[Id](#Kendra-UpdateIndex-request-Id)": "string",
-   "[Name](#Kendra-UpdateIndex-request-Name)": "string",
-   "[RoleArn](#Kendra-UpdateIndex-request-RoleArn)": "string"
+   "Id": "string",
+   "Name": "string",
+   "RoleArn": "string"
 }
 ```
 

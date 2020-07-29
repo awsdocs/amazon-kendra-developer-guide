@@ -10,7 +10,7 @@ Deletes an existing Amazon Kendra index\. An exception is not thrown if the inde
 
 ```
 {
-   "[Id](#Kendra-DeleteIndex-request-Id)": "string"
+   "Id": "string"
 }
 ```
 

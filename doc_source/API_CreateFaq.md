@@ -10,18 +10,18 @@ Creates an new set of frequently asked question \(FAQ\) questions and answers\.
 
 ```
 {
-   "[Description](#Kendra-CreateFaq-request-Description)": "string",
-   "[IndexId](#Kendra-CreateFaq-request-IndexId)": "string",
-   "[Name](#Kendra-CreateFaq-request-Name)": "string",
-   "[RoleArn](#Kendra-CreateFaq-request-RoleArn)": "string",
-   "[S3Path](#Kendra-CreateFaq-request-S3Path)": { 
-      "[Bucket](API_S3Path.md#Kendra-Type-S3Path-Bucket)": "string",
-      "[Key](API_S3Path.md#Kendra-Type-S3Path-Key)": "string"
+   "Description": "string",
+   "IndexId": "string",
+   "Name": "string",
+   "RoleArn": "string",
+   "S3Path": { 
+      "Bucket": "string",
+      "Key": "string"
    },
-   "[Tags](#Kendra-CreateFaq-request-Tags)": [ 
+   "Tags": [ 
       { 
-         "[Key](API_Tag.md#Kendra-Type-Tag-Key)": "string",
-         "[Value](API_Tag.md#Kendra-Type-Tag-Value)": "string"
+         "Key": "string",
+         "Value": "string"
       }
    ]
 }
@@ -76,7 +76,7 @@ Required: No
 
 ```
 {
-   "[Id](#Kendra-CreateFaq-response-Id)": "string"
+   "Id": "string"
 }
 ```
 

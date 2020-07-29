@@ -17,6 +17,7 @@ To see the three components of the search page in the console, choose the code i
 + [Main search page](#main-component)
 + [Search component](#search-component)
 + [Results component](#results-component)
++ [Facets component](#facets-component)
 + [Pagination component](#pagination-component)
 
 ## Overview<a name="example-overview"></a>
@@ -25,6 +26,7 @@ You add the example code to an existing React application to enable search\. The
 + Main search page – this is the main page that contains all of the components\. This is where you will integrate your application with the Amazon Kendra API\.
 + Search bar – this is the component where a user enters a search term and that calls the search function\.
 + Results – this is the component that displays the results from Amazon Kendra\. It has three components: Suggested answers, FAQ results, and recommended documents\.
++ Facets – This is the component that shows the facets in the search results and enables you to choose a facet to limit the search\.
 + Pagination – this is the component that paginates the response from Amazon Kendra\.
 
 ## Prerequisites<a name="example-prereqs"></a>
@@ -69,6 +71,12 @@ The results component shows the response from the `Query` operation\. The result
 
 The results components share a set of components for features like highlighting, titles, links, etc\. The shared components must be present for the result components to work\. 
 
+## Facets component<a name="facets-component"></a>
+
+The facets component lists the facets available in the search results\. Each facet classifies the response along a specific dimension, such as author\. You can refine the search to a specific facet by choosing one from the list\.
+
+After you select a facet, the component calls the `Query` operation with an attribute filter that restricts the search to only those documents that match the facet\.
+
 ## Pagination component<a name="pagination-component"></a>
 
-The pagination control enables you to display the search results from the `Query` operation in multiple pages\. It calls the `Query` operation with the `PageSize` and `PageNumber` parameters to get a specific page of results\.
+The pagination component enables you to display the search results from the `Query` operation in multiple pages\. It calls the `Query` operation with the `PageSize` and `PageNumber` parameters to get a specific page of results\.

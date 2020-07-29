@@ -9,7 +9,7 @@ The value of a custom document attribute\. You can only provide one value for a 
 ## Contents<a name="API_DocumentAttributeValue_Contents"></a>
 
  **DateValue**   <a name="Kendra-Type-DocumentAttributeValue-DateValue"></a>
-A date value expressed as seconds from the Unix epoch\.  
+A date expressed as an ISO 8601 string\.  
 Type: Timestamp  
 Required: No
 

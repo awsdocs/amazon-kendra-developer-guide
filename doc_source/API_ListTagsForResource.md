@@ -10,7 +10,7 @@ Gets a list of tags associated with a specified resource\. Indexes, FAQs, and da
 
 ```
 {
-   "[ResourceARN](#Kendra-ListTagsForResource-request-ResourceARN)": "string"
+   "ResourceARN": "string"
 }
 ```
 
@@ -30,10 +30,10 @@ Required: Yes
 
 ```
 {
-   "[Tags](#Kendra-ListTagsForResource-response-Tags)": [ 
+   "Tags": [ 
       { 
-         "[Key](API_Tag.md#Kendra-Type-Tag-Key)": "string",
-         "[Value](API_Tag.md#Kendra-Type-Tag-Value)": "string"
+         "Key": "string",
+         "Value": "string"
       }
    ]
 }

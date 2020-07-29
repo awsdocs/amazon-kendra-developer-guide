@@ -10,7 +10,7 @@ When you search your index, Amazon Kendra uses all of the information that you p
 + Custom text fields that you have marked searchable\.
 + The date field that you have indicated should be used to determine the "freshness" of a document\.
 
-Once a set of relevant documents has been selected from the index, Amazon Kendra filters the response based on any attribute filters that you have requested for the search\. For example, if you have a custom attribute called "department," you can filter the response so that it only contains documents from a department called "legal\." For information about creating custom attributes, see [Creating custom document attributes](custom-attributes.md)\. 
+When a set of relevant documents has been selected from the index, Amazon Kendra filters the response based on any attribute filters that you have requested for the search\. For example, if you have a custom attribute called "department," you can filter the response so that it only contains documents from a department called "legal\." For information about creating custom attributes, see [Creating custom document attributes](custom-attributes.md)\. 
 
 After finding the relevant documents and then filtering based on the attributes that you set, Amazon Kendra returns the results\. The results are sorted by the relevance that Amazon Kendra determined for each doc\. The results are paginated so that you can show a page at a time to your user\.
 
@@ -34,7 +34,7 @@ To run this example, you need to:
 + Set up the AWS CLI\. For more information, see [Setting up the AWS CLI](aws-kendra-set-up-aws-cli.md)\.
 + Create a data source and index\. For more information, see [Getting started with an S3 bucket \(Console\)](gs-console.md)\.
 
-## Searching an index \(Console\)<a name="searching-index-console"></a>
+## Searching an index \(console\)<a name="searching-index-console"></a>
 
 You can use the Amazon Kendra search console to test your index\. You can make queries and see the results\.
 
@@ -42,11 +42,11 @@ You can use the Amazon Kendra search console to test your index\. You can make q
 
 1. Sign in to the AWS Management Console and open the Amazon Kendra console at [http://console\.aws\.amazon\.com/kendra/](https://console.aws.amazon.com/kendra)\.
 
-1. From the left menu, choose **Indexes**\.
+1. On the navigation pane, choose **Indexes**\.
 
 1. Choose your index\.
 
-1. From the left menu, choose **Search console**\.
+1. On the navigation page, choose **Search console**\.
 
 1. Enter a query in the text box and then press enter or choose the magnifying glass icon\. 
 

@@ -17,7 +17,7 @@ You specify the user and group information when you query the index using the bu
 
 Amazon Kendra does not match users to groups\. When you use user\-context filtering, you must include all of the groups that a user belongs to when you make the query\. For example, if a user belongs to two groups, "HR" and "IT," you must include both groups in the request\. 
 
-The following example shows a request that filters the query response based on the user ID and groups\. The query will return any document that has the user or the "HR" or "IT" groups in the allow list\. If the user or either group is in the deny list for a document, the document will not be returned\.
+The following example shows a request that filters the query response based on the user ID and groups\. The query will return any document that has the user or the "HR" or "IT" groups in the allow list\. If the user or either group is in the deny list for a document, the document is not returned\.
 
 ```
 response = kendra.query(
@@ -55,7 +55,7 @@ There is an implementation of user context filtering for each data source\. The 
 + [User context filtering for documents added directly to an index](#context-filter-batch)
 + [User context filtering for frequently asked questions](#context-filter-faq)
 + [User context filtering for database data sources](#context-filter-jdbc)
-+ [User context filtering for Microsoft OneDrive data soures](#context-filter-onedrive)
++ [User context filtering for Microsoft OneDrive data sources](#context-filter-onedrive)
 + [User context filtering for Amazon S3 data sources](#context-filter-s3)
 + [User context filtering for Salesforce data sources](#context-filter-salesforce)
 + [User context filtering for ServiceNow data sources](#context-filter-servicenow)
@@ -81,22 +81,25 @@ For a database data source, information for user context filtering comes from a 
 A database data source has the following limitations:
 + You can only specify an allow list for a database data source\. You can't specify a deny list\. 
 + You can only specify groups\. You can't specify individual users for the allow list\.
-+ The database column should be string containing a semi\-colon delimited lists of groups\.
++ The database column should be string containing a semi\-colon delimited list of groups\.
 
-## User context filtering for Microsoft OneDrive data soures<a name="context-filter-onedrive"></a>
+## User context filtering for Microsoft OneDrive data sources<a name="context-filter-onedrive"></a>
 
 Amazon Kendra retrieves user and group information from Microsoft OneDrive when it indexes the documents on the site\. The user and group information is taken from the underlying Microsoft SharePoint site that hosts OneDrive\.
 
 When you use a OneDrive user or group for user context filtering, calculate the ID as follows:
-+ Get the site name\. For example, `https://host.onmicrosoft.com/sites/siteName.`
-+ Take the MD5 hash of the site name\. For example, `430a6b90503eef95c89295c8999c7981`\.
-+ Create the user email or group ID by concatenating the MD5 hash with a vertical bar \(\|\) and the ID\. For example, if a group name is "site owners", the group ID would be
 
-  `"430a6b90503eef95c89295c8999c7981|site owners"`
+1. Get the site name\. For example, `https://host.onmicrosoft.com/sites/siteName.`
 
-  For the user name "someone@host\.onmicrosoft\.com" the user ID would be
+1. Take the MD5 hash of the site name\. For example, `430a6b90503eef95c89295c8999c7981`\.
 
-  `"430a6b90503eef95c89295c8999c7981|someone@host.onmicrosoft.com"`
+1. Create the user email or group ID by concatenating the MD5 hash with a vertical bar \(\|\) and the ID\. For example, if a group name is "site owners", the group ID would be
+
+   `"430a6b90503eef95c89295c8999c7981|site owners"`
+
+   For the user name "someone@host\.onmicrosoft\.com," the user ID would be the following:
+
+   `"430a6b90503eef95c89295c8999c7981|someone@host.onmicrosoft.com"`
 
 Send the user or group ID to Amazon Kendra as the `_user_id` or `_group_ids` attribute when you call the [Query](API_Query.md) operation\. For example, the AWS CLI command that uses a group to filter the query response looks like this:
 
@@ -139,11 +142,14 @@ Amazon Kendra retrieves user and group information from Microsoft SharePoint whe
 To filter using a user name, use the user's email address\. For example, johnstiles@example\.com\.
 
 When you use a SharePoint group for user context filtering, calculate the group ID as follows:
-+ Get the site name\. For example, `https://host.onmicrosoft.com/sites/siteName.`
-+ Take the MD5 hash of the site name\. For example, `430a6b90503eef95c89295c8999c7981`\.
-+ Create the group ID by concatenating the MD5 hash with a vertical bar \(\|\) and the group name\. For example, if the group name is "site owners", the group ID would be
 
-  `"430a6b90503eef95c89295c8999c7981|site owners"`
+1. Get the site name\. For example, `https://host.onmicrosoft.com/sites/siteName.`
+
+1. Take the MD5 hash of the site name\. For example, `430a6b90503eef95c89295c8999c7981`\.
+
+1. Create the group ID by concatenating the MD5 hash with a vertical bar \(\|\) and the group name\. For example, if the group name is "site owners", the group ID would be
+
+   `"430a6b90503eef95c89295c8999c7981|site owners"`
 
 Send the group ID to Amazon Kendra as the `_group_ids` attribute when you call the [Query](API_Query.md) operation\. For example, the AWS CLI command looks like this:
 

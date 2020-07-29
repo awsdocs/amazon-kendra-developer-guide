@@ -19,89 +19,93 @@ You can specify that the query return only one type of result using the `QueryRe
 
 ```
 {
-   "[AttributeFilter](#Kendra-Query-request-AttributeFilter)": { 
-      "[AndAllFilters](API_AttributeFilter.md#Kendra-Type-AttributeFilter-AndAllFilters)": [ 
-         "[AttributeFilter](API_AttributeFilter.md)"
+   "AttributeFilter": { 
+      "AndAllFilters": [ 
+         "AttributeFilter"
       ],
-      "[ContainsAll](API_AttributeFilter.md#Kendra-Type-AttributeFilter-ContainsAll)": { 
-         "[Key](API_DocumentAttribute.md#Kendra-Type-DocumentAttribute-Key)": "string",
-         "[Value](API_DocumentAttribute.md#Kendra-Type-DocumentAttribute-Value)": { 
-            "[DateValue](API_DocumentAttributeValue.md#Kendra-Type-DocumentAttributeValue-DateValue)": number,
-            "[LongValue](API_DocumentAttributeValue.md#Kendra-Type-DocumentAttributeValue-LongValue)": number,
-            "[StringListValue](API_DocumentAttributeValue.md#Kendra-Type-DocumentAttributeValue-StringListValue)": [ "string" ],
-            "[StringValue](API_DocumentAttributeValue.md#Kendra-Type-DocumentAttributeValue-StringValue)": "string"
+      "ContainsAll": { 
+         "Key": "string",
+         "Value": { 
+            "DateValue": number,
+            "LongValue": number,
+            "StringListValue": [ "string" ],
+            "StringValue": "string"
          }
       },
-      "[ContainsAny](API_AttributeFilter.md#Kendra-Type-AttributeFilter-ContainsAny)": { 
-         "[Key](API_DocumentAttribute.md#Kendra-Type-DocumentAttribute-Key)": "string",
-         "[Value](API_DocumentAttribute.md#Kendra-Type-DocumentAttribute-Value)": { 
-            "[DateValue](API_DocumentAttributeValue.md#Kendra-Type-DocumentAttributeValue-DateValue)": number,
-            "[LongValue](API_DocumentAttributeValue.md#Kendra-Type-DocumentAttributeValue-LongValue)": number,
-            "[StringListValue](API_DocumentAttributeValue.md#Kendra-Type-DocumentAttributeValue-StringListValue)": [ "string" ],
-            "[StringValue](API_DocumentAttributeValue.md#Kendra-Type-DocumentAttributeValue-StringValue)": "string"
+      "ContainsAny": { 
+         "Key": "string",
+         "Value": { 
+            "DateValue": number,
+            "LongValue": number,
+            "StringListValue": [ "string" ],
+            "StringValue": "string"
          }
       },
-      "[EqualsTo](API_AttributeFilter.md#Kendra-Type-AttributeFilter-EqualsTo)": { 
-         "[Key](API_DocumentAttribute.md#Kendra-Type-DocumentAttribute-Key)": "string",
-         "[Value](API_DocumentAttribute.md#Kendra-Type-DocumentAttribute-Value)": { 
-            "[DateValue](API_DocumentAttributeValue.md#Kendra-Type-DocumentAttributeValue-DateValue)": number,
-            "[LongValue](API_DocumentAttributeValue.md#Kendra-Type-DocumentAttributeValue-LongValue)": number,
-            "[StringListValue](API_DocumentAttributeValue.md#Kendra-Type-DocumentAttributeValue-StringListValue)": [ "string" ],
-            "[StringValue](API_DocumentAttributeValue.md#Kendra-Type-DocumentAttributeValue-StringValue)": "string"
+      "EqualsTo": { 
+         "Key": "string",
+         "Value": { 
+            "DateValue": number,
+            "LongValue": number,
+            "StringListValue": [ "string" ],
+            "StringValue": "string"
          }
       },
-      "[GreaterThan](API_AttributeFilter.md#Kendra-Type-AttributeFilter-GreaterThan)": { 
-         "[Key](API_DocumentAttribute.md#Kendra-Type-DocumentAttribute-Key)": "string",
-         "[Value](API_DocumentAttribute.md#Kendra-Type-DocumentAttribute-Value)": { 
-            "[DateValue](API_DocumentAttributeValue.md#Kendra-Type-DocumentAttributeValue-DateValue)": number,
-            "[LongValue](API_DocumentAttributeValue.md#Kendra-Type-DocumentAttributeValue-LongValue)": number,
-            "[StringListValue](API_DocumentAttributeValue.md#Kendra-Type-DocumentAttributeValue-StringListValue)": [ "string" ],
-            "[StringValue](API_DocumentAttributeValue.md#Kendra-Type-DocumentAttributeValue-StringValue)": "string"
+      "GreaterThan": { 
+         "Key": "string",
+         "Value": { 
+            "DateValue": number,
+            "LongValue": number,
+            "StringListValue": [ "string" ],
+            "StringValue": "string"
          }
       },
-      "[GreaterThanOrEquals](API_AttributeFilter.md#Kendra-Type-AttributeFilter-GreaterThanOrEquals)": { 
-         "[Key](API_DocumentAttribute.md#Kendra-Type-DocumentAttribute-Key)": "string",
-         "[Value](API_DocumentAttribute.md#Kendra-Type-DocumentAttribute-Value)": { 
-            "[DateValue](API_DocumentAttributeValue.md#Kendra-Type-DocumentAttributeValue-DateValue)": number,
-            "[LongValue](API_DocumentAttributeValue.md#Kendra-Type-DocumentAttributeValue-LongValue)": number,
-            "[StringListValue](API_DocumentAttributeValue.md#Kendra-Type-DocumentAttributeValue-StringListValue)": [ "string" ],
-            "[StringValue](API_DocumentAttributeValue.md#Kendra-Type-DocumentAttributeValue-StringValue)": "string"
+      "GreaterThanOrEquals": { 
+         "Key": "string",
+         "Value": { 
+            "DateValue": number,
+            "LongValue": number,
+            "StringListValue": [ "string" ],
+            "StringValue": "string"
          }
       },
-      "[LessThan](API_AttributeFilter.md#Kendra-Type-AttributeFilter-LessThan)": { 
-         "[Key](API_DocumentAttribute.md#Kendra-Type-DocumentAttribute-Key)": "string",
-         "[Value](API_DocumentAttribute.md#Kendra-Type-DocumentAttribute-Value)": { 
-            "[DateValue](API_DocumentAttributeValue.md#Kendra-Type-DocumentAttributeValue-DateValue)": number,
-            "[LongValue](API_DocumentAttributeValue.md#Kendra-Type-DocumentAttributeValue-LongValue)": number,
-            "[StringListValue](API_DocumentAttributeValue.md#Kendra-Type-DocumentAttributeValue-StringListValue)": [ "string" ],
-            "[StringValue](API_DocumentAttributeValue.md#Kendra-Type-DocumentAttributeValue-StringValue)": "string"
+      "LessThan": { 
+         "Key": "string",
+         "Value": { 
+            "DateValue": number,
+            "LongValue": number,
+            "StringListValue": [ "string" ],
+            "StringValue": "string"
          }
       },
-      "[LessThanOrEquals](API_AttributeFilter.md#Kendra-Type-AttributeFilter-LessThanOrEquals)": { 
-         "[Key](API_DocumentAttribute.md#Kendra-Type-DocumentAttribute-Key)": "string",
-         "[Value](API_DocumentAttribute.md#Kendra-Type-DocumentAttribute-Value)": { 
-            "[DateValue](API_DocumentAttributeValue.md#Kendra-Type-DocumentAttributeValue-DateValue)": number,
-            "[LongValue](API_DocumentAttributeValue.md#Kendra-Type-DocumentAttributeValue-LongValue)": number,
-            "[StringListValue](API_DocumentAttributeValue.md#Kendra-Type-DocumentAttributeValue-StringListValue)": [ "string" ],
-            "[StringValue](API_DocumentAttributeValue.md#Kendra-Type-DocumentAttributeValue-StringValue)": "string"
+      "LessThanOrEquals": { 
+         "Key": "string",
+         "Value": { 
+            "DateValue": number,
+            "LongValue": number,
+            "StringListValue": [ "string" ],
+            "StringValue": "string"
          }
       },
-      "[NotFilter](API_AttributeFilter.md#Kendra-Type-AttributeFilter-NotFilter)": "[AttributeFilter](API_AttributeFilter.md)",
-      "[OrAllFilters](API_AttributeFilter.md#Kendra-Type-AttributeFilter-OrAllFilters)": [ 
-         "[AttributeFilter](API_AttributeFilter.md)"
+      "NotFilter": "AttributeFilter",
+      "OrAllFilters": [ 
+         "AttributeFilter"
       ]
    },
-   "[Facets](#Kendra-Query-request-Facets)": [ 
+   "Facets": [ 
       { 
-         "[DocumentAttributeKey](API_Facet.md#Kendra-Type-Facet-DocumentAttributeKey)": "string"
+         "DocumentAttributeKey": "string"
       }
    ],
-   "[IndexId](#Kendra-Query-request-IndexId)": "string",
-   "[PageNumber](#Kendra-Query-request-PageNumber)": number,
-   "[PageSize](#Kendra-Query-request-PageSize)": number,
-   "[QueryResultTypeFilter](#Kendra-Query-request-QueryResultTypeFilter)": "string",
-   "[QueryText](#Kendra-Query-request-QueryText)": "string",
-   "[RequestedDocumentAttributes](#Kendra-Query-request-RequestedDocumentAttributes)": [ "string" ]
+   "IndexId": "string",
+   "PageNumber": number,
+   "PageSize": number,
+   "QueryResultTypeFilter": "string",
+   "QueryText": "string",
+   "RequestedDocumentAttributes": [ "string" ],
+   "SortingConfiguration": { 
+      "DocumentAttributeKey": "string",
+      "SortOrder": "string"
+   }
 }
 ```
 
@@ -160,85 +164,91 @@ Length Constraints: Minimum length of 1\. Maximum length of 200\.
 Pattern: `[a-zA-Z0-9_][a-zA-Z0-9_-]*`   
 Required: No
 
+ ** [SortingConfiguration](#API_Query_RequestSyntax) **   <a name="Kendra-Query-request-SortingConfiguration"></a>
+Provides information that determines how the results of the query are sorted\. You can set the field that Amazon Kendra should sort the results on, and specify whether the results should be sorted in ascending or descending order\. In the case of ties in sorting the results, the results are sorted by relevance\.  
+If you don't provide sorting configuration, the results are sorted by the relevance that Amazon Kendra determines for the result\.  
+Type: [SortingConfiguration](API_SortingConfiguration.md) object  
+Required: No
+
 ## Response Syntax<a name="API_Query_ResponseSyntax"></a>
 
 ```
 {
-   "[FacetResults](#Kendra-Query-response-FacetResults)": [ 
+   "FacetResults": [ 
       { 
-         "[DocumentAttributeKey](API_FacetResult.md#Kendra-Type-FacetResult-DocumentAttributeKey)": "string",
-         "[DocumentAttributeValueCountPairs](API_FacetResult.md#Kendra-Type-FacetResult-DocumentAttributeValueCountPairs)": [ 
+         "DocumentAttributeKey": "string",
+         "DocumentAttributeValueCountPairs": [ 
             { 
-               "[Count](API_DocumentAttributeValueCountPair.md#Kendra-Type-DocumentAttributeValueCountPair-Count)": number,
-               "[DocumentAttributeValue](API_DocumentAttributeValueCountPair.md#Kendra-Type-DocumentAttributeValueCountPair-DocumentAttributeValue)": { 
-                  "[DateValue](API_DocumentAttributeValue.md#Kendra-Type-DocumentAttributeValue-DateValue)": number,
-                  "[LongValue](API_DocumentAttributeValue.md#Kendra-Type-DocumentAttributeValue-LongValue)": number,
-                  "[StringListValue](API_DocumentAttributeValue.md#Kendra-Type-DocumentAttributeValue-StringListValue)": [ "string" ],
-                  "[StringValue](API_DocumentAttributeValue.md#Kendra-Type-DocumentAttributeValue-StringValue)": "string"
+               "Count": number,
+               "DocumentAttributeValue": { 
+                  "DateValue": number,
+                  "LongValue": number,
+                  "StringListValue": [ "string" ],
+                  "StringValue": "string"
                }
             }
          ]
       }
    ],
-   "[QueryId](#Kendra-Query-response-QueryId)": "string",
-   "[ResultItems](#Kendra-Query-response-ResultItems)": [ 
+   "QueryId": "string",
+   "ResultItems": [ 
       { 
-         "[AdditionalAttributes](API_QueryResultItem.md#Kendra-Type-QueryResultItem-AdditionalAttributes)": [ 
+         "AdditionalAttributes": [ 
             { 
-               "[Key](API_AdditionalResultAttribute.md#Kendra-Type-AdditionalResultAttribute-Key)": "string",
-               "[Value](API_AdditionalResultAttribute.md#Kendra-Type-AdditionalResultAttribute-Value)": { 
-                  "[TextWithHighlightsValue](API_AdditionalResultAttributeValue.md#Kendra-Type-AdditionalResultAttributeValue-TextWithHighlightsValue)": { 
-                     "[Highlights](API_TextWithHighlights.md#Kendra-Type-TextWithHighlights-Highlights)": [ 
+               "Key": "string",
+               "Value": { 
+                  "TextWithHighlightsValue": { 
+                     "Highlights": [ 
                         { 
-                           "[BeginOffset](API_Highlight.md#Kendra-Type-Highlight-BeginOffset)": number,
-                           "[EndOffset](API_Highlight.md#Kendra-Type-Highlight-EndOffset)": number,
-                           "[TopAnswer](API_Highlight.md#Kendra-Type-Highlight-TopAnswer)": boolean
+                           "BeginOffset": number,
+                           "EndOffset": number,
+                           "TopAnswer": boolean
                         }
                      ],
-                     "[Text](API_TextWithHighlights.md#Kendra-Type-TextWithHighlights-Text)": "string"
+                     "Text": "string"
                   }
                },
-               "[ValueType](API_AdditionalResultAttribute.md#Kendra-Type-AdditionalResultAttribute-ValueType)": "string"
+               "ValueType": "string"
             }
          ],
-         "[DocumentAttributes](API_QueryResultItem.md#Kendra-Type-QueryResultItem-DocumentAttributes)": [ 
+         "DocumentAttributes": [ 
             { 
-               "[Key](API_DocumentAttribute.md#Kendra-Type-DocumentAttribute-Key)": "string",
-               "[Value](API_DocumentAttribute.md#Kendra-Type-DocumentAttribute-Value)": { 
-                  "[DateValue](API_DocumentAttributeValue.md#Kendra-Type-DocumentAttributeValue-DateValue)": number,
-                  "[LongValue](API_DocumentAttributeValue.md#Kendra-Type-DocumentAttributeValue-LongValue)": number,
-                  "[StringListValue](API_DocumentAttributeValue.md#Kendra-Type-DocumentAttributeValue-StringListValue)": [ "string" ],
-                  "[StringValue](API_DocumentAttributeValue.md#Kendra-Type-DocumentAttributeValue-StringValue)": "string"
+               "Key": "string",
+               "Value": { 
+                  "DateValue": number,
+                  "LongValue": number,
+                  "StringListValue": [ "string" ],
+                  "StringValue": "string"
                }
             }
          ],
-         "[DocumentExcerpt](API_QueryResultItem.md#Kendra-Type-QueryResultItem-DocumentExcerpt)": { 
-            "[Highlights](API_TextWithHighlights.md#Kendra-Type-TextWithHighlights-Highlights)": [ 
+         "DocumentExcerpt": { 
+            "Highlights": [ 
                { 
-                  "[BeginOffset](API_Highlight.md#Kendra-Type-Highlight-BeginOffset)": number,
-                  "[EndOffset](API_Highlight.md#Kendra-Type-Highlight-EndOffset)": number,
-                  "[TopAnswer](API_Highlight.md#Kendra-Type-Highlight-TopAnswer)": boolean
+                  "BeginOffset": number,
+                  "EndOffset": number,
+                  "TopAnswer": boolean
                }
             ],
-            "[Text](API_TextWithHighlights.md#Kendra-Type-TextWithHighlights-Text)": "string"
+            "Text": "string"
          },
-         "[DocumentId](API_QueryResultItem.md#Kendra-Type-QueryResultItem-DocumentId)": "string",
-         "[DocumentTitle](API_QueryResultItem.md#Kendra-Type-QueryResultItem-DocumentTitle)": { 
-            "[Highlights](API_TextWithHighlights.md#Kendra-Type-TextWithHighlights-Highlights)": [ 
+         "DocumentId": "string",
+         "DocumentTitle": { 
+            "Highlights": [ 
                { 
-                  "[BeginOffset](API_Highlight.md#Kendra-Type-Highlight-BeginOffset)": number,
-                  "[EndOffset](API_Highlight.md#Kendra-Type-Highlight-EndOffset)": number,
-                  "[TopAnswer](API_Highlight.md#Kendra-Type-Highlight-TopAnswer)": boolean
+                  "BeginOffset": number,
+                  "EndOffset": number,
+                  "TopAnswer": boolean
                }
             ],
-            "[Text](API_TextWithHighlights.md#Kendra-Type-TextWithHighlights-Text)": "string"
+            "Text": "string"
          },
-         "[DocumentURI](API_QueryResultItem.md#Kendra-Type-QueryResultItem-DocumentURI)": "string",
-         "[Id](API_QueryResultItem.md#Kendra-Type-QueryResultItem-Id)": "string",
-         "[Type](API_QueryResultItem.md#Kendra-Type-QueryResultItem-Type)": "string"
+         "DocumentURI": "string",
+         "Id": "string",
+         "Type": "string"
       }
    ],
-   "[TotalNumberOfResults](#Kendra-Query-response-TotalNumberOfResults)": number
+   "TotalNumberOfResults": number
 }
 ```
 

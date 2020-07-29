@@ -10,9 +10,9 @@ Gets a list of FAQ lists associated with an index\.
 
 ```
 {
-   "[IndexId](#Kendra-ListFaqs-request-IndexId)": "string",
-   "[MaxResults](#Kendra-ListFaqs-request-MaxResults)": number,
-   "[NextToken](#Kendra-ListFaqs-request-NextToken)": "string"
+   "IndexId": "string",
+   "MaxResults": number,
+   "NextToken": "string"
 }
 ```
 
@@ -45,16 +45,16 @@ Required: No
 
 ```
 {
-   "[FaqSummaryItems](#Kendra-ListFaqs-response-FaqSummaryItems)": [ 
+   "FaqSummaryItems": [ 
       { 
-         "[CreatedAt](API_FaqSummary.md#Kendra-Type-FaqSummary-CreatedAt)": number,
-         "[Id](API_FaqSummary.md#Kendra-Type-FaqSummary-Id)": "string",
-         "[Name](API_FaqSummary.md#Kendra-Type-FaqSummary-Name)": "string",
-         "[Status](API_FaqSummary.md#Kendra-Type-FaqSummary-Status)": "string",
-         "[UpdatedAt](API_FaqSummary.md#Kendra-Type-FaqSummary-UpdatedAt)": number
+         "CreatedAt": number,
+         "Id": "string",
+         "Name": "string",
+         "Status": "string",
+         "UpdatedAt": number
       }
    ],
-   "[NextToken](#Kendra-ListFaqs-response-NextToken)": "string"
+   "NextToken": "string"
 }
 ```
 

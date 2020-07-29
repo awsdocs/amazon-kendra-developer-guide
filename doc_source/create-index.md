@@ -4,11 +4,11 @@
 
 # Creating an index<a name="create-index"></a>
 
-You can create an index using the console, the AWS Command Line Interface, or by calling the [CreateIndex](API_CreateIndex.md) API operation\. The following procedures show how to create an index\. Once you have created your index, you can add documents directly to your index or you can add them from a data source\.
+You can create an index using the console, the AWS Command Line Interface \(AWS CLI\) , or by calling the [CreateIndex](API_CreateIndex.md) API operation\. The following procedures show how to create an index\. Once you have created your index, you can add documents directly to your index or you can add them from a data source\.
 
-To create an index, you need to provide the Amazon Resource Name \(ARN\) of an IAM role that has permissions to any Amazon S3 bucket that you use and to perform actions on your behalf\.
+To create an index, you need to provide the Amazon Resource Name \(ARN\) of an AWS Identity and Access Management \(IAM\) role that has permissions to any Amazon Simple Storage Service \(Amazon S3\) bucket that you use and to perform actions on your behalf\.
 
-**To create an index \(Console\)**
+**To create an index \(console\)**
 
 1. Sign into the AWS Management Console and open the Amazon Kendra console at [https://console\.aws\.amazon\.com/kendra/](https://console.aws.amazon.com/kendra/)\. 
 
@@ -22,9 +22,9 @@ To create an index, you need to provide the Amazon Resource Name \(ARN\) of an I
 
 1. Creating an index can take some time\. Check the list of indexes to watch the progress of creating your index\. When the status of the index is `ACTIVE`, your index is ready to use\.
 
-**To create an index \(CLI\)**
+**To create an index \(AWS CLI\)**
 
-1. Use the following command to create an index\. The role\-arn should be the Amazon Resource Name \(ARN\) of a role that can execute Amazon Kendra actions\. For more information, see [IAM access roles for Amazon Kendra](iam-roles.md)\.
+1. Use the following command to create an index\. The `role-arn` should be the Amazon Resource Name \(ARN\) of a role that can execute Amazon Kendra actions\. For more information, see [IAM access roles for Amazon Kendra](iam-roles.md)\.
 
    ```
    aws kendra create-index \
@@ -33,7 +33,7 @@ To create an index, you need to provide the Amazon Resource Name \(ARN\) of an I
     --role-arn arn:aws:iam::account ID:role/role name
    ```
 
-1. Creating an index can take some time\. Use the index ID returned by `create-index` with the following command to check the state of your index\. When the status of the index is `ACTIVE`, your index is ready to use\.
+1. Creating an index can take some time\. To check the state of your index, Use the index ID returned by `create-index` with the following command\. When the status of the index is `ACTIVE`, your index is ready to use\.
 
    ```
    aws kendra describe-index \
@@ -45,7 +45,7 @@ To create an index, you need to provide the Amazon Resource Name \(ARN\) of an I
 1. You need to provide values for the following variables:
    + `description` – A description of the index that you are creating\.
    + `index_name` – The name of the index that you are creating\.
-   + `role_arn` – The Amazon Resource Name \(ARN\) of a role that can execute Amazon Kendra actions\. For more information, see [IAM access roles for Amazon Kendra](iam-roles.md)\.
+   + `role_arn` – The Amazon Resource Name \(ARN\) of a role that can execute Amazon Kendra operations\. For more information, see [IAM access roles for Amazon Kendra](iam-roles.md)\.
 
 1. The following examples create an index with Amazon Kendra\.
 
@@ -75,7 +75,7 @@ To create an index, you need to provide the Amazon Resource Name \(ARN\) of an I
    
        pprint.pprint(index_response)
    
-       index_id = index_response["IndexId"]
+       index_id = index_response["Id"]
    
        print("Wait for Kendra to create the index.")
    
@@ -157,7 +157,7 @@ Once you have created your index, you add documents to it\. You can either add t
 **Topics**
 + [Adding documents directly to an index](in-adding-documents.md)
 + [Adding documents from a data source](data-source.md)
-+ [Deleting Data Sources](delete-data-source.md)
++ [Deleting data sources](delete-data-source.md)
 + [Creating custom document attributes](custom-attributes.md)
 + [Mapping data source fields](field-mapping.md)
 + [Configuring Amazon Kendra to use a VPC](vpc-configuration.md)

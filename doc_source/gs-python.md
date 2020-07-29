@@ -2,7 +2,7 @@
 
 --------
 
-# Getting started \(AWS SDK for Python \(Boto 3\)\)<a name="gs-python"></a>
+# Getting started \(AWS SDK for Python \(Boto3\)\)<a name="gs-python"></a>
 
 The following program is an example of using Amazon Kendra in a Python program\. The program performs the following actions:
 

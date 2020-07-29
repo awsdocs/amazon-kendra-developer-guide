@@ -10,8 +10,8 @@ Removes an FAQ from an index\.
 
 ```
 {
-   "[Id](#Kendra-DeleteFaq-request-Id)": "string",
-   "[IndexId](#Kendra-DeleteFaq-request-IndexId)": "string"
+   "Id": "string",
+   "IndexId": "string"
 }
 ```
 

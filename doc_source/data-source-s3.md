@@ -27,7 +27,7 @@ aws kendra create-data-source \
 ------
 #### [ Python ]
 
-The following snippet of Python code creates an S3 data source\. For the complete example, see [Getting started \(AWS SDK for Python \(Boto 3\)\)](gs-python.md)\.
+The following snippet of Python code creates an S3 data source\. For the complete example, see [Getting started \(AWS SDK for Python \(Boto3\)\)](gs-python.md)\.
 
 ```
     print("Create an S3 data source")
@@ -50,7 +50,6 @@ The following snippet of Python code creates an S3 data source\. For the complet
         Description = description,
         RoleArn = role_arn,
         Type = type,
-
         IndexId = index_id
     )
 ```
@@ -73,7 +72,7 @@ aws kendra describe-data-source \
 ------
 #### [ Python ]
 
-The following snippet of Python code gets information about an S3 data source\. For the complete example, see [Getting started \(AWS SDK for Python \(Boto 3\)\)](gs-python.md)\.
+The following snippet of Python code gets information about an S3 data source\. For the complete example, see [Getting started \(AWS SDK for Python \(Boto3\)\)](gs-python.md)\.
 
 ```
     print("    Wait for Kendra to create the data source.")
@@ -92,7 +91,7 @@ The following snippet of Python code gets information about an S3 data source\. 
 
 ------
 
-This data source doesn't have a schedule, so it will not run automatically\. To index the data source you call the [StartDataSourceSyncJob](API_StartDataSourceSyncJob.md) operation to synchronize the index with the data source\.
+This data source doesn't have a schedule, so it will not run automatically\. To index the data source, you call the [StartDataSourceSyncJob](API_StartDataSourceSyncJob.md) operation to synchronize the index with the data source\.
 
 The following examples demonstrate synchronizing a data source\.
 
@@ -108,7 +107,7 @@ aws kendra start-data-source-sync-job \
 ------
 #### [ Python ]
 
-The following snippet of Python code synchronizes an S3 data source\. For the complete example, see [Getting started \(AWS SDK for Python \(Boto 3\)\)](gs-python.md)\.
+The following snippet of Python code synchronizes an S3 data source\. For the complete example, see [Getting started \(AWS SDK for Python \(Boto3\)\)](gs-python.md)\.
 
 ```
     print("Synchronize the data source.")

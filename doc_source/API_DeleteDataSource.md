@@ -10,8 +10,8 @@ Deletes an Amazon Kendra data source\. An exception is not thrown if the data so
 
 ```
 {
-   "[Id](#Kendra-DeleteDataSource-request-Id)": "string",
-   "[IndexId](#Kendra-DeleteDataSource-request-IndexId)": "string"
+   "Id": "string",
+   "IndexId": "string"
 }
 ```
 

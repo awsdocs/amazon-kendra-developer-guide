@@ -10,8 +10,8 @@ Stops a running synchronization job\. You can't stop a scheduled synchronization
 
 ```
 {
-   "[Id](#Kendra-StopDataSourceSyncJob-request-Id)": "string",
-   "[IndexId](#Kendra-StopDataSourceSyncJob-request-IndexId)": "string"
+   "Id": "string",
+   "IndexId": "string"
 }
 ```
 

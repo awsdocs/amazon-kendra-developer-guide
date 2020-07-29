@@ -23,6 +23,11 @@ Determines whether the field is used in the search\. If the `Searchable` field i
 Type: Boolean  
 Required: No
 
+ **Sortable**   <a name="Kendra-Type-Search-Sortable"></a>
+Determines whether the field can be used to sort the results of a query\. If you specify sorting on a field that does not have `Sortable` set to `true`, Amazon Kendra returns an exception\. The default is `false`\.  
+Type: Boolean  
+Required: No
+
 ## See Also<a name="API_Search_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:

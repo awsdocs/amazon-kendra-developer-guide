@@ -58,6 +58,8 @@ The following data types are supported:
 +  [ServiceNowKnowledgeArticleConfiguration](API_ServiceNowKnowledgeArticleConfiguration.md) 
 +  [ServiceNowServiceCatalogConfiguration](API_ServiceNowServiceCatalogConfiguration.md) 
 +  [SharePointConfiguration](API_SharePointConfiguration.md) 
++  [SortingConfiguration](API_SortingConfiguration.md) 
++  [SqlConfiguration](API_SqlConfiguration.md) 
 +  [Tag](API_Tag.md) 
 +  [TextDocumentStatistics](API_TextDocumentStatistics.md) 
 +  [TextWithHighlights](API_TextWithHighlights.md) 

@@ -190,4 +190,4 @@ If you are using the AWS CLI or the SDK, you need to create IAM roles and police
 Depending on how you want to use the Amazon Kendra API, do one of the following\.
 + [Getting started \(AWS CLI\)](gs-cli.md)
 + [Getting started \(AWS SDK for Java\)](gs-java.md)
-+ [Getting started \(AWS SDK for Python \(Boto 3\)\)](gs-python.md)
++ [Getting started \(AWS SDK for Python \(Boto3\)\)](gs-python.md)

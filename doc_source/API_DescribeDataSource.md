@@ -10,8 +10,8 @@ Gets information about a Amazon Kendra data source\.
 
 ```
 {
-   "[Id](#Kendra-DescribeDataSource-request-Id)": "string",
-   "[IndexId](#Kendra-DescribeDataSource-request-IndexId)": "string"
+   "Id": "string",
+   "IndexId": "string"
 }
 ```
 
@@ -39,205 +39,208 @@ Required: Yes
 
 ```
 {
-   "[Configuration](#Kendra-DescribeDataSource-response-Configuration)": { 
-      "[DatabaseConfiguration](API_DataSourceConfiguration.md#Kendra-Type-DataSourceConfiguration-DatabaseConfiguration)": { 
-         "[AclConfiguration](API_DatabaseConfiguration.md#Kendra-Type-DatabaseConfiguration-AclConfiguration)": { 
-            "[AllowedGroupsColumnName](API_AclConfiguration.md#Kendra-Type-AclConfiguration-AllowedGroupsColumnName)": "string"
+   "Configuration": { 
+      "DatabaseConfiguration": { 
+         "AclConfiguration": { 
+            "AllowedGroupsColumnName": "string"
          },
-         "[ColumnConfiguration](API_DatabaseConfiguration.md#Kendra-Type-DatabaseConfiguration-ColumnConfiguration)": { 
-            "[ChangeDetectingColumns](API_ColumnConfiguration.md#Kendra-Type-ColumnConfiguration-ChangeDetectingColumns)": [ "string" ],
-            "[DocumentDataColumnName](API_ColumnConfiguration.md#Kendra-Type-ColumnConfiguration-DocumentDataColumnName)": "string",
-            "[DocumentIdColumnName](API_ColumnConfiguration.md#Kendra-Type-ColumnConfiguration-DocumentIdColumnName)": "string",
-            "[DocumentTitleColumnName](API_ColumnConfiguration.md#Kendra-Type-ColumnConfiguration-DocumentTitleColumnName)": "string",
-            "[FieldMappings](API_ColumnConfiguration.md#Kendra-Type-ColumnConfiguration-FieldMappings)": [ 
+         "ColumnConfiguration": { 
+            "ChangeDetectingColumns": [ "string" ],
+            "DocumentDataColumnName": "string",
+            "DocumentIdColumnName": "string",
+            "DocumentTitleColumnName": "string",
+            "FieldMappings": [ 
                { 
-                  "[DataSourceFieldName](API_DataSourceToIndexFieldMapping.md#Kendra-Type-DataSourceToIndexFieldMapping-DataSourceFieldName)": "string",
-                  "[DateFieldFormat](API_DataSourceToIndexFieldMapping.md#Kendra-Type-DataSourceToIndexFieldMapping-DateFieldFormat)": "string",
-                  "[IndexFieldName](API_DataSourceToIndexFieldMapping.md#Kendra-Type-DataSourceToIndexFieldMapping-IndexFieldName)": "string"
+                  "DataSourceFieldName": "string",
+                  "DateFieldFormat": "string",
+                  "IndexFieldName": "string"
                }
             ]
          },
-         "[ConnectionConfiguration](API_DatabaseConfiguration.md#Kendra-Type-DatabaseConfiguration-ConnectionConfiguration)": { 
-            "[DatabaseHost](API_ConnectionConfiguration.md#Kendra-Type-ConnectionConfiguration-DatabaseHost)": "string",
-            "[DatabaseName](API_ConnectionConfiguration.md#Kendra-Type-ConnectionConfiguration-DatabaseName)": "string",
-            "[DatabasePort](API_ConnectionConfiguration.md#Kendra-Type-ConnectionConfiguration-DatabasePort)": number,
-            "[SecretArn](API_ConnectionConfiguration.md#Kendra-Type-ConnectionConfiguration-SecretArn)": "string",
-            "[TableName](API_ConnectionConfiguration.md#Kendra-Type-ConnectionConfiguration-TableName)": "string"
+         "ConnectionConfiguration": { 
+            "DatabaseHost": "string",
+            "DatabaseName": "string",
+            "DatabasePort": number,
+            "SecretArn": "string",
+            "TableName": "string"
          },
-         "[DatabaseEngineType](API_DatabaseConfiguration.md#Kendra-Type-DatabaseConfiguration-DatabaseEngineType)": "string",
-         "[VpcConfiguration](API_DatabaseConfiguration.md#Kendra-Type-DatabaseConfiguration-VpcConfiguration)": { 
-            "[SecurityGroupIds](API_DataSourceVpcConfiguration.md#Kendra-Type-DataSourceVpcConfiguration-SecurityGroupIds)": [ "string" ],
-            "[SubnetIds](API_DataSourceVpcConfiguration.md#Kendra-Type-DataSourceVpcConfiguration-SubnetIds)": [ "string" ]
+         "DatabaseEngineType": "string",
+         "SqlConfiguration": { 
+            "QueryIdentifiersEnclosingOption": "string"
+         },
+         "VpcConfiguration": { 
+            "SecurityGroupIds": [ "string" ],
+            "SubnetIds": [ "string" ]
          }
       },
-      "[OneDriveConfiguration](API_DataSourceConfiguration.md#Kendra-Type-DataSourceConfiguration-OneDriveConfiguration)": { 
-         "[ExclusionPatterns](API_OneDriveConfiguration.md#Kendra-Type-OneDriveConfiguration-ExclusionPatterns)": [ "string" ],
-         "[FieldMappings](API_OneDriveConfiguration.md#Kendra-Type-OneDriveConfiguration-FieldMappings)": [ 
+      "OneDriveConfiguration": { 
+         "ExclusionPatterns": [ "string" ],
+         "FieldMappings": [ 
             { 
-               "[DataSourceFieldName](API_DataSourceToIndexFieldMapping.md#Kendra-Type-DataSourceToIndexFieldMapping-DataSourceFieldName)": "string",
-               "[DateFieldFormat](API_DataSourceToIndexFieldMapping.md#Kendra-Type-DataSourceToIndexFieldMapping-DateFieldFormat)": "string",
-               "[IndexFieldName](API_DataSourceToIndexFieldMapping.md#Kendra-Type-DataSourceToIndexFieldMapping-IndexFieldName)": "string"
+               "DataSourceFieldName": "string",
+               "DateFieldFormat": "string",
+               "IndexFieldName": "string"
             }
          ],
-         "[InclusionPatterns](API_OneDriveConfiguration.md#Kendra-Type-OneDriveConfiguration-InclusionPatterns)": [ "string" ],
-         "[OneDriveUsers](API_OneDriveConfiguration.md#Kendra-Type-OneDriveConfiguration-OneDriveUsers)": { 
-            "[OneDriveUserList](API_OneDriveUsers.md#Kendra-Type-OneDriveUsers-OneDriveUserList)": [ "string" ],
-            "[OneDriveUserS3Path](API_OneDriveUsers.md#Kendra-Type-OneDriveUsers-OneDriveUserS3Path)": { 
-               "[Bucket](API_S3Path.md#Kendra-Type-S3Path-Bucket)": "string",
-               "[Key](API_S3Path.md#Kendra-Type-S3Path-Key)": "string"
+         "InclusionPatterns": [ "string" ],
+         "OneDriveUsers": { 
+            "OneDriveUserList": [ "string" ],
+            "OneDriveUserS3Path": { 
+               "Bucket": "string",
+               "Key": "string"
             }
          },
-         "[SecretArn](API_OneDriveConfiguration.md#Kendra-Type-OneDriveConfiguration-SecretArn)": "string",
-         "[TenantDomain](API_OneDriveConfiguration.md#Kendra-Type-OneDriveConfiguration-TenantDomain)": "string"
+         "SecretArn": "string",
+         "TenantDomain": "string"
       },
-      "[S3Configuration](API_DataSourceConfiguration.md#Kendra-Type-DataSourceConfiguration-S3Configuration)": { 
-         "[AccessControlListConfiguration](API_S3DataSourceConfiguration.md#Kendra-Type-S3DataSourceConfiguration-AccessControlListConfiguration)": { 
-            "[KeyPath](API_AccessControlListConfiguration.md#Kendra-Type-AccessControlListConfiguration-KeyPath)": "string"
+      "S3Configuration": { 
+         "AccessControlListConfiguration": { 
+            "KeyPath": "string"
          },
-         "[BucketName](API_S3DataSourceConfiguration.md#Kendra-Type-S3DataSourceConfiguration-BucketName)": "string",
-         "[DocumentsMetadataConfiguration](API_S3DataSourceConfiguration.md#Kendra-Type-S3DataSourceConfiguration-DocumentsMetadataConfiguration)": { 
-            "[S3Prefix](API_DocumentsMetadataConfiguration.md#Kendra-Type-DocumentsMetadataConfiguration-S3Prefix)": "string"
+         "BucketName": "string",
+         "DocumentsMetadataConfiguration": { 
+            "S3Prefix": "string"
          },
-         "[ExclusionPatterns](API_S3DataSourceConfiguration.md#Kendra-Type-S3DataSourceConfiguration-ExclusionPatterns)": [ "string" ],
-         "[InclusionPrefixes](API_S3DataSourceConfiguration.md#Kendra-Type-S3DataSourceConfiguration-InclusionPrefixes)": [ "string" ]
+         "ExclusionPatterns": [ "string" ],
+         "InclusionPrefixes": [ "string" ]
       },
-      "[SalesforceConfiguration](API_DataSourceConfiguration.md#Kendra-Type-DataSourceConfiguration-SalesforceConfiguration)": { 
-         "[ChatterFeedConfiguration](API_SalesforceConfiguration.md#Kendra-Type-SalesforceConfiguration-ChatterFeedConfiguration)": { 
-            "[DocumentDataFieldName](API_SalesforceChatterFeedConfiguration.md#Kendra-Type-SalesforceChatterFeedConfiguration-DocumentDataFieldName)": "string",
-            "[DocumentTitleFieldName](API_SalesforceChatterFeedConfiguration.md#Kendra-Type-SalesforceChatterFeedConfiguration-DocumentTitleFieldName)": "string",
-            "[FieldMappings](API_SalesforceChatterFeedConfiguration.md#Kendra-Type-SalesforceChatterFeedConfiguration-FieldMappings)": [ 
+      "SalesforceConfiguration": { 
+         "ChatterFeedConfiguration": { 
+            "DocumentDataFieldName": "string",
+            "DocumentTitleFieldName": "string",
+            "FieldMappings": [ 
                { 
-                  "[DataSourceFieldName](API_DataSourceToIndexFieldMapping.md#Kendra-Type-DataSourceToIndexFieldMapping-DataSourceFieldName)": "string",
-                  "[DateFieldFormat](API_DataSourceToIndexFieldMapping.md#Kendra-Type-DataSourceToIndexFieldMapping-DateFieldFormat)": "string",
-                  "[IndexFieldName](API_DataSourceToIndexFieldMapping.md#Kendra-Type-DataSourceToIndexFieldMapping-IndexFieldName)": "string"
+                  "DataSourceFieldName": "string",
+                  "DateFieldFormat": "string",
+                  "IndexFieldName": "string"
                }
             ],
-            "[IncludeFilterTypes](API_SalesforceChatterFeedConfiguration.md#Kendra-Type-SalesforceChatterFeedConfiguration-IncludeFilterTypes)": [ "string" ]
+            "IncludeFilterTypes": [ "string" ]
          },
-         "[CrawlAttachments](API_SalesforceConfiguration.md#Kendra-Type-SalesforceConfiguration-CrawlAttachments)": boolean,
-         "[ExcludeAttachmentFilePatterns](API_SalesforceConfiguration.md#Kendra-Type-SalesforceConfiguration-ExcludeAttachmentFilePatterns)": [ "string" ],
-         "[IncludeAttachmentFilePatterns](API_SalesforceConfiguration.md#Kendra-Type-SalesforceConfiguration-IncludeAttachmentFilePatterns)": [ "string" ],
-         "[KnowledgeArticleConfiguration](API_SalesforceConfiguration.md#Kendra-Type-SalesforceConfiguration-KnowledgeArticleConfiguration)": { 
-            "[CustomKnowledgeArticleTypeConfigurations](API_SalesforceKnowledgeArticleConfiguration.md#Kendra-Type-SalesforceKnowledgeArticleConfiguration-CustomKnowledgeArticleTypeConfigurations)": [ 
+         "CrawlAttachments": boolean,
+         "ExcludeAttachmentFilePatterns": [ "string" ],
+         "IncludeAttachmentFilePatterns": [ "string" ],
+         "KnowledgeArticleConfiguration": { 
+            "CustomKnowledgeArticleTypeConfigurations": [ 
                { 
-                  "[DocumentDataFieldName](API_SalesforceCustomKnowledgeArticleTypeConfiguration.md#Kendra-Type-SalesforceCustomKnowledgeArticleTypeConfiguration-DocumentDataFieldName)": "string",
-                  "[DocumentTitleFieldName](API_SalesforceCustomKnowledgeArticleTypeConfiguration.md#Kendra-Type-SalesforceCustomKnowledgeArticleTypeConfiguration-DocumentTitleFieldName)": "string",
-                  "[FieldMappings](API_SalesforceCustomKnowledgeArticleTypeConfiguration.md#Kendra-Type-SalesforceCustomKnowledgeArticleTypeConfiguration-FieldMappings)": [ 
+                  "DocumentDataFieldName": "string",
+                  "DocumentTitleFieldName": "string",
+                  "FieldMappings": [ 
                      { 
-                        "[DataSourceFieldName](API_DataSourceToIndexFieldMapping.md#Kendra-Type-DataSourceToIndexFieldMapping-DataSourceFieldName)": "string",
-                        "[DateFieldFormat](API_DataSourceToIndexFieldMapping.md#Kendra-Type-DataSourceToIndexFieldMapping-DateFieldFormat)": "string",
-                        "[IndexFieldName](API_DataSourceToIndexFieldMapping.md#Kendra-Type-DataSourceToIndexFieldMapping-IndexFieldName)": "string"
+                        "DataSourceFieldName": "string",
+                        "DateFieldFormat": "string",
+                        "IndexFieldName": "string"
                      }
                   ],
-                  "[Name](API_SalesforceCustomKnowledgeArticleTypeConfiguration.md#Kendra-Type-SalesforceCustomKnowledgeArticleTypeConfiguration-Name)": "string"
+                  "Name": "string"
                }
             ],
-            "[IncludedStates](API_SalesforceKnowledgeArticleConfiguration.md#Kendra-Type-SalesforceKnowledgeArticleConfiguration-IncludedStates)": [ "string" ],
-            "[StandardKnowledgeArticleTypeConfiguration](API_SalesforceKnowledgeArticleConfiguration.md#Kendra-Type-SalesforceKnowledgeArticleConfiguration-StandardKnowledgeArticleTypeConfiguration)": { 
-               "[DocumentDataFieldName](API_SalesforceStandardKnowledgeArticleTypeConfiguration.md#Kendra-Type-SalesforceStandardKnowledgeArticleTypeConfiguration-DocumentDataFieldName)": "string",
-               "[DocumentTitleFieldName](API_SalesforceStandardKnowledgeArticleTypeConfiguration.md#Kendra-Type-SalesforceStandardKnowledgeArticleTypeConfiguration-DocumentTitleFieldName)": "string",
-               "[FieldMappings](API_SalesforceStandardKnowledgeArticleTypeConfiguration.md#Kendra-Type-SalesforceStandardKnowledgeArticleTypeConfiguration-FieldMappings)": [ 
+            "IncludedStates": [ "string" ],
+            "StandardKnowledgeArticleTypeConfiguration": { 
+               "DocumentDataFieldName": "string",
+               "DocumentTitleFieldName": "string",
+               "FieldMappings": [ 
                   { 
-                     "[DataSourceFieldName](API_DataSourceToIndexFieldMapping.md#Kendra-Type-DataSourceToIndexFieldMapping-DataSourceFieldName)": "string",
-                     "[DateFieldFormat](API_DataSourceToIndexFieldMapping.md#Kendra-Type-DataSourceToIndexFieldMapping-DateFieldFormat)": "string",
-                     "[IndexFieldName](API_DataSourceToIndexFieldMapping.md#Kendra-Type-DataSourceToIndexFieldMapping-IndexFieldName)": "string"
+                     "DataSourceFieldName": "string",
+                     "DateFieldFormat": "string",
+                     "IndexFieldName": "string"
                   }
                ]
             }
          },
-         "[SecretArn](API_SalesforceConfiguration.md#Kendra-Type-SalesforceConfiguration-SecretArn)": "string",
-         "[ServerUrl](API_SalesforceConfiguration.md#Kendra-Type-SalesforceConfiguration-ServerUrl)": "string",
-         "[StandardObjectAttachmentConfiguration](API_SalesforceConfiguration.md#Kendra-Type-SalesforceConfiguration-StandardObjectAttachmentConfiguration)": { 
-            "[DocumentTitleFieldName](API_SalesforceStandardObjectAttachmentConfiguration.md#Kendra-Type-SalesforceStandardObjectAttachmentConfiguration-DocumentTitleFieldName)": "string",
-            "[FieldMappings](API_SalesforceStandardObjectAttachmentConfiguration.md#Kendra-Type-SalesforceStandardObjectAttachmentConfiguration-FieldMappings)": [ 
+         "SecretArn": "string",
+         "ServerUrl": "string",
+         "StandardObjectAttachmentConfiguration": { 
+            "DocumentTitleFieldName": "string",
+            "FieldMappings": [ 
                { 
-                  "[DataSourceFieldName](API_DataSourceToIndexFieldMapping.md#Kendra-Type-DataSourceToIndexFieldMapping-DataSourceFieldName)": "string",
-                  "[DateFieldFormat](API_DataSourceToIndexFieldMapping.md#Kendra-Type-DataSourceToIndexFieldMapping-DateFieldFormat)": "string",
-                  "[IndexFieldName](API_DataSourceToIndexFieldMapping.md#Kendra-Type-DataSourceToIndexFieldMapping-IndexFieldName)": "string"
+                  "DataSourceFieldName": "string",
+                  "DateFieldFormat": "string",
+                  "IndexFieldName": "string"
                }
             ]
          },
-         "[StandardObjectConfigurations](API_SalesforceConfiguration.md#Kendra-Type-SalesforceConfiguration-StandardObjectConfigurations)": [ 
+         "StandardObjectConfigurations": [ 
             { 
-               "[DocumentDataFieldName](API_SalesforceStandardObjectConfiguration.md#Kendra-Type-SalesforceStandardObjectConfiguration-DocumentDataFieldName)": "string",
-               "[DocumentTitleFieldName](API_SalesforceStandardObjectConfiguration.md#Kendra-Type-SalesforceStandardObjectConfiguration-DocumentTitleFieldName)": "string",
-               "[FieldMappings](API_SalesforceStandardObjectConfiguration.md#Kendra-Type-SalesforceStandardObjectConfiguration-FieldMappings)": [ 
+               "DocumentDataFieldName": "string",
+               "DocumentTitleFieldName": "string",
+               "FieldMappings": [ 
                   { 
-                     "[DataSourceFieldName](API_DataSourceToIndexFieldMapping.md#Kendra-Type-DataSourceToIndexFieldMapping-DataSourceFieldName)": "string",
-                     "[DateFieldFormat](API_DataSourceToIndexFieldMapping.md#Kendra-Type-DataSourceToIndexFieldMapping-DateFieldFormat)": "string",
-                     "[IndexFieldName](API_DataSourceToIndexFieldMapping.md#Kendra-Type-DataSourceToIndexFieldMapping-IndexFieldName)": "string"
+                     "DataSourceFieldName": "string",
+                     "DateFieldFormat": "string",
+                     "IndexFieldName": "string"
                   }
                ],
-               "[Name](API_SalesforceStandardObjectConfiguration.md#Kendra-Type-SalesforceStandardObjectConfiguration-Name)": "string"
+               "Name": "string"
             }
          ]
       },
-      "[ServiceNowConfiguration](API_DataSourceConfiguration.md#Kendra-Type-DataSourceConfiguration-ServiceNowConfiguration)": { 
-         "[HostUrl](API_ServiceNowConfiguration.md#Kendra-Type-ServiceNowConfiguration-HostUrl)": "string",
-         "[KnowledgeArticleConfiguration](API_ServiceNowConfiguration.md#Kendra-Type-ServiceNowConfiguration-KnowledgeArticleConfiguration)": { 
-            "[CrawlAttachments](API_ServiceNowKnowledgeArticleConfiguration.md#Kendra-Type-ServiceNowKnowledgeArticleConfiguration-CrawlAttachments)": boolean,
-            "[DocumentDataFieldName](API_ServiceNowKnowledgeArticleConfiguration.md#Kendra-Type-ServiceNowKnowledgeArticleConfiguration-DocumentDataFieldName)": "string",
-            "[DocumentTitleFieldName](API_ServiceNowKnowledgeArticleConfiguration.md#Kendra-Type-ServiceNowKnowledgeArticleConfiguration-DocumentTitleFieldName)": "string",
-            "[ExcludeAttachmentFilePatterns](API_ServiceNowKnowledgeArticleConfiguration.md#Kendra-Type-ServiceNowKnowledgeArticleConfiguration-ExcludeAttachmentFilePatterns)": [ "string" ],
-            "[FieldMappings](API_ServiceNowKnowledgeArticleConfiguration.md#Kendra-Type-ServiceNowKnowledgeArticleConfiguration-FieldMappings)": [ 
+      "ServiceNowConfiguration": { 
+         "HostUrl": "string",
+         "KnowledgeArticleConfiguration": { 
+            "CrawlAttachments": boolean,
+            "DocumentDataFieldName": "string",
+            "DocumentTitleFieldName": "string",
+            "ExcludeAttachmentFilePatterns": [ "string" ],
+            "FieldMappings": [ 
                { 
-                  "[DataSourceFieldName](API_DataSourceToIndexFieldMapping.md#Kendra-Type-DataSourceToIndexFieldMapping-DataSourceFieldName)": "string",
-                  "[DateFieldFormat](API_DataSourceToIndexFieldMapping.md#Kendra-Type-DataSourceToIndexFieldMapping-DateFieldFormat)": "string",
-                  "[IndexFieldName](API_DataSourceToIndexFieldMapping.md#Kendra-Type-DataSourceToIndexFieldMapping-IndexFieldName)": "string"
+                  "DataSourceFieldName": "string",
+                  "DateFieldFormat": "string",
+                  "IndexFieldName": "string"
                }
             ],
-            "[IncludeAttachmentFilePatterns](API_ServiceNowKnowledgeArticleConfiguration.md#Kendra-Type-ServiceNowKnowledgeArticleConfiguration-IncludeAttachmentFilePatterns)": [ "string" ]
+            "IncludeAttachmentFilePatterns": [ "string" ]
          },
-         "[SecretArn](API_ServiceNowConfiguration.md#Kendra-Type-ServiceNowConfiguration-SecretArn)": "string",
-         "[ServiceCatalogConfiguration](API_ServiceNowConfiguration.md#Kendra-Type-ServiceNowConfiguration-ServiceCatalogConfiguration)": { 
-            "[CrawlAttachments](API_ServiceNowServiceCatalogConfiguration.md#Kendra-Type-ServiceNowServiceCatalogConfiguration-CrawlAttachments)": boolean,
-            "[DocumentDataFieldName](API_ServiceNowServiceCatalogConfiguration.md#Kendra-Type-ServiceNowServiceCatalogConfiguration-DocumentDataFieldName)": "string",
-            "[DocumentTitleFieldName](API_ServiceNowServiceCatalogConfiguration.md#Kendra-Type-ServiceNowServiceCatalogConfiguration-DocumentTitleFieldName)": "string",
-            "[ExcludeAttachmentFilePatterns](API_ServiceNowServiceCatalogConfiguration.md#Kendra-Type-ServiceNowServiceCatalogConfiguration-ExcludeAttachmentFilePatterns)": [ "string" ],
-            "[FieldMappings](API_ServiceNowServiceCatalogConfiguration.md#Kendra-Type-ServiceNowServiceCatalogConfiguration-FieldMappings)": [ 
+         "SecretArn": "string",
+         "ServiceCatalogConfiguration": { 
+            "CrawlAttachments": boolean,
+            "DocumentDataFieldName": "string",
+            "DocumentTitleFieldName": "string",
+            "ExcludeAttachmentFilePatterns": [ "string" ],
+            "FieldMappings": [ 
                { 
-                  "[DataSourceFieldName](API_DataSourceToIndexFieldMapping.md#Kendra-Type-DataSourceToIndexFieldMapping-DataSourceFieldName)": "string",
-                  "[DateFieldFormat](API_DataSourceToIndexFieldMapping.md#Kendra-Type-DataSourceToIndexFieldMapping-DateFieldFormat)": "string",
-                  "[IndexFieldName](API_DataSourceToIndexFieldMapping.md#Kendra-Type-DataSourceToIndexFieldMapping-IndexFieldName)": "string"
+                  "DataSourceFieldName": "string",
+                  "DateFieldFormat": "string",
+                  "IndexFieldName": "string"
                }
             ],
-            "[IncludeAttachmentFilePatterns](API_ServiceNowServiceCatalogConfiguration.md#Kendra-Type-ServiceNowServiceCatalogConfiguration-IncludeAttachmentFilePatterns)": [ "string" ]
+            "IncludeAttachmentFilePatterns": [ "string" ]
          },
-         "[ServiceNowBuildVersion](API_ServiceNowConfiguration.md#Kendra-Type-ServiceNowConfiguration-ServiceNowBuildVersion)": "string"
+         "ServiceNowBuildVersion": "string"
       },
-      "[SharePointConfiguration](API_DataSourceConfiguration.md#Kendra-Type-DataSourceConfiguration-SharePointConfiguration)": { 
-         "[CrawlAttachments](API_SharePointConfiguration.md#Kendra-Type-SharePointConfiguration-CrawlAttachments)": boolean,
-         "[DocumentTitleFieldName](API_SharePointConfiguration.md#Kendra-Type-SharePointConfiguration-DocumentTitleFieldName)": "string",
-         "[ExclusionPatterns](API_SharePointConfiguration.md#Kendra-Type-SharePointConfiguration-ExclusionPatterns)": [ "string" ],
-         "[FieldMappings](API_SharePointConfiguration.md#Kendra-Type-SharePointConfiguration-FieldMappings)": [ 
+      "SharePointConfiguration": { 
+         "CrawlAttachments": boolean,
+         "DocumentTitleFieldName": "string",
+         "ExclusionPatterns": [ "string" ],
+         "FieldMappings": [ 
             { 
-               "[DataSourceFieldName](API_DataSourceToIndexFieldMapping.md#Kendra-Type-DataSourceToIndexFieldMapping-DataSourceFieldName)": "string",
-               "[DateFieldFormat](API_DataSourceToIndexFieldMapping.md#Kendra-Type-DataSourceToIndexFieldMapping-DateFieldFormat)": "string",
-               "[IndexFieldName](API_DataSourceToIndexFieldMapping.md#Kendra-Type-DataSourceToIndexFieldMapping-IndexFieldName)": "string"
+               "DataSourceFieldName": "string",
+               "DateFieldFormat": "string",
+               "IndexFieldName": "string"
             }
          ],
-         "[InclusionPatterns](API_SharePointConfiguration.md#Kendra-Type-SharePointConfiguration-InclusionPatterns)": [ "string" ],
-         "[SecretArn](API_SharePointConfiguration.md#Kendra-Type-SharePointConfiguration-SecretArn)": "string",
-         "[SharePointVersion](API_SharePointConfiguration.md#Kendra-Type-SharePointConfiguration-SharePointVersion)": "string",
-         "[Urls](API_SharePointConfiguration.md#Kendra-Type-SharePointConfiguration-Urls)": [ "string" ],
-         "[UseChangeLog](API_SharePointConfiguration.md#Kendra-Type-SharePointConfiguration-UseChangeLog)": boolean,
-         "[VpcConfiguration](API_SharePointConfiguration.md#Kendra-Type-SharePointConfiguration-VpcConfiguration)": { 
-            "[SecurityGroupIds](API_DataSourceVpcConfiguration.md#Kendra-Type-DataSourceVpcConfiguration-SecurityGroupIds)": [ "string" ],
-            "[SubnetIds](API_DataSourceVpcConfiguration.md#Kendra-Type-DataSourceVpcConfiguration-SubnetIds)": [ "string" ]
+         "InclusionPatterns": [ "string" ],
+         "SecretArn": "string",
+         "SharePointVersion": "string",
+         "Urls": [ "string" ],
+         "UseChangeLog": boolean,
+         "VpcConfiguration": { 
+            "SecurityGroupIds": [ "string" ],
+            "SubnetIds": [ "string" ]
          }
       }
    },
-   "[CreatedAt](#Kendra-DescribeDataSource-response-CreatedAt)": number,
-   "[Description](#Kendra-DescribeDataSource-response-Description)": "string",
-   "[ErrorMessage](#Kendra-DescribeDataSource-response-ErrorMessage)": "string",
-   "[Id](#Kendra-DescribeDataSource-response-Id)": "string",
-   "[IndexId](#Kendra-DescribeDataSource-response-IndexId)": "string",
-   "[Name](#Kendra-DescribeDataSource-response-Name)": "string",
-   "[RoleArn](#Kendra-DescribeDataSource-response-RoleArn)": "string",
-   "[Schedule](#Kendra-DescribeDataSource-response-Schedule)": "string",
-   "[Status](#Kendra-DescribeDataSource-response-Status)": "string",
-   "[Type](#Kendra-DescribeDataSource-response-Type)": "string",
-   "[UpdatedAt](#Kendra-DescribeDataSource-response-UpdatedAt)": number
+   "CreatedAt": number,
+   "Description": "string",
+   "ErrorMessage": "string",
+   "Id": "string",
+   "IndexId": "string",
+   "Name": "string",
+   "RoleArn": "string",
+   "Schedule": "string",
+   "Status": "string",
+   "Type": "string",
+   "UpdatedAt": number
 }
 ```
 

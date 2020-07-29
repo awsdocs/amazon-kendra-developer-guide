@@ -10,18 +10,18 @@ Enables you to provide feedback to Amazon Kendra to improve the performance of t
 
 ```
 {
-   "[ClickFeedbackItems](#Kendra-SubmitFeedback-request-ClickFeedbackItems)": [ 
+   "ClickFeedbackItems": [ 
       { 
-         "[ClickTime](API_ClickFeedback.md#Kendra-Type-ClickFeedback-ClickTime)": number,
-         "[ResultId](API_ClickFeedback.md#Kendra-Type-ClickFeedback-ResultId)": "string"
+         "ClickTime": number,
+         "ResultId": "string"
       }
    ],
-   "[IndexId](#Kendra-SubmitFeedback-request-IndexId)": "string",
-   "[QueryId](#Kendra-SubmitFeedback-request-QueryId)": "string",
-   "[RelevanceFeedbackItems](#Kendra-SubmitFeedback-request-RelevanceFeedbackItems)": [ 
+   "IndexId": "string",
+   "QueryId": "string",
+   "RelevanceFeedbackItems": [ 
       { 
-         "[RelevanceValue](API_RelevanceFeedback.md#Kendra-Type-RelevanceFeedback-RelevanceValue)": "string",
-         "[ResultId](API_RelevanceFeedback.md#Kendra-Type-RelevanceFeedback-ResultId)": "string"
+         "RelevanceValue": "string",
+         "ResultId": "string"
       }
    ]
 }

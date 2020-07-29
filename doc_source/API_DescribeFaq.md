@@ -10,8 +10,8 @@ Gets information about an FAQ list\.
 
 ```
 {
-   "[Id](#Kendra-DescribeFaq-request-Id)": "string",
-   "[IndexId](#Kendra-DescribeFaq-request-IndexId)": "string"
+   "Id": "string",
+   "IndexId": "string"
 }
 ```
 
@@ -39,19 +39,19 @@ Required: Yes
 
 ```
 {
-   "[CreatedAt](#Kendra-DescribeFaq-response-CreatedAt)": number,
-   "[Description](#Kendra-DescribeFaq-response-Description)": "string",
-   "[ErrorMessage](#Kendra-DescribeFaq-response-ErrorMessage)": "string",
-   "[Id](#Kendra-DescribeFaq-response-Id)": "string",
-   "[IndexId](#Kendra-DescribeFaq-response-IndexId)": "string",
-   "[Name](#Kendra-DescribeFaq-response-Name)": "string",
-   "[RoleArn](#Kendra-DescribeFaq-response-RoleArn)": "string",
-   "[S3Path](#Kendra-DescribeFaq-response-S3Path)": { 
-      "[Bucket](API_S3Path.md#Kendra-Type-S3Path-Bucket)": "string",
-      "[Key](API_S3Path.md#Kendra-Type-S3Path-Key)": "string"
+   "CreatedAt": number,
+   "Description": "string",
+   "ErrorMessage": "string",
+   "Id": "string",
+   "IndexId": "string",
+   "Name": "string",
+   "RoleArn": "string",
+   "S3Path": { 
+      "Bucket": "string",
+      "Key": "string"
    },
-   "[Status](#Kendra-DescribeFaq-response-Status)": "string",
-   "[UpdatedAt](#Kendra-DescribeFaq-response-UpdatedAt)": number
+   "Status": "string",
+   "UpdatedAt": number
 }
 ```
 

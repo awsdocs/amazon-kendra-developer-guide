@@ -29,6 +29,11 @@ Type: String
 Valid Values:` RDS_AURORA_MYSQL | RDS_AURORA_POSTGRESQL | RDS_MYSQL | RDS_POSTGRESQL`   
 Required: Yes
 
+ **SqlConfiguration**   <a name="Kendra-Type-DatabaseConfiguration-SqlConfiguration"></a>
+Provides information about how Amazon Kendra uses quote marks around SQL identifiers when querying a database data source\.  
+Type: [SqlConfiguration](API_SqlConfiguration.md) object  
+Required: No
+
  **VpcConfiguration**   <a name="Kendra-Type-DatabaseConfiguration-VpcConfiguration"></a>
 Provides information for connecting to an Amazon VPC\.  
 Type: [DataSourceVpcConfiguration](API_DataSourceVpcConfiguration.md) object  

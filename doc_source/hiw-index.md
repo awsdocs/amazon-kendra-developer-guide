@@ -35,7 +35,7 @@ There are four types of custom fields:
 + String
 + String list
 
-You create a custom field using the console or by using the [UpdateIndex](API_UpdateIndex.md) operation\. After you create a custom field, you map it to a document attribute, just as you do with a reserved field\. If you added a documentto the index with [BatchPutDocument](API_BatchPutDocument.md) operation, you map the attributes with the API\. For documents indexed from an Amazon S3 data source, you map the attributes using a metadata file that contains a JSON structure that describes the document attributes\. For documents indexed with a database or SharePoint Online data source, you map attributes with the console or the data source configuration\. For more information, see [Document attributes](hiw-document-attributes.md)\.
+You create a custom field using the console or by using the [UpdateIndex](API_UpdateIndex.md) operation\. After you create a custom field, you map it to a document attribute, just as you do with a reserved field\. If you added a document to the index with [BatchPutDocument](API_BatchPutDocument.md) operation, you map the attributes with the API\. For documents indexed from an Amazon S3 data source, you map the attributes using a metadata file that contains a JSON structure that describes the document attributes\. For documents indexed with a database or SharePoint Online data source, you map attributes with the console or the data source configuration\. For more information, see [Document attributes](hiw-document-attributes.md)\.
 
 ## Searching Indexes<a name="index-searching"></a>
 
