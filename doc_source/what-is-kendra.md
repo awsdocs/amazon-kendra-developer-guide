@@ -52,7 +52,7 @@ If you are a first\-time user of Amazon Kendra, we recommend that you read the f
 
 1. [Getting started](getting-started.md) – Explains how to set up your account and test the Amazon Kendra search API\.
 
-1. [Creating an index](create-index.md) – Explains how to us Amazon Kendra to create a search index and to add data sources to sync your documents\.
+1. [Creating an index](create-index.md) – Explains how to use Amazon Kendra to create a search index and to add data sources to sync your documents\.
 
 1. [Adding documents directly to an index](in-adding-documents.md) – Explains how to add documents directly to an Amazon Kendra index\.
 

@@ -18,9 +18,9 @@ If you are using the console to get started, do [Getting started with an S3 buck
 
 ## Prerequisites for the AWS CLI and SDK<a name="gs-prereq-cli-sdk"></a>
 
-If you are using the AWS CLI or the SDK, you need to create IAM roles and polices for Kendra to use to access resources\.
+If you are using the AWS CLI or the SDK, you need to create IAM roles and polices for Kendra to use to access resources\. If you are using the console, you don't need to create IAM roles and polices\. They are created as part of the console procedure\.
 
-**To create an IAM policy and role that enables Kendra to access your Amazon CloudWatch Logs\.**
+**To create an IAM policy and role for the AWS CLI and SDK that enables Kendra to access your Amazon CloudWatch Logs\.**
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
 

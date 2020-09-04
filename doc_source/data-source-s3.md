@@ -4,13 +4,13 @@
 
 # Using an Amazon S3 data source<a name="data-source-s3"></a>
 
-Use an S3 data source when you document repository is an Amazon S3 bucket\. 
+Use an Amazon S3 data source when you document repository is an S3 bucket\. 
 
 You must create an index before you create a data source\. You provide the index identifier as a parameter to the [CreateDataSource](API_CreateDataSource.md) operation\.
 
-Amazon Kendra must have permission to access the Amazon S3 bucket that contains your documents\. You provide the Amazon Resource Name \(ARN\) of a role that has access when you create the data source using the `RoleARN` parameter\.
+The S3 bucket must be in the same Region as the index and Amazon Kendra must have permission to access the S3 bucket that contains your documents\. You provide the Amazon Resource Name \(ARN\) of a role that has access when you create the data source using the `RoleARN` parameter\.
 
-The following examples demonstrate creating an S3 data source\. The examples assume that you have already created an index and an IAM role with permission to read the data from the index\. For more information about the IAM role, see [IAM roles for Amazon S3 data sources](iam-roles.md#iam-roles-ds-s3) For more information about creating an index, see [Creating an index](create-index.md)\.
+The following examples demonstrate creating an S3 data source\. The examples assume that you have already created an index and an IAM role with permission to read the data from the index\. For more information about the IAM role, see [IAM roles for Amazon S3 data sources](iam-roles.md#iam-roles-ds-s3)\. For more information about creating an index, see [Creating an index](create-index.md)\.
 
 ------
 #### [ CLI ]
@@ -113,7 +113,7 @@ The following snippet of Python code synchronizes an S3 data source\. For the co
     print("Synchronize the data source.")
 
     sync_response = kendra.start_data_source_sync_job(
-        Id = "data source IC",
+        Id = "data source ID",
         IndexId = "index ID"
     )
 ```

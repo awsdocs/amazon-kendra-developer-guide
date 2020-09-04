@@ -20,7 +20,7 @@ Use the following procedure to create a basic S3 bucket data source using the de
 
 1. On the **Define attributes** page, give your data source a name and optionally a description\. Leave the **Tags** field blank\. Choose **Next** to continue\.
 
-1. In the **Enter the data source location** field, enter the name of the S3 bucket that contains your documents\. You can enter the name directly, or you can browse for the name by choosing **Browse**\. The bucket must be in the same region as the index\.
+1. In the **Enter the data source location** field, enter the name of the S3 bucket that contains your documents\. You can enter the name directly, or you can browse for the name by choosing **Browse**\. The bucket must be in the same Region as the index\.
 
 1. In **IAM role** choose **Create a new role** and then type a role name\.
 

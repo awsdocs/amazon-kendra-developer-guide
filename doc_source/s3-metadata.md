@@ -47,7 +47,7 @@ The content of the JSON file follows this template\. All of the attributes are o
         "_category": "document category",
         "_created_at": "ISO 8601 encoded string",
         "_last_updated_at": "ISO 8601 encoded string",
-        "_source_uri": "document URI,
+        "_source_uri": "document URI",
         "_version": "file version",
         "_view_count": number of times document has been viewed,
         "custom attribute key": "custom attribute value",

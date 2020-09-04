@@ -24,12 +24,12 @@ Type: Array of [AttributeFilter](#API_AttributeFilter) objects
 Required: No
 
  **ContainsAll**   <a name="Kendra-Type-AttributeFilter-ContainsAll"></a>
-Returns true when a document contains all of the specified document attributes\. This filter is only appicable to `StringListValue` metadata\.  
+Returns true when a document contains all of the specified document attributes\. This filter is only applicable to `StringListValue` metadata\.  
 Type: [DocumentAttribute](API_DocumentAttribute.md) object  
 Required: No
 
  **ContainsAny**   <a name="Kendra-Type-AttributeFilter-ContainsAny"></a>
-Returns true when a document contains any of the specified document attributes\.This filter is only appicable to `StringListValue` metadata\.  
+Returns true when a document contains any of the specified document attributes\. This filter is only applicable to `StringListValue` metadata\.  
 Type: [DocumentAttribute](API_DocumentAttribute.md) object  
 Required: No
 

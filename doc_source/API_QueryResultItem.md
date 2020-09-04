@@ -11,7 +11,7 @@ A query result contains information about a document returned by the query\. Thi
 ## Contents<a name="API_QueryResultItem_Contents"></a>
 
  **AdditionalAttributes**   <a name="Kendra-Type-QueryResultItem-AdditionalAttributes"></a>
-One or more additional attribues associated with the query result\.  
+One or more additional attributes associated with the query result\.  
 Type: Array of [AdditionalResultAttribute](API_AdditionalResultAttribute.md) objects  
 Required: No
 
@@ -47,6 +47,12 @@ Required: No
 The unique identifier for the query result\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 73\.  
+Required: No
+
+ **ScoreAttributes**   <a name="Kendra-Type-QueryResultItem-ScoreAttributes"></a>
+Indicates the confidence that Amazon Kendra has that a result matches the query that you provided\. Each result is placed into a bin that indicates the confidence, `VERY_HIGH`, `HIGH`, and `MEDIUM`\. You can use the score to determine if a response meets the confidence needed for your application\.  
+Confidence scores are only returned for results with the `Type` field set to `QUESTION_ANSWER` or `ANSWER`\. This field is not returned if the `Type` field is set to `DOCUMENT`\.  
+Type: [ScoreAttributes](API_ScoreAttributes.md) object  
 Required: No
 
  **Type**   <a name="Kendra-Type-QueryResultItem-Type"></a>

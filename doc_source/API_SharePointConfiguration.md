@@ -25,7 +25,7 @@ A list of regular expression patterns\. Documents that match the patterns are ex
 The regex is applied to the display URL of the SharePoint document\.  
 Type: Array of strings  
 Array Members: Minimum number of 0 items\. Maximum number of 100 items\.  
-Length Constraints: Minimum length of 1\. Maximum length of 150\.  
+Length Constraints: Minimum length of 1\. Maximum length of 50\.  
 Required: No
 
  **FieldMappings**   <a name="Kendra-Type-SharePointConfiguration-FieldMappings"></a>
@@ -39,7 +39,7 @@ A list of regular expression patterns\. Documents that match the patterns are in
 The regex is applied to the display URL of the SharePoint document\.  
 Type: Array of strings  
 Array Members: Minimum number of 0 items\. Maximum number of 100 items\.  
-Length Constraints: Minimum length of 1\. Maximum length of 150\.  
+Length Constraints: Minimum length of 1\. Maximum length of 50\.  
 Required: No
 
  **SecretArn**   <a name="Kendra-Type-SharePointConfiguration-SecretArn"></a>

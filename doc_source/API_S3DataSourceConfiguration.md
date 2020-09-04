@@ -30,14 +30,14 @@ A list of glob patterns for documents that should not be indexed\. If a document
 For more information about glob patterns, see [glob \(programming\)](https://en.wikipedia.org/wiki/Glob_(programming)) in *Wikipedia*\.  
 Type: Array of strings  
 Array Members: Minimum number of 0 items\. Maximum number of 100 items\.  
-Length Constraints: Minimum length of 1\. Maximum length of 150\.  
+Length Constraints: Minimum length of 1\. Maximum length of 50\.  
 Required: No
 
  **InclusionPrefixes**   <a name="Kendra-Type-S3DataSourceConfiguration-InclusionPrefixes"></a>
 A list of S3 prefixes for the documents that should be included in the index\.  
 Type: Array of strings  
 Array Members: Minimum number of 0 items\. Maximum number of 100 items\.  
-Length Constraints: Minimum length of 1\. Maximum length of 150\.  
+Length Constraints: Minimum length of 1\. Maximum length of 50\.  
 Required: No
 
 ## See Also<a name="API_S3DataSourceConfiguration_SeeAlso"></a>

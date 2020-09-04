@@ -15,6 +15,8 @@ Amazon Kendra searches your index for text content and question and answer \(FAQ
 
 You can specify that the query return only one type of result using the `QueryResultTypeConfig` parameter\.
 
+Each query returns the 100 most relevant results\. 
+
 ## Request Syntax<a name="API_Query_RequestSyntax"></a>
 
 ```
@@ -245,6 +247,9 @@ Required: No
          },
          "DocumentURI": "string",
          "Id": "string",
+         "ScoreAttributes": { 
+            "ScoreConfidence": "string"
+         },
          "Type": "string"
       }
    ],
@@ -272,7 +277,7 @@ The results of the search\.
 Type: Array of [QueryResultItem](API_QueryResultItem.md) objects
 
  ** [TotalNumberOfResults](#API_Query_ResponseSyntax) **   <a name="Kendra-Query-response-TotalNumberOfResults"></a>
-The number of items returned by the search\. Use this to determine when you have requested the last set of results\.  
+The total number of items found by the search; however, you can only retrieve up to 100 items\. For example, if the search found 192 items, you can only retrieve the first 100 of the items\.  
 Type: Integer
 
 ## Errors<a name="API_Query_Errors"></a>

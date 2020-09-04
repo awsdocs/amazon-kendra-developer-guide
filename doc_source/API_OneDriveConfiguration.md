@@ -13,7 +13,7 @@ List of regular expressions applied to documents\. Items that match the exclusio
 The exclusion pattern is applied to the file name\.  
 Type: Array of strings  
 Array Members: Minimum number of 0 items\. Maximum number of 100 items\.  
-Length Constraints: Minimum length of 1\. Maximum length of 150\.  
+Length Constraints: Minimum length of 1\. Maximum length of 50\.  
 Required: No
 
  **FieldMappings**   <a name="Kendra-Type-OneDriveConfiguration-FieldMappings"></a>
@@ -27,7 +27,7 @@ A list of regular expression patterns\. Documents that match the pattern are inc
 The exclusion pattern is applied to the file name\.  
 Type: Array of strings  
 Array Members: Minimum number of 0 items\. Maximum number of 100 items\.  
-Length Constraints: Minimum length of 1\. Maximum length of 150\.  
+Length Constraints: Minimum length of 1\. Maximum length of 50\.  
 Required: No
 
  **OneDriveUsers**   <a name="Kendra-Type-OneDriveConfiguration-OneDriveUsers"></a>

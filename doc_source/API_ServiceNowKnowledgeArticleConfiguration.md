@@ -31,7 +31,7 @@ Required: No
 List of regular expressions applied to knowledge articles\. Items that don't match the inclusion pattern are not indexed\. The regex is applied to the field specified in the `PatternTargetField`   
 Type: Array of strings  
 Array Members: Minimum number of 0 items\. Maximum number of 100 items\.  
-Length Constraints: Minimum length of 1\. Maximum length of 150\.  
+Length Constraints: Minimum length of 1\. Maximum length of 50\.  
 Required: No
 
  **FieldMappings**   <a name="Kendra-Type-ServiceNowKnowledgeArticleConfiguration-FieldMappings"></a>
@@ -44,7 +44,7 @@ Required: No
 List of regular expressions applied to knowledge articles\. Items that don't match the inclusion pattern are not indexed\. The regex is applied to the field specified in the `PatternTargetField`\.  
 Type: Array of strings  
 Array Members: Minimum number of 0 items\. Maximum number of 100 items\.  
-Length Constraints: Minimum length of 1\. Maximum length of 150\.  
+Length Constraints: Minimum length of 1\. Maximum length of 50\.  
 Required: No
 
 ## See Also<a name="API_ServiceNowKnowledgeArticleConfiguration_SeeAlso"></a>

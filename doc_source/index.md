@@ -162,6 +162,7 @@ Amazon's trademarks and trade dress may not be used in
       + [SalesforceStandardKnowledgeArticleTypeConfiguration](API_SalesforceStandardKnowledgeArticleTypeConfiguration.md)
       + [SalesforceStandardObjectAttachmentConfiguration](API_SalesforceStandardObjectAttachmentConfiguration.md)
       + [SalesforceStandardObjectConfiguration](API_SalesforceStandardObjectConfiguration.md)
+      + [ScoreAttributes](API_ScoreAttributes.md)
       + [Search](API_Search.md)
       + [ServerSideEncryptionConfiguration](API_ServerSideEncryptionConfiguration.md)
       + [ServiceNowConfiguration](API_ServiceNowConfiguration.md)

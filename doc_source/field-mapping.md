@@ -60,12 +60,12 @@ The following JSON example is a `DocumentMetadataConfigurationUpdates` structure
 ]
 ```
 
-Amazon Kendra has six reserved fields that you can map to data source fields\. The fields are:
-+ `_category` \(String\)
-+ `_created_at` \(ISO 8601 encoded string\)
-+ `_file_type` \(String\)
-+ `_last_updated_at` \(ISO 8601 encoded string\)
-+ `_source_uri` \(String\)
-+ `_view_count` \(Long\)
+Amazon Kendra has six reserved fields that you can map to data source fields\. You must provide values for these fields\. The fields are:
++ `_category` \(String\) – A category that places a document in a specific group\.
++ `_created_at` \(ISO 8601 encoded string\) – The date and time that the document was created\.
++ `_file_type` \(String\) – The file type of the document, such as pdf or doc\.
++ `_last_updated_at` \(ISO 8601 encoded string\) – The date and time that the document was last updated\.
++ `_source_uri` \(String\) – The URI where the document is available\. For example, the URI of the document on a company website\.
++ `_view_count` \(Long\) – The number of times that the document has been viewed\.
 
 After you have created the index fields, you can map the data source fields to the index fields\. If you are using the console, you can create index fields and map data source fields using the **Custom field mappings** editor\. If you are using the API, you can add field mappings using the [CreateDataSource](API_CreateDataSource.md) or [UpdateDataSource](API_UpdateDataSource.md) operations\.
