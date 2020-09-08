@@ -86,7 +86,7 @@ Next, configure security groups for your database\.
 
 1. From the navigation pane, choose **Security Groups** and then choose **Create security group**\.
 
-1. In **Security group name** enter **MySQLSecurityGroup**\. Provide a description, then choose your VPC from the ist\. Choose **Create** and then choose **Close**\.
+1. In **Security group name** enter **MySQLSecurityGroup**\. Provide a description, then choose your VPC from the list\. Choose **Create** and then choose **Close**\.
 
 1. Choose the **Inbound** tab\.
 
