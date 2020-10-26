@@ -14,10 +14,10 @@ CloudWatch Logs stores log events in a log stream that is part of a log group\. 
 For more information about using CloudWatch Logs, see [ What Is Amazon Cloud Watch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html) in the *Amazon Cloud Watch Logs User Guide*\. 
 
 Amazon Kendra creates two types of log streams:
-+ [data source log streams](#data-source-log-stream)
++ [Data source log streams](#data-source-log-stream)
 + [Document log streams](#document-log-stream)
 
-## data source log streams<a name="data-source-log-stream"></a>
+## Data source log streams<a name="data-source-log-stream"></a>
 
 Data source log streams publish entries about your index synchronization jobs\. Each synchronization job creates a new log stream that it uses to publish entries\. The log stream name is:
 

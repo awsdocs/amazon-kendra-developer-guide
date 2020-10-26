@@ -40,6 +40,58 @@ Required: Yes
 ```
 {
    "Configuration": { 
+      "ConfluenceConfiguration": { 
+         "AttachmentConfiguration": { 
+            "AttachmentFieldMappings": [ 
+               { 
+                  "DataSourceFieldName": "string",
+                  "DateFieldFormat": "string",
+                  "IndexFieldName": "string"
+               }
+            ],
+            "CrawlAttachments": boolean
+         },
+         "BlogConfiguration": { 
+            "BlogFieldMappings": [ 
+               { 
+                  "DataSourceFieldName": "string",
+                  "DateFieldFormat": "string",
+                  "IndexFieldName": "string"
+               }
+            ]
+         },
+         "ExclusionPatterns": [ "string" ],
+         "InclusionPatterns": [ "string" ],
+         "PageConfiguration": { 
+            "PageFieldMappings": [ 
+               { 
+                  "DataSourceFieldName": "string",
+                  "DateFieldFormat": "string",
+                  "IndexFieldName": "string"
+               }
+            ]
+         },
+         "SecretArn": "string",
+         "ServerUrl": "string",
+         "SpaceConfiguration": { 
+            "CrawlArchivedSpaces": boolean,
+            "CrawlPersonalSpaces": boolean,
+            "ExcludeSpaces": [ "string" ],
+            "IncludeSpaces": [ "string" ],
+            "SpaceFieldMappings": [ 
+               { 
+                  "DataSourceFieldName": "string",
+                  "DateFieldFormat": "string",
+                  "IndexFieldName": "string"
+               }
+            ]
+         },
+         "Version": "string",
+         "VpcConfiguration": { 
+            "SecurityGroupIds": [ "string" ],
+            "SubnetIds": [ "string" ]
+         }
+      },
       "DatabaseConfiguration": { 
          "AclConfiguration": { 
             "AllowedGroupsColumnName": "string"
@@ -102,6 +154,7 @@ Required: Yes
             "S3Prefix": "string"
          },
          "ExclusionPatterns": [ "string" ],
+         "InclusionPatterns": [ "string" ],
          "InclusionPrefixes": [ "string" ]
       },
       "SalesforceConfiguration": { 
@@ -261,7 +314,7 @@ Type: Timestamp
  ** [Description](#API_DescribeDataSource_ResponseSyntax) **   <a name="Kendra-DescribeDataSource-response-Description"></a>
 The description of the data source\.  
 Type: String  
-Length Constraints: Minimum length of 1\. Maximum length of 1000\.  
+Length Constraints: Minimum length of 0\. Maximum length of 1000\.  
 Pattern: `^\P{C}*$` 
 
  ** [ErrorMessage](#API_DescribeDataSource_ResponseSyntax) **   <a name="Kendra-DescribeDataSource-response-ErrorMessage"></a>
@@ -306,7 +359,7 @@ Valid Values:` CREATING | DELETING | FAILED | UPDATING | ACTIVE`
  ** [Type](#API_DescribeDataSource_ResponseSyntax) **   <a name="Kendra-DescribeDataSource-response-Type"></a>
 The type of the data source\.  
 Type: String  
-Valid Values:` S3 | SHAREPOINT | DATABASE | SALESFORCE | ONEDRIVE | SERVICENOW` 
+Valid Values:` S3 | SHAREPOINT | DATABASE | SALESFORCE | ONEDRIVE | SERVICENOW | CUSTOM | CONFLUENCE` 
 
  ** [UpdatedAt](#API_DescribeDataSource_ResponseSyntax) **   <a name="Kendra-DescribeDataSource-response-UpdatedAt"></a>
 The Unix timestamp of when the data source was last updated\.  

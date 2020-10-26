@@ -60,9 +60,10 @@ The following JSON example is a `DocumentMetadataConfigurationUpdates` structure
 ]
 ```
 
-Amazon Kendra has six reserved fields that you can map to data source fields\. You must provide values for these fields\. The fields are:
+Amazon Kendra has seven reserved fields that you can map to data source fields\. You must provide values for these fields\. The fields are:
 + `_category` \(String\) – A category that places a document in a specific group\.
 + `_created_at` \(ISO 8601 encoded string\) – The date and time that the document was created\.
++ `_excerpt_page_number` \(Long\) – The page number in a PDF file where the document excerpt appears\. If your index was created before September 8, 2020, you must re\-index your documents before you can use this attribute\.
 + `_file_type` \(String\) – The file type of the document, such as pdf or doc\.
 + `_last_updated_at` \(ISO 8601 encoded string\) – The date and time that the document was last updated\.
 + `_source_uri` \(String\) – The URI where the document is available\. For example, the URI of the document on a company website\.

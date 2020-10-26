@@ -50,8 +50,8 @@ Length Constraints: Minimum length of 1\. Maximum length of 73\.
 Required: No
 
  **ScoreAttributes**   <a name="Kendra-Type-QueryResultItem-ScoreAttributes"></a>
-Indicates the confidence that Amazon Kendra has that a result matches the query that you provided\. Each result is placed into a bin that indicates the confidence, `VERY_HIGH`, `HIGH`, and `MEDIUM`\. You can use the score to determine if a response meets the confidence needed for your application\.  
-Confidence scores are only returned for results with the `Type` field set to `QUESTION_ANSWER` or `ANSWER`\. This field is not returned if the `Type` field is set to `DOCUMENT`\.  
+Indicates the confidence that Amazon Kendra has that a result matches the query that you provided\. Each result is placed into a bin that indicates the confidence, `VERY_HIGH`, `HIGH`, `MEDIUM` and `LOW`\. You can use the score to determine if a response meets the confidence needed for your application\.  
+The field is only set to `LOW` when the `Type` field is set to `DOCUMENT` and Amazon Kendra is not confident that the result matches the query\.  
 Type: [ScoreAttributes](API_ScoreAttributes.md) object  
 Required: No
 

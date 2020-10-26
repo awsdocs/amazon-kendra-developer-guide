@@ -12,6 +12,7 @@ This section shows how to create a data source and add documents, create an inde
 + [Getting started \(AWS CLI\)](gs-cli.md)
 + [Getting started \(AWS SDK for Python \(Boto3\)\)](gs-python.md)
 + [Getting started \(AWS SDK for Java\)](gs-java.md)
++ [Getting started with a Confluence data source \(Console\)](getting-started-confluence.md)
 + [Getting started with a Microsoft OneDrive for Business data source \(Console\)](getting-started-onedrive.md)
 + [Getting started with an Amazon S3 data source \(Console\)](getting-started-s3.md)
 + [Getting started with a Salesforce data source \(Console\)](getting-started-salesforce.md)

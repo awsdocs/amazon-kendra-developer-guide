@@ -83,3 +83,4 @@ The following table describes the Amazon Kendra metrics for indexed documents\. 
 | --- | --- | 
 | DocumentsIndexed | The number of documents indexed\. Dimensions: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/kendra/latest/dg/cloudwatch-metrics.html)Unit: Count | 
 | DocumentsFailedToIndex | The number of documents that could not be indexed\. Check the contents of the CloudWatch log for details\. Dimensions: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/kendra/latest/dg/cloudwatch-metrics.html)Unit: Count | 
+| IndexQueryCount | The number of index queries per minute\. Dimensions: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/kendra/latest/dg/cloudwatch-metrics.html)Unit: Count | 

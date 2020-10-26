@@ -42,6 +42,7 @@ Required: Yes
    "CreatedAt": number,
    "Description": "string",
    "ErrorMessage": "string",
+   "FileFormat": "string",
    "Id": "string",
    "IndexId": "string",
    "Name": "string",
@@ -68,7 +69,7 @@ Type: Timestamp
  ** [Description](#API_DescribeFaq_ResponseSyntax) **   <a name="Kendra-DescribeFaq-response-Description"></a>
 The description of the FAQ that you provided when it was created\.  
 Type: String  
-Length Constraints: Minimum length of 1\. Maximum length of 1000\.  
+Length Constraints: Minimum length of 0\. Maximum length of 1000\.  
 Pattern: `^\P{C}*$` 
 
  ** [ErrorMessage](#API_DescribeFaq_ResponseSyntax) **   <a name="Kendra-DescribeFaq-response-ErrorMessage"></a>
@@ -76,6 +77,11 @@ If the `Status` field is `FAILED`, the `ErrorMessage` field contains the reason 
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  
 Pattern: `^\P{C}*$` 
+
+ ** [FileFormat](#API_DescribeFaq_ResponseSyntax) **   <a name="Kendra-DescribeFaq-response-FileFormat"></a>
+The file format used by the input files for the FAQ\.  
+Type: String  
+Valid Values:` CSV | CSV_WITH_HEADER | JSON` 
 
  ** [Id](#API_DescribeFaq_ResponseSyntax) **   <a name="Kendra-DescribeFaq-response-Id"></a>
 The identifier of the FAQ\.  

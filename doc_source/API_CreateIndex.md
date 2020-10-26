@@ -36,7 +36,7 @@ For information about the parameters that are common to all actions, see [Common
 The request accepts the following data in JSON format\.
 
  ** [ClientToken](#API_CreateIndex_RequestSyntax) **   <a name="Kendra-CreateIndex-request-ClientToken"></a>
-A token that you provide to identify the request to create an index\. Multiple calls to the `CreateIndex` operation with the same client token will create only one index\.”  
+A token that you provide to identify the request to create an index\. Multiple calls to the `CreateIndex` operation with the same client token will create only one index\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Required: No
@@ -44,12 +44,13 @@ Required: No
  ** [Description](#API_CreateIndex_RequestSyntax) **   <a name="Kendra-CreateIndex-request-Description"></a>
 A description for the index\.  
 Type: String  
-Length Constraints: Minimum length of 1\. Maximum length of 1000\.  
+Length Constraints: Minimum length of 0\. Maximum length of 1000\.  
 Pattern: `^\P{C}*$`   
 Required: No
 
  ** [Edition](#API_CreateIndex_RequestSyntax) **   <a name="Kendra-CreateIndex-request-Edition"></a>
 The Amazon Kendra edition to use for the index\. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept\. Use `ENTERPRISE_EDITION` for your production databases\. Once you set the edition for an index, it can't be changed\.   
+The `Edition` parameter is optional\. If you don't supply a value, the default is `ENTERPRISE_EDITION`\.  
 Type: String  
 Valid Values:` DEVELOPER_EDITION | ENTERPRISE_EDITION`   
 Required: No
@@ -62,7 +63,7 @@ Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`
 Required: Yes
 
  ** [RoleArn](#API_CreateIndex_RequestSyntax) **   <a name="Kendra-CreateIndex-request-RoleArn"></a>
-An IAM role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics\. This is also the role used when you use the `BatchPutDocument` operation to index documents from an Amazon S3 bucket\.  
+An AWS Identity and Access Management \(IAM\) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics\. This is also the role used when you use the `BatchPutDocument` operation to index documents from an Amazon S3 bucket\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1284\.  
 Pattern: `arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}`   

@@ -39,7 +39,7 @@ Length Constraints: Minimum length of 1\. Maximum length of 2048\.
 Required: No
 
  **Metrics**   <a name="Kendra-Type-DataSourceSyncJob-Metrics"></a>
-Maps a batch delete document request to a specific data source sync job\. This is optional and should only be supplied when documents are deleted by a connector\.  
+Maps a batch delete document request to a specific data source sync job\. This is optional and should only be supplied when documents are deleted by a data source connector\.  
 Type: [DataSourceSyncJobMetrics](API_DataSourceSyncJobMetrics.md) object  
 Required: No
 

@@ -4,7 +4,7 @@
 
 # DataSourceSyncJobMetrics<a name="API_DataSourceSyncJobMetrics"></a>
 
-Maps a batch delete document request to a specific data source sync job\. This is optional and should only be supplied when documents are deleted by a connector\.
+Maps a batch delete document request to a specific data source sync job\. This is optional and should only be supplied when documents are deleted by a data source connector\.
 
 ## Contents<a name="API_DataSourceSyncJobMetrics_Contents"></a>
 

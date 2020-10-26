@@ -6,9 +6,7 @@
 
 Creates a data source that you use to with an Amazon Kendra index\. 
 
-You specify a name, connector type and description for your data source\. You can choose between an S3 connector, a SharePoint Online connector, and a database connector\.
-
-You also specify configuration information such as document metadata \(author, source URI, and so on\) and user context information\.
+You specify a name, data source connector type and description for your data source\. You also specify configuration information such as document metadata \(author, source URI, and so on\) and user context information\.
 
  `CreateDataSource` is a synchronous operation\. The operation returns 200 if the data source was successfully created\. Otherwise, an exception is raised\.
 
@@ -16,7 +14,60 @@ You also specify configuration information such as document metadata \(author, s
 
 ```
 {
+   "ClientToken": "string",
    "Configuration": { 
+      "ConfluenceConfiguration": { 
+         "AttachmentConfiguration": { 
+            "AttachmentFieldMappings": [ 
+               { 
+                  "DataSourceFieldName": "string",
+                  "DateFieldFormat": "string",
+                  "IndexFieldName": "string"
+               }
+            ],
+            "CrawlAttachments": boolean
+         },
+         "BlogConfiguration": { 
+            "BlogFieldMappings": [ 
+               { 
+                  "DataSourceFieldName": "string",
+                  "DateFieldFormat": "string",
+                  "IndexFieldName": "string"
+               }
+            ]
+         },
+         "ExclusionPatterns": [ "string" ],
+         "InclusionPatterns": [ "string" ],
+         "PageConfiguration": { 
+            "PageFieldMappings": [ 
+               { 
+                  "DataSourceFieldName": "string",
+                  "DateFieldFormat": "string",
+                  "IndexFieldName": "string"
+               }
+            ]
+         },
+         "SecretArn": "string",
+         "ServerUrl": "string",
+         "SpaceConfiguration": { 
+            "CrawlArchivedSpaces": boolean,
+            "CrawlPersonalSpaces": boolean,
+            "ExcludeSpaces": [ "string" ],
+            "IncludeSpaces": [ "string" ],
+            "SpaceFieldMappings": [ 
+               { 
+                  "DataSourceFieldName": "string",
+                  "DateFieldFormat": "string",
+                  "IndexFieldName": "string"
+               }
+            ]
+         },
+         "Version": "string",
+         "VpcConfiguration": { 
+            "SecurityGroupIds": [ "string" ],
+            "SubnetIds": [ "string" ]
+         }
+      },
       "DatabaseConfiguration": { 
          "AclConfiguration": { 
             "AllowedGroupsColumnName": "string"
@@ -79,6 +130,7 @@ You also specify configuration information such as document metadata \(author, s
             "S3Prefix": "string"
          },
          "ExclusionPatterns": [ "string" ],
+         "InclusionPatterns": [ "string" ],
          "InclusionPrefixes": [ "string" ]
       },
       "SalesforceConfiguration": { 
@@ -228,15 +280,23 @@ For information about the parameters that are common to all actions, see [Common
 
 The request accepts the following data in JSON format\.
 
+ ** [ClientToken](#API_CreateDataSource_RequestSyntax) **   <a name="Kendra-CreateDataSource-request-ClientToken"></a>
+A token that you provide to identify the request to create a data source\. Multiple calls to the `CreateDataSource` operation with the same client token will create only one data source\.  
+Type: String  
+Length Constraints: Minimum length of 1\. Maximum length of 100\.  
+Required: No
+
  ** [Configuration](#API_CreateDataSource_RequestSyntax) **   <a name="Kendra-CreateDataSource-request-Configuration"></a>
 The connector configuration information that is required to access the repository\.  
+You can't specify the `Configuration` parameter when the `Type` parameter is set to `CUSTOM`\. If you do, you receive a `ValidationException` exception\.  
+The `Configuration` parameter is required for all other data sources\.  
 Type: [DataSourceConfiguration](API_DataSourceConfiguration.md) object  
-Required: Yes
+Required: No
 
  ** [Description](#API_CreateDataSource_RequestSyntax) **   <a name="Kendra-CreateDataSource-request-Description"></a>
 A description for the data source\.  
 Type: String  
-Length Constraints: Minimum length of 1\. Maximum length of 1000\.  
+Length Constraints: Minimum length of 0\. Maximum length of 1000\.  
 Pattern: `^\P{C}*$`   
 Required: No
 
@@ -256,13 +316,16 @@ Required: Yes
 
  ** [RoleArn](#API_CreateDataSource_RequestSyntax) **   <a name="Kendra-CreateDataSource-request-RoleArn"></a>
 The Amazon Resource Name \(ARN\) of a role with permission to access the data source\. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html)\.  
+You can't specify the `RoleArn` parameter when the `Type` parameter is set to `CUSTOM`\. If you do, you receive a `ValidationException` exception\.  
+The `RoleArn` parameter is required for all other data sources\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1284\.  
 Pattern: `arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}`   
-Required: Yes
+Required: No
 
  ** [Schedule](#API_CreateDataSource_RequestSyntax) **   <a name="Kendra-CreateDataSource-request-Schedule"></a>
 Sets the frequency that Amazon Kendra will check the documents in your repository and update the index\. If you don't set a schedule Amazon Kendra will not periodically update the index\. You can call the `StartDataSourceSyncJob` operation to update the index\.  
+You can't specify the `Schedule` parameter when the `Type` parameter is set to `CUSTOM`\. If you do, you receive a `ValidationException` exception\.  
 Type: String  
 Required: No
 
@@ -275,7 +338,7 @@ Required: No
  ** [Type](#API_CreateDataSource_RequestSyntax) **   <a name="Kendra-CreateDataSource-request-Type"></a>
 The type of repository that contains the data source\.  
 Type: String  
-Valid Values:` S3 | SHAREPOINT | DATABASE | SALESFORCE | ONEDRIVE | SERVICENOW`   
+Valid Values:` S3 | SHAREPOINT | DATABASE | SALESFORCE | ONEDRIVE | SERVICENOW | CUSTOM | CONFLUENCE`   
 Required: Yes
 
 ## Response Syntax<a name="API_CreateDataSource_ResponseSyntax"></a>

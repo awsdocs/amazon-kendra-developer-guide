@@ -42,4 +42,4 @@ PDF format files can be added to an index either as binary data, from an Amazon 
 
 Frequently asked question and answer format documents are used to answer questions such as *How tall is the Space Needle?* You can specify multiple questions that return the same answer\. You specify the questions and answers in a comma\-separated values \(CSV\) file stored in an Amazon S3 bucket\. 
 
-For an example, see [Adding questions and answers](in-creating-faq.md)\.
+For an example, see [Adding questions and answers directly to an index ](in-creating-faq.md)\.

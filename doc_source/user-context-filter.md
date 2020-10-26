@@ -72,7 +72,7 @@ You can add up to 200 entries in the `AccessControlList` field\.
 
 ## User context filtering for frequently asked questions<a name="context-filter-faq"></a>
 
-You can't add user context filtering to frequently asked question \(FAQ\) index entries\.
+You can add user context information to frequently asked questions when you use custom \.csv or JSON file formats\. For more information, see [Adding questions and answers directly to an index ](in-creating-faq.md)\.
 
 ## User context filtering for database data sources<a name="context-filter-jdbc"></a>
 

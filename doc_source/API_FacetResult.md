@@ -20,6 +20,12 @@ An array of key/value pairs, where the key is the value of the attribute and the
 Type: Array of [DocumentAttributeValueCountPair](API_DocumentAttributeValueCountPair.md) objects  
 Required: No
 
+ **DocumentAttributeValueType**   <a name="Kendra-Type-FacetResult-DocumentAttributeValueType"></a>
+The data type of the facet value\. This is the same as the type defined for the index field when it was created\.  
+Type: String  
+Valid Values:` STRING_VALUE | STRING_LIST_VALUE | LONG_VALUE | DATE_VALUE`   
+Required: No
+
 ## See Also<a name="API_FacetResult_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:

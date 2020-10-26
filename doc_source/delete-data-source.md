@@ -15,9 +15,9 @@ To delete a data source, use the console, the AWS Command Line Interface \(AWS C
 
 1. Sign in to the AWS Management Console and open the Amazon Kendra console at [https://console\.aws\.amazon\.com/kendra/](https://console.aws.amazon.com/kendra/)\.
 
-1. From the left menu, choose **Indexes**, and then choose the index that contains the data source to delete\.
+1. In the navigation pane, choose **Indexes**, and then choose the index that contains the data source to delete\.
 
-1. From the left menu, choose **Data sources**\.
+1. In the navigation pane, choose **Data sources**\.
 
 1. Choose the data source to remove\.
 
@@ -34,7 +34,7 @@ To delete a data source, use the console, the AWS Command Line Interface \(AWS C
 
 When you delete a data source, Amazon Kendra removes all of the stored information about the data source\. Amazon Kendra removes all of the document data stored in the index, and all run histories and metrics associated with the data source\. Deleting a data source does not remove the original documents from your storage\.
 
-Deleting a data source is an asynchronous operation\. When you start deleting a data source, the data source status changes to `DELETING`\. It remains in the `DELETING` state until the information related to the data source is removed\. After the data source is deleted, it no longer appears in the results of a call to the [ListDataSources](API_ListDataSources.md) operation\. If you call the [DescribeDataSource](API_DescribeDataSource.md) operation with the deleted data source's identifier, you receive a `ResourceNotFound` exception\.
+Deleting a data source is an asynchronous operation\. When you start deleting a data source, the data source status changes to `DELETING`\. It remains in the `DELETING` state until the information related to the data source is removed\. After the data source is deleted, , it no longer appears in the results of a call to the [ListDataSources](API_ListDataSources.md) operation\. If you call the [DescribeDataSource](API_DescribeDataSource.md) operation with the deleted data source's identifier, you receive a `ResourceNotFound` exception\.
 
 Amazon Kendra releases the resources for a data source as soon as you call the `DeleteDataSource` operation or choose to delete the data source in the console\. If you are deleting the data source to reduce the number of data sources below your limit, you can create a new data source right away\.
 
@@ -44,4 +44,4 @@ You can delete a data source that is in the process of syncing with Amazon Kendr
 
 You can't delete a data source if the associated index is in the `DELETING` state\. Deleting an index deletes all of the data sources for the index\. You can start deleting an index while a data source for that index is in the `DELETING` state\.
 
-If you have two data sources pointing to the same documents, such as two data sources pointing to the same S3 bucket, data in the index might be  inconsistentwhen one of the data sources is deleted\. When two data sources reference the same documents, only one copy of the document data is stored in the index\. Removing one data source removes the index data for the documents\. The other data source is not aware that the documents have been removed, so it won't correctly re\-index the documents the next time it syncs\. When you have two data sources pointing to the same document location, you should delete both data sources and then recreate one\.
+If you have two data sources pointing to the same documents, such as two data sources pointing to the same S3 bucket, documents in the index might be inconsistent when one of the data sources is deleted\. When two data sources reference the same documents, only one copy of the document data is stored in the index\. Removing one data source removes the index data for the documents\. The other data source is not aware that the documents have been removed, so Amazon Kendra won't correctly re\-index the documents the next time it syncs\. When you have two data sources pointing to the same document location, you should delete both data sources and then recreate one\.

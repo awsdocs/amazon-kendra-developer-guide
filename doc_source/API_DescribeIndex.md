@@ -97,7 +97,7 @@ Type: Timestamp
  ** [Description](#API_DescribeIndex_ResponseSyntax) **   <a name="Kendra-DescribeIndex-response-Description"></a>
 The description of the index\.  
 Type: String  
-Length Constraints: Minimum length of 1\. Maximum length of 1000\.  
+Length Constraints: Minimum length of 0\. Maximum length of 1000\.  
 Pattern: `^\P{C}*$` 
 
  ** [DocumentMetadataConfigurations](#API_DescribeIndex_ResponseSyntax) **   <a name="Kendra-DescribeIndex-response-DocumentMetadataConfigurations"></a>

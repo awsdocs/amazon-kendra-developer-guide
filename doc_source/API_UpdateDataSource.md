@@ -11,6 +11,58 @@ Updates an existing Amazon Kendra data source\.
 ```
 {
    "Configuration": { 
+      "ConfluenceConfiguration": { 
+         "AttachmentConfiguration": { 
+            "AttachmentFieldMappings": [ 
+               { 
+                  "DataSourceFieldName": "string",
+                  "DateFieldFormat": "string",
+                  "IndexFieldName": "string"
+               }
+            ],
+            "CrawlAttachments": boolean
+         },
+         "BlogConfiguration": { 
+            "BlogFieldMappings": [ 
+               { 
+                  "DataSourceFieldName": "string",
+                  "DateFieldFormat": "string",
+                  "IndexFieldName": "string"
+               }
+            ]
+         },
+         "ExclusionPatterns": [ "string" ],
+         "InclusionPatterns": [ "string" ],
+         "PageConfiguration": { 
+            "PageFieldMappings": [ 
+               { 
+                  "DataSourceFieldName": "string",
+                  "DateFieldFormat": "string",
+                  "IndexFieldName": "string"
+               }
+            ]
+         },
+         "SecretArn": "string",
+         "ServerUrl": "string",
+         "SpaceConfiguration": { 
+            "CrawlArchivedSpaces": boolean,
+            "CrawlPersonalSpaces": boolean,
+            "ExcludeSpaces": [ "string" ],
+            "IncludeSpaces": [ "string" ],
+            "SpaceFieldMappings": [ 
+               { 
+                  "DataSourceFieldName": "string",
+                  "DateFieldFormat": "string",
+                  "IndexFieldName": "string"
+               }
+            ]
+         },
+         "Version": "string",
+         "VpcConfiguration": { 
+            "SecurityGroupIds": [ "string" ],
+            "SubnetIds": [ "string" ]
+         }
+      },
       "DatabaseConfiguration": { 
          "AclConfiguration": { 
             "AllowedGroupsColumnName": "string"
@@ -73,6 +125,7 @@ Updates an existing Amazon Kendra data source\.
             "S3Prefix": "string"
          },
          "ExclusionPatterns": [ "string" ],
+         "InclusionPatterns": [ "string" ],
          "InclusionPrefixes": [ "string" ]
       },
       "SalesforceConfiguration": { 
@@ -224,7 +277,7 @@ Required: No
  ** [Description](#API_UpdateDataSource_RequestSyntax) **   <a name="Kendra-UpdateDataSource-request-Description"></a>
 The new description for the data source\.  
 Type: String  
-Length Constraints: Minimum length of 1\. Maximum length of 1000\.  
+Length Constraints: Minimum length of 0\. Maximum length of 1000\.  
 Pattern: `^\P{C}*$`   
 Required: No
 

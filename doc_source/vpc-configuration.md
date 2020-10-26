@@ -10,6 +10,9 @@ If your database isn't running on an Amazon VPC, you can connect your database t
 
 To use a VPC, you must tell Amazon Kendra the identifier of the subnet that the database belongs to and the identifiers of any security groups that Amazon Kendra must use to access the subnet\. For example, if you are using the default port for a MySQL database, the security groups must enable Amazon Kendra to access port 3306 on the host that runs the database\.
 
+**Note**  
+Only use private subnets in the VPC configuration of your data source\. If your RDS instance is in a public subnet in your VPC, then you can't use that subnet directly to sync your data source\. Instead, create a private subnet that has outbound access to a NAT gateway in the public subnet\. When you configure the VPC configuration for your database data source, specify that private subnet\.
+
 The identifiers for subnets and security groups are configured in the Amazon VPC control panel\. To see the identifiers, open the Amazon VPC console as follows:
 
 **To view subnet identifiers**
@@ -86,7 +89,7 @@ Next, configure security groups for your database\.
 
 1. From the navigation pane, choose **Security Groups** and then choose **Create security group**\.
 
-1. In **Security group name** enter **MySQLSecurityGroup**\. Provide a description, then choose your VPC from the ist\. Choose **Create** and then choose **Close**\.
+1. In **Security group name** enter **MySQLSecurityGroup**\. Provide a description, then choose your VPC from the list\. Choose **Create** and then choose **Close**\.
 
 1. Choose the **Inbound** tab\.
 

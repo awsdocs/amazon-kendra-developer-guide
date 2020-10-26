@@ -10,7 +10,9 @@ Creates an new set of frequently asked question \(FAQ\) questions and answers\.
 
 ```
 {
+   "ClientToken": "string",
    "Description": "string",
+   "FileFormat": "string",
    "IndexId": "string",
    "Name": "string",
    "RoleArn": "string",
@@ -33,11 +35,25 @@ For information about the parameters that are common to all actions, see [Common
 
 The request accepts the following data in JSON format\.
 
+ ** [ClientToken](#API_CreateFaq_RequestSyntax) **   <a name="Kendra-CreateFaq-request-ClientToken"></a>
+A token that you provide to identify the request to create a FAQ\. Multiple calls to the `CreateFaqRequest` operation with the same client token will create only one FAQ\.   
+Type: String  
+Length Constraints: Minimum length of 1\. Maximum length of 100\.  
+Required: No
+
  ** [Description](#API_CreateFaq_RequestSyntax) **   <a name="Kendra-CreateFaq-request-Description"></a>
 A description of the FAQ\.  
 Type: String  
-Length Constraints: Minimum length of 1\. Maximum length of 1000\.  
+Length Constraints: Minimum length of 0\. Maximum length of 1000\.  
 Pattern: `^\P{C}*$`   
+Required: No
+
+ ** [FileFormat](#API_CreateFaq_RequestSyntax) **   <a name="Kendra-CreateFaq-request-FileFormat"></a>
+The format of the input file\. You can choose between a basic CSV format, a CSV format that includes customs attributes in a header, and a JSON format that includes custom attributes\.  
+The format must match the format of the file stored in the S3 bucket identified in the `S3Path` parameter\.  
+For more information, see [Adding questions and answers](https://docs.aws.amazon.com/kendra/latest/dg/in-creating-faq.html)\.  
+Type: String  
+Valid Values:` CSV | CSV_WITH_HEADER | JSON`   
 Required: No
 
  ** [IndexId](#API_CreateFaq_RequestSyntax) **   <a name="Kendra-CreateFaq-request-IndexId"></a>

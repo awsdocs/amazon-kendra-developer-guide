@@ -91,7 +91,7 @@ The following snippet of Python code gets information about an S3 data source\. 
 
 ------
 
-This data source doesn't have a schedule, so it will not run automatically\. To index the data source, you call the [StartDataSourceSyncJob](API_StartDataSourceSyncJob.md) operation to synchronize the index with the data source\.
+This data source doesn't have a schedule, so it does not run automatically\. To index the data source, you call the [StartDataSourceSyncJob](API_StartDataSourceSyncJob.md) operation to synchronize the index with the data source\.
 
 The following examples demonstrate synchronizing a data source\.
 

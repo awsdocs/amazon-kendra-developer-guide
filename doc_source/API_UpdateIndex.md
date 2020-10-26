@@ -57,7 +57,7 @@ Required: No
  ** [Description](#API_UpdateIndex_RequestSyntax) **   <a name="Kendra-UpdateIndex-request-Description"></a>
 A new description for the index\.  
 Type: String  
-Length Constraints: Minimum length of 1\. Maximum length of 1000\.  
+Length Constraints: Minimum length of 0\. Maximum length of 1000\.  
 Pattern: `^\P{C}*$`   
 Required: No
 

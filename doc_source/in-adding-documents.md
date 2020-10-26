@@ -18,4 +18,3 @@ Documents can be added from an Amazon S3 bucket or supplied as binary data\. The
 **Topics**
 + [Adding documents with the API](in-adding-binary-doc.md)
 + [Adding documents from an Amazon S3 bucket](in-adding-plain-text.md)
-+ [Adding questions and answers](in-creating-faq.md)

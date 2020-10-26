@@ -114,6 +114,6 @@ You can map additional fields to custom Amazon Kendra fields using the console o
 
 You can choose to have Amazon Kendra index attachments to standard objects, knowledge articles, and chatter feeds\. You can use the console or the `CrawlAttachments` option on the [SalesforceConfiguration](API_SalesforceConfiguration.md) structure to indicate whether attachments should be indexed\.
 
-By default, Amazon Kendra indexes all attachments\. You can use the console or the API o filter attachments from the list that is indexed\. To filter an attachment, you use a regular expression that is evaluated against the file name of the attachment\. For example, to remove JSON files from the list of indexed files, use a regular expression that filters out files that end with "\.json"\.
+By default, Amazon Kendra indexes all attachments\. You can use the console or the API to filter attachments from the list that is indexed\. To filter an attachment, you use a regular expression that is evaluated against the file name of the attachment\. For example, to remove JSON files from the list of indexed files, use a regular expression that filters out files that end with "\.json"\.
 
 You can also restrict indexed documents by specifying the attachments to index\. For example, to index only Microsoft Word files, specify a regular expression that selects files that end with "\.doc" or "\.docx\."

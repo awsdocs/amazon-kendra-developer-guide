@@ -4,7 +4,7 @@
 
 # Getting started with an S3 bucket \(Console\)<a name="gs-console"></a>
 
-The following procedures show how to create and test an Amazon Kendra index by using the AWS console\. In the procedures you create an index and a data source for an S3 bucket\. Finally, you test your index by making a search request\. 
+The following procedures show how to create and test an Amazon Kendra index by using the AWS console\. In the procedures you create an index and a data source for an index\. Finally, you test your index by making a search request\. 
 
 **Step 1: To create an index \(Console\)**
 
@@ -24,6 +24,7 @@ The following procedures show how to create and test an Amazon Kendra index by u
 
 **Step 2: To add a data source to an index \(Console\)**
 + Create a data source that connects the Amazon Kendra index to your documents\. You can choose from one of the following procedures to create a data source\.
+  + [Getting started with a Confluence data source \(Console\)](getting-started-confluence.md)
   + [Getting started with a Microsoft OneDrive for Business data source \(Console\)](getting-started-onedrive.md)
   + [Getting started with an Amazon S3 data source \(Console\)](getting-started-s3.md)
   + [Getting started with a Salesforce data source \(Console\)](getting-started-salesforce.md)

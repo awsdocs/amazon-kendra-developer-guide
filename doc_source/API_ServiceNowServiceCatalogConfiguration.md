@@ -31,7 +31,7 @@ Required: No
 Determines the types of file attachments that are excluded from the index\.  
 Type: Array of strings  
 Array Members: Minimum number of 0 items\. Maximum number of 100 items\.  
-Length Constraints: Minimum length of 1\. Maximum length of 50\.  
+Length Constraints: Minimum length of 1\. Maximum length of 150\.  
 Required: No
 
  **FieldMappings**   <a name="Kendra-Type-ServiceNowServiceCatalogConfiguration-FieldMappings"></a>
@@ -44,7 +44,7 @@ Required: No
 Determines the types of file attachments that are included in the index\.   
 Type: Array of strings  
 Array Members: Minimum number of 0 items\. Maximum number of 100 items\.  
-Length Constraints: Minimum length of 1\. Maximum length of 50\.  
+Length Constraints: Minimum length of 1\. Maximum length of 150\.  
 Required: No
 
 ## See Also<a name="API_ServiceNowServiceCatalogConfiguration_SeeAlso"></a>

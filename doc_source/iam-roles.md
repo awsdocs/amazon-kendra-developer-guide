@@ -138,11 +138,13 @@ When you use the [CreateDataSource](API_CreateDataSource.md) operation, you must
 
 **Topics**
 + [IAM roles for Amazon S3 data sources](#iam-roles-ds-s3)
++ [IAM role for Confluence server data sources](#iam-roles-ds-cnf)
 + [IAM roles for database data sources](#iam-roles-ds-jdbc)
 + [IAM roles for Microsoft OneDrive data sources](#iam-roles-ds-on)
 + [IAM role for Salesforce data sources](#iam-roles-ds-sf)
 + [IAM role for ServiceNow data sources](#iam-roles-ds-sn)
 + [IAM roles for Microsoft SharePoint Online data sources](#iam-roles-ds-spo)
++ [Virtual private cloud \(VPC\) IAM role](#iam-roles-vpc)
 
 ### IAM roles for Amazon S3 data sources<a name="iam-roles-ds-s3"></a>
 
@@ -204,6 +206,55 @@ An optional role policy to enable Amazon Kendra to use an AWS KMS customer maste
     ]
 }
 ```
+
+### IAM role for Confluence server data sources<a name="iam-roles-ds-cnf"></a>
+
+When you use a Confluence server as a data source, you provide a role with the following policies:
++ Permission to access the AWS Secrets Manager secret that contains the credentials necessary to connect to the Confluence server\. For more information about the contents of the secret, see [Using a Confluence data source](data-source-confluence.md)\.
++ Permission to use the AWS KMS customer master key \(CMK\) to decrypt the user name and password secret stored by Secrets Manager\.
++ Permission to use the `BatchPutDocument` and `BatchDeleteDocument` operations to update the index\.
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+  {
+    "Effect": "Allow",
+    "Action": [
+      "secretsmanager:GetSecretValue"
+    ],
+    "Resource": [
+      "arn:aws:secretsmanager:region:account ID:secret:secret ID"
+    ]
+  },
+  {
+    "Effect": "Allow",
+    "Action": [
+      "kms:Decrypt"
+    ],
+    "Resource": [
+      "arn:aws:kms:region:account ID:key/key ID"
+    ],
+    "Condition": {
+      "StringLike": {
+        "kms:ViaService": [
+          "secretsmanager.*.amazonaws.com"
+        ]
+      }
+    }
+  },
+  {
+    "Effect": "Allow",
+    "Action": [
+      "kendra:BatchPutDocument",
+      "kendra:BatchDeleteDocument"
+    ],
+    "Resource": "arn:aws:kendra:region:account ID:index/index ID"
+  }]
+}
+```
+
+If you are using a VPC, provide a policy that gives Amazon Kendra access to the required resources\. See [Virtual private cloud \(VPC\) IAM role](#iam-roles-vpc) for the required policy\.
 
 ### IAM roles for database data sources<a name="iam-roles-ds-jdbc"></a>
 
@@ -285,47 +336,7 @@ If you have encrypted the Amazon S3 bucket that contains the SSL certificate use
 }
 ```
 
-If you are using a VPC, provide a policy that gives Amazon Kendra access to the required resources\.
-
-```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-  {
-    "Effect": "Allow",
-    "Action":[
-      "ec2:CreateNetworkInterface",
-      "ec2:DescribeNetworkInterfaces",
-      "ec2:DeleteNetworkInterface"
-    ],
-    "Resource": "*"        
-  },
-  {
-    "Effect": "Allow",
-    "Action": [
-      "ec2:CreateNetworkInterfacePermission"
-    ],
-    "Resource": "*",
-    "Condition": {
-      "StringEquals": {
-        "ec2:AuthorizedService": "kendra.amazonaws.com"
-      },
-      "ArnEquals": {
-        "ec2:Subnet": [
-          "arn:aws:ec2:region:account ID:subnet/subnet IDs"
-        ]
-      }
-    }
-  },
-  {
-    "Effect": "Allow",
-    "Action": [
-      "ec2:DescribeSubnets"
-    ],
-    "Resource": "*"
-  }    ]
-}
-```
+If you are using a VPC, provide a policy that gives Amazon Kendra access to the required resources\. See [Virtual private cloud \(VPC\) IAM role](#iam-roles-vpc) for the required policy\.
 
 ### IAM roles for Microsoft OneDrive data sources<a name="iam-roles-ds-on"></a>
 
@@ -614,6 +625,50 @@ If you have encrypted the Amazon S3 bucket that contains the SSL certificate use
             ]
         }
     ]
+}
+```
+
+### Virtual private cloud \(VPC\) IAM role<a name="iam-roles-vpc"></a>
+
+If you use a virtual private cloud \(VPC\) to connect to your data source, you must provide the following permissions\.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+  {
+    "Effect": "Allow",
+    "Action":[
+      "ec2:CreateNetworkInterface",
+      "ec2:DescribeNetworkInterfaces",
+      "ec2:DeleteNetworkInterface"
+    ],
+    "Resource": "*"        
+  },
+  {
+    "Effect": "Allow",
+    "Action": [
+      "ec2:CreateNetworkInterfacePermission"
+    ],
+    "Resource": "*",
+    "Condition": {
+      "StringEquals": {
+        "ec2:AuthorizedService": "kendra.amazonaws.com"
+      },
+      "ArnEquals": {
+        "ec2:Subnet": [
+          "arn:aws:ec2:region:account ID:subnet/subnet IDs"
+        ]
+      }
+    }
+  },
+  {
+    "Effect": "Allow",
+    "Action": [
+      "ec2:DescribeSubnets"
+    ],
+    "Resource": "*"
+  }    ]
 }
 ```
 

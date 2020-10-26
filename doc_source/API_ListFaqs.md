@@ -48,6 +48,7 @@ Required: No
    "FaqSummaryItems": [ 
       { 
          "CreatedAt": number,
+         "FileFormat": "string",
          "Id": "string",
          "Name": "string",
          "Status": "string",

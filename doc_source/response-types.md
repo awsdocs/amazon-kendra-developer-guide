@@ -147,4 +147,4 @@ A question and answer response is returned when Amazon Kendra matches a question
 }
 ```
 
-For information about adding question and answer text to an index, see [Adding questions and answers](in-creating-faq.md)
+For information about adding question and answer text to an index, see [Adding questions and answers directly to an index ](in-creating-faq.md)

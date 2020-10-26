@@ -4,7 +4,7 @@
 
 # Creating an index<a name="create-index"></a>
 
-You can create an index using the console, the AWS Command Line Interface \(AWS CLI\) , or by calling the [CreateIndex](API_CreateIndex.md) API operation\. The following procedures show how to create an index\. Once you have created your index, you can add documents directly to your index or you can add them from a data source\.
+You can create an index using the console, the AWS Command Line Interface \(AWS CLI\), or by calling the [CreateIndex](API_CreateIndex.md) API operation\. The following procedures show how to create an index\. After you have created your index, you can add documents directly to your index or you can add them from a data source\.
 
 To create an index, you need to provide the Amazon Resource Name \(ARN\) of an AWS Identity and Access Management \(IAM\) role that has permissions to any Amazon Simple Storage Service \(Amazon S3\) bucket that you use and to perform actions on your behalf\.
 
@@ -24,7 +24,7 @@ To create an index, you need to provide the Amazon Resource Name \(ARN\) of an A
 
 **To create an index \(AWS CLI\)**
 
-1. Use the following command to create an index\. The `role-arn` should be the Amazon Resource Name \(ARN\) of a role that can execute Amazon Kendra actions\. For more information, see [IAM access roles for Amazon Kendra](iam-roles.md)\.
+1. Use the following command to create an index\. The `role-arn` should be the Amazon Resource Name \(ARN\) of a role that can run Amazon Kendra actions\. For more information, see [IAM access roles for Amazon Kendra](iam-roles.md)\.
 
    ```
    aws kendra create-index \
@@ -45,7 +45,7 @@ To create an index, you need to provide the Amazon Resource Name \(ARN\) of an A
 1. You need to provide values for the following variables:
    + `description` – A description of the index that you are creating\.
    + `index_name` – The name of the index that you are creating\.
-   + `role_arn` – The Amazon Resource Name \(ARN\) of a role that can execute Amazon Kendra operations\. For more information, see [IAM access roles for Amazon Kendra](iam-roles.md)\.
+   + `role_arn` – The Amazon Resource Name \(ARN\) of a role that can run Amazon Kendra operations\. For more information, see [IAM access roles for Amazon Kendra](iam-roles.md)\.
 
 1. The following examples create an index with Amazon Kendra\.
 
@@ -156,6 +156,7 @@ Once you have created your index, you add documents to it\. You can either add t
 
 **Topics**
 + [Adding documents directly to an index](in-adding-documents.md)
++ [Adding questions and answers directly to an index](in-creating-faq.md)
 + [Adding documents from a data source](data-source.md)
 + [Deleting data sources](delete-data-source.md)
 + [Creating custom document attributes](custom-attributes.md)

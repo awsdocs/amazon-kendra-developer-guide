@@ -13,6 +13,12 @@ The UNIX datetime that the FAQ was added to the index\.
 Type: Timestamp  
 Required: No
 
+ **FileFormat**   <a name="Kendra-Type-FaqSummary-FileFormat"></a>
+The file type used to create the FAQ\.   
+Type: String  
+Valid Values:` CSV | CSV_WITH_HEADER | JSON`   
+Required: No
+
  **Id**   <a name="Kendra-Type-FaqSummary-Id"></a>
 The unique identifier of the FAQ\.  
 Type: String  

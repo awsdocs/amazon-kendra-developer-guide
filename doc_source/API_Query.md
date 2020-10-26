@@ -189,7 +189,8 @@ Required: No
                   "StringValue": "string"
                }
             }
-         ]
+         ],
+         "DocumentAttributeValueType": "string"
       }
    ],
    "QueryId": "string",

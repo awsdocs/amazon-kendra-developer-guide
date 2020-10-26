@@ -13,7 +13,7 @@ To create a OneDrive data source, you must first create an Azure Active Director
 + Read all groups \(Group\.Read\.All\)
 + Read items in all site collections \(Site\.Read\.All\)
 
-When you create the active directory application, it is assigned an application ID\. You must use the active directory site to register a secret key for the application\. Amazon Kendra uses the ID and key as credentials to authenticate when it connects to the OneDrive site\. You store the ID and key in an AWS Secrets Manager secret\. If you are using the console to create your OneDrive data source, you can enter the credentials there to create a Secrets Manager secret\. Or you can choose an existing Secrets Manager secret\. If you are using the API, you must provide the Amazon Resource Name \(ARN\) of an existing secret\.
+When you create the AD application, it is assigned an application ID\. You must use the AD site to register a secret key for the application\. Amazon Kendra uses the ID and key as credentials to authenticate when it connects to the OneDrive site\. You store the ID and key in an AWS Secrets Manager secret\. If you are using the console to create your OneDrive data source, you can enter the credentials there to create a Secrets Manager secret\. Or you can choose an existing Secrets Manager secret\. If you are using the API, you must provide the Amazon Resource Name \(ARN\) of an existing secret\.
 
 The secret must contain the application ID and secret key that Amazon Kendra uses to access the site in a JSON structure\. The following is the minimum JSON structure that must be stored in the secret:
 
@@ -66,7 +66,7 @@ You can map OneDrive properties to Amazon Kendra index fields\. The following ta
 | fileSystemInfo\.lastModifiedDateTime | od\_fileSystemInfo\_lastModifiedDateTime | 
 | file\.mimeType | od\_file\_mimeType | 
 | lastModifiedDateTime | \_last\_updated\_at | 
-| lastModifiedBy\.displayName | od\_lastModififiedBy\_displayName | 
+| lastModifiedBy\.displayName | od\_lastModifiedBy\_displayName | 
 | lastModifiedBy\.id | od\_lastModifiedBy\.id | 
 | lastModifiedBy\.email | od\_lastModifiedBy\.email | 
 | size | od\_size | 
