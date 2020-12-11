@@ -4,12 +4,33 @@
 
 # Filtering on user context<a name="user-context-filter"></a>
 
-Amazon Kendra enables you to filter a query response to remove documents from the result based on a user name and group membership\. User context filtering depends on two things:
-+ Setting attributes on the indexed documents\.
-+ Including user and group information when querying the index\.
+Amazon Kendra enables you to filter a query response to remove documents from the result based on a user name and group membership\. You can filter search results by user token or user attribute\. 
+
+## Filtering by user token<a name="context-filter-token"></a>
+
+When a document is indexed into Amazon Kendra, a corresponding access control list \(ACL\) is ingested\. The ACL specifies which user names and group names are allowed or denied access to the document\. Documents without an ACL are public documents\. 
+
+When you query the documents, you want to ensure the correct ACL is applied\. For example, you can use an Open ID token\. It uses a JSON format\. When you issue a query, Amazon Kendra extracts and validates the token\. Amazon Kendra pulls the user and group information and then runs the query\. All of the documents the user has access to including public documents are returned\. 
+
+The following code shows how to include a user token\. 
+
+```
+response = kendra.query(
+    QueryText = query,
+    IndexId = index,
+    UserToken = {
+        Token = "token"
+    })
+```
+
+## Filtering by user attribute<a name="context-filter-attribute"></a>
+
+User attribute filtering requires you to: 
++ Set attributes on the indexed documents\.
++ Include user and group information when querying the index\.
 
 **Warning**  
-User context filtering requires you to provide user and group information\. If no user and group information is included in the query, Amazon Kendra returns all documents\.
+User context filtering requires you to provide user and group information\. If no user and group information is included in the query, Amazon Kendra returns all documents\. If you provide user and group information, only documents with matching attributes are returned\. Documents without attributes are not returned\. 
 
 You can add a user or a group to either an allow list or a deny list for the document\. If a user or group is added to the deny list, the document is filtered out of any query that contains the user or group\.
 
@@ -21,29 +42,29 @@ The following example shows a request that filters the query response based on t
 
 ```
 response = kendra.query(
-    QueryText = query,
-    IndexId = index,
-    AttributeFilter = {
-        "OrAllFilters": [
-            {
-                "EqualsTo": {
-                    "Key": "_user_id",
-                    "Value": {
-                        "StringValue": "user1"
-                    }
-                 }
-            },
-            {
-                "EqualsTo": {
-                    "Key": "_group_ids",
-                    "Value": {
-                        "StringListValue": ["HR", "IT"]
+        QueryText = query,
+        IndexId = index,
+        AttributeFilter = {
+            "OrAllFilters": [
+                {
+                    "EqualsTo": {
+                        "Key": "_user_id",
+                        "Value": {
+                            "StringValue": "user1"
+                        }
+                     }
+                },
+                {
+                    "EqualsTo": {
+                        "Key": "_group_ids",
+                        "Value": {
+                            "StringListValue": ["HR", "IT"]
+                        }
                     }
                 }
-            }
-        ]
-    }
-    )
+            ]
+        }
+        )
 ```
 
 **Note**  
@@ -52,9 +73,13 @@ User context filtering isn't an authentication or authorization control for your
 There is an implementation of user context filtering for each data source\. The following section describes each implementation\. 
 
 **Topics**
++ [Filtering by user token](#context-filter-token)
++ [Filtering by user attribute](#context-filter-attribute)
 + [User context filtering for documents added directly to an index](#context-filter-batch)
 + [User context filtering for frequently asked questions](#context-filter-faq)
 + [User context filtering for database data sources](#context-filter-jdbc)
++ [User context filtering for Confluence data sources](#context-filter-confluence)
++ [User context filtering for Google Drive data sources\.](#context-filter-google)
 + [User context filtering for Microsoft OneDrive data sources](#context-filter-onedrive)
 + [User context filtering for Amazon S3 data sources](#context-filter-s3)
 + [User context filtering for Salesforce data sources](#context-filter-salesforce)
@@ -82,6 +107,61 @@ A database data source has the following limitations:
 + You can only specify an allow list for a database data source\. You can't specify a deny list\. 
 + You can only specify groups\. You can't specify individual users for the allow list\.
 + The database column should be string containing a semi\-colon delimited list of groups\.
+
+## User context filtering for Confluence data sources<a name="context-filter-confluence"></a>
+
+When you use a Confluence data source, Amazon Kendra gets user and group information from the Confluence instance\.
+
+You configure user and group access to spaces using the space permissions page\. For pages and blogs, you use the restrictions page\. For more information about space permissions, see [ Space Permissions Overview ](https://confluence.atlassian.com/doc/space-permissions-overview-139521.html) on the Confluence Support website\. For more information about page and blog restrictions, see [ Page Restrictions ](https://confluence.atlassian.com/doc/page-restrictions-139414.html) on the Confluence Support website\.
+
+The Confluence group and user names are mapped as follows:
++ `_group_ids` – Group names are present on spaces, pages, and blogs where there are restrictions\. They are mapped from the name of the group in Confluence\. Group names are always lower case\.
++ `_user_id` – User names are present on the space, page, or blog where there are restrictions\. They are mapped depending on the type of Confluence instance you are using\.
+  + Server – The `_user_id` is the username\. The username is always lower case\.
+  + Cloud – The `_user_id` is the account ID of the user\.
+
+## User context filtering for Google Drive data sources\.<a name="context-filter-google"></a>
+
+A Google Workspace Drive data source returns user and group information for Google Drive users and groups\. Group and domain membership are mapped to the `_group_ids` index field\. The Google Drive user name is mapped to the `_user_id` field\.
+
+When you provide one or more user email addresses in the `Query` operation, only documents that have been shared with those email addresses are returned\. The following `AttributeFilter` parameter only returns documents shared with "martha@example\.com"\.
+
+```
+"AttributeFilter": {
+                "EqualsTo":{
+                   "Key": "_user_id", 
+                   "Value": {
+                       "StringValue": "martha@example.com"
+                   }
+               }
+           }
+```
+
+If you provide one or more group email addresses in the query, only documents shared with the groups are returned\. The following `AttributeFilter` parameter only returns documents shared with the "hr@example\.com" group\.
+
+```
+"AttributeFilter": {
+                "EqualsTo":{
+                   "Key": "_group_ids", 
+                   "Value": {
+                       "StringListValue": ["hr@example.com"]
+                   }
+               }
+           }
+```
+
+If you provide the domain in the query, all documents shared with the domain are returned\. The following `AttributeFilter` parameter returns documents shared with the "example\.com" domain\.
+
+```
+"AttributeFilter": {
+                "EqualsTo":{
+                   "Key": "_group_ids", 
+                   "Value": {
+                       "StringListValue": ["example.com"]
+                   }
+               }
+           }
+```
 
 ## User context filtering for Microsoft OneDrive data sources<a name="context-filter-onedrive"></a>
 

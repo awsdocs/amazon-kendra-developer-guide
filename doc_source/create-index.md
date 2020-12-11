@@ -12,13 +12,15 @@ To create an index, you need to provide the Amazon Resource Name \(ARN\) of an A
 
 1. Sign into the AWS Management Console and open the Amazon Kendra console at [https://console\.aws\.amazon\.com/kendra/](https://console.aws.amazon.com/kendra/)\. 
 
-1. Choose **Create index**\.
-
 1. In **Specify index details**, give your index a name and a description\.
 
 1. In **IAM role** provide an IAM role\. You can either choose from roles in your account that contain the word "kendra" or you can type the name of another role\. For more information about the permissions that the role requires, see [IAM roles for indexes](iam-roles.md#iam-roles-index)\.
 
-1. Choose **Create**\.
+1. Choose **Next**\.
+
+1. On the **Configure user access control** page, choose **Next**\. You can update your index to use tokens for access control after you create an index\. For more information, see [Controlling access to documents in an index](create-index-access-control.md)\. 
+
+1. On the **Provisioning details** page, choose **Create index**\.
 
 1. Creating an index can take some time\. Check the list of indexes to watch the progress of creating your index\. When the status of the index is `ACTIVE`, your index is ready to use\.
 
@@ -155,6 +157,7 @@ To create an index, you need to provide the Amazon Resource Name \(ARN\) of an A
 Once you have created your index, you add documents to it\. You can either add them directly or you can create a data source that automatically updates your index on a regular schedule\.
 
 **Topics**
++ [Controlling access to documents in an index](create-index-access-control.md)
 + [Adding documents directly to an index](in-adding-documents.md)
 + [Adding questions and answers directly to an index](in-creating-faq.md)
 + [Adding documents from a data source](data-source.md)

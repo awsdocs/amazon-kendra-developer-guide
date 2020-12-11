@@ -13,6 +13,11 @@ Provides configuration information for connecting to a Microsoft SharePoint data
 Type: Boolean  
 Required: No
 
+ **DisableLocalGroups**   <a name="Kendra-Type-SharePointConfiguration-DisableLocalGroups"></a>
+A Boolean value that specifies whether local groups are disabled \(`True`\) or enabled \(`False`\)\.   
+Type: Boolean  
+Required: No
+
  **DocumentTitleFieldName**   <a name="Kendra-Type-SharePointConfiguration-DocumentTitleFieldName"></a>
 The Microsoft SharePoint attribute field that contains the title of the document\.  
 Type: String  

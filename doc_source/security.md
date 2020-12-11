@@ -17,6 +17,6 @@ This documentation helps you understand how to apply the shared responsibility m
 + [Amazon Kendra and interface VPC endpoints \(AWS PrivateLink\)](vpc-interface-endpoints.md)
 + [Identity and access management for Amazon Kendra](security-iam.md)
 + [Logging and monitoring in Amazon Kendra](incident-response.md)
-+ [Compliance validation for Amazon Kendra](SERVICENAME-compliance.md)
++ [Compliance validation for Amazon Kendra](kendra-compliance.md)
 + [Resilience in Amazon Kendra](disaster-recovery-resiliency.md)
 + [Infrastructure security in Amazon Kendra](infrastructure-security.md)

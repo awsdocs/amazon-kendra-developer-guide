@@ -18,8 +18,13 @@ Provides information necessary to create a data source connector for a database\
 Type: [DatabaseConfiguration](API_DatabaseConfiguration.md) object  
 Required: No
 
+ **GoogleDriveConfiguration**   <a name="Kendra-Type-DataSourceConfiguration-GoogleDriveConfiguration"></a>
+Provides configuration for data sources that connect to Google Drive\.   
+Type: [GoogleDriveConfiguration](API_GoogleDriveConfiguration.md) object  
+Required: No
+
  **OneDriveConfiguration**   <a name="Kendra-Type-DataSourceConfiguration-OneDriveConfiguration"></a>
-Provided configuration for data sources that connect to Microsoft OneDrive\.  
+Provides configuration for data sources that connect to Microsoft OneDrive\.  
 Type: [OneDriveConfiguration](API_OneDriveConfiguration.md) object  
 Required: No
 

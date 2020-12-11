@@ -39,7 +39,7 @@ Required: No
 
  **SecretArn**   <a name="Kendra-Type-ConfluenceConfiguration-SecretArn"></a>
 The Amazon Resource Name \(ARN\) of an AWS Secrets Manager secret that contains the key/value pairs required to connect to your Confluence server\. The secret must contain a JSON structure with the following keys:  
-+ username \- The user name of a user with administrative privileges for the Confluence server\.
++ username \- The user name or email address of a user with administrative privileges for the Confluence server\.
 + password \- The password associated with the user logging in to the Confluence server\.
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1284\.  
@@ -61,7 +61,7 @@ Required: No
  **Version**   <a name="Kendra-Type-ConfluenceConfiguration-Version"></a>
 Specifies the version of the Confluence installation that you are connecting to\.  
 Type: String  
-Valid Values:` SERVER`   
+Valid Values:` CLOUD | SERVER`   
 Required: Yes
 
  **VpcConfiguration**   <a name="Kendra-Type-ConfluenceConfiguration-VpcConfiguration"></a>

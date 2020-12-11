@@ -4,7 +4,7 @@
 
 # AccessControlListConfiguration<a name="API_AccessControlListConfiguration"></a>
 
-Access Control List files for the documents in a data source\.
+Access Control List files for the documents in a data source\. For the format of the file, see [Access control for S3 data sources](https://docs.aws.amazon.com/kendra/latest/dg/s3-acl.html)\.
 
 ## Contents<a name="API_AccessControlListConfiguration_Contents"></a>
 

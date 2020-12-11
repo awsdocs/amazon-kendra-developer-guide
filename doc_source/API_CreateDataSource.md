@@ -101,7 +101,23 @@ You specify a name, data source connector type and description for your data sou
             "SubnetIds": [ "string" ]
          }
       },
+      "GoogleDriveConfiguration": { 
+         "ExcludeMimeTypes": [ "string" ],
+         "ExcludeSharedDrives": [ "string" ],
+         "ExcludeUserAccounts": [ "string" ],
+         "ExclusionPatterns": [ "string" ],
+         "FieldMappings": [ 
+            { 
+               "DataSourceFieldName": "string",
+               "DateFieldFormat": "string",
+               "IndexFieldName": "string"
+            }
+         ],
+         "InclusionPatterns": [ "string" ],
+         "SecretArn": "string"
+      },
       "OneDriveConfiguration": { 
+         "DisableLocalGroups": boolean,
          "ExclusionPatterns": [ "string" ],
          "FieldMappings": [ 
             { 
@@ -239,6 +255,7 @@ You specify a name, data source connector type and description for your data sou
       },
       "SharePointConfiguration": { 
          "CrawlAttachments": boolean,
+         "DisableLocalGroups": boolean,
          "DocumentTitleFieldName": "string",
          "ExclusionPatterns": [ "string" ],
          "FieldMappings": [ 
@@ -338,7 +355,7 @@ Required: No
  ** [Type](#API_CreateDataSource_RequestSyntax) **   <a name="Kendra-CreateDataSource-request-Type"></a>
 The type of repository that contains the data source\.  
 Type: String  
-Valid Values:` S3 | SHAREPOINT | DATABASE | SALESFORCE | ONEDRIVE | SERVICENOW | CUSTOM | CONFLUENCE`   
+Valid Values:` S3 | SHAREPOINT | DATABASE | SALESFORCE | ONEDRIVE | SERVICENOW | CUSTOM | CONFLUENCE | GOOGLEDRIVE`   
 Required: Yes
 
 ## Response Syntax<a name="API_CreateDataSource_ResponseSyntax"></a>

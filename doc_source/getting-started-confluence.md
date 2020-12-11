@@ -4,9 +4,12 @@
 
 # Getting started with a Confluence data source \(Console\)<a name="getting-started-confluence"></a>
 
-You can use the Amazon Kendra console to get started using a Confluence data store\. When you use the console you specify the connection information you need to index the contents of a Confluence instance\. For more information, see [Using a Confluence data source](data-source-confluence.md)\.
+You can use the Amazon Kendra console to get started using a Confluence instance\. When you use the console you specify the connection information you need to index the contents of a Confluence instance\. For more information, see [Using a Confluence data source](data-source-confluence.md)\.
 
-Use the following procedure to create a basic Confluence data source using the default configuration\. The procedure assumes you created an index following the steps in step 1 of [Getting started with an S3 bucket \(Console\)](gs-console.md)\.
+Use the following procedure to create a basic Confluence data source using the default configuration\. The procedure assumes 
++ You have an administrator account on the Confluence instance\.
++ You have a password for the account on a Confluence server instance or an API token for the account on a Confluence cloud instance\.
++ You created an index following the steps in step 1 of [Getting started with an S3 bucket \(Console\)](gs-console.md)\.
 
 **To create a Confluence data source using the Amazon Kendra console**
 
@@ -20,7 +23,9 @@ Use the following procedure to create a basic Confluence data source using the d
 
 1. On **Specify data source details**, give your data source a name and optionally a description\. Leave the **Tags** field blank\. Choose **Next** to continue\.
 
-1. On **Define access and security**, in **Set source**, enter the URL of your Confluence server\.
+1. Choose whether you are connecting to a Confluence cloud or Confluence server instance\.
+
+1. On **Define access and security**, in **Set source**, enter the URL of your Confluence instance\.
 
 1. In **Set authentication**, perform the following steps:
 
@@ -28,13 +33,13 @@ Use the following procedure to create a basic Confluence data source using the d
 
    1. In **Secret name**, enter a name for the AWS Secrets Manager secret that will contain your user credentials\.
 
-   1. In **User name**, enter the Confluence account that Amazon Kendra uses to connect to the Confluence server\. The account should have administrator permissions\.
+   1. In **User name**, enter the Confluence account that Amazon Kendra uses to connect to the Confluence instance\. The account should have administrator permissions\.
 
-   1. In **Password**, enter the password for the Confluence account\.
+   1. For Confluence server enter the account password for the Confluence account in the password field\. For Confluence cloud, enter the API token\.
 
    1. Choose **Save authentication** to save the Secrets Manager secret\.
 
-1. In **Virtual Private Cloud \(VPC\)** choose **No VPC**\.
+1. If you are using a Confluence server, in **Virtual Private Cloud \(VPC\)** choose **No VPC**\.
 
 1. In **IAM role** choose **Create a new role\.** Enter a name for the role in the **Role name** field\. Choose **Next** to continue\.
 

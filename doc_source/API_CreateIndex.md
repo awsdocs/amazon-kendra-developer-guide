@@ -25,6 +25,24 @@ Once the index is active you can index your documents using the [BatchPutDocumen
          "Key": "string",
          "Value": "string"
       }
+   ],
+   "UserContextPolicy": "string",
+   "UserTokenConfigurations": [ 
+      { 
+         "JsonTokenTypeConfiguration": { 
+            "GroupAttributeField": "string",
+            "UserNameAttributeField": "string"
+         },
+         "JwtTokenTypeConfiguration": { 
+            "ClaimRegex": "string",
+            "GroupAttributeField": "string",
+            "Issuer": "string",
+            "KeyLocation": "string",
+            "SecretManagerArn": "string",
+            "URL": "string",
+            "UserNameAttributeField": "string"
+         }
+      }
    ]
 }
 ```
@@ -78,6 +96,22 @@ Required: No
 A list of key\-value pairs that identify the index\. You can use the tags to identify and organize your resources and to control access to resources\.  
 Type: Array of [Tag](API_Tag.md) objects  
 Array Members: Minimum number of 0 items\. Maximum number of 200 items\.  
+Required: No
+
+ ** [UserContextPolicy](#API_CreateIndex_RequestSyntax) **   <a name="Kendra-CreateIndex-request-UserContextPolicy"></a>
+The user context policy\.    
+ATTRIBUTE\_FILTER  
+All indexed content is searchable and displayable for all users\. If there is an access control list, it is ignored\. You can filter on user and group attributes\.   
+USER\_TOKEN  
+Enables SSO and token\-based user access control\. All documents with no access control and all documents accessible to the user will be searchable and displayable\. 
+Type: String  
+Valid Values:` ATTRIBUTE_FILTER | USER_TOKEN`   
+Required: No
+
+ ** [UserTokenConfigurations](#API_CreateIndex_RequestSyntax) **   <a name="Kendra-CreateIndex-request-UserTokenConfigurations"></a>
+The user token configuration\.  
+Type: Array of [UserTokenConfiguration](API_UserTokenConfiguration.md) objects  
+Array Members: Maximum number of 1 item\.  
 Required: No
 
 ## Response Syntax<a name="API_CreateIndex_ResponseSyntax"></a>

@@ -16,6 +16,8 @@ The following procedures show how to create and test an Amazon Kendra index by u
 
 1. Leave all of the other fields at their defaults\. Choose **Next**\.
 
+1. In the **Configure user access control** page, choose **Next**\.
+
 1. **Provisioning details** page, choose **Developer edition**\.
 
 1. Choose **Create** to create your index\.

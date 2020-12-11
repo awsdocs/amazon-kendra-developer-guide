@@ -38,7 +38,25 @@ Updates an existing Amazon Kendra index\.
    ],
    "Id": "string",
    "Name": "string",
-   "RoleArn": "string"
+   "RoleArn": "string",
+   "UserContextPolicy": "string",
+   "UserTokenConfigurations": [ 
+      { 
+         "JsonTokenTypeConfiguration": { 
+            "GroupAttributeField": "string",
+            "UserNameAttributeField": "string"
+         },
+         "JwtTokenTypeConfiguration": { 
+            "ClaimRegex": "string",
+            "GroupAttributeField": "string",
+            "Issuer": "string",
+            "KeyLocation": "string",
+            "SecretManagerArn": "string",
+            "URL": "string",
+            "UserNameAttributeField": "string"
+         }
+      }
+   ]
 }
 ```
 
@@ -86,6 +104,18 @@ A new IAM role that gives Amazon Kendra permission to access your Amazon CloudWa
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1284\.  
 Pattern: `arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}`   
+Required: No
+
+ ** [UserContextPolicy](#API_UpdateIndex_RequestSyntax) **   <a name="Kendra-UpdateIndex-request-UserContextPolicy"></a>
+The user user token context policy\.  
+Type: String  
+Valid Values:` ATTRIBUTE_FILTER | USER_TOKEN`   
+Required: No
+
+ ** [UserTokenConfigurations](#API_UpdateIndex_RequestSyntax) **   <a name="Kendra-UpdateIndex-request-UserTokenConfigurations"></a>
+The user token configuration\.  
+Type: Array of [UserTokenConfiguration](API_UserTokenConfiguration.md) objects  
+Array Members: Maximum number of 1 item\.  
 Required: No
 
 ## Response Elements<a name="API_UpdateIndex_ResponseElements"></a>

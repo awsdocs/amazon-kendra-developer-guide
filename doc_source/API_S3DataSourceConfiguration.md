@@ -9,7 +9,7 @@ Provides configuration information for a data source to index documents in an Am
 ## Contents<a name="API_S3DataSourceConfiguration_Contents"></a>
 
  **AccessControlListConfiguration**   <a name="Kendra-Type-S3DataSourceConfiguration-AccessControlListConfiguration"></a>
-Provides the path to the S3 bucket that contains the user context filtering files for the data source\.  
+Provides the path to the S3 bucket that contains the user context filtering files for the data source\. For the format of the file, see [Access control for S3 data sources](https://docs.aws.amazon.com/kendra/latest/dg/s3-acl.html)\.  
 Type: [AccessControlListConfiguration](API_AccessControlListConfiguration.md) object  
 Required: No
 

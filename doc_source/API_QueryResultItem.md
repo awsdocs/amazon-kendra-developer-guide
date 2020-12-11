@@ -43,6 +43,13 @@ Length Constraints: Minimum length of 1\. Maximum length of 2048\.
 Pattern: `^(https?|ftp|file):\/\/([^\s]*)`   
 Required: No
 
+ **FeedbackToken**   <a name="Kendra-Type-QueryResultItem-FeedbackToken"></a>
+A token that identifies a particular result from a particular query\. Use this token to provide click\-through feedback for the result\. For more information, see [ Submitting feedback ](https://docs.aws.amazon.com/kendra/latest/dg/submitting-feedback.html)\.  
+Type: String  
+Length Constraints: Minimum length of 1\. Maximum length of 2048\.  
+Pattern: `^\P{C}*.\P{C}*$`   
+Required: No
+
  **Id**   <a name="Kendra-Type-QueryResultItem-Id"></a>
 The unique identifier for the query result\.  
 Type: String  

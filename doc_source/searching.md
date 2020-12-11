@@ -13,4 +13,3 @@ To search an Amazon Kendra index, you use the [Query](API_Query.md) operation\. 
 + [Query responses](query-response.md)
 + [Sorting responses](sorting.md)
 + [Response types](response-types.md)
-+ [Submitting feedback](submitting-feedback.md)

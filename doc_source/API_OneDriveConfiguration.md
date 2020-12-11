@@ -8,6 +8,11 @@ Provides configuration information for data sources that connect to OneDrive\.
 
 ## Contents<a name="API_OneDriveConfiguration_Contents"></a>
 
+ **DisableLocalGroups**   <a name="Kendra-Type-OneDriveConfiguration-DisableLocalGroups"></a>
+A Boolean value that specifies whether local groups are disabled \(`True`\) or enabled \(`False`\)\.   
+Type: Boolean  
+Required: No
+
  **ExclusionPatterns**   <a name="Kendra-Type-OneDriveConfiguration-ExclusionPatterns"></a>
 List of regular expressions applied to documents\. Items that match the exclusion pattern are not indexed\. If you provide both an inclusion pattern and an exclusion pattern, any item that matches the exclusion pattern isn't indexed\.   
 The exclusion pattern is applied to the file name\.  
@@ -43,7 +48,7 @@ Pattern: `arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{
 Required: Yes
 
  **TenantDomain**   <a name="Kendra-Type-OneDriveConfiguration-TenantDomain"></a>
-Tha Azure Active Directory domain of the organization\.   
+The Azure Active Directory domain of the organization\.   
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 256\.  
 Pattern: `^([a-zA-Z0-9]+(-[a-zA-Z0-9]+)*\.)+[a-z]{2,}$`   

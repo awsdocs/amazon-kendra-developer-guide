@@ -6,7 +6,11 @@
 
 A *data source* is a location, such as an Amazon Simple Storage Service \(Amazon S3\) bucket, where you store the documents for indexing\. Data sources can be automatically synchronized with an Amazon Kendra index so that new, updated, or deleted documents in the source repositories are included in searches\. Supported data sources are:
 + Amazon S3 buckets
++ Confluence instances
++ Google Workspace Drives
 + Amazon RDS for MySQL and Amazon RDS for PostgreSQL databases
++ Confluence cloud and Confluence server
++ Custom data sources
 + Microsoft OneDrive for Business
 + Microsoft SharePoint Online
 + Salesforce sites

@@ -76,7 +76,25 @@ Required: Yes
       "KmsKeyId": "string"
    },
    "Status": "string",
-   "UpdatedAt": number
+   "UpdatedAt": number,
+   "UserContextPolicy": "string",
+   "UserTokenConfigurations": [ 
+      { 
+         "JsonTokenTypeConfiguration": { 
+            "GroupAttributeField": "string",
+            "UserNameAttributeField": "string"
+         },
+         "JwtTokenTypeConfiguration": { 
+            "ClaimRegex": "string",
+            "GroupAttributeField": "string",
+            "Issuer": "string",
+            "KeyLocation": "string",
+            "SecretManagerArn": "string",
+            "URL": "string",
+            "UserNameAttributeField": "string"
+         }
+      }
+   ]
 }
 ```
 
@@ -150,6 +168,16 @@ Valid Values:` CREATING | ACTIVE | DELETING | FAILED | UPDATING | SYSTEM_UPDATIN
  ** [UpdatedAt](#API_DescribeIndex_ResponseSyntax) **   <a name="Kendra-DescribeIndex-response-UpdatedAt"></a>
 The Unix datetime that the index was last updated\.  
 Type: Timestamp
+
+ ** [UserContextPolicy](#API_DescribeIndex_ResponseSyntax) **   <a name="Kendra-DescribeIndex-response-UserContextPolicy"></a>
+The user context policy for the Amazon Kendra index\.  
+Type: String  
+Valid Values:` ATTRIBUTE_FILTER | USER_TOKEN` 
+
+ ** [UserTokenConfigurations](#API_DescribeIndex_ResponseSyntax) **   <a name="Kendra-DescribeIndex-response-UserTokenConfigurations"></a>
+The user token configuration for the Amazon Kendra index\.  
+Type: Array of [UserTokenConfiguration](API_UserTokenConfiguration.md) objects  
+Array Members: Maximum number of 1 item\.
 
 ## Errors<a name="API_DescribeIndex_Errors"></a>
 

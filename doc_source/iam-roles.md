@@ -59,6 +59,70 @@ A role policy to enable Amazon Kendra to access a CloudWatch log\.
 }
 ```
 
+A role policy to enable Amazon Kendra to access AWS Secrets Manager\. If you are using user context with Secrets Manager as a key location, you can use the following policy\. 
+
+```
+{
+   "Version":"2012-10-17",
+   "Statement":[
+      {
+         "Effect":"Allow",
+         "Action":"cloudwatch:PutMetricData",
+         "Resource":"*",
+         "Condition":{
+            "StringEquals":{
+               "cloudwatch:namespace":"Kendra"
+            }
+         }
+      },
+      {
+         "Effect":"Allow",
+         "Action":"logs:DescribeLogGroups",
+         "Resource":"*"
+      },
+      {
+         "Effect":"Allow",
+         "Action":"logs:CreateLogGroup",
+         "Resource":"arn:aws:logs:region:account ID:log-group:/aws/kendra/*"
+      },
+      {
+         "Effect":"Allow",
+         "Action":[
+            "logs:DescribeLogStreams",
+            "logs:CreateLogStream",
+            "logs:PutLogEvents"
+         ],
+         "Resource":"arn:aws:logs:region:account ID:log-group:/aws/kendra/*:log-stream:*"
+      },
+      {
+         "Effect":"Allow",
+         "Action":[
+            "secretsmanager:GetSecretValue"
+         ],
+         "Resource":[
+            "arn:aws:secretsmanager:region:account ID:secret:secret_id"
+         ]
+      },
+      {
+         "Effect":"Allow",
+         "Action":[
+            "kms:Decrypt"
+         ],
+         "Resource":[
+            "arn:aws:kms:region:account ID:key/key_id"
+         ],
+         "Condition":{
+            "StringLike":{
+               "kms:ViaService":[
+                  "secretsmanager.*.amazonaws.com"
+               ]
+            }
+         }
+      }
+   ]
+}
+```
+
 A trust policy to enable Amazon Kendra to assume a role\.
 
 ```
@@ -140,6 +204,7 @@ When you use the [CreateDataSource](API_CreateDataSource.md) operation, you must
 + [IAM roles for Amazon S3 data sources](#iam-roles-ds-s3)
 + [IAM role for Confluence server data sources](#iam-roles-ds-cnf)
 + [IAM roles for database data sources](#iam-roles-ds-jdbc)
++ [IAM roles for Google Workspace Drive data sources](#iam-roles-ds-gd)
 + [IAM roles for Microsoft OneDrive data sources](#iam-roles-ds-on)
 + [IAM role for Salesforce data sources](#iam-roles-ds-sf)
 + [IAM role for ServiceNow data sources](#iam-roles-ds-sn)
@@ -337,6 +402,54 @@ If you have encrypted the Amazon S3 bucket that contains the SSL certificate use
 ```
 
 If you are using a VPC, provide a policy that gives Amazon Kendra access to the required resources\. See [Virtual private cloud \(VPC\) IAM role](#iam-roles-vpc) for the required policy\.
+
+### IAM roles for Google Workspace Drive data sources<a name="iam-roles-ds-gd"></a>
+
+When you use a Google Workspace Drive data source, you provide Amazon Kendra with a role that has the permissions necessary for connecting to the site\. These include: 
++ Permission to get and decrypt the AWS Secrets Manager secret that contains the client account email, admin account email, and private key necessary to connect to the Google Drive site\. For more information about the contents of the secret, see [Using a Google Workspace Drive data source](data-source-google-drive.md)\.
++ Permission to use the [BatchPutDocument](API_BatchPutDocument.md) and [BatchDeleteDocument](API_BatchDeleteDocument.md) operations\.
+
+The following IAM policy provides the necessary permissions:
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+  {
+    "Effect": "Allow",
+    "Action": [
+      "secretsmanager:GetSecretValue"
+    ],
+    "Resource": [
+      "arn:aws:secretsmanager:region:account ID:secret:secret ID"
+    ]
+  },
+  {
+    "Effect": "Allow",
+    "Action": [
+      "kms:Decrypt"
+    ],
+    "Resource": [
+      "arn:aws:kms:region:account ID:key/key ID"
+    ],
+    "Condition": {
+      "StringLike": {
+        "kms:ViaService": [
+          "secretsmanager.*.amazonaws.com"
+        ]
+      }
+    }
+  },
+  {
+    "Effect": "Allow",
+    "Action": [
+      "kendra:BatchPutDocument",
+      "kendra:BatchDeleteDocument"
+    ],
+    "Resource": "arn:aws:kendra:region:account ID:index/index ID"
+  }]
+}
+```
 
 ### IAM roles for Microsoft OneDrive data sources<a name="iam-roles-ds-on"></a>
 

@@ -36,7 +36,7 @@ Required: No
  **Type**   <a name="Kendra-Type-DataSourceSummary-Type"></a>
 The type of the data source\.  
 Type: String  
-Valid Values:` S3 | SHAREPOINT | DATABASE | SALESFORCE | ONEDRIVE | SERVICENOW | CUSTOM | CONFLUENCE`   
+Valid Values:` S3 | SHAREPOINT | DATABASE | SALESFORCE | ONEDRIVE | SERVICENOW | CUSTOM | CONFLUENCE | GOOGLEDRIVE`   
 Required: No
 
  **UpdatedAt**   <a name="Kendra-Type-DataSourceSummary-UpdatedAt"></a>

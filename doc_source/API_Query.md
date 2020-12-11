@@ -107,7 +107,11 @@ Each query returns the 100 most relevant results\.
    "SortingConfiguration": { 
       "DocumentAttributeKey": "string",
       "SortOrder": "string"
-   }
+   },
+   "UserContext": { 
+      "Token": "string"
+   },
+   "VisitorId": "string"
 }
 ```
 
@@ -170,6 +174,18 @@ Required: No
 Provides information that determines how the results of the query are sorted\. You can set the field that Amazon Kendra should sort the results on, and specify whether the results should be sorted in ascending or descending order\. In the case of ties in sorting the results, the results are sorted by relevance\.  
 If you don't provide sorting configuration, the results are sorted by the relevance that Amazon Kendra determines for the result\.  
 Type: [SortingConfiguration](API_SortingConfiguration.md) object  
+Required: No
+
+ ** [UserContext](#API_Query_RequestSyntax) **   <a name="Kendra-Query-request-UserContext"></a>
+The user context token\.  
+Type: [UserContext](API_UserContext.md) object  
+Required: No
+
+ ** [VisitorId](#API_Query_RequestSyntax) **   <a name="Kendra-Query-request-VisitorId"></a>
+Provides an identifier for a specific user\. The `VisitorId` should be a unique identifier, such as a GUID\. Don't use personally identifiable information, such as the user's email address, as the `VisitorId`\.  
+Type: String  
+Length Constraints: Minimum length of 1\. Maximum length of 256\.  
+Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`   
 Required: No
 
 ## Response Syntax<a name="API_Query_ResponseSyntax"></a>
@@ -247,6 +263,7 @@ Required: No
             "Text": "string"
          },
          "DocumentURI": "string",
+         "FeedbackToken": "string",
          "Id": "string",
          "ScoreAttributes": { 
             "ScoreConfidence": "string"

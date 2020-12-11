@@ -125,7 +125,23 @@ Required: Yes
             "SubnetIds": [ "string" ]
          }
       },
+      "GoogleDriveConfiguration": { 
+         "ExcludeMimeTypes": [ "string" ],
+         "ExcludeSharedDrives": [ "string" ],
+         "ExcludeUserAccounts": [ "string" ],
+         "ExclusionPatterns": [ "string" ],
+         "FieldMappings": [ 
+            { 
+               "DataSourceFieldName": "string",
+               "DateFieldFormat": "string",
+               "IndexFieldName": "string"
+            }
+         ],
+         "InclusionPatterns": [ "string" ],
+         "SecretArn": "string"
+      },
       "OneDriveConfiguration": { 
+         "DisableLocalGroups": boolean,
          "ExclusionPatterns": [ "string" ],
          "FieldMappings": [ 
             { 
@@ -263,6 +279,7 @@ Required: Yes
       },
       "SharePointConfiguration": { 
          "CrawlAttachments": boolean,
+         "DisableLocalGroups": boolean,
          "DocumentTitleFieldName": "string",
          "ExclusionPatterns": [ "string" ],
          "FieldMappings": [ 
@@ -359,7 +376,7 @@ Valid Values:` CREATING | DELETING | FAILED | UPDATING | ACTIVE`
  ** [Type](#API_DescribeDataSource_ResponseSyntax) **   <a name="Kendra-DescribeDataSource-response-Type"></a>
 The type of the data source\.  
 Type: String  
-Valid Values:` S3 | SHAREPOINT | DATABASE | SALESFORCE | ONEDRIVE | SERVICENOW | CUSTOM | CONFLUENCE` 
+Valid Values:` S3 | SHAREPOINT | DATABASE | SALESFORCE | ONEDRIVE | SERVICENOW | CUSTOM | CONFLUENCE | GOOGLEDRIVE` 
 
  ** [UpdatedAt](#API_DescribeDataSource_ResponseSyntax) **   <a name="Kendra-DescribeDataSource-response-UpdatedAt"></a>
 The Unix timestamp of when the data source was last updated\.  

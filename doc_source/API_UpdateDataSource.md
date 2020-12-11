@@ -96,7 +96,23 @@ Updates an existing Amazon Kendra data source\.
             "SubnetIds": [ "string" ]
          }
       },
+      "GoogleDriveConfiguration": { 
+         "ExcludeMimeTypes": [ "string" ],
+         "ExcludeSharedDrives": [ "string" ],
+         "ExcludeUserAccounts": [ "string" ],
+         "ExclusionPatterns": [ "string" ],
+         "FieldMappings": [ 
+            { 
+               "DataSourceFieldName": "string",
+               "DateFieldFormat": "string",
+               "IndexFieldName": "string"
+            }
+         ],
+         "InclusionPatterns": [ "string" ],
+         "SecretArn": "string"
+      },
       "OneDriveConfiguration": { 
+         "DisableLocalGroups": boolean,
          "ExclusionPatterns": [ "string" ],
          "FieldMappings": [ 
             { 
@@ -234,6 +250,7 @@ Updates an existing Amazon Kendra data source\.
       },
       "SharePointConfiguration": { 
          "CrawlAttachments": boolean,
+         "DisableLocalGroups": boolean,
          "DocumentTitleFieldName": "string",
          "ExclusionPatterns": [ "string" ],
          "FieldMappings": [ 

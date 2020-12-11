@@ -25,5 +25,9 @@ Service quotas, also referred to as limits, are the maximum number of service re
 | Maximum user group list size per query attribute | 10 | Yes | 
 | Maximum string list size per query attribute | 10 | Yes | 
 | Maximum number of FAQs per index | 30 | Yes | 
+| The maximum number of thesauri per index\. | 1 | No | 
+| The maximum thesaurus file size in MB\. | 5 | Yes | 
+| The maximum number of synonym rules per thesaurus\. | 10000 | Yes | 
+| The maximum number of synonyms per term in all thesauri in a index\. | 10 | No | 
 
 For more information about Amazon Kendra service quotas and to request a quota increase, see [Service Quotas](https://console.aws.amazon.com/servicequotas/)\.

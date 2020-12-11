@@ -7,7 +7,9 @@
 When the source of your data is a data source other than Amazon Simple Storage Service \(Amazon S3\), you can map data source fields to fields in your index\. For example, if you have a field that contains department information for a document, you can map it to an index field called "Department" so that you can use the field in queries\.
 
 You can create field mappings for the following data sources:
++ Confluence
 + Database
++ Google Workspace Drives
 + Microsoft OneDrive
 + Microsoft SharePoint
 + Salesforce

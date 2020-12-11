@@ -2,130 +2,56 @@
 
 --------
 
-# Submitting feedback<a name="submitting-feedback"></a>
+# Submitting feedback for incremental learning<a name="submitting-feedback"></a>
 
-You can provide feedback about query results returned from an Amazon Kendra index\. Amazon Kendra uses this information to improve the underlying search model and provide better search results over time\. To submit feedback, you use the [SubmitFeedback](API_SubmitFeedback.md) operation\. To identify the query, you supply the `IndexID` of the index that the query applies to, and the `QueryId` returned in the response from the [Query](API_Query.md) operation\. Two types of feedback are accepted\.
-+ **Clicks**  \- Information about which query results were chosen by the end user\. The feedback includes the result ID \(ResultId\) and the Unix timestamp of the date and time that the search result was chosen\. Your application needs to collect click information from the activities of your end users\.
-+ **Relevance**  \- Information about the relevance of a search result\. This is typically information provided by the end user\. The feedback contains the result ID and a relevance indicator \(`RELEVANT` or `NOT_RELEVANT`\)\. Relevance information is determined by your end user\. To submit relevance feedback, your application must provide a feedback mechanism that allows the end user to choose the appropriate relevance for a query result\.
+Amazon Kendra uses incremental learning to improve search results\. Using feedback from queries, incremental learning improves the ranking algorithms and optimizes search results for greater accuracy\. 
 
-The following example shows how to submit click and relevance feedback\. You can submit multiple sets of feedback through the `ClickFeedbackItems` and `RelevanceFeedbackItems` arrays\. This example submits a single click and a single relevance feedback item\. The current timestamp is used for the timing of the feedback submittal\.
+For example, suppose that your users search for the phrase "health care benefits\." If users consistently choose the second result from the list, over time Amazon Kendra boosts that result to the first place result\. The boost decreases over time, so if users stop selecting a result, Amazon Kendra eventually removes it and shows another more popular result instead\. This helps Amazon Kendra prioritize results based on relevance, age, and content\.
 
-**To submit feedback for a search \(AWS SDK\)**
+Incremental learning is enabled for all indexes\. Feedback only affects the `ANSWER` and `DOCUMENT` response types\. Documents with the `QUESTION_ANSWER` response type are not affected\. For more information, see [Response types ](response-types.md)\.
 
-1. Use the following code and change the following values:
+Amazon Kendra starts learning as soon as you provide feedback, though it can take over 24 hours to see the results of the feedback\. Amazon Kendra provides three methods for you to submit feedback: the AWS console, a JavaScript library that you can include on your search results page, and an API that you can use\.
 
-   1. `index id`  \- Change to the ID of the index that the query applies to\.
+Amazon Kendra accepts two types of user feedback:
++ **Clicks** \- Information about which query results the user chose\. The feedback includes the result ID and the Unix timestamp of the date and time that the search result was chosen\. 
 
-   1. `query id` \- Change to the query that you want to provide feedback on\.
+  To submit click feedback, your application must collect click information from the activities of your users, and then submit that information to Amazon Kendra\. You can collect click information with the console, the JavaScript library, and the Amazon Kendra API\.
++ **Relevance** \- Information about the relevance of a search result, which the user typically provides\. The feedback contains the result ID and a relevance indicator \(`RELEVANT` or `NOT_RELEVANT`\)\. The user determines the relevance information\. 
 
-   1. `result id` \- Change to the ID of the query result that you want to provide feedback on\. The result ID is returned in the query response\.
+  To submit relevance feedback, your application must provide a feedback mechanism that enables the user to choose the appropriate relevance for a query result, and then submit that information to Amazon Kendra\. You can only collect relevance information with the console and the Amazon Kendra API\.
 
-   1. `relevance value` \- Change to either `RELEVANT` \(the query result is relevant\) or `NOT_RELEVANT` \(the query result is not relevant\)\.
+Feedback is used while the index is active\. Feedback only affects the index that it is submitted to, it can't be used across indexes or for different accounts\.
 
-------
-#### [ Python ]
+You should provide additional user context when you query your Amazon Kendra index\. When you provide user context, Amazon Kendra is able to tell if the feedback is provided by a single user or by multiple users and adjust search results accordingly\.
 
-   ```
-   import boto3
-   import time
-   
-   kendra = boto3.client('kendra')
-   
-   index_id = '${indexID}'
-   query_id = '${queryID}'
-   result_id = '${resultID}'
-   feedback_item = {'ClickTime': int(time.time()),
-       'ResultId':result_id}
-   
-   
-   relevance_value = 'RELEVANT'
-   relevance_item = {'RelevanceValue': relevance_value,
-       'ResultId':result_id
-       }
-   
-   response=kendra.submit_feedback(
-       QueryId = query_id,
-       IndexId = index_id,
-       ClickFeedbackItems = [feedback_item],
-       RelevanceFeedbackItems = [relevance_item]
-   )
-   
-   
-   print ('Submitted feedback for query: ' + query_id)
-   ```
+When you provide user context, the feedback for the query is associated with the specific user provided in the context\. If you don't specify user context, you can provide a visitor ID that is used to group and aggregate queries\. 
 
-------
-#### [ Java ]
+If you don't provide user context or a visitor ID, the feedback is anonymous and aggregated with other anonymous feedback\.
 
-   ```
-   package com.amazonaws.kendra;
-   
-   import java.time.Instant;
-   import software.amazon.awssdk.services.kendra.KendraClient;
-   import software.amazon.awssdk.services.kendra.model.ClickFeedback;
-   import software.amazon.awssdk.services.kendra.model.RelevanceFeedback;
-   import software.amazon.awssdk.services.kendra.model.RelevanceType;
-   import software.amazon.awssdk.services.kendra.model.SubmitFeedbackRequest;
-   import software.amazon.awssdk.services.kendra.model.SubmitFeedbackResponse;
-   
-   public class SubmitFeedbackExample {
-       public static void main(String[] args) {
-           KendraClient kendra = KendraClient.builder().build();
-   
-           SubmitFeedbackRequest submitFeedbackRequest = SubmitFeedbackRequest
-               .builder()
-               .indexId("anIndexId")
-               .queryId("aQueryId")
-               .clickFeedbackItems(
-                   ClickFeedback
-                   .builder()
-                   .clickTime(Instant.now())
-                   .resultId("aResultId")
-                   .build())
-               .relevanceFeedbackItems(
-                   RelevanceFeedback
-                   .builder()
-                   .relevanceValue(RelevanceType.RELEVANT)
-                   .resultId("aResultId")
-                   .build())
-               .build();
-   
-           SubmitFeedbackResponse response = kendra.submitFeedback(submitFeedbackRequest);
-   
-           System.out.println("Feedback is submitted");
-       }
-   }
-   ```
+The following code shows how to include user context as a token or the visitor ID\.
 
-------
+```
+response = kendra.query(
+    QueryText = query,
+    IndexId = index,
+    UserToken = {
+        Token = "token"
+    })
+    
+    OR
+    
+    response = kendra.query(
+    QueryText = query,
+    IndexId = index,
+    VisitorId = "visitor-id")
+```
 
-   ```
-   import boto3
-   import time
-   
-   kendra = boto3.client('kendra')
-   
-   index_id = '${indexID}'
-   query_id = '${queryID}'
-   result_id = '${resultID}'
-   feedback_item = {'ClickTime': int(time.time()),
-       'ResultId':result_id}
-   
-   
-   relevance_value = 'RELEVANT'
-   relevance_item = {'RelevanceValue': relevance_value,
-       'ResultId':result_id
-       }
-   
-   response=kendra.submit_feedback(
-       QueryId = query_id,
-       IndexId = index_id,
-       ClickFeedbackItems = [feedback_item],
-       RelevanceFeedbackItems = [relevance_item]
-   )
-   
-   
-   print ('Submitted feedback for query: ' + query_id)
-   ```
+For web applications, you can use cookies, locations, or browser users to generate a visitor ID for each user\.
 
-1. Run the code\. After the feedback has been submitted, a message is displayed\.
+For head queries, the largest volume of queries, providing click\-through feedback provides enough information to improve overall accuracy\. For tail queries, those that are rare, subject matter experts should submit relevant and non\-relevant feedback to improve accuracy for those queries\.
+
+In addition to the console, you can use one of two methods: a JavaScript library or the [SubmitFeedback](API_SubmitFeedback.md) operation\. You should only use one method of gathering feedback\. For best results, you should submit feedback within 24 hours of making the query\.
+
+**Topics**
++ [Using the Amazon Kendra JavaScript library to submit feedback](feedback-javascript.md)
++ [Using the Amazon Kendra API to submit feedback](feedback-api.md)

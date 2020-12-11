@@ -17,6 +17,7 @@ Amazon Kendra has the following benefits:
 + **Accuracy** — Unlike traditional search services that use keyword searches where results are based on basic keyword matching and ranking, Amazon Kendra attempts to understand the content, the user context, and the question\. Amazon Kendra searches across your data and goes beyond traditional search to return the most relevant word, snippet, or document for your query\. Amazon Kendra uses machine learning to improve search results over time\. 
 + **Simplicity** — Amazon Kendra provides a console and API for managing the documents that you want to search\. You can use a simple search API to integrate Amazon Kendra into your client applications, such as websites or mobile applications\.
 + **Connectivity** — Amazon Kendra can connect to third\-party data sources to provide search across documents managed in different environments\.
++ **User Access Control** — Amazon Kendra delivers highly secure enterprise search for your search applications\. Your search results reflect the security model of your organization\. Customers are responsible for authenticating and authorizing users to gain access to their search application\. 
 
 ## Amazon Kendra Developer Edition<a name="akde"></a>
 
