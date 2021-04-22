@@ -38,7 +38,7 @@ The following snippet of Python code creates an S3 data source\. For the complet
     type = "S3"
     role_arn = "arn:aws:iam::${accountID}:role/${roleName}"
 
-    configuration = {"S3DataSourceConfiguration":
+    configuration = {"S3Configuration":
         {
             "BucketName": s3_bucket_name
         }
