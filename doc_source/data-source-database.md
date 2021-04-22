@@ -22,6 +22,9 @@ To use a database data source, you need to identify the following:
 
 Database configuration provides the information required to connect to your database server\. The host and port tell Amazon Kendra where to find the database server on the internet\. The database name and table name tell Amazon Kendra where to find the document data on the database server\.
 
+**Note**  
+The tables and views should be created inside public schema\. Right now any other schema won't work\.
+
 To enable Amazon Kendra to access your documents, you must specify a user that has read access to the table that contains the documents\. Amazon Kendra requires credentials for the user to access the database\. You provide these credentials using AWS Secrets Manager\. Once you have created the secret, you provide the Amazon Resource Name \(ARN\) of the secret to Amazon Kendra\. The secret must contain the user name and password that Amazon Kendra uses to access the database in a JSON structure\. The secret may contain additional information, but Amazon Kendra uses only the user name and password\. The following is the minimum JSON structure that must be in the secret:
 
 ```
