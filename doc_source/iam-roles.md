@@ -15,6 +15,7 @@ The following topics provide details for the required policies\. If you create I
 + [IAM Roles for the BatchPutDocument operation](#iam-roles-batch)
 + [IAM roles for data sources](#iam-roles-ds)
 + [IAM roles for frequently asked questions](#iam-roles-ds-faq)
++ [IAM roles for query suggestions](#iam-roles-query-suggestions)
 
 ## IAM roles for indexes<a name="iam-roles-index"></a>
 
@@ -275,7 +276,7 @@ An optional role policy to enable Amazon Kendra to use an AWS KMS customer maste
 ### IAM role for Confluence server data sources<a name="iam-roles-ds-cnf"></a>
 
 When you use a Confluence server as a data source, you provide a role with the following policies:
-+ Permission to access the AWS Secrets Manager secret that contains the credentials necessary to connect to the Confluence server\. For more information about the contents of the secret, see [Using a Confluence data source](data-source-confluence.md)\.
++ Permission to access the AWS Secrets Manager secret that contains the credentials necessary to connect to the Confluence server\. For more information about the contents of the secret, see [Using an Atlassian Confluence data source](data-source-confluence.md)\.
 + Permission to use the AWS KMS customer master key \(CMK\) to decrypt the user name and password secret stored by Secrets Manager\.
 + Permission to use the `BatchPutDocument` and `BatchDeleteDocument` operations to update the index\.
 
@@ -845,6 +846,62 @@ An optional role policy to enable Amazon Kendra to use an AWS KMS customer maste
                     ]
                 }
             }
+        }
+    ]
+}
+```
+
+## IAM roles for query suggestions<a name="iam-roles-query-suggestions"></a>
+
+When you use an Amazon S3 file as a query suggestions block list, you supply a role that has permission to access the Amazon S3 bucket bucket and the S3 file\. If the block list text file \(i\.e\. the S3 file\) in the S3 bucket is encrypted, you must provide permission to use the AWS KMS customer master key \(CMK\) to decrypt the documents\.
+
+A required role policy to enable Amazon Kendra to use the Amazon S3 file as query suggestions block list\.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {"Effect": "Allow",
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::bucket name/*"
+            ]
+        }
+    ]
+}
+```
+
+A required trust policy to enable Amazon Kendra to assume a role\.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": {
+        "Sid": "AllowKendraToAssumeAttachedRole",
+        "Effect": "Allow",
+        "Principal": {
+            "Service": "kendra.amazonaws.com"
+        },
+        "Action": "sts:AssumeRole"
+    }
+}
+```
+
+An optional role policy to enable Amazon Kendra to use an AWS KMS customer master key \(CMK\) to decrypt documents in an Amazon S3 bucket\.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {"Effect": "Allow",
+            "Action": [
+                "kms:Decrypt"
+            ],
+            "Resource": [
+                "arn:aws:kms:region:account ID:key/key ID"
+            ]
         }
     ]
 }

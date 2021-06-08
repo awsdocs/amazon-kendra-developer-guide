@@ -4,9 +4,9 @@
 
 # BatchDeleteDocument<a name="API_BatchDeleteDocument"></a>
 
-Removes one or more documents from an index\. The documents must have been added with the [BatchPutDocument](API_BatchPutDocument.md) operation\.
+Removes one or more documents from an index\. The documents must have been added with the `BatchPutDocument` operation\.
 
-The documents are deleted asynchronously\. You can see the progress of the deletion by using AWS CloudWatch\. Any error messages releated to the processing of the batch are sent to you CloudWatch log\.
+The documents are deleted asynchronously\. You can see the progress of the deletion by using AWS CloudWatch\. Any error messages related to the processing of the batch are sent to you CloudWatch log\.
 
 ## Request Syntax<a name="API_BatchDeleteDocument_RequestSyntax"></a>
 
@@ -75,21 +75,27 @@ Type: Array of [BatchDeleteDocumentResponseFailedDocument](API_BatchDeleteDocume
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
  **AccessDeniedException**   
+  
 HTTP Status Code: 400
 
  **ConflictException**   
+  
 HTTP Status Code: 400
 
  **InternalServerException**   
+  
 HTTP Status Code: 500
 
  **ResourceNotFoundException**   
+  
 HTTP Status Code: 400
 
  **ThrottlingException**   
+  
 HTTP Status Code: 400
 
  **ValidationException**   
+  
 HTTP Status Code: 400
 
 ## See Also<a name="API_BatchDeleteDocument_SeeAlso"></a>
@@ -99,7 +105,7 @@ For more information about using this API in one of the language\-specific AWS S
 +  [AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/kendra-2019-02-03/BatchDeleteDocument) 
 +  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/BatchDeleteDocument) 
 +  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/BatchDeleteDocument) 
-+  [AWS SDK for Java](https://docs.aws.amazon.com/goto/SdkForJava/kendra-2019-02-03/BatchDeleteDocument) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/BatchDeleteDocument) 
 +  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/kendra-2019-02-03/BatchDeleteDocument) 
 +  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/kendra-2019-02-03/BatchDeleteDocument) 
 +  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/kendra-2019-02-03/BatchDeleteDocument) 

@@ -67,7 +67,7 @@ For information about the parameters that are common to all actions, see [Common
 The request accepts the following data in JSON format\.
 
  ** [CapacityUnits](#API_UpdateIndex_RequestSyntax) **   <a name="Kendra-UpdateIndex-request-CapacityUnits"></a>
-Sets the number of addtional storage and query capacity units that should be used by the index\. You can change the capacity of the index up to 5 times per day\.  
+Sets the number of additional storage and query capacity units that should be used by the index\. You can change the capacity of the index up to 5 times per day\.  
 If you are using extra storage units, you can't reduce the storage capacity below that required to meet the storage needs for your index\.  
 Type: [CapacityUnitsConfiguration](API_CapacityUnitsConfiguration.md) object  
 Required: No
@@ -127,24 +127,31 @@ If the action is successful, the service sends back an HTTP 200 response with an
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
  **AccessDeniedException**   
+  
 HTTP Status Code: 400
 
  **ConflictException**   
+  
 HTTP Status Code: 400
 
  **InternalServerException**   
+  
 HTTP Status Code: 500
 
  **ResourceNotFoundException**   
+  
 HTTP Status Code: 400
 
  **ServiceQuotaExceededException**   
+  
 HTTP Status Code: 400
 
  **ThrottlingException**   
+  
 HTTP Status Code: 400
 
  **ValidationException**   
+  
 HTTP Status Code: 400
 
 ## See Also<a name="API_UpdateIndex_SeeAlso"></a>
@@ -154,7 +161,7 @@ For more information about using this API in one of the language\-specific AWS S
 +  [AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/kendra-2019-02-03/UpdateIndex) 
 +  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/UpdateIndex) 
 +  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/UpdateIndex) 
-+  [AWS SDK for Java](https://docs.aws.amazon.com/goto/SdkForJava/kendra-2019-02-03/UpdateIndex) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/UpdateIndex) 
 +  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/kendra-2019-02-03/UpdateIndex) 
 +  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/kendra-2019-02-03/UpdateIndex) 
 +  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/kendra-2019-02-03/UpdateIndex) 

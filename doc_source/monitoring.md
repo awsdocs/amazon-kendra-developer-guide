@@ -4,6 +4,8 @@
 
 # Monitoring and logging for Amazon Kendra<a name="monitoring"></a>
 
+
+
 **Topics**
 + [Monitoring your index \(Console\)](monitoring-runsync.md)
 + [Logging Amazon Kendra API calls with AWS CloudTrail logs](cloudtrail.md)

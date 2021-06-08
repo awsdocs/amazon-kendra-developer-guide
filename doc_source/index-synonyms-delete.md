@@ -27,3 +27,57 @@ aws kendra create-thesaurus \
 ```
 
 ------
+#### [ Python ]
+
+```
+import boto3
+from botocore.exceptions import ClientError
+
+kendra = boto3.client("kendra")
+
+print("Delete a thesaurus")
+
+thesaurus_id = "thesaurus-id"
+index_id = "index-id"
+
+try:
+    kendra.delete_thesaurus(
+        Id = thesaurus_id,
+        IndexId = index_id
+    )
+
+except ClientError as e:
+        print("%s" % e)
+
+print("Program ends.")
+```
+
+------
+#### [ Java ]
+
+```
+package com.amazonaws.kendra;
+
+import software.amazon.awssdk.services.kendra.KendraClient;
+import software.amazon.awssdk.services.kendra.model.DeleteThesaurusRequest;
+
+public class DeleteThesaurusExample {
+
+  public static void main(String[] args) throws InterruptedException {
+
+    KendraClient kendra = KendraClient.builder().build();
+
+    String thesaurusId = "thesaurus-id";
+    String indexId = "index-id";
+
+    DeleteThesaurusRequest updateThesaurusRequest = DeleteThesaurusRequest
+        .builder()
+        .id(thesaurusId)
+        .indexId(indexId)
+        .build();
+    kendra.deleteThesaurus(updateThesaurusRequest);
+  }
+}
+```
+
+------

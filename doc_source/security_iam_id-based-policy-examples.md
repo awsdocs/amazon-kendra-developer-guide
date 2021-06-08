@@ -14,7 +14,6 @@ To learn how to create an IAM identity\-based policy using these example JSON po
 + [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions)
 + [Accessing one Amazon Kendra index](#security_iam_id-based-policy-examples-access-query-index)
 + [Tag\-based policy examples](#examples-tagging)
-+ [Troubleshooting Amazon Kendra Identity and Access](security_iam_troubleshoot.md)
 
 ## Policy best practices<a name="security_iam_service-with-iam-policy-best-practices"></a>
 

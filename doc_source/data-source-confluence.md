@@ -2,9 +2,9 @@
 
 --------
 
-# Using a Confluence data source<a name="data-source-confluence"></a>
+# Using an Atlassian Confluence data source<a name="data-source-confluence"></a>
 
-You can use Amazon Kendra to index blogs, pages, and attachments to either that are hosted on a Confluence cloud or Confluence server instance\. By default, Amazon Kendra indexes regular spaces, you can configure Amazon Kendra to index personal and archived spaces\. To exclude or include specific blogs, pages, and spaces from indexing, you use a list\. 
+You can use Amazon Kendra to index blogs, pages, and attachments to either blogs and pages that are hosted on an Atlassian Confluence cloud or Atlassian Confluence server instance\. By default, Amazon Kendra indexes regular spaces, you can configure Amazon Kendra to index personal and archived spaces\. To exclude or include specific blogs, pages, and spaces from indexing, you use a list\. 
 
 Amazon Kendra indexes pages and blogs by default\. You can restrict the pages and blogs that are crawled using inclusion and exclusion patterns\. When you use an inclusion pattern, only those pages and blogs that match the inclusion pattern are indexed\. If you specify an exclusion pattern, pages that match the pattern are not indexed\.
 
@@ -27,7 +27,7 @@ The credentials are stored as a JSON string in the Secrets Manager secret\.
 }
 ```
 
-For Confluence cloud, you must generate an API token \. For more information, see [API tokens](https://confluence.atlassian.com/cloud/api-tokens-938839638.html) on the Atlassian website\.
+For Atlassian Confluence cloud, you must generate an API token \. For more information, see [API tokens](https://confluence.atlassian.com/cloud/api-tokens-938839638.html) on the Atlassian website\.
 
 The data source IAM role must have permission to access the secret and the AWS Key Management Service key used to decrypt it\. For more information see [IAM role for Confluence server data sources](iam-roles.md#iam-roles-ds-cnf)\.
 

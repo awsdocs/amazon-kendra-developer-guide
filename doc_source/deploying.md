@@ -4,11 +4,13 @@
 
 # Deploying Amazon Kendra<a name="deploying"></a>
 
-When it comes time to deploy Amazon Kendra search to your Web site, we provide source code that you can use with React to get a head start on your application\. The source code is provided free of charge under a modified MIT license so that you can use it as is or change it for your own needs\. You can download the sample from [https://kendrasamples\.s3\.amazonaws\.com/kendrasamples\.zip](https://kendrasamples.s3.amazonaws.com/kendrasamples.zip)\.
+When it comes time to deploy Amazon Kendra search to your Web site, we provide source code that you can use with React to get a head start on your application\. The source code is provided free of charge under a modified MIT license so that you can use it as is or change it for your own needs\. There are two examples:
++ [https://kendrasamples\.s3\.amazonaws\.com/kendrasamples\-react\-app\.zip](https://kendrasamples.s3.amazonaws.com/kendrasamples-react-app.zip) – An example React application that provides sample data and a search page\.
++ [https://kendrasamples\.s3\.amazonaws\.com/kendrasamples\.zip](https://kendrasamples.s3.amazonaws.com/kendrasamples.zip) – A library that you can add to an existing React application\. 
 
-The example application is modeled after the search page of the Amazon Kendra console\. It has the same features for searching and displaying search results\. You can use the whole example application, or you can choose just one of the features for your own use\.
+The examples are modeled after the search page of the Amazon Kendra console\. They have the same features for searching and displaying search results\. You can use the whole example, or you can choose just one of the features for your own use\.
 
-To see the three components of the search page in the console, choose the code icon \(**</>**\) from the right menu\. Hover your pointer over each section to see a brief description of the component and to get the URL of the component's source\.
+To see the three components of the search page in the Amazon Kendra console, choose the code icon \(**</>**\) from the right menu\. Hover your pointer over each section to see a brief description of the component and to get the URL of the component's source\.
 
 **Topics**
 + [Overview](#example-overview)
@@ -32,27 +34,15 @@ You add the example code to an existing React application to enable search\. The
 ## Prerequisites<a name="example-prereqs"></a>
 
 Before you begin you need the following:
-+ An existing React Web application\.
++ An existing React Web application or the example application\.
 + A development environment configured with the correct libraries\.
 + The SDK for Java or AWS SDK for JavaScript\.
 
-Information about the required libraries and AWS SDKs is in the Readme file in the kendrasamples\.zip file\.
+Information about the required libraries and AWS SDKs is in the Readme file in the \.zip files\.
 
 ## Setting up the example<a name="example-install"></a>
 
-The following is an overview of adding Amazon Kendra search to a React page\.
-
-**To install the example application**
-
-1. Download the source files from the repository\. [https://kendrasamples\.s3\.amazonaws\.com/kendrasamples\.zip](https://kendrasamples.s3.amazonaws.com/kendrasamples.zip)
-
-1. Create a new Web page for search, or you can choose an existing page to add the search bar to\.
-
-1. Add the Search\.tsx component to the page\.
-
-1. Build the change into your package\.
-
-A complete procedure for adding Amazon Kendra search to a React application is in the Readme included in the kendrasamples\.zip file\.
+A complete procedure for adding Amazon Kendra search to a React application is in the Readme included in the example zip files\.
 
 ## Main search page<a name="main-component"></a>
 

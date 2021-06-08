@@ -13,6 +13,8 @@ For a list of AWS Regions where Amazon Kendra is available, see [ AWS Regions an
 Service quotas, also referred to as limits, are the maximum number of service resources for your AWS account\. For more information, see [AWS Service Quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) in the *AWS General Reference*\.
 
 
+
+
 | Description | Default | Adjustable | 
 | --- | --- | --- | 
 | Maximum number of indexes per account | 5 | Yes | 
@@ -24,10 +26,15 @@ Service quotas, also referred to as limits, are the maximum number of service re
 | Maximum amount of text extracted from a document | 5 MB | Yes | 
 | Maximum user group list size per query attribute | 10 | Yes | 
 | Maximum string list size per query attribute | 10 | Yes | 
+| Maximum number of custom attributes per index | 500 | No | 
 | Maximum number of FAQs per index | 30 | Yes | 
+| Maximum size of 1 FAQ | 1 MB | Yes | 
 | The maximum number of thesauri per index\. | 1 | No | 
 | The maximum thesaurus file size in MB\. | 5 | Yes | 
 | The maximum number of synonym rules per thesaurus\. | 10000 | Yes | 
 | The maximum number of synonyms per term in all thesauri in a index\. | 10 | No | 
+| The maximum number of block lists per index\. | 1 | No | 
+| The maximum size of a block list text file\. | 2 MB | Yes | 
+| The maximum number of items \(words or phrases\) in a block list\. | 20,000 | Yes | 
 
 For more information about Amazon Kendra service quotas and to request a quota increase, see [Service Quotas](https://console.aws.amazon.com/servicequotas/)\.

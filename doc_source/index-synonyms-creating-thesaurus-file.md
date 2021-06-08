@@ -12,14 +12,6 @@ There are two ways to specify synonym mappings:
 
 The following example shows a thesaurus file with synonyms for the sample AWS documentation for Amazon Kendra\. Each line contains a single synonym rule\. A synonym does not do an exact match on special characters\. For example, if you search for `dead-letter-queue`, Kendra matches documents with the phrase `dead letter queue`\. Blank lines and comments are ignored\. 
 
-Some rules are ignored, for example, `a => b` is a rule, but `a => a` is ignored and does not count as a rule\. 
-
-You can have a maximum of 10,000 synonym rules per thesaurus\. 
-
-The term count is the number of unique terms in the theaurus file\. This example has the following terms: `CodeStar`, `AWS CodeStar`, `autoscaling group`, `ASG`, `Auto Scaling group`, `DNS`, `Route53`, and `Route 53`\. You can have up to 10 synonyms per term\. 
-
-For more information about Amazon Kendra quotas, see [Quotas for Amazon Kendra](quotas.md)\. 
-
 ```
 # Lines starting with pound are comments and blank lines are ignored.
 

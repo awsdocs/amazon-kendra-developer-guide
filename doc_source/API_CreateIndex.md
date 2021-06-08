@@ -4,9 +4,9 @@
 
 # CreateIndex<a name="API_CreateIndex"></a>
 
-Creates a new Amazon Kendra index\. Index creation is an asynchronous operation\. To determine if index creation has completed, check the `Status` field returned from a call to [DescribeIndex](API_DescribeIndex.md)\. The `Status` field is set to `ACTIVE` when the index is ready to use\.
+Creates a new Amazon Kendra index\. Index creation is an asynchronous operation\. To determine if index creation has completed, check the `Status` field returned from a call to `DescribeIndex`\. The `Status` field is set to `ACTIVE` when the index is ready to use\.
 
-Once the index is active you can index your documents using the [BatchPutDocument](API_BatchPutDocument.md) operation or using one of the supported data sources\. 
+Once the index is active you can index your documents using the `BatchPutDocument` operation or using one of the supported data sources\. 
 
 ## Request Syntax<a name="API_CreateIndex_RequestSyntax"></a>
 
@@ -139,24 +139,31 @@ Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
  **AccessDeniedException**   
+  
 HTTP Status Code: 400
 
  **ConflictException**   
+  
 HTTP Status Code: 400
 
  **InternalServerException**   
+  
 HTTP Status Code: 500
 
  **ResourceAlreadyExistException**   
+  
 HTTP Status Code: 400
 
  **ServiceQuotaExceededException**   
+  
 HTTP Status Code: 400
 
  **ThrottlingException**   
+  
 HTTP Status Code: 400
 
  **ValidationException**   
+  
 HTTP Status Code: 400
 
 ## See Also<a name="API_CreateIndex_SeeAlso"></a>
@@ -166,7 +173,7 @@ For more information about using this API in one of the language\-specific AWS S
 +  [AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/kendra-2019-02-03/CreateIndex) 
 +  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/CreateIndex) 
 +  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/CreateIndex) 
-+  [AWS SDK for Java](https://docs.aws.amazon.com/goto/SdkForJava/kendra-2019-02-03/CreateIndex) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/CreateIndex) 
 +  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/kendra-2019-02-03/CreateIndex) 
 +  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/kendra-2019-02-03/CreateIndex) 
 +  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/kendra-2019-02-03/CreateIndex) 

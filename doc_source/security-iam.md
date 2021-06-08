@@ -12,6 +12,8 @@ AWS Identity and Access Management \(IAM\) is an AWS service that helps an admin
 + [Managing access using policies](#security_iam_access-manage)
 + [How Amazon Kendra works with IAM](security_iam_service-with-iam.md)
 + [Amazon Kendra Identity\-based policy examples](security_iam_id-based-policy-examples.md)
++ [AWS managed policies for Amazon Kendra](security-iam-awsmanpol.md)
++ [Troubleshooting Amazon Kendra Identity and Access](security_iam_troubleshoot.md)
 
 ## Audience<a name="security_iam_audience"></a>
 

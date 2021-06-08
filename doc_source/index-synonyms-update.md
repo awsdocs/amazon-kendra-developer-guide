@@ -55,3 +55,127 @@ aws kendra update-thesaurus \
 ```
 
 ------
+#### [ Python ]
+
+```
+import boto3
+from botocore.exceptions import ClientError
+import pprint
+import time
+
+kendra = boto3.client("kendra")
+
+print("Update a thesaurus")
+
+thesaurus_name = "thesaurus-name"
+thesaurus_description = "thesaurus-description"
+thesaurus_role_arn = "role-arn"
+
+thesaurus_id = "thesaurus-id"
+index_id = "index-id"
+
+s3_bucket_name = "bucket-name"
+s3_key = "thesaurus-file"
+source_s3_path= {
+    'Bucket': s3_bucket_name,
+    'Key': s3_key
+}
+
+try:
+    kendra.update_thesaurus(
+        Id = thesaurus_id,
+        IndexId = index_id,
+        Description = thesaurus_description,
+        Name = thesaurus_name,
+        RoleArn = thesaurus_role_arn,
+        SourceS3Path = source_s3_path
+    )
+    
+    print("Wait for Kendra to update the thesaurus.")
+
+    while True:
+        # Get thesaurus description
+        thesaurus_description = kendra.describe_thesaurus(
+            Id = thesaurus_id,
+            IndexId = index_id
+        )
+        # If status is not UPDATING quit
+        status = thesaurus_description["Status"]
+        print("Updating thesaurus. Status: " + status)
+        if status != "UPDATING":
+            break
+        time.sleep(60)
+
+except ClientError as e:
+        print("%s" % e)
+
+print("Program ends.")
+```
+
+------
+#### [ Java ]
+
+```
+package com.amazonaws.kendra;
+
+import software.amazon.awssdk.services.kendra.KendraClient;
+import software.amazon.awssdk.services.kendra.model.UpdateThesaurusRequest;
+import software.amazon.awssdk.services.kendra.model.DescribeThesaurusRequest;
+import software.amazon.awssdk.services.kendra.model.DescribeThesaurusResponse;
+import software.amazon.awssdk.services.kendra.model.S3Path;
+import software.amazon.awssdk.services.kendra.model.ThesaurusStatus;
+
+public class UpdateThesaurusExample {
+
+  public static void main(String[] args) throws InterruptedException {
+
+    KendraClient kendra = KendraClient.builder().build();
+
+    String thesaurusName = "thesaurus-name";
+    String thesaurusDescription = "thesaurus-description";
+    String thesaurusRoleArn = "role-arn";
+
+    String s3BucketName = "bucket-name";
+    String s3Key = "thesaurus-file";
+
+    String thesaurusId = "thesaurus-id";
+    String indexId = "index-id";
+
+    UpdateThesaurusRequest updateThesaurusRequest = UpdateThesaurusRequest
+        .builder()
+        .id(thesaurusId)
+        .indexId(indexId)
+        .name(thesaurusName)
+        .description(thesaurusDescription)
+        .roleArn(thesaurusRoleArn)
+        .sourceS3Path(S3Path.builder()
+            .bucket(s3BucketName)
+            .key(s3Key)
+            .build())
+        .build();
+    kendra.updateThesaurus(updateThesaurusRequest);
+
+    System.out.println(String.format("Waiting until the thesaurus with ID %s is updated.", thesaurusId));
+
+    // a new source s3 path requires re-consumption by Kendra 
+    // and so can take as long as a Create Thesaurus operation
+    while (true) {
+      DescribeThesaurusRequest describeThesaurusRequest = DescribeThesaurusRequest.builder()
+          .id(thesaurusId)
+          .indexId(indexId)
+          .build();
+      DescribeThesaurusResponse describeThesaurusResponse = kendra.describeThesaurus(describeThesaurusRequest);
+      ThesaurusStatus status = describeThesaurusResponse.status();
+      if (status != ThesaurusStatus.UPDATING) {
+        break;
+      }
+
+      TimeUnit.SECONDS.sleep(60);
+    }
+
+    System.out.println("Thesaurus update is complete.");
+  }
+}
+```
+
+------

@@ -4,7 +4,7 @@
 
 # Compliance validation for Amazon Kendra<a name="kendra-compliance"></a>
 
-Third\-party auditors assess the security and compliance of Amazon Kendra as part of multiple AWS compliance programs\. Amazon Kendra is a HIPAA compliant service\.
+Third\-party auditors assess the security and compliance of Amazon Kendra as part of multiple AWS compliance programs\. Amazon Kendra is a HIPAA compliant service and is SOC 2 compliant\.
 
 For a list of AWS services in scope of specific compliance programs, see [AWS Services in Scope by Compliance Program](http://aws.amazon.com/compliance/services-in-scope/)\. For general information, see [AWS Compliance Programs](http://aws.amazon.com/compliance/programs/)\.
 

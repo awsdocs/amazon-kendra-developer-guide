@@ -4,7 +4,7 @@
 
 # Getting started with a Confluence data source \(Console\)<a name="getting-started-confluence"></a>
 
-You can use the Amazon Kendra console to get started using a Confluence instance\. When you use the console you specify the connection information you need to index the contents of a Confluence instance\. For more information, see [Using a Confluence data source](data-source-confluence.md)\.
+You can use the Amazon Kendra console to get started using a Confluence instance\. When you use the console you specify the connection information you need to index the contents of a Confluence instance\. For more information, see [Using an Atlassian Confluence data source](data-source-confluence.md)\.
 
 Use the following procedure to create a basic Confluence data source using the default configuration\. The procedure assumes 
 + You have an administrator account on the Confluence instance\.

@@ -8,7 +8,7 @@ Amazon Kendra uses incremental learning to improve search results\. Using feedba
 
 For example, suppose that your users search for the phrase "health care benefits\." If users consistently choose the second result from the list, over time Amazon Kendra boosts that result to the first place result\. The boost decreases over time, so if users stop selecting a result, Amazon Kendra eventually removes it and shows another more popular result instead\. This helps Amazon Kendra prioritize results based on relevance, age, and content\.
 
-Incremental learning is enabled for all indexes\. Feedback only affects the `ANSWER` and `DOCUMENT` response types\. Documents with the `QUESTION_ANSWER` response type are not affected\. For more information, see [Response types ](response-types.md)\.
+Incremental learning is enabled for all indexes and for all document types\. For more information, see [Response types ](response-types.md)\.
 
 Amazon Kendra starts learning as soon as you provide feedback, though it can take over 24 hours to see the results of the feedback\. Amazon Kendra provides three methods for you to submit feedback: the AWS console, a JavaScript library that you can include on your search results page, and an API that you can use\.
 

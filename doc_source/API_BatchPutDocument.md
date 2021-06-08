@@ -56,7 +56,8 @@ For information about the parameters that are common to all actions, see [Common
 The request accepts the following data in JSON format\.
 
  ** [Documents](#API_BatchPutDocument_RequestSyntax) **   <a name="Kendra-BatchPutDocument-request-Documents"></a>
-One or more documents to add to the index\.   
+One or more documents to add to the index\.  
+Documents can include custom attributes\. For example, 'DataSourceId' and 'DataSourceSyncJobId' are custom attributes that provide information on the synchronization of documents running on a data source\. Note, 'DataSourceSyncJobId' could be an optional custom attribute as Amazon Kendra will use the ID of a running sync job\.  
 Documents have the following file size limits\.  
 + 5 MB total size for inline documents
 + 50 MB total size for files from an S3 bucket
@@ -67,7 +68,7 @@ Array Members: Minimum number of 1 item\. Maximum number of 10 items\.
 Required: Yes
 
  ** [IndexId](#API_BatchPutDocument_RequestSyntax) **   <a name="Kendra-BatchPutDocument-request-IndexId"></a>
-The identifier of the index to add the documents to\. You need to create the index first using the [CreateIndex](API_CreateIndex.md) operation\.  
+The identifier of the index to add the documents to\. You need to create the index first using the `CreateIndex` operation\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`   
@@ -110,24 +111,31 @@ Type: Array of [BatchPutDocumentResponseFailedDocument](API_BatchPutDocumentResp
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
  **AccessDeniedException**   
+  
 HTTP Status Code: 400
 
  **ConflictException**   
+  
 HTTP Status Code: 400
 
  **InternalServerException**   
+  
 HTTP Status Code: 500
 
  **ResourceNotFoundException**   
+  
 HTTP Status Code: 400
 
  **ServiceQuotaExceededException**   
+  
 HTTP Status Code: 400
 
  **ThrottlingException**   
+  
 HTTP Status Code: 400
 
  **ValidationException**   
+  
 HTTP Status Code: 400
 
 ## See Also<a name="API_BatchPutDocument_SeeAlso"></a>
@@ -137,7 +145,7 @@ For more information about using this API in one of the language\-specific AWS S
 +  [AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/kendra-2019-02-03/BatchPutDocument) 
 +  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/BatchPutDocument) 
 +  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/BatchPutDocument) 
-+  [AWS SDK for Java](https://docs.aws.amazon.com/goto/SdkForJava/kendra-2019-02-03/BatchPutDocument) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/BatchPutDocument) 
 +  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/kendra-2019-02-03/BatchPutDocument) 
 +  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/kendra-2019-02-03/BatchPutDocument) 
 +  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/kendra-2019-02-03/BatchPutDocument) 

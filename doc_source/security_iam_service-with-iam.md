@@ -57,6 +57,8 @@ For actions that don't support resource\-level permissions, such as listing oper
 
 
 
+
+
 The Amazon Kendra index resource has the following ARN:
 
 ```
@@ -122,10 +124,10 @@ The following table lists the actions, corresponding resource types, and conditi
 
 | Action | Resource type | Condition keys | 
 | --- | --- | --- | 
-| [CreateDataSource](API_CreateDataSource.md) |   | aws:RequestTag, aws:TagKeys | 
-| [CreateFaq](API_CreateFaq.md) |   | aws:RequestTag, aws:TagKeys | 
-| [CreateIndex](API_CreateIndex.md) |   | aws:RequestTag, aws:TagKeys | 
-| [ListTagsForResource](API_ListTagsForResource.md) | data source, FAQ, index |   | 
+| [CreateDataSource](API_CreateDataSource.md) |   | aws:RequestTag, aws:TagKeys | 
+| [CreateFaq](API_CreateFaq.md) |   | aws:RequestTag, aws:TagKeys | 
+| [CreateIndex](API_CreateIndex.md) |   | aws:RequestTag, aws:TagKeys | 
+| [ListTagsForResource](API_ListTagsForResource.md) | data source, FAQ, index |   | 
 | [TagResource](API_TagResource.md) | data source, FAQ, index | aws:RequestTag, aws:TagKeys | 
 | [UntagResource](API_UntagResource.md) | data source, FAQ, index | aws:TagKeys | 
 

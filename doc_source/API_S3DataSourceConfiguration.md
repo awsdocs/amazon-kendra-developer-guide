@@ -27,7 +27,10 @@ Required: No
 
  **ExclusionPatterns**   <a name="Kendra-Type-S3DataSourceConfiguration-ExclusionPatterns"></a>
 A list of glob patterns for documents that should not be indexed\. If a document that matches an inclusion prefix or inclusion pattern also matches an exclusion pattern, the document is not indexed\.  
-For more information about glob patterns, see [glob \(programming\)](https://en.wikipedia.org/wiki/Glob_(programming)) in *Wikipedia*\.  
+Some [examples](https://docs.aws.amazon.com/cli/latest/reference/s3/#use-of-exclude-and-include-filters) are:  
++  *\*\.png , \*\.jpg* will exclude all PNG and JPEG image files in a directory \(files with the extensions \.png and \.jpg\)\.
++  *\*internal\** will exclude all files in a directory that contain 'internal' in the file name, such as 'internal', 'internal\_only', 'company\_internal'\.
++  *\*\*/\*internal\** will exclude all internal\-related files in a directory and its subdirectories\.
 Type: Array of strings  
 Array Members: Minimum number of 0 items\. Maximum number of 100 items\.  
 Length Constraints: Minimum length of 1\. Maximum length of 150\.  
@@ -35,7 +38,10 @@ Required: No
 
  **InclusionPatterns**   <a name="Kendra-Type-S3DataSourceConfiguration-InclusionPatterns"></a>
 A list of glob patterns for documents that should be indexed\. If a document that matches an inclusion pattern also matches an exclusion pattern, the document is not indexed\.  
-For more information about glob patterns, see [glob \(programming\)](https://en.wikipedia.org/wiki/Glob_(programming)) in *Wikipedia*\.  
+Some [examples](https://docs.aws.amazon.com/cli/latest/reference/s3/#use-of-exclude-and-include-filters) are:  
++  *\*\.txt* will include all text files in a directory \(files with the extension \.txt\)\.
++  *\*\*/\*\.txt* will include all text files in a directory and its subdirectories\.
++  *\*tax\** will include all files in a directory that contain 'tax' in the file name, such as 'tax', 'taxes', 'income\_tax'\.
 Type: Array of strings  
 Array Members: Minimum number of 0 items\. Maximum number of 100 items\.  
 Length Constraints: Minimum length of 1\. Maximum length of 150\.  
@@ -53,5 +59,5 @@ Required: No
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
 +  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/S3DataSourceConfiguration) 
 +  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/S3DataSourceConfiguration) 
-+  [AWS SDK for Java](https://docs.aws.amazon.com/goto/SdkForJava/kendra-2019-02-03/S3DataSourceConfiguration) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/S3DataSourceConfiguration) 
 +  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kendra-2019-02-03/S3DataSourceConfiguration) 

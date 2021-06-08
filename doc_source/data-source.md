@@ -18,7 +18,7 @@ Configure your data source to periodically update with the console or by using t
 
 **Topics**
 +  [Using an Amazon S3 data source](data-source-s3.md) 
-+  [Using a Confluence data source](data-source-confluence.md) 
++  [Using an Atlassian Confluence data source](data-source-confluence.md) 
 +  [Using a custom data source](data-source-custom.md) 
 +  [Using a database data source](data-source-database.md) 
 +  [Using a Google Workspace Drive data source](data-source-google-drive.md) 

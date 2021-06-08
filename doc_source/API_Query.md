@@ -93,6 +93,20 @@ Each query returns the 100 most relevant results\.
          "AttributeFilter"
       ]
    },
+   "DocumentRelevanceOverrideConfigurations": [ 
+      { 
+         "Name": "string",
+         "Relevance": { 
+            "Duration": "string",
+            "Freshness": boolean,
+            "Importance": number,
+            "RankOrder": "string",
+            "ValueImportanceMap": { 
+               "string" : number 
+            }
+         }
+      }
+   ],
    "Facets": [ 
       { 
          "DocumentAttributeKey": "string"
@@ -127,13 +141,22 @@ The `AttributeFilter` parameter enables you to create a set of filtering rules t
 Type: [AttributeFilter](API_AttributeFilter.md) object  
 Required: No
 
+ ** [DocumentRelevanceOverrideConfigurations](#API_Query_RequestSyntax) **   <a name="Kendra-Query-request-DocumentRelevanceOverrideConfigurations"></a>
+Overrides relevance tuning configurations of fields or attributes set at the index level\.  
+If you use this API to override the relevance tuning configured at the index level, but there is no relevance tuning configured at the index level, then Amazon Kendra does not apply any relevance tuning\.  
+If there is relevance tuning configured at the index level, but you do not use this API to override any relevance tuning in the index, then Amazon Kendra uses the relevance tuning that is configured at the index level\.  
+If there is relevance tuning configured for fields at the index level, but you use this API to override only some of these fields, then for the fields you did not override, the importance is set to 1\.  
+Type: Array of [DocumentRelevanceConfiguration](API_DocumentRelevanceConfiguration.md) objects  
+Array Members: Minimum number of 0 items\. Maximum number of 500 items\.  
+Required: No
+
  ** [Facets](#API_Query_RequestSyntax) **   <a name="Kendra-Query-request-Facets"></a>
 An array of documents attributes\. Amazon Kendra returns a count for each attribute key specified\. You can use this information to help narrow the search for your user\.  
 Type: Array of [Facet](API_Facet.md) objects  
 Required: No
 
  ** [IndexId](#API_Query_RequestSyntax) **   <a name="Kendra-Query-request-IndexId"></a>
-The unique identifier of the index to search\. The identifier is returned in the response from the [CreateIndex](API_CreateIndex.md) operation\.  
+The unique identifier of the index to search\. The identifier is returned in the response from the `CreateIndex` operation\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`   
@@ -221,7 +244,8 @@ Required: No
                         { 
                            "BeginOffset": number,
                            "EndOffset": number,
-                           "TopAnswer": boolean
+                           "TopAnswer": boolean,
+                           "Type": "string"
                         }
                      ],
                      "Text": "string"
@@ -246,7 +270,8 @@ Required: No
                { 
                   "BeginOffset": number,
                   "EndOffset": number,
-                  "TopAnswer": boolean
+                  "TopAnswer": boolean,
+                  "Type": "string"
                }
             ],
             "Text": "string"
@@ -257,7 +282,8 @@ Required: No
                { 
                   "BeginOffset": number,
                   "EndOffset": number,
-                  "TopAnswer": boolean
+                  "TopAnswer": boolean,
+                  "Type": "string"
                }
             ],
             "Text": "string"
@@ -288,7 +314,8 @@ Type: Array of [FacetResult](API_FacetResult.md) objects
  ** [QueryId](#API_Query_ResponseSyntax) **   <a name="Kendra-Query-response-QueryId"></a>
 The unique identifier for the search\. You use `QueryId` to identify the search when using the feedback API\.  
 Type: String  
-Length Constraints: Minimum length of 1\. Maximum length of 36\.
+Length Constraints: Minimum length of 1\. Maximum length of 36\.  
+Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*` 
 
  ** [ResultItems](#API_Query_ResponseSyntax) **   <a name="Kendra-Query-response-ResultItems"></a>
 The results of the search\.  
@@ -303,24 +330,31 @@ Type: Integer
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
  **AccessDeniedException**   
+  
 HTTP Status Code: 400
 
  **ConflictException**   
+  
 HTTP Status Code: 400
 
  **InternalServerException**   
+  
 HTTP Status Code: 500
 
  **ResourceNotFoundException**   
+  
 HTTP Status Code: 400
 
  **ServiceQuotaExceededException**   
+  
 HTTP Status Code: 400
 
  **ThrottlingException**   
+  
 HTTP Status Code: 400
 
  **ValidationException**   
+  
 HTTP Status Code: 400
 
 ## See Also<a name="API_Query_SeeAlso"></a>
@@ -330,7 +364,7 @@ For more information about using this API in one of the language\-specific AWS S
 +  [AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/kendra-2019-02-03/Query) 
 +  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/Query) 
 +  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/Query) 
-+  [AWS SDK for Java](https://docs.aws.amazon.com/goto/SdkForJava/kendra-2019-02-03/Query) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/Query) 
 +  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/kendra-2019-02-03/Query) 
 +  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/kendra-2019-02-03/Query) 
 +  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/kendra-2019-02-03/Query) 

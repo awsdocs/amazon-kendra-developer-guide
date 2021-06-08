@@ -10,6 +10,8 @@ You can index documents stored in a database using a database data source\. Afte
 + Amazon RDS for MySQL
 + Amazon RDS for PostgreSQL
 
+Note, serverless Aurora databases are not supported\.
+
 Before you create a database data source, you need to create an index and create custom fields in the index for the data from the database\. For more information, see [Creating an index](create-index.md) and [Mapping data source fields](field-mapping.md)\.
 
 To use a database data source, you need to identify the following:

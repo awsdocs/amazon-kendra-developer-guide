@@ -6,6 +6,8 @@
 
 Use the Amazon Kendra console to monitor the state of indexes and data sources\. You can use this information to track the size and storage requirements of your index and to monitor the progress and success of synchronization between your index and data sources\.
 
+
+
 **To view index metrics \(Console\)**
 
 1. Sign into the AWS Management Console and open the Amazon Kendra console at [https://console\.aws\.amazon\.com/kendra/home](https://console.aws.amazon.com/kendra/home)\.

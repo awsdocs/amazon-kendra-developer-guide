@@ -9,13 +9,11 @@ You can add questions and answers \(FAQs\) directly to your index using the cons
 + Custom \.csv – A \.csv file that contains questions, answers, and a header that defines custom attributes that you can use to facet, display, or sort FAQ responses\. You can also define access control attributes to limit the FAQ response to certain users and groups\.
 + JSON – A JSON file that contains questions, answers, and, optionally, custom and access control attributes\. You can define attributes to facet, display\. and sort FAQ responses, or access control attributes that limit the FAQ response to certain users and groups\.
 
-For example, the following is a basic \.csv file that provides answers to questions about the height of buildings in Seattle\.
+For example, the following is a basic \.csv file that provides answers to questions about free clinics in Spokane, Washington USA and Mountain View, Missouri USA\.
 
 ```
-What is the height of the Space Needle?, 605 feet, https://www.spaceneedle.com/
-How tall is the Space Needle?, 605 feet, https://www.spaceneedle.com/
-What is the height of the Smith Tower?, 484 feet, https://www.smithtower.com
-How tall is the Smith Tower, 484 feet, https://www.smithtower.com/
+How many free clinics are in Spokane WA?, 13, https://www.freeclinics.com/
+How many free clinics are there in Mountain View, Missouri?, 7, https://www.freeclinics.com/
 ```
 
 When you use a custom \.csv or JSON file for input, you can declare custom attributes for your FAQ questions\. For example, you can create a custom attribute that assigns each FAQ question a department\. When the FAQ is returned in a response, you can use the department as a facet to narrow the search\.
@@ -29,8 +27,12 @@ When you create an index field that maps to a custom attribute, you can mark it 
 In addition to custom attributes that you provide, you can also use the following built\-in attributes in a custom \.csv or JSON file:
 + `_authors` \(String list\) – A list of authors of the answers to the FAQ question\.
 + `_category` \(String\) – A category that groups the answers to FAQ questions with other similar documents\.
-+ `_created_at` \(ISO 8601\-encoded string\) – The date and time that the FAQ question was created\. The date and time should be ISO 8601\-encoded strings\. For example, `2020-09-15T22:40:46-08:00`\.
-+ `_last_updated_at` \(ISO 8601\-encoded string\) – The date and time that the FAQ question was updated\. The date and time should be ISO 8601\-encoded strings\. For example, `2020-09-15T22:40:46-08:00`\.
++ `_created_at` \(ISO 8601\-encoded string\) – The date and time that the FAQ question was created\. The date and time should be ISO 8601\-encoded strings\.
+
+  It is important for the time zone to be included in the ISO 8601 date\-time format\. For example, 20120325T123010\+01:00 is the ISO 8601 date\-time format for March 25th 2012 at 12:30PM \(plus 10 seconds\) in Central European Time\.
++ `_last_updated_at` \(ISO 8601\-encoded string\) – The date and time that the FAQ question was updated\. The date and time should be ISO 8601\-encoded strings\.
+
+  It is important for the time zone to be included in the ISO 8601 date\-time format\. For example, 20120325T123010\+01:00 is the ISO 8601 date\-time format for March 25th 2012 at 12:30PM \(plus 10 seconds\) in Central European Time\.
 + `_source_uri` \(String\) – A URL for a document with more information about the FAQ answer\.
 + `_version` \(String\) – The version of the FAQ question\.
 + `_view_count` \(Long\) – The number of times that the FAQ question has been viewed in search results\.
@@ -44,10 +46,8 @@ The contents of the file should follow the [RFC 4180 Common Format and MIME Type
 The following is a FAQ file in basic \.csv format\.
 
 ```
-What is the height of the Space Needle?, 605 feet, https://www.spaceneedle.com/
-How tall is the Space Needle?, 605 feet, https://www.spaceneedle.com/
-What is the height of the Smith Tower?, 484 feet, https://www.smithtower.com
-How tall is the Smith Tower, 484 feet, https://www.smithtower.com/
+How many free clinics are in Spokane WA?, 13, https://www.freeclinics.com/
+How many free clinics are there in Mountain View, Missouri?, 7, https://www.freeclinics.com/
 ```
 
 ## Custom \.csv file<a name="faq-custom-csv"></a>
@@ -61,15 +61,17 @@ The \.csv file must contain the following two required attributes:
 Your file can contain built\-in and custom attributes\. The following is an example of a custom \.csv file\.
 
 ```
-_question,_answer,_authors,custom_string
-How tall is the Space Needle?, 605 feet, Jorge Souza, custom string value
-How tall is Smith Tower?, 484 feet, Richard Roe, custom string value
+_question,_answer,_last_updated_at,custom_string
+How many free clinics are in Spokane WA?, 13, 20120325T123010+01:00, Note: Some free clinics require you to meet certain criteria in order to use their services
+How many free clinics are there in Mountain View, Missouri?, 7, 20120325T123010+01:00, Note: Some free clinics require you to meet certain criteria in order to use their services
 ```
 
 The contents of the custom attributes file should follow the [RFC 4180 Common Format and MIME Type for Comma\-Separated Values \(CSV\) Files](https://tools.ietf.org/html/rfc4180)\.
 
 There are four types of custom attributes:
-+ Date – ISO 8601\-encoded date and time values\. For example, `2020-08-25T22:40:46-08:00`\.
++ Date – ISO 8601\-encoded date and time values\.
+
+  It is important for the time zone to be included in the ISO 8601 date\-time format\. For example, 20120325T123010\+01:00 is the ISO 8601 date\-time format for March 25th 2012 at 12:30PM \(plus 10 seconds\) in Central European Time\.
 + Long – Numbers, such as `1234`\.
 + String – String values\. If your string contains commas, enclose the value in double quotation marks \("\)\. For example, `"custom attribute, and more"`\.
 + String list – A list of string values\. List the values in a comma\-separated list that is enclosed in quotation marks\. For example, `"item1, item2, item3"`\. If the list contains only a single entry, you can omit the quotation marks\. For example, `item1`\.
@@ -88,7 +90,7 @@ The following is an example of a custom \.csv file with user context information
 
 ```
 _question, _answer, _acl_user_allow, _acl_user_deny, _acl_group_allow, _acl_group_deny
-How tall is the Space Needle?, 605 feet, user1, “user2,user3”, group1, “group2,group3,group4”
+How many free clinics are in Spokane WA?, 13, userID4565, "userID6201, userID7552", groupBasicRate, "groupBasicPlusRate,groupPremiumRate"
 ```
 
 ## JSON file<a name="faq-custom-json"></a>
@@ -120,27 +122,22 @@ You can use a JSON file to provide questions, answers, and attributes for your i
 }
 ```
 
-This example JSON file shows a two FAQ documents, one with just the required question and answer, and one with additional attributes and user context information\.
+This example JSON file shows two FAQ documents, one with just the required question and answer, and one with additional attributes and user context information\.
 
 ```
 {
     "SchemaVersion": 1,
     "FaqDocuments": [
         {
-            "Question": "How tall is the Space Needle?",
-            "Answer": "605 feet"
+            "Question": "How many free clinics are in Spokane WA?",
+            "Answer": "13"
         },
         {
-            "Question": "How tall is Smith Tower?",
-            "Answer": "484 feet",
+            "Question": "How many free clinics are there in Mountain View, Missouri?",
+            "Answer": "7",
             "Attributes": {
-                "_source_uri": "https://www.smithtower.com",
-                "_authors": ["Richard Roe", "Jorge Souza"],
-                "_category": "Buildings",
-                "_created_at": "2020-09-15T22:40:46Z",
-                "_last_updated_at": "2020-09-15T22:40:46-08:00",
-                "_version": "v1",
-                "_view_count": 123
+                "_source_uri": "https://www.freeclinics.com",
+                "_category": "Charitable Clinics"
             },
             "AccessControlList": [
                {
@@ -160,7 +157,9 @@ This example JSON file shows a two FAQ documents, one with just the required que
 ```
 
 There are four types of custom attributes for JSON files:
-+ Date – A JSON string value with ISO 8601\-encoded date and time values\. For example, `"2020-08-25T22:40:46-08:00"`\.
++ Date – A JSON string value with ISO 8601\-encoded date and time values\.
+
+  It is important for the time zone to be included in the ISO 8601 date\-time format\. For example, 20120325T123010\+01:00 is the ISO 8601 date\-time format for March 25th 2012 at 12:30PM \(plus 10 seconds\) in Central European Time\.
 + Long – A JSON number value, such as `1234`\.
 + String – A JSON string value\. For example, `"custom attribute"`\.
 + String list – A JSON array of string values\. For example, `["item1,item2,item3"]`\.
@@ -170,7 +169,7 @@ In addition to built\-in and custom attributes, you can provide user context inf
 This JSON example adds user context to a FAQ\.
 
 ```
-             "AccessControlList": [
+"AccessControlList": [
                 {
                     "Name": "group or user name",
                     "Type": "GROUP | USER",
@@ -182,7 +181,9 @@ This JSON example adds user context to a FAQ\.
 
 ## Using your FAQ file<a name="using-faq-file"></a>
 
-After you store your FAQ input file in an Amazon S3 bucket, you use the console or the `CreateFaq` operation to put the questions and answers into your index\. You must provide an IAM role that has access to the S3 bucket containing your source files\. You specify the role in the console or in the `RoleArn` parameter\. The following is an example of a program that adds a FAQ file to an index\.
+After you store your FAQ input file in an Amazon S3 bucket, you use the console or the `CreateFaq` operation to put the questions and answers into your index\. If you want to update a FAQ, you need to delete the FAQ and create it again\. You use the `DeleteFaq` operation to delete a FAQ\.
+
+You must provide an IAM role that has access to the S3 bucket containing your source files\. You specify the role in the console or in the `RoleArn` parameter\. The following is an example of a program that adds a FAQ file to an index\.
 
 ------
 #### [ Python ]
@@ -198,12 +199,12 @@ role_arn = 'arn:aws:iam::${accountId}:role/${roleName}'
 
 faq_path = {
     'Bucket': '${bucketName}',
-    'Key': 'SeattleBuildings.csv'
+    'Key': 'FreeClinicsUSA.csv'
 }
 
 response = kendra.create_faq(
     S3Path =  faq_path,
-    Name = 'SeattleBuildings',
+    Name = 'FreeClinicsUSA',
     IndexId = index_id,
     RoleArn = role_arn
 )
@@ -232,13 +233,13 @@ public class AddFaqExample {
         CreateFaqRequest createFaqRequest = CreateFaqRequest
             .builder()
             .indexId(indexId)
-            .name("SeattleBuildings")
+            .name("FreeClinicsUSA")
             .roleArn(roleArn)
             .s3Path(
                 S3Path
                     .builder()
                     .bucket("an-aws-kendra-test-bucket")
-                    .key("SeattleBuildings.csv")
+                    .key("FreeClinicsUSA.csv")
                     .build())
             .build();
 

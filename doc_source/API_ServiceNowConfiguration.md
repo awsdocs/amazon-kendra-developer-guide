@@ -8,6 +8,13 @@ Provides configuration information required to connect to a ServiceNow data sour
 
 ## Contents<a name="API_ServiceNowConfiguration_Contents"></a>
 
+ **AuthenticationType**   <a name="Kendra-Type-ServiceNowConfiguration-AuthenticationType"></a>
+Determines the type of authentication used to connect to the ServiceNow instance\. If you choose `HTTP_BASIC`, Amazon Kendra is authenticated using the user name and password provided in the AWS Secrets Manager secret in the `SecretArn` field\. When you choose `OAUTH2`, Amazon Kendra is authenticated using the OAuth token and secret provided in the Secrets Manager secret, and the user name and password are used to determine which information Amazon Kendra has access to\.  
+When you use `OAUTH2` authentication, you must generate a token and a client secret using the ServiceNow console\. For more information, see [Using a ServiceNow data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-servicenow.html)\.  
+Type: String  
+Valid Values:` HTTP_BASIC | OAUTH2`   
+Required: No
+
  **HostUrl**   <a name="Kendra-Type-ServiceNowConfiguration-HostUrl"></a>
 The ServiceNow instance that the data source connects to\. The host endpoint should look like the following: `{instance}.service-now.com.`   
 Type: String  
@@ -43,5 +50,5 @@ Required: Yes
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
 +  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/ServiceNowConfiguration) 
 +  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/ServiceNowConfiguration) 
-+  [AWS SDK for Java](https://docs.aws.amazon.com/goto/SdkForJava/kendra-2019-02-03/ServiceNowConfiguration) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/ServiceNowConfiguration) 
 +  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kendra-2019-02-03/ServiceNowConfiguration) 

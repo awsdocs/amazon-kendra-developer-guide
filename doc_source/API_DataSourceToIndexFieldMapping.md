@@ -4,7 +4,7 @@
 
 # DataSourceToIndexFieldMapping<a name="API_DataSourceToIndexFieldMapping"></a>
 
-Maps a column or attribute in the data source to an index field\. You must first create the fields in the index using the [UpdateIndex](API_UpdateIndex.md) operation\.
+Maps a column or attribute in the data source to an index field\. You must first create the fields in the index using the `UpdateIndex` operation\.
 
 ## Contents<a name="API_DataSourceToIndexFieldMapping_Contents"></a>
 
@@ -34,5 +34,5 @@ Required: Yes
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
 +  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/DataSourceToIndexFieldMapping) 
 +  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/DataSourceToIndexFieldMapping) 
-+  [AWS SDK for Java](https://docs.aws.amazon.com/goto/SdkForJava/kendra-2019-02-03/DataSourceToIndexFieldMapping) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/DataSourceToIndexFieldMapping) 
 +  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kendra-2019-02-03/DataSourceToIndexFieldMapping) 

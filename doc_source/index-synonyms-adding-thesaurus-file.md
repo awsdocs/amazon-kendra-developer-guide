@@ -55,3 +55,129 @@ aws kendra describe-thesaurus \
 It can take up to 30 minutes to see the effects of your thesaurus file\.
 
 ------
+#### [ Python ]
+
+```
+import boto3
+from botocore.exceptions import ClientError
+import pprint
+import time
+
+kendra = boto3.client("kendra")
+
+print("Create a thesaurus")
+
+thesaurus_name = "thesaurus-name"
+thesaurus_description = "thesaurus-description"
+thesaurus_role_arn = "role-arn"
+
+index_id = "index-id"
+
+s3_bucket_name = "bucket-name"
+s3_key = "thesaurus-file"
+source_s3_path= {
+    'Bucket': s3_bucket_name,
+    'Key': s3_key
+}
+
+try:
+    thesaurus_response = kendra.create_thesaurus(
+        Description = thesaurus_description,
+        Name = thesaurus_name,
+        RoleArn = thesaurus_role_arn,
+        IndexId = index_id,
+        SourceS3Path = source_s3_path
+    )
+
+    pprint.pprint(thesaurus_response)
+
+    thesaurus_id = thesaurus_response["Id"]
+
+    print("Wait for Kendra to create the thesaurus.")
+
+    while True:
+        # Get thesaurus description
+        thesaurus_description = kendra.describe_thesaurus(
+            Id = thesaurus_id,
+            IndexId = index_id
+        )
+        # If status is not CREATING quit
+        status = thesaurus_description["Status"]
+        print("Creating thesaurus. Status: " + status)
+        if status != "CREATING":
+            break
+        time.sleep(60)
+
+except ClientError as e:
+        print("%s" % e)
+
+print("Program ends.")
+```
+
+------
+#### [ Java ]
+
+```
+package com.amazonaws.kendra;
+
+import software.amazon.awssdk.services.kendra.KendraClient;
+import software.amazon.awssdk.services.kendra.model.CreateThesaurusRequest;
+import software.amazon.awssdk.services.kendra.model.CreateThesaurusResponse;
+import software.amazon.awssdk.services.kendra.model.DescribeThesaurusRequest;
+import software.amazon.awssdk.services.kendra.model.DescribeThesaurusResponse;
+import software.amazon.awssdk.services.kendra.model.S3Path;
+import software.amazon.awssdk.services.kendra.model.ThesaurusStatus;
+
+public class CreateThesaurusExample {
+
+  public static void main(String[] args) throws InterruptedException {
+
+    KendraClient kendra = KendraClient.builder().build();
+
+    String thesaurusName = "thesaurus-name";
+    String thesaurusDescription = "thesaurus-description";
+    String thesaurusRoleArn = "role-arn";
+
+    String s3BucketName = "bucket-name";
+    String s3Key = "thesaurus-file";
+    String indexId = "index-id";
+
+    System.out.println(String.format("Creating a thesaurus named %s", thesaurusName));
+    CreateThesaurusRequest createThesaurusRequest = CreateThesaurusRequest
+        .builder()
+        .name(thesaurusName)
+        .indexId(indexId)
+        .description(thesaurusDescription)
+        .roleArn(thesaurusRoleArn)
+        .sourceS3Path(S3Path.builder()
+            .bucket(s3BucketName)
+            .key(s3Key)
+            .build())
+        .build();
+    CreateThesaurusResponse createThesaurusResponse = kendra.createThesaurus(createThesaurusRequest);
+    System.out.println(String.format("Thesaurus response %s", createThesaurusResponse));
+
+    String thesaurusId = createThesaurusResponse.id();
+
+    System.out.println(String.format("Waiting until the thesaurus with ID %s is created.", thesaurusId));
+
+    while (true) {
+      DescribeThesaurusRequest describeThesaurusRequest = DescribeThesaurusRequest.builder()
+          .id(thesaurusId)
+          .indexId(indexId)
+          .build();
+      DescribeThesaurusResponse describeThesaurusResponse = kendra.describeThesaurus(describeThesaurusRequest);
+      ThesaurusStatus status = describeThesaurusResponse.status();
+      if (status != ThesaurusStatus.CREATING) {
+        break;
+      }
+
+      TimeUnit.SECONDS.sleep(60);
+    }
+
+    System.out.println("Thesaurus creation is complete.");
+  }
+}
+```
+
+------

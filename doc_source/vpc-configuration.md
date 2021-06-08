@@ -8,6 +8,8 @@ Amazon Kendra connects to your Amazon virtual private cloud \(VPC\) to index inf
 
 If your database isn't running on an Amazon VPC, you can connect your database to your Amazon VPC using a virtual private network \(VPN\)\. You get a default VPC when you create your Amazon account\. For information about setting up a VPN, see the [ AWS Virtual Private Network Documentation](https://docs.aws.amazon.com/vpn/)\. 
 
+
+
 To use a VPC, you must tell Amazon Kendra the identifier of the subnet that the database belongs to and the identifiers of any security groups that Amazon Kendra must use to access the subnet\. For example, if you are using the default port for a MySQL database, the security groups must enable Amazon Kendra to access port 3306 on the host that runs the database\.
 
 **Note**  

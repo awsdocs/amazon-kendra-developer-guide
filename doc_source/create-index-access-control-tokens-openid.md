@@ -19,7 +19,7 @@ The following examples show how to use an OpenID token for user access control w
 
 1. Leave all of the other fields at their defaults\. Choose **Next**\.
 
-1. In the **Configure user access control** page, under **Acces control settings**, choose **Yes** to use tokens for access control\. 
+1. In the **Configure user access control** page, under **Access control settings**, choose **Yes** to use tokens for access control\. 
 
 1. Under **Token configuration**, select **OpenID** as the **Token type**\. 
 

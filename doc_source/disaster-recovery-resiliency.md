@@ -8,4 +8,4 @@ The AWS global infrastructure is built around AWS Regions and Availability Zones
 
 For more information about AWS Regions and Availability Zones, see [AWS Global Infrastructure](http://aws.amazon.com/about-aws/global-infrastructure/)\.
 
-In addition to the AWS global infrastructure, Amazon Kendra offers several features to help support your data resiliency and backup needs\.
+With AWS global infrastructure, Amazon Kendra Enterprise Edition is fault tolerant, scalable, and highly available\. Rolling back to previous versions of an index is not currently supported, but you can refresh or recreate portions of your index by [deleting](https://docs.aws.amazon.com/kendra/latest/dg/API_BatchDeleteDocument.html) and [adding](https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html) existing data sources back into your index\.

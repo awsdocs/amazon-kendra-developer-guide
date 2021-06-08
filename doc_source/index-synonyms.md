@@ -20,7 +20,7 @@ Do not use synonyms in the following scenarios:
 + Morphological variants like the plurals and possessives of nouns, the comparative and superlative form of adjectives, and the past tense, past participle and progressive form of verbs\. One example of comparative and superlative adjectives is `good, better, best`\. 
 + Unigram \(single word\) stop words such as `WHO`\. Unigram stop words are not allowed in the thesaurus and are excluded from search\. For example, `WHO => World Health Organization` is rejected\. You can use `W.H.O.` however as a synonym term, and you can use stop words as part of a multi\-word synonym\. For example, `of` is not allowed but `United States of America` is accepted\. 
 
-The thesaurus file uses the [Synonym Graph Filter](https://lucene.apache.org/solr/guide/6_6/filter-descriptions.html#FilterDescriptions-SynonymGraphFilter)\. Each Amazon Kendra index can have a single thesaurus file\. 
+The thesaurus file uses the [Solr synonym format](https://lucene.apache.org/solr/guide/6_6/filter-descriptions.html#FilterDescriptions-SynonymGraphFilter)\. Each Amazon Kendra index can have a single thesaurus file\. 
 
 **Topics**
 + [Creating a thesaurus file](index-synonyms-creating-thesaurus-file.md)

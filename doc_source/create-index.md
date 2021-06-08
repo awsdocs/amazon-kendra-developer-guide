@@ -30,7 +30,7 @@ To create an index, you need to provide the Amazon Resource Name \(ARN\) of an A
 
    ```
    aws kendra create-index \
-    --index-name index name \
+    --name index name \
     --description "index description" \
     --role-arn arn:aws:iam::account ID:role/role name
    ```

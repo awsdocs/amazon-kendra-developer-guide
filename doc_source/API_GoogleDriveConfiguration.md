@@ -42,7 +42,7 @@ Required: No
 
  **FieldMappings**   <a name="Kendra-Type-GoogleDriveConfiguration-FieldMappings"></a>
 Defines mapping between a field in the Google Drive and a Amazon Kendra index field\.  
-If you are using the console, you can define index fields when creating the mapping\. If you are using the API, you must first create the field using the [UpdateIndex](API_UpdateIndex.md) operation\.  
+If you are using the console, you can define index fields when creating the mapping\. If you are using the API, you must first create the field using the `UpdateIndex` operation\.  
 Type: Array of [DataSourceToIndexFieldMapping](API_DataSourceToIndexFieldMapping.md) objects  
 Array Members: Minimum number of 1 item\. Maximum number of 100 items\.  
 Required: No
@@ -66,5 +66,5 @@ Required: Yes
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
 +  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/GoogleDriveConfiguration) 
 +  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/GoogleDriveConfiguration) 
-+  [AWS SDK for Java](https://docs.aws.amazon.com/goto/SdkForJava/kendra-2019-02-03/GoogleDriveConfiguration) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/GoogleDriveConfiguration) 
 +  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kendra-2019-02-03/GoogleDriveConfiguration) 

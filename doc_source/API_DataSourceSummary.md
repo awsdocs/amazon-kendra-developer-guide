@@ -4,7 +4,7 @@
 
 # DataSourceSummary<a name="API_DataSourceSummary"></a>
 
-Summary information for a Amazon Kendra data source\. Returned in a call to [DescribeDataSource](API_DescribeDataSource.md)\.
+Summary information for a Amazon Kendra data source\. Returned in a call to the `DescribeDataSource` operation\.
 
 ## Contents<a name="API_DataSourceSummary_Contents"></a>
 
@@ -28,7 +28,7 @@ Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`
 Required: No
 
  **Status**   <a name="Kendra-Type-DataSourceSummary-Status"></a>
-The status of the data source\. When the status is `ATIVE` the data source is ready to use\.  
+The status of the data source\. When the status is `ACTIVE` the data source is ready to use\.  
 Type: String  
 Valid Values:` CREATING | DELETING | FAILED | UPDATING | ACTIVE`   
 Required: No
@@ -49,5 +49,5 @@ Required: No
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
 +  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/DataSourceSummary) 
 +  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/DataSourceSummary) 
-+  [AWS SDK for Java](https://docs.aws.amazon.com/goto/SdkForJava/kendra-2019-02-03/DataSourceSummary) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/DataSourceSummary) 
 +  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kendra-2019-02-03/DataSourceSummary) 

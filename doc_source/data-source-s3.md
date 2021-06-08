@@ -4,7 +4,7 @@
 
 # Using an Amazon S3 data source<a name="data-source-s3"></a>
 
-Use an Amazon S3 data source when you document repository is an S3 bucket\. 
+Use an Amazon S3 data source when your document repository is an S3 bucket\. 
 
 You must create an index before you create a data source\. You provide the index identifier as a parameter to the [CreateDataSource](API_CreateDataSource.md) operation\.
 

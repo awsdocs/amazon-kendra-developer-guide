@@ -65,7 +65,7 @@ The content of the JSON file follows this template\. All of the attributes are o
 }
 ```
 
-The `_created_at` and `_last_updated_at` metadata fields are ISO 8601 encoded dates\. For example, "2019\-09\-24T01:04:41Z"\.
+The `_created_at` and `_last_updated_at` metadata fields are ISO 8601 encoded dates\. For example, 20120325T123010\+01:00 is the ISO 8601 date\-time format for March 25th 2012 at 12:30PM \(plus 10 seconds\) in Central European Time\.
 
 You can add additional information to the `Attributes` field about a document that you use to filter queries or to group query responses\. For more information, see [Creating custom document attributes](custom-attributes.md)\.
 

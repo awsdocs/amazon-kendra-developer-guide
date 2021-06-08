@@ -4,12 +4,12 @@
 
 # What is Amazon Kendra?<a name="what-is-kendra"></a>
 
-Amazon Kendra is an enterprise search service that enables your users to intuitively search unstructured data using natural language\. It returns specific answers to questions, giving users an experience that's close to interacting with a human expert\. It is highly available and scalable, tightly integrated with other AWS services, and offers enterprise\-grade security\.
+Amazon Kendra is a highly accurate intelligent search service that enables your users to search unstructured data using natural language\. It returns specific answers to questions, giving users an experience that's close to interacting with a human expert\. It is highly scalable and capable of meeting performance demands, tightly integrated with other AWS services such as [Amazon S3](https://docs.aws.amazon.com/kendra/latest/dg/data-source-s3.html) and [Amazon Lex](https://docs.aws.amazon.com/lexv2/latest/dg/faq-bot-kendra-search.html), and offers enterprise\-grade security\.
 
 Amazon Kendra users can ask the following types of questions, or queries:
-+ **Factoid questions** — Simple who, what, when, or where questions, such as *Who is Amazon’s CEO?* or *What is the height of the Space Needle?*\. Factoid questions have fact\-based answers that can be returned in the form of a single word or phrase\. The precise answer, however, must be explicitly stated in the ingested text content\.
++ **Factoid questions** — Simple who, what, when, or where questions, such as *Who is on duty today?* or *Where is the nearest service center to me?* Factoid questions have fact\-based answers that can be returned in the form of a single word or phrase\. The precise answer, however, must be explicitly stated in the ingested text content\.
 + **Descriptive questions** — Questions whose answer could be a sentence, passage, or an entire document\. For example, *How do I connect my Echo Plus to my network?* or *How do I get tax benefits for lower income families?*\. 
-+ **Keyword searches**— For questions where the intent and scope isn't clear, for example, *vacation policy* or *health benefits*, Amazon Kendra uses its deep learning models to return relevant documents\. 
++ **Keyword searches** — Questions where the intent and scope are not clear\. For example, *keynote address*\. As 'address' can often have several meanings, Amazon Kendra can infer the user's intent behind the search query to return relevant information aligned with the user's intended meaning\. Amazon Kendra uses deep learning models to handle this kind of query\.
 
 ## Benefits of Amazon Kendra<a name="what-is-benefits"></a>
 
@@ -21,23 +21,27 @@ Amazon Kendra has the following benefits:
 
 ## Amazon Kendra Developer Edition<a name="akde"></a>
 
-The Amazon Kendra Developer Edition provides all of the features of Amazon Kendra at a lower cost\. It includes a free tier that provides 750 hours of use\. The Developer Edition is ideal to explore how Amazon Kendra indexes your documents, to try out features, and to develop applications that use Amazon Kendra\. 
+The Amazon Kendra Developer Edition provides all of the features of Amazon Kendra at a lower cost\. It includes a free tier that provides 750 hours of use\. The Developer Edition is ideal to explore how Amazon Kendra indexes your documents, to try out features, and to develop applications that use Amazon Kendra\.
 
 The developer edition provides the following:
 + Up to 5 indexes with up to 5 data sources each
-+ 10,000 documents or 3 Gb of extracted text
++ 10,000 documents or 3 GB of extracted text
 + 4,000 queries per day
-+ Runs in 1 availability zone \(AZ\)
++ Runs in 1 availability zone \(AZ\) – see [Availability Zones](https://aws.amazon.com/about-aws/global-infrastructure/regions_az/) \(data centers in AWS regions\) 
 
 You should not use the Developer Edition for a production application\. The Developer Edition doesn't provide any guarantees of latency or availability\.
 
 ## Amazon Kendra Enterprise Edition<a name="akee"></a>
 
-Use Amazon Kendra Enterprise Edition when you want to index your entire enterprise document library or for when your application is ready for use in a production environment\. The enterprise edition provides the following\. You can increase this quota using the [Service Quotas console](https://console.aws.amazon.com/servicequotas/home)\.
+Use Amazon Kendra Enterprise Edition when you want to index your entire enterprise document library or for when your application is ready for use in a production environment\.
+
+The enterprise edition provides the following:
 + Up to 5 indexes with up to 50 data sources each\. 
-+ 500,000 documents or 150 Gb of extracted text\.
++ 500,000 documents or 150 GB of extracted text\.
 + 40,000 queries per day\.
-+ Runs in 3 availability zones \(AZ\)
++ Runs in 3 availability zones \(AZ\) – see [Availability Zones](https://aws.amazon.com/about-aws/global-infrastructure/regions_az/) \(data centers in AWS regions\) 
+
+You can increase this quota using the [Service Quotas console](https://console.aws.amazon.com/servicequotas/home)\.
 
 ## Pricing for Amazon Kendra<a name="pricing"></a>
 

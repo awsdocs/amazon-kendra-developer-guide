@@ -28,7 +28,8 @@ Pattern: `^[a-zA-Z][a-zA-Z0-9_.]*$`
 Required: No
 
  **ExcludeAttachmentFilePatterns**   <a name="Kendra-Type-ServiceNowServiceCatalogConfiguration-ExcludeAttachmentFilePatterns"></a>
-Determines the types of file attachments that are excluded from the index\.  
+A list of regular expression patterns\. Documents that match the patterns are excluded from the index\. Documents that don't match the patterns are included in the index\. If a document matches both an exclusion pattern and an inclusion pattern, the document is not included in the index\.  
+The regex is applied to the file name of the attachment\.  
 Type: Array of strings  
 Array Members: Minimum number of 0 items\. Maximum number of 100 items\.  
 Length Constraints: Minimum length of 1\. Maximum length of 150\.  
@@ -41,7 +42,8 @@ Array Members: Minimum number of 1 item\. Maximum number of 100 items\.
 Required: No
 
  **IncludeAttachmentFilePatterns**   <a name="Kendra-Type-ServiceNowServiceCatalogConfiguration-IncludeAttachmentFilePatterns"></a>
-Determines the types of file attachments that are included in the index\.   
+A list of regular expression patterns\. Documents that match the patterns are included in the index\. Documents that don't match the patterns are excluded from the index\. If a document matches both an exclusion pattern and an inclusion pattern, the document is not included in the index\.  
+The regex is applied to the file name of the attachment\.  
 Type: Array of strings  
 Array Members: Minimum number of 0 items\. Maximum number of 100 items\.  
 Length Constraints: Minimum length of 1\. Maximum length of 150\.  
@@ -52,5 +54,5 @@ Required: No
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
 +  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/ServiceNowServiceCatalogConfiguration) 
 +  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/ServiceNowServiceCatalogConfiguration) 
-+  [AWS SDK for Java](https://docs.aws.amazon.com/goto/SdkForJava/kendra-2019-02-03/ServiceNowServiceCatalogConfiguration) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/ServiceNowServiceCatalogConfiguration) 
 +  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kendra-2019-02-03/ServiceNowServiceCatalogConfiguration) 

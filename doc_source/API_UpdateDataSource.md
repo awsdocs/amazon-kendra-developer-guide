@@ -216,6 +216,7 @@ Updates an existing Amazon Kendra data source\.
          ]
       },
       "ServiceNowConfiguration": { 
+         "AuthenticationType": "string",
          "HostUrl": "string",
          "KnowledgeArticleConfiguration": { 
             "CrawlAttachments": boolean,
@@ -229,6 +230,7 @@ Updates an existing Amazon Kendra data source\.
                   "IndexFieldName": "string"
                }
             ],
+            "FilterQuery": "string",
             "IncludeAttachmentFilePatterns": [ "string" ]
          },
          "SecretArn": "string",
@@ -340,21 +342,27 @@ If the action is successful, the service sends back an HTTP 200 response with an
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
  **AccessDeniedException**   
+  
 HTTP Status Code: 400
 
  **ConflictException**   
+  
 HTTP Status Code: 400
 
  **InternalServerException**   
+  
 HTTP Status Code: 500
 
  **ResourceNotFoundException**   
+  
 HTTP Status Code: 400
 
  **ThrottlingException**   
+  
 HTTP Status Code: 400
 
  **ValidationException**   
+  
 HTTP Status Code: 400
 
 ## See Also<a name="API_UpdateDataSource_SeeAlso"></a>
@@ -364,7 +372,7 @@ For more information about using this API in one of the language\-specific AWS S
 +  [AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/kendra-2019-02-03/UpdateDataSource) 
 +  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/UpdateDataSource) 
 +  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/UpdateDataSource) 
-+  [AWS SDK for Java](https://docs.aws.amazon.com/goto/SdkForJava/kendra-2019-02-03/UpdateDataSource) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/UpdateDataSource) 
 +  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/kendra-2019-02-03/UpdateDataSource) 
 +  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/kendra-2019-02-03/UpdateDataSource) 
 +  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/kendra-2019-02-03/UpdateDataSource) 

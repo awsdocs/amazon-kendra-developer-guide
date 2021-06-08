@@ -79,7 +79,7 @@ There is an implementation of user context filtering for each data source\. The 
 + [User context filtering for frequently asked questions](#context-filter-faq)
 + [User context filtering for database data sources](#context-filter-jdbc)
 + [User context filtering for Confluence data sources](#context-filter-confluence)
-+ [User context filtering for Google Drive data sources\.](#context-filter-google)
++ [User context filtering for Google Drive data sources](#context-filter-google)
 + [User context filtering for Microsoft OneDrive data sources](#context-filter-onedrive)
 + [User context filtering for Amazon S3 data sources](#context-filter-s3)
 + [User context filtering for Salesforce data sources](#context-filter-salesforce)
@@ -120,7 +120,7 @@ The Confluence group and user names are mapped as follows:
   + Server – The `_user_id` is the username\. The username is always lower case\.
   + Cloud – The `_user_id` is the account ID of the user\.
 
-## User context filtering for Google Drive data sources\.<a name="context-filter-google"></a>
+## User context filtering for Google Drive data sources<a name="context-filter-google"></a>
 
 A Google Workspace Drive data source returns user and group information for Google Drive users and groups\. Group and domain membership are mapped to the `_group_ids` index field\. The Google Drive user name is mapped to the `_user_id` field\.
 
@@ -207,9 +207,21 @@ You can add up to 200 entries in the `AccessControlList` field\.
 
 ## User context filtering for Salesforce data sources<a name="context-filter-salesforce"></a>
 
-A Salesforce data source returns user and group information from Salesforce access control list \(ACL\) entities\. The ProfileSet, PermissionSet, Group, and Role entities are mapped to the Amazon Kendra `_group_ids` index field\. The Salesforce User entity is mapped to the Amazon Kendra `_user_id` index field\.
+A Salesforce data source returns user and group information from Salesforce access control list \(ACL\) entities\. You can apply user context filtering to Salesforce standard objects and chatter feeds\. User context filtering is not available for Salesforce knowledge articles\.
 
-The `_group_id` for a Salesforce chatter feed has two possible values\. If the feed is visible only to a Chatter or Collaboration group, that group is the Amazon Kendra `_group_id` value\. If not, Amazon Kendra creates a group named after the user that posted the chatter item\. All users that subscribed to the item are part of that group\.
+For standard objects, the `_user_id` and `_group_ids` are used as follows:
++ `_user_id` – The user name of the Salesforce user\.
++ `_group_ids` –
+  + Name of the Salesforce `Profile`
+  + Name of the Salesforce `Group`
+  + Name of the Salesforce `UserRole`
+  + Name of the Salesforce `PermissionSet`
+
+For chatter feeds, the `_user_id` and `_group_ids` are used as follows:
++ `_user_id` – The user name of the Salesforce user\. Only available if the item is posted in the user's feed\.
++ `_group_ids` – Group IDs are used as follows\. Only available if the feed item is posted in a chatter or collaboration group\.
+  + The name of the chatter or collaboration group\.
+  + If the group is public, `PUBLIC:ALL`\.
 
 ## User context filtering for ServiceNow data sources<a name="context-filter-servicenow"></a>
 
@@ -225,9 +237,9 @@ When you use a SharePoint group for user context filtering, calculate the group 
 
 1. Get the site name\. For example, `https://host.onmicrosoft.com/sites/siteName.`
 
-1. Take the MD5 hash of the site name\. For example, `430a6b90503eef95c89295c8999c7981`\.
+1. Take the SHA256 hash of the site name\. For example, `430a6b90503eef95c89295c8999c7981`\.
 
-1. Create the group ID by concatenating the MD5 hash with a vertical bar \(\|\) and the group name\. For example, if the group name is "site owners", the group ID would be
+1. Create the group ID by concatenating the SHA256 hash with a vertical bar \(\|\) and the group name\. For example, if the group name is "site owners", the group ID would be
 
    `"430a6b90503eef95c89295c8999c7981|site owners"`
 
