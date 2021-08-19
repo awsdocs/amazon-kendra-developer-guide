@@ -66,7 +66,7 @@ If the action is successful, the service sends back an HTTP 200 response\.
 The following data is returned in JSON format by the service\.
 
  ** [CreatedAt](#API_DescribeQuerySuggestionsBlockList_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsBlockList-response-CreatedAt"></a>
-Shows the date\-time a block list for query suggestions was last created\.  
+Shows the date\-time a block list for query suggestions was created\.  
 Type: Timestamp
 
  ** [Description](#API_DescribeQuerySuggestionsBlockList_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsBlockList-response-Description"></a>

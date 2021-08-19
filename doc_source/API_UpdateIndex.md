@@ -107,7 +107,7 @@ Pattern: `arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{
 Required: No
 
  ** [UserContextPolicy](#API_UpdateIndex_RequestSyntax) **   <a name="Kendra-UpdateIndex-request-UserContextPolicy"></a>
-The user user token context policy\.  
+The user context policy\.  
 Type: String  
 Valid Values:` ATTRIBUTE_FILTER | USER_TOKEN`   
 Required: No

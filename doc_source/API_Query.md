@@ -208,7 +208,7 @@ Type: [SortingConfiguration](API_SortingConfiguration.md) object
 Required: No
 
  ** [UserContext](#API_Query_RequestSyntax) **   <a name="Kendra-Query-request-UserContext"></a>
-The user context token\.  
+The user context token or user and group information\.  
 Type: [UserContext](API_UserContext.md) object  
 Required: No
 

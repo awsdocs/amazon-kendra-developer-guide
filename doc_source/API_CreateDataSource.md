@@ -4,9 +4,9 @@
 
 # CreateDataSource<a name="API_CreateDataSource"></a>
 
-Creates a data source that you use to with an Amazon Kendra index\. 
+Creates a data source that you want to use with an Amazon Kendra index\. 
 
-You specify a name, data source connector type and description for your data source\. You also specify configuration information such as document metadata \(author, source URI, and so on\) and user context information\.
+You specify a name, data source connector type and description for your data source\. You also specify configuration information for the data source connector\.
 
  `CreateDataSource` is a synchronous operation\. The operation returns 200 if the data source was successfully created\. Otherwise, an exception is raised\.
 

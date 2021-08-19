@@ -4,7 +4,7 @@
 
 # ThesaurusSummary<a name="API_ThesaurusSummary"></a>
 
-An array of summary information for one or more thesauruses\.
+An array of summary information for a thesaurus or multiple thesauri\.
 
 ## Contents<a name="API_ThesaurusSummary_Contents"></a>
 

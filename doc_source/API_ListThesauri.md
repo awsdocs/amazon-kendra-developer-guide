@@ -70,7 +70,7 @@ Type: String
 Length Constraints: Minimum length of 1\. Maximum length of 800\.
 
  ** [ThesaurusSummaryItems](#API_ListThesauri_ResponseSyntax) **   <a name="Kendra-ListThesauri-response-ThesaurusSummaryItems"></a>
-An array of summary information for one or more thesauruses\.  
+An array of summary information for a thesaurus or multiple thesauri\.  
 Type: Array of [ThesaurusSummary](API_ThesaurusSummary.md) objects
 
 ## Errors<a name="API_ListThesauri_Errors"></a>

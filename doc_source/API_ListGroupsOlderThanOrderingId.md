@@ -39,13 +39,13 @@ Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`
 Required: Yes
 
  ** [MaxResults](#API_ListGroupsOlderThanOrderingId_RequestSyntax) **   <a name="Kendra-ListGroupsOlderThanOrderingId-request-MaxResults"></a>
- The maximum results shown for a list of groups that are mapped to users before a given ordering or timestamp identifier\.   
+ The maximum number of returned groups that are mapped to users before a given ordering or timestamp identifier\.   
 Type: Integer  
 Valid Range: Minimum value of 1\. Maximum value of 10\.  
 Required: No
 
  ** [NextToken](#API_ListGroupsOlderThanOrderingId_RequestSyntax) **   <a name="Kendra-ListGroupsOlderThanOrderingId-request-NextToken"></a>
- The next items in the list of groups that go beyond the maximum\.   
+ If the previous response was incomplete \(because there is more data to retrieve\), Amazon Kendra returns a pagination token in the response\. You can use this pagination token to retrieve the next set of groups that are mapped to users before a given ordering or timestamp identifier\.   
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 800\.  
 Required: No
@@ -81,7 +81,7 @@ The following data is returned in JSON format by the service\.
 Type: Array of [GroupSummary](API_GroupSummary.md) objects
 
  ** [NextToken](#API_ListGroupsOlderThanOrderingId_ResponseSyntax) **   <a name="Kendra-ListGroupsOlderThanOrderingId-response-NextToken"></a>
- The next items in the list of groups that go beyond the maximum\.   
+ If the response is truncated, Amazon Kendra returns this token that you can use in the subsequent request to retrieve the next set of groups that are mapped to users before a given ordering or timestamp identifier\.   
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 800\.
 

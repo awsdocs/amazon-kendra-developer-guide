@@ -35,7 +35,7 @@ For information about the parameters that are common to all actions, see [Common
 The request accepts the following data in JSON format\.
 
  ** [ClientToken](#API_CreateThesaurus_RequestSyntax) **   <a name="Kendra-CreateThesaurus-request-ClientToken"></a>
-A token that you provide to identify the request to create a thesaurus\. Multiple calls to the `CreateThesaurus` operation with the same client token will create only one index\.   
+A token that you provide to identify the request to create a thesaurus\. Multiple calls to the `CreateThesaurus` operation with the same client token will create only one thesaurus\.   
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Required: No
