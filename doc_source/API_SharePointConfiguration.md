@@ -48,7 +48,7 @@ Length Constraints: Minimum length of 1\. Maximum length of 150\.
 Required: No
 
  **SecretArn**   <a name="Kendra-Type-SharePointConfiguration-SecretArn"></a>
-The Amazon Resource Name \(ARN\) of credentials stored in AWS Secrets Manager\. The credentials should be a user/password pair\. For more information, see [Using a Microsoft SharePoint Data Source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-sharepoint.html)\. For more information about AWS Secrets Manager, see [ What Is AWS Secrets Manager ](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) in the *AWS Secrets Manager* user guide\.  
+The Amazon Resource Name \(ARN\) of credentials stored in AWS Secrets Manager\. The credentials should be a user/password pair\. If you use SharePoint Server, you also need to provide the sever domain name as part of the credentials\. For more information, see [Using a Microsoft SharePoint Data Source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-sharepoint.html)\. For more information about AWS Secrets Manager, see [ What Is AWS Secrets Manager ](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) in the * AWS Secrets Manager * user guide\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1284\.  
 Pattern: `arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}`   
@@ -57,8 +57,13 @@ Required: Yes
  **SharePointVersion**   <a name="Kendra-Type-SharePointConfiguration-SharePointVersion"></a>
 The version of Microsoft SharePoint that you are using as a data source\.  
 Type: String  
-Valid Values:` SHAREPOINT_ONLINE`   
+Valid Values:` SHAREPOINT_2013 | SHAREPOINT_2016 | SHAREPOINT_ONLINE`   
 Required: Yes
+
+ **SslCertificateS3Path**   <a name="Kendra-Type-SharePointConfiguration-SslCertificateS3Path"></a>
+Information required to find a specific file in an Amazon S3 bucket\.  
+Type: [S3Path](API_S3Path.md) object  
+Required: No
 
  **Urls**   <a name="Kendra-Type-SharePointConfiguration-Urls"></a>
 The URLs of the Microsoft SharePoint site that contains the documents that should be indexed\.  
@@ -81,7 +86,7 @@ Required: No
 ## See Also<a name="API_SharePointConfiguration_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/SharePointConfiguration) 
-+  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/SharePointConfiguration) 
-+  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/SharePointConfiguration) 
-+  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kendra-2019-02-03/SharePointConfiguration) 
++  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/SharePointConfiguration) 
++  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/SharePointConfiguration) 
++  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/SharePointConfiguration) 
++  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kendra-2019-02-03/SharePointConfiguration) 

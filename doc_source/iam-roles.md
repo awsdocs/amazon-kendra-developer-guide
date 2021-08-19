@@ -16,6 +16,7 @@ The following topics provide details for the required policies\. If you create I
 + [IAM roles for data sources](#iam-roles-ds)
 + [IAM roles for frequently asked questions](#iam-roles-ds-faq)
 + [IAM roles for query suggestions](#iam-roles-query-suggestions)
++ [IAM roles for principal mapping of users and groups](#iam-roles-principal-mapping)
 
 ## IAM roles for indexes<a name="iam-roles-index"></a>
 
@@ -209,8 +210,10 @@ When you use the [CreateDataSource](API_CreateDataSource.md) operation, you must
 + [IAM roles for Microsoft OneDrive data sources](#iam-roles-ds-on)
 + [IAM role for Salesforce data sources](#iam-roles-ds-sf)
 + [IAM role for ServiceNow data sources](#iam-roles-ds-sn)
-+ [IAM roles for Microsoft SharePoint Online data sources](#iam-roles-ds-spo)
++ [IAM roles for Microsoft SharePoint data sources](#iam-roles-ds-spo)
 + [Virtual private cloud \(VPC\) IAM role](#iam-roles-vpc)
++ [IAM roles for web crawler data sources](#iam-roles-ds-webcrawler)
++ [IAM roles for Amazon WorkDocs data sources](#iam-roles-workdocs)
 
 ### IAM roles for Amazon S3 data sources<a name="iam-roles-ds-s3"></a>
 
@@ -646,9 +649,9 @@ When you use a ServiceNow as a data source, you provide a role with the followin
 }
 ```
 
-### IAM roles for Microsoft SharePoint Online data sources<a name="iam-roles-ds-spo"></a>
+### IAM roles for Microsoft SharePoint data sources<a name="iam-roles-ds-spo"></a>
 
-For a Microsoft SharePoint Online data source, you provide a role with the following policies\.
+For a Microsoft SharePoint data source, you provide a role with the following policies\.
 + Permission to access the AWS Secrets Manager secret that contains the user name and password for the SharePoint site\. For more information about the contents of the secret, see [Using a Microsoft SharePoint data source](data-source-sharepoint.md)\.
 + Permission to use the AWS KMS customer master key \(CMK\) to decrypt the user name and password secret stored by Secrets Manager\.
 + Permission to use the `BatchPutDocument` and `BatchDeleteDocument` operations to update the index\.
@@ -786,6 +789,141 @@ If you use a virtual private cloud \(VPC\) to connect to your data source, you m
 }
 ```
 
+### IAM roles for web crawler data sources<a name="iam-roles-ds-webcrawler"></a>
+
+When you use the Amazon Kendra web crawler, you provide a role with the following policies:
++ Permission to access the AWS Secrets Manager secret that contains the user name and password to connect to websites or a web proxy server backed by basic authentication\. For more information about the contents of the secret, see [Using a web crawler data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-web-crawler.html)\.
++ Permission to use the AWS KMS customer master key \(CMK\) to decrypt the user name and password secret stored by Secrets Manager\.
++ Permission to use the `BatchPutDocument` and `BatchDeleteDocument` operations to update the index\.
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+  {
+    "Effect": "Allow",
+    "Action": [
+      "secretsmanager:GetSecretValue"
+    ],
+    "Resource": [
+      "arn:aws:secretsmanager:region:account ID:secret:secret ID"
+    ]
+  },
+  {
+    "Effect": "Allow",
+    "Action": [
+      "kms:Decrypt"
+    ],
+    "Resource": [
+      "arn:aws:kms:region:account ID:key/key ID"
+    ],
+    "Condition": {
+      "StringLike": {
+        "kms:ViaService": [
+          "secretsmanager.*.amazonaws.com"
+        ]
+      }
+    }
+  },
+  {
+    "Effect": "Allow",
+    "Action": [
+      "kendra:BatchPutDocument",
+      "kendra:BatchDeleteDocument"
+    ],
+    "Resource": "arn:aws:kendra:region:account ID:index/index ID"
+  }]
+}
+```
+
+### IAM roles for Amazon WorkDocs data sources<a name="iam-roles-workdocs"></a>
+
+When you use Amazon WorkDocs, you provide a role with the following policies
++ Permission to verify the directory ID \(organization ID\) that corresponds with your Amazon WorkDocs site repository\.
++ Permission to get the domain name of your Active Directory that contains your Amazon WorkDocs site directory\.
++ Permission to call the required public API actions for the Amazon WorkDocs connector\.
++ Permission to call the `BatchPutDocument` and `BatchDeleteDocument` actions to update the index\.
+
+A required role policy to enable Amazon Kendra to get the domain name of your Active Directory that contains your Amazon WorkDocs site directory\.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowsKendraToGetDomainNameOfActiveDirectory",
+            "Effect": "Allow",
+            "Action": "ds:DescribeDirectories",
+            "Resource": "*"
+        }
+    ]
+}
+```
+
+A required trust policy to enable Amazon Kendra to assume a role\.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": {
+        "Sid": "AllowsKendraToAssumeTheAttachedRole",
+        "Effect": "Allow",
+        "Principal": { "Service": "kendra.amazonaws.com" },
+       "Action": "sts:AssumeRole"
+    }
+}
+```
+
+A required role policy to enable Amazon Kendra to call the required public API actions for the Amazon WorkDocs connector\.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowsKendraToCallRequiredWorkDocsAPIs",
+            "Effect": "Allow",
+            "Action": [
+                "workdocs:GetDocumentPath",
+                "workdocs:GetGroup",
+                "workdocs:GetDocument",
+                "workdocs:DownloadDocumentVersions"
+                "workdocs:DescribeUsers",
+                "workdocs:DescribeFolderContents",
+                "workdocs:DescribeActivities",
+                "workdocs:DescribeComments",
+                "workdocs:GetFolder",
+                "workdocs:DescribeResourcePermissions",
+                "workdocs:GetFolderPath",
+                "workdocs:DescribeInstances"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
+
+A required policy to call the `BatchPutDocument` and `BatchDeleteDocument` actions to update the index\.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowsKendraToCallBatchPutDeleteAPIs",
+            "Effect": "Allow",
+            "Action": [
+                "kendra:BatchPutDocument",
+                "kendra:BatchDeleteDocument"
+            ],
+            "Resource": [
+                 "arn:aws:kendra:{{region}}:{{account_id}}:index/${IndexId}"
+            ]
+        }
+     ]
+}
+```
+
 ## IAM roles for frequently asked questions<a name="iam-roles-ds-faq"></a>
 
 When you use the [CreateFaq](API_CreateFaq.md) operation to load questions and answers into an index, you must provide Amazon Kendra with an IAM role with access to the Amazon S3 bucket that contains the source files\. If the source files are encrypted, you must provide permission to use the AWS KMS customer master key \(CMK\) to decrypt the files\.
@@ -853,9 +991,65 @@ An optional role policy to enable Amazon Kendra to use an AWS KMS customer maste
 
 ## IAM roles for query suggestions<a name="iam-roles-query-suggestions"></a>
 
-When you use an Amazon S3 file as a query suggestions block list, you supply a role that has permission to access the Amazon S3 bucket bucket and the S3 file\. If the block list text file \(i\.e\. the S3 file\) in the S3 bucket is encrypted, you must provide permission to use the AWS KMS customer master key \(CMK\) to decrypt the documents\.
+When you use an Amazon S3 file as a query suggestions block list, you supply a role that has permission to access the S3 file and the Amazon S3 bucket\. If the block list text file \(the S3 file\) in the Amazon S3 bucket is encrypted, you must provide permission to use the AWS KMS customer master key \(CMK\) to decrypt the documents\.
 
-A required role policy to enable Amazon Kendra to use the Amazon S3 file as query suggestions block list\.
+A required role policy to enable Amazon Kendra to use the S3 file as your query suggestions block list\.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {"Effect": "Allow",
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::bucket name/*"
+            ]
+        }
+    ]
+}
+```
+
+A required trust policy to enable Amazon Kendra to assume a role\.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": {
+        "Sid": "AllowKendraToAssumeAttachedRole",
+        "Effect": "Allow",
+        "Principal": {
+            "Service": "kendra.amazonaws.com"
+        },
+        "Action": "sts:AssumeRole"
+    }
+}
+```
+
+An optional role policy to enable Amazon Kendra to use an AWS KMS customer master key \(CMK\) to decrypt documents in an Amazon S3 bucket\.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {"Effect": "Allow",
+            "Action": [
+                "kms:Decrypt"
+            ],
+            "Resource": [
+                "arn:aws:kms:region:account ID:key/key ID"
+            ]
+        }
+    ]
+}
+```
+
+## IAM roles for principal mapping of users and groups<a name="iam-roles-principal-mapping"></a>
+
+When you use the [PutPrincipalMapping](https://docs.aws.amazon.com/kendra/latest/dg/API_PutPrincipalMapping.html) operation to map users to their groups for filtering search results by user context, you need to provide a list of users or sub groups that belong to a group\. If your list is more than 1000 users or sub groups for a group, you need to supply a role that has permission to access the Amazon S3 file of your list and the Amazon S3 bucket\. If the text file \(the S3 file\) of the list in the Amazon S3 bucket is encrypted, you must provide permission to use the AWS KMS customer master key \(CMK\) to decrypt the documents\.
+
+A required role policy to enable Amazon Kendra to use the Amazon S3 file as your list of users and sub groups that belong to a group\.
 
 ```
 {

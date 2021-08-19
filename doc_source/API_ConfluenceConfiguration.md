@@ -38,7 +38,7 @@ Type: [ConfluencePageConfiguration](API_ConfluencePageConfiguration.md) object
 Required: No
 
  **SecretArn**   <a name="Kendra-Type-ConfluenceConfiguration-SecretArn"></a>
-The Amazon Resource Name \(ARN\) of an AWS Secrets Manager secret that contains the key/value pairs required to connect to your Confluence server\. The secret must contain a JSON structure with the following keys:  
+The Amazon Resource Name \(ARN\) of an AWS Secrets Managersecret that contains the key/value pairs required to connect to your Confluence server\. The secret must contain a JSON structure with the following keys:  
 + username \- The user name or email address of a user with administrative privileges for the Confluence server\.
 + password \- The password associated with the user logging in to the Confluence server\.
 Type: String  
@@ -72,7 +72,7 @@ Required: No
 ## See Also<a name="API_ConfluenceConfiguration_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/ConfluenceConfiguration) 
-+  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/ConfluenceConfiguration) 
-+  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/ConfluenceConfiguration) 
-+  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kendra-2019-02-03/ConfluenceConfiguration) 
++  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/ConfluenceConfiguration) 
++  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/ConfluenceConfiguration) 
++  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/ConfluenceConfiguration) 
++  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kendra-2019-02-03/ConfluenceConfiguration) 

@@ -14,9 +14,10 @@ Supported data sources are:
 + Confluence cloud and Confluence server
 + Custom data sources
 + Microsoft OneDrive for Business
-+ Microsoft SharePoint Online
++ Microsoft SharePoint
 + Salesforce sites
 + ServiceNow instances
++ Amazon Kendra web crawler
 
 Supported document formats are: plain text, Microsoft Word, Microsoft PowerPoint, HTML, and PDF\. For more information, see [Types of documents](index-document-types.md)\.
 

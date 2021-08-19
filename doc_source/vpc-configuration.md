@@ -49,7 +49,7 @@ The following example shows how to connect a database data source to a MySQL dat
 + [Step 1: Configure a VPC](#vpc-create-vpc)
 + [Step 2: Configure security](#vpc-create-database)
 + [Step 3: Create a database](#vpc-create-database)
-+ [Step 4: Create a MySQL data source](#vpc-connect)
++ [Step 4: Create a database data source](#vpc-connect)
 
 ### Step 1: Configure a VPC<a name="vpc-create-vpc"></a>
 
@@ -91,92 +91,26 @@ Next, configure security groups for your database\.
 
 1. From the navigation pane, choose **Security Groups** and then choose **Create security group**\.
 
-1. In **Security group name** enter **MySQLSecurityGroup**\. Provide a description, then choose your VPC from the list\. Choose **Create** and then choose **Close**\.
+1. In **Security group name** enter **DataSourceInboundSecurityGroup**\. Provide a description, then choose your VPC from the list\. Choose **Create** and then choose **Close**\.
 
 1. Choose the **Inbound** tab\.
 
 1. Choose **Edit rules**, and then choose **Add Rule**
 
-1. For a MySQL database, enter **3306** for the **Port Range**\. For the **Source**, type the CIDR of your VPC\. Choose **Save rules** and then choose **Close**\.
+1. For a database, enter the port number for the **Port Range**\. For example, for MySQL it is **3306**, and for HTTPS it is **443**\. For the **Source**, type the Classless Inter\-Domain Routing \(CIDR\) of your VPC\. Choose **Save rules** and then choose **Close**\.
 
 The security group allows anyone within the VPC to connect to the database, and it allows outbound connections to the internet\.
 
 ### Step 3: Create a database<a name="vpc-create-database"></a>
 
-Now create a database to hold your documents\. If you already have a database, you can use that instead\.
+Create a database to hold your documents\. If you already have a database, you can use that instead\.
 
-**To create a MySQL database**
+For an example of creating a MySQL database, see [Getting Starting with a MySQL database data source \(Console\)](https://docs.aws.amazon.com/kendra/latest/dg/getting-started-mysql.html)\.
 
-1. Sign in to the AWS Management Console and open the Amazon RDS console at [https://console\.aws\.amazon\.com/rds/](https://console.aws.amazon.com/rds/)\.
+### Step 4: Create a database data source<a name="vpc-connect"></a>
 
-1. From the navigation pane, choose **Subnet groups** and then choose **Create DB Subnet Group**\.
+After you have configured your VPC and created your database, you can create a data source for the database\.
 
-1. Name the group and choose your VPC\.
+You need to configure your VPC, the private subnets that you created in your VPC, and the security group that you created in your VPC for your database\.
 
-1. Add your VPC's private subnets\. Your private subnets are the ones that are not connected to your NAT\. Choose **Create**\.
-
-1. From the navigation pane, choose **Databases** and then choose **Create database\.**
-
-1. Use the following parameters to create the database\. Leave all of the other parameters at their defaults\.
-   + **Engine options** – MySQL
-   + **Templates** – Free tier
-   + **Credential Settings** – Enter and confirm a password
-   + Under **Connectivity**, choose **Additional connectivity configuration**\. Make the following choices\.
-     + **Subnet group** – Choose the subnet group that you created in step 4\.
-     + **VPC security group** – Choose the group that you created in the VPC \(**MySQLSecurityGroup**\)\.
-   + Under **Additional configuration**, set the **Initial database name** to **content**\.
-
-1. Choose **Create database**\.
-
-1. From the list of databases, choose your new database\. Make a note of the database endpoint\.
-
-1. After you create your database, you must create a table to hold your documents\. Creating a table is outside the scope of these instructions\. When you create your table, note the following:
-   + Database name – **content**
-   + Table name – **documents**
-   + Columns – **ID**, **Title**, **Body**, and **LastUpdate**\. You can include additional columns if you want\.
-
-### Step 4: Create a MySQL data source<a name="vpc-connect"></a>
-
-Now that you have configured your VPC and created your database, you can create a data source for the database\.
-
-**To create a MySQL data source**
-
-1. Sign in to the AWS Management Console and open the Amazon Kendra console at [https://console\.aws\.amazon\.com/kendra/](https://console.aws.amazon.com/kendra/)\.
-
-1. From the navigation pane, choose **Indexes** and then choose your index\.
-
-1. Choose **Add data sources** and then choose **Amazon RDS**\.
-
-1. Type a name and description for the data source and then choose **Next**\.
-
-1. Choose **MySQL**\.
-
-1. Under **Connection access**, enter the following information:
-   + **Endpoint** – The endpoint of the database that you created earlier\.
-   + **Port** – The port number for the database\. For MySQL, the default is 3306\.
-   + **Type of authentication** – Choose **New**\.
-   + **New secret container name** – A name for the Secrets Manager container for the database credentials\.
-   + **Username** – The name of a user with administrative access to the database\.
-   + **Password** – The password for the user, and then choose **Save authentication**\.
-   + **Database name** – **content**\.
-   + **Table name** – **documents**\.
-   + **IAM role** – Choose **Create a new role**, and then type a name for the role\.
-
-1. In **Column configuration** enter the following:
-   + **Document ID column name** – **ID**
-   + **Document title column name** – **Title**
-   + **Document data column name** – **Body**
-
-1. In **Column change detection** enter the following:
-   + **Change detecting columns** – **LastUpdate**
-
-1. In **Configure VPC & security group** provide the following:
-   + In **Virtual Private Cloud \(VPC\)**, choose your VPC\.
-   + In **Subnets**, choose the private subnets that you created in your VPC\.
-   + In **VPC security groups**, choose the security group that you created in your VPC for MySQL databases \(**MySQLSecurityGroup**\)\.
-
-1. In **Set sync run schedule**, choose **Run on demand** and then choose **Next**\.
-
-1. In **Data source field mapping**, choose **Next**\.
-
-1. Review the configuration of your data source to make sure that it is correct\. When you're satisfied that everything is correct, choose **Create**\.
+For an example of creating a data source for a MySQL database, see [Getting Starting with a MySQL database data source \(Console\)](https://docs.aws.amazon.com/kendra/latest/dg/getting-started-mysql.html)\.

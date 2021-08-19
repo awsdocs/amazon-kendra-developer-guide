@@ -13,7 +13,11 @@ You can add only the following types of documents with the `BatchPutDocuments` o
 + Microsoft PowerPoint
 + Microsoft Word
 
-Documents can be added from an Amazon S3 bucket or supplied as binary data\. The following examples show how to add documents directly to an index\.
+Documents can be added from an Amazon S3 bucket or supplied as binary data\.
+
+Adding documents to an index is an asynchronous operation\. After you call the `BatchPutDocument` operation, you use the [BatchGetDocumentStatus](API_BatchGetDocumentStatus.md) operation to monitor the progress of indexing your documents\. When you call the `BatchGetDocumentStatus` operation with a list of document IDs, it returns the status of the document\. When the status of the document is `INDEXED` or `FAILED`, processing of the document is complete\. When the status is `FAILED`, the `BatchGetDocumentStatus` operation returns the reason that the document couldn't be indexed\.
+
+ The following examples show how to add documents directly to an index\.
 
 **Topics**
 + [Adding documents with the API](in-adding-binary-doc.md)

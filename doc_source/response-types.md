@@ -13,12 +13,12 @@ The type of the response is returned in the `Type` response field of the [QueryR
 
 ## Answer<a name="query-answer"></a>
 
-Amazon Kendra detected one or more question answers in the response\. A factoid is the response to a who, what, when, or where question such as *What is the height of the space needle?* Amazon Kendra returns text in the index that best matches the query\. The text is in the `AnswerText` field and contains highlight information for the search term within the response text\. 
+Amazon Kendra detected one or more question answers in the response\. A factoid is the response to a who, what, when, or where question such as *What is the height of the space needle?* Amazon Kendra returns text in the index that best matches the query\. The text is in the `AnswerText` field and contains highlight information for the search term within the response text\. `AnswerText` includes the full document excerpt with highlighted text, while `DocumentExcerpt` includes the truncated \(290 characters\) document excerpt with highlighted text\.
 
 ```
 {
     'AnswerText': {
-        'Highlights': [
+        'TextWithHighlights': [
             {
                 'BeginOffset': 271,
                 'EndOffset': 279,
@@ -45,7 +45,7 @@ Amazon Kendra detected one or more question answers in the response\. A factoid 
         seeLimitsinAmazonTextract.\n''\n''\n''\n''TheAmazonTextractsynchronous''operationscanprocessdocumentsstoredinanAmazon\n''S3Bucketoryoucanpass''base64encodedimagebytes.\n''Formoreinformation,
         see''CallingAmazonTextractSynchronousOperations.''Asynchronousoperationsrequireinputdocuments\n''tobesuppliedinanAmazon''S3Bucket.'
     },
-    'Excerpt': {
+    'DocumentExcerpt': {
         'Highlights': [
             {
                 'BeginOffset': 0,
@@ -82,7 +82,7 @@ Amazon Kendra returns ranked documents for those that match the search term\. Th
         \n''Permissions,
         andResourcesReference-''AmazonTextract'
     },
-    'Excerpt': {
+    'DocumentExcerpt': {
         'Highlights': [
             {
                 'BeginOffset': 68,
@@ -108,12 +108,12 @@ A question and answer response is returned when Amazon Kendra matches a question
 ```
 {
     'AnswerText': {
-        'Highlights': [
+        'TextWithHighlights': [
             
         ],
         'Text': '605feet'
     },
-    'Excerpt': {
+    'DocumentExcerpt': {
         'Highlights': [
             {
                 'BeginOffset': 0,
@@ -147,4 +147,4 @@ A question and answer response is returned when Amazon Kendra matches a question
 }
 ```
 
-For information about adding question and answer text to an index, see [Adding questions and answers directly to an index ](in-creating-faq.md)
+For information about adding question and answer text to an index, see [Adding questions and answers directly to an index](in-creating-faq.md)

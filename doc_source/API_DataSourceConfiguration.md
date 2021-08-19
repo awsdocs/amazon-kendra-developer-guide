@@ -48,10 +48,20 @@ Provides information necessary to create a data source connector for a Microsoft
 Type: [SharePointConfiguration](API_SharePointConfiguration.md) object  
 Required: No
 
+ **WebCrawlerConfiguration**   <a name="Kendra-Type-DataSourceConfiguration-WebCrawlerConfiguration"></a>
+Provides the configuration information required for Amazon Kendra web crawler\.  
+Type: [WebCrawlerConfiguration](API_WebCrawlerConfiguration.md) object  
+Required: No
+
+ **WorkDocsConfiguration**   <a name="Kendra-Type-DataSourceConfiguration-WorkDocsConfiguration"></a>
+Provides the configuration information to connect to WorkDocs as your data source\.  
+Type: [WorkDocsConfiguration](API_WorkDocsConfiguration.md) object  
+Required: No
+
 ## See Also<a name="API_DataSourceConfiguration_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/DataSourceConfiguration) 
-+  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/DataSourceConfiguration) 
-+  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/DataSourceConfiguration) 
-+  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kendra-2019-02-03/DataSourceConfiguration) 
++  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/DataSourceConfiguration) 
++  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/DataSourceConfiguration) 
++  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/DataSourceConfiguration) 
++  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kendra-2019-02-03/DataSourceConfiguration) 

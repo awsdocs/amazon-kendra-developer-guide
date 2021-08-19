@@ -3,15 +3,19 @@
 --------
 
 # Document history for Amazon Kendra<a name="doc-history"></a>
-+ **Latest documentation update:** June 7, 2021
++ **Latest documentation update:** August 13, 2021
 
 The following table describes important changes in each release of Amazon Kendra\. For notification about updates to this documentation, you can subscribe to an RSS feed\.
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [New tutorial](https://docs.aws.amazon.com/kendra/latest/dg/tutorial.html) | Amazon Kendra now provides a tutorial that walks you through how to build a metadata\-enriched search solution\. See [Building an intelligent search solution](https://docs.aws.amazon.com/kendra/latest/dg/tutorial.html)\. | August 13, 2021 | 
+| [New feature](https://docs.aws.amazon.com/kendra/latest/dg/data-source-web-crawler.html) | Amazon Kendra now provides a data source connector for Amazon WorkDocs\. For more information, see [Using an Amazon WorkDocs data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-workdocs.html)\. | July 20, 2021 | 
+| [New feature](https://docs.aws.amazon.com/kendra/latest/dg/data-source-web-crawler.html) | Amazon Kendra now provides a web crawler to crawl and index webpages\. For more information, see [Using a web crawler data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-web-crawler.html)\. | June 17, 2021 | 
+| [Region expansion](https://docs.aws.amazon.com/general/latest/gr/kendra.html) | Amazon Kendra is now available in Canada \(Central\) \(ca\-central\-1\)\. | June 16, 2021 | 
 | [Region expansion](https://docs.aws.amazon.com/general/latest/gr/kendra.html) | Amazon Kendra is now available in US East \(Ohio\) \(us\-east\-2\)\. | June 7, 2021 | 
 | [New feature](https://docs.aws.amazon.com/kendra/latest/dg/query-suggestions.html) | Amazon Kendra now supports query suggestions, where users are suggested popular queries relevant to their search\. For more information, see [Suggesting popular search queries](https://docs.aws.amazon.com/kendra/latest/dg/query-suggestions.html)\. | May 27, 2021 | 
-| [ managed policy updates \- New policies](#doc-history) | Amazon Kendra added two new AWS managed policies\. For more information, see [ AWS Managed policies for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/security-iam-awsmanpol.html)\. | May 27, 2021 | 
+| [AWS managed policy updates \- New policies](#doc-history) | Amazon Kendra added two new AWS managed policies\. For more information, see [ AWS Managed policies for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/security-iam-awsmanpol.html)\. | May 27, 2021 | 
 | [Region expansion](https://docs.aws.amazon.com/general/latest/gr/kendra.html) | Amazon Kendra is now available in Asia Pacific \(Singapore\) \(ap\-southeast\-1\)\. | May 5, 2021 | 
 | [New feature](https://docs.aws.amazon.com/kendra/latest/dg/tuning.html) | Amazon Kendra now supports tuning search relevance in the query by overriding tuning configurations set at the index level\. For more information, see [Tuning search relevance](https://docs.aws.amazon.com/kendra/latest/dg/tuning.html) and [Tuning responses](https://docs.aws.amazon.com/kendra/latest/dg/tuning-responses.html)\. | April 20, 2021 | 
 | [New feature](https://docs.aws.amazon.com/kendra/latest/dg/data-source-servicenow.html) | Amazon Kendra now supports OAuth 2\.0 authentication and using ServiceNow queries to select documents for indexing\. For more information, see [Using a ServiceNow data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-servicenow.html)\. | April 1, 2021 | 

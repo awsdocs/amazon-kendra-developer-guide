@@ -56,7 +56,7 @@ The following JSON example is a `DocumentMetadataConfigurationUpdates` structure
        "Name": "Department",
        "Type": "STRING_VALUE",
        "Search": {
-           "Facetable": "true"
+           "Facetable": true
        }
    }
 ]

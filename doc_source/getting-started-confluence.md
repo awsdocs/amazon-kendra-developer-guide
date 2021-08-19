@@ -6,7 +6,7 @@
 
 You can use the Amazon Kendra console to get started using a Confluence instance\. When you use the console you specify the connection information you need to index the contents of a Confluence instance\. For more information, see [Using an Atlassian Confluence data source](data-source-confluence.md)\.
 
-Use the following procedure to create a basic Confluence data source using the default configuration\. The procedure assumes 
+Use the following procedure to create a basic Confluence data source using the default configuration\. The procedure assumes that you have already created an index following the steps in step 1 of [Getting started with an S3 bucket \(Console\)](gs-console.md)\.
 + You have an administrator account on the Confluence instance\.
 + You have a password for the account on a Confluence server instance or an API token for the account on a Confluence cloud instance\.
 + You created an index following the steps in step 1 of [Getting started with an S3 bucket \(Console\)](gs-console.md)\.
@@ -39,7 +39,7 @@ Use the following procedure to create a basic Confluence data source using the d
 
    1. Choose **Save authentication** to save the Secrets Manager secret\.
 
-1. If you are using a Confluence server, in **Virtual Private Cloud \(VPC\)** choose **No VPC**\.
+1. If you use Confluence Server, and your server is not publicly accessible, you need to choose a Virtual Private Cloud \(VPC\), otherwise you may choose **No VPC**\.
 
 1. In **IAM role** choose **Create a new role\.** Enter a name for the role in the **Role name** field\. Choose **Next** to continue\.
 

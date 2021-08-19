@@ -20,7 +20,7 @@ aws kendra create-data-source \
  --index-id index ID \
  --name example-data-source \
  --type S3 \
- --configuration '{"S3n-Configuration":{"BucketName":"bucket name"}}' 
+ --configuration '{"S3Configuration":{"BucketName":"bucket name"}}' 
  --role-arn 'arn:aws:iam::account id:role:/role name
 ```
 

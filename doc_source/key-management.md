@@ -11,8 +11,12 @@ Amazon Kendra encrypts the contents of your index using one of three types of ke
 
 When you create a key using the AWS KMS console, you must give the key the following policy that enables Amazon Kendra to use the key\. If you create a key with the Amazon Kendra console, the policy is applied to the key for you\. For more information, see [Using Key Policies in AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html) in the *AWS Key Management Service Developer Guide*\.
 
+You should specify only the CMKs that Amazon Kendra needs to use in the Resource element to ensure permissions or actions are limited only to the specified CMKs\.
+
 ```
 {
+  "Version": "2012-10-17",
+  "Statement": {
     "Effect": "Allow",
     "Principal": {
         "Service": "kendra.amazonaws.com"
@@ -26,6 +30,8 @@ When you create a key using the AWS KMS console, you must give the key the follo
         "kms:CreateGrant",
         "kms:RetireGrant"
     ],
-    "Resource": "*"
+    "Resource": [
+      "arn:aws:kms:region:account ID:key/key ID"]
+  }
 }
 ```

@@ -24,9 +24,9 @@ Amazon Kendra has the following benefits:
 The Amazon Kendra Developer Edition provides all of the features of Amazon Kendra at a lower cost\. It includes a free tier that provides 750 hours of use\. The Developer Edition is ideal to explore how Amazon Kendra indexes your documents, to try out features, and to develop applications that use Amazon Kendra\.
 
 The developer edition provides the following:
-+ Up to 5 indexes with up to 5 data sources each
-+ 10,000 documents or 3 GB of extracted text
-+ 4,000 queries per day
++ Up to 5 indexes with up to 5 data sources each\.
++ 10,000 documents or 3 GB of extracted text\.
++ Approximately 4,000 queries per day or 0\.05 queries per second\.
 + Runs in 1 availability zone \(AZ\) – see [Availability Zones](https://aws.amazon.com/about-aws/global-infrastructure/regions_az/) \(data centers in AWS regions\) 
 
 You should not use the Developer Edition for a production application\. The Developer Edition doesn't provide any guarantees of latency or availability\.
@@ -36,9 +36,9 @@ You should not use the Developer Edition for a production application\. The Deve
 Use Amazon Kendra Enterprise Edition when you want to index your entire enterprise document library or for when your application is ready for use in a production environment\.
 
 The enterprise edition provides the following:
-+ Up to 5 indexes with up to 50 data sources each\. 
-+ 500,000 documents or 150 GB of extracted text\.
-+ 40,000 queries per day\.
++ Up to 5 indexes with up to 50 data sources each\.
++ 100,000 documents or 30 GB of extracted text\.
++ Approximately 8,000 queries per day or 0\.1 queries per second\.
 + Runs in 3 availability zones \(AZ\) – see [Availability Zones](https://aws.amazon.com/about-aws/global-infrastructure/regions_az/) \(data centers in AWS regions\) 
 
 You can increase this quota using the [Service Quotas console](https://console.aws.amazon.com/servicequotas/home)\.

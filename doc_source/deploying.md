@@ -4,7 +4,7 @@
 
 # Deploying Amazon Kendra<a name="deploying"></a>
 
-When it comes time to deploy Amazon Kendra search to your Web site, we provide source code that you can use with React to get a head start on your application\. The source code is provided free of charge under a modified MIT license so that you can use it as is or change it for your own needs\. There are two examples:
+When it comes time to deploy Amazon Kendra search to your website, we provide source code that you can use with React to get a head start on your application\. The source code is provided free of charge under a modified MIT license so that you can use it as is or change it for your own needs\. There are two examples:
 + [https://kendrasamples\.s3\.amazonaws\.com/kendrasamples\-react\-app\.zip](https://kendrasamples.s3.amazonaws.com/kendrasamples-react-app.zip) – An example React application that provides sample data and a search page\.
 + [https://kendrasamples\.s3\.amazonaws\.com/kendrasamples\.zip](https://kendrasamples.s3.amazonaws.com/kendrasamples.zip) – A library that you can add to an existing React application\. 
 
@@ -56,7 +56,7 @@ The search component provides a text box to enter query text\. The `onSearch` fu
 
 The results component shows the response from the `Query` operation\. The results are shown in three separate areas\.
 + Suggested answers – These are the top results returned by the `Query` operation\. It contains up to three suggested answers\. In the response, they have the result type `ANSWER`\.
-+ FAQ answers – These are the frequently asked questions results returned by the response\. FAQs are added to the index separately\. In the response, they have the type `QUESTION_ANSWER`\. For more information, see [Adding questions and answers directly to an index ](in-creating-faq.md)\. 
++ FAQ answers – These are the frequently asked questions results returned by the response\. FAQs are added to the index separately\. In the response, they have the type `QUESTION_ANSWER`\. For more information, see [Adding questions and answers directly to an index](in-creating-faq.md)\. 
 + Recommended documents – These are additional documents that Amazon Kendra returns in the response\. In the response from the `Query` operation, they have the type `DOCUMENT`\.
 
 The results components share a set of components for features like highlighting, titles, links, etc\. The shared components must be present for the result components to work\. 

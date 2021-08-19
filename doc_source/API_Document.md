@@ -9,7 +9,7 @@ A document in an index\.
 ## Contents<a name="API_Document_Contents"></a>
 
  **AccessControlList**   <a name="Kendra-Type-Document-AccessControlList"></a>
-Information to use for user context filtering\.  
+Information on user and group access rights, which is used for user context filtering\.  
 Type: Array of [Principal](API_Principal.md) objects  
 Required: No
 
@@ -28,6 +28,12 @@ Required: No
 The file type of the document in the `Blob` field\.  
 Type: String  
 Valid Values:` PDF | HTML | MS_WORD | PLAIN_TEXT | PPT`   
+Required: No
+
+ **HierarchicalAccessControlList**   <a name="Kendra-Type-Document-HierarchicalAccessControlList"></a>
+The list of [principal](https://docs.aws.amazon.com/kendra/latest/dg/API_Principal.html) lists that define the hierarchy for which documents users should have access to\.  
+Type: Array of [HierarchicalPrincipal](API_HierarchicalPrincipal.md) objects  
+Array Members: Minimum number of 1 item\. Maximum number of 30 items\.  
 Required: No
 
  **Id**   <a name="Kendra-Type-Document-Id"></a>
@@ -49,7 +55,7 @@ Required: No
 ## See Also<a name="API_Document_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/Document) 
-+  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/Document) 
-+  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/Document) 
-+  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kendra-2019-02-03/Document) 
++  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/Document) 
++  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/Document) 
++  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/Document) 
++  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kendra-2019-02-03/Document) 

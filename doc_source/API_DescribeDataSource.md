@@ -294,12 +294,61 @@ Required: Yes
          "InclusionPatterns": [ "string" ],
          "SecretArn": "string",
          "SharePointVersion": "string",
+         "SslCertificateS3Path": { 
+            "Bucket": "string",
+            "Key": "string"
+         },
          "Urls": [ "string" ],
          "UseChangeLog": boolean,
          "VpcConfiguration": { 
             "SecurityGroupIds": [ "string" ],
             "SubnetIds": [ "string" ]
          }
+      },
+      "WebCrawlerConfiguration": { 
+         "AuthenticationConfiguration": { 
+            "BasicAuthentication": [ 
+               { 
+                  "Credentials": "string",
+                  "Host": "string",
+                  "Port": number
+               }
+            ]
+         },
+         "CrawlDepth": number,
+         "MaxContentSizePerPageInMegaBytes": number,
+         "MaxLinksPerPage": number,
+         "MaxUrlsPerMinuteCrawlRate": number,
+         "ProxyConfiguration": { 
+            "Credentials": "string",
+            "Host": "string",
+            "Port": number
+         },
+         "UrlExclusionPatterns": [ "string" ],
+         "UrlInclusionPatterns": [ "string" ],
+         "Urls": { 
+            "SeedUrlConfiguration": { 
+               "SeedUrls": [ "string" ],
+               "WebCrawlerMode": "string"
+            },
+            "SiteMapsConfiguration": { 
+               "SiteMaps": [ "string" ]
+            }
+         }
+      },
+      "WorkDocsConfiguration": { 
+         "CrawlComments": boolean,
+         "ExclusionPatterns": [ "string" ],
+         "FieldMappings": [ 
+            { 
+               "DataSourceFieldName": "string",
+               "DateFieldFormat": "string",
+               "IndexFieldName": "string"
+            }
+         ],
+         "InclusionPatterns": [ "string" ],
+         "OrganizationId": "string",
+         "UseChangeLog": boolean
       }
    },
    "CreatedAt": number,
@@ -378,7 +427,7 @@ Valid Values:` CREATING | DELETING | FAILED | UPDATING | ACTIVE`
  ** [Type](#API_DescribeDataSource_ResponseSyntax) **   <a name="Kendra-DescribeDataSource-response-Type"></a>
 The type of the data source\.  
 Type: String  
-Valid Values:` S3 | SHAREPOINT | DATABASE | SALESFORCE | ONEDRIVE | SERVICENOW | CUSTOM | CONFLUENCE | GOOGLEDRIVE` 
+Valid Values:` S3 | SHAREPOINT | DATABASE | SALESFORCE | ONEDRIVE | SERVICENOW | CUSTOM | CONFLUENCE | GOOGLEDRIVE | WEBCRAWLER | WORKDOCS` 
 
  ** [UpdatedAt](#API_DescribeDataSource_ResponseSyntax) **   <a name="Kendra-DescribeDataSource-response-UpdatedAt"></a>
 The Unix timestamp of when the data source was last updated\.  
@@ -411,12 +460,12 @@ HTTP Status Code: 400
 ## See Also<a name="API_DescribeDataSource_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/kendra-2019-02-03/DescribeDataSource) 
-+  [AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/kendra-2019-02-03/DescribeDataSource) 
-+  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/DescribeDataSource) 
-+  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/DescribeDataSource) 
-+  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/DescribeDataSource) 
-+  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/kendra-2019-02-03/DescribeDataSource) 
-+  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/kendra-2019-02-03/DescribeDataSource) 
-+  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/kendra-2019-02-03/DescribeDataSource) 
-+  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kendra-2019-02-03/DescribeDataSource) 
++  [ AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/kendra-2019-02-03/DescribeDataSource) 
++  [ AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/kendra-2019-02-03/DescribeDataSource) 
++  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/DescribeDataSource) 
++  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/DescribeDataSource) 
++  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/DescribeDataSource) 
++  [ AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/kendra-2019-02-03/DescribeDataSource) 
++  [ AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/kendra-2019-02-03/DescribeDataSource) 
++  [ AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/kendra-2019-02-03/DescribeDataSource) 
++  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kendra-2019-02-03/DescribeDataSource) 

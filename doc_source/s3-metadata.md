@@ -10,7 +10,7 @@ Your metadata files must be stored in the same bucket as your indexed files\. Yo
 
 If you specify an S3 prefix for your metadata files, they live in a directory structure parallel to your indexed documents\. Amazon Kendra looks only in the specified directory for your metadata\. If the metadata isn't read, check that the directory location matches the location of your metadata\.
 
-The following examples show how the indexed document location maps to the metadata file location\. Note that the document's S3 key is appended to the metadata's S3 prefix and then suffixed with `.metatdata.json` to form the metadata file's S3 path\.
+The following examples show how the indexed document location maps to the metadata file location\. Note that the document's S3 key is appended to the metadata's S3 prefix and then suffixed with `.metatdata.json` to form the metadata file's S3 path\. The combined S3 key, with the metadata's S3 prefix and `.metatdata.json` suffix must be no more than a total of 1024 characters\. It is recommended that you keep your S3 key below 1000 characters to account for addtional characters when combining your key with the prefix and suffix\.
 
 ```
 Bucket name:

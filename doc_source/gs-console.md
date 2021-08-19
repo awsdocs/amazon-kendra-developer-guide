@@ -31,7 +31,7 @@ The following procedures show how to create and test an Amazon Kendra index by u
   + [Getting started with an Amazon S3 data source \(Console\)](getting-started-s3.md)
   + [Getting started with a Salesforce data source \(Console\)](getting-started-salesforce.md)
   + [Getting started with a ServiceNow data source \(Console\)](getting-started-servicenow.md)
-  + [Getting started with a Microsoft SharePoint Online data source \(Console\)](getting-started-sharepoint.md)<a name="gs-search"></a>
+  + [Getting started with a Microsoft SharePoint data source \(Console\)](getting-started-sharepoint.md)<a name="gs-search"></a>
 
 **Step 3: To search an index \(Console\)**
 

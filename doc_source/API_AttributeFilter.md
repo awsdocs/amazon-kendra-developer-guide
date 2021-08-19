@@ -16,6 +16,8 @@ When you use the `AndAllFilters` or `OrAllFilters`, filters you can use 2 layers
 
 If you use more than 2 layers, you receive a `ValidationException` exception with the message "`AttributeFilter` cannot have a depth of more than 2\."
 
+If you use more than 10 attribute filters, you receive a `ValidationException` exception with the message "`AttributeFilter` cannot have a length of more than 10"\.
+
 ## Contents<a name="API_AttributeFilter_Contents"></a>
 
  **AndAllFilters**   <a name="Kendra-Type-AttributeFilter-AndAllFilters"></a>
@@ -71,7 +73,7 @@ Required: No
 ## See Also<a name="API_AttributeFilter_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/AttributeFilter) 
-+  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/AttributeFilter) 
-+  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/AttributeFilter) 
-+  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kendra-2019-02-03/AttributeFilter) 
++  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/AttributeFilter) 
++  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/AttributeFilter) 
++  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/AttributeFilter) 
++  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kendra-2019-02-03/AttributeFilter) 

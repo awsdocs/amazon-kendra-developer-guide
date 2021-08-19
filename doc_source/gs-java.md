@@ -4,7 +4,7 @@
 
 # Getting started \(AWS SDK for Java\)<a name="gs-java"></a>
 
-The following program is an example of using Amazon Kendra in a Python program\. The program performs the following actions:
+The following program is an example of using Amazon Kendra in a Java program\. The program performs the following actions:
 
 1. Creates a new index using the [CreateIndex](API_CreateIndex.md) operation\.
 
