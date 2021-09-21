@@ -8,51 +8,31 @@ Maps a batch delete document request to a specific data source sync job\. This i
 
 ## Contents<a name="API_DataSourceSyncJobMetrics_Contents"></a>
 
-<<<<<<< HEAD
  ** DocumentsAdded **   <a name="Kendra-Type-DataSourceSyncJobMetrics-DocumentsAdded"></a>
-=======
- **DocumentsAdded**   <a name="Kendra-Type-DataSourceSyncJobMetrics-DocumentsAdded"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The number of documents added from the data source up to now in the data source sync\.  
 Type: String  
 Pattern: `(([1-9][0-9]*)|0)`   
 Required: No
 
-<<<<<<< HEAD
  ** DocumentsDeleted **   <a name="Kendra-Type-DataSourceSyncJobMetrics-DocumentsDeleted"></a>
-=======
- **DocumentsDeleted**   <a name="Kendra-Type-DataSourceSyncJobMetrics-DocumentsDeleted"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The number of documents deleted from the data source up to now in the data source sync run\.  
 Type: String  
 Pattern: `(([1-9][0-9]*)|0)`   
 Required: No
 
-<<<<<<< HEAD
  ** DocumentsFailed **   <a name="Kendra-Type-DataSourceSyncJobMetrics-DocumentsFailed"></a>
-=======
- **DocumentsFailed**   <a name="Kendra-Type-DataSourceSyncJobMetrics-DocumentsFailed"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The number of documents that failed to sync from the data source up to now in the data source sync run\.  
 Type: String  
 Pattern: `(([1-9][0-9]*)|0)`   
 Required: No
 
-<<<<<<< HEAD
  ** DocumentsModified **   <a name="Kendra-Type-DataSourceSyncJobMetrics-DocumentsModified"></a>
-=======
- **DocumentsModified**   <a name="Kendra-Type-DataSourceSyncJobMetrics-DocumentsModified"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The number of documents modified in the data source up to now in the data source sync run\.  
 Type: String  
 Pattern: `(([1-9][0-9]*)|0)`   
 Required: No
 
-<<<<<<< HEAD
  ** DocumentsScanned **   <a name="Kendra-Type-DataSourceSyncJobMetrics-DocumentsScanned"></a>
-=======
- **DocumentsScanned**   <a name="Kendra-Type-DataSourceSyncJobMetrics-DocumentsScanned"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The current number of documents crawled by the current sync job in the data source\.  
 Type: String  
 Pattern: `(([1-9][0-9]*)|0)`   

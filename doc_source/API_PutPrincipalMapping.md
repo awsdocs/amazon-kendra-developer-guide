@@ -45,11 +45,7 @@ For information about the parameters that are common to all actions, see [Common
 
 The request accepts the following data in JSON format\.
 
-<<<<<<< HEAD
  ** [ DataSourceId ](#API_PutPrincipalMapping_RequestSyntax) **   <a name="Kendra-PutPrincipalMapping-request-DataSourceId"></a>
-=======
- ** [DataSourceId](#API_PutPrincipalMapping_RequestSyntax) **   <a name="Kendra-PutPrincipalMapping-request-DataSourceId"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The identifier of the data source you want to map users to their groups\.  
 This is useful if a group is tied to multiple data sources, but you only want the group to access documents of a certain data source\. For example, the groups "Research", "Engineering", and "Sales and Marketing" are all tied to the company's documents stored in the data sources Confluence and Salesforce\. However, "Sales and Marketing" team only needs access to customer\-related documents stored in Salesforce\.  
 Type: String  
@@ -57,18 +53,13 @@ Length Constraints: Minimum length of 1\. Maximum length of 100\.
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`   
 Required: No
 
-<<<<<<< HEAD
  ** [ GroupId ](#API_PutPrincipalMapping_RequestSyntax) **   <a name="Kendra-PutPrincipalMapping-request-GroupId"></a>
-=======
- ** [GroupId](#API_PutPrincipalMapping_RequestSyntax) **   <a name="Kendra-PutPrincipalMapping-request-GroupId"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The identifier of the group you want to map its users to\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1024\.  
 Pattern: `^\P{C}*$`   
 Required: Yes
 
-<<<<<<< HEAD
  ** [ GroupMembers ](#API_PutPrincipalMapping_RequestSyntax) **   <a name="Kendra-PutPrincipalMapping-request-GroupMembers"></a>
 The list that contains your users or sub groups that belong the same group\.  
 For example, the group "Company" includes the user "CEO" and the sub groups "Research", "Engineering", and "Sales and Marketing"\.  
@@ -77,27 +68,13 @@ Type: [ GroupMembers ](API_GroupMembers.md) object
 Required: Yes
 
  ** [ IndexId ](#API_PutPrincipalMapping_RequestSyntax) **   <a name="Kendra-PutPrincipalMapping-request-IndexId"></a>
-=======
- ** [GroupMembers](#API_PutPrincipalMapping_RequestSyntax) **   <a name="Kendra-PutPrincipalMapping-request-GroupMembers"></a>
-The list that contains your users or sub groups that belong the same group\.  
-For example, the group "Company" includes the user "CEO" and the sub groups "Research", "Engineering", and "Sales and Marketing"\.  
-If you have more than 1000 users and/or sub groups for a single group, you need to provide the path to the S3 file that lists your users and sub groups for a group\. Your sub groups can contain more than 1000 users, but the list of sub groups that belong to a group \(and/or users\) must be no more than 1000\.  
-Type: [GroupMembers](API_GroupMembers.md) object  
-Required: Yes
-
- ** [IndexId](#API_PutPrincipalMapping_RequestSyntax) **   <a name="Kendra-PutPrincipalMapping-request-IndexId"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The identifier of the index you want to map users to their groups\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`   
 Required: Yes
 
-<<<<<<< HEAD
  ** [ OrderingId ](#API_PutPrincipalMapping_RequestSyntax) **   <a name="Kendra-PutPrincipalMapping-request-OrderingId"></a>
-=======
- ** [OrderingId](#API_PutPrincipalMapping_RequestSyntax) **   <a name="Kendra-PutPrincipalMapping-request-OrderingId"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The timestamp identifier you specify to ensure Amazon Kendra does not override the latest `PUT` action with previous actions\. The highest number ID, which is the ordering ID, is the latest action you want to process and apply on top of other actions with lower number IDs\. This prevents previous actions with lower number IDs from possibly overriding the latest action\.  
 The ordering ID can be the UNIX time of the last update you made to a group members list\. You would then provide this list when calling `PutPrincipalMapping`\. This ensures your `PUT` action for that updated group with the latest members list doesn't get overwritten by earlier `PUT` actions for the same group which are yet to be processed\.  
 The default ordering ID is the current UNIX time in milliseconds that the action was received by Amazon Kendra\.  
@@ -105,11 +82,7 @@ Type: Long
 Valid Range: Minimum value of 0\. Maximum value of 32535158400000\.  
 Required: No
 
-<<<<<<< HEAD
  ** [ RoleArn ](#API_PutPrincipalMapping_RequestSyntax) **   <a name="Kendra-PutPrincipalMapping-request-RoleArn"></a>
-=======
- ** [RoleArn](#API_PutPrincipalMapping_RequestSyntax) **   <a name="Kendra-PutPrincipalMapping-request-RoleArn"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The Amazon Resource Name \(ARN\) of a role that has access to the S3 file that contains your list of users or sub groups that belong to a group\.  
 For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-ds)\.  
 Type: String  
@@ -125,7 +98,6 @@ If the action is successful, the service sends back an HTTP 200 response with an
 
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
-<<<<<<< HEAD
  ** AccessDeniedException **   
   
 HTTP Status Code: 400
@@ -151,33 +123,6 @@ HTTP Status Code: 400
 HTTP Status Code: 400
 
  ** ValidationException **   
-=======
- **AccessDeniedException**   
-  
-HTTP Status Code: 400
-
- **ConflictException**   
-  
-HTTP Status Code: 400
-
- **InternalServerException**   
-  
-HTTP Status Code: 500
-
- **ResourceNotFoundException**   
-  
-HTTP Status Code: 400
-
- **ServiceQuotaExceededException**   
-  
-HTTP Status Code: 400
-
- **ThrottlingException**   
-  
-HTTP Status Code: 400
-
- **ValidationException**   
->>>>>>> parent of 2b1c178 (updating tutorial)
   
 HTTP Status Code: 400
 

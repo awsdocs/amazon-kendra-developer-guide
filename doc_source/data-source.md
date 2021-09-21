@@ -8,11 +8,7 @@ When you create a data source, you give Amazon Kendra the location of documents 
 
 For example, say that you have a repository of tax instruction stored in an Amazon S3 bucket\. Existing documents are changed and new documents are added to the repository from time to time\. If you add the repository to Amazon Kendra as a data source, you can keep your index up to date by periodically updating your index\.
 
-<<<<<<< HEAD
 You can update the index manually using console or the [ StartDataSourceSyncJob ](API_StartDataSourceSyncJob.md) operation, or you can set up a schedule to update the index\. 
-=======
-You can update the index manually using console or the [StartDataSourceSyncJob](API_StartDataSourceSyncJob.md) operation, or you can set up a schedule to update the index\. 
->>>>>>> parent of 2b1c178 (updating tutorial)
 
 An index can have more than one data source\. Each data source can have its own update schedule\. For example, you might update the index of your working documents daily, or even hourly, while updating your archived documents manually whenever the archive changes\.
 

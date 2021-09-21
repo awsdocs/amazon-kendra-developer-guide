@@ -8,7 +8,6 @@ Provides configuration information for data sources that connect to Confluence\.
 
 ## Contents<a name="API_ConfluenceConfiguration_Contents"></a>
 
-<<<<<<< HEAD
  ** AttachmentConfiguration **   <a name="Kendra-Type-ConfluenceConfiguration-AttachmentConfiguration"></a>
 Specifies configuration information for indexing attachments to Confluence blogs and pages\.  
 Type: [ ConfluenceAttachmentConfiguration ](API_ConfluenceAttachmentConfiguration.md) object  
@@ -20,51 +19,25 @@ Type: [ ConfluenceBlogConfiguration ](API_ConfluenceBlogConfiguration.md) object
 Required: No
 
  ** ExclusionPatterns **   <a name="Kendra-Type-ConfluenceConfiguration-ExclusionPatterns"></a>
-=======
- **AttachmentConfiguration**   <a name="Kendra-Type-ConfluenceConfiguration-AttachmentConfiguration"></a>
-Specifies configuration information for indexing attachments to Confluence blogs and pages\.  
-Type: [ConfluenceAttachmentConfiguration](API_ConfluenceAttachmentConfiguration.md) object  
-Required: No
-
- **BlogConfiguration**   <a name="Kendra-Type-ConfluenceConfiguration-BlogConfiguration"></a>
- Specifies configuration information for indexing Confluence blogs\.  
-Type: [ConfluenceBlogConfiguration](API_ConfluenceBlogConfiguration.md) object  
-Required: No
-
- **ExclusionPatterns**   <a name="Kendra-Type-ConfluenceConfiguration-ExclusionPatterns"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 A list of regular expression patterns that apply to a URL on the Confluence server\. An exclusion pattern can apply to a blog post, a page, a space, or an attachment\. Items that match the pattern are excluded from the index\. Items that don't match the pattern are included in the index\. If a item matches both an exclusion pattern and an inclusion pattern, the item isn't included in the index\.  
 Type: Array of strings  
 Array Members: Minimum number of 0 items\. Maximum number of 100 items\.  
 Length Constraints: Minimum length of 1\. Maximum length of 150\.  
 Required: No
 
-<<<<<<< HEAD
  ** InclusionPatterns **   <a name="Kendra-Type-ConfluenceConfiguration-InclusionPatterns"></a>
-=======
- **InclusionPatterns**   <a name="Kendra-Type-ConfluenceConfiguration-InclusionPatterns"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 A list of regular expression patterns that apply to a URL on the Confluence server\. An inclusion pattern can apply to a blog post, a page, a space, or an attachment\. Items that match the patterns are included in the index\. Items that don't match the pattern are excluded from the index\. If an item matches both an inclusion pattern and an exclusion pattern, the item isn't included in the index\.  
 Type: Array of strings  
 Array Members: Minimum number of 0 items\. Maximum number of 100 items\.  
 Length Constraints: Minimum length of 1\. Maximum length of 150\.  
 Required: No
 
-<<<<<<< HEAD
  ** PageConfiguration **   <a name="Kendra-Type-ConfluenceConfiguration-PageConfiguration"></a>
 Specifies configuration information for indexing Confluence pages\.  
 Type: [ ConfluencePageConfiguration ](API_ConfluencePageConfiguration.md) object  
 Required: No
 
  ** SecretArn **   <a name="Kendra-Type-ConfluenceConfiguration-SecretArn"></a>
-=======
- **PageConfiguration**   <a name="Kendra-Type-ConfluenceConfiguration-PageConfiguration"></a>
-Specifies configuration information for indexing Confluence pages\.  
-Type: [ConfluencePageConfiguration](API_ConfluencePageConfiguration.md) object  
-Required: No
-
- **SecretArn**   <a name="Kendra-Type-ConfluenceConfiguration-SecretArn"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The Amazon Resource Name \(ARN\) of an AWS Secrets Managersecret that contains the key/value pairs required to connect to your Confluence server\. The secret must contain a JSON structure with the following keys:  
 + username \- The user name or email address of a user with administrative privileges for the Confluence server\.
 + password \- The password associated with the user logging in to the Confluence server\.
@@ -73,46 +46,27 @@ Length Constraints: Minimum length of 1\. Maximum length of 1284\.
 Pattern: `arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}`   
 Required: Yes
 
-<<<<<<< HEAD
  ** ServerUrl **   <a name="Kendra-Type-ConfluenceConfiguration-ServerUrl"></a>
-=======
- **ServerUrl**   <a name="Kendra-Type-ConfluenceConfiguration-ServerUrl"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The URL of your Confluence instance\. Use the full URL of the server\. For example, `https://server.example.com:port/`\. You can also use an IP address, for example, `https://192.168.1.113/`\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  
 Pattern: `^(https?|ftp|file):\/\/([^\s]*)`   
 Required: Yes
 
-<<<<<<< HEAD
  ** SpaceConfiguration **   <a name="Kendra-Type-ConfluenceConfiguration-SpaceConfiguration"></a>
 Specifies configuration information for indexing Confluence spaces\.  
 Type: [ ConfluenceSpaceConfiguration ](API_ConfluenceSpaceConfiguration.md) object  
 Required: No
 
  ** Version **   <a name="Kendra-Type-ConfluenceConfiguration-Version"></a>
-=======
- **SpaceConfiguration**   <a name="Kendra-Type-ConfluenceConfiguration-SpaceConfiguration"></a>
-Specifies configuration information for indexing Confluence spaces\.  
-Type: [ConfluenceSpaceConfiguration](API_ConfluenceSpaceConfiguration.md) object  
-Required: No
-
- **Version**   <a name="Kendra-Type-ConfluenceConfiguration-Version"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 Specifies the version of the Confluence installation that you are connecting to\.  
 Type: String  
 Valid Values:` CLOUD | SERVER`   
 Required: Yes
 
-<<<<<<< HEAD
  ** VpcConfiguration **   <a name="Kendra-Type-ConfluenceConfiguration-VpcConfiguration"></a>
 Specifies the information for connecting to an Amazon VPC\.  
 Type: [ DataSourceVpcConfiguration ](API_DataSourceVpcConfiguration.md) object  
-=======
- **VpcConfiguration**   <a name="Kendra-Type-ConfluenceConfiguration-VpcConfiguration"></a>
-Specifies the information for connecting to an Amazon VPC\.  
-Type: [DataSourceVpcConfiguration](API_DataSourceVpcConfiguration.md) object  
->>>>>>> parent of 2b1c178 (updating tutorial)
 Required: No
 
 ## See Also<a name="API_ConfluenceConfiguration_SeeAlso"></a>

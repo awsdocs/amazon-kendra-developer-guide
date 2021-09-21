@@ -8,21 +8,12 @@ Provides text and information about where to highlight the query suggestion text
 
 ## Contents<a name="API_SuggestionTextWithHighlights_Contents"></a>
 
-<<<<<<< HEAD
  ** Highlights **   <a name="Kendra-Type-SuggestionTextWithHighlights-Highlights"></a>
 The beginning and end of the query suggestion text that should be highlighted\.  
 Type: Array of [ SuggestionHighlight ](API_SuggestionHighlight.md) objects  
 Required: No
 
  ** Text **   <a name="Kendra-Type-SuggestionTextWithHighlights-Text"></a>
-=======
- **Highlights**   <a name="Kendra-Type-SuggestionTextWithHighlights-Highlights"></a>
-The beginning and end of the query suggestion text that should be highlighted\.  
-Type: Array of [SuggestionHighlight](API_SuggestionHighlight.md) objects  
-Required: No
-
- **Text**   <a name="Kendra-Type-SuggestionTextWithHighlights-Text"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The query suggestion text to display to the user\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  

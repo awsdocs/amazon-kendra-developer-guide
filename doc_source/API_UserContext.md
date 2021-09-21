@@ -16,7 +16,6 @@ If you provide both, an exception is thrown\.
 
 ## Contents<a name="API_UserContext_Contents"></a>
 
-<<<<<<< HEAD
  ** DataSourceGroups **   <a name="Kendra-Type-UserContext-DataSourceGroups"></a>
 The list of data source groups you want to filter search results based on groups' access to documents in that data source\.  
 Type: Array of [ DataSourceGroup ](API_DataSourceGroup.md) objects  
@@ -24,15 +23,6 @@ Array Members: Minimum number of 1 item\. Maximum number of 2048 items\.
 Required: No
 
  ** Groups **   <a name="Kendra-Type-UserContext-Groups"></a>
-=======
- **DataSourceGroups**   <a name="Kendra-Type-UserContext-DataSourceGroups"></a>
-The list of data source groups you want to filter search results based on groups' access to documents in that data source\.  
-Type: Array of [DataSourceGroup](API_DataSourceGroup.md) objects  
-Array Members: Minimum number of 1 item\. Maximum number of 2048 items\.  
-Required: No
-
- **Groups**   <a name="Kendra-Type-UserContext-Groups"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The list of groups you want to filter search results based on the groups' access to documents\.  
 Type: Array of strings  
 Array Members: Minimum number of 1 item\. Maximum number of 2048 items\.  
@@ -40,22 +30,14 @@ Length Constraints: Minimum length of 1\. Maximum length of 200\.
 Pattern: `^\P{C}*$`   
 Required: No
 
-<<<<<<< HEAD
  ** Token **   <a name="Kendra-Type-UserContext-Token"></a>
-=======
- **Token**   <a name="Kendra-Type-UserContext-Token"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The user context token for filtering search results for a user\. It must be a JWT or a JSON token\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100000\.  
 Pattern: `^\P{C}*$`   
 Required: No
 
-<<<<<<< HEAD
  ** UserId **   <a name="Kendra-Type-UserContext-UserId"></a>
-=======
- **UserId**   <a name="Kendra-Type-UserContext-UserId"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The identifier of the user you want to filter search results based on their access to documents\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 200\.  

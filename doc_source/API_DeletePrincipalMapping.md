@@ -27,11 +27,7 @@ For information about the parameters that are common to all actions, see [Common
 
 The request accepts the following data in JSON format\.
 
-<<<<<<< HEAD
  ** [ DataSourceId ](#API_DeletePrincipalMapping_RequestSyntax) **   <a name="Kendra-DeletePrincipalMapping-request-DataSourceId"></a>
-=======
- ** [DataSourceId](#API_DeletePrincipalMapping_RequestSyntax) **   <a name="Kendra-DeletePrincipalMapping-request-DataSourceId"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The identifier of the data source you want to delete a group from\.  
 This is useful if a group is tied to multiple data sources and you want to delete a group from accessing documents in a certain data source\. For example, the groups "Research", "Engineering", and "Sales and Marketing" are all tied to the company's documents stored in the data sources Confluence and Salesforce\. You want to delete "Research" and "Engineering" groups from Salesforce, so that these groups cannot access customer\-related documents stored in Salesforce\. Only "Sales and Marketing" should access documents in the Salesforce data source\.  
 Type: String  
@@ -39,33 +35,21 @@ Length Constraints: Minimum length of 1\. Maximum length of 100\.
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`   
 Required: No
 
-<<<<<<< HEAD
  ** [ GroupId ](#API_DeletePrincipalMapping_RequestSyntax) **   <a name="Kendra-DeletePrincipalMapping-request-GroupId"></a>
-=======
- ** [GroupId](#API_DeletePrincipalMapping_RequestSyntax) **   <a name="Kendra-DeletePrincipalMapping-request-GroupId"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The identifier of the group you want to delete\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1024\.  
 Pattern: `^\P{C}*$`   
 Required: Yes
 
-<<<<<<< HEAD
  ** [ IndexId ](#API_DeletePrincipalMapping_RequestSyntax) **   <a name="Kendra-DeletePrincipalMapping-request-IndexId"></a>
-=======
- ** [IndexId](#API_DeletePrincipalMapping_RequestSyntax) **   <a name="Kendra-DeletePrincipalMapping-request-IndexId"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The identifier of the index you want to delete a group from\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`   
 Required: Yes
 
-<<<<<<< HEAD
  ** [ OrderingId ](#API_DeletePrincipalMapping_RequestSyntax) **   <a name="Kendra-DeletePrincipalMapping-request-OrderingId"></a>
-=======
- ** [OrderingId](#API_DeletePrincipalMapping_RequestSyntax) **   <a name="Kendra-DeletePrincipalMapping-request-OrderingId"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The timestamp identifier you specify to ensure Amazon Kendra does not override the latest `DELETE` action with previous actions\. The highest number ID, which is the ordering ID, is the latest action you want to process and apply on top of other actions with lower number IDs\. This prevents previous actions with lower number IDs from possibly overriding the latest action\.  
 The ordering ID can be the UNIX time of the last update you made to a group members list\. You would then provide this list when calling `PutPrincipalMapping`\. This ensures your `DELETE` action for that updated group with the latest members list doesn't get overwritten by earlier `DELETE` actions for the same group which are yet to be processed\.  
 The default ordering ID is the current UNIX time in milliseconds that the action was received by Amazon Kendra\.   
@@ -81,7 +65,6 @@ If the action is successful, the service sends back an HTTP 200 response with an
 
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
-<<<<<<< HEAD
  ** AccessDeniedException **   
   
 HTTP Status Code: 400
@@ -103,29 +86,6 @@ HTTP Status Code: 400
 HTTP Status Code: 400
 
  ** ValidationException **   
-=======
- **AccessDeniedException**   
-  
-HTTP Status Code: 400
-
- **ConflictException**   
-  
-HTTP Status Code: 400
-
- **InternalServerException**   
-  
-HTTP Status Code: 500
-
- **ResourceNotFoundException**   
-  
-HTTP Status Code: 400
-
- **ThrottlingException**   
-  
-HTTP Status Code: 400
-
- **ValidationException**   
->>>>>>> parent of 2b1c178 (updating tutorial)
   
 HTTP Status Code: 400
 

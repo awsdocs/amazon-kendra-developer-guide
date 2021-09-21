@@ -4,11 +4,7 @@
 
 # Access control for S3 data sources<a name="s3-acl"></a>
 
-<<<<<<< HEAD
 You can control access to documents in an S3 data source using a configuration file\. You specify the file in the console or as the `AccessControlListConfiguration` parameter when you call the [ CreateDataSource ](API_CreateDataSource.md) or [ UpdateDataSource ](API_UpdateDataSource.md) operation\.
-=======
-You can control access to documents in an S3 data source using a configuration file\. You specify the file in the console or as the `AccessControlListConfiguration` parameter when you call the [CreateDataSource](API_CreateDataSource.md) or [UpdateDataSource](API_UpdateDataSource.md) operation\.
->>>>>>> parent of 2b1c178 (updating tutorial)
 
 The configuration file contains a JSON structure that identifies an S3 prefix and lists the access settings for the prefix\. The prefix can be a path, or it can be an individual file\. If the prefix is a path, the access settings apply to all of the files in that path\.
 

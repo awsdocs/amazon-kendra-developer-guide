@@ -8,22 +8,14 @@
 
 ## Contents<a name="API_GroupSummary_Contents"></a>
 
-<<<<<<< HEAD
  ** GroupId **   <a name="Kendra-Type-GroupSummary-GroupId"></a>
-=======
- **GroupId**   <a name="Kendra-Type-GroupSummary-GroupId"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
  The identifier of the group you want group summary information on\.   
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1024\.  
 Pattern: `^\P{C}*$`   
 Required: No
 
-<<<<<<< HEAD
  ** OrderingId **   <a name="Kendra-Type-GroupSummary-OrderingId"></a>
-=======
- **OrderingId**   <a name="Kendra-Type-GroupSummary-OrderingId"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
  The timestamp identifier used for the latest `PUT` or `DELETE` action\.   
 Type: Long  
 Valid Range: Minimum value of 0\. Maximum value of 32535158400000\.  

@@ -26,11 +26,7 @@ You can specify date, number, or string attributes to tune an index or tune at t
 
 ## Relevance tuning at the index level<a name="tuning-index"></a>
 
-<<<<<<< HEAD
 You tune the relevance of a field or attribute at the index level by using either the [console](https://console.aws.amazon.com/kendra/) to set tuning in the index details or the [ UpdateIndex ](API_UpdateIndex.md) operation\. The following example sets the "\_last\_updated\_at" field as the `Freshness` field for a document\.
-=======
-You tune the relevance of a field or attribute at the index level by using either the [console](https://console.aws.amazon.com/kendra/) to set tuning in the index details or the [UpdateIndex](API_UpdateIndex.md) operation\. The following example sets the "\_last\_updated\_at" field as the `Freshness` field for a document\.
->>>>>>> parent of 2b1c178 (updating tutorial)
 
 ```
 "DocumentMetadataConfigurationUpdates" : [
@@ -61,11 +57,7 @@ The following example applies different importance to the different categories i
 
 ## Relevance tuning at the query level<a name="tuning-query"></a>
 
-<<<<<<< HEAD
 You tune the relevance of a field or attribute at the query level by using the [ Query ](API_Query.md) operation\. Tuning at the query level can speed up the process of testing relevance tuning because you don't need to manually update the tuning configurations in the index for each test\. You can tune the relevance of a document by passing tuning configurations in the query\. Then you can see the different results that you get from different configurations\. A configuration that is passed in the query overrides the configuration that is set at the index level\. 
-=======
-You tune the relevance of a field or attribute at the query level by using the [Query](API_Query.md) operation\. Tuning at the query level can speed up the process of testing relevance tuning because you don't need to manually update the tuning configurations in the index for each test\. You can tune the relevance of a document by passing tuning configurations in the query\. Then you can see the different results that you get from different configurations\. A configuration that is passed in the query overrides the configuration that is set at the index level\. 
->>>>>>> parent of 2b1c178 (updating tutorial)
 
 The following example overrides the importance applied to the "department" field and each department category set at the index level, shown in the above example\. When a user inputs their search query, the "department" field has a fair level of importance and the Legal department has more importance than the HR department \.
 

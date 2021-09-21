@@ -20,11 +20,7 @@ For information about the parameters that are common to all actions, see [Common
 
 The request accepts the following data in JSON format\.
 
-<<<<<<< HEAD
  ** [ Id ](#API_DescribeIndex_RequestSyntax) **   <a name="Kendra-DescribeIndex-request-Id"></a>
-=======
- ** [Id](#API_DescribeIndex_RequestSyntax) **   <a name="Kendra-DescribeIndex-request-Id"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The name of the index to describe\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
@@ -108,7 +104,6 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
-<<<<<<< HEAD
  ** [ CapacityUnits ](#API_DescribeIndex_ResponseSyntax) **   <a name="Kendra-DescribeIndex-response-CapacityUnits"></a>
 For Enterprise edition indexes, you can choose to use additional capacity to meet the needs of your application\. This contains the capacity units used for the index\. A 0 for the query capacity or the storage capacity indicates that the index is using the default capacity for the index\.  
 Type: [ CapacityUnitsConfiguration ](API_CapacityUnitsConfiguration.md) object
@@ -118,139 +113,76 @@ The Unix datetime that the index was created\.
 Type: Timestamp
 
  ** [ Description ](#API_DescribeIndex_ResponseSyntax) **   <a name="Kendra-DescribeIndex-response-Description"></a>
-=======
- ** [CapacityUnits](#API_DescribeIndex_ResponseSyntax) **   <a name="Kendra-DescribeIndex-response-CapacityUnits"></a>
-For Enterprise edition indexes, you can choose to use additional capacity to meet the needs of your application\. This contains the capacity units used for the index\. A 0 for the query capacity or the storage capacity indicates that the index is using the default capacity for the index\.  
-Type: [CapacityUnitsConfiguration](API_CapacityUnitsConfiguration.md) object
-
- ** [CreatedAt](#API_DescribeIndex_ResponseSyntax) **   <a name="Kendra-DescribeIndex-response-CreatedAt"></a>
-The Unix datetime that the index was created\.  
-Type: Timestamp
-
- ** [Description](#API_DescribeIndex_ResponseSyntax) **   <a name="Kendra-DescribeIndex-response-Description"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The description of the index\.  
 Type: String  
 Length Constraints: Minimum length of 0\. Maximum length of 1000\.  
 Pattern: `^\P{C}*$` 
 
-<<<<<<< HEAD
  ** [ DocumentMetadataConfigurations ](#API_DescribeIndex_ResponseSyntax) **   <a name="Kendra-DescribeIndex-response-DocumentMetadataConfigurations"></a>
 Configuration settings for any metadata applied to the documents in the index\.  
 Type: Array of [ DocumentMetadataConfiguration ](API_DocumentMetadataConfiguration.md) objects  
 Array Members: Minimum number of 0 items\. Maximum number of 500 items\.
 
  ** [ Edition ](#API_DescribeIndex_ResponseSyntax) **   <a name="Kendra-DescribeIndex-response-Edition"></a>
-=======
- ** [DocumentMetadataConfigurations](#API_DescribeIndex_ResponseSyntax) **   <a name="Kendra-DescribeIndex-response-DocumentMetadataConfigurations"></a>
-Configuration settings for any metadata applied to the documents in the index\.  
-Type: Array of [DocumentMetadataConfiguration](API_DocumentMetadataConfiguration.md) objects  
-Array Members: Minimum number of 0 items\. Maximum number of 500 items\.
-
- ** [Edition](#API_DescribeIndex_ResponseSyntax) **   <a name="Kendra-DescribeIndex-response-Edition"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The Amazon Kendra edition used for the index\. You decide the edition when you create the index\.  
 Type: String  
 Valid Values:` DEVELOPER_EDITION | ENTERPRISE_EDITION` 
 
-<<<<<<< HEAD
  ** [ ErrorMessage ](#API_DescribeIndex_ResponseSyntax) **   <a name="Kendra-DescribeIndex-response-ErrorMessage"></a>
-=======
- ** [ErrorMessage](#API_DescribeIndex_ResponseSyntax) **   <a name="Kendra-DescribeIndex-response-ErrorMessage"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 When th e`Status` field value is `FAILED`, the `ErrorMessage` field contains a message that explains why\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  
 Pattern: `^\P{C}*$` 
 
-<<<<<<< HEAD
  ** [ Id ](#API_DescribeIndex_ResponseSyntax) **   <a name="Kendra-DescribeIndex-response-Id"></a>
-=======
- ** [Id](#API_DescribeIndex_ResponseSyntax) **   <a name="Kendra-DescribeIndex-response-Id"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The name of the index\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*` 
 
-<<<<<<< HEAD
  ** [ IndexStatistics ](#API_DescribeIndex_ResponseSyntax) **   <a name="Kendra-DescribeIndex-response-IndexStatistics"></a>
 Provides information about the number of FAQ questions and answers and the number of text documents indexed\.  
 Type: [ IndexStatistics ](API_IndexStatistics.md) object
 
  ** [ Name ](#API_DescribeIndex_ResponseSyntax) **   <a name="Kendra-DescribeIndex-response-Name"></a>
-=======
- ** [IndexStatistics](#API_DescribeIndex_ResponseSyntax) **   <a name="Kendra-DescribeIndex-response-IndexStatistics"></a>
-Provides information about the number of FAQ questions and answers and the number of text documents indexed\.  
-Type: [IndexStatistics](API_IndexStatistics.md) object
-
- ** [Name](#API_DescribeIndex_ResponseSyntax) **   <a name="Kendra-DescribeIndex-response-Name"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The name of the index\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1000\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*` 
 
-<<<<<<< HEAD
  ** [ RoleArn ](#API_DescribeIndex_ResponseSyntax) **   <a name="Kendra-DescribeIndex-response-RoleArn"></a>
-=======
- ** [RoleArn](#API_DescribeIndex_ResponseSyntax) **   <a name="Kendra-DescribeIndex-response-RoleArn"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The Amazon Resource Name \(ARN\) of the IAM role that gives Amazon Kendra permission to write to your Amazon Cloudwatch logs\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1284\.  
 Pattern: `arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}` 
 
-<<<<<<< HEAD
  ** [ ServerSideEncryptionConfiguration ](#API_DescribeIndex_ResponseSyntax) **   <a name="Kendra-DescribeIndex-response-ServerSideEncryptionConfiguration"></a>
 The identifier of the AWS KMScustomer master key \(CMK\) used to encrypt your data\. Amazon Kendra doesn't support asymmetric CMKs\.  
 Type: [ ServerSideEncryptionConfiguration ](API_ServerSideEncryptionConfiguration.md) object
 
  ** [ Status ](#API_DescribeIndex_ResponseSyntax) **   <a name="Kendra-DescribeIndex-response-Status"></a>
-=======
- ** [ServerSideEncryptionConfiguration](#API_DescribeIndex_ResponseSyntax) **   <a name="Kendra-DescribeIndex-response-ServerSideEncryptionConfiguration"></a>
-The identifier of the AWS KMScustomer master key \(CMK\) used to encrypt your data\. Amazon Kendra doesn't support asymmetric CMKs\.  
-Type: [ServerSideEncryptionConfiguration](API_ServerSideEncryptionConfiguration.md) object
-
- ** [Status](#API_DescribeIndex_ResponseSyntax) **   <a name="Kendra-DescribeIndex-response-Status"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The current status of the index\. When the value is `ACTIVE`, the index is ready for use\. If the `Status` field value is `FAILED`, the `ErrorMessage` field contains a message that explains why\.  
 Type: String  
 Valid Values:` CREATING | ACTIVE | DELETING | FAILED | UPDATING | SYSTEM_UPDATING` 
 
-<<<<<<< HEAD
  ** [ UpdatedAt ](#API_DescribeIndex_ResponseSyntax) **   <a name="Kendra-DescribeIndex-response-UpdatedAt"></a>
 The Unix datetime that the index was last updated\.  
 Type: Timestamp
 
  ** [ UserContextPolicy ](#API_DescribeIndex_ResponseSyntax) **   <a name="Kendra-DescribeIndex-response-UserContextPolicy"></a>
-=======
- ** [UpdatedAt](#API_DescribeIndex_ResponseSyntax) **   <a name="Kendra-DescribeIndex-response-UpdatedAt"></a>
-The Unix datetime that the index was last updated\.  
-Type: Timestamp
-
- ** [UserContextPolicy](#API_DescribeIndex_ResponseSyntax) **   <a name="Kendra-DescribeIndex-response-UserContextPolicy"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The user context policy for the Amazon Kendra index\.  
 Type: String  
 Valid Values:` ATTRIBUTE_FILTER | USER_TOKEN` 
 
-<<<<<<< HEAD
  ** [ UserTokenConfigurations ](#API_DescribeIndex_ResponseSyntax) **   <a name="Kendra-DescribeIndex-response-UserTokenConfigurations"></a>
 The user token configuration for the Amazon Kendra index\.  
 Type: Array of [ UserTokenConfiguration ](API_UserTokenConfiguration.md) objects  
-=======
- ** [UserTokenConfigurations](#API_DescribeIndex_ResponseSyntax) **   <a name="Kendra-DescribeIndex-response-UserTokenConfigurations"></a>
-The user token configuration for the Amazon Kendra index\.  
-Type: Array of [UserTokenConfiguration](API_UserTokenConfiguration.md) objects  
->>>>>>> parent of 2b1c178 (updating tutorial)
 Array Members: Maximum number of 1 item\.
 
 ## Errors<a name="API_DescribeIndex_Errors"></a>
 
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
-<<<<<<< HEAD
  ** AccessDeniedException **   
   
 HTTP Status Code: 400
@@ -268,25 +200,6 @@ HTTP Status Code: 400
 HTTP Status Code: 400
 
  ** ValidationException **   
-=======
- **AccessDeniedException**   
-  
-HTTP Status Code: 400
-
- **InternalServerException**   
-  
-HTTP Status Code: 500
-
- **ResourceNotFoundException**   
-  
-HTTP Status Code: 400
-
- **ThrottlingException**   
-  
-HTTP Status Code: 400
-
- **ValidationException**   
->>>>>>> parent of 2b1c178 (updating tutorial)
   
 HTTP Status Code: 400
 

@@ -348,17 +348,12 @@ For information about the parameters that are common to all actions, see [Common
 
 The request accepts the following data in JSON format\.
 
-<<<<<<< HEAD
  ** [ ClientToken ](#API_CreateDataSource_RequestSyntax) **   <a name="Kendra-CreateDataSource-request-ClientToken"></a>
-=======
- ** [ClientToken](#API_CreateDataSource_RequestSyntax) **   <a name="Kendra-CreateDataSource-request-ClientToken"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 A token that you provide to identify the request to create a data source\. Multiple calls to the `CreateDataSource` operation with the same client token will create only one data source\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Required: No
 
-<<<<<<< HEAD
  ** [ Configuration ](#API_CreateDataSource_RequestSyntax) **   <a name="Kendra-CreateDataSource-request-Configuration"></a>
 The connector configuration information that is required to access the repository\.  
 You can't specify the `Configuration` parameter when the `Type` parameter is set to `CUSTOM`\. If you do, you receive a `ValidationException` exception\.  
@@ -367,49 +362,27 @@ Type: [ DataSourceConfiguration ](API_DataSourceConfiguration.md) object
 Required: No
 
  ** [ Description ](#API_CreateDataSource_RequestSyntax) **   <a name="Kendra-CreateDataSource-request-Description"></a>
-=======
- ** [Configuration](#API_CreateDataSource_RequestSyntax) **   <a name="Kendra-CreateDataSource-request-Configuration"></a>
-The connector configuration information that is required to access the repository\.  
-You can't specify the `Configuration` parameter when the `Type` parameter is set to `CUSTOM`\. If you do, you receive a `ValidationException` exception\.  
-The `Configuration` parameter is required for all other data sources\.  
-Type: [DataSourceConfiguration](API_DataSourceConfiguration.md) object  
-Required: No
-
- ** [Description](#API_CreateDataSource_RequestSyntax) **   <a name="Kendra-CreateDataSource-request-Description"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 A description for the data source\.  
 Type: String  
 Length Constraints: Minimum length of 0\. Maximum length of 1000\.  
 Pattern: `^\P{C}*$`   
 Required: No
 
-<<<<<<< HEAD
  ** [ IndexId ](#API_CreateDataSource_RequestSyntax) **   <a name="Kendra-CreateDataSource-request-IndexId"></a>
-=======
- ** [IndexId](#API_CreateDataSource_RequestSyntax) **   <a name="Kendra-CreateDataSource-request-IndexId"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The identifier of the index that should be associated with this data source\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`   
 Required: Yes
 
-<<<<<<< HEAD
  ** [ Name ](#API_CreateDataSource_RequestSyntax) **   <a name="Kendra-CreateDataSource-request-Name"></a>
-=======
- ** [Name](#API_CreateDataSource_RequestSyntax) **   <a name="Kendra-CreateDataSource-request-Name"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 A unique name for the data source\. A data source name can't be changed without deleting and recreating the data source\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1000\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`   
 Required: Yes
 
-<<<<<<< HEAD
  ** [ RoleArn ](#API_CreateDataSource_RequestSyntax) **   <a name="Kendra-CreateDataSource-request-RoleArn"></a>
-=======
- ** [RoleArn](#API_CreateDataSource_RequestSyntax) **   <a name="Kendra-CreateDataSource-request-RoleArn"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The Amazon Resource Name \(ARN\) of a role with permission to access the data source\. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html)\.  
 You can't specify the `RoleArn` parameter when the `Type` parameter is set to `CUSTOM`\. If you do, you receive a `ValidationException` exception\.  
 The `RoleArn` parameter is required for all other data sources\.  
@@ -418,17 +391,12 @@ Length Constraints: Minimum length of 1\. Maximum length of 1284\.
 Pattern: `arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}`   
 Required: No
 
-<<<<<<< HEAD
  ** [ Schedule ](#API_CreateDataSource_RequestSyntax) **   <a name="Kendra-CreateDataSource-request-Schedule"></a>
-=======
- ** [Schedule](#API_CreateDataSource_RequestSyntax) **   <a name="Kendra-CreateDataSource-request-Schedule"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 Sets the frequency that Amazon Kendra will check the documents in your repository and update the index\. If you don't set a schedule Amazon Kendra will not periodically update the index\. You can call the `StartDataSourceSyncJob` operation to update the index\.  
 You can't specify the `Schedule` parameter when the `Type` parameter is set to `CUSTOM`\. If you do, you receive a `ValidationException` exception\.  
 Type: String  
 Required: No
 
-<<<<<<< HEAD
  ** [ Tags ](#API_CreateDataSource_RequestSyntax) **   <a name="Kendra-CreateDataSource-request-Tags"></a>
 A list of key\-value pairs that identify the data source\. You can use the tags to identify and organize your resources and to control access to resources\.  
 Type: Array of [ Tag ](API_Tag.md) objects  
@@ -436,15 +404,6 @@ Array Members: Minimum number of 0 items\. Maximum number of 200 items\.
 Required: No
 
  ** [ Type ](#API_CreateDataSource_RequestSyntax) **   <a name="Kendra-CreateDataSource-request-Type"></a>
-=======
- ** [Tags](#API_CreateDataSource_RequestSyntax) **   <a name="Kendra-CreateDataSource-request-Tags"></a>
-A list of key\-value pairs that identify the data source\. You can use the tags to identify and organize your resources and to control access to resources\.  
-Type: Array of [Tag](API_Tag.md) objects  
-Array Members: Minimum number of 0 items\. Maximum number of 200 items\.  
-Required: No
-
- ** [Type](#API_CreateDataSource_RequestSyntax) **   <a name="Kendra-CreateDataSource-request-Type"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The type of repository that contains the data source\.  
 Type: String  
 Valid Values:` S3 | SHAREPOINT | DATABASE | SALESFORCE | ONEDRIVE | SERVICENOW | CUSTOM | CONFLUENCE | GOOGLEDRIVE | WEBCRAWLER | WORKDOCS`   
@@ -464,11 +423,7 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
-<<<<<<< HEAD
  ** [ Id ](#API_CreateDataSource_ResponseSyntax) **   <a name="Kendra-CreateDataSource-response-Id"></a>
-=======
- ** [Id](#API_CreateDataSource_ResponseSyntax) **   <a name="Kendra-CreateDataSource-response-Id"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 A unique identifier for the data source\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
@@ -478,7 +433,6 @@ Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`
 
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
-<<<<<<< HEAD
  ** AccessDeniedException **   
   
 HTTP Status Code: 400
@@ -508,37 +462,6 @@ HTTP Status Code: 400
 HTTP Status Code: 400
 
  ** ValidationException **   
-=======
- **AccessDeniedException**   
-  
-HTTP Status Code: 400
-
- **ConflictException**   
-  
-HTTP Status Code: 400
-
- **InternalServerException**   
-  
-HTTP Status Code: 500
-
- **ResourceAlreadyExistException**   
-  
-HTTP Status Code: 400
-
- **ResourceNotFoundException**   
-  
-HTTP Status Code: 400
-
- **ServiceQuotaExceededException**   
-  
-HTTP Status Code: 400
-
- **ThrottlingException**   
-  
-HTTP Status Code: 400
-
- **ValidationException**   
->>>>>>> parent of 2b1c178 (updating tutorial)
   
 HTTP Status Code: 400
 

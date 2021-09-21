@@ -18,21 +18,12 @@ You can create and manage tags using the AWS Management Console, the AWS Command
 If you're using the Amazon Kendra console, you can tag resources when you create them or add them later\. You can also use the console to update or remove tags\. 
 
 If you're using the AWS Command Line Interface \(AWS CLI\) or the Amazon Kendra API, use the following operations to manage tags for your resources:
-<<<<<<< HEAD
 + [ CreateDataSource ](API_CreateDataSource.md) – Apply tags when you create a data source\.
 + [ CreateFaq ](API_CreateFaq.md) – Apply tags when you create an FAQ\.
 + [ CreateIndex ](API_CreateIndex.md) – Apply tags when you create an index\.
 + [ ListTagsForResource ](API_ListTagsForResource.md) – View the tags associated with a resource\.
 + [ TagResource ](API_TagResource.md) – Add and modify tags for a resource\.
 + [ UntagResource ](API_UntagResource.md) – Remove tags from a resource\.
-=======
-+ [CreateDataSource](API_CreateDataSource.md) – Apply tags when you create a data source\.
-+ [CreateFaq](API_CreateFaq.md) – Apply tags when you create an FAQ\.
-+ [CreateIndex](API_CreateIndex.md) – Apply tags when you create an index\.
-+ [ListTagsForResource](API_ListTagsForResource.md) – View the tags associated with a resource\.
-+ [TagResource](API_TagResource.md) – Add and modify tags for a resource\.
-+ [UntagResource](API_UntagResource.md) – Remove tags from a resource\.
->>>>>>> parent of 2b1c178 (updating tutorial)
 
 ## Tag restrictions<a name="tag-restrictions"></a>
 

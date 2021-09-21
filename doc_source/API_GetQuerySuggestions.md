@@ -22,31 +22,19 @@ For information about the parameters that are common to all actions, see [Common
 
 The request accepts the following data in JSON format\.
 
-<<<<<<< HEAD
  ** [ IndexId ](#API_GetQuerySuggestions_RequestSyntax) **   <a name="Kendra-GetQuerySuggestions-request-IndexId"></a>
-=======
- ** [IndexId](#API_GetQuerySuggestions_RequestSyntax) **   <a name="Kendra-GetQuerySuggestions-request-IndexId"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The identifier of the index you want to get query suggestions from\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`   
 Required: Yes
 
-<<<<<<< HEAD
  ** [ MaxSuggestionsCount ](#API_GetQuerySuggestions_RequestSyntax) **   <a name="Kendra-GetQuerySuggestions-request-MaxSuggestionsCount"></a>
-=======
- ** [MaxSuggestionsCount](#API_GetQuerySuggestions_RequestSyntax) **   <a name="Kendra-GetQuerySuggestions-request-MaxSuggestionsCount"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The maximum number of query suggestions you want to show to your users\.  
 Type: Integer  
 Required: No
 
-<<<<<<< HEAD
  ** [ QueryText ](#API_GetQuerySuggestions_RequestSyntax) **   <a name="Kendra-GetQuerySuggestions-request-QueryText"></a>
-=======
- ** [QueryText](#API_GetQuerySuggestions_RequestSyntax) **   <a name="Kendra-GetQuerySuggestions-request-QueryText"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The text of a user's query to generate query suggestions\.  
 A query is suggested if the query prefix matches what a user starts to type as their query\.  
 Amazon Kendra does not show any suggestions if a user types fewer than two characters or more than 60 characters\. A query must also have at least one search result and contain at least one word of more than four characters\.  
@@ -84,30 +72,19 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
-<<<<<<< HEAD
  ** [ QuerySuggestionsId ](#API_GetQuerySuggestions_ResponseSyntax) **   <a name="Kendra-GetQuerySuggestions-response-QuerySuggestionsId"></a>
-=======
- ** [QuerySuggestionsId](#API_GetQuerySuggestions_ResponseSyntax) **   <a name="Kendra-GetQuerySuggestions-response-QuerySuggestionsId"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The unique identifier for a list of query suggestions for an index\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 36\.
 
-<<<<<<< HEAD
  ** [ Suggestions ](#API_GetQuerySuggestions_ResponseSyntax) **   <a name="Kendra-GetQuerySuggestions-response-Suggestions"></a>
 A list of query suggestions for an index\.  
 Type: Array of [ Suggestion ](API_Suggestion.md) objects
-=======
- ** [Suggestions](#API_GetQuerySuggestions_ResponseSyntax) **   <a name="Kendra-GetQuerySuggestions-response-Suggestions"></a>
-A list of query suggestions for an index\.  
-Type: Array of [Suggestion](API_Suggestion.md) objects
->>>>>>> parent of 2b1c178 (updating tutorial)
 
 ## Errors<a name="API_GetQuerySuggestions_Errors"></a>
 
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
-<<<<<<< HEAD
  ** AccessDeniedException **   
   
 HTTP Status Code: 400
@@ -133,33 +110,6 @@ HTTP Status Code: 400
 HTTP Status Code: 400
 
  ** ValidationException **   
-=======
- **AccessDeniedException**   
-  
-HTTP Status Code: 400
-
- **ConflictException**   
-  
-HTTP Status Code: 400
-
- **InternalServerException**   
-  
-HTTP Status Code: 500
-
- **ResourceNotFoundException**   
-  
-HTTP Status Code: 400
-
- **ServiceQuotaExceededException**   
-  
-HTTP Status Code: 400
-
- **ThrottlingException**   
-  
-HTTP Status Code: 400
-
- **ValidationException**   
->>>>>>> parent of 2b1c178 (updating tutorial)
   
 HTTP Status Code: 400
 

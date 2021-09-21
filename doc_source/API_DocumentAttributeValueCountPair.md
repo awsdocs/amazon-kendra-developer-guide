@@ -8,24 +8,14 @@ Provides the count of documents that match a particular attribute when doing a f
 
 ## Contents<a name="API_DocumentAttributeValueCountPair_Contents"></a>
 
-<<<<<<< HEAD
  ** Count **   <a name="Kendra-Type-DocumentAttributeValueCountPair-Count"></a>
-=======
- **Count**   <a name="Kendra-Type-DocumentAttributeValueCountPair-Count"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The number of documents in the response that have the attribute value for the key\.  
 Type: Integer  
 Required: No
 
-<<<<<<< HEAD
  ** DocumentAttributeValue **   <a name="Kendra-Type-DocumentAttributeValueCountPair-DocumentAttributeValue"></a>
 The value of the attribute\. For example, "HR\."  
 Type: [ DocumentAttributeValue ](API_DocumentAttributeValue.md) object  
-=======
- **DocumentAttributeValue**   <a name="Kendra-Type-DocumentAttributeValueCountPair-DocumentAttributeValue"></a>
-The value of the attribute\. For example, "HR\."  
-Type: [DocumentAttributeValue](API_DocumentAttributeValue.md) object  
->>>>>>> parent of 2b1c178 (updating tutorial)
 Required: No
 
 ## See Also<a name="API_DocumentAttributeValueCountPair_SeeAlso"></a>

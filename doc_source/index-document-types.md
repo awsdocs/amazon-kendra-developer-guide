@@ -14,11 +14,7 @@ An index can include both structured and unstructured text:
   + Plain text documents
   + PDFs
 
-<<<<<<< HEAD
 You can add documents directly to an index by calling the [ BatchPutDocument ](API_BatchPutDocument.md) operation\. You can also add documents from a data source\. For information about adding files to a data source, see [Adding documents from a data source](data-source.md)\. For an example that shows how to add Microsoft Word documents directly to an index from an Amazon S3 bucket, see [Adding documents from an Amazon S3 bucket](in-adding-plain-text.md)\.
-=======
-You can add documents directly to an index by calling the [BatchPutDocument](API_BatchPutDocument.md) operation\. You can also add documents from a data source\. For information about adding files to a data source, see [Adding documents from a data source](data-source.md)\. For an example that shows how to add Microsoft Word documents directly to an index from an Amazon S3 bucket, see [Adding documents from an Amazon S3 bucket](in-adding-plain-text.md)\.
->>>>>>> parent of 2b1c178 (updating tutorial)
 
 An index can contain multiple documents and multiple types of documents\.
 

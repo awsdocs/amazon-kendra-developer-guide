@@ -8,42 +8,24 @@ Provides configuration information for a data source to index documents in an Am
 
 ## Contents<a name="API_S3DataSourceConfiguration_Contents"></a>
 
-<<<<<<< HEAD
  ** AccessControlListConfiguration **   <a name="Kendra-Type-S3DataSourceConfiguration-AccessControlListConfiguration"></a>
 Provides the path to the S3 bucket that contains the user context filtering files for the data source\. For the format of the file, see [Access control for S3 data sources](https://docs.aws.amazon.com/kendra/latest/dg/s3-acl.html)\.  
 Type: [ AccessControlListConfiguration ](API_AccessControlListConfiguration.md) object  
 Required: No
 
  ** BucketName **   <a name="Kendra-Type-S3DataSourceConfiguration-BucketName"></a>
-=======
- **AccessControlListConfiguration**   <a name="Kendra-Type-S3DataSourceConfiguration-AccessControlListConfiguration"></a>
-Provides the path to the S3 bucket that contains the user context filtering files for the data source\. For the format of the file, see [Access control for S3 data sources](https://docs.aws.amazon.com/kendra/latest/dg/s3-acl.html)\.  
-Type: [AccessControlListConfiguration](API_AccessControlListConfiguration.md) object  
-Required: No
-
- **BucketName**   <a name="Kendra-Type-S3DataSourceConfiguration-BucketName"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The name of the bucket that contains the documents\.  
 Type: String  
 Length Constraints: Minimum length of 3\. Maximum length of 63\.  
 Pattern: `[a-z0-9][\.\-a-z0-9]{1,61}[a-z0-9]`   
 Required: Yes
 
-<<<<<<< HEAD
  ** DocumentsMetadataConfiguration **   <a name="Kendra-Type-S3DataSourceConfiguration-DocumentsMetadataConfiguration"></a>
 Document metadata files that contain information such as the document access control information, source URI, document author, and custom attributes\. Each metadata file contains metadata about a single document\.  
 Type: [ DocumentsMetadataConfiguration ](API_DocumentsMetadataConfiguration.md) object  
 Required: No
 
  ** ExclusionPatterns **   <a name="Kendra-Type-S3DataSourceConfiguration-ExclusionPatterns"></a>
-=======
- **DocumentsMetadataConfiguration**   <a name="Kendra-Type-S3DataSourceConfiguration-DocumentsMetadataConfiguration"></a>
-Document metadata files that contain information such as the document access control information, source URI, document author, and custom attributes\. Each metadata file contains metadata about a single document\.  
-Type: [DocumentsMetadataConfiguration](API_DocumentsMetadataConfiguration.md) object  
-Required: No
-
- **ExclusionPatterns**   <a name="Kendra-Type-S3DataSourceConfiguration-ExclusionPatterns"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 A list of glob patterns for documents that should not be indexed\. If a document that matches an inclusion prefix or inclusion pattern also matches an exclusion pattern, the document is not indexed\.  
 Some [examples](https://docs.aws.amazon.com/cli/latest/reference/s3/#use-of-exclude-and-include-filters) are:  
 +  *\*\.png , \*\.jpg* will exclude all PNG and JPEG image files in a directory \(files with the extensions \.png and \.jpg\)\.
@@ -54,11 +36,7 @@ Array Members: Minimum number of 0 items\. Maximum number of 100 items\.
 Length Constraints: Minimum length of 1\. Maximum length of 150\.  
 Required: No
 
-<<<<<<< HEAD
  ** InclusionPatterns **   <a name="Kendra-Type-S3DataSourceConfiguration-InclusionPatterns"></a>
-=======
- **InclusionPatterns**   <a name="Kendra-Type-S3DataSourceConfiguration-InclusionPatterns"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 A list of glob patterns for documents that should be indexed\. If a document that matches an inclusion pattern also matches an exclusion pattern, the document is not indexed\.  
 Some [examples](https://docs.aws.amazon.com/cli/latest/reference/s3/#use-of-exclude-and-include-filters) are:  
 +  *\*\.txt* will include all text files in a directory \(files with the extension \.txt\)\.
@@ -69,11 +47,7 @@ Array Members: Minimum number of 0 items\. Maximum number of 100 items\.
 Length Constraints: Minimum length of 1\. Maximum length of 150\.  
 Required: No
 
-<<<<<<< HEAD
  ** InclusionPrefixes **   <a name="Kendra-Type-S3DataSourceConfiguration-InclusionPrefixes"></a>
-=======
- **InclusionPrefixes**   <a name="Kendra-Type-S3DataSourceConfiguration-InclusionPrefixes"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 A list of S3 prefixes for the documents that should be included in the index\.  
 Type: Array of strings  
 Array Members: Minimum number of 0 items\. Maximum number of 100 items\.  

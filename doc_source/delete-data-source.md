@@ -34,11 +34,7 @@ To delete a data source, use the console, the AWS Command Line Interface \(AWS C
 
 When you delete a data source, Amazon Kendra removes all of the stored information about the data source\. Amazon Kendra removes all of the document data stored in the index, and all run histories and metrics associated with the data source\. Deleting a data source does not remove the original documents from your storage\.
 
-<<<<<<< HEAD
 Deleting a data source is an asynchronous operation\. When you start deleting a data source, the data source status changes to `DELETING`\. It remains in the `DELETING` state until the information related to the data source is removed\. After the data source is deleted, it no longer appears in the results of a call to the [ ListDataSources ](API_ListDataSources.md) operation\. If you call the [ DescribeDataSource ](API_DescribeDataSource.md) operation with the deleted data source's identifier, you receive a `ResourceNotFound` exception\.
-=======
-Deleting a data source is an asynchronous operation\. When you start deleting a data source, the data source status changes to `DELETING`\. It remains in the `DELETING` state until the information related to the data source is removed\. After the data source is deleted, it no longer appears in the results of a call to the [ListDataSources](API_ListDataSources.md) operation\. If you call the [DescribeDataSource](API_DescribeDataSource.md) operation with the deleted data source's identifier, you receive a `ResourceNotFound` exception\.
->>>>>>> parent of 2b1c178 (updating tutorial)
 
 Documents in the data source may be included in the document count returned by the `DescribeIndex` operation while Amazon Kendra deletes a data source\. Documents from the data source may appear in search results while Amazon Kendra deletes the data source\.
 

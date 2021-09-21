@@ -8,20 +8,12 @@ The text highlights for a single query suggestion\.
 
 ## Contents<a name="API_SuggestionHighlight_Contents"></a>
 
-<<<<<<< HEAD
  ** BeginOffset **   <a name="Kendra-Type-SuggestionHighlight-BeginOffset"></a>
-=======
- **BeginOffset**   <a name="Kendra-Type-SuggestionHighlight-BeginOffset"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The zero\-based location in the response string where the highlight starts\.  
 Type: Integer  
 Required: No
 
-<<<<<<< HEAD
  ** EndOffset **   <a name="Kendra-Type-SuggestionHighlight-EndOffset"></a>
-=======
- **EndOffset**   <a name="Kendra-Type-SuggestionHighlight-EndOffset"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The zero\-based location in the response string where the highlight ends\.  
 Type: Integer  
 Required: No

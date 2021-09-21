@@ -23,22 +23,14 @@ For information about the parameters that are common to all actions, see [Common
 
 The request accepts the following data in JSON format\.
 
-<<<<<<< HEAD
  ** [ Id ](#API_DescribeQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-DescribeQuerySuggestionsBlockList-request-Id"></a>
-=======
- ** [Id](#API_DescribeQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-DescribeQuerySuggestionsBlockList-request-Id"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The unique identifier of the block list\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`   
 Required: Yes
 
-<<<<<<< HEAD
  ** [ IndexId ](#API_DescribeQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-DescribeQuerySuggestionsBlockList-request-IndexId"></a>
-=======
- ** [IndexId](#API_DescribeQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-DescribeQuerySuggestionsBlockList-request-IndexId"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The identifier of the index for the block list\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
@@ -73,92 +65,55 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
-<<<<<<< HEAD
  ** [ CreatedAt ](#API_DescribeQuerySuggestionsBlockList_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsBlockList-response-CreatedAt"></a>
 Shows the date\-time a block list for query suggestions was created\.  
 Type: Timestamp
 
  ** [ Description ](#API_DescribeQuerySuggestionsBlockList_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsBlockList-response-Description"></a>
-=======
- ** [CreatedAt](#API_DescribeQuerySuggestionsBlockList_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsBlockList-response-CreatedAt"></a>
-Shows the date\-time a block list for query suggestions was created\.  
-Type: Timestamp
-
- ** [Description](#API_DescribeQuerySuggestionsBlockList_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsBlockList-response-Description"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 Shows the description for the block list\.  
 Type: String  
 Length Constraints: Minimum length of 0\. Maximum length of 1000\.  
 Pattern: `^\P{C}*$` 
 
-<<<<<<< HEAD
  ** [ ErrorMessage ](#API_DescribeQuerySuggestionsBlockList_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsBlockList-response-ErrorMessage"></a>
-=======
- ** [ErrorMessage](#API_DescribeQuerySuggestionsBlockList_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsBlockList-response-ErrorMessage"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 Shows the error message with details when there are issues in processing the block list\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  
 Pattern: `^\P{C}*$` 
 
-<<<<<<< HEAD
  ** [ FileSizeBytes ](#API_DescribeQuerySuggestionsBlockList_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsBlockList-response-FileSizeBytes"></a>
 Shows the current size of the block list text file in S3\.  
 Type: Long
 
  ** [ Id ](#API_DescribeQuerySuggestionsBlockList_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsBlockList-response-Id"></a>
-=======
- ** [FileSizeBytes](#API_DescribeQuerySuggestionsBlockList_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsBlockList-response-FileSizeBytes"></a>
-Shows the current size of the block list text file in S3\.  
-Type: Long
-
- ** [Id](#API_DescribeQuerySuggestionsBlockList_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsBlockList-response-Id"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 Shows the unique identifier of the block list\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*` 
 
-<<<<<<< HEAD
  ** [ IndexId ](#API_DescribeQuerySuggestionsBlockList_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsBlockList-response-IndexId"></a>
-=======
- ** [IndexId](#API_DescribeQuerySuggestionsBlockList_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsBlockList-response-IndexId"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 Shows the identifier of the index for the block list\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*` 
 
-<<<<<<< HEAD
  ** [ ItemCount ](#API_DescribeQuerySuggestionsBlockList_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsBlockList-response-ItemCount"></a>
 Shows the current number of valid, non\-empty words or phrases in the block list text file\.  
 Type: Integer
 
  ** [ Name ](#API_DescribeQuerySuggestionsBlockList_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsBlockList-response-Name"></a>
-=======
- ** [ItemCount](#API_DescribeQuerySuggestionsBlockList_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsBlockList-response-ItemCount"></a>
-Shows the current number of valid, non\-empty words or phrases in the block list text file\.  
-Type: Integer
-
- ** [Name](#API_DescribeQuerySuggestionsBlockList_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsBlockList-response-Name"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 Shows the name of the block list\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Pattern: `^[a-zA-Z0-9](-*[a-zA-Z0-9])*` 
 
-<<<<<<< HEAD
  ** [ RoleArn ](#API_DescribeQuerySuggestionsBlockList_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsBlockList-response-RoleArn"></a>
-=======
- ** [RoleArn](#API_DescribeQuerySuggestionsBlockList_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsBlockList-response-RoleArn"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 Shows the current IAM \(Identity and Access Management\) role used by Amazon Kendra to access the block list text file in S3\.  
 The role needs S3 read permissions to your file in S3 and needs to give STS \(Security Token Service\) assume role permissions to Amazon Kendra\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1284\.  
 Pattern: `arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}` 
 
-<<<<<<< HEAD
  ** [ SourceS3Path ](#API_DescribeQuerySuggestionsBlockList_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsBlockList-response-SourceS3Path"></a>
 Shows the current S3 path to your block list text file in your S3 bucket\.  
 Each block word or phrase should be on a separate line in a text file\.  
@@ -166,24 +121,11 @@ For information on the current quota limits for block lists, see [Quotas for Ama
 Type: [ S3Path ](API_S3Path.md) object
 
  ** [ Status ](#API_DescribeQuerySuggestionsBlockList_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsBlockList-response-Status"></a>
-=======
- ** [SourceS3Path](#API_DescribeQuerySuggestionsBlockList_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsBlockList-response-SourceS3Path"></a>
-Shows the current S3 path to your block list text file in your S3 bucket\.  
-Each block word or phrase should be on a separate line in a text file\.  
-For information on the current quota limits for block lists, see [Quotas for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/quotas.html)\.  
-Type: [S3Path](API_S3Path.md) object
-
- ** [Status](#API_DescribeQuerySuggestionsBlockList_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsBlockList-response-Status"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 Shows whether the current status of the block list is `ACTIVE` or `INACTIVE`\.  
 Type: String  
 Valid Values:` ACTIVE | CREATING | DELETING | UPDATING | ACTIVE_BUT_UPDATE_FAILED | FAILED` 
 
-<<<<<<< HEAD
  ** [ UpdatedAt ](#API_DescribeQuerySuggestionsBlockList_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsBlockList-response-UpdatedAt"></a>
-=======
- ** [UpdatedAt](#API_DescribeQuerySuggestionsBlockList_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsBlockList-response-UpdatedAt"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 Shows the date\-time a block list for query suggestions was last updated\.  
 Type: Timestamp
 
@@ -191,7 +133,6 @@ Type: Timestamp
 
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
-<<<<<<< HEAD
  ** AccessDeniedException **   
   
 HTTP Status Code: 400
@@ -209,25 +150,6 @@ HTTP Status Code: 400
 HTTP Status Code: 400
 
  ** ValidationException **   
-=======
- **AccessDeniedException**   
-  
-HTTP Status Code: 400
-
- **InternalServerException**   
-  
-HTTP Status Code: 500
-
- **ResourceNotFoundException**   
-  
-HTTP Status Code: 400
-
- **ThrottlingException**   
-  
-HTTP Status Code: 400
-
- **ValidationException**   
->>>>>>> parent of 2b1c178 (updating tutorial)
   
 HTTP Status Code: 400
 

@@ -22,11 +22,7 @@ For information about the parameters that are common to all actions, see [Common
 
 The request accepts the following data in JSON format\.
 
-<<<<<<< HEAD
  ** [ IndexId ](#API_DescribeQuerySuggestionsConfig_RequestSyntax) **   <a name="Kendra-DescribeQuerySuggestionsConfig-request-IndexId"></a>
-=======
- ** [IndexId](#API_DescribeQuerySuggestionsConfig_RequestSyntax) **   <a name="Kendra-DescribeQuerySuggestionsConfig-request-IndexId"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The identifier of the index you want to describe query suggestions settings for\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
@@ -55,82 +51,46 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
-<<<<<<< HEAD
  ** [ IncludeQueriesWithoutUserInformation ](#API_DescribeQuerySuggestionsConfig_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsConfig-response-IncludeQueriesWithoutUserInformation"></a>
 Shows whether Amazon Kendra uses all queries or only uses queries that include user information to generate query suggestions\.  
 Type: Boolean
 
  ** [ LastClearTime ](#API_DescribeQuerySuggestionsConfig_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsConfig-response-LastClearTime"></a>
-=======
- ** [IncludeQueriesWithoutUserInformation](#API_DescribeQuerySuggestionsConfig_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsConfig-response-IncludeQueriesWithoutUserInformation"></a>
-Shows whether Amazon Kendra uses all queries or only uses queries that include user information to generate query suggestions\.  
-Type: Boolean
-
- ** [LastClearTime](#API_DescribeQuerySuggestionsConfig_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsConfig-response-LastClearTime"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 Shows the date\-time query suggestions for an index was last cleared\.  
 After you clear suggestions, Amazon Kendra learns new suggestions based on new queries added to the query log from the time you cleared suggestions\. Amazon Kendra only considers re\-occurences of a query from the time you cleared suggestions\.   
 Type: Timestamp
 
-<<<<<<< HEAD
  ** [ LastSuggestionsBuildTime ](#API_DescribeQuerySuggestionsConfig_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsConfig-response-LastSuggestionsBuildTime"></a>
 Shows the date\-time query suggestions for an index was last updated\.  
 Type: Timestamp
 
  ** [ MinimumNumberOfQueryingUsers ](#API_DescribeQuerySuggestionsConfig_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsConfig-response-MinimumNumberOfQueryingUsers"></a>
-=======
- ** [LastSuggestionsBuildTime](#API_DescribeQuerySuggestionsConfig_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsConfig-response-LastSuggestionsBuildTime"></a>
-Shows the date\-time query suggestions for an index was last updated\.  
-Type: Timestamp
-
- ** [MinimumNumberOfQueryingUsers](#API_DescribeQuerySuggestionsConfig_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsConfig-response-MinimumNumberOfQueryingUsers"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 Shows the minimum number of unique users who must search a query in order for the query to be eligible to suggest to your users\.  
 Type: Integer  
 Valid Range: Minimum value of 1\. Maximum value of 10000\.
 
-<<<<<<< HEAD
  ** [ MinimumQueryCount ](#API_DescribeQuerySuggestionsConfig_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsConfig-response-MinimumQueryCount"></a>
-=======
- ** [MinimumQueryCount](#API_DescribeQuerySuggestionsConfig_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsConfig-response-MinimumQueryCount"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 Shows the minimum number of times a query must be searched in order for the query to be eligible to suggest to your users\.  
 Type: Integer  
 Valid Range: Minimum value of 1\. Maximum value of 10000\.
 
-<<<<<<< HEAD
  ** [ Mode ](#API_DescribeQuerySuggestionsConfig_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsConfig-response-Mode"></a>
-=======
- ** [Mode](#API_DescribeQuerySuggestionsConfig_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsConfig-response-Mode"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 Shows whether query suggestions are currently in `ENABLED` mode or `LEARN_ONLY` mode\.  
 By default, Amazon Kendra enables query suggestions\.`LEARN_ONLY` turns off query suggestions for your users\. You can change the mode using the [UpdateQuerySuggestionsConfig](https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateQuerySuggestionsConfig.html) operation\.  
 Type: String  
 Valid Values:` ENABLED | LEARN_ONLY` 
 
-<<<<<<< HEAD
  ** [ QueryLogLookBackWindowInDays ](#API_DescribeQuerySuggestionsConfig_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsConfig-response-QueryLogLookBackWindowInDays"></a>
 Shows how recent your queries are in your query log time window \(in days\)\.  
 Type: Integer
 
  ** [ Status ](#API_DescribeQuerySuggestionsConfig_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsConfig-response-Status"></a>
-=======
- ** [QueryLogLookBackWindowInDays](#API_DescribeQuerySuggestionsConfig_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsConfig-response-QueryLogLookBackWindowInDays"></a>
-Shows how recent your queries are in your query log time window \(in days\)\.  
-Type: Integer
-
- ** [Status](#API_DescribeQuerySuggestionsConfig_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsConfig-response-Status"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 Shows whether the status of query suggestions settings is currently Active or Updating\.  
 Active means the current settings apply and Updating means your changed settings are in the process of applying\.  
 Type: String  
 Valid Values:` ACTIVE | UPDATING` 
 
-<<<<<<< HEAD
  ** [ TotalSuggestionsCount ](#API_DescribeQuerySuggestionsConfig_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsConfig-response-TotalSuggestionsCount"></a>
-=======
- ** [TotalSuggestionsCount](#API_DescribeQuerySuggestionsConfig_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsConfig-response-TotalSuggestionsCount"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 Shows the current total count of query suggestions for an index\.  
 This count can change when you update your query suggestions settings, if you filter out certain queries from suggestions using a block list, and as the query log accumulates more queries for Amazon Kendra to learn from\.  
 Type: Integer
@@ -139,7 +99,6 @@ Type: Integer
 
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
-<<<<<<< HEAD
  ** AccessDeniedException **   
   
 HTTP Status Code: 400
@@ -157,25 +116,6 @@ HTTP Status Code: 400
 HTTP Status Code: 400
 
  ** ValidationException **   
-=======
- **AccessDeniedException**   
-  
-HTTP Status Code: 400
-
- **InternalServerException**   
-  
-HTTP Status Code: 500
-
- **ResourceNotFoundException**   
-  
-HTTP Status Code: 400
-
- **ThrottlingException**   
-  
-HTTP Status Code: 400
-
- **ValidationException**   
->>>>>>> parent of 2b1c178 (updating tutorial)
   
 HTTP Status Code: 400
 

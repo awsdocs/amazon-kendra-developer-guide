@@ -8,38 +8,22 @@ Provides information about how a custom index field is used during a search\.
 
 ## Contents<a name="API_Search_Contents"></a>
 
-<<<<<<< HEAD
  ** Displayable **   <a name="Kendra-Type-Search-Displayable"></a>
-=======
- **Displayable**   <a name="Kendra-Type-Search-Displayable"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 Determines whether the field is returned in the query response\. The default is `true`\.  
 Type: Boolean  
 Required: No
 
-<<<<<<< HEAD
  ** Facetable **   <a name="Kendra-Type-Search-Facetable"></a>
-=======
- **Facetable**   <a name="Kendra-Type-Search-Facetable"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 Indicates that the field can be used to create search facets, a count of results for each value in the field\. The default is `false` \.  
 Type: Boolean  
 Required: No
 
-<<<<<<< HEAD
  ** Searchable **   <a name="Kendra-Type-Search-Searchable"></a>
-=======
- **Searchable**   <a name="Kendra-Type-Search-Searchable"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 Determines whether the field is used in the search\. If the `Searchable` field is `true`, you can use relevance tuning to manually tune how Amazon Kendra weights the field in the search\. The default is `true` for string fields and `false` for number and date fields\.  
 Type: Boolean  
 Required: No
 
-<<<<<<< HEAD
  ** Sortable **   <a name="Kendra-Type-Search-Sortable"></a>
-=======
- **Sortable**   <a name="Kendra-Type-Search-Sortable"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 Determines whether the field can be used to sort the results of a query\. If you specify sorting on a field that does not have `Sortable` set to `true`, Amazon Kendra returns an exception\. The default is `false`\.  
 Type: Boolean  
 Required: No

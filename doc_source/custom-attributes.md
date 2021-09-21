@@ -10,11 +10,7 @@ You can create up to 500 custom attributes\.
 
 For other data sources, you map fields in the external data source to the corresponding custom attributes in Amazon Kendra\. For more information, see [Mapping data source fields](field-mapping.md)\.
 
-<<<<<<< HEAD
 Before you can use a custom attribute, you must first create a field in the index\. Use the console or the [ UpdateIndex ](API_UpdateIndex.md) operation to create the index fields\. The supported field types are date, long, string, and string list\. 
-=======
-Before you can use a custom attribute, you must first create a field in the index\. Use the console or the [UpdateIndex](API_UpdateIndex.md) operation to create the index fields\. The supported field types are date, long, string, and string list\. 
->>>>>>> parent of 2b1c178 (updating tutorial)
 
 With the `UpdateIndex` operation, you add custom fields using the `DocumentMetadataConfigurationUpdates` parameter
 
@@ -53,11 +49,7 @@ After you have created a custom attribute, you can use the attribute when you ca
 
 ## Adding custom attributes with the BatchPutDocument operation<a name="custom-attributes-batch"></a>
 
-<<<<<<< HEAD
 When you use the [ BatchPutDocument ](API_BatchPutDocument.md) operation to add a document to your index, you specify custom attributes as part of the `Attributes` structure\. You can add multiple attributes when you call the operation\. You can create up to 500 custom attributes\. The following example is a `Attributes` structure that adds "Department" and "\_category" attributes to a document\.
-=======
-When you use the [BatchPutDocument](API_BatchPutDocument.md) operation to add a document to your index, you specify custom attributes as part of the `Attributes` structure\. You can add multiple attributes when you call the operation\. You can create up to 500 custom attributes\. The following example is a `Attributes` structure that adds "Department" and "\_category" attributes to a document\.
->>>>>>> parent of 2b1c178 (updating tutorial)
 
 ```
 "Attributes": 

@@ -68,11 +68,7 @@ For information about the parameters that are common to all actions, see [Common
 
 The request accepts the following data in JSON format\.
 
-<<<<<<< HEAD
  ** [ Documents ](#API_BatchPutDocument_RequestSyntax) **   <a name="Kendra-BatchPutDocument-request-Documents"></a>
-=======
- ** [Documents](#API_BatchPutDocument_RequestSyntax) **   <a name="Kendra-BatchPutDocument-request-Documents"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 One or more documents to add to the index\.  
 Documents can include custom attributes\. For example, 'DataSourceId' and 'DataSourceSyncJobId' are custom attributes that provide information on the synchronization of documents running on a data source\. Note, 'DataSourceSyncJobId' could be an optional custom attribute as Amazon Kendra will use the ID of a running sync job\.  
 Documents have the following file size limits\.  
@@ -80,30 +76,18 @@ Documents have the following file size limits\.
 + 50 MB total size for files from an S3 bucket
 + 5 MB extracted text for any file
 For more information about file size and transaction per second quotas, see [Quotas](https://docs.aws.amazon.com/kendra/latest/dg/quotas.html)\.  
-<<<<<<< HEAD
 Type: Array of [ Document ](API_Document.md) objects  
 Array Members: Minimum number of 1 item\. Maximum number of 10 items\.  
 Required: Yes
 
  ** [ IndexId ](#API_BatchPutDocument_RequestSyntax) **   <a name="Kendra-BatchPutDocument-request-IndexId"></a>
-=======
-Type: Array of [Document](API_Document.md) objects  
-Array Members: Minimum number of 1 item\. Maximum number of 10 items\.  
-Required: Yes
-
- ** [IndexId](#API_BatchPutDocument_RequestSyntax) **   <a name="Kendra-BatchPutDocument-request-IndexId"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The identifier of the index to add the documents to\. You need to create the index first using the `CreateIndex` operation\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`   
 Required: Yes
 
-<<<<<<< HEAD
  ** [ RoleArn ](#API_BatchPutDocument_RequestSyntax) **   <a name="Kendra-BatchPutDocument-request-RoleArn"></a>
-=======
- ** [RoleArn](#API_BatchPutDocument_RequestSyntax) **   <a name="Kendra-BatchPutDocument-request-RoleArn"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The Amazon Resource Name \(ARN\) of a role that is allowed to run the `BatchPutDocument` operation\. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html)\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1284\.  
@@ -130,23 +114,15 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
-<<<<<<< HEAD
  ** [ FailedDocuments ](#API_BatchPutDocument_ResponseSyntax) **   <a name="Kendra-BatchPutDocument-response-FailedDocuments"></a>
 A list of documents that were not added to the index because the document failed a validation check\. Each document contains an error message that indicates why the document couldn't be added to the index\.  
 If there was an error adding a document to an index the error is reported in your AWS CloudWatch log\. For more information, see [Monitoring Amazon Kendra with Amazon CloudWatch Logs](https://docs.aws.amazon.com/kendra/latest/dg/cloudwatch-logs.html)   
 Type: Array of [ BatchPutDocumentResponseFailedDocument ](API_BatchPutDocumentResponseFailedDocument.md) objects
-=======
- ** [FailedDocuments](#API_BatchPutDocument_ResponseSyntax) **   <a name="Kendra-BatchPutDocument-response-FailedDocuments"></a>
-A list of documents that were not added to the index because the document failed a validation check\. Each document contains an error message that indicates why the document couldn't be added to the index\.  
-If there was an error adding a document to an index the error is reported in your AWS CloudWatch log\. For more information, see [Monitoring Amazon Kendra with Amazon CloudWatch Logs](https://docs.aws.amazon.com/kendra/latest/dg/cloudwatch-logs.html)   
-Type: Array of [BatchPutDocumentResponseFailedDocument](API_BatchPutDocumentResponseFailedDocument.md) objects
->>>>>>> parent of 2b1c178 (updating tutorial)
 
 ## Errors<a name="API_BatchPutDocument_Errors"></a>
 
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
-<<<<<<< HEAD
  ** AccessDeniedException **   
   
 HTTP Status Code: 400
@@ -172,33 +148,6 @@ HTTP Status Code: 400
 HTTP Status Code: 400
 
  ** ValidationException **   
-=======
- **AccessDeniedException**   
-  
-HTTP Status Code: 400
-
- **ConflictException**   
-  
-HTTP Status Code: 400
-
- **InternalServerException**   
-  
-HTTP Status Code: 500
-
- **ResourceNotFoundException**   
-  
-HTTP Status Code: 400
-
- **ServiceQuotaExceededException**   
-  
-HTTP Status Code: 400
-
- **ThrottlingException**   
-  
-HTTP Status Code: 400
-
- **ValidationException**   
->>>>>>> parent of 2b1c178 (updating tutorial)
   
 HTTP Status Code: 400
 

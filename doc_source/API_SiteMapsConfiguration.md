@@ -10,11 +10,7 @@ Provides the configuration information of the sitemap URLs to crawl\.
 
 ## Contents<a name="API_SiteMapsConfiguration_Contents"></a>
 
-<<<<<<< HEAD
  ** SiteMaps **   <a name="Kendra-Type-SiteMapsConfiguration-SiteMaps"></a>
-=======
- **SiteMaps**   <a name="Kendra-Type-SiteMapsConfiguration-SiteMaps"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The list of sitemap URLs of the websites you want to crawl\.  
 The list can include a maximum of three sitemap URLs\.  
 Type: Array of strings  

@@ -33,47 +33,28 @@ For information about the parameters that are common to all actions, see [Common
 
 The request accepts the following data in JSON format\.
 
-<<<<<<< HEAD
  ** [ ClickFeedbackItems ](#API_SubmitFeedback_RequestSyntax) **   <a name="Kendra-SubmitFeedback-request-ClickFeedbackItems"></a>
 Tells Amazon Kendra that a particular search result link was chosen by the user\.   
 Type: Array of [ ClickFeedback ](API_ClickFeedback.md) objects  
 Required: No
 
  ** [ IndexId ](#API_SubmitFeedback_RequestSyntax) **   <a name="Kendra-SubmitFeedback-request-IndexId"></a>
-=======
- ** [ClickFeedbackItems](#API_SubmitFeedback_RequestSyntax) **   <a name="Kendra-SubmitFeedback-request-ClickFeedbackItems"></a>
-Tells Amazon Kendra that a particular search result link was chosen by the user\.   
-Type: Array of [ClickFeedback](API_ClickFeedback.md) objects  
-Required: No
-
- ** [IndexId](#API_SubmitFeedback_RequestSyntax) **   <a name="Kendra-SubmitFeedback-request-IndexId"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The identifier of the index that was queried\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`   
 Required: Yes
 
-<<<<<<< HEAD
  ** [ QueryId ](#API_SubmitFeedback_RequestSyntax) **   <a name="Kendra-SubmitFeedback-request-QueryId"></a>
-=======
- ** [QueryId](#API_SubmitFeedback_RequestSyntax) **   <a name="Kendra-SubmitFeedback-request-QueryId"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The identifier of the specific query for which you are submitting feedback\. The query ID is returned in the response to the `Query` operation\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`   
 Required: Yes
 
-<<<<<<< HEAD
  ** [ RelevanceFeedbackItems ](#API_SubmitFeedback_RequestSyntax) **   <a name="Kendra-SubmitFeedback-request-RelevanceFeedbackItems"></a>
 Provides Amazon Kendra with relevant or not relevant feedback for whether a particular item was relevant to the search\.  
 Type: Array of [ RelevanceFeedback ](API_RelevanceFeedback.md) objects  
-=======
- ** [RelevanceFeedbackItems](#API_SubmitFeedback_RequestSyntax) **   <a name="Kendra-SubmitFeedback-request-RelevanceFeedbackItems"></a>
-Provides Amazon Kendra with relevant or not relevant feedback for whether a particular item was relevant to the search\.  
-Type: Array of [RelevanceFeedback](API_RelevanceFeedback.md) objects  
->>>>>>> parent of 2b1c178 (updating tutorial)
 Required: No
 
 ## Response Elements<a name="API_SubmitFeedback_ResponseElements"></a>
@@ -84,7 +65,6 @@ If the action is successful, the service sends back an HTTP 200 response with an
 
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
-<<<<<<< HEAD
  ** AccessDeniedException **   
   
 HTTP Status Code: 400
@@ -106,29 +86,6 @@ HTTP Status Code: 400
 HTTP Status Code: 400
 
  ** ValidationException **   
-=======
- **AccessDeniedException**   
-  
-HTTP Status Code: 400
-
- **InternalServerException**   
-  
-HTTP Status Code: 500
-
- **ResourceNotFoundException**   
-  
-HTTP Status Code: 400
-
- **ResourceUnavailableException**   
-  
-HTTP Status Code: 400
-
- **ThrottlingException**   
-  
-HTTP Status Code: 400
-
- **ValidationException**   
->>>>>>> parent of 2b1c178 (updating tutorial)
   
 HTTP Status Code: 400
 

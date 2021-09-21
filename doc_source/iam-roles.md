@@ -4,11 +4,7 @@
 
 # IAM access roles for Amazon Kendra<a name="iam-roles"></a>
 
-<<<<<<< HEAD
 When you create an index, data source, or an FAQ, Amazon Kendra needs access to the AWS resources required to create the Amazon Kendra resource\. You must create a AWS Identity and Access Management \(IAM\) policy before you create the Amazon Kendra resource\. When you call the operation, you provide the Amazon Resource Name \(ARN\) of the role with the policy attached\. For example, if you are calling the [ BatchPutDocument ](API_BatchPutDocument.md) operation to add documents from an Amazon S3 bucket, you provide Amazon Kendra with a role with a policy that has access to the bucket\.
-=======
-When you create an index, data source, or an FAQ, Amazon Kendra needs access to the AWS resources required to create the Amazon Kendra resource\. You must create a AWS Identity and Access Management \(IAM\) policy before you create the Amazon Kendra resource\. When you call the operation, you provide the Amazon Resource Name \(ARN\) of the role with the policy attached\. For example, if you are calling the [BatchPutDocument](API_BatchPutDocument.md) operation to add documents from an Amazon S3 bucket, you provide Amazon Kendra with a role with a policy that has access to the bucket\.
->>>>>>> parent of 2b1c178 (updating tutorial)
 
 The Amazon Kendra console enables you to create a new IAM role or to choose an IAM existing role to use\. The console displays roles that have the string "kendra" or "Kendra" in the role name\. 
 
@@ -146,11 +142,7 @@ A trust policy to enable Amazon Kendra to assume a role\.
 
 ## IAM Roles for the BatchPutDocument operation<a name="iam-roles-batch"></a>
 
-<<<<<<< HEAD
 When you use the [ BatchPutDocument ](API_BatchPutDocument.md) operation to index documents in an Amazon S3 bucket, you must provide Amazon Kendra with an IAM role with access to the bucket\. You must also provide a trust policy that enables Amazon Kendra to assume the role\. If the documents in the bucket are encrypted, you must provide permission to use the AWS KMS customer master key \(CMK\) to decrypt the documents\.
-=======
-When you use the [BatchPutDocument](API_BatchPutDocument.md) operation to index documents in an Amazon S3 bucket, you must provide Amazon Kendra with an IAM role with access to the bucket\. You must also provide a trust policy that enables Amazon Kendra to assume the role\. If the documents in the bucket are encrypted, you must provide permission to use the AWS KMS customer master key \(CMK\) to decrypt the documents\.
->>>>>>> parent of 2b1c178 (updating tutorial)
 
 A required role policy to enable Amazon Kendra to access an Amazon S3 bucket\.
 
@@ -208,11 +200,7 @@ An optional role policy to enable Amazon Kendra to use an AWS KMS customer maste
 
 ## IAM roles for data sources<a name="iam-roles-ds"></a>
 
-<<<<<<< HEAD
 When you use the [ CreateDataSource ](API_CreateDataSource.md) operation, you must give Amazon Kendra an IAM role that has permission to access the database resources\. The specific permissions required depend on the data source\.
-=======
-When you use the [CreateDataSource](API_CreateDataSource.md) operation, you must give Amazon Kendra an IAM role that has permission to access the database resources\. The specific permissions required depend on the data source\.
->>>>>>> parent of 2b1c178 (updating tutorial)
 
 **Topics**
 + [IAM roles for Amazon S3 data sources](#iam-roles-ds-s3)
@@ -423,11 +411,7 @@ If you are using a VPC, provide a policy that gives Amazon Kendra access to the 
 
 When you use a Google Workspace Drive data source, you provide Amazon Kendra with a role that has the permissions necessary for connecting to the site\. These include: 
 + Permission to get and decrypt the AWS Secrets Manager secret that contains the client account email, admin account email, and private key necessary to connect to the Google Drive site\. For more information about the contents of the secret, see [Using a Google Workspace Drive data source](data-source-google-drive.md)\.
-<<<<<<< HEAD
 + Permission to use the [ BatchPutDocument ](API_BatchPutDocument.md) and [ BatchDeleteDocument ](API_BatchDeleteDocument.md) operations\.
-=======
-+ Permission to use the [BatchPutDocument](API_BatchPutDocument.md) and [BatchDeleteDocument](API_BatchDeleteDocument.md) operations\.
->>>>>>> parent of 2b1c178 (updating tutorial)
 
 The following IAM policy provides the necessary permissions:
 
@@ -475,11 +459,7 @@ The following IAM policy provides the necessary permissions:
 
 When you use a Microsoft OneDrive data source, you provide Amazon Kendra with a role that has the permissions necessary for connecting to the site\. These include: 
 + Permission to get and decrypt the AWS Secrets Manager secret that contains the application ID and secret key necessary to connect to the OneDrive site\. For more information about the contents of the secret, see [Using a Microsoft OneDrive data source](data-source-onedrive.md)\.
-<<<<<<< HEAD
 + Permission to use the [ BatchPutDocument ](API_BatchPutDocument.md) and [ BatchDeleteDocument ](API_BatchDeleteDocument.md) operations\.
-=======
-+ Permission to use the [BatchPutDocument](API_BatchPutDocument.md) and [BatchDeleteDocument](API_BatchDeleteDocument.md) operations\.
->>>>>>> parent of 2b1c178 (updating tutorial)
 
 The following IAM policy provides the necessary permissions:
 
@@ -946,11 +926,7 @@ A required policy to call the `BatchPutDocument` and `BatchDeleteDocument` actio
 
 ## IAM roles for frequently asked questions<a name="iam-roles-ds-faq"></a>
 
-<<<<<<< HEAD
 When you use the [ CreateFaq ](API_CreateFaq.md) operation to load questions and answers into an index, you must provide Amazon Kendra with an IAM role with access to the Amazon S3 bucket that contains the source files\. If the source files are encrypted, you must provide permission to use the AWS KMS customer master key \(CMK\) to decrypt the files\.
-=======
-When you use the [CreateFaq](API_CreateFaq.md) operation to load questions and answers into an index, you must provide Amazon Kendra with an IAM role with access to the Amazon S3 bucket that contains the source files\. If the source files are encrypted, you must provide permission to use the AWS KMS customer master key \(CMK\) to decrypt the files\.
->>>>>>> parent of 2b1c178 (updating tutorial)
 
 A required role policy to enable Amazon Kendra to access an Amazon S3 bucket\.
 

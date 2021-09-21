@@ -20,11 +20,7 @@ For information about the parameters that are common to all actions, see [Common
 
 The request accepts the following data in JSON format\.
 
-<<<<<<< HEAD
  ** [ ResourceARN ](#API_ListTagsForResource_RequestSyntax) **   <a name="Kendra-ListTagsForResource-request-ResourceARN"></a>
-=======
- ** [ResourceARN](#API_ListTagsForResource_RequestSyntax) **   <a name="Kendra-ListTagsForResource-request-ResourceARN"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The Amazon Resource Name \(ARN\) of the index, FAQ, or data source to get a list of tags for\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1011\.  
@@ -49,22 +45,15 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
-<<<<<<< HEAD
  ** [ Tags ](#API_ListTagsForResource_ResponseSyntax) **   <a name="Kendra-ListTagsForResource-response-Tags"></a>
 A list of tags associated with the index, FAQ, or data source\.  
 Type: Array of [ Tag ](API_Tag.md) objects  
-=======
- ** [Tags](#API_ListTagsForResource_ResponseSyntax) **   <a name="Kendra-ListTagsForResource-response-Tags"></a>
-A list of tags associated with the index, FAQ, or data source\.  
-Type: Array of [Tag](API_Tag.md) objects  
->>>>>>> parent of 2b1c178 (updating tutorial)
 Array Members: Minimum number of 0 items\. Maximum number of 200 items\.
 
 ## Errors<a name="API_ListTagsForResource_Errors"></a>
 
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
-<<<<<<< HEAD
  ** AccessDeniedException **   
   
 HTTP Status Code: 400
@@ -82,25 +71,6 @@ HTTP Status Code: 400
 HTTP Status Code: 400
 
  ** ValidationException **   
-=======
- **AccessDeniedException**   
-  
-HTTP Status Code: 400
-
- **InternalServerException**   
-  
-HTTP Status Code: 500
-
- **ResourceUnavailableException**   
-  
-HTTP Status Code: 400
-
- **ThrottlingException**   
-  
-HTTP Status Code: 400
-
- **ValidationException**   
->>>>>>> parent of 2b1c178 (updating tutorial)
   
 HTTP Status Code: 400
 

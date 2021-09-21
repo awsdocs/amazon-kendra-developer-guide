@@ -8,11 +8,7 @@ Provides information about how Amazon Kendra should use the columns of a databas
 
 ## Contents<a name="API_ColumnConfiguration_Contents"></a>
 
-<<<<<<< HEAD
  ** ChangeDetectingColumns **   <a name="Kendra-Type-ColumnConfiguration-ChangeDetectingColumns"></a>
-=======
- **ChangeDetectingColumns**   <a name="Kendra-Type-ColumnConfiguration-ChangeDetectingColumns"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 One to five columns that indicate when a document in the database has changed\.  
 Type: Array of strings  
 Array Members: Minimum number of 1 item\. Maximum number of 5 items\.  
@@ -20,48 +16,30 @@ Length Constraints: Minimum length of 1\. Maximum length of 100\.
 Pattern: `^[a-zA-Z][a-zA-Z0-9_]*$`   
 Required: Yes
 
-<<<<<<< HEAD
  ** DocumentDataColumnName **   <a name="Kendra-Type-ColumnConfiguration-DocumentDataColumnName"></a>
-=======
- **DocumentDataColumnName**   <a name="Kendra-Type-ColumnConfiguration-DocumentDataColumnName"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The column that contains the contents of the document\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Pattern: `^[a-zA-Z][a-zA-Z0-9_]*$`   
 Required: Yes
 
-<<<<<<< HEAD
  ** DocumentIdColumnName **   <a name="Kendra-Type-ColumnConfiguration-DocumentIdColumnName"></a>
-=======
- **DocumentIdColumnName**   <a name="Kendra-Type-ColumnConfiguration-DocumentIdColumnName"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The column that provides the document's unique identifier\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Pattern: `^[a-zA-Z][a-zA-Z0-9_]*$`   
 Required: Yes
 
-<<<<<<< HEAD
  ** DocumentTitleColumnName **   <a name="Kendra-Type-ColumnConfiguration-DocumentTitleColumnName"></a>
-=======
- **DocumentTitleColumnName**   <a name="Kendra-Type-ColumnConfiguration-DocumentTitleColumnName"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The column that contains the title of the document\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Pattern: `^[a-zA-Z][a-zA-Z0-9_]*$`   
 Required: No
 
-<<<<<<< HEAD
  ** FieldMappings **   <a name="Kendra-Type-ColumnConfiguration-FieldMappings"></a>
 An array of objects that map database column names to the corresponding fields in an index\. You must first create the fields in the index using the `UpdateIndex` operation\.  
 Type: Array of [ DataSourceToIndexFieldMapping ](API_DataSourceToIndexFieldMapping.md) objects  
-=======
- **FieldMappings**   <a name="Kendra-Type-ColumnConfiguration-FieldMappings"></a>
-An array of objects that map database column names to the corresponding fields in an index\. You must first create the fields in the index using the `UpdateIndex` operation\.  
-Type: Array of [DataSourceToIndexFieldMapping](API_DataSourceToIndexFieldMapping.md) objects  
->>>>>>> parent of 2b1c178 (updating tutorial)
 Array Members: Minimum number of 1 item\. Maximum number of 100 items\.  
 Required: No
 

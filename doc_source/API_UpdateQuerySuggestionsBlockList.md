@@ -34,74 +34,46 @@ For information about the parameters that are common to all actions, see [Common
 
 The request accepts the following data in JSON format\.
 
-<<<<<<< HEAD
  ** [ Description ](#API_UpdateQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-UpdateQuerySuggestionsBlockList-request-Description"></a>
-=======
- ** [Description](#API_UpdateQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-UpdateQuerySuggestionsBlockList-request-Description"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The description for a block list\.  
 Type: String  
 Length Constraints: Minimum length of 0\. Maximum length of 1000\.  
 Pattern: `^\P{C}*$`   
 Required: No
 
-<<<<<<< HEAD
  ** [ Id ](#API_UpdateQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-UpdateQuerySuggestionsBlockList-request-Id"></a>
-=======
- ** [Id](#API_UpdateQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-UpdateQuerySuggestionsBlockList-request-Id"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The unique identifier of a block list\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`   
 Required: Yes
 
-<<<<<<< HEAD
  ** [ IndexId ](#API_UpdateQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-UpdateQuerySuggestionsBlockList-request-IndexId"></a>
-=======
- ** [IndexId](#API_UpdateQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-UpdateQuerySuggestionsBlockList-request-IndexId"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The identifier of the index for a block list\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`   
 Required: Yes
 
-<<<<<<< HEAD
  ** [ Name ](#API_UpdateQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-UpdateQuerySuggestionsBlockList-request-Name"></a>
-=======
- ** [Name](#API_UpdateQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-UpdateQuerySuggestionsBlockList-request-Name"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The name of a block list\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Pattern: `^[a-zA-Z0-9](-*[a-zA-Z0-9])*`   
 Required: No
 
-<<<<<<< HEAD
  ** [ RoleArn ](#API_UpdateQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-UpdateQuerySuggestionsBlockList-request-RoleArn"></a>
-=======
- ** [RoleArn](#API_UpdateQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-UpdateQuerySuggestionsBlockList-request-RoleArn"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The IAM \(Identity and Access Management\) role used to access the block list text file in S3\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1284\.  
 Pattern: `arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}`   
 Required: No
 
-<<<<<<< HEAD
  ** [ SourceS3Path ](#API_UpdateQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-UpdateQuerySuggestionsBlockList-request-SourceS3Path"></a>
 The S3 path where your block list text file sits in S3\.  
 If you update your block list and provide the same path to the block list text file in S3, then Amazon Kendra reloads the file to refresh the block list\. Amazon Kendra does not automatically refresh your block list\. You need to call the `UpdateQuerySuggestionsBlockList` API to refresh you block list\.  
 If you update your block list, then Amazon Kendra asynchronously refreshes all query suggestions with the latest content in the S3 file\. This means changes might not take effect immediately\.  
 Type: [ S3Path ](API_S3Path.md) object  
-=======
- ** [SourceS3Path](#API_UpdateQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-UpdateQuerySuggestionsBlockList-request-SourceS3Path"></a>
-The S3 path where your block list text file sits in S3\.  
-If you update your block list and provide the same path to the block list text file in S3, then Amazon Kendra reloads the file to refresh the block list\. Amazon Kendra does not automatically refresh your block list\. You need to call the `UpdateQuerySuggestionsBlockList` API to refresh you block list\.  
-If you update your block list, then Amazon Kendra asynchronously refreshes all query suggestions with the latest content in the S3 file\. This means changes might not take effect immediately\.  
-Type: [S3Path](API_S3Path.md) object  
->>>>>>> parent of 2b1c178 (updating tutorial)
 Required: No
 
 ## Response Elements<a name="API_UpdateQuerySuggestionsBlockList_ResponseElements"></a>
@@ -112,7 +84,6 @@ If the action is successful, the service sends back an HTTP 200 response with an
 
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
-<<<<<<< HEAD
  ** AccessDeniedException **   
   
 HTTP Status Code: 400
@@ -134,29 +105,6 @@ HTTP Status Code: 400
 HTTP Status Code: 400
 
  ** ValidationException **   
-=======
- **AccessDeniedException**   
-  
-HTTP Status Code: 400
-
- **ConflictException**   
-  
-HTTP Status Code: 400
-
- **InternalServerException**   
-  
-HTTP Status Code: 500
-
- **ResourceNotFoundException**   
-  
-HTTP Status Code: 400
-
- **ThrottlingException**   
-  
-HTTP Status Code: 400
-
- **ValidationException**   
->>>>>>> parent of 2b1c178 (updating tutorial)
   
 HTTP Status Code: 400
 

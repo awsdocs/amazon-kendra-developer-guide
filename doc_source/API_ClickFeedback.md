@@ -8,20 +8,12 @@ Gathers information about when a particular result was clicked by a user\. Your 
 
 ## Contents<a name="API_ClickFeedback_Contents"></a>
 
-<<<<<<< HEAD
  ** ClickTime **   <a name="Kendra-Type-ClickFeedback-ClickTime"></a>
-=======
- **ClickTime**   <a name="Kendra-Type-ClickFeedback-ClickTime"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The Unix timestamp of the date and time that the result was clicked\.  
 Type: Timestamp  
 Required: Yes
 
-<<<<<<< HEAD
  ** ResultId **   <a name="Kendra-Type-ClickFeedback-ResultId"></a>
-=======
- **ResultId**   <a name="Kendra-Type-ClickFeedback-ResultId"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The unique identifier of the search result that was clicked\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 73\.  

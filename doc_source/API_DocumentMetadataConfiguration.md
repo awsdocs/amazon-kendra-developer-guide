@@ -8,17 +8,12 @@ Specifies the properties of a custom index field\.
 
 ## Contents<a name="API_DocumentMetadataConfiguration_Contents"></a>
 
-<<<<<<< HEAD
  ** Name **   <a name="Kendra-Type-DocumentMetadataConfiguration-Name"></a>
-=======
- **Name**   <a name="Kendra-Type-DocumentMetadataConfiguration-Name"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The name of the index field\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 30\.  
 Required: Yes
 
-<<<<<<< HEAD
  ** Relevance **   <a name="Kendra-Type-DocumentMetadataConfiguration-Relevance"></a>
 Provides manual tuning parameters to determine how the field affects the search results\.  
 Type: [ Relevance ](API_Relevance.md) object  
@@ -30,19 +25,6 @@ Type: [ Search ](API_Search.md) object
 Required: No
 
  ** Type **   <a name="Kendra-Type-DocumentMetadataConfiguration-Type"></a>
-=======
- **Relevance**   <a name="Kendra-Type-DocumentMetadataConfiguration-Relevance"></a>
-Provides manual tuning parameters to determine how the field affects the search results\.  
-Type: [Relevance](API_Relevance.md) object  
-Required: No
-
- **Search**   <a name="Kendra-Type-DocumentMetadataConfiguration-Search"></a>
-Provides information about how the field is used during a search\.  
-Type: [Search](API_Search.md) object  
-Required: No
-
- **Type**   <a name="Kendra-Type-DocumentMetadataConfiguration-Type"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The data type of the index field\.   
 Type: String  
 Valid Values:` STRING_VALUE | STRING_LIST_VALUE | LONG_VALUE | DATE_VALUE`   

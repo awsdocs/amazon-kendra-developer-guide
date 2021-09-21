@@ -23,22 +23,14 @@ For information about the parameters that are common to all actions, see [Common
 
 The request accepts the following data in JSON format\.
 
-<<<<<<< HEAD
  ** [ Id ](#API_DeleteQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-DeleteQuerySuggestionsBlockList-request-Id"></a>
-=======
- ** [Id](#API_DeleteQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-DeleteQuerySuggestionsBlockList-request-Id"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The unique identifier of the block list that needs to be deleted\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`   
 Required: Yes
 
-<<<<<<< HEAD
  ** [ IndexId ](#API_DeleteQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-DeleteQuerySuggestionsBlockList-request-IndexId"></a>
-=======
- ** [IndexId](#API_DeleteQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-DeleteQuerySuggestionsBlockList-request-IndexId"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The identifier of the you want to delete a block list from\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
@@ -53,7 +45,6 @@ If the action is successful, the service sends back an HTTP 200 response with an
 
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
-<<<<<<< HEAD
  ** AccessDeniedException **   
   
 HTTP Status Code: 400
@@ -75,29 +66,6 @@ HTTP Status Code: 400
 HTTP Status Code: 400
 
  ** ValidationException **   
-=======
- **AccessDeniedException**   
-  
-HTTP Status Code: 400
-
- **ConflictException**   
-  
-HTTP Status Code: 400
-
- **InternalServerException**   
-  
-HTTP Status Code: 500
-
- **ResourceNotFoundException**   
-  
-HTTP Status Code: 400
-
- **ThrottlingException**   
-  
-HTTP Status Code: 400
-
- **ValidationException**   
->>>>>>> parent of 2b1c178 (updating tutorial)
   
 HTTP Status Code: 400
 

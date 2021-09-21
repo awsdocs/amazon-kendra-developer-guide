@@ -8,11 +8,7 @@ Provides information about the column that should be used for filtering the quer
 
 ## Contents<a name="API_AclConfiguration_Contents"></a>
 
-<<<<<<< HEAD
  ** AllowedGroupsColumnName **   <a name="Kendra-Type-AclConfiguration-AllowedGroupsColumnName"></a>
-=======
- **AllowedGroupsColumnName**   <a name="Kendra-Type-AclConfiguration-AllowedGroupsColumnName"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 A list of groups, separated by semi\-colons, that filters a query response based on user context\. The document is only returned to users that are in one of the groups specified in the `UserContext` field of the `Query` operation\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  

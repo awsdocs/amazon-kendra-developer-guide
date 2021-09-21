@@ -8,11 +8,7 @@ Identifies a document for which to retrieve status information
 
 ## Contents<a name="API_DocumentInfo_Contents"></a>
 
-<<<<<<< HEAD
  ** Attributes **   <a name="Kendra-Type-DocumentInfo-Attributes"></a>
-=======
- **Attributes**   <a name="Kendra-Type-DocumentInfo-Attributes"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 Attributes that identify a specific version of a document to check\.  
 The only valid attributes are:  
 + version
@@ -22,17 +18,10 @@ The attributes follow these rules:
 +  `dataSourceId` and `jobExecutionId` must be used together\.
 +  `version` is ignored if `dataSourceId` and `jobExecutionId` are not provided\.
 + If `dataSourceId` and `jobExecutionId` are provided, but `version` is not, the version defaults to "0"\.
-<<<<<<< HEAD
 Type: Array of [ DocumentAttribute ](API_DocumentAttribute.md) objects  
 Required: No
 
  ** DocumentId **   <a name="Kendra-Type-DocumentInfo-DocumentId"></a>
-=======
-Type: Array of [DocumentAttribute](API_DocumentAttribute.md) objects  
-Required: No
-
- **DocumentId**   <a name="Kendra-Type-DocumentInfo-DocumentId"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The unique identifier of the document\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  

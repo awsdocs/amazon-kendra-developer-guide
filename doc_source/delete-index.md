@@ -27,8 +27,4 @@ To delete an index, use the console, the AWS Command Line Interface, an AWS Clou
      --id index-id
   ```
 
-<<<<<<< HEAD
 Deleting an index is an asynchronous operation\. When you start deleting an index, the index status changes to `DELETING`\. It remains in the `DELETING` state until all of the information related to the index is removed\. Once the index is deleted, it no longer appears in the results of a call to the [ ListIndices ](API_ListIndices.md) operation\. If you call the [ DescribeIndex ](API_DescribeIndex.md) operation with the deleted index's identifier, you receive and `ResourceNotFound` exception\.
-=======
-Deleting an index is an asynchronous operation\. When you start deleting an index, the index status changes to `DELETING`\. It remains in the `DELETING` state until all of the information related to the index is removed\. Once the index is deleted, it no longer appears in the results of a call to the [ListIndices](API_ListIndices.md) operation\. If you call the [DescribeIndex](API_DescribeIndex.md) operation with the deleted index's identifier, you receive and `ResourceNotFound` exception\.
->>>>>>> parent of 2b1c178 (updating tutorial)

@@ -8,29 +8,20 @@ Defines configuration for syncing a Salesforce chatter feed\. The contents of th
 
 ## Contents<a name="API_SalesforceChatterFeedConfiguration_Contents"></a>
 
-<<<<<<< HEAD
  ** DocumentDataFieldName **   <a name="Kendra-Type-SalesforceChatterFeedConfiguration-DocumentDataFieldName"></a>
-=======
- **DocumentDataFieldName**   <a name="Kendra-Type-SalesforceChatterFeedConfiguration-DocumentDataFieldName"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The name of the column in the Salesforce FeedItem table that contains the content to index\. Typically this is the `Body` column\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Pattern: `^[a-zA-Z][a-zA-Z0-9_.]*$`   
 Required: Yes
 
-<<<<<<< HEAD
  ** DocumentTitleFieldName **   <a name="Kendra-Type-SalesforceChatterFeedConfiguration-DocumentTitleFieldName"></a>
-=======
- **DocumentTitleFieldName**   <a name="Kendra-Type-SalesforceChatterFeedConfiguration-DocumentTitleFieldName"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The name of the column in the Salesforce FeedItem table that contains the title of the document\. This is typically the `Title` column\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Pattern: `^[a-zA-Z][a-zA-Z0-9_.]*$`   
 Required: No
 
-<<<<<<< HEAD
  ** FieldMappings **   <a name="Kendra-Type-SalesforceChatterFeedConfiguration-FieldMappings"></a>
 Maps fields from a Salesforce chatter feed into Amazon Kendra index fields\.  
 Type: Array of [ DataSourceToIndexFieldMapping ](API_DataSourceToIndexFieldMapping.md) objects  
@@ -38,15 +29,6 @@ Array Members: Minimum number of 1 item\. Maximum number of 100 items\.
 Required: No
 
  ** IncludeFilterTypes **   <a name="Kendra-Type-SalesforceChatterFeedConfiguration-IncludeFilterTypes"></a>
-=======
- **FieldMappings**   <a name="Kendra-Type-SalesforceChatterFeedConfiguration-FieldMappings"></a>
-Maps fields from a Salesforce chatter feed into Amazon Kendra index fields\.  
-Type: Array of [DataSourceToIndexFieldMapping](API_DataSourceToIndexFieldMapping.md) objects  
-Array Members: Minimum number of 1 item\. Maximum number of 100 items\.  
-Required: No
-
- **IncludeFilterTypes**   <a name="Kendra-Type-SalesforceChatterFeedConfiguration-IncludeFilterTypes"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 Filters the documents in the feed based on status of the user\. When you specify `ACTIVE_USERS` only documents from users who have an active account are indexed\. When you specify `STANDARD_USER` only documents for Salesforce standard users are documented\. You can specify both\.  
 Type: Array of strings  
 Array Members: Minimum number of 1 item\. Maximum number of 2 items\.  

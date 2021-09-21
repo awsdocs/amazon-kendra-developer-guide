@@ -8,21 +8,13 @@ Provides information about text documents indexed in an index\.
 
 ## Contents<a name="API_TextDocumentStatistics_Contents"></a>
 
-<<<<<<< HEAD
  ** IndexedTextBytes **   <a name="Kendra-Type-TextDocumentStatistics-IndexedTextBytes"></a>
-=======
- **IndexedTextBytes**   <a name="Kendra-Type-TextDocumentStatistics-IndexedTextBytes"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The total size, in bytes, of the indexed documents\.  
 Type: Long  
 Valid Range: Minimum value of 0\.  
 Required: Yes
 
-<<<<<<< HEAD
  ** IndexedTextDocumentsCount **   <a name="Kendra-Type-TextDocumentStatistics-IndexedTextDocumentsCount"></a>
-=======
- **IndexedTextDocumentsCount**   <a name="Kendra-Type-TextDocumentStatistics-IndexedTextDocumentsCount"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The number of text documents indexed\.  
 Type: Integer  
 Valid Range: Minimum value of 0\.  

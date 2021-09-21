@@ -30,11 +30,7 @@ The secret can contain more information, but Amazon Kendra ignores it\. For more
 
 You must create an index before you create the OneDrive data source\. For information, see [Creating an index](create-index.md)\. You provide the ID of the index when you create the data source\.
 
-<<<<<<< HEAD
 You specify connection and other information in the console or using an instance of the [ OneDriveConfiguration ](API_OneDriveConfiguration.md) data type\. You must provide the following information: 
-=======
-You specify connection and other information in the console or using an instance of the [OneDriveConfiguration](API_OneDriveConfiguration.md) data type\. You must provide the following information: 
->>>>>>> parent of 2b1c178 (updating tutorial)
 + The credentials required to log in to the OneDrive site\.
 + The tenant domain that contains the OneDrive site\.
 + A list of users whose documents should be indexed\. You can provide a list of user names, or you can provide the user names in a file stored in an Amazon Simple Storage Service \(Amazon S3\) bucket\. If you store the list of user names in an S3 bucket, the IAM policy for the data source must provide access to the bucket and access to the key that the bucket was encrypted with, if any\.

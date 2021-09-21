@@ -8,11 +8,7 @@ User accounts whose documents should be indexed\.
 
 ## Contents<a name="API_OneDriveUsers_Contents"></a>
 
-<<<<<<< HEAD
  ** OneDriveUserList **   <a name="Kendra-Type-OneDriveUsers-OneDriveUserList"></a>
-=======
- **OneDriveUserList**   <a name="Kendra-Type-OneDriveUsers-OneDriveUserList"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 A list of users whose documents should be indexed\. Specify the user names in email format, for example, `username@tenantdomain`\. If you need to index the documents of more than 100 users, use the `OneDriveUserS3Path` field to specify the location of a file containing a list of users\.  
 Type: Array of strings  
 Array Members: Minimum number of 1 item\. Maximum number of 100 items\.  
@@ -20,15 +16,9 @@ Length Constraints: Minimum length of 1\. Maximum length of 256\.
 Pattern: `^(?!\s).+@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$`   
 Required: No
 
-<<<<<<< HEAD
  ** OneDriveUserS3Path **   <a name="Kendra-Type-OneDriveUsers-OneDriveUserS3Path"></a>
 The S3 bucket location of a file containing a list of users whose documents should be indexed\.  
 Type: [ S3Path ](API_S3Path.md) object  
-=======
- **OneDriveUserS3Path**   <a name="Kendra-Type-OneDriveUsers-OneDriveUserS3Path"></a>
-The S3 bucket location of a file containing a list of users whose documents should be indexed\.  
-Type: [S3Path](API_S3Path.md) object  
->>>>>>> parent of 2b1c178 (updating tutorial)
 Required: No
 
 ## See Also<a name="API_OneDriveUsers_SeeAlso"></a>

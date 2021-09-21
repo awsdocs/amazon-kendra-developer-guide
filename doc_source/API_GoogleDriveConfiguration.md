@@ -8,11 +8,7 @@ Provides configuration information for data sources that connect to Google Drive
 
 ## Contents<a name="API_GoogleDriveConfiguration_Contents"></a>
 
-<<<<<<< HEAD
  ** ExcludeMimeTypes **   <a name="Kendra-Type-GoogleDriveConfiguration-ExcludeMimeTypes"></a>
-=======
- **ExcludeMimeTypes**   <a name="Kendra-Type-GoogleDriveConfiguration-ExcludeMimeTypes"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 A list of MIME types to exclude from the index\. All documents matching the specified MIME type are excluded\.   
 For a list of MIME types, see [Using a Google Workspace Drive data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-google-drive.html)\.  
 Type: Array of strings  
@@ -21,11 +17,7 @@ Length Constraints: Minimum length of 1\. Maximum length of 256\.
 Pattern: `^\P{C}*$`   
 Required: No
 
-<<<<<<< HEAD
  ** ExcludeSharedDrives **   <a name="Kendra-Type-GoogleDriveConfiguration-ExcludeSharedDrives"></a>
-=======
- **ExcludeSharedDrives**   <a name="Kendra-Type-GoogleDriveConfiguration-ExcludeSharedDrives"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 A list of identifiers or shared drives to exclude from the index\. All files and folders stored on the shared drive are excluded\.  
 Type: Array of strings  
 Array Members: Minimum number of 0 items\. Maximum number of 100 items\.  
@@ -33,11 +25,7 @@ Length Constraints: Minimum length of 1\. Maximum length of 256\.
 Pattern: `^\P{C}*$`   
 Required: No
 
-<<<<<<< HEAD
  ** ExcludeUserAccounts **   <a name="Kendra-Type-GoogleDriveConfiguration-ExcludeUserAccounts"></a>
-=======
- **ExcludeUserAccounts**   <a name="Kendra-Type-GoogleDriveConfiguration-ExcludeUserAccounts"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 A list of email addresses of the users\. Documents owned by these users are excluded from the index\. Documents shared with excluded users are indexed unless they are excluded in another way\.  
 Type: Array of strings  
 Array Members: Minimum number of 0 items\. Maximum number of 100 items\.  
@@ -45,18 +33,13 @@ Length Constraints: Minimum length of 1\. Maximum length of 256\.
 Pattern: `^\P{C}*$`   
 Required: No
 
-<<<<<<< HEAD
  ** ExclusionPatterns **   <a name="Kendra-Type-GoogleDriveConfiguration-ExclusionPatterns"></a>
-=======
- **ExclusionPatterns**   <a name="Kendra-Type-GoogleDriveConfiguration-ExclusionPatterns"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 A list of regular expression patterns that apply to the path on Google Drive\. Items that match the pattern are excluded from the index from both shared drives and users' My Drives\. Items that don't match the pattern are included in the index\. If an item matches both an exclusion pattern and an inclusion pattern, it is excluded from the index\.  
 Type: Array of strings  
 Array Members: Minimum number of 0 items\. Maximum number of 100 items\.  
 Length Constraints: Minimum length of 1\. Maximum length of 150\.  
 Required: No
 
-<<<<<<< HEAD
  ** FieldMappings **   <a name="Kendra-Type-GoogleDriveConfiguration-FieldMappings"></a>
 Defines mapping between a field in the Google Drive and a Amazon Kendra index field\.  
 If you are using the console, you can define index fields when creating the mapping\. If you are using the API, you must first create the field using the `UpdateIndex` operation\.  
@@ -65,27 +48,13 @@ Array Members: Minimum number of 1 item\. Maximum number of 100 items\.
 Required: No
 
  ** InclusionPatterns **   <a name="Kendra-Type-GoogleDriveConfiguration-InclusionPatterns"></a>
-=======
- **FieldMappings**   <a name="Kendra-Type-GoogleDriveConfiguration-FieldMappings"></a>
-Defines mapping between a field in the Google Drive and a Amazon Kendra index field\.  
-If you are using the console, you can define index fields when creating the mapping\. If you are using the API, you must first create the field using the `UpdateIndex` operation\.  
-Type: Array of [DataSourceToIndexFieldMapping](API_DataSourceToIndexFieldMapping.md) objects  
-Array Members: Minimum number of 1 item\. Maximum number of 100 items\.  
-Required: No
-
- **InclusionPatterns**   <a name="Kendra-Type-GoogleDriveConfiguration-InclusionPatterns"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 A list of regular expression patterns that apply to path on Google Drive\. Items that match the pattern are included in the index from both shared drives and users' My Drives\. Items that don't match the pattern are excluded from the index\. If an item matches both an inclusion pattern and an exclusion pattern, it is excluded from the index\.  
 Type: Array of strings  
 Array Members: Minimum number of 0 items\. Maximum number of 100 items\.  
 Length Constraints: Minimum length of 1\. Maximum length of 150\.  
 Required: No
 
-<<<<<<< HEAD
  ** SecretArn **   <a name="Kendra-Type-GoogleDriveConfiguration-SecretArn"></a>
-=======
- **SecretArn**   <a name="Kendra-Type-GoogleDriveConfiguration-SecretArn"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The Amazon Resource Name \(ARN\) of a AWS Secrets Managersecret that contains the credentials required to connect to Google Drive\. For more information, see [Using a Google Workspace Drive data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-google-drive.html)\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1284\.  

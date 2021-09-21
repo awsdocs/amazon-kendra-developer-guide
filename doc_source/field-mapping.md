@@ -25,11 +25,7 @@ Mapping your data source fields to an index field is a three\-step process:
 
 1. Create a data source that maps data source fields to the index fields\.
 
-<<<<<<< HEAD
 To update the index to add custom fields, use the console or the [ UpdateIndex ](API_UpdateIndex.md) operation\. You can add a total of 500 custom fields to your index\.
-=======
-To update the index to add custom fields, use the console or the [UpdateIndex](API_UpdateIndex.md) operation\. You can add a total of 500 custom fields to your index\.
->>>>>>> parent of 2b1c178 (updating tutorial)
 
 When you are using the console, you can choose to map a data source field to one of the seven reserved field names, or you can choose to create a new index field that maps to the field\. For database data sources, if the name of the database column matches the name of a reserved field, the field and column are automatically mapped\.
 
@@ -82,8 +78,4 @@ Amazon Kendra has 14 reserved fields that you can map to data source fields\. Yo
 + `_version` \(String\) – An identifier for the specific version of a document\.
 + `_view_count` \(Long\) – The number of times that the document has been viewed\.
 
-<<<<<<< HEAD
 After you have created the index fields, you can map the data source fields to the index fields\. If you are using the console, you can create index fields and map data source fields using the **Custom field mappings** editor\. If you are using the API, you can add field mappings using the [ CreateDataSource ](API_CreateDataSource.md) or [ UpdateDataSource ](API_UpdateDataSource.md) operations\.
-=======
-After you have created the index fields, you can map the data source fields to the index fields\. If you are using the console, you can create index fields and map data source fields using the **Custom field mappings** editor\. If you are using the API, you can add field mappings using the [CreateDataSource](API_CreateDataSource.md) or [UpdateDataSource](API_UpdateDataSource.md) operations\.
->>>>>>> parent of 2b1c178 (updating tutorial)

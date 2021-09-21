@@ -16,11 +16,7 @@ You can't sort attributes of the following type\.
 
 ## Contents<a name="API_SortingConfiguration_Contents"></a>
 
-<<<<<<< HEAD
  ** DocumentAttributeKey **   <a name="Kendra-Type-SortingConfiguration-DocumentAttributeKey"></a>
-=======
- **DocumentAttributeKey**   <a name="Kendra-Type-SortingConfiguration-DocumentAttributeKey"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The name of the document attribute used to sort the response\. You can use any field that has the `Sortable` flag set to true\.  
 You can also sort by any of the following built\-in attributes:  
 + \_category
@@ -33,11 +29,7 @@ Length Constraints: Minimum length of 1\. Maximum length of 200\.
 Pattern: `[a-zA-Z0-9_][a-zA-Z0-9_-]*`   
 Required: Yes
 
-<<<<<<< HEAD
  ** SortOrder **   <a name="Kendra-Type-SortingConfiguration-SortOrder"></a>
-=======
- **SortOrder**   <a name="Kendra-Type-SortingConfiguration-SortOrder"></a>
->>>>>>> parent of 2b1c178 (updating tutorial)
 The order that the results should be returned in\. In case of ties, the relevance assigned to the result by Amazon Kendra is used as the tie\-breaker\.  
 Type: String  
 Valid Values:` DESC | ASC`   
