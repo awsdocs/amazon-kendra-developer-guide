@@ -106,8 +106,13 @@ Length Constraints: Minimum length of 1\. Maximum length of 1284\.
 Pattern: `arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}`   
 Required: No
 
+<<<<<<< HEAD
  ** [ UserContextPolicy ](#API_UpdateIndex_RequestSyntax) **   <a name="Kendra-UpdateIndex-request-UserContextPolicy"></a>
 The user context policy\.  
+=======
+ ** [UserContextPolicy](#API_UpdateIndex_RequestSyntax) **   <a name="Kendra-UpdateIndex-request-UserContextPolicy"></a>
+The user user token context policy\.  
+>>>>>>> parent of 39aa2d1 (Documentation updates include new features: data source connectors Amazon WorkDocs, SharePoint Server, Web crawler, new capacity units, and new API updates)
 Type: String  
 Valid Values:` ATTRIBUTE_FILTER | USER_TOKEN`   
 Required: No

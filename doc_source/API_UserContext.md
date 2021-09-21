@@ -10,7 +10,7 @@ This is used for filtering search results for different users based on their acc
 
 You provide one of the following:
 + User token
-+ User ID, the groups the user belongs to, and any data sources the groups can access
++ User ID, the groups the user belongs to, and the data sources the groups can access
 
 If you provide both, an exception is thrown\.
 

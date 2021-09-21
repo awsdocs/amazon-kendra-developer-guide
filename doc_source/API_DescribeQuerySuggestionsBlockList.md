@@ -65,8 +65,13 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
+<<<<<<< HEAD
  ** [ CreatedAt ](#API_DescribeQuerySuggestionsBlockList_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsBlockList-response-CreatedAt"></a>
 Shows the date\-time a block list for query suggestions was created\.  
+=======
+ ** [CreatedAt](#API_DescribeQuerySuggestionsBlockList_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsBlockList-response-CreatedAt"></a>
+Shows the date\-time a block list for query suggestions was last created\.  
+>>>>>>> parent of 39aa2d1 (Documentation updates include new features: data source connectors Amazon WorkDocs, SharePoint Server, Web crawler, new capacity units, and new API updates)
 Type: Timestamp
 
  ** [ Description ](#API_DescribeQuerySuggestionsBlockList_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsBlockList-response-Description"></a>

@@ -69,9 +69,15 @@ If the response is truncated, Amazon Kendra returns this token that you can use 
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 800\.
 
+<<<<<<< HEAD
  ** [ ThesaurusSummaryItems ](#API_ListThesauri_ResponseSyntax) **   <a name="Kendra-ListThesauri-response-ThesaurusSummaryItems"></a>
 An array of summary information for a thesaurus or multiple thesauri\.  
 Type: Array of [ ThesaurusSummary ](API_ThesaurusSummary.md) objects
+=======
+ ** [ThesaurusSummaryItems](#API_ListThesauri_ResponseSyntax) **   <a name="Kendra-ListThesauri-response-ThesaurusSummaryItems"></a>
+An array of summary information for one or more thesauruses\.  
+Type: Array of [ThesaurusSummary](API_ThesaurusSummary.md) objects
+>>>>>>> parent of 39aa2d1 (Documentation updates include new features: data source connectors Amazon WorkDocs, SharePoint Server, Web crawler, new capacity units, and new API updates)
 
 ## Errors<a name="API_ListThesauri_Errors"></a>
 

@@ -207,9 +207,15 @@ If you don't provide sorting configuration, the results are sorted by the releva
 Type: [ SortingConfiguration ](API_SortingConfiguration.md) object  
 Required: No
 
+<<<<<<< HEAD
  ** [ UserContext ](#API_Query_RequestSyntax) **   <a name="Kendra-Query-request-UserContext"></a>
 The user context token or user and group information\.  
 Type: [ UserContext ](API_UserContext.md) object  
+=======
+ ** [UserContext](#API_Query_RequestSyntax) **   <a name="Kendra-Query-request-UserContext"></a>
+The user context token\.  
+Type: [UserContext](API_UserContext.md) object  
+>>>>>>> parent of 39aa2d1 (Documentation updates include new features: data source connectors Amazon WorkDocs, SharePoint Server, Web crawler, new capacity units, and new API updates)
 Required: No
 
  ** [ VisitorId ](#API_Query_RequestSyntax) **   <a name="Kendra-Query-request-VisitorId"></a>

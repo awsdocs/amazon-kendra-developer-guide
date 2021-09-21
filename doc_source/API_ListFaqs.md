@@ -35,8 +35,13 @@ Type: Integer
 Valid Range: Minimum value of 1\. Maximum value of 100\.  
 Required: No
 
+<<<<<<< HEAD
  ** [ NextToken ](#API_ListFaqs_RequestSyntax) **   <a name="Kendra-ListFaqs-request-NextToken"></a>
 If the previous response was incomplete \(because there is more data to retrieve\), Amazon Kendra returns a pagination token in the response\. You can use this pagination token to retrieve the next set of FAQs\.  
+=======
+ ** [NextToken](#API_ListFaqs_RequestSyntax) **   <a name="Kendra-ListFaqs-request-NextToken"></a>
+If the result of the previous request to `ListFaqs` was truncated, include the `NextToken` to fetch the next set of FAQs\.  
+>>>>>>> parent of 39aa2d1 (Documentation updates include new features: data source connectors Amazon WorkDocs, SharePoint Server, Web crawler, new capacity units, and new API updates)
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 800\.  
 Required: No
@@ -69,8 +74,13 @@ The following data is returned in JSON format by the service\.
 information about the FAQs associated with the specified index\.  
 Type: Array of [ FaqSummary ](API_FaqSummary.md) objects
 
+<<<<<<< HEAD
  ** [ NextToken ](#API_ListFaqs_ResponseSyntax) **   <a name="Kendra-ListFaqs-response-NextToken"></a>
 If the response is truncated, Amazon Kendra returns this token that you can use in the subsequent request to retrieve the next set of FAQs\.  
+=======
+ ** [NextToken](#API_ListFaqs_ResponseSyntax) **   <a name="Kendra-ListFaqs-response-NextToken"></a>
+The `ListFaqs` operation returns a page of FAQs at a time\. The maximum size of the page is set by the `MaxResults` parameter\. If there are more jobs in the list than the page size, Amazon Kendra returns the `NextPage` token\. Include the token in the next request to the `ListFaqs` operation to return the next page of FAQs\.  
+>>>>>>> parent of 39aa2d1 (Documentation updates include new features: data source connectors Amazon WorkDocs, SharePoint Server, Web crawler, new capacity units, and new API updates)
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 800\.
 

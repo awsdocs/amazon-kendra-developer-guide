@@ -48,8 +48,13 @@ Type: Integer
 Valid Range: Minimum value of 1\. Maximum value of 10\.  
 Required: No
 
+<<<<<<< HEAD
  ** [ NextToken ](#API_ListDataSourceSyncJobs_RequestSyntax) **   <a name="Kendra-ListDataSourceSyncJobs-request-NextToken"></a>
 If the previous response was incomplete \(because there is more data to retrieve\), Amazon Kendra returns a pagination token in the response\. You can use this pagination token to retrieve the next set of jobs\.  
+=======
+ ** [NextToken](#API_ListDataSourceSyncJobs_RequestSyntax) **   <a name="Kendra-ListDataSourceSyncJobs-request-NextToken"></a>
+If the result of the previous request to `GetDataSourceSyncJobHistory` was truncated, include the `NextToken` to fetch the next set of jobs\.  
+>>>>>>> parent of 39aa2d1 (Documentation updates include new features: data source connectors Amazon WorkDocs, SharePoint Server, Web crawler, new capacity units, and new API updates)
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 800\.  
 Required: No
@@ -101,8 +106,13 @@ The following data is returned in JSON format by the service\.
 A history of synchronization jobs for the data source\.  
 Type: Array of [ DataSourceSyncJob ](API_DataSourceSyncJob.md) objects
 
+<<<<<<< HEAD
  ** [ NextToken ](#API_ListDataSourceSyncJobs_ResponseSyntax) **   <a name="Kendra-ListDataSourceSyncJobs-response-NextToken"></a>
 If the response is truncated, Amazon Kendra returns this token that you can use in the subsequent request to retrieve the next set of jobs\.  
+=======
+ ** [NextToken](#API_ListDataSourceSyncJobs_ResponseSyntax) **   <a name="Kendra-ListDataSourceSyncJobs-response-NextToken"></a>
+The `GetDataSourceSyncJobHistory` operation returns a page of vocabularies at a time\. The maximum size of the page is set by the `MaxResults` parameter\. If there are more jobs in the list than the page size, Amazon Kendra returns the NextPage token\. Include the token in the next request to the `GetDataSourceSyncJobHistory` operation to return in the next page of jobs\.  
+>>>>>>> parent of 39aa2d1 (Documentation updates include new features: data source connectors Amazon WorkDocs, SharePoint Server, Web crawler, new capacity units, and new API updates)
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 800\.
 

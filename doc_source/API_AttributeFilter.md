@@ -16,7 +16,7 @@ When you use the `AndAllFilters` or `OrAllFilters`, filters you can use 2 layers
 
 If you use more than 2 layers, you receive a `ValidationException` exception with the message "`AttributeFilter` cannot have a depth of more than 2\."
 
-If you use more than 10 attribute filters in a given list for `AndAllFilters` or `OrAllFilters`, you receive a `ValidationException` with the message "`AttributeFilter` cannot have a length of more than 10"\.
+If you use more than 10 attribute filters, you receive a `ValidationException` exception with the message "`AttributeFilter` cannot have a length of more than 10"\.
 
 ## Contents<a name="API_AttributeFilter_Contents"></a>
 
@@ -40,6 +40,7 @@ Performs an equals operation on two document attributes\.
 Type: [ DocumentAttribute ](API_DocumentAttribute.md) object  
 Required: No
 
+<<<<<<< HEAD
  ** GreaterThan **   <a name="Kendra-Type-AttributeFilter-GreaterThan"></a>
 Performs a greater than operation on two document attributes\. Use with a document attribute of type `Date` or `Long`\.  
 Type: [ DocumentAttribute ](API_DocumentAttribute.md) object  
@@ -58,6 +59,26 @@ Required: No
  ** LessThanOrEquals **   <a name="Kendra-Type-AttributeFilter-LessThanOrEquals"></a>
 Performs a less than or equals operation on two document attributes\. Use with a document attribute of type `Date` or `Long`\.  
 Type: [ DocumentAttribute ](API_DocumentAttribute.md) object  
+=======
+ **GreaterThan**   <a name="Kendra-Type-AttributeFilter-GreaterThan"></a>
+Performs a greater than operation on two document attributes\. Use with a document attribute of type `Integer` or `Long`\.  
+Type: [DocumentAttribute](API_DocumentAttribute.md) object  
+Required: No
+
+ **GreaterThanOrEquals**   <a name="Kendra-Type-AttributeFilter-GreaterThanOrEquals"></a>
+Performs a greater or equals than operation on two document attributes\. Use with a document attribute of type `Integer` or `Long`\.  
+Type: [DocumentAttribute](API_DocumentAttribute.md) object  
+Required: No
+
+ **LessThan**   <a name="Kendra-Type-AttributeFilter-LessThan"></a>
+Performs a less than operation on two document attributes\. Use with a document attribute of type `Integer` or `Long`\.  
+Type: [DocumentAttribute](API_DocumentAttribute.md) object  
+Required: No
+
+ **LessThanOrEquals**   <a name="Kendra-Type-AttributeFilter-LessThanOrEquals"></a>
+Performs a less than or equals operation on two document attributes\. Use with a document attribute of type `Integer` or `Long`\.  
+Type: [DocumentAttribute](API_DocumentAttribute.md) object  
+>>>>>>> parent of 39aa2d1 (Documentation updates include new features: data source connectors Amazon WorkDocs, SharePoint Server, Web crawler, new capacity units, and new API updates)
 Required: No
 
  ** NotFilter **   <a name="Kendra-Type-AttributeFilter-NotFilter"></a>

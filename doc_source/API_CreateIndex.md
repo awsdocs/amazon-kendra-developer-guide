@@ -102,9 +102,9 @@ Required: No
  ** [ UserContextPolicy ](#API_CreateIndex_RequestSyntax) **   <a name="Kendra-CreateIndex-request-UserContextPolicy"></a>
 The user context policy\.    
 ATTRIBUTE\_FILTER  
-All indexed content is searchable and displayable for all users\. If you want to filter search results on user context, you can use the attribute filters of `_user_id` and `_group_ids` or you can provide user and group information in `UserContext`\.   
+All indexed content is searchable and displayable for all users\. If there is an access control list, it is ignored\. You can filter on user and group attributes\.   
 USER\_TOKEN  
-Enables token\-based user access control to filter search results on user context\. All documents with no access control and all documents accessible to the user will be searchable and displayable\. 
+Enables SSO and token\-based user access control\. All documents with no access control and all documents accessible to the user will be searchable and displayable\. 
 Type: String  
 Valid Values:` ATTRIBUTE_FILTER | USER_TOKEN`   
 Required: No
