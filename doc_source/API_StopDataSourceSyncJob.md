@@ -21,14 +21,14 @@ For information about the parameters that are common to all actions, see [Common
 
 The request accepts the following data in JSON format\.
 
- ** [Id](#API_StopDataSourceSyncJob_RequestSyntax) **   <a name="Kendra-StopDataSourceSyncJob-request-Id"></a>
+ ** [ Id ](#API_StopDataSourceSyncJob_RequestSyntax) **   <a name="Kendra-StopDataSourceSyncJob-request-Id"></a>
 The identifier of the data source for which to stop the synchronization jobs\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`   
 Required: Yes
 
- ** [IndexId](#API_StopDataSourceSyncJob_RequestSyntax) **   <a name="Kendra-StopDataSourceSyncJob-request-IndexId"></a>
+ ** [ IndexId ](#API_StopDataSourceSyncJob_RequestSyntax) **   <a name="Kendra-StopDataSourceSyncJob-request-IndexId"></a>
 The identifier of the index that contains the data source\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
@@ -43,23 +43,23 @@ If the action is successful, the service sends back an HTTP 200 response with an
 
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
- **AccessDeniedException**   
+ ** AccessDeniedException **   
   
 HTTP Status Code: 400
 
- **InternalServerException**   
+ ** InternalServerException **   
   
 HTTP Status Code: 500
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
   
 HTTP Status Code: 400
 
- **ThrottlingException**   
+ ** ThrottlingException **   
   
 HTTP Status Code: 400
 
- **ValidationException**   
+ ** ValidationException **   
   
 HTTP Status Code: 400
 

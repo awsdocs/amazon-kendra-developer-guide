@@ -337,47 +337,47 @@ For information about the parameters that are common to all actions, see [Common
 
 The request accepts the following data in JSON format\.
 
- ** [Configuration](#API_UpdateDataSource_RequestSyntax) **   <a name="Kendra-UpdateDataSource-request-Configuration"></a>
+ ** [ Configuration ](#API_UpdateDataSource_RequestSyntax) **   <a name="Kendra-UpdateDataSource-request-Configuration"></a>
 Configuration information for a Amazon Kendra data source\.  
-Type: [DataSourceConfiguration](API_DataSourceConfiguration.md) object  
+Type: [ DataSourceConfiguration ](API_DataSourceConfiguration.md) object  
 Required: No
 
- ** [Description](#API_UpdateDataSource_RequestSyntax) **   <a name="Kendra-UpdateDataSource-request-Description"></a>
+ ** [ Description ](#API_UpdateDataSource_RequestSyntax) **   <a name="Kendra-UpdateDataSource-request-Description"></a>
 The new description for the data source\.  
 Type: String  
 Length Constraints: Minimum length of 0\. Maximum length of 1000\.  
 Pattern: `^\P{C}*$`   
 Required: No
 
- ** [Id](#API_UpdateDataSource_RequestSyntax) **   <a name="Kendra-UpdateDataSource-request-Id"></a>
+ ** [ Id ](#API_UpdateDataSource_RequestSyntax) **   <a name="Kendra-UpdateDataSource-request-Id"></a>
 The unique identifier of the data source to update\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`   
 Required: Yes
 
- ** [IndexId](#API_UpdateDataSource_RequestSyntax) **   <a name="Kendra-UpdateDataSource-request-IndexId"></a>
+ ** [ IndexId ](#API_UpdateDataSource_RequestSyntax) **   <a name="Kendra-UpdateDataSource-request-IndexId"></a>
 The identifier of the index that contains the data source to update\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`   
 Required: Yes
 
- ** [Name](#API_UpdateDataSource_RequestSyntax) **   <a name="Kendra-UpdateDataSource-request-Name"></a>
+ ** [ Name ](#API_UpdateDataSource_RequestSyntax) **   <a name="Kendra-UpdateDataSource-request-Name"></a>
 The name of the data source to update\. The name of the data source can't be updated\. To rename a data source you must delete the data source and re\-create it\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1000\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`   
 Required: No
 
- ** [RoleArn](#API_UpdateDataSource_RequestSyntax) **   <a name="Kendra-UpdateDataSource-request-RoleArn"></a>
+ ** [ RoleArn ](#API_UpdateDataSource_RequestSyntax) **   <a name="Kendra-UpdateDataSource-request-RoleArn"></a>
 The Amazon Resource Name \(ARN\) of the new role to use when the data source is accessing resources on your behalf\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1284\.  
 Pattern: `arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}`   
 Required: No
 
- ** [Schedule](#API_UpdateDataSource_RequestSyntax) **   <a name="Kendra-UpdateDataSource-request-Schedule"></a>
+ ** [ Schedule ](#API_UpdateDataSource_RequestSyntax) **   <a name="Kendra-UpdateDataSource-request-Schedule"></a>
 The new update schedule for the data source\.  
 Type: String  
 Required: No
@@ -390,27 +390,27 @@ If the action is successful, the service sends back an HTTP 200 response with an
 
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
- **AccessDeniedException**   
+ ** AccessDeniedException **   
   
 HTTP Status Code: 400
 
- **ConflictException**   
+ ** ConflictException **   
   
 HTTP Status Code: 400
 
- **InternalServerException**   
+ ** InternalServerException **   
   
 HTTP Status Code: 500
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
   
 HTTP Status Code: 400
 
- **ThrottlingException**   
+ ** ThrottlingException **   
   
 HTTP Status Code: 400
 
- **ValidationException**   
+ ** ValidationException **   
   
 HTTP Status Code: 400
 

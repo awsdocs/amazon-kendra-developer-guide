@@ -20,7 +20,7 @@ For information about the parameters that are common to all actions, see [Common
 
 The request accepts the following data in JSON format\.
 
- ** [ResourceARN](#API_ListTagsForResource_RequestSyntax) **   <a name="Kendra-ListTagsForResource-request-ResourceARN"></a>
+ ** [ ResourceARN ](#API_ListTagsForResource_RequestSyntax) **   <a name="Kendra-ListTagsForResource-request-ResourceARN"></a>
 The Amazon Resource Name \(ARN\) of the index, FAQ, or data source to get a list of tags for\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1011\.  
@@ -45,32 +45,32 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
- ** [Tags](#API_ListTagsForResource_ResponseSyntax) **   <a name="Kendra-ListTagsForResource-response-Tags"></a>
+ ** [ Tags ](#API_ListTagsForResource_ResponseSyntax) **   <a name="Kendra-ListTagsForResource-response-Tags"></a>
 A list of tags associated with the index, FAQ, or data source\.  
-Type: Array of [Tag](API_Tag.md) objects  
+Type: Array of [ Tag ](API_Tag.md) objects  
 Array Members: Minimum number of 0 items\. Maximum number of 200 items\.
 
 ## Errors<a name="API_ListTagsForResource_Errors"></a>
 
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
- **AccessDeniedException**   
+ ** AccessDeniedException **   
   
 HTTP Status Code: 400
 
- **InternalServerException**   
+ ** InternalServerException **   
   
 HTTP Status Code: 500
 
- **ResourceUnavailableException**   
+ ** ResourceUnavailableException **   
   
 HTTP Status Code: 400
 
- **ThrottlingException**   
+ ** ThrottlingException **   
   
 HTTP Status Code: 400
 
- **ValidationException**   
+ ** ValidationException **   
   
 HTTP Status Code: 400
 

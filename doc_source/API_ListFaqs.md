@@ -22,20 +22,20 @@ For information about the parameters that are common to all actions, see [Common
 
 The request accepts the following data in JSON format\.
 
- ** [IndexId](#API_ListFaqs_RequestSyntax) **   <a name="Kendra-ListFaqs-request-IndexId"></a>
+ ** [ IndexId ](#API_ListFaqs_RequestSyntax) **   <a name="Kendra-ListFaqs-request-IndexId"></a>
 The index that contains the FAQ lists\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`   
 Required: Yes
 
- ** [MaxResults](#API_ListFaqs_RequestSyntax) **   <a name="Kendra-ListFaqs-request-MaxResults"></a>
+ ** [ MaxResults ](#API_ListFaqs_RequestSyntax) **   <a name="Kendra-ListFaqs-request-MaxResults"></a>
 The maximum number of FAQs to return in the response\. If there are fewer results in the list, this response contains only the actual results\.  
 Type: Integer  
 Valid Range: Minimum value of 1\. Maximum value of 100\.  
 Required: No
 
- ** [NextToken](#API_ListFaqs_RequestSyntax) **   <a name="Kendra-ListFaqs-request-NextToken"></a>
+ ** [ NextToken ](#API_ListFaqs_RequestSyntax) **   <a name="Kendra-ListFaqs-request-NextToken"></a>
 If the previous response was incomplete \(because there is more data to retrieve\), Amazon Kendra returns a pagination token in the response\. You can use this pagination token to retrieve the next set of FAQs\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 800\.  
@@ -65,11 +65,11 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
- ** [FaqSummaryItems](#API_ListFaqs_ResponseSyntax) **   <a name="Kendra-ListFaqs-response-FaqSummaryItems"></a>
+ ** [ FaqSummaryItems ](#API_ListFaqs_ResponseSyntax) **   <a name="Kendra-ListFaqs-response-FaqSummaryItems"></a>
 information about the FAQs associated with the specified index\.  
-Type: Array of [FaqSummary](API_FaqSummary.md) objects
+Type: Array of [ FaqSummary ](API_FaqSummary.md) objects
 
- ** [NextToken](#API_ListFaqs_ResponseSyntax) **   <a name="Kendra-ListFaqs-response-NextToken"></a>
+ ** [ NextToken ](#API_ListFaqs_ResponseSyntax) **   <a name="Kendra-ListFaqs-response-NextToken"></a>
 If the response is truncated, Amazon Kendra returns this token that you can use in the subsequent request to retrieve the next set of FAQs\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 800\.
@@ -78,23 +78,23 @@ Length Constraints: Minimum length of 1\. Maximum length of 800\.
 
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
- **AccessDeniedException**   
+ ** AccessDeniedException **   
   
 HTTP Status Code: 400
 
- **InternalServerException**   
+ ** InternalServerException **   
   
 HTTP Status Code: 500
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
   
 HTTP Status Code: 400
 
- **ThrottlingException**   
+ ** ThrottlingException **   
   
 HTTP Status Code: 400
 
- **ValidationException**   
+ ** ValidationException **   
   
 HTTP Status Code: 400
 

@@ -4,7 +4,7 @@
 
 # Adding documents with the API<a name="in-adding-binary-doc"></a>
 
-The following example adds text to an index by calling the [BatchPutDocument](API_BatchPutDocument.md) operation\.
+The following example adds text to an index by calling the [ BatchPutDocument ](API_BatchPutDocument.md) operation\.
 
 You can use the `BatchPutDocument` operation to add documents in the following formats:
 + DOC

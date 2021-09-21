@@ -8,9 +8,9 @@ An attribute returned with a document from a search\.
 
 ## Contents<a name="API_AdditionalResultAttributeValue_Contents"></a>
 
- **TextWithHighlightsValue**   <a name="Kendra-Type-AdditionalResultAttributeValue-TextWithHighlightsValue"></a>
+ ** TextWithHighlightsValue **   <a name="Kendra-Type-AdditionalResultAttributeValue-TextWithHighlightsValue"></a>
 The text associated with the attribute and information about the highlight to apply to the text\.  
-Type: [TextWithHighlights](API_TextWithHighlights.md) object  
+Type: [ TextWithHighlights ](API_TextWithHighlights.md) object  
 Required: No
 
 ## See Also<a name="API_AdditionalResultAttributeValue_SeeAlso"></a>

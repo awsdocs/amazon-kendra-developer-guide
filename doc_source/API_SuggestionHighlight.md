@@ -8,12 +8,12 @@ The text highlights for a single query suggestion\.
 
 ## Contents<a name="API_SuggestionHighlight_Contents"></a>
 
- **BeginOffset**   <a name="Kendra-Type-SuggestionHighlight-BeginOffset"></a>
+ ** BeginOffset **   <a name="Kendra-Type-SuggestionHighlight-BeginOffset"></a>
 The zero\-based location in the response string where the highlight starts\.  
 Type: Integer  
 Required: No
 
- **EndOffset**   <a name="Kendra-Type-SuggestionHighlight-EndOffset"></a>
+ ** EndOffset **   <a name="Kendra-Type-SuggestionHighlight-EndOffset"></a>
 The zero\-based location in the response string where the highlight ends\.  
 Type: Integer  
 Required: No

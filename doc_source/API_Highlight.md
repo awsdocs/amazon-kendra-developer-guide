@@ -8,22 +8,22 @@ Provides information that you can use to highlight a search result so that your 
 
 ## Contents<a name="API_Highlight_Contents"></a>
 
- **BeginOffset**   <a name="Kendra-Type-Highlight-BeginOffset"></a>
+ ** BeginOffset **   <a name="Kendra-Type-Highlight-BeginOffset"></a>
 The zero\-based location in the response string where the highlight starts\.  
 Type: Integer  
 Required: Yes
 
- **EndOffset**   <a name="Kendra-Type-Highlight-EndOffset"></a>
+ ** EndOffset **   <a name="Kendra-Type-Highlight-EndOffset"></a>
 The zero\-based location in the response string where the highlight ends\.  
 Type: Integer  
 Required: Yes
 
- **TopAnswer**   <a name="Kendra-Type-Highlight-TopAnswer"></a>
+ ** TopAnswer **   <a name="Kendra-Type-Highlight-TopAnswer"></a>
 Indicates whether the response is the best response\. True if this is the best response; otherwise, false\.  
 Type: Boolean  
 Required: No
 
- **Type**   <a name="Kendra-Type-Highlight-Type"></a>
+ ** Type **   <a name="Kendra-Type-Highlight-Type"></a>
 The highlight type\.   
 Type: String  
 Valid Values:` STANDARD | THESAURUS_SYNONYM`   

@@ -8,12 +8,12 @@ Provides text and information about where to highlight the text\.
 
 ## Contents<a name="API_TextWithHighlights_Contents"></a>
 
- **Highlights**   <a name="Kendra-Type-TextWithHighlights-Highlights"></a>
+ ** Highlights **   <a name="Kendra-Type-TextWithHighlights-Highlights"></a>
 The beginning and end of the text that should be highlighted\.  
-Type: Array of [Highlight](API_Highlight.md) objects  
+Type: Array of [ Highlight ](API_Highlight.md) objects  
 Required: No
 
- **Text**   <a name="Kendra-Type-TextWithHighlights-Text"></a>
+ ** Text **   <a name="Kendra-Type-TextWithHighlights-Text"></a>
 The text to display to the user\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  

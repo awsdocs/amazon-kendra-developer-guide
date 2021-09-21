@@ -8,14 +8,14 @@ Maps a particular data source sync job to a particular data source\.
 
 ## Contents<a name="API_DataSourceSyncJobMetricTarget_Contents"></a>
 
- **DataSourceId**   <a name="Kendra-Type-DataSourceSyncJobMetricTarget-DataSourceId"></a>
+ ** DataSourceId **   <a name="Kendra-Type-DataSourceSyncJobMetricTarget-DataSourceId"></a>
 The ID of the data source that is running the sync job\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`   
 Required: Yes
 
- **DataSourceSyncJobId**   <a name="Kendra-Type-DataSourceSyncJobMetricTarget-DataSourceSyncJobId"></a>
+ ** DataSourceSyncJobId **   <a name="Kendra-Type-DataSourceSyncJobMetricTarget-DataSourceSyncJobId"></a>
 The ID of the sync job that is running on the data source\.  
 If the ID of a sync job is not provided and there is a sync job running, then the ID of this sync job is used and metrics are generated for this sync job\.  
 If the ID of a sync job is not provided and there is no sync job running, then no metrics are generated and documents are indexed/deleted at the index level without sync job metrics included\.  

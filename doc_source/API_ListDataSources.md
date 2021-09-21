@@ -22,20 +22,20 @@ For information about the parameters that are common to all actions, see [Common
 
 The request accepts the following data in JSON format\.
 
- ** [IndexId](#API_ListDataSources_RequestSyntax) **   <a name="Kendra-ListDataSources-request-IndexId"></a>
+ ** [ IndexId ](#API_ListDataSources_RequestSyntax) **   <a name="Kendra-ListDataSources-request-IndexId"></a>
 The identifier of the index that contains the data source\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`   
 Required: Yes
 
- ** [MaxResults](#API_ListDataSources_RequestSyntax) **   <a name="Kendra-ListDataSources-request-MaxResults"></a>
+ ** [ MaxResults ](#API_ListDataSources_RequestSyntax) **   <a name="Kendra-ListDataSources-request-MaxResults"></a>
 The maximum number of data sources to return\.  
 Type: Integer  
 Valid Range: Minimum value of 1\. Maximum value of 100\.  
 Required: No
 
- ** [NextToken](#API_ListDataSources_RequestSyntax) **   <a name="Kendra-ListDataSources-request-NextToken"></a>
+ ** [ NextToken ](#API_ListDataSources_RequestSyntax) **   <a name="Kendra-ListDataSources-request-NextToken"></a>
 If the previous response was incomplete \(because there is more data to retrieve\), Amazon Kendra returns a pagination token in the response\. You can use this pagination token to retrieve the next set of data sources \(`DataSourceSummaryItems`\)\.   
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 800\.  
@@ -65,36 +65,36 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
- ** [NextToken](#API_ListDataSources_ResponseSyntax) **   <a name="Kendra-ListDataSources-response-NextToken"></a>
+ ** [ NextToken ](#API_ListDataSources_ResponseSyntax) **   <a name="Kendra-ListDataSources-response-NextToken"></a>
 If the response is truncated, Amazon Kendra returns this token that you can use in the subsequent request to retrieve the next set of data sources\.   
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 800\.
 
- ** [SummaryItems](#API_ListDataSources_ResponseSyntax) **   <a name="Kendra-ListDataSources-response-SummaryItems"></a>
+ ** [ SummaryItems ](#API_ListDataSources_ResponseSyntax) **   <a name="Kendra-ListDataSources-response-SummaryItems"></a>
 An array of summary information for one or more data sources\.  
-Type: Array of [DataSourceSummary](API_DataSourceSummary.md) objects
+Type: Array of [ DataSourceSummary ](API_DataSourceSummary.md) objects
 
 ## Errors<a name="API_ListDataSources_Errors"></a>
 
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
- **AccessDeniedException**   
+ ** AccessDeniedException **   
   
 HTTP Status Code: 400
 
- **InternalServerException**   
+ ** InternalServerException **   
   
 HTTP Status Code: 500
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
   
 HTTP Status Code: 400
 
- **ThrottlingException**   
+ ** ThrottlingException **   
   
 HTTP Status Code: 400
 
- **ValidationException**   
+ ** ValidationException **   
   
 HTTP Status Code: 400
 

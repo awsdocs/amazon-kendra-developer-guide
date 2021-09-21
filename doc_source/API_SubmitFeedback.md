@@ -33,28 +33,28 @@ For information about the parameters that are common to all actions, see [Common
 
 The request accepts the following data in JSON format\.
 
- ** [ClickFeedbackItems](#API_SubmitFeedback_RequestSyntax) **   <a name="Kendra-SubmitFeedback-request-ClickFeedbackItems"></a>
+ ** [ ClickFeedbackItems ](#API_SubmitFeedback_RequestSyntax) **   <a name="Kendra-SubmitFeedback-request-ClickFeedbackItems"></a>
 Tells Amazon Kendra that a particular search result link was chosen by the user\.   
-Type: Array of [ClickFeedback](API_ClickFeedback.md) objects  
+Type: Array of [ ClickFeedback ](API_ClickFeedback.md) objects  
 Required: No
 
- ** [IndexId](#API_SubmitFeedback_RequestSyntax) **   <a name="Kendra-SubmitFeedback-request-IndexId"></a>
+ ** [ IndexId ](#API_SubmitFeedback_RequestSyntax) **   <a name="Kendra-SubmitFeedback-request-IndexId"></a>
 The identifier of the index that was queried\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`   
 Required: Yes
 
- ** [QueryId](#API_SubmitFeedback_RequestSyntax) **   <a name="Kendra-SubmitFeedback-request-QueryId"></a>
+ ** [ QueryId ](#API_SubmitFeedback_RequestSyntax) **   <a name="Kendra-SubmitFeedback-request-QueryId"></a>
 The identifier of the specific query for which you are submitting feedback\. The query ID is returned in the response to the `Query` operation\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`   
 Required: Yes
 
- ** [RelevanceFeedbackItems](#API_SubmitFeedback_RequestSyntax) **   <a name="Kendra-SubmitFeedback-request-RelevanceFeedbackItems"></a>
+ ** [ RelevanceFeedbackItems ](#API_SubmitFeedback_RequestSyntax) **   <a name="Kendra-SubmitFeedback-request-RelevanceFeedbackItems"></a>
 Provides Amazon Kendra with relevant or not relevant feedback for whether a particular item was relevant to the search\.  
-Type: Array of [RelevanceFeedback](API_RelevanceFeedback.md) objects  
+Type: Array of [ RelevanceFeedback ](API_RelevanceFeedback.md) objects  
 Required: No
 
 ## Response Elements<a name="API_SubmitFeedback_ResponseElements"></a>
@@ -65,27 +65,27 @@ If the action is successful, the service sends back an HTTP 200 response with an
 
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
- **AccessDeniedException**   
+ ** AccessDeniedException **   
   
 HTTP Status Code: 400
 
- **InternalServerException**   
+ ** InternalServerException **   
   
 HTTP Status Code: 500
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
   
 HTTP Status Code: 400
 
- **ResourceUnavailableException**   
+ ** ResourceUnavailableException **   
   
 HTTP Status Code: 400
 
- **ThrottlingException**   
+ ** ThrottlingException **   
   
 HTTP Status Code: 400
 
- **ValidationException**   
+ ** ValidationException **   
   
 HTTP Status Code: 400
 

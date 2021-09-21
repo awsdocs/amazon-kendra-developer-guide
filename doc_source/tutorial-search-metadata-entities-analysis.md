@@ -2,14 +2,14 @@
 
 --------
 
-# Step 2: Running an entities analysis job on Amazon Comprehend<a name="tutorial-entities-analysis"></a>
+# Step 2: Running an entities analysis job on Amazon Comprehend<a name="tutorial-search-metadata-entities-analysis"></a>
 
 After storing the sample dataset in your S3 bucket, you run an Amazon Comprehend entities analysis job to extract entities from your documents\. These entities will form Amazon Kendra custom attributes and help you filter search results on your index\. For more information, see [Detect Entities](https://docs.aws.amazon.com/comprehend/latest/dg/how-entities.html)\.
 
 **Topics**
-+ [Running an Amazon Comprehend entities analysis job](#tutorial-entities-analysis-job)
++ [Running an Amazon Comprehend entities analysis job](#tutorial-search-metadata-entities-analysis-job)
 
-## Running an Amazon Comprehend entities analysis job<a name="tutorial-entities-analysis-job"></a>
+## Running an Amazon Comprehend entities analysis job<a name="tutorial-search-metadata-entities-analysis-job"></a>
 
 To extract entities from your dataset, you run an Amazon Comprehend entities analysis job\.
 
@@ -19,7 +19,7 @@ If you are using the AWS CLI in this step, you first create and attach an AWS IA
 
 For more information, see [Overview of managing access permissions to Amazon Comprehend resources](https://docs.aws.amazon.com/comprehend/latest/dg/access-control-overview.html) and [Using Identity\-Based Policies \(IAM Policies\) for Amazon Comprehend](https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html)\.
 
-### To run an Amazon Comprehend entities analysis job \(Console\)<a name="entities-analysis-console"></a>
+### To run an Amazon Comprehend entities analysis job \(Console\)<a name="tutorial-search-metadata-entities-analysis-console"></a>
 
 1. Open the Amazon Comprehend console at [https://console\.aws\.amazon\.com/comprehend/](https://console.aws.amazon.com/comprehend/)\.
 **Important**  
@@ -71,7 +71,7 @@ Ensure that you are in the same region in which you created your Amazon S3 bucke
 
 1. Choose **Create job**\.
 
-### To run an Amazon Comprehend entities analysis job \(AWS CLI\)<a name="entities-analysis-cli"></a>
+### To run an Amazon Comprehend entities analysis job \(AWS CLI\)<a name="tutorial-search-metadata-entities-analysis-cli"></a>
 
 1. To create and attach an IAM role for Amazon Comprehend that recognizes it as a trusted entity, do the following:
 

@@ -8,7 +8,7 @@ Provides the identifier of the AWS KMScustomer master key \(CMK\) used to encryp
 
 ## Contents<a name="API_ServerSideEncryptionConfiguration_Contents"></a>
 
- **KmsKeyId**   <a name="Kendra-Type-ServerSideEncryptionConfiguration-KmsKeyId"></a>
+ ** KmsKeyId **   <a name="Kendra-Type-ServerSideEncryptionConfiguration-KmsKeyId"></a>
 The identifier of the AWS KMScustomer master key \(CMK\)\. Amazon Kendra doesn't support asymmetric CMKs\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  

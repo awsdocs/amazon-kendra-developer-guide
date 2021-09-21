@@ -219,7 +219,7 @@ When you use a OneDrive user or group for user context filtering, calculate the 
 
    `"430a6b90503eef95c89295c8999c7981|someone@host.onmicrosoft.com"`
 
-Send the user or group ID to Amazon Kendra as the `_user_id` or `_group_ids` attribute when you call the [Query](API_Query.md) operation\. For example, the AWS CLI command that uses a group to filter the query response looks like this:
+Send the user or group ID to Amazon Kendra as the `_user_id` or `_group_ids` attribute when you call the [ Query ](API_Query.md) operation\. For example, the AWS CLI command that uses a group to filter the query response looks like this:
 
 ```
 aws kendra  query \
@@ -281,7 +281,7 @@ When you use a SharePoint group for user context filtering, calculate the group 
 
    `"430a6b90503eef95c89295c8999c7981|site owners"`
 
-Send the group ID to Amazon Kendra as the `_group_ids` attribute when you call the [Query](API_Query.md) operation\. For example, the AWS CLI command looks like this:
+Send the group ID to Amazon Kendra as the `_group_ids` attribute when you call the [ Query ](API_Query.md) operation\. For example, the AWS CLI command looks like this:
 
 ```
 aws kendra  query \

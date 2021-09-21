@@ -2,7 +2,7 @@
 
 --------
 
-# Tutorial: Building a metadata\-enriched, intelligent search solution with Amazon Kendra<a name="tutorial"></a>
+# Tutorial: Building a metadata\-enriched, intelligent search solution with Amazon Kendra<a name="tutorial-search-metadata"></a>
 
 This tutorial shows you how to build a metadata\-enriched, natural language based, intelligent search solution for your enterprise data using [Amazon Kendra](https://aws.amazon.com/kendra/), [Amazon Comprehend](https://aws.amazon.com/comprehend/), [Amazon Simple Storage Service](https://aws.amazon.com/s3/) \(S3\), and [AWS CloudShell](https://aws.amazon.com/cloudshell/)\.
 
@@ -33,15 +33,15 @@ This tutorial uses a sample dataset of news articles to extract entities, conver
 **Estimated cost:** Some of the actions in this tutorial incur charges on your AWS account\. For more information on the cost of each service, see the price pages for [Amazon S3](https://aws.amazon.com/s3/pricing/), [Amazon Comprehend](https://aws.amazon.com/comprehend/pricing/), [AWS CloudShell](https://aws.amazon.com/cloudshell/pricing/), and [Amazon Kendra](https://aws.amazon.com/kendra/pricing/)\.
 
 **Topics**
-+ [Prerequisites](#tutorial-prereqs)
-+ [Step 1: Adding documents to Amazon S3](tutorial-adding-documents.md)
-+ [Step 2: Running an entities analysis job on Amazon Comprehend](tutorial-entities-analysis.md)
-+ [Step 3: Formatting the entities analysis output as Amazon Kendra metadata](tutorial-formatting-output.md)
-+ [Step 4: Creating an Amazon Kendra index and ingesting the metadata](tutorial-creating-index.md)
-+ [Step 5: Querying the Amazon Kendra index](tutorial-querying-kendra.md)
-+ [Step 6: Cleaning up](tutorial-cleanup.md)
++ [Prerequisites](#tutorial-search-metadata-prereqs)
++ [Step 1: Adding documents to Amazon S3](tutorial-search-metadata-add-documents.md)
++ [Step 2: Running an entities analysis job on Amazon Comprehend](tutorial-search-metadata-entities-analysis.md)
++ [Step 3: Formatting the entities analysis output as Amazon Kendra metadata](tutorial-search-metadata-format-output.md)
++ [Step 4: Creating an Amazon Kendra index and ingesting the metadata](tutorial-search-metadata-create-index-ingest.md)
++ [Step 5: Querying the Amazon Kendra index](tutorial-search-metadata-query-kendra.md)
++ [Step 6: Cleaning up](tutorial-search-metadata-cleanup.md)
 
-## Prerequisites<a name="tutorial-prereqs"></a>
+## Prerequisites<a name="tutorial-search-metadata-prereqs"></a>
 
 To complete this tutorial, you need the following resources:
 + An AWS account\. If you do not have an AWS account, follow the steps in [Setting up Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/setup.html#aws-kendra-set-up-aws-account) to set up your AWS account\.

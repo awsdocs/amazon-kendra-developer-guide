@@ -8,27 +8,27 @@ Provides user and group information for document access filtering\.
 
 ## Contents<a name="API_Principal_Contents"></a>
 
- **Access**   <a name="Kendra-Type-Principal-Access"></a>
+ ** Access **   <a name="Kendra-Type-Principal-Access"></a>
 Whether to allow or deny access to the principal\.  
 Type: String  
 Valid Values:` ALLOW | DENY`   
 Required: Yes
 
- **DataSourceId**   <a name="Kendra-Type-Principal-DataSourceId"></a>
+ ** DataSourceId **   <a name="Kendra-Type-Principal-DataSourceId"></a>
 The identifier of the data source the principal should access documents from\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`   
 Required: No
 
- **Name**   <a name="Kendra-Type-Principal-Name"></a>
+ ** Name **   <a name="Kendra-Type-Principal-Name"></a>
 The name of the user or group\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 200\.  
 Pattern: `^\P{C}*$`   
 Required: Yes
 
- **Type**   <a name="Kendra-Type-Principal-Type"></a>
+ ** Type **   <a name="Kendra-Type-Principal-Type"></a>
 The type of principal\.  
 Type: String  
 Valid Values:` USER | GROUP`   

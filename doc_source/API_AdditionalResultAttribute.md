@@ -8,18 +8,18 @@ An attribute returned from an index query\.
 
 ## Contents<a name="API_AdditionalResultAttribute_Contents"></a>
 
- **Key**   <a name="Kendra-Type-AdditionalResultAttribute-Key"></a>
+ ** Key **   <a name="Kendra-Type-AdditionalResultAttribute-Key"></a>
 The key that identifies the attribute\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  
 Required: Yes
 
- **Value**   <a name="Kendra-Type-AdditionalResultAttribute-Value"></a>
+ ** Value **   <a name="Kendra-Type-AdditionalResultAttribute-Value"></a>
 An object that contains the attribute value\.  
-Type: [AdditionalResultAttributeValue](API_AdditionalResultAttributeValue.md) object  
+Type: [ AdditionalResultAttributeValue ](API_AdditionalResultAttributeValue.md) object  
 Required: Yes
 
- **ValueType**   <a name="Kendra-Type-AdditionalResultAttribute-ValueType"></a>
+ ** ValueType **   <a name="Kendra-Type-AdditionalResultAttribute-ValueType"></a>
 The data type of the `Value` property\.  
 Type: String  
 Valid Values:` TEXT_WITH_HIGHLIGHTS_VALUE`   

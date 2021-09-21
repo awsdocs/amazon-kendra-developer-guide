@@ -8,13 +8,13 @@ Provides feedback on how relevant a document is to a search\. Your application u
 
 ## Contents<a name="API_RelevanceFeedback_Contents"></a>
 
- **RelevanceValue**   <a name="Kendra-Type-RelevanceFeedback-RelevanceValue"></a>
+ ** RelevanceValue **   <a name="Kendra-Type-RelevanceFeedback-RelevanceValue"></a>
 Whether to document was relevant or not relevant to the search\.  
 Type: String  
 Valid Values:` RELEVANT | NOT_RELEVANT`   
 Required: Yes
 
- **ResultId**   <a name="Kendra-Type-RelevanceFeedback-ResultId"></a>
+ ** ResultId **   <a name="Kendra-Type-RelevanceFeedback-ResultId"></a>
 The unique identifier of the search result that the user provided relevance feedback for\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 73\.  

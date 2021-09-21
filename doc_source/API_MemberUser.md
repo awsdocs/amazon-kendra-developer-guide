@@ -8,7 +8,7 @@ The users that belong to a group\.
 
 ## Contents<a name="API_MemberUser_Contents"></a>
 
- **UserId**   <a name="Kendra-Type-MemberUser-UserId"></a>
+ ** UserId **   <a name="Kendra-Type-MemberUser-UserId"></a>
 The identifier of the user you want to map to a group\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1024\.  

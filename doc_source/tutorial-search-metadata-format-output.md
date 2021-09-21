@@ -2,23 +2,23 @@
 
 --------
 
-# Step 3: Formatting the entities analysis output as Amazon Kendra metadata<a name="tutorial-formatting-output"></a>
+# Step 3: Formatting the entities analysis output as Amazon Kendra metadata<a name="tutorial-search-metadata-format-output"></a>
 
 To convert the entities extracted by Amazon Comprehend to the metadata format required by an Amazon Kendra index, you run a Python 3 script\. The results of the conversion are stored in the `metadata` folder in your Amazon S3 bucket\.
 
 For more information on Amazon Kendra metadata format and structure, see [S3 document metadata](https://docs.aws.amazon.com/kendra/latest/dg/s3-metadata.html)\.
 
 **Topics**
-+ [Downloading and extracting the Amazon Comprehend output](#tutorial-formatting-output-download-extract)
-+ [Uploading the output into the S3 bucket](#tutorial-formatting-output-upload)
-+ [Converting the output to Amazon Kendra metadata format](#tutorial-formatting-output-script)
-+ [Cleaning up your Amazon S3 bucket](#tutorial-formatting-output-cleanup)
++ [Downloading and extracting the Amazon Comprehend output](#tutorial-search-metadata-format-output-download-extract)
++ [Uploading the output into the S3 bucket](#tutorial-search-metadata-format-output-upload)
++ [Converting the output to Amazon Kendra metadata format](#tutorial-search-metadata-format-output-script)
++ [Cleaning up your Amazon S3 bucket](#tutorial-search-metadata-format-output-cleanup)
 
-## Downloading and extracting the Amazon Comprehend output<a name="tutorial-formatting-output-download-extract"></a>
+## Downloading and extracting the Amazon Comprehend output<a name="tutorial-search-metadata-format-output-download-extract"></a>
 
 To format the Amazon Comprehend entities analysis output, you must first download the Amazon Comprehend entities analysis `output.tar.gz` archive and extract the entities analysis file\.
 
-### To download and extract the output file \(Console\)<a name="download-extract-console"></a>
+### To download and extract the output file \(Console\)<a name="tutorial-search-metadata-download-extract-console"></a>
 
 1. In the Amazon Comprehend console navigation pane, navigate to **Analysis jobs**\.
 
@@ -32,7 +32,7 @@ The output of all Amazon Comprehend analysis jobs have the same name\. Renaming 
 
 1. Decompress and extract the downloaded Amazon Comprehend file to your device\.
 
-### To download and extract the output file \(AWS CLI\)<a name="download-extract-cli"></a>
+### To download and extract the output file \(AWS CLI\)<a name="tutorial-search-metadata-download-extract-cli"></a>
 
 1. To access the name of the Amazon Comprehend auto\-generated folder in your S3 bucket which contains the results of the entities analysis job, use the [describe\-entities\-detection\-job](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/comprehend/describe-entities-detection-job.html) command:
 
@@ -46,7 +46,7 @@ The output of all Amazon Comprehend analysis jobs have the same name\. Renaming 
    ```
 
    Where:
-   + *entities\-job\-id* is your saved `comprehend-job-id` from [Step 2: Running an entities analysis job on Amazon Comprehend](tutorial-entities-analysis.md),
+   + *entities\-job\-id* is your saved `comprehend-job-id` from [Step 2: Running an entities analysis job on Amazon Comprehend](tutorial-search-metadata-entities-analysis.md),
    + *aws\-region* is your AWS region\.
 
 ------
@@ -59,7 +59,7 @@ The output of all Amazon Comprehend analysis jobs have the same name\. Renaming 
    ```
 
    Where:
-   + *entities\-job\-id* is your saved `comprehend-job-id` from [Step 2: Running an entities analysis job on Amazon Comprehend](tutorial-entities-analysis.md),
+   + *entities\-job\-id* is your saved `comprehend-job-id` from [Step 2: Running an entities analysis job on Amazon Comprehend](tutorial-search-metadata-entities-analysis.md),
    + *aws\-region* is your AWS region\.
 
 ------
@@ -72,7 +72,7 @@ The output of all Amazon Comprehend analysis jobs have the same name\. Renaming 
    ```
 
    Where:
-   + *entities\-job\-id* is your saved `comprehend-job-id` from [Step 2: Running an entities analysis job on Amazon Comprehend](tutorial-entities-analysis.md),
+   + *entities\-job\-id* is your saved `comprehend-job-id` from [Step 2: Running an entities analysis job on Amazon Comprehend](tutorial-search-metadata-entities-analysis.md),
    + *aws\-region* is your AWS region\.
 
 ------
@@ -154,11 +154,11 @@ The `S3Uri` value has a format similar to *s3://*DOC\-EXAMPLE\-BUCKET*/\.\.\./ou
 
 At the end of this step, you should have a file on your device called `output` with a list of Amazon Comprehend identified entities\.
 
-## Uploading the output into the S3 bucket<a name="tutorial-formatting-output-upload"></a>
+## Uploading the output into the S3 bucket<a name="tutorial-search-metadata-format-output-upload"></a>
 
 After downloading and extracting the Amazon Comprehend entities analysis file, you upload the extracted `output` file to your Amazon S3 bucket\.
 
-### To upload the extracted Amazon Comprehend output file \(Console\)<a name="upload-output-console"></a>
+### To upload the extracted Amazon Comprehend output file \(Console\)<a name="tutorial-search-metadata-upload-output-console"></a>
 
 1. Open the Amazon S3 console at [https://console\.aws\.amazon\.com/s3/](https://console.aws.amazon.com/s3/)\.
 
@@ -172,7 +172,7 @@ After downloading and extracting the Amazon Comprehend entities analysis file, y
 
 1. Choose **Upload**\.
 
-### To upload the extracted Amazon Comprehend output file \(AWS CLI\)<a name="upload-output-cli"></a>
+### To upload the extracted Amazon Comprehend output file \(AWS CLI\)<a name="tutorial-search-metadata-upload-output-cli"></a>
 
 1. To upload the extracted `output` file to your bucket, use the [copy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/cp.html) command:
 
@@ -245,11 +245,11 @@ After downloading and extracting the Amazon Comprehend entities analysis file, y
 
 ------
 
-## Converting the output to Amazon Kendra metadata format<a name="tutorial-formatting-output-script"></a>
+## Converting the output to Amazon Kendra metadata format<a name="tutorial-search-metadata-format-output-script"></a>
 
 To convert the Amazon Comprehend output to Amazon Kendra metadata, you run a Python 3 script\. If you are using the Console, you use AWS CloudShell for this step\.
 
-### To run the Python 3 script \(Console\)<a name="format-output-console"></a>
+### To run the Python 3 script \(Console\)<a name="tutorial-search-metadata-format-output-console"></a>
 
 1. Download the [converter\.py\.zip](https://docs.aws.amazon.com/kendra/latest/dg/samples/converter.py.zip) zipped file on your device\.
 
@@ -280,7 +280,7 @@ When AWS CloudShell launches in a new browser window for the first time, a welco
 **Important**  
 For the metadata to be formatted correctly, the input values in steps 8\-10 must be exact\.
 
-### To run the Python 3 script \(AWS CLI\)<a name="format-output-cli"></a>
+### To run the Python 3 script \(AWS CLI\)<a name="tutorial-search-metadata-format-output-cli"></a>
 
 1. To download the Python 3 file `converter.py`, run the following command on a terminal window:
 
@@ -422,11 +422,11 @@ For the metadata to be formatted correctly, the input values in steps 5\-7 must 
 
 At the end of this step, the formatted metadata is deposited inside the `metadata` folder in your S3 bucket\.
 
-## Cleaning up your Amazon S3 bucket<a name="tutorial-formatting-output-cleanup"></a>
+## Cleaning up your Amazon S3 bucket<a name="tutorial-search-metadata-format-output-cleanup"></a>
 
 Since the Amazon Kendra index syncs all files stored in a bucket, we recommend you clean up your Amazon S3 bucket to prevent redundant search results\.
 
-### To clean up your Amazon S3 bucket \(Console\)<a name="cleanup-bucket-console"></a>
+### To clean up your Amazon S3 bucket \(Console\)<a name="tutorial-search-metadata-cleanup-bucket-console"></a>
 
 1. Open the Amazon S3 console at [https://console\.aws\.amazon\.com/s3/](https://console.aws.amazon.com/s3/)\.
 
@@ -438,7 +438,7 @@ Since the Amazon Kendra index syncs all files stored in a bucket, we recommend y
 
 1. Choose **Delete objects**\.
 
-### To clean up your Amazon S3 bucket \(AWS CLI\)<a name="cleanup-bucket-cli"></a>
+### To clean up your Amazon S3 bucket \(AWS CLI\)<a name="tutorial-search-metadata-cleanup-bucket-cli"></a>
 
 1. To delete all files and folders in your S3 bucket except the `data` and `metadata` folders, use the [remove](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/rm.html) command in the AWS CLI:
 

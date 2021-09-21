@@ -8,10 +8,10 @@ Specifies the page settings for the Confluence data source\.
 
 ## Contents<a name="API_ConfluencePageConfiguration_Contents"></a>
 
- **PageFieldMappings**   <a name="Kendra-Type-ConfluencePageConfiguration-PageFieldMappings"></a>
+ ** PageFieldMappings **   <a name="Kendra-Type-ConfluencePageConfiguration-PageFieldMappings"></a>
 Defines how page metadata fields should be mapped to index fields\. Before you can map a field, you must first create an index field with a matching type using the console or the `UpdateIndex` operation\.  
 If you specify the `PageFieldMappings` parameter, you must specify at least one field mapping\.  
-Type: Array of [ConfluencePageToIndexFieldMapping](API_ConfluencePageToIndexFieldMapping.md) objects  
+Type: Array of [ ConfluencePageToIndexFieldMapping ](API_ConfluencePageToIndexFieldMapping.md) objects  
 Array Members: Minimum number of 1 item\. Maximum number of 12 items\.  
 Required: No
 

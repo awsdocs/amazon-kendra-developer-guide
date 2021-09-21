@@ -14,7 +14,7 @@ When a set of relevant documents has been selected from the index, Amazon Kendra
 
 After finding the relevant documents and then filtering based on the attributes that you set, Amazon Kendra returns the results\. The results are sorted by the relevance that Amazon Kendra determined for each doc\. The results are paginated so that you can show a page at a time to your user\.
 
-The following Python example shows how to search an index by using the [Query](API_Query.md) operation\. The example determines the type of the search result \(answer, document, question/answer\) and displays the answer text\. 
+The following Python example shows how to search an index by using the [ Query ](API_Query.md) operation\. The example determines the type of the search result \(answer, document, question/answer\) and displays the answer text\. 
 
 For information about the query responses, see [Query responses](query-response.md)\.
 

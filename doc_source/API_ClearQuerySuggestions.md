@@ -22,7 +22,7 @@ For information about the parameters that are common to all actions, see [Common
 
 The request accepts the following data in JSON format\.
 
- ** [IndexId](#API_ClearQuerySuggestions_RequestSyntax) **   <a name="Kendra-ClearQuerySuggestions-request-IndexId"></a>
+ ** [ IndexId ](#API_ClearQuerySuggestions_RequestSyntax) **   <a name="Kendra-ClearQuerySuggestions-request-IndexId"></a>
 The identifier of the index you want to clear query suggestions from\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
@@ -37,27 +37,27 @@ If the action is successful, the service sends back an HTTP 200 response with an
 
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
- **AccessDeniedException**   
+ ** AccessDeniedException **   
   
 HTTP Status Code: 400
 
- **ConflictException**   
+ ** ConflictException **   
   
 HTTP Status Code: 400
 
- **InternalServerException**   
+ ** InternalServerException **   
   
 HTTP Status Code: 500
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
   
 HTTP Status Code: 400
 
- **ThrottlingException**   
+ ** ThrottlingException **   
   
 HTTP Status Code: 400
 
- **ValidationException**   
+ ** ValidationException **   
   
 HTTP Status Code: 400
 

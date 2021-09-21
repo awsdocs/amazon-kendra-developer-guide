@@ -10,59 +10,59 @@ A query result contains information about a document returned by the query\. Thi
 
 ## Contents<a name="API_QueryResultItem_Contents"></a>
 
- **AdditionalAttributes**   <a name="Kendra-Type-QueryResultItem-AdditionalAttributes"></a>
+ ** AdditionalAttributes **   <a name="Kendra-Type-QueryResultItem-AdditionalAttributes"></a>
 One or more additional attributes associated with the query result\.  
-Type: Array of [AdditionalResultAttribute](API_AdditionalResultAttribute.md) objects  
+Type: Array of [ AdditionalResultAttribute ](API_AdditionalResultAttribute.md) objects  
 Required: No
 
- **DocumentAttributes**   <a name="Kendra-Type-QueryResultItem-DocumentAttributes"></a>
+ ** DocumentAttributes **   <a name="Kendra-Type-QueryResultItem-DocumentAttributes"></a>
 An array of document attributes for the document that the query result maps to\. For example, the document author \(Author\) or the source URI \(SourceUri\) of the document\.  
-Type: Array of [DocumentAttribute](API_DocumentAttribute.md) objects  
+Type: Array of [ DocumentAttribute ](API_DocumentAttribute.md) objects  
 Required: No
 
- **DocumentExcerpt**   <a name="Kendra-Type-QueryResultItem-DocumentExcerpt"></a>
+ ** DocumentExcerpt **   <a name="Kendra-Type-QueryResultItem-DocumentExcerpt"></a>
 An extract of the text in the document\. Contains information about highlighting the relevant terms in the excerpt\.  
-Type: [TextWithHighlights](API_TextWithHighlights.md) object  
+Type: [ TextWithHighlights ](API_TextWithHighlights.md) object  
 Required: No
 
- **DocumentId**   <a name="Kendra-Type-QueryResultItem-DocumentId"></a>
+ ** DocumentId **   <a name="Kendra-Type-QueryResultItem-DocumentId"></a>
 The unique identifier for the document\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  
 Required: No
 
- **DocumentTitle**   <a name="Kendra-Type-QueryResultItem-DocumentTitle"></a>
+ ** DocumentTitle **   <a name="Kendra-Type-QueryResultItem-DocumentTitle"></a>
 The title of the document\. Contains the text of the title and information for highlighting the relevant terms in the title\.  
-Type: [TextWithHighlights](API_TextWithHighlights.md) object  
+Type: [ TextWithHighlights ](API_TextWithHighlights.md) object  
 Required: No
 
- **DocumentURI**   <a name="Kendra-Type-QueryResultItem-DocumentURI"></a>
+ ** DocumentURI **   <a name="Kendra-Type-QueryResultItem-DocumentURI"></a>
 The URI of the original location of the document\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  
 Pattern: `^(https?|ftp|file):\/\/([^\s]*)`   
 Required: No
 
- **FeedbackToken**   <a name="Kendra-Type-QueryResultItem-FeedbackToken"></a>
+ ** FeedbackToken **   <a name="Kendra-Type-QueryResultItem-FeedbackToken"></a>
 A token that identifies a particular result from a particular query\. Use this token to provide click\-through feedback for the result\. For more information, see [ Submitting feedback ](https://docs.aws.amazon.com/kendra/latest/dg/submitting-feedback.html)\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  
 Pattern: `^\P{C}*.\P{C}*$`   
 Required: No
 
- **Id**   <a name="Kendra-Type-QueryResultItem-Id"></a>
+ ** Id **   <a name="Kendra-Type-QueryResultItem-Id"></a>
 The unique identifier for the query result\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 73\.  
 Required: No
 
- **ScoreAttributes**   <a name="Kendra-Type-QueryResultItem-ScoreAttributes"></a>
+ ** ScoreAttributes **   <a name="Kendra-Type-QueryResultItem-ScoreAttributes"></a>
 Indicates the confidence that Amazon Kendra has that a result matches the query that you provided\. Each result is placed into a bin that indicates the confidence, `VERY_HIGH`, `HIGH`, `MEDIUM` and `LOW`\. You can use the score to determine if a response meets the confidence needed for your application\.  
 The field is only set to `LOW` when the `Type` field is set to `DOCUMENT` and Amazon Kendra is not confident that the result matches the query\.  
-Type: [ScoreAttributes](API_ScoreAttributes.md) object  
+Type: [ ScoreAttributes ](API_ScoreAttributes.md) object  
 Required: No
 
- **Type**   <a name="Kendra-Type-QueryResultItem-Type"></a>
+ ** Type **   <a name="Kendra-Type-QueryResultItem-Type"></a>
 The type of document\.   
 Type: String  
 Valid Values:` DOCUMENT | QUESTION_ANSWER | ANSWER`   

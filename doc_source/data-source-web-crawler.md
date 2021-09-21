@@ -45,7 +45,7 @@ You use the [AuthenticationConfiguration](https://docs.aws.amazon.com/kendra/lat
 
 ## IAM role for web crawler<a name="iam-role-web-crawler"></a>
 
-When you use the web crawler, you specify an IAM role that grants Amazon Kendra permission to access web crawler resources such as your index and secret\. The secret stores your credentials for websites or web proxy servers that require basic authentication\. The IAM role for the web crawler must have permission to access the secret and to use the AWS Key Management Service \(AWS KMS\) key to decrypt it\. The IAM role also needs access to your index so that it can add and update crawled webpages to the index\. For more information, see [IAM access roles for Amazon Kendra](https://docs.aws.amazon.com/https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html)\.
+When you use the web crawler, you specify an IAM role that grants Amazon Kendra permission to access web crawler resources such as your index and secret\. The secret stores your credentials for websites or web proxy servers that require basic authentication\. The IAM role for the web crawler must have permission to access the secret and to use the AWS Key Management Service \(AWS KMS\) key to decrypt it\. The IAM role also needs access to your index so that it can add and update crawled webpages to the index\. For more information, see [IAM access roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html)\.
 
 ## Web proxy<a name="web-proxy-web-crawler"></a>
 

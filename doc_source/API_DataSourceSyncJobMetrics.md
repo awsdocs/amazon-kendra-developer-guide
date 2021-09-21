@@ -8,31 +8,31 @@ Maps a batch delete document request to a specific data source sync job\. This i
 
 ## Contents<a name="API_DataSourceSyncJobMetrics_Contents"></a>
 
- **DocumentsAdded**   <a name="Kendra-Type-DataSourceSyncJobMetrics-DocumentsAdded"></a>
+ ** DocumentsAdded **   <a name="Kendra-Type-DataSourceSyncJobMetrics-DocumentsAdded"></a>
 The number of documents added from the data source up to now in the data source sync\.  
 Type: String  
 Pattern: `(([1-9][0-9]*)|0)`   
 Required: No
 
- **DocumentsDeleted**   <a name="Kendra-Type-DataSourceSyncJobMetrics-DocumentsDeleted"></a>
+ ** DocumentsDeleted **   <a name="Kendra-Type-DataSourceSyncJobMetrics-DocumentsDeleted"></a>
 The number of documents deleted from the data source up to now in the data source sync run\.  
 Type: String  
 Pattern: `(([1-9][0-9]*)|0)`   
 Required: No
 
- **DocumentsFailed**   <a name="Kendra-Type-DataSourceSyncJobMetrics-DocumentsFailed"></a>
+ ** DocumentsFailed **   <a name="Kendra-Type-DataSourceSyncJobMetrics-DocumentsFailed"></a>
 The number of documents that failed to sync from the data source up to now in the data source sync run\.  
 Type: String  
 Pattern: `(([1-9][0-9]*)|0)`   
 Required: No
 
- **DocumentsModified**   <a name="Kendra-Type-DataSourceSyncJobMetrics-DocumentsModified"></a>
+ ** DocumentsModified **   <a name="Kendra-Type-DataSourceSyncJobMetrics-DocumentsModified"></a>
 The number of documents modified in the data source up to now in the data source sync run\.  
 Type: String  
 Pattern: `(([1-9][0-9]*)|0)`   
 Required: No
 
- **DocumentsScanned**   <a name="Kendra-Type-DataSourceSyncJobMetrics-DocumentsScanned"></a>
+ ** DocumentsScanned **   <a name="Kendra-Type-DataSourceSyncJobMetrics-DocumentsScanned"></a>
 The current number of documents crawled by the current sync job in the data source\.  
 Type: String  
 Pattern: `(([1-9][0-9]*)|0)`   

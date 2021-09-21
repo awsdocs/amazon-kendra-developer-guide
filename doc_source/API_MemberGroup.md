@@ -8,14 +8,14 @@ The sub groups that belong to a group\.
 
 ## Contents<a name="API_MemberGroup_Contents"></a>
 
- **DataSourceId**   <a name="Kendra-Type-MemberGroup-DataSourceId"></a>
+ ** DataSourceId **   <a name="Kendra-Type-MemberGroup-DataSourceId"></a>
 The identifier of the data source for the sub group you want to map to a group\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`   
 Required: No
 
- **GroupId**   <a name="Kendra-Type-MemberGroup-GroupId"></a>
+ ** GroupId **   <a name="Kendra-Type-MemberGroup-GroupId"></a>
 The identifier of the sub group you want to map to a group\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1024\.  

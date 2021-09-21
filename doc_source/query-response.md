@@ -4,7 +4,7 @@
 
 # Query responses<a name="query-response"></a>
 
-A call to [Query](API_Query.md) returns information about the results of a search\. The results are in an array of [QueryResultItem](API_QueryResultItem.md) objects \(`ResultItems`\)\. Each `QueryResultItem` includes a summary of the result\. Document attributes associated with the query result are included\. 
+A call to [ Query ](API_Query.md) returns information about the results of a search\. The results are in an array of [ QueryResultItem ](API_QueryResultItem.md) objects \(`ResultItems`\)\. Each `QueryResultItem` includes a summary of the result\. Document attributes associated with the query result are included\. 
 
 **Summary information**  
 The summary information varies depending on the type of result\. In each case, it includes document text that matches the search term\. It also includes highlight information that you can use to highlight the search text in your application's output\. For example, if the search term is *what is the height of the Space Needle?*, the summary information includes text location for the words *height* and *space needle*\. For information about response types, see [Response types ](response-types.md)\. 
@@ -54,7 +54,9 @@ The following is sample JSON code for a query result\. Note the document attribu
                 ]
             },
             "DocumentURI": "uri",
-            "DocumentAttributes": []
+            "DocumentAttributes": [],
+            "ScoreAttributes": "score",
+            "FeedbackToken": "token"
         },
         {
             "Id": "result-id",
@@ -83,7 +85,9 @@ The following is sample JSON code for a query result\. Note the document attribu
                         "StringValue": "uri"
                     }
                 }
-            ]
+            ],
+            "ScoreAttributes": "score",
+            "FeedbackToken": "token",
         }
     ],
     "FacetResults": [],

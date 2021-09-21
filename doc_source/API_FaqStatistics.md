@@ -8,7 +8,7 @@ Provides statistical information about the FAQ questions and answers contained i
 
 ## Contents<a name="API_FaqStatistics_Contents"></a>
 
- **IndexedQuestionAnswersCount**   <a name="Kendra-Type-FaqStatistics-IndexedQuestionAnswersCount"></a>
+ ** IndexedQuestionAnswersCount **   <a name="Kendra-Type-FaqStatistics-IndexedQuestionAnswersCount"></a>
 The total number of FAQ questions and answers contained in the index\.  
 Type: Integer  
 Valid Range: Minimum value of 0\.  

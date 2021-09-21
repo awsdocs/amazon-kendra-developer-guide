@@ -8,19 +8,19 @@ Provides a response when the status of a document could not be retrieved\.
 
 ## Contents<a name="API_BatchGetDocumentStatusResponseError_Contents"></a>
 
- **DocumentId**   <a name="Kendra-Type-BatchGetDocumentStatusResponseError-DocumentId"></a>
+ ** DocumentId **   <a name="Kendra-Type-BatchGetDocumentStatusResponseError-DocumentId"></a>
 The unique identifier of the document whose status could not be retrieved\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  
 Required: No
 
- **ErrorCode**   <a name="Kendra-Type-BatchGetDocumentStatusResponseError-ErrorCode"></a>
+ ** ErrorCode **   <a name="Kendra-Type-BatchGetDocumentStatusResponseError-ErrorCode"></a>
 Indicates the source of the error\.  
 Type: String  
 Valid Values:` InternalError | InvalidRequest`   
 Required: No
 
- **ErrorMessage**   <a name="Kendra-Type-BatchGetDocumentStatusResponseError-ErrorMessage"></a>
+ ** ErrorMessage **   <a name="Kendra-Type-BatchGetDocumentStatusResponseError-ErrorMessage"></a>
 States that the API could not get the status of a document\. This could be because the request is not valid or there is a system error\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  

@@ -10,7 +10,7 @@ Provides the configuration information of the seed or starting point URLs to cra
 
 ## Contents<a name="API_SeedUrlConfiguration_Contents"></a>
 
- **SeedUrls**   <a name="Kendra-Type-SeedUrlConfiguration-SeedUrls"></a>
+ ** SeedUrls **   <a name="Kendra-Type-SeedUrlConfiguration-SeedUrls"></a>
 The list of seed or starting point URLs of the websites you want to crawl\.  
 The list can include a maximum of 100 seed URLs\.  
 Type: Array of strings  
@@ -19,7 +19,7 @@ Length Constraints: Minimum length of 1\. Maximum length of 2048\.
 Pattern: `^(https?):\/\/([^\s]*)`   
 Required: Yes
 
- **WebCrawlerMode**   <a name="Kendra-Type-SeedUrlConfiguration-WebCrawlerMode"></a>
+ ** WebCrawlerMode **   <a name="Kendra-Type-SeedUrlConfiguration-WebCrawlerMode"></a>
 You can choose one of the following modes:  
 +  `HOST_ONLY` – crawl only the website host names\. For example, if the seed URL is "abc\.example\.com", then only URLs with host name "abc\.example\.com" are crawled\.
 +  `SUBDOMAINS` – crawl the website host names with subdomains\. For example, if the seed URL is "abc\.example\.com", then "a\.abc\.example\.com" and "b\.abc\.example\.com" are also crawled\.

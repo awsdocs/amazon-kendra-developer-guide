@@ -8,7 +8,7 @@ Document metadata files that contain information such as the document access con
 
 ## Contents<a name="API_DocumentsMetadataConfiguration_Contents"></a>
 
- **S3Prefix**   <a name="Kendra-Type-DocumentsMetadataConfiguration-S3Prefix"></a>
+ ** S3Prefix **   <a name="Kendra-Type-DocumentsMetadataConfiguration-S3Prefix"></a>
 A prefix used to filter metadata configuration files in the AWS S3 bucket\. The S3 bucket might contain multiple metadata files\. Use `S3Prefix` to include only the desired metadata files\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1024\.  

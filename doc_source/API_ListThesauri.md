@@ -22,20 +22,20 @@ For information about the parameters that are common to all actions, see [Common
 
 The request accepts the following data in JSON format\.
 
- ** [IndexId](#API_ListThesauri_RequestSyntax) **   <a name="Kendra-ListThesauri-request-IndexId"></a>
+ ** [ IndexId ](#API_ListThesauri_RequestSyntax) **   <a name="Kendra-ListThesauri-request-IndexId"></a>
 The identifier of the index associated with the thesaurus to list\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`   
 Required: Yes
 
- ** [MaxResults](#API_ListThesauri_RequestSyntax) **   <a name="Kendra-ListThesauri-request-MaxResults"></a>
+ ** [ MaxResults ](#API_ListThesauri_RequestSyntax) **   <a name="Kendra-ListThesauri-request-MaxResults"></a>
 The maximum number of thesauri to return\.  
 Type: Integer  
 Valid Range: Minimum value of 1\. Maximum value of 100\.  
 Required: No
 
- ** [NextToken](#API_ListThesauri_RequestSyntax) **   <a name="Kendra-ListThesauri-request-NextToken"></a>
+ ** [ NextToken ](#API_ListThesauri_RequestSyntax) **   <a name="Kendra-ListThesauri-request-NextToken"></a>
 If the previous response was incomplete \(because there is more data to retrieve\), Amazon Kendra returns a pagination token in the response\. You can use this pagination token to retrieve the next set of thesauri \(`ThesaurusSummaryItems`\)\.   
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 800\.  
@@ -64,36 +64,36 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
- ** [NextToken](#API_ListThesauri_ResponseSyntax) **   <a name="Kendra-ListThesauri-response-NextToken"></a>
+ ** [ NextToken ](#API_ListThesauri_ResponseSyntax) **   <a name="Kendra-ListThesauri-response-NextToken"></a>
 If the response is truncated, Amazon Kendra returns this token that you can use in the subsequent request to retrieve the next set of thesauri\.   
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 800\.
 
- ** [ThesaurusSummaryItems](#API_ListThesauri_ResponseSyntax) **   <a name="Kendra-ListThesauri-response-ThesaurusSummaryItems"></a>
+ ** [ ThesaurusSummaryItems ](#API_ListThesauri_ResponseSyntax) **   <a name="Kendra-ListThesauri-response-ThesaurusSummaryItems"></a>
 An array of summary information for a thesaurus or multiple thesauri\.  
-Type: Array of [ThesaurusSummary](API_ThesaurusSummary.md) objects
+Type: Array of [ ThesaurusSummary ](API_ThesaurusSummary.md) objects
 
 ## Errors<a name="API_ListThesauri_Errors"></a>
 
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
- **AccessDeniedException**   
+ ** AccessDeniedException **   
   
 HTTP Status Code: 400
 
- **InternalServerException**   
+ ** InternalServerException **   
   
 HTTP Status Code: 500
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
   
 HTTP Status Code: 400
 
- **ThrottlingException**   
+ ** ThrottlingException **   
   
 HTTP Status Code: 400
 
- **ValidationException**   
+ ** ValidationException **   
   
 HTTP Status Code: 400
 

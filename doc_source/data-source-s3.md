@@ -6,7 +6,7 @@
 
 Use an Amazon S3 data source when your document repository is an S3 bucket\. 
 
-You must create an index before you create a data source\. You provide the index identifier as a parameter to the [CreateDataSource](API_CreateDataSource.md) operation\.
+You must create an index before you create a data source\. You provide the index identifier as a parameter to the [ CreateDataSource ](API_CreateDataSource.md) operation\.
 
 The S3 bucket must be in the same Region as the index and Amazon Kendra must have permission to access the S3 bucket that contains your documents\. You provide the Amazon Resource Name \(ARN\) of a role that has access when you create the data source using the `RoleARN` parameter\.
 
@@ -56,7 +56,7 @@ The following snippet of Python code creates an S3 data source\. For the complet
 
 ------
 
-It can take some time to create your data source\. You can monitor the progress by using the [DescribeDataSource](API_DescribeDataSource.md) operation\. When the data source status is `ACTIVE` the data source is ready to use\. 
+It can take some time to create your data source\. You can monitor the progress by using the [ DescribeDataSource ](API_DescribeDataSource.md) operation\. When the data source status is `ACTIVE` the data source is ready to use\. 
 
 The following examples demonstrate getting the status of a data source\.
 
@@ -91,7 +91,7 @@ The following snippet of Python code gets information about an S3 data source\. 
 
 ------
 
-This data source doesn't have a schedule, so it does not run automatically\. To index the data source, you call the [StartDataSourceSyncJob](API_StartDataSourceSyncJob.md) operation to synchronize the index with the data source\.
+This data source doesn't have a schedule, so it does not run automatically\. To index the data source, you call the [ StartDataSourceSyncJob ](API_StartDataSourceSyncJob.md) operation to synchronize the index with the data source\.
 
 The following examples demonstrate synchronizing a data source\.
 

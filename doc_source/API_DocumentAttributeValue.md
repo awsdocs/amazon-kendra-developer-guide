@@ -8,24 +8,24 @@ The value of a custom document attribute\. You can only provide one value for a 
 
 ## Contents<a name="API_DocumentAttributeValue_Contents"></a>
 
- **DateValue**   <a name="Kendra-Type-DocumentAttributeValue-DateValue"></a>
+ ** DateValue **   <a name="Kendra-Type-DocumentAttributeValue-DateValue"></a>
 A date expressed as an ISO 8601 string\.  
 It is important for the time zone to be included in the ISO 8601 date\-time format\. For example, 20120325T123010\+01:00 is the ISO 8601 date\-time format for March 25th 2012 at 12:30PM \(plus 10 seconds\) in Central European Time\.  
 Type: Timestamp  
 Required: No
 
- **LongValue**   <a name="Kendra-Type-DocumentAttributeValue-LongValue"></a>
+ ** LongValue **   <a name="Kendra-Type-DocumentAttributeValue-LongValue"></a>
 A long integer value\.  
 Type: Long  
 Required: No
 
- **StringListValue**   <a name="Kendra-Type-DocumentAttributeValue-StringListValue"></a>
+ ** StringListValue **   <a name="Kendra-Type-DocumentAttributeValue-StringListValue"></a>
 A list of strings\.   
 Type: Array of strings  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  
 Required: No
 
- **StringValue**   <a name="Kendra-Type-DocumentAttributeValue-StringValue"></a>
+ ** StringValue **   <a name="Kendra-Type-DocumentAttributeValue-StringValue"></a>
 A string, such as "department"\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  

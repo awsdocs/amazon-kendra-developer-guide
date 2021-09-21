@@ -26,15 +26,15 @@ For information about the parameters that are common to all actions, see [Common
 
 The request accepts the following data in JSON format\.
 
- ** [ResourceARN](#API_TagResource_RequestSyntax) **   <a name="Kendra-TagResource-request-ResourceARN"></a>
+ ** [ ResourceARN ](#API_TagResource_RequestSyntax) **   <a name="Kendra-TagResource-request-ResourceARN"></a>
 The Amazon Resource Name \(ARN\) of the index, FAQ, or data source to tag\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1011\.  
 Required: Yes
 
- ** [Tags](#API_TagResource_RequestSyntax) **   <a name="Kendra-TagResource-request-Tags"></a>
+ ** [ Tags ](#API_TagResource_RequestSyntax) **   <a name="Kendra-TagResource-request-Tags"></a>
 A list of tag keys to add to the index, FAQ, or data source\. If a tag already exists, the existing value is replaced with the new value\.  
-Type: Array of [Tag](API_Tag.md) objects  
+Type: Array of [ Tag ](API_Tag.md) objects  
 Array Members: Minimum number of 0 items\. Maximum number of 200 items\.  
 Required: Yes
 
@@ -46,23 +46,23 @@ If the action is successful, the service sends back an HTTP 200 response with an
 
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
- **AccessDeniedException**   
+ ** AccessDeniedException **   
   
 HTTP Status Code: 400
 
- **InternalServerException**   
+ ** InternalServerException **   
   
 HTTP Status Code: 500
 
- **ResourceUnavailableException**   
+ ** ResourceUnavailableException **   
   
 HTTP Status Code: 400
 
- **ThrottlingException**   
+ ** ThrottlingException **   
   
 HTTP Status Code: 400
 
- **ValidationException**   
+ ** ValidationException **   
   
 HTTP Status Code: 400
 

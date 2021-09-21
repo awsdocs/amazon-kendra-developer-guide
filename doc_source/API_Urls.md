@@ -12,17 +12,17 @@ You can only crawl websites that use the secure communication protocol, Hypertex
 
 ## Contents<a name="API_Urls_Contents"></a>
 
- **SeedUrlConfiguration**   <a name="Kendra-Type-Urls-SeedUrlConfiguration"></a>
+ ** SeedUrlConfiguration **   <a name="Kendra-Type-Urls-SeedUrlConfiguration"></a>
 Provides the configuration of the seed or starting point URLs of the websites you want to crawl\.  
 You can choose to crawl only the website host names, or the website host names with subdomains, or the website host names with subdomains and other domains that the webpages link to\.  
 You can list up to 100 seed URLs\.  
-Type: [SeedUrlConfiguration](API_SeedUrlConfiguration.md) object  
+Type: [ SeedUrlConfiguration ](API_SeedUrlConfiguration.md) object  
 Required: No
 
- **SiteMapsConfiguration**   <a name="Kendra-Type-Urls-SiteMapsConfiguration"></a>
+ ** SiteMapsConfiguration **   <a name="Kendra-Type-Urls-SiteMapsConfiguration"></a>
 Provides the configuration of the sitemap URLs of the websites you want to crawl\.  
 Only URLs belonging to the same website host names are crawled\. You can list up to three sitemap URLs\.  
-Type: [SiteMapsConfiguration](API_SiteMapsConfiguration.md) object  
+Type: [ SiteMapsConfiguration ](API_SiteMapsConfiguration.md) object  
 Required: No
 
 ## See Also<a name="API_Urls_SeeAlso"></a>

@@ -10,21 +10,21 @@ You must first create the index field using the `UpdateIndex` operation\.
 
 ## Contents<a name="API_ConfluenceAttachmentToIndexFieldMapping_Contents"></a>
 
- **DataSourceFieldName**   <a name="Kendra-Type-ConfluenceAttachmentToIndexFieldMapping-DataSourceFieldName"></a>
+ ** DataSourceFieldName **   <a name="Kendra-Type-ConfluenceAttachmentToIndexFieldMapping-DataSourceFieldName"></a>
 The name of the field in the data source\.   
 You must first create the index field using the `UpdateIndex` operation\.   
 Type: String  
 Valid Values:` AUTHOR | CONTENT_TYPE | CREATED_DATE | DISPLAY_URL | FILE_SIZE | ITEM_TYPE | PARENT_ID | SPACE_KEY | SPACE_NAME | URL | VERSION`   
 Required: No
 
- **DateFieldFormat**   <a name="Kendra-Type-ConfluenceAttachmentToIndexFieldMapping-DateFieldFormat"></a>
+ ** DateFieldFormat **   <a name="Kendra-Type-ConfluenceAttachmentToIndexFieldMapping-DateFieldFormat"></a>
 The format for date fields in the data source\. If the field specified in `DataSourceFieldName` is a date field you must specify the date format\. If the field is not a date field, an exception is thrown\.  
 Type: String  
 Length Constraints: Minimum length of 4\. Maximum length of 40\.  
 Pattern: `^(?!\s).*(?<!\s)$`   
 Required: No
 
- **IndexFieldName**   <a name="Kendra-Type-ConfluenceAttachmentToIndexFieldMapping-IndexFieldName"></a>
+ ** IndexFieldName **   <a name="Kendra-Type-ConfluenceAttachmentToIndexFieldMapping-IndexFieldName"></a>
 The name of the index field to map to the Confluence data source field\. The index field type must match the Confluence field type\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 30\.  

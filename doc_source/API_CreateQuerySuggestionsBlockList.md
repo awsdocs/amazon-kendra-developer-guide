@@ -40,13 +40,13 @@ For information about the parameters that are common to all actions, see [Common
 
 The request accepts the following data in JSON format\.
 
- ** [ClientToken](#API_CreateQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-CreateQuerySuggestionsBlockList-request-ClientToken"></a>
+ ** [ ClientToken ](#API_CreateQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-CreateQuerySuggestionsBlockList-request-ClientToken"></a>
 A token that you provide to identify the request to create a query suggestions block list\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Required: No
 
- ** [Description](#API_CreateQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-CreateQuerySuggestionsBlockList-request-Description"></a>
+ ** [ Description ](#API_CreateQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-CreateQuerySuggestionsBlockList-request-Description"></a>
 A user\-friendly description for the block list\.  
 For example, the description "List of all offensive words that can appear in user queries and need to be blocked from suggestions\."  
 Type: String  
@@ -54,14 +54,14 @@ Length Constraints: Minimum length of 0\. Maximum length of 1000\.
 Pattern: `^\P{C}*$`   
 Required: No
 
- ** [IndexId](#API_CreateQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-CreateQuerySuggestionsBlockList-request-IndexId"></a>
+ ** [ IndexId ](#API_CreateQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-CreateQuerySuggestionsBlockList-request-IndexId"></a>
 The identifier of the index you want to create a query suggestions block list for\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`   
 Required: Yes
 
- ** [Name](#API_CreateQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-CreateQuerySuggestionsBlockList-request-Name"></a>
+ ** [ Name ](#API_CreateQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-CreateQuerySuggestionsBlockList-request-Name"></a>
 A user friendly name for the block list\.  
 For example, the block list named 'offensive\-words' includes all offensive words that could appear in user queries and need to be blocked from suggestions\.  
 Type: String  
@@ -69,7 +69,7 @@ Length Constraints: Minimum length of 1\. Maximum length of 100\.
 Pattern: `^[a-zA-Z0-9](-*[a-zA-Z0-9])*`   
 Required: Yes
 
- ** [RoleArn](#API_CreateQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-CreateQuerySuggestionsBlockList-request-RoleArn"></a>
+ ** [ RoleArn ](#API_CreateQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-CreateQuerySuggestionsBlockList-request-RoleArn"></a>
 The IAM \(Identity and Access Management\) role used by Amazon Kendra to access the block list text file in your S3 bucket\.  
 You need permissions to the role ARN \(Amazon Resource Name\)\. The role needs S3 read permissions to your file in S3 and needs to give STS \(Security Token Service\) assume role permissions to Amazon Kendra\.  
 Type: String  
@@ -77,16 +77,16 @@ Length Constraints: Minimum length of 1\. Maximum length of 1284\.
 Pattern: `arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}`   
 Required: Yes
 
- ** [SourceS3Path](#API_CreateQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-CreateQuerySuggestionsBlockList-request-SourceS3Path"></a>
+ ** [ SourceS3Path ](#API_CreateQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-CreateQuerySuggestionsBlockList-request-SourceS3Path"></a>
 The S3 path to your block list text file in your S3 bucket\.  
 Each block word or phrase should be on a separate line in a text file\.  
 For information on the current quota limits for block lists, see [Quotas for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/quotas.html)\.  
-Type: [S3Path](API_S3Path.md) object  
+Type: [ S3Path ](API_S3Path.md) object  
 Required: Yes
 
- ** [Tags](#API_CreateQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-CreateQuerySuggestionsBlockList-request-Tags"></a>
+ ** [ Tags ](#API_CreateQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-CreateQuerySuggestionsBlockList-request-Tags"></a>
 A tag that you can assign to a block list that categorizes the block list\.  
-Type: Array of [Tag](API_Tag.md) objects  
+Type: Array of [ Tag ](API_Tag.md) objects  
 Array Members: Minimum number of 0 items\. Maximum number of 200 items\.  
 Required: No
 
@@ -104,7 +104,7 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
- ** [Id](#API_CreateQuerySuggestionsBlockList_ResponseSyntax) **   <a name="Kendra-CreateQuerySuggestionsBlockList-response-Id"></a>
+ ** [ Id ](#API_CreateQuerySuggestionsBlockList_ResponseSyntax) **   <a name="Kendra-CreateQuerySuggestionsBlockList-response-Id"></a>
 The unique identifier of the created block list\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
@@ -114,31 +114,31 @@ Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`
 
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
- **AccessDeniedException**   
+ ** AccessDeniedException **   
   
 HTTP Status Code: 400
 
- **ConflictException**   
+ ** ConflictException **   
   
 HTTP Status Code: 400
 
- **InternalServerException**   
+ ** InternalServerException **   
   
 HTTP Status Code: 500
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
   
 HTTP Status Code: 400
 
- **ServiceQuotaExceededException**   
+ ** ServiceQuotaExceededException **   
   
 HTTP Status Code: 400
 
- **ThrottlingException**   
+ ** ThrottlingException **   
   
 HTTP Status Code: 400
 
- **ValidationException**   
+ ** ValidationException **   
   
 HTTP Status Code: 400
 
