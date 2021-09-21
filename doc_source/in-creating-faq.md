@@ -4,7 +4,11 @@
 
 # Adding questions and answers directly to an index<a name="in-creating-faq"></a>
 
+<<<<<<< HEAD
 You can add questions and answers \(FAQs\) directly to your index using the console or the [ CreateFaq ](API_CreateFaq.md) operation\. You put the data for the FAQ in a file that you store in an Amazon Simple Storage Service \(Amazon S3\) bucket\. You can use comma\-separated values \(\.csv\) files or JSON files as input for your FAQ, as follows:
+=======
+You can add questions and answers \(FAQs\) directly to your index using the console or the [CreateFaq](API_CreateFaq.md) operation\. You put the data for the FAQ in a file that you store in an Amazon Simple Storage Service \(Amazon S3\) bucket\. You can use comma\-separated values \(\.csv\) files or JSON files as input for your FAQ, as follows:
+>>>>>>> parent of 2b1c178 (updating tutorial)
 + Basic \.csv – A \.csv file where each line contains a question, answer, and an optional URL with more information about the answer\.
 + Custom \.csv – A \.csv file that contains questions, answers, and a header that defines custom attributes that you can use to facet, display, or sort FAQ responses\. You can also define access control attributes to limit the FAQ response to certain users and groups\.
 + JSON – A JSON file that contains questions, answers, and, optionally, custom and access control attributes\. You can define attributes to facet, display\. and sort FAQ responses, or access control attributes that limit the FAQ response to certain users and groups\.
@@ -18,9 +22,15 @@ How many free clinics are there in Mountain View, Missouri?, 7, https://www.free
 
 When you use a custom \.csv or JSON file for input, you can declare custom attributes for your FAQ questions\. For example, you can create a custom attribute that assigns each FAQ question a department\. When the FAQ is returned in a response, you can use the department as a facet to narrow the search\.
 
+<<<<<<< HEAD
 A custom attribute must map to an index field\. You can use a built\-in field, or you can specify a custom index field\. When you use the console, you use the **Facet definition** page to create an index field\. When you use the API, you must first create an index field using the [ UpdateIndex ](API_UpdateIndex.md) operation\. 
 
 The attribute type in the FAQ file must match the type of the associated index field\. For example, the built in `_authors` field is a `STRING_LIST` type field, so you must provide values for the `_authors` field as a string list in your FAQ file\. You can check the type of index fields using the **Facet definition** page in the console or by using the [ DescribeIndex ](API_DescribeIndex.md) operation\.
+=======
+A custom attribute must map to an index field\. You can use a built\-in field, or you can specify a custom index field\. When you use the console, you use the **Facet definition** page to create an index field\. When you use the API, you must first create an index field using the [UpdateIndex](API_UpdateIndex.md) operation\. 
+
+The attribute type in the FAQ file must match the type of the associated index field\. For example, the built in `_authors` field is a `STRING_LIST` type field, so you must provide values for the `_authors` field as a string list in your FAQ file\. You can check the type of index fields using the **Facet definition** page in the console or by using the [DescribeIndex](API_DescribeIndex.md) operation\.
+>>>>>>> parent of 2b1c178 (updating tutorial)
 
 When you create an index field that maps to a custom attribute, you can mark it displayable, facetable, or sortable\. You can't make a custom attribute searchable\.
 

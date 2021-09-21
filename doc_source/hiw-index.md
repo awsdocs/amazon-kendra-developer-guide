@@ -13,7 +13,11 @@ An index can contain documents that are indexed from a data source, documents th
 
 For information about using a data source with an index, see [Data sources](hiw-data-source.md)\.
 
+<<<<<<< HEAD
 To add documents directly to an index, you call the [ BatchPutDocument ](API_BatchPutDocument.md) operation\. The documents are supplied as plain text, as a binary blob, or using a path to a document stored in an Amazon S3 bucket\. For an example, see [Adding documents from an Amazon S3 bucket](in-adding-plain-text.md)\.
+=======
+To add documents directly to an index, you call the [BatchPutDocument](API_BatchPutDocument.md) operation\. The documents are supplied as plain text, as a binary blob, or using a path to a document stored in an Amazon S3 bucket\. For an example, see [Adding documents from an Amazon S3 bucket](in-adding-plain-text.md)\.
+>>>>>>> parent of 2b1c178 (updating tutorial)
 
 ## Index fields<a name="index-fields"></a>
 
@@ -43,7 +47,11 @@ There are four types of custom fields:
 + String
 + String list
 
+<<<<<<< HEAD
 You create a custom field using the console or by using the [ UpdateIndex ](API_UpdateIndex.md) operation\. After you create a custom field, you map it to a document attribute, just as you do with a reserved field\. If you added a document to the index with [ BatchPutDocument ](API_BatchPutDocument.md) operation, you map the attributes with the API\. For documents indexed from an Amazon S3 data source, you map the attributes using a metadata file that contains a JSON structure that describes the document attributes\. For documents indexed with a database or SharePoint Online data source, you map attributes with the console or the data source configuration\. For more information, see [Document attributes](hiw-document-attributes.md)\.
+=======
+You create a custom field using the console or by using the [UpdateIndex](API_UpdateIndex.md) operation\. After you create a custom field, you map it to a document attribute, just as you do with a reserved field\. If you added a document to the index with [BatchPutDocument](API_BatchPutDocument.md) operation, you map the attributes with the API\. For documents indexed from an Amazon S3 data source, you map the attributes using a metadata file that contains a JSON structure that describes the document attributes\. For documents indexed with a database or SharePoint Online data source, you map attributes with the console or the data source configuration\. For more information, see [Document attributes](hiw-document-attributes.md)\.
+>>>>>>> parent of 2b1c178 (updating tutorial)
 
 ## Searching indexes<a name="index-searching"></a>
 

@@ -20,7 +20,11 @@ You can sort on only one document attribute in each query\. Queries return 100 r
 
 **To sort document results \(AWS SDK\)**
 
+<<<<<<< HEAD
 1. To use the [ UpdateIndex ](API_UpdateIndex.md) operation to make an attribute sortable, set the `Sortable` parameter to `true`\. The following JSON example is a `DocumentMetadataConfigurationUpdates` structure that adds an attribute called "Department" to the index and makes it sortable\.
+=======
+1. To use the [UpdateIndex](API_UpdateIndex.md) operation to make an attribute sortable, set the `Sortable` parameter to `true`\. The following JSON example is a `DocumentMetadataConfigurationUpdates` structure that adds an attribute called "Department" to the index and makes it sortable\.
+>>>>>>> parent of 2b1c178 (updating tutorial)
 
    ```
    "DocumentMetadataConfigurationUpdates": [
@@ -34,7 +38,11 @@ You can sort on only one document attribute in each query\. Queries return 100 r
    ]
    ```
 
+<<<<<<< HEAD
 1. To use a sortable attribute in a query, set the `SortingConfiguration` parameter of the [ Query ](API_Query.md) operation\. Specify the name of the attribute to sort and whether to sort the response in ascending or descending order\.
+=======
+1. To use a sortable attribute in a query, set the `SortingConfiguration` parameter of the [Query](API_Query.md) operation\. Specify the name of the attribute to sort and whether to sort the response in ascending or descending order\.
+>>>>>>> parent of 2b1c178 (updating tutorial)
 
    The following JSON example shows the `SortingConfiguration` parameter that you use to sort the results of a query by the "Department" attribute in ascending order\.
 

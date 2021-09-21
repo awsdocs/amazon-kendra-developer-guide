@@ -8,38 +8,62 @@ Summary information for a Amazon Kendra data source\. Returned in a call to the 
 
 ## Contents<a name="API_DataSourceSummary_Contents"></a>
 
+<<<<<<< HEAD
  ** CreatedAt **   <a name="Kendra-Type-DataSourceSummary-CreatedAt"></a>
+=======
+ **CreatedAt**   <a name="Kendra-Type-DataSourceSummary-CreatedAt"></a>
+>>>>>>> parent of 2b1c178 (updating tutorial)
 The UNIX datetime that the data source was created\.  
 Type: Timestamp  
 Required: No
 
+<<<<<<< HEAD
  ** Id **   <a name="Kendra-Type-DataSourceSummary-Id"></a>
+=======
+ **Id**   <a name="Kendra-Type-DataSourceSummary-Id"></a>
+>>>>>>> parent of 2b1c178 (updating tutorial)
 The unique identifier for the data source\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`   
 Required: No
 
+<<<<<<< HEAD
  ** Name **   <a name="Kendra-Type-DataSourceSummary-Name"></a>
+=======
+ **Name**   <a name="Kendra-Type-DataSourceSummary-Name"></a>
+>>>>>>> parent of 2b1c178 (updating tutorial)
 The name of the data source\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1000\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`   
 Required: No
 
+<<<<<<< HEAD
  ** Status **   <a name="Kendra-Type-DataSourceSummary-Status"></a>
+=======
+ **Status**   <a name="Kendra-Type-DataSourceSummary-Status"></a>
+>>>>>>> parent of 2b1c178 (updating tutorial)
 The status of the data source\. When the status is `ACTIVE` the data source is ready to use\.  
 Type: String  
 Valid Values:` CREATING | DELETING | FAILED | UPDATING | ACTIVE`   
 Required: No
 
+<<<<<<< HEAD
  ** Type **   <a name="Kendra-Type-DataSourceSummary-Type"></a>
+=======
+ **Type**   <a name="Kendra-Type-DataSourceSummary-Type"></a>
+>>>>>>> parent of 2b1c178 (updating tutorial)
 The type of the data source\.  
 Type: String  
 Valid Values:` S3 | SHAREPOINT | DATABASE | SALESFORCE | ONEDRIVE | SERVICENOW | CUSTOM | CONFLUENCE | GOOGLEDRIVE | WEBCRAWLER | WORKDOCS`   
 Required: No
 
+<<<<<<< HEAD
  ** UpdatedAt **   <a name="Kendra-Type-DataSourceSummary-UpdatedAt"></a>
+=======
+ **UpdatedAt**   <a name="Kendra-Type-DataSourceSummary-UpdatedAt"></a>
+>>>>>>> parent of 2b1c178 (updating tutorial)
 The UNIX datetime that the data source was lasted updated\.   
 Type: Timestamp  
 Required: No

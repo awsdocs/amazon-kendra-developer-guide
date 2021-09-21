@@ -4,7 +4,11 @@
 
 # Using the Amazon Kendra API to submit feedback<a name="feedback-api"></a>
 
+<<<<<<< HEAD
 To use the Amazon Kendra API to submit query feedback, use the [ SubmitFeedback ](API_SubmitFeedback.md) operation\. To identify the query, you supply the `IndexID` of the index that the query applies to, and the `QueryId` returned in the response from the [ Query ](API_Query.md) operation\. 
+=======
+To use the Amazon Kendra API to submit query feedback, use the [SubmitFeedback](API_SubmitFeedback.md) operation\. To identify the query, you supply the `IndexID` of the index that the query applies to, and the `QueryId` returned in the response from the [Query](API_Query.md) operation\. 
+>>>>>>> parent of 2b1c178 (updating tutorial)
 
 The following example shows how to submit click and relevance feedback using the Amazon Kendra API\. You can submit multiple sets of feedback through the `ClickFeedbackItems` and `RelevanceFeedbackItems` arrays\. This example submits a single click and a single relevance feedback item\. The feedback submittal uses the current time\.
 

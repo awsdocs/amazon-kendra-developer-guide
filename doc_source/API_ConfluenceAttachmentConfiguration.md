@@ -8,6 +8,7 @@ Specifies the attachment settings for the Confluence data source\. Attachment se
 
 ## Contents<a name="API_ConfluenceAttachmentConfiguration_Contents"></a>
 
+<<<<<<< HEAD
  ** AttachmentFieldMappings **   <a name="Kendra-Type-ConfluenceAttachmentConfiguration-AttachmentFieldMappings"></a>
 Defines how attachment metadata fields should be mapped to index fields\. Before you can map a field, you must first create an index field with a matching type using the console or the `UpdateIndex` operation\.  
 If you specify the `AttachentFieldMappings` parameter, you must specify at least one field mapping\.  
@@ -16,6 +17,16 @@ Array Members: Minimum number of 1 item\. Maximum number of 11 items\.
 Required: No
 
  ** CrawlAttachments **   <a name="Kendra-Type-ConfluenceAttachmentConfiguration-CrawlAttachments"></a>
+=======
+ **AttachmentFieldMappings**   <a name="Kendra-Type-ConfluenceAttachmentConfiguration-AttachmentFieldMappings"></a>
+Defines how attachment metadata fields should be mapped to index fields\. Before you can map a field, you must first create an index field with a matching type using the console or the `UpdateIndex` operation\.  
+If you specify the `AttachentFieldMappings` parameter, you must specify at least one field mapping\.  
+Type: Array of [ConfluenceAttachmentToIndexFieldMapping](API_ConfluenceAttachmentToIndexFieldMapping.md) objects  
+Array Members: Minimum number of 1 item\. Maximum number of 11 items\.  
+Required: No
+
+ **CrawlAttachments**   <a name="Kendra-Type-ConfluenceAttachmentConfiguration-CrawlAttachments"></a>
+>>>>>>> parent of 2b1c178 (updating tutorial)
 Indicates whether Amazon Kendra indexes attachments to the pages and blogs in the Confluence data source\.   
 Type: Boolean  
 Required: No

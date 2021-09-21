@@ -21,14 +21,22 @@ For information about the parameters that are common to all actions, see [Common
 
 The request accepts the following data in JSON format\.
 
+<<<<<<< HEAD
  ** [ Id ](#API_DescribeThesaurus_RequestSyntax) **   <a name="Kendra-DescribeThesaurus-request-Id"></a>
+=======
+ ** [Id](#API_DescribeThesaurus_RequestSyntax) **   <a name="Kendra-DescribeThesaurus-request-Id"></a>
+>>>>>>> parent of 2b1c178 (updating tutorial)
 The identifier of the thesaurus to describe\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`   
 Required: Yes
 
+<<<<<<< HEAD
  ** [ IndexId ](#API_DescribeThesaurus_RequestSyntax) **   <a name="Kendra-DescribeThesaurus-request-IndexId"></a>
+=======
+ ** [IndexId](#API_DescribeThesaurus_RequestSyntax) **   <a name="Kendra-DescribeThesaurus-request-IndexId"></a>
+>>>>>>> parent of 2b1c178 (updating tutorial)
 The identifier of the index associated with the thesaurus to describe\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
@@ -64,60 +72,101 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
+<<<<<<< HEAD
  ** [ CreatedAt ](#API_DescribeThesaurus_ResponseSyntax) **   <a name="Kendra-DescribeThesaurus-response-CreatedAt"></a>
 The Unix datetime that the thesaurus was created\.  
 Type: Timestamp
 
  ** [ Description ](#API_DescribeThesaurus_ResponseSyntax) **   <a name="Kendra-DescribeThesaurus-response-Description"></a>
+=======
+ ** [CreatedAt](#API_DescribeThesaurus_ResponseSyntax) **   <a name="Kendra-DescribeThesaurus-response-CreatedAt"></a>
+The Unix datetime that the thesaurus was created\.  
+Type: Timestamp
+
+ ** [Description](#API_DescribeThesaurus_ResponseSyntax) **   <a name="Kendra-DescribeThesaurus-response-Description"></a>
+>>>>>>> parent of 2b1c178 (updating tutorial)
 The thesaurus description\.  
 Type: String  
 Length Constraints: Minimum length of 0\. Maximum length of 1000\.  
 Pattern: `^\P{C}*$` 
 
+<<<<<<< HEAD
  ** [ ErrorMessage ](#API_DescribeThesaurus_ResponseSyntax) **   <a name="Kendra-DescribeThesaurus-response-ErrorMessage"></a>
+=======
+ ** [ErrorMessage](#API_DescribeThesaurus_ResponseSyntax) **   <a name="Kendra-DescribeThesaurus-response-ErrorMessage"></a>
+>>>>>>> parent of 2b1c178 (updating tutorial)
 When the `Status` field value is `FAILED`, the `ErrorMessage` field provides more information\.   
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  
 Pattern: `^\P{C}*$` 
 
+<<<<<<< HEAD
  ** [ FileSizeBytes ](#API_DescribeThesaurus_ResponseSyntax) **   <a name="Kendra-DescribeThesaurus-response-FileSizeBytes"></a>
 The size of the thesaurus file in bytes\.  
 Type: Long
 
  ** [ Id ](#API_DescribeThesaurus_ResponseSyntax) **   <a name="Kendra-DescribeThesaurus-response-Id"></a>
+=======
+ ** [FileSizeBytes](#API_DescribeThesaurus_ResponseSyntax) **   <a name="Kendra-DescribeThesaurus-response-FileSizeBytes"></a>
+The size of the thesaurus file in bytes\.  
+Type: Long
+
+ ** [Id](#API_DescribeThesaurus_ResponseSyntax) **   <a name="Kendra-DescribeThesaurus-response-Id"></a>
+>>>>>>> parent of 2b1c178 (updating tutorial)
 The identifier of the thesaurus\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*` 
 
+<<<<<<< HEAD
  ** [ IndexId ](#API_DescribeThesaurus_ResponseSyntax) **   <a name="Kendra-DescribeThesaurus-response-IndexId"></a>
+=======
+ ** [IndexId](#API_DescribeThesaurus_ResponseSyntax) **   <a name="Kendra-DescribeThesaurus-response-IndexId"></a>
+>>>>>>> parent of 2b1c178 (updating tutorial)
 The identifier of the index associated with the thesaurus to describe\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*` 
 
+<<<<<<< HEAD
  ** [ Name ](#API_DescribeThesaurus_ResponseSyntax) **   <a name="Kendra-DescribeThesaurus-response-Name"></a>
+=======
+ ** [Name](#API_DescribeThesaurus_ResponseSyntax) **   <a name="Kendra-DescribeThesaurus-response-Name"></a>
+>>>>>>> parent of 2b1c178 (updating tutorial)
 The thesaurus name\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*` 
 
+<<<<<<< HEAD
  ** [ RoleArn ](#API_DescribeThesaurus_ResponseSyntax) **   <a name="Kendra-DescribeThesaurus-response-RoleArn"></a>
+=======
+ ** [RoleArn](#API_DescribeThesaurus_ResponseSyntax) **   <a name="Kendra-DescribeThesaurus-response-RoleArn"></a>
+>>>>>>> parent of 2b1c178 (updating tutorial)
 An AWS Identity and Access Management \(IAM\) role that gives Amazon Kendra permissions to access thesaurus file specified in `SourceS3Path`\.   
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1284\.  
 Pattern: `arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}` 
 
+<<<<<<< HEAD
  ** [ SourceS3Path ](#API_DescribeThesaurus_ResponseSyntax) **   <a name="Kendra-DescribeThesaurus-response-SourceS3Path"></a>
 Information required to find a specific file in an Amazon S3 bucket\.  
 Type: [ S3Path ](API_S3Path.md) object
 
  ** [ Status ](#API_DescribeThesaurus_ResponseSyntax) **   <a name="Kendra-DescribeThesaurus-response-Status"></a>
+=======
+ ** [SourceS3Path](#API_DescribeThesaurus_ResponseSyntax) **   <a name="Kendra-DescribeThesaurus-response-SourceS3Path"></a>
+Information required to find a specific file in an Amazon S3 bucket\.  
+Type: [S3Path](API_S3Path.md) object
+
+ ** [Status](#API_DescribeThesaurus_ResponseSyntax) **   <a name="Kendra-DescribeThesaurus-response-Status"></a>
+>>>>>>> parent of 2b1c178 (updating tutorial)
 The current status of the thesaurus\. When the value is `ACTIVE`, queries are able to use the thesaurus\. If the `Status` field value is `FAILED`, the `ErrorMessage` field provides more information\.   
 If the status is `ACTIVE_BUT_UPDATE_FAILED`, it means that Amazon Kendra could not ingest the new thesaurus file\. The old thesaurus file is still active\.   
 Type: String  
 Valid Values:` CREATING | ACTIVE | DELETING | UPDATING | ACTIVE_BUT_UPDATE_FAILED | FAILED` 
 
+<<<<<<< HEAD
  ** [ SynonymRuleCount ](#API_DescribeThesaurus_ResponseSyntax) **   <a name="Kendra-DescribeThesaurus-response-SynonymRuleCount"></a>
 The number of synonym rules in the thesaurus file\.  
 Type: Long
@@ -127,6 +176,17 @@ The number of unique terms in the thesaurus file\. For example, the synonyms `a,
 Type: Long
 
  ** [ UpdatedAt ](#API_DescribeThesaurus_ResponseSyntax) **   <a name="Kendra-DescribeThesaurus-response-UpdatedAt"></a>
+=======
+ ** [SynonymRuleCount](#API_DescribeThesaurus_ResponseSyntax) **   <a name="Kendra-DescribeThesaurus-response-SynonymRuleCount"></a>
+The number of synonym rules in the thesaurus file\.  
+Type: Long
+
+ ** [TermCount](#API_DescribeThesaurus_ResponseSyntax) **   <a name="Kendra-DescribeThesaurus-response-TermCount"></a>
+The number of unique terms in the thesaurus file\. For example, the synonyms `a,b,c` and `a=>d`, the term count would be 4\.   
+Type: Long
+
+ ** [UpdatedAt](#API_DescribeThesaurus_ResponseSyntax) **   <a name="Kendra-DescribeThesaurus-response-UpdatedAt"></a>
+>>>>>>> parent of 2b1c178 (updating tutorial)
 The Unix datetime that the thesaurus was last updated\.  
 Type: Timestamp
 
@@ -134,6 +194,7 @@ Type: Timestamp
 
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
+<<<<<<< HEAD
  ** AccessDeniedException **   
   
 HTTP Status Code: 400
@@ -151,6 +212,25 @@ HTTP Status Code: 400
 HTTP Status Code: 400
 
  ** ValidationException **   
+=======
+ **AccessDeniedException**   
+  
+HTTP Status Code: 400
+
+ **InternalServerException**   
+  
+HTTP Status Code: 500
+
+ **ResourceNotFoundException**   
+  
+HTTP Status Code: 400
+
+ **ThrottlingException**   
+  
+HTTP Status Code: 400
+
+ **ValidationException**   
+>>>>>>> parent of 2b1c178 (updating tutorial)
   
 HTTP Status Code: 400
 

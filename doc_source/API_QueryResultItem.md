@@ -10,6 +10,7 @@ A query result contains information about a document returned by the query\. Thi
 
 ## Contents<a name="API_QueryResultItem_Contents"></a>
 
+<<<<<<< HEAD
  ** AdditionalAttributes **   <a name="Kendra-Type-QueryResultItem-AdditionalAttributes"></a>
 One or more additional attributes associated with the query result\.  
 Type: Array of [ AdditionalResultAttribute ](API_AdditionalResultAttribute.md) objects  
@@ -26,36 +27,72 @@ Type: [ TextWithHighlights ](API_TextWithHighlights.md) object
 Required: No
 
  ** DocumentId **   <a name="Kendra-Type-QueryResultItem-DocumentId"></a>
+=======
+ **AdditionalAttributes**   <a name="Kendra-Type-QueryResultItem-AdditionalAttributes"></a>
+One or more additional attributes associated with the query result\.  
+Type: Array of [AdditionalResultAttribute](API_AdditionalResultAttribute.md) objects  
+Required: No
+
+ **DocumentAttributes**   <a name="Kendra-Type-QueryResultItem-DocumentAttributes"></a>
+An array of document attributes for the document that the query result maps to\. For example, the document author \(Author\) or the source URI \(SourceUri\) of the document\.  
+Type: Array of [DocumentAttribute](API_DocumentAttribute.md) objects  
+Required: No
+
+ **DocumentExcerpt**   <a name="Kendra-Type-QueryResultItem-DocumentExcerpt"></a>
+An extract of the text in the document\. Contains information about highlighting the relevant terms in the excerpt\.  
+Type: [TextWithHighlights](API_TextWithHighlights.md) object  
+Required: No
+
+ **DocumentId**   <a name="Kendra-Type-QueryResultItem-DocumentId"></a>
+>>>>>>> parent of 2b1c178 (updating tutorial)
 The unique identifier for the document\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  
 Required: No
 
+<<<<<<< HEAD
  ** DocumentTitle **   <a name="Kendra-Type-QueryResultItem-DocumentTitle"></a>
 The title of the document\. Contains the text of the title and information for highlighting the relevant terms in the title\.  
 Type: [ TextWithHighlights ](API_TextWithHighlights.md) object  
 Required: No
 
  ** DocumentURI **   <a name="Kendra-Type-QueryResultItem-DocumentURI"></a>
+=======
+ **DocumentTitle**   <a name="Kendra-Type-QueryResultItem-DocumentTitle"></a>
+The title of the document\. Contains the text of the title and information for highlighting the relevant terms in the title\.  
+Type: [TextWithHighlights](API_TextWithHighlights.md) object  
+Required: No
+
+ **DocumentURI**   <a name="Kendra-Type-QueryResultItem-DocumentURI"></a>
+>>>>>>> parent of 2b1c178 (updating tutorial)
 The URI of the original location of the document\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  
 Pattern: `^(https?|ftp|file):\/\/([^\s]*)`   
 Required: No
 
+<<<<<<< HEAD
  ** FeedbackToken **   <a name="Kendra-Type-QueryResultItem-FeedbackToken"></a>
+=======
+ **FeedbackToken**   <a name="Kendra-Type-QueryResultItem-FeedbackToken"></a>
+>>>>>>> parent of 2b1c178 (updating tutorial)
 A token that identifies a particular result from a particular query\. Use this token to provide click\-through feedback for the result\. For more information, see [ Submitting feedback ](https://docs.aws.amazon.com/kendra/latest/dg/submitting-feedback.html)\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  
 Pattern: `^\P{C}*.\P{C}*$`   
 Required: No
 
+<<<<<<< HEAD
  ** Id **   <a name="Kendra-Type-QueryResultItem-Id"></a>
+=======
+ **Id**   <a name="Kendra-Type-QueryResultItem-Id"></a>
+>>>>>>> parent of 2b1c178 (updating tutorial)
 The unique identifier for the query result\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 73\.  
 Required: No
 
+<<<<<<< HEAD
  ** ScoreAttributes **   <a name="Kendra-Type-QueryResultItem-ScoreAttributes"></a>
 Indicates the confidence that Amazon Kendra has that a result matches the query that you provided\. Each result is placed into a bin that indicates the confidence, `VERY_HIGH`, `HIGH`, `MEDIUM` and `LOW`\. You can use the score to determine if a response meets the confidence needed for your application\.  
 The field is only set to `LOW` when the `Type` field is set to `DOCUMENT` and Amazon Kendra is not confident that the result matches the query\.  
@@ -63,6 +100,15 @@ Type: [ ScoreAttributes ](API_ScoreAttributes.md) object
 Required: No
 
  ** Type **   <a name="Kendra-Type-QueryResultItem-Type"></a>
+=======
+ **ScoreAttributes**   <a name="Kendra-Type-QueryResultItem-ScoreAttributes"></a>
+Indicates the confidence that Amazon Kendra has that a result matches the query that you provided\. Each result is placed into a bin that indicates the confidence, `VERY_HIGH`, `HIGH`, `MEDIUM` and `LOW`\. You can use the score to determine if a response meets the confidence needed for your application\.  
+The field is only set to `LOW` when the `Type` field is set to `DOCUMENT` and Amazon Kendra is not confident that the result matches the query\.  
+Type: [ScoreAttributes](API_ScoreAttributes.md) object  
+Required: No
+
+ **Type**   <a name="Kendra-Type-QueryResultItem-Type"></a>
+>>>>>>> parent of 2b1c178 (updating tutorial)
 The type of document\.   
 Type: String  
 Valid Values:` DOCUMENT | QUESTION_ANSWER | ANSWER`   

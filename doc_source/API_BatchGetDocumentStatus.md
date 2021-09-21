@@ -40,6 +40,7 @@ For information about the parameters that are common to all actions, see [Common
 
 The request accepts the following data in JSON format\.
 
+<<<<<<< HEAD
  ** [ DocumentInfoList ](#API_BatchGetDocumentStatus_RequestSyntax) **   <a name="Kendra-BatchGetDocumentStatus-request-DocumentInfoList"></a>
 A list of `DocumentInfo` objects that identify the documents for which to get the status\. You identify the documents by their document ID and optional attributes\.  
 Type: Array of [ DocumentInfo ](API_DocumentInfo.md) objects  
@@ -47,6 +48,15 @@ Array Members: Minimum number of 1 item\. Maximum number of 10 items\.
 Required: Yes
 
  ** [ IndexId ](#API_BatchGetDocumentStatus_RequestSyntax) **   <a name="Kendra-BatchGetDocumentStatus-request-IndexId"></a>
+=======
+ ** [DocumentInfoList](#API_BatchGetDocumentStatus_RequestSyntax) **   <a name="Kendra-BatchGetDocumentStatus-request-DocumentInfoList"></a>
+A list of `DocumentInfo` objects that identify the documents for which to get the status\. You identify the documents by their document ID and optional attributes\.  
+Type: Array of [DocumentInfo](API_DocumentInfo.md) objects  
+Array Members: Minimum number of 1 item\. Maximum number of 10 items\.  
+Required: Yes
+
+ ** [IndexId](#API_BatchGetDocumentStatus_RequestSyntax) **   <a name="Kendra-BatchGetDocumentStatus-request-IndexId"></a>
+>>>>>>> parent of 2b1c178 (updating tutorial)
 The identifier of the index to add documents to\. The index ID is returned by the [ CreateIndex ](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateIndex.html) operation\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
@@ -81,6 +91,7 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
+<<<<<<< HEAD
  ** [ DocumentStatusList ](#API_BatchGetDocumentStatus_ResponseSyntax) **   <a name="Kendra-BatchGetDocumentStatus-response-DocumentStatusList"></a>
 The status of documents\. The status indicates if the document is waiting to be indexed, is in the process of indexing, has completed indexing, or failed indexing\. If a document failed indexing, the status provides the reason why\.  
 Type: Array of [ Status ](API_Status.md) objects
@@ -88,11 +99,21 @@ Type: Array of [ Status ](API_Status.md) objects
  ** [ Errors ](#API_BatchGetDocumentStatus_ResponseSyntax) **   <a name="Kendra-BatchGetDocumentStatus-response-Errors"></a>
 A list of documents that Amazon Kendra couldn't get the status for\. The list includes the ID of the document and the reason that the status couldn't be found\.  
 Type: Array of [ BatchGetDocumentStatusResponseError ](API_BatchGetDocumentStatusResponseError.md) objects
+=======
+ ** [DocumentStatusList](#API_BatchGetDocumentStatus_ResponseSyntax) **   <a name="Kendra-BatchGetDocumentStatus-response-DocumentStatusList"></a>
+The status of documents\. The status indicates if the document is waiting to be indexed, is in the process of indexing, has completed indexing, or failed indexing\. If a document failed indexing, the status provides the reason why\.  
+Type: Array of [Status](API_Status.md) objects
+
+ ** [Errors](#API_BatchGetDocumentStatus_ResponseSyntax) **   <a name="Kendra-BatchGetDocumentStatus-response-Errors"></a>
+A list of documents that Amazon Kendra couldn't get the status for\. The list includes the ID of the document and the reason that the status couldn't be found\.  
+Type: Array of [BatchGetDocumentStatusResponseError](API_BatchGetDocumentStatusResponseError.md) objects
+>>>>>>> parent of 2b1c178 (updating tutorial)
 
 ## Errors<a name="API_BatchGetDocumentStatus_Errors"></a>
 
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
+<<<<<<< HEAD
  ** AccessDeniedException **   
   
 HTTP Status Code: 400
@@ -114,6 +135,29 @@ HTTP Status Code: 400
 HTTP Status Code: 400
 
  ** ValidationException **   
+=======
+ **AccessDeniedException**   
+  
+HTTP Status Code: 400
+
+ **ConflictException**   
+  
+HTTP Status Code: 400
+
+ **InternalServerException**   
+  
+HTTP Status Code: 500
+
+ **ResourceNotFoundException**   
+  
+HTTP Status Code: 400
+
+ **ThrottlingException**   
+  
+HTTP Status Code: 400
+
+ **ValidationException**   
+>>>>>>> parent of 2b1c178 (updating tutorial)
   
 HTTP Status Code: 400
 

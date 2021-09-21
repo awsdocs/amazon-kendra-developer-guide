@@ -66,6 +66,7 @@ For information about the parameters that are common to all actions, see [Common
 
 The request accepts the following data in JSON format\.
 
+<<<<<<< HEAD
  ** [ CapacityUnits ](#API_UpdateIndex_RequestSyntax) **   <a name="Kendra-UpdateIndex-request-CapacityUnits"></a>
 Sets the number of additional storage and query capacity units that should be used by the index\. You can change the capacity of the index up to 5 times per day\.  
 If you are using extra storage units, you can't reduce the storage capacity below that required to meet the storage needs for your index\.  
@@ -73,12 +74,22 @@ Type: [ CapacityUnitsConfiguration ](API_CapacityUnitsConfiguration.md) object
 Required: No
 
  ** [ Description ](#API_UpdateIndex_RequestSyntax) **   <a name="Kendra-UpdateIndex-request-Description"></a>
+=======
+ ** [CapacityUnits](#API_UpdateIndex_RequestSyntax) **   <a name="Kendra-UpdateIndex-request-CapacityUnits"></a>
+Sets the number of additional storage and query capacity units that should be used by the index\. You can change the capacity of the index up to 5 times per day\.  
+If you are using extra storage units, you can't reduce the storage capacity below that required to meet the storage needs for your index\.  
+Type: [CapacityUnitsConfiguration](API_CapacityUnitsConfiguration.md) object  
+Required: No
+
+ ** [Description](#API_UpdateIndex_RequestSyntax) **   <a name="Kendra-UpdateIndex-request-Description"></a>
+>>>>>>> parent of 2b1c178 (updating tutorial)
 A new description for the index\.  
 Type: String  
 Length Constraints: Minimum length of 0\. Maximum length of 1000\.  
 Pattern: `^\P{C}*$`   
 Required: No
 
+<<<<<<< HEAD
  ** [ DocumentMetadataConfigurationUpdates ](#API_UpdateIndex_RequestSyntax) **   <a name="Kendra-UpdateIndex-request-DocumentMetadataConfigurationUpdates"></a>
 The document metadata to update\.   
 Type: Array of [ DocumentMetadataConfiguration ](API_DocumentMetadataConfiguration.md) objects  
@@ -86,35 +97,62 @@ Array Members: Minimum number of 0 items\. Maximum number of 500 items\.
 Required: No
 
  ** [ Id ](#API_UpdateIndex_RequestSyntax) **   <a name="Kendra-UpdateIndex-request-Id"></a>
+=======
+ ** [DocumentMetadataConfigurationUpdates](#API_UpdateIndex_RequestSyntax) **   <a name="Kendra-UpdateIndex-request-DocumentMetadataConfigurationUpdates"></a>
+The document metadata to update\.   
+Type: Array of [DocumentMetadataConfiguration](API_DocumentMetadataConfiguration.md) objects  
+Array Members: Minimum number of 0 items\. Maximum number of 500 items\.  
+Required: No
+
+ ** [Id](#API_UpdateIndex_RequestSyntax) **   <a name="Kendra-UpdateIndex-request-Id"></a>
+>>>>>>> parent of 2b1c178 (updating tutorial)
 The identifier of the index to update\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`   
 Required: Yes
 
+<<<<<<< HEAD
  ** [ Name ](#API_UpdateIndex_RequestSyntax) **   <a name="Kendra-UpdateIndex-request-Name"></a>
+=======
+ ** [Name](#API_UpdateIndex_RequestSyntax) **   <a name="Kendra-UpdateIndex-request-Name"></a>
+>>>>>>> parent of 2b1c178 (updating tutorial)
 The name of the index to update\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1000\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`   
 Required: No
 
+<<<<<<< HEAD
  ** [ RoleArn ](#API_UpdateIndex_RequestSyntax) **   <a name="Kendra-UpdateIndex-request-RoleArn"></a>
+=======
+ ** [RoleArn](#API_UpdateIndex_RequestSyntax) **   <a name="Kendra-UpdateIndex-request-RoleArn"></a>
+>>>>>>> parent of 2b1c178 (updating tutorial)
 A new IAM role that gives Amazon Kendra permission to access your Amazon CloudWatch logs\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1284\.  
 Pattern: `arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}`   
 Required: No
 
+<<<<<<< HEAD
  ** [ UserContextPolicy ](#API_UpdateIndex_RequestSyntax) **   <a name="Kendra-UpdateIndex-request-UserContextPolicy"></a>
+=======
+ ** [UserContextPolicy](#API_UpdateIndex_RequestSyntax) **   <a name="Kendra-UpdateIndex-request-UserContextPolicy"></a>
+>>>>>>> parent of 2b1c178 (updating tutorial)
 The user context policy\.  
 Type: String  
 Valid Values:` ATTRIBUTE_FILTER | USER_TOKEN`   
 Required: No
 
+<<<<<<< HEAD
  ** [ UserTokenConfigurations ](#API_UpdateIndex_RequestSyntax) **   <a name="Kendra-UpdateIndex-request-UserTokenConfigurations"></a>
 The user token configuration\.  
 Type: Array of [ UserTokenConfiguration ](API_UserTokenConfiguration.md) objects  
+=======
+ ** [UserTokenConfigurations](#API_UpdateIndex_RequestSyntax) **   <a name="Kendra-UpdateIndex-request-UserTokenConfigurations"></a>
+The user token configuration\.  
+Type: Array of [UserTokenConfiguration](API_UserTokenConfiguration.md) objects  
+>>>>>>> parent of 2b1c178 (updating tutorial)
 Array Members: Maximum number of 1 item\.  
 Required: No
 
@@ -126,6 +164,7 @@ If the action is successful, the service sends back an HTTP 200 response with an
 
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
+<<<<<<< HEAD
  ** AccessDeniedException **   
   
 HTTP Status Code: 400
@@ -151,6 +190,33 @@ HTTP Status Code: 400
 HTTP Status Code: 400
 
  ** ValidationException **   
+=======
+ **AccessDeniedException**   
+  
+HTTP Status Code: 400
+
+ **ConflictException**   
+  
+HTTP Status Code: 400
+
+ **InternalServerException**   
+  
+HTTP Status Code: 500
+
+ **ResourceNotFoundException**   
+  
+HTTP Status Code: 400
+
+ **ServiceQuotaExceededException**   
+  
+HTTP Status Code: 400
+
+ **ThrottlingException**   
+  
+HTTP Status Code: 400
+
+ **ValidationException**   
+>>>>>>> parent of 2b1c178 (updating tutorial)
   
 HTTP Status Code: 400
 

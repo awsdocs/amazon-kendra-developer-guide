@@ -8,7 +8,11 @@ You can use Amazon Kendra to index blogs, pages, and attachments to either blogs
 
 Amazon Kendra indexes pages and blogs by default\. You can restrict the pages and blogs that are crawled using inclusion and exclusion patterns\. When you use an inclusion pattern, only those pages and blogs that match the inclusion pattern are indexed\. If you specify an exclusion pattern, pages that match the pattern are not indexed\.
 
+<<<<<<< HEAD
 When you create the data source, you can use the console or the [ CreateDataSource ](API_CreateDataSource.md) operation to specify whether Amazon Kendra indexes the attachments to pages and blogs\. If you choose to index attachments, only attachments to the indexed pages and blogs are indexed\.
+=======
+When you create the data source, you can use the console or the [CreateDataSource](API_CreateDataSource.md) operation to specify whether Amazon Kendra indexes the attachments to pages and blogs\. If you choose to index attachments, only attachments to the indexed pages and blogs are indexed\.
+>>>>>>> parent of 2b1c178 (updating tutorial)
 
 Before you can index the documents on a Confluence instance, you must create an account with administrative permission that Amazon Kendra can use to connect to the server\. The account must grant Amazon Kendra permission to view all of the content within your Confluence instance\. You can grant the account these permissions by making it a member of the `confluence-administrators` group\. 
 
@@ -33,7 +37,11 @@ The data source IAM role must have permission to access the secret and the AWS K
 
 You must create an index before you create the Confluence data source\. For more information, see [Creating an index](create-index.md)\. You provide the ID of the index when you create the data source\.
 
+<<<<<<< HEAD
 You specify connection and other information in the console or in an instance of the [ ConfluenceConfiguration ](API_ConfluenceConfiguration.md) data type\. You must provide the following information: 
+=======
+You specify connection and other information in the console or in an instance of the [ConfluenceConfiguration](API_ConfluenceConfiguration.md) data type\. You must provide the following information: 
+>>>>>>> parent of 2b1c178 (updating tutorial)
 + Credentials to connect to the Confluence instance\.
 + The URL of the Confluence instance that contains your documents\.
 + The version of Confluence that you are using\.
@@ -46,7 +54,11 @@ By default, Amazon Kendra doesn't index Confluence archive and personal spaces\.
 
 You can restrict access to the contents of a space by specifying view permissions\. If a query includes user information, Amazon Kendra reads these permissions and uses them for user context filtering\. For more information, see [Filtering on user context](user-context-filter.md)\.
 
+<<<<<<< HEAD
 If you use the Amazon Kendra console to create a Confluence data source, Amazon Kendra creates index fields for you when you specify a field mapping\. If you use the API, you must first create the index field using the [ UpdateIndex ](API_UpdateIndex.md) operation\. To map the Confluence fields to Amazon Kendra index fields, see the following table\.
+=======
+If you use the Amazon Kendra console to create a Confluence data source, Amazon Kendra creates index fields for you when you specify a field mapping\. If you use the API, you must first create the index field using the [UpdateIndex](API_UpdateIndex.md) operation\. To map the Confluence fields to Amazon Kendra index fields, see the following table\.
+>>>>>>> parent of 2b1c178 (updating tutorial)
 
 
 | Confluence field | Suggested Amazon Kendra field | 
@@ -62,7 +74,11 @@ Amazon Kendra indexes all pages, including nested pages, in a space unless they 
 
 The Confluence security model uses nested permissions\. To have access to a page, the account that you use to connect to the Confluence instance\. If a query includes user information, Amazon Kendra reads these permissions and uses them for user context filtering\. For more information, see [Filtering on user context](user-context-filter.md)\.
 
+<<<<<<< HEAD
 If you use the console to create a Confluence data source, Amazon Kendra creates the index fields for you when you specify a field mapping\. If you use the API, you must first create the index field using the [ UpdateIndex ](API_UpdateIndex.md) operation\. To map the Confluence fields to Amazon Kendra index fields, see the following table\. 
+=======
+If you use the console to create a Confluence data source, Amazon Kendra creates the index fields for you when you specify a field mapping\. If you use the API, you must first create the index field using the [UpdateIndex](API_UpdateIndex.md) operation\. To map the Confluence fields to Amazon Kendra index fields, see the following table\. 
+>>>>>>> parent of 2b1c178 (updating tutorial)
 
 
 | Confluence field | Suggested Amazon Kendra field | 
@@ -86,7 +102,11 @@ Amazon Kendra indexes all blogs in a space unless they are filtered from indexin
 
 The Confluence security model uses nested permissions\. To index a blog, the user that you use to connect to the Confluence instance must have access to the blog and the space that contains it\. If a query includes user information, Amazon Kendra reads these permissions and uses them for user context filtering\. For more information, see [Filtering on user context](user-context-filter.md)\.
 
+<<<<<<< HEAD
 If you use the console to index a Confluence data source, Amazon Kendra creates the index fields for you when you specify a field mapping\. If you use the API, you must first create the index field using the [ UpdateIndex ](API_UpdateIndex.md) operation\. To map the Confluence data source fields to Amazon Kendra index fields, see the following table\. 
+=======
+If you use the console to index a Confluence data source, Amazon Kendra creates the index fields for you when you specify a field mapping\. If you use the API, you must first create the index field using the [UpdateIndex](API_UpdateIndex.md) operation\. To map the Confluence data source fields to Amazon Kendra index fields, see the following table\. 
+>>>>>>> parent of 2b1c178 (updating tutorial)
 
 
 | Confluence field | Suggested Amazon Kendra field | 
@@ -114,7 +134,11 @@ Amazon Kendra indexes only the following supported documents types:
 
 The Confluence security model uses nested permissions\. To index to an attachment, the account that you use to connect the Confluence instance must have access to the blog or page and the space that contains it\. If a query includes user information, Amazon Kendra reads these permissions and uses them for user context filtering\. For more information, see [Filtering on user context](user-context-filter.md)\.
 
+<<<<<<< HEAD
 If you use the console, Amazon Kendra creates index fields for you when you specify a field mapping\. If you use the API, you must first create the index field using the [ UpdateIndex ](API_UpdateIndex.md) operation\. To map the Confluence fields to Amazon Kendra fields, see the following table\. 
+=======
+If you use the console, Amazon Kendra creates index fields for you when you specify a field mapping\. If you use the API, you must first create the index field using the [UpdateIndex](API_UpdateIndex.md) operation\. To map the Confluence fields to Amazon Kendra fields, see the following table\. 
+>>>>>>> parent of 2b1c178 (updating tutorial)
 
 
 | Confluence field | Suggested Amazon Kendra field | 

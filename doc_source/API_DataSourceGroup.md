@@ -8,14 +8,22 @@
 
 ## Contents<a name="API_DataSourceGroup_Contents"></a>
 
+<<<<<<< HEAD
  ** DataSourceId **   <a name="Kendra-Type-DataSourceGroup-DataSourceId"></a>
+=======
+ **DataSourceId**   <a name="Kendra-Type-DataSourceGroup-DataSourceId"></a>
+>>>>>>> parent of 2b1c178 (updating tutorial)
 The identifier of the data source group you want to add to your list of data source groups\. This is for filtering search results based on the groups' access to documents in that data source\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`   
 Required: Yes
 
+<<<<<<< HEAD
  ** GroupId **   <a name="Kendra-Type-DataSourceGroup-GroupId"></a>
+=======
+ **GroupId**   <a name="Kendra-Type-DataSourceGroup-GroupId"></a>
+>>>>>>> parent of 2b1c178 (updating tutorial)
 The identifier of the group you want to add to your list of groups\. This is for filtering search results based on the groups' access to documents\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 200\.  

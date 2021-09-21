@@ -8,20 +8,29 @@ Specifies configuration information for indexing a single standard object\.
 
 ## Contents<a name="API_SalesforceStandardObjectConfiguration_Contents"></a>
 
+<<<<<<< HEAD
  ** DocumentDataFieldName **   <a name="Kendra-Type-SalesforceStandardObjectConfiguration-DocumentDataFieldName"></a>
+=======
+ **DocumentDataFieldName**   <a name="Kendra-Type-SalesforceStandardObjectConfiguration-DocumentDataFieldName"></a>
+>>>>>>> parent of 2b1c178 (updating tutorial)
 The name of the field in the standard object table that contains the document contents\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Pattern: `^[a-zA-Z][a-zA-Z0-9_.]*$`   
 Required: Yes
 
+<<<<<<< HEAD
  ** DocumentTitleFieldName **   <a name="Kendra-Type-SalesforceStandardObjectConfiguration-DocumentTitleFieldName"></a>
+=======
+ **DocumentTitleFieldName**   <a name="Kendra-Type-SalesforceStandardObjectConfiguration-DocumentTitleFieldName"></a>
+>>>>>>> parent of 2b1c178 (updating tutorial)
 The name of the field in the standard object table that contains the document title\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Pattern: `^[a-zA-Z][a-zA-Z0-9_.]*$`   
 Required: No
 
+<<<<<<< HEAD
  ** FieldMappings **   <a name="Kendra-Type-SalesforceStandardObjectConfiguration-FieldMappings"></a>
 One or more objects that map fields in the standard object to Amazon Kendra index fields\. The index field must exist before you can map a Salesforce field to it\.  
 Type: Array of [ DataSourceToIndexFieldMapping ](API_DataSourceToIndexFieldMapping.md) objects  
@@ -29,6 +38,15 @@ Array Members: Minimum number of 1 item\. Maximum number of 100 items\.
 Required: No
 
  ** Name **   <a name="Kendra-Type-SalesforceStandardObjectConfiguration-Name"></a>
+=======
+ **FieldMappings**   <a name="Kendra-Type-SalesforceStandardObjectConfiguration-FieldMappings"></a>
+One or more objects that map fields in the standard object to Amazon Kendra index fields\. The index field must exist before you can map a Salesforce field to it\.  
+Type: Array of [DataSourceToIndexFieldMapping](API_DataSourceToIndexFieldMapping.md) objects  
+Array Members: Minimum number of 1 item\. Maximum number of 100 items\.  
+Required: No
+
+ **Name**   <a name="Kendra-Type-SalesforceStandardObjectConfiguration-Name"></a>
+>>>>>>> parent of 2b1c178 (updating tutorial)
 The name of the standard object\.  
 Type: String  
 Valid Values:` ACCOUNT | CAMPAIGN | CASE | CONTACT | CONTRACT | DOCUMENT | GROUP | IDEA | LEAD | OPPORTUNITY | PARTNER | PRICEBOOK | PRODUCT | PROFILE | SOLUTION | TASK | USER`   

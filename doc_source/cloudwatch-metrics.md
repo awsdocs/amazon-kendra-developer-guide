@@ -76,7 +76,11 @@ The following table describes the Amazon Kendra metrics for data source synchron
 
 ## Metrics for indexed documents<a name="cloudwatch-metrics-id"></a>
 
+<<<<<<< HEAD
 The following table describes the Amazon Kendra metrics for indexed documents\. For documents that are indexed using the [ BatchPutDocument ](API_BatchPutDocument.md) operation, only the `IndexId` dimension is supported\.
+=======
+The following table describes the Amazon Kendra metrics for indexed documents\. For documents that are indexed using the [BatchPutDocument](API_BatchPutDocument.md) operation, only the `IndexId` dimension is supported\.
+>>>>>>> parent of 2b1c178 (updating tutorial)
 
 
 | Metric | Description | 

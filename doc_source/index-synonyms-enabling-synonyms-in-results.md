@@ -8,4 +8,8 @@ Synonym highlighting is on by default\. Highlight information is included in Ama
 
 You can use the Amazon Kendra search console to test queries and see results\. You can toggle synonym highlighting in the search console\. The console tracks your preferences\. The settings only apply to the search console session\. 
 
+<<<<<<< HEAD
 Synonym highlights will have the highlight type `THESAURUS_SYNONYM`\. For more information about highlights, see the [ Highlight ](API_Highlight.md) data type\.
+=======
+Synonym highlights will have the highlight type `THESAURUS_SYNONYM`\. For more information about highlights, see the [Highlight](API_Highlight.md) data type\.
+>>>>>>> parent of 2b1c178 (updating tutorial)

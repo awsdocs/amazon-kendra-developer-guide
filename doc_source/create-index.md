@@ -4,7 +4,11 @@
 
 # Creating an index<a name="create-index"></a>
 
+<<<<<<< HEAD
 You can create an index using the console, the AWS Command Line Interface \(AWS CLI\), or by calling the [ CreateIndex ](API_CreateIndex.md) API operation\. The following procedures show how to create an index\. After you have created your index, you can add documents directly to your index or you can add them from a data source\.
+=======
+You can create an index using the console, the AWS Command Line Interface \(AWS CLI\), or by calling the [CreateIndex](API_CreateIndex.md) API operation\. The following procedures show how to create an index\. After you have created your index, you can add documents directly to your index or you can add them from a data source\.
+>>>>>>> parent of 2b1c178 (updating tutorial)
 
 To create an index, you need to provide the Amazon Resource Name \(ARN\) of an AWS Identity and Access Management \(IAM\) role that has permissions to any Amazon Simple Storage Service \(Amazon S3\) bucket that you use and to perform actions on your behalf\.
 

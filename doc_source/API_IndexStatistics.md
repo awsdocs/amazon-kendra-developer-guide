@@ -8,6 +8,7 @@ Provides information about the number of documents and the number of questions a
 
 ## Contents<a name="API_IndexStatistics_Contents"></a>
 
+<<<<<<< HEAD
  ** FaqStatistics **   <a name="Kendra-Type-IndexStatistics-FaqStatistics"></a>
 The number of question and answer topics in the index\.  
 Type: [ FaqStatistics ](API_FaqStatistics.md) object  
@@ -16,6 +17,16 @@ Required: Yes
  ** TextDocumentStatistics **   <a name="Kendra-Type-IndexStatistics-TextDocumentStatistics"></a>
 The number of text documents indexed\.  
 Type: [ TextDocumentStatistics ](API_TextDocumentStatistics.md) object  
+=======
+ **FaqStatistics**   <a name="Kendra-Type-IndexStatistics-FaqStatistics"></a>
+The number of question and answer topics in the index\.  
+Type: [FaqStatistics](API_FaqStatistics.md) object  
+Required: Yes
+
+ **TextDocumentStatistics**   <a name="Kendra-Type-IndexStatistics-TextDocumentStatistics"></a>
+The number of text documents indexed\.  
+Type: [TextDocumentStatistics](API_TextDocumentStatistics.md) object  
+>>>>>>> parent of 2b1c178 (updating tutorial)
 Required: Yes
 
 ## See Also<a name="API_IndexStatistics_SeeAlso"></a>

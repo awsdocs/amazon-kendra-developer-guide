@@ -21,13 +21,21 @@ For information about the parameters that are common to all actions, see [Common
 
 The request accepts the following data in JSON format\.
 
+<<<<<<< HEAD
  ** [ ResourceARN ](#API_UntagResource_RequestSyntax) **   <a name="Kendra-UntagResource-request-ResourceARN"></a>
+=======
+ ** [ResourceARN](#API_UntagResource_RequestSyntax) **   <a name="Kendra-UntagResource-request-ResourceARN"></a>
+>>>>>>> parent of 2b1c178 (updating tutorial)
 The Amazon Resource Name \(ARN\) of the index, FAQ, or data source to remove the tag from\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1011\.  
 Required: Yes
 
+<<<<<<< HEAD
  ** [ TagKeys ](#API_UntagResource_RequestSyntax) **   <a name="Kendra-UntagResource-request-TagKeys"></a>
+=======
+ ** [TagKeys](#API_UntagResource_RequestSyntax) **   <a name="Kendra-UntagResource-request-TagKeys"></a>
+>>>>>>> parent of 2b1c178 (updating tutorial)
 A list of tag keys to remove from the index, FAQ, or data source\. If a tag key does not exist on the resource, it is ignored\.  
 Type: Array of strings  
 Array Members: Minimum number of 0 items\. Maximum number of 200 items\.  
@@ -42,6 +50,7 @@ If the action is successful, the service sends back an HTTP 200 response with an
 
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
+<<<<<<< HEAD
  ** AccessDeniedException **   
   
 HTTP Status Code: 400
@@ -59,6 +68,25 @@ HTTP Status Code: 400
 HTTP Status Code: 400
 
  ** ValidationException **   
+=======
+ **AccessDeniedException**   
+  
+HTTP Status Code: 400
+
+ **InternalServerException**   
+  
+HTTP Status Code: 500
+
+ **ResourceUnavailableException**   
+  
+HTTP Status Code: 400
+
+ **ThrottlingException**   
+  
+HTTP Status Code: 400
+
+ **ValidationException**   
+>>>>>>> parent of 2b1c178 (updating tutorial)
   
 HTTP Status Code: 400
 

@@ -95,7 +95,11 @@ When you use OAuth authentication, you provide a user name and password\. Amazon
 
 ## Connecting to a ServiceNow instance<a name="servicenow-connection"></a>
 
+<<<<<<< HEAD
 You provide ServiceNow connection information in the Amazon Kendra console or by using an instance of the [ ServiceNowConfiguration ](API_ServiceNowConfiguration.md) data type\. You must provide the following information:
+=======
+You provide ServiceNow connection information in the Amazon Kendra console or by using an instance of the [ServiceNowConfiguration](API_ServiceNowConfiguration.md) data type\. You must provide the following information:
+>>>>>>> parent of 2b1c178 (updating tutorial)
 + The ARN of the Secrets Manager secret that contains the credentials required to access the ServiceNow instance\.
 + The version of the ServiceNow instance\. For Amazon Kendra, this is `LONDON` for the London version and `OTHERS` for all other versions\.
 + The ServiceNow instance host\. For example, if the URL of the instance is `https://your-domain.service-now.com`, the host is `your-domain.service-now.com`\.

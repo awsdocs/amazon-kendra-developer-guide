@@ -4,7 +4,11 @@
 
 # Filtering queries<a name="filtering"></a>
 
+<<<<<<< HEAD
 You can improve the response from the [ Query ](API_Query.md) operation by using filters\. Filters restrict the documents in the response to ones that directly apply to the query\. You can create faceted search suggestions, use Boolean logic to filter out documents that don't match specific criteria, or filter out specific document attributes from the response\.
+=======
+You can improve the response from the [Query](API_Query.md) operation by using filters\. Filters restrict the documents in the response to ones that directly apply to the query\. You can create faceted search suggestions, use Boolean logic to filter out documents that don't match specific criteria, or filter out specific document attributes from the response\.
+>>>>>>> parent of 2b1c178 (updating tutorial)
 
 ## Facets<a name="search-facets"></a>
 
@@ -22,7 +26,11 @@ response=kendra.query(
         )
 ```
 
+<<<<<<< HEAD
 Facet information is returned in the `FacetResults` response array\. You use the contents to display faceted search suggestions in your application\. For example, if the document attribute `Category` contains the city that a search could apply to, use that information to display a list of city searches\. Users can choose a city to get faceted search results scoped to the city\. To make the faceted search, call [ Query ](API_Query.md) and use the chosen document attribute to filter the results\. For an example, see [Using document attributes to filter search results](#search-filtering)\.
+=======
+Facet information is returned in the `FacetResults` response array\. You use the contents to display faceted search suggestions in your application\. For example, if the document attribute `Category` contains the city that a search could apply to, use that information to display a list of city searches\. Users can choose a city to get faceted search results scoped to the city\. To make the faceted search, call [Query](API_Query.md) and use the chosen document attribute to filter the results\. For an example, see [Using document attributes to filter search results](#search-filtering)\.
+>>>>>>> parent of 2b1c178 (updating tutorial)
 
 The following sample JSON response shows facets scoped to the `_category` document attribute\. The response includes the count of documents that include the value of the document attribute\.
 
@@ -61,7 +69,11 @@ For more information, see [Query responses](query-response.md)\.
 
 ## Using document attributes to filter search results<a name="search-filtering"></a>
 
+<<<<<<< HEAD
 By default, `Query` returns all search results\. To filter responses, you can perform logical operations on the document attributes\. For example, if you only want documents for a specific city, you can filter on the `City` and `State` custom document attributes\. You use the [ AttributeFilter ](API_AttributeFilter.md) input parameter to create a Boolean operation on filters that you supply\.
+=======
+By default, `Query` returns all search results\. To filter responses, you can perform logical operations on the document attributes\. For example, if you only want documents for a specific city, you can filter on the `City` and `State` custom document attributes\. You use the [AttributeFilter](API_AttributeFilter.md) input parameter to create a Boolean operation on filters that you supply\.
+>>>>>>> parent of 2b1c178 (updating tutorial)
 
 Most attributes can be used to filter responses for all [response types](https://docs.aws.amazon.com/kendra/latest/dg/response-types.html)\. However, the `_excerpt_page_number` attribute is only applicable to `ANSWER` response types when filtering responses\.
 

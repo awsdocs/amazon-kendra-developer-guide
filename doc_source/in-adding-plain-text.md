@@ -6,7 +6,11 @@
 
 You can add documents directly to your index from an Amazon S3 bucket\. You can add up to 10 documents in the same call\. When you use an S3 bucket, you must provide an IAM role with permission to access the bucket containing your documents\. You specify the role in the `RoleArn` parameter\.
 
+<<<<<<< HEAD
 Using the [ BatchPutDocument ](API_BatchPutDocument.md) operation to add documents from an Amazon S3 bucket is a one\-time operation\. To keep an index synchronized with the contents of a bucket, create an S3 data source\. For more information, see [Using an Amazon S3 data source](data-source-s3.md)\. 
+=======
+Using the [BatchPutDocument](API_BatchPutDocument.md) operation to add documents from an Amazon S3 bucket is a one\-time operation\. To keep an index synchronized with the contents of a bucket, create an S3 data source\. For more information, see [Using an Amazon S3 data source](data-source-s3.md)\. 
+>>>>>>> parent of 2b1c178 (updating tutorial)
 
 The following example adds two Microsoft Word documents to the index using the `BatchPutDocument` operation\.
 

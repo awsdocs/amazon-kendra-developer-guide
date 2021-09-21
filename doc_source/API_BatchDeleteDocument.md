@@ -27,19 +27,32 @@ For information about the parameters that are common to all actions, see [Common
 
 The request accepts the following data in JSON format\.
 
+<<<<<<< HEAD
  ** [ DataSourceSyncJobMetricTarget ](#API_BatchDeleteDocument_RequestSyntax) **   <a name="Kendra-BatchDeleteDocument-request-DataSourceSyncJobMetricTarget"></a>
 Maps a particular data source sync job to a particular data source\.  
 Type: [ DataSourceSyncJobMetricTarget ](API_DataSourceSyncJobMetricTarget.md) object  
 Required: No
 
  ** [ DocumentIdList ](#API_BatchDeleteDocument_RequestSyntax) **   <a name="Kendra-BatchDeleteDocument-request-DocumentIdList"></a>
+=======
+ ** [DataSourceSyncJobMetricTarget](#API_BatchDeleteDocument_RequestSyntax) **   <a name="Kendra-BatchDeleteDocument-request-DataSourceSyncJobMetricTarget"></a>
+Maps a particular data source sync job to a particular data source\.  
+Type: [DataSourceSyncJobMetricTarget](API_DataSourceSyncJobMetricTarget.md) object  
+Required: No
+
+ ** [DocumentIdList](#API_BatchDeleteDocument_RequestSyntax) **   <a name="Kendra-BatchDeleteDocument-request-DocumentIdList"></a>
+>>>>>>> parent of 2b1c178 (updating tutorial)
 One or more identifiers for documents to delete from the index\.  
 Type: Array of strings  
 Array Members: Minimum number of 1 item\. Maximum number of 10 items\.  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  
 Required: Yes
 
+<<<<<<< HEAD
  ** [ IndexId ](#API_BatchDeleteDocument_RequestSyntax) **   <a name="Kendra-BatchDeleteDocument-request-IndexId"></a>
+=======
+ ** [IndexId](#API_BatchDeleteDocument_RequestSyntax) **   <a name="Kendra-BatchDeleteDocument-request-IndexId"></a>
+>>>>>>> parent of 2b1c178 (updating tutorial)
 The identifier of the index that contains the documents to delete\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
@@ -66,14 +79,21 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
+<<<<<<< HEAD
  ** [ FailedDocuments ](#API_BatchDeleteDocument_ResponseSyntax) **   <a name="Kendra-BatchDeleteDocument-response-FailedDocuments"></a>
 A list of documents that could not be removed from the index\. Each entry contains an error message that indicates why the document couldn't be removed from the index\.  
 Type: Array of [ BatchDeleteDocumentResponseFailedDocument ](API_BatchDeleteDocumentResponseFailedDocument.md) objects
+=======
+ ** [FailedDocuments](#API_BatchDeleteDocument_ResponseSyntax) **   <a name="Kendra-BatchDeleteDocument-response-FailedDocuments"></a>
+A list of documents that could not be removed from the index\. Each entry contains an error message that indicates why the document couldn't be removed from the index\.  
+Type: Array of [BatchDeleteDocumentResponseFailedDocument](API_BatchDeleteDocumentResponseFailedDocument.md) objects
+>>>>>>> parent of 2b1c178 (updating tutorial)
 
 ## Errors<a name="API_BatchDeleteDocument_Errors"></a>
 
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
+<<<<<<< HEAD
  ** AccessDeniedException **   
   
 HTTP Status Code: 400
@@ -95,6 +115,29 @@ HTTP Status Code: 400
 HTTP Status Code: 400
 
  ** ValidationException **   
+=======
+ **AccessDeniedException**   
+  
+HTTP Status Code: 400
+
+ **ConflictException**   
+  
+HTTP Status Code: 400
+
+ **InternalServerException**   
+  
+HTTP Status Code: 500
+
+ **ResourceNotFoundException**   
+  
+HTTP Status Code: 400
+
+ **ThrottlingException**   
+  
+HTTP Status Code: 400
+
+ **ValidationException**   
+>>>>>>> parent of 2b1c178 (updating tutorial)
   
 HTTP Status Code: 400
 

@@ -21,13 +21,21 @@ For information about the parameters that are common to all actions, see [Common
 
 The request accepts the following data in JSON format\.
 
+<<<<<<< HEAD
  ** [ MaxResults ](#API_ListIndices_RequestSyntax) **   <a name="Kendra-ListIndices-request-MaxResults"></a>
+=======
+ ** [MaxResults](#API_ListIndices_RequestSyntax) **   <a name="Kendra-ListIndices-request-MaxResults"></a>
+>>>>>>> parent of 2b1c178 (updating tutorial)
 The maximum number of data sources to return\.  
 Type: Integer  
 Valid Range: Minimum value of 1\. Maximum value of 100\.  
 Required: No
 
+<<<<<<< HEAD
  ** [ NextToken ](#API_ListIndices_RequestSyntax) **   <a name="Kendra-ListIndices-request-NextToken"></a>
+=======
+ ** [NextToken](#API_ListIndices_RequestSyntax) **   <a name="Kendra-ListIndices-request-NextToken"></a>
+>>>>>>> parent of 2b1c178 (updating tutorial)
 If the previous response was incomplete \(because there is more data to retrieve\), Amazon Kendra returns a pagination token in the response\. You can use this pagination token to retrieve the next set of indexes \(`DataSourceSummaryItems`\)\.   
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 800\.  
@@ -57,11 +65,19 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
+<<<<<<< HEAD
  ** [ IndexConfigurationSummaryItems ](#API_ListIndices_ResponseSyntax) **   <a name="Kendra-ListIndices-response-IndexConfigurationSummaryItems"></a>
 An array of summary information for one or more indexes\.  
 Type: Array of [ IndexConfigurationSummary ](API_IndexConfigurationSummary.md) objects
 
  ** [ NextToken ](#API_ListIndices_ResponseSyntax) **   <a name="Kendra-ListIndices-response-NextToken"></a>
+=======
+ ** [IndexConfigurationSummaryItems](#API_ListIndices_ResponseSyntax) **   <a name="Kendra-ListIndices-response-IndexConfigurationSummaryItems"></a>
+An array of summary information for one or more indexes\.  
+Type: Array of [IndexConfigurationSummary](API_IndexConfigurationSummary.md) objects
+
+ ** [NextToken](#API_ListIndices_ResponseSyntax) **   <a name="Kendra-ListIndices-response-NextToken"></a>
+>>>>>>> parent of 2b1c178 (updating tutorial)
 If the response is truncated, Amazon Kendra returns this token that you can use in the subsequent request to retrieve the next set of indexes\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 800\.
@@ -70,6 +86,7 @@ Length Constraints: Minimum length of 1\. Maximum length of 800\.
 
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
+<<<<<<< HEAD
  ** AccessDeniedException **   
   
 HTTP Status Code: 400
@@ -83,6 +100,21 @@ HTTP Status Code: 500
 HTTP Status Code: 400
 
  ** ValidationException **   
+=======
+ **AccessDeniedException**   
+  
+HTTP Status Code: 400
+
+ **InternalServerException**   
+  
+HTTP Status Code: 500
+
+ **ThrottlingException**   
+  
+HTTP Status Code: 400
+
+ **ValidationException**   
+>>>>>>> parent of 2b1c178 (updating tutorial)
   
 HTTP Status Code: 400
 

@@ -74,7 +74,11 @@ There are three types of log messages published to a data source log stream:
 
 Amazon Kendra logs information about processing documents while the are being indexed\. It logs a set of messages for documents stored in an Amazon S3 data source\. It logs errors only for documents stored in a Microsoft SharePoint or a database data source\.
 
+<<<<<<< HEAD
 If the documents were added to the index using the [ BatchPutDocument ](API_BatchPutDocument.md) operation, the log stream is named as follows:
+=======
+If the documents were added to the index using the [BatchPutDocument](API_BatchPutDocument.md) operation, the log stream is named as follows:
+>>>>>>> parent of 2b1c178 (updating tutorial)
 
 ```
 YYYY-MM-DD-HH/UUID

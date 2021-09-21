@@ -8,10 +8,17 @@ Provides the configuration information to connect to websites that require user 
 
 ## Contents<a name="API_AuthenticationConfiguration_Contents"></a>
 
+<<<<<<< HEAD
  ** BasicAuthentication **   <a name="Kendra-Type-AuthenticationConfiguration-BasicAuthentication"></a>
 The list of configuration information that's required to connect to and crawl a website host using basic authentication credentials\.  
 The list includes the name and port number of the website host\.  
 Type: Array of [ BasicAuthenticationConfiguration ](API_BasicAuthenticationConfiguration.md) objects  
+=======
+ **BasicAuthentication**   <a name="Kendra-Type-AuthenticationConfiguration-BasicAuthentication"></a>
+The list of configuration information that's required to connect to and crawl a website host using basic authentication credentials\.  
+The list includes the name and port number of the website host\.  
+Type: Array of [BasicAuthenticationConfiguration](API_BasicAuthenticationConfiguration.md) objects  
+>>>>>>> parent of 2b1c178 (updating tutorial)
 Array Members: Minimum number of 0 items\. Maximum number of 10 items\.  
 Required: No
 

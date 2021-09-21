@@ -26,15 +26,25 @@ For information about the parameters that are common to all actions, see [Common
 
 The request accepts the following data in JSON format\.
 
+<<<<<<< HEAD
  ** [ ResourceARN ](#API_TagResource_RequestSyntax) **   <a name="Kendra-TagResource-request-ResourceARN"></a>
+=======
+ ** [ResourceARN](#API_TagResource_RequestSyntax) **   <a name="Kendra-TagResource-request-ResourceARN"></a>
+>>>>>>> parent of 2b1c178 (updating tutorial)
 The Amazon Resource Name \(ARN\) of the index, FAQ, or data source to tag\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1011\.  
 Required: Yes
 
+<<<<<<< HEAD
  ** [ Tags ](#API_TagResource_RequestSyntax) **   <a name="Kendra-TagResource-request-Tags"></a>
 A list of tag keys to add to the index, FAQ, or data source\. If a tag already exists, the existing value is replaced with the new value\.  
 Type: Array of [ Tag ](API_Tag.md) objects  
+=======
+ ** [Tags](#API_TagResource_RequestSyntax) **   <a name="Kendra-TagResource-request-Tags"></a>
+A list of tag keys to add to the index, FAQ, or data source\. If a tag already exists, the existing value is replaced with the new value\.  
+Type: Array of [Tag](API_Tag.md) objects  
+>>>>>>> parent of 2b1c178 (updating tutorial)
 Array Members: Minimum number of 0 items\. Maximum number of 200 items\.  
 Required: Yes
 
@@ -46,6 +56,7 @@ If the action is successful, the service sends back an HTTP 200 response with an
 
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
+<<<<<<< HEAD
  ** AccessDeniedException **   
   
 HTTP Status Code: 400
@@ -63,6 +74,25 @@ HTTP Status Code: 400
 HTTP Status Code: 400
 
  ** ValidationException **   
+=======
+ **AccessDeniedException**   
+  
+HTTP Status Code: 400
+
+ **InternalServerException**   
+  
+HTTP Status Code: 500
+
+ **ResourceUnavailableException**   
+  
+HTTP Status Code: 400
+
+ **ThrottlingException**   
+  
+HTTP Status Code: 400
+
+ **ValidationException**   
+>>>>>>> parent of 2b1c178 (updating tutorial)
   
 HTTP Status Code: 400
 

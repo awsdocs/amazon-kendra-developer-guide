@@ -50,7 +50,11 @@ For web applications, you can use cookies, locations, or browser users to genera
 
 For head queries, the largest volume of queries, providing click\-through feedback provides enough information to improve overall accuracy\. For tail queries, those that are rare, subject matter experts should submit relevant and non\-relevant feedback to improve accuracy for those queries\.
 
+<<<<<<< HEAD
 In addition to the console, you can use one of two methods: a JavaScript library or the [ SubmitFeedback ](API_SubmitFeedback.md) operation\. You should only use one method of gathering feedback\. For best results, you should submit feedback within 24 hours of making the query\.
+=======
+In addition to the console, you can use one of two methods: a JavaScript library or the [SubmitFeedback](API_SubmitFeedback.md) operation\. You should only use one method of gathering feedback\. For best results, you should submit feedback within 24 hours of making the query\.
+>>>>>>> parent of 2b1c178 (updating tutorial)
 
 **Topics**
 + [Using the Amazon Kendra JavaScript library to submit feedback](feedback-javascript.md)

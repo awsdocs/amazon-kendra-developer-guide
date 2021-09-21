@@ -8,16 +8,26 @@ Provides configuration information for processing attachments to Salesforce stan
 
 ## Contents<a name="API_SalesforceStandardObjectAttachmentConfiguration_Contents"></a>
 
+<<<<<<< HEAD
  ** DocumentTitleFieldName **   <a name="Kendra-Type-SalesforceStandardObjectAttachmentConfiguration-DocumentTitleFieldName"></a>
+=======
+ **DocumentTitleFieldName**   <a name="Kendra-Type-SalesforceStandardObjectAttachmentConfiguration-DocumentTitleFieldName"></a>
+>>>>>>> parent of 2b1c178 (updating tutorial)
 The name of the field used for the document title\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Pattern: `^[a-zA-Z][a-zA-Z0-9_.]*$`   
 Required: No
 
+<<<<<<< HEAD
  ** FieldMappings **   <a name="Kendra-Type-SalesforceStandardObjectAttachmentConfiguration-FieldMappings"></a>
 One or more objects that map fields in attachments to Amazon Kendra index fields\.  
 Type: Array of [ DataSourceToIndexFieldMapping ](API_DataSourceToIndexFieldMapping.md) objects  
+=======
+ **FieldMappings**   <a name="Kendra-Type-SalesforceStandardObjectAttachmentConfiguration-FieldMappings"></a>
+One or more objects that map fields in attachments to Amazon Kendra index fields\.  
+Type: Array of [DataSourceToIndexFieldMapping](API_DataSourceToIndexFieldMapping.md) objects  
+>>>>>>> parent of 2b1c178 (updating tutorial)
 Array Members: Minimum number of 1 item\. Maximum number of 100 items\.  
 Required: No
 

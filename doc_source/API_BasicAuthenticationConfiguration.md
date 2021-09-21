@@ -8,7 +8,11 @@ Provides the configuration information to connect to websites that require basic
 
 ## Contents<a name="API_BasicAuthenticationConfiguration_Contents"></a>
 
+<<<<<<< HEAD
  ** Credentials **   <a name="Kendra-Type-BasicAuthenticationConfiguration-Credentials"></a>
+=======
+ **Credentials**   <a name="Kendra-Type-BasicAuthenticationConfiguration-Credentials"></a>
+>>>>>>> parent of 2b1c178 (updating tutorial)
 Your secret ARN, which you can create in [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html)   
 You use a secret if basic authentication credentials are required to connect to a website\. The secret stores your credentials of user name and password\.  
 Type: String  
@@ -16,7 +20,11 @@ Length Constraints: Minimum length of 1\. Maximum length of 1284\.
 Pattern: `arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}`   
 Required: Yes
 
+<<<<<<< HEAD
  ** Host **   <a name="Kendra-Type-BasicAuthenticationConfiguration-Host"></a>
+=======
+ **Host**   <a name="Kendra-Type-BasicAuthenticationConfiguration-Host"></a>
+>>>>>>> parent of 2b1c178 (updating tutorial)
 The name of the website host you want to connect to using authentication credentials\.  
 For example, the host name of https://a\.example\.com/page1\.html is "a\.example\.com"\.  
 Type: String  
@@ -24,7 +32,11 @@ Length Constraints: Minimum length of 1\. Maximum length of 253\.
 Pattern: `([^\s]*)`   
 Required: Yes
 
+<<<<<<< HEAD
  ** Port **   <a name="Kendra-Type-BasicAuthenticationConfiguration-Port"></a>
+=======
+ **Port**   <a name="Kendra-Type-BasicAuthenticationConfiguration-Port"></a>
+>>>>>>> parent of 2b1c178 (updating tutorial)
 The port number of the website host you want to connect to using authentication credentials\.  
 For example, the port for https://a\.example\.com/page1\.html is 443, the standard port for HTTPS\.  
 Type: Integer  

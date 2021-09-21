@@ -6,7 +6,11 @@
 
 By default, query responses are sorted by the relevance score that Amazon Kendra determines for each result in the response\.
 
+<<<<<<< HEAD
 You can modify the effect of a field or attribute on the search relevance through *relevance tuning*\. To quickly test relevance tuning, use the [ Query ](API_Query.md) operation to pass in tuning configurations in the query\. Then you can see the different search results that you get from different configurations\. Relevance tuning at the query level is not supported in the console\. You cannot tune fields or attributes that are of the type `StringList`\.
+=======
+You can modify the effect of a field or attribute on the search relevance through *relevance tuning*\. To quickly test relevance tuning, use the [Query](API_Query.md) operation to pass in tuning configurations in the query\. Then you can see the different search results that you get from different configurations\. Relevance tuning at the query level is not supported in the console\. You cannot tune fields or attributes that are of the type `StringList`\.
+>>>>>>> parent of 2b1c178 (updating tutorial)
 
 You can tune results for any built\-in or custom attribute of the following types:
 + Date value

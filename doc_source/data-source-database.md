@@ -56,7 +56,11 @@ By default, Amazon Kendra uses SQL identifiers—such as database name, table na
 
 A PostgreSQL database always changes unquoted table and column names to lowercase\. For example, if Amazon Kendra is configured to use the table name **SAMPLE\_TABLE**, PostgreSQL converts it internally to **sample\_table**\. If a table or column name contains uppercase letters, the SQL query won’t match the correct columns or table because PostgreSQL internally changes them to lowercase\.
 
+<<<<<<< HEAD
 To configure Amazon Kendra to enclose the SQL identifiers for table and column names in quotation marks \("\), set the `QueryIdentifiersEnclosingOption` field to `DOUBLE_QUOTES` inside the[ SqlConfiguration ](API_SqlConfiguration.md) parameter of the [ CreateDataSource ](API_CreateDataSource.md) operation\. When you set this parameter, the SQL identifiers sent to databases are enclosed in quotation marks so that PostgreSQL doesn't change SQL identifiers to lowercase\. If you enclose identifiers in quotation marks when you are using MySQL, you must set the `ansi_quotes` option in the MySQL database\.
+=======
+To configure Amazon Kendra to enclose the SQL identifiers for table and column names in quotation marks \("\), set the `QueryIdentifiersEnclosingOption` field to `DOUBLE_QUOTES` inside the[SqlConfiguration](API_SqlConfiguration.md) parameter of the [CreateDataSource](API_CreateDataSource.md) operation\. When you set this parameter, the SQL identifiers sent to databases are enclosed in quotation marks so that PostgreSQL doesn't change SQL identifiers to lowercase\. If you enclose identifiers in quotation marks when you are using MySQL, you must set the `ansi_quotes` option in the MySQL database\.
+>>>>>>> parent of 2b1c178 (updating tutorial)
 
 You add document table information to an index by mapping table columns to index fields\. There are two types of information that you add\. The first is one to five columns that Amazon Kendra uses to determine if a document has changed since the last time that an index update was run\. For example, if you have columns in your table named `LastUpdateDate` and `LastUpdateTime`, you can tell Amazon Kendra to use them to determine if a document was updated\.
 

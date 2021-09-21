@@ -9,6 +9,7 @@ Amazon Kendra returns three types of query response\.
 + Document
 + Question and answer
 
+<<<<<<< HEAD
 The type of the response is returned in the `Type` response field of the [ QueryResultItem ](API_QueryResultItem.md) operation\. 
 
 ## Answer<a name="query-answer"></a>
@@ -16,6 +17,13 @@ The type of the response is returned in the `Type` response field of the [ Query
 Amazon Kendra detected one or more question answers in the response\. A factoid is the response to a who, what, when, or where question such as *Where is the nearest service center to me?* Amazon Kendra returns text in the index that best matches the query\. The text is in the `AnswerText` field and contains highlight information for the search term within the response text\. `AnswerText` includes the full document excerpt with highlighted text, while `DocumentExcerpt` includes the truncated \(290 characters\) document excerpt with highlighted text\.
 
 Amazon Kendra only returns one answer per document, and that is the answer with the highest confidence\. To return multiple answers from a document, you need to split the document into multiple documents\.
+=======
+The type of the response is returned in the `Type` response field of the [QueryResultItem](API_QueryResultItem.md) operation\. 
+
+## Answer<a name="query-answer"></a>
+
+Amazon Kendra detected one or more question answers in the response\. A factoid is the response to a who, what, when, or where question such as *What is the height of the space needle?* Amazon Kendra returns text in the index that best matches the query\. The text is in the `AnswerText` field and contains highlight information for the search term within the response text\. `AnswerText` includes the full document excerpt with highlighted text, while `DocumentExcerpt` includes the truncated \(290 characters\) document excerpt with highlighted text\.
+>>>>>>> parent of 2b1c178 (updating tutorial)
 
 ```
 {
@@ -63,7 +71,11 @@ Amazon Kendra only returns one answer per document, and that is the answer with 
 
 ## Document<a name="query-document"></a>
 
+<<<<<<< HEAD
 Amazon Kendra returns ranked documents for those that match the search term\. The ranking is based on the confidence that Amazon Kendra has in the accuracy of the search result\. Information about the matching document is returned in the [ QueryResultItem ](API_QueryResultItem.md)\. It includes the title of the document\. The excerpt includes highlight information for search text and the section of matching text in the document\. The URI for matching documents is in the `SourceURI` document attribute\. The following sample JSON shows the document summary for a matching document\.
+=======
+Amazon Kendra returns ranked documents for those that match the search term\. The ranking is based on the confidence that Amazon Kendra has in the accuracy of the search result\. Information about the matching document is returned in the [QueryResultItem](API_QueryResultItem.md)\. It includes the title of the document\. The excerpt includes highlight information for search text and the section of matching text in the document\. The URI for matching documents is in the `SourceURI` document attribute\. The following sample JSON shows the document summary for a matching document\.
+>>>>>>> parent of 2b1c178 (updating tutorial)
 
 ```
 {
@@ -105,7 +117,11 @@ Amazon Kendra returns ranked documents for those that match the search term\. Th
 
 ## Question and answer<a name="query-question-answer"></a>
 
+<<<<<<< HEAD
 A question and answer response is returned when Amazon Kendra matches a question with one of the frequently asked questions in your index\. The response includes the matching question and answer in the [ QueryResultItem ](API_QueryResultItem.md) field\. It also includes highlight information for query terms detected in query string\. The following JSON shows a question and answer response\. Note that the response includes the question text\. 
+=======
+A question and answer response is returned when Amazon Kendra matches a question with one of the frequently asked questions in your index\. The response includes the matching question and answer in the [QueryResultItem](API_QueryResultItem.md) field\. It also includes highlight information for query terms detected in query string\. The following JSON shows a question and answer response\. Note that the response includes the question text\. 
+>>>>>>> parent of 2b1c178 (updating tutorial)
 
 ```
 {

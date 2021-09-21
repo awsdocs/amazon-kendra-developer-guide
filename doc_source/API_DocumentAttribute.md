@@ -8,16 +8,26 @@ A custom attribute value assigned to a document\.
 
 ## Contents<a name="API_DocumentAttribute_Contents"></a>
 
+<<<<<<< HEAD
  ** Key **   <a name="Kendra-Type-DocumentAttribute-Key"></a>
+=======
+ **Key**   <a name="Kendra-Type-DocumentAttribute-Key"></a>
+>>>>>>> parent of 2b1c178 (updating tutorial)
 The identifier for the attribute\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 200\.  
 Pattern: `[a-zA-Z0-9_][a-zA-Z0-9_-]*`   
 Required: Yes
 
+<<<<<<< HEAD
  ** Value **   <a name="Kendra-Type-DocumentAttribute-Value"></a>
 The value of the attribute\.  
 Type: [ DocumentAttributeValue ](API_DocumentAttributeValue.md) object  
+=======
+ **Value**   <a name="Kendra-Type-DocumentAttribute-Value"></a>
+The value of the attribute\.  
+Type: [DocumentAttributeValue](API_DocumentAttributeValue.md) object  
+>>>>>>> parent of 2b1c178 (updating tutorial)
 Required: Yes
 
 ## See Also<a name="API_DocumentAttribute_SeeAlso"></a>

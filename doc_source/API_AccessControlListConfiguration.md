@@ -8,7 +8,11 @@ Access Control List files for the documents in a data source\. For the format of
 
 ## Contents<a name="API_AccessControlListConfiguration_Contents"></a>
 
+<<<<<<< HEAD
  ** KeyPath **   <a name="Kendra-Type-AccessControlListConfiguration-KeyPath"></a>
+=======
+ **KeyPath**   <a name="Kendra-Type-AccessControlListConfiguration-KeyPath"></a>
+>>>>>>> parent of 2b1c178 (updating tutorial)
 Path to the AWS S3 bucket that contains the ACL files\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1024\.  

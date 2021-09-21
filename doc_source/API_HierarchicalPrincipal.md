@@ -8,9 +8,15 @@
 
 ## Contents<a name="API_HierarchicalPrincipal_Contents"></a>
 
+<<<<<<< HEAD
  ** PrincipalList **   <a name="Kendra-Type-HierarchicalPrincipal-PrincipalList"></a>
 A list of [principal](https://docs.aws.amazon.com/kendra/latest/dg/API_Principal.html) lists that define the hierarchy for which documents users should have access to\. Each hierarchical list specifies which user or group has allow or deny access for each document\.  
 Type: Array of [ Principal ](API_Principal.md) objects  
+=======
+ **PrincipalList**   <a name="Kendra-Type-HierarchicalPrincipal-PrincipalList"></a>
+A list of [principal](https://docs.aws.amazon.com/kendra/latest/dg/API_Principal.html) lists that define the hierarchy for which documents users should have access to\. Each hierarchical list specifies which user or group has allow or deny access for each document\.  
+Type: Array of [Principal](API_Principal.md) objects  
+>>>>>>> parent of 2b1c178 (updating tutorial)
 Required: Yes
 
 ## See Also<a name="API_HierarchicalPrincipal_SeeAlso"></a>

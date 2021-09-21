@@ -28,38 +28,63 @@ For information about the parameters that are common to all actions, see [Common
 
 The request accepts the following data in JSON format\.
 
+<<<<<<< HEAD
  ** [ Id ](#API_ListDataSourceSyncJobs_RequestSyntax) **   <a name="Kendra-ListDataSourceSyncJobs-request-Id"></a>
+=======
+ ** [Id](#API_ListDataSourceSyncJobs_RequestSyntax) **   <a name="Kendra-ListDataSourceSyncJobs-request-Id"></a>
+>>>>>>> parent of 2b1c178 (updating tutorial)
 The identifier of the data source\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`   
 Required: Yes
 
+<<<<<<< HEAD
  ** [ IndexId ](#API_ListDataSourceSyncJobs_RequestSyntax) **   <a name="Kendra-ListDataSourceSyncJobs-request-IndexId"></a>
+=======
+ ** [IndexId](#API_ListDataSourceSyncJobs_RequestSyntax) **   <a name="Kendra-ListDataSourceSyncJobs-request-IndexId"></a>
+>>>>>>> parent of 2b1c178 (updating tutorial)
 The identifier of the index that contains the data source\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`   
 Required: Yes
 
+<<<<<<< HEAD
  ** [ MaxResults ](#API_ListDataSourceSyncJobs_RequestSyntax) **   <a name="Kendra-ListDataSourceSyncJobs-request-MaxResults"></a>
+=======
+ ** [MaxResults](#API_ListDataSourceSyncJobs_RequestSyntax) **   <a name="Kendra-ListDataSourceSyncJobs-request-MaxResults"></a>
+>>>>>>> parent of 2b1c178 (updating tutorial)
 The maximum number of synchronization jobs to return in the response\. If there are fewer results in the list, this response contains only the actual results\.  
 Type: Integer  
 Valid Range: Minimum value of 1\. Maximum value of 10\.  
 Required: No
 
+<<<<<<< HEAD
  ** [ NextToken ](#API_ListDataSourceSyncJobs_RequestSyntax) **   <a name="Kendra-ListDataSourceSyncJobs-request-NextToken"></a>
+=======
+ ** [NextToken](#API_ListDataSourceSyncJobs_RequestSyntax) **   <a name="Kendra-ListDataSourceSyncJobs-request-NextToken"></a>
+>>>>>>> parent of 2b1c178 (updating tutorial)
 If the previous response was incomplete \(because there is more data to retrieve\), Amazon Kendra returns a pagination token in the response\. You can use this pagination token to retrieve the next set of jobs\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 800\.  
 Required: No
 
+<<<<<<< HEAD
  ** [ StartTimeFilter ](#API_ListDataSourceSyncJobs_RequestSyntax) **   <a name="Kendra-ListDataSourceSyncJobs-request-StartTimeFilter"></a>
 When specified, the synchronization jobs returned in the list are limited to jobs between the specified dates\.   
 Type: [ TimeRange ](API_TimeRange.md) object  
 Required: No
 
  ** [ StatusFilter ](#API_ListDataSourceSyncJobs_RequestSyntax) **   <a name="Kendra-ListDataSourceSyncJobs-request-StatusFilter"></a>
+=======
+ ** [StartTimeFilter](#API_ListDataSourceSyncJobs_RequestSyntax) **   <a name="Kendra-ListDataSourceSyncJobs-request-StartTimeFilter"></a>
+When specified, the synchronization jobs returned in the list are limited to jobs between the specified dates\.   
+Type: [TimeRange](API_TimeRange.md) object  
+Required: No
+
+ ** [StatusFilter](#API_ListDataSourceSyncJobs_RequestSyntax) **   <a name="Kendra-ListDataSourceSyncJobs-request-StatusFilter"></a>
+>>>>>>> parent of 2b1c178 (updating tutorial)
 When specified, only returns synchronization jobs with the `Status` field equal to the specified status\.  
 Type: String  
 Valid Values:` FAILED | SUCCEEDED | SYNCING | INCOMPLETE | STOPPING | ABORTED | SYNCING_INDEXING`   
@@ -97,11 +122,19 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
+<<<<<<< HEAD
  ** [ History ](#API_ListDataSourceSyncJobs_ResponseSyntax) **   <a name="Kendra-ListDataSourceSyncJobs-response-History"></a>
 A history of synchronization jobs for the data source\.  
 Type: Array of [ DataSourceSyncJob ](API_DataSourceSyncJob.md) objects
 
  ** [ NextToken ](#API_ListDataSourceSyncJobs_ResponseSyntax) **   <a name="Kendra-ListDataSourceSyncJobs-response-NextToken"></a>
+=======
+ ** [History](#API_ListDataSourceSyncJobs_ResponseSyntax) **   <a name="Kendra-ListDataSourceSyncJobs-response-History"></a>
+A history of synchronization jobs for the data source\.  
+Type: Array of [DataSourceSyncJob](API_DataSourceSyncJob.md) objects
+
+ ** [NextToken](#API_ListDataSourceSyncJobs_ResponseSyntax) **   <a name="Kendra-ListDataSourceSyncJobs-response-NextToken"></a>
+>>>>>>> parent of 2b1c178 (updating tutorial)
 If the response is truncated, Amazon Kendra returns this token that you can use in the subsequent request to retrieve the next set of jobs\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 800\.
@@ -110,6 +143,7 @@ Length Constraints: Minimum length of 1\. Maximum length of 800\.
 
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
+<<<<<<< HEAD
  ** AccessDeniedException **   
   
 HTTP Status Code: 400
@@ -131,6 +165,29 @@ HTTP Status Code: 400
 HTTP Status Code: 400
 
  ** ValidationException **   
+=======
+ **AccessDeniedException**   
+  
+HTTP Status Code: 400
+
+ **ConflictException**   
+  
+HTTP Status Code: 400
+
+ **InternalServerException**   
+  
+HTTP Status Code: 500
+
+ **ResourceNotFoundException**   
+  
+HTTP Status Code: 400
+
+ **ThrottlingException**   
+  
+HTTP Status Code: 400
+
+ **ValidationException**   
+>>>>>>> parent of 2b1c178 (updating tutorial)
   
 HTTP Status Code: 400
 

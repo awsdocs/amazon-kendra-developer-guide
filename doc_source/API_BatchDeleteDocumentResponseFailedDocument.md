@@ -8,20 +8,32 @@ Provides information about documents that could not be removed from an index by 
 
 ## Contents<a name="API_BatchDeleteDocumentResponseFailedDocument_Contents"></a>
 
+<<<<<<< HEAD
  ** ErrorCode **   <a name="Kendra-Type-BatchDeleteDocumentResponseFailedDocument-ErrorCode"></a>
+=======
+ **ErrorCode**   <a name="Kendra-Type-BatchDeleteDocumentResponseFailedDocument-ErrorCode"></a>
+>>>>>>> parent of 2b1c178 (updating tutorial)
 The error code for why the document couldn't be removed from the index\.  
 Type: String  
 Valid Values:` InternalError | InvalidRequest`   
 Required: No
 
+<<<<<<< HEAD
  ** ErrorMessage **   <a name="Kendra-Type-BatchDeleteDocumentResponseFailedDocument-ErrorMessage"></a>
+=======
+ **ErrorMessage**   <a name="Kendra-Type-BatchDeleteDocumentResponseFailedDocument-ErrorMessage"></a>
+>>>>>>> parent of 2b1c178 (updating tutorial)
 An explanation for why the document couldn't be removed from the index\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  
 Pattern: `^\P{C}*$`   
 Required: No
 
+<<<<<<< HEAD
  ** Id **   <a name="Kendra-Type-BatchDeleteDocumentResponseFailedDocument-Id"></a>
+=======
+ **Id**   <a name="Kendra-Type-BatchDeleteDocumentResponseFailedDocument-Id"></a>
+>>>>>>> parent of 2b1c178 (updating tutorial)
 The identifier of the document that couldn't be removed from the index\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  
