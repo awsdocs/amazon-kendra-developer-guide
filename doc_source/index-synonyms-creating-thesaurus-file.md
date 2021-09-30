@@ -50,7 +50,7 @@ Beta, Delta
 # Comments and blanks lines do not count.
 ```
 
-This example has 6 rules and 18 terms\. Each line contains a single synonym rule\. A synonym does not do an exact match on special characters\. For example, if you search for dead\-letter\-queue, Kendra will match documents matching dead letter queue\. Blank lines and comments are ignored\. Some rules are ignored\. For example, `a => b` is a rule, but `a => a` is ignored and does not count as a rule\. A synonym does not do an exact match on special characters\. For example, if you search for `dead-letter-queue`, Amazon Kendra will match document containing `dead letter queue` \(no hyphen\)\. You can have a maximum of 10,000 synonym rules per thesaurus\. 
+This example has 6 rules and 18 terms\. Each line contains a single synonym rule\. Blank lines and comments are ignored\. Some rules are ignored\. For example, `a => b` is a rule, but `a => a` is ignored and does not count as a rule\. A synonym does not do an exact match on special characters\. For example, if you search for `dead-letter-queue`, Amazon Kendra will match document containing `dead letter queue` \(no hyphen\)\. You can have a maximum of 10,000 synonym rules per thesaurus\. 
 
 The term count is the number of unique terms in the theaurus file\. This example has the following terms: `AWS CodeStar`, `autoscaling group`, `asg`, `Auto Scaling group`, `autoscaling`, `DNS`, `Route53`, `Route 53`, `dns`, `route53`, `route 53`, `beta`, `Alpha`, `Gamma`, `Delta`, and `delta`\. You can have up to 10 synonyms per term\. 
 
