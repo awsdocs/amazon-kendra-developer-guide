@@ -2,9 +2,9 @@
 
 --------
 
-# Step 6: Cleaning up<a name="tutorial-cleanup"></a>
+# Step 6: Cleaning up<a name="tutorial-search-metadata-cleanup"></a>
 
-## Cleaning up your files<a name="tutorial-cleanup-deleting"></a>
+## Cleaning up your files<a name="tutorial-search-metadata-cleanup-delete"></a>
 
 To stop incurring charges in your AWS account after you complete this tutorial, you can take the following steps:
 
@@ -56,9 +56,9 @@ To stop incurring charges in your AWS account after you complete this tutorial, 
 
 ------
 
-## <a name="tutorial-cleanup-more"></a>
+## <a name="tutorial-search-metadata-cleanup-more"></a>
 
-### Learn more<a name="tutorial-cleanup-2-more"></a>
+### Learn more<a name="tutorial-search-metadata-cleanup-2-more"></a>
 
 To learn more about integrating Amazon Kendra into your workflow, you can check out the following blogposts:
 + [Content metadata tagging for enhanced search](https://comprehend-immersionday.workshop.aws/lab8.html)

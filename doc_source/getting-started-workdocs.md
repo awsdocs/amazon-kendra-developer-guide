@@ -2,13 +2,13 @@
 
 --------
 
-# Getting started with an Amazon WorkDocs data source \(Console\)<a name="getting-started-workdocs"></a>
+# Getting started with an Amazon WorkDocs data source \(console\)<a name="getting-started-workdocs"></a>
 
-You can use the Amazon Kendra console to get started indexing an Amazon WorkDocs data source\. When you use the console, you specify the connection information you must index the contents of the Amazon WorkDocs data source\.
+You can use the Amazon Kendra console to get started indexing an Amazon WorkDocs data source\. When you use the console, you specify the connection information to index the contents of the Amazon WorkDocs data source\.
 
 Amazon WorkDocs connector is available in Oregon, North Virginia, Sydney, Singapore and Ireland regions\.
 
-Use the following procedure to create an Amazon WorkDocs data source\. The procedure assumes you created an index following step 1 of [Getting started with an S3 bucket \(Console\)](gs-console.md)\.
+Use the following procedure to create an Amazon WorkDocs data source\. The procedure assumes you created an index following step 1 of [Getting started with an S3 bucket \(console\)](gs-console.md)\.
 
 **To create an Amazon WorkDocs data source using the Amazon Kendra console**
 
@@ -32,6 +32,8 @@ Use the following procedure to create an Amazon WorkDocs data source\. The proce
 
    1. In the **Source** section, do the following:
       + Choose the organization ID, which is the directory ID corresponding to your Amazon WorkDocs site\. To locate your organization ID, go to the [AWS Directory Service console](https://console.aws.amazon.com/directoryservicev2/) and select the **Active Directory** dropdown menu\. In your list of **Directories**, your Amazon WorkDocs site directory has an ID, which is the organization ID\. You can set up a new directory for your Amazon WorkDocs site in the AWS Directory Service console and enable the directory in the Amazon WorkDocs console\.
+
+   1. In the **IAM role** section, do the following:
       + Choose an existing **IAM role** that grants Amazon Kendra permission to access your Amazon WorkDocs resources such as your index\. For more information about the required permissions, see [IAM access roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-ds)\.
 
    1. Choose **Next**\.

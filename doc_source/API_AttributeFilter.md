@@ -12,7 +12,7 @@ When you use the `AndAllFilters` or `OrAllFilters`, filters you can use 2 layers
 
 1.  ` <OrAllFilters>` 
 
-1.  ` <EqualTo>` 
+1.  ` <EqualsTo>` 
 
 If you use more than 2 layers, you receive a `ValidationException` exception with the message "`AttributeFilter` cannot have a depth of more than 2\."
 
@@ -20,54 +20,54 @@ If you use more than 10 attribute filters in a given list for `AndAllFilters` or
 
 ## Contents<a name="API_AttributeFilter_Contents"></a>
 
- **AndAllFilters**   <a name="Kendra-Type-AttributeFilter-AndAllFilters"></a>
+ ** AndAllFilters **   <a name="Kendra-Type-AttributeFilter-AndAllFilters"></a>
 Performs a logical `AND` operation on all supplied filters\.  
-Type: Array of [AttributeFilter](#API_AttributeFilter) objects  
+Type: Array of [ AttributeFilter ](#API_AttributeFilter) objects  
 Required: No
 
- **ContainsAll**   <a name="Kendra-Type-AttributeFilter-ContainsAll"></a>
+ ** ContainsAll **   <a name="Kendra-Type-AttributeFilter-ContainsAll"></a>
 Returns true when a document contains all of the specified document attributes\. This filter is only applicable to `StringListValue` metadata\.  
-Type: [DocumentAttribute](API_DocumentAttribute.md) object  
+Type: [ DocumentAttribute ](API_DocumentAttribute.md) object  
 Required: No
 
- **ContainsAny**   <a name="Kendra-Type-AttributeFilter-ContainsAny"></a>
+ ** ContainsAny **   <a name="Kendra-Type-AttributeFilter-ContainsAny"></a>
 Returns true when a document contains any of the specified document attributes\. This filter is only applicable to `StringListValue` metadata\.  
-Type: [DocumentAttribute](API_DocumentAttribute.md) object  
+Type: [ DocumentAttribute ](API_DocumentAttribute.md) object  
 Required: No
 
- **EqualsTo**   <a name="Kendra-Type-AttributeFilter-EqualsTo"></a>
+ ** EqualsTo **   <a name="Kendra-Type-AttributeFilter-EqualsTo"></a>
 Performs an equals operation on two document attributes\.  
-Type: [DocumentAttribute](API_DocumentAttribute.md) object  
+Type: [ DocumentAttribute ](API_DocumentAttribute.md) object  
 Required: No
 
- **GreaterThan**   <a name="Kendra-Type-AttributeFilter-GreaterThan"></a>
+ ** GreaterThan **   <a name="Kendra-Type-AttributeFilter-GreaterThan"></a>
 Performs a greater than operation on two document attributes\. Use with a document attribute of type `Date` or `Long`\.  
-Type: [DocumentAttribute](API_DocumentAttribute.md) object  
+Type: [ DocumentAttribute ](API_DocumentAttribute.md) object  
 Required: No
 
- **GreaterThanOrEquals**   <a name="Kendra-Type-AttributeFilter-GreaterThanOrEquals"></a>
+ ** GreaterThanOrEquals **   <a name="Kendra-Type-AttributeFilter-GreaterThanOrEquals"></a>
 Performs a greater or equals than operation on two document attributes\. Use with a document attribute of type `Date` or `Long`\.  
-Type: [DocumentAttribute](API_DocumentAttribute.md) object  
+Type: [ DocumentAttribute ](API_DocumentAttribute.md) object  
 Required: No
 
- **LessThan**   <a name="Kendra-Type-AttributeFilter-LessThan"></a>
+ ** LessThan **   <a name="Kendra-Type-AttributeFilter-LessThan"></a>
 Performs a less than operation on two document attributes\. Use with a document attribute of type `Date` or `Long`\.  
-Type: [DocumentAttribute](API_DocumentAttribute.md) object  
+Type: [ DocumentAttribute ](API_DocumentAttribute.md) object  
 Required: No
 
- **LessThanOrEquals**   <a name="Kendra-Type-AttributeFilter-LessThanOrEquals"></a>
+ ** LessThanOrEquals **   <a name="Kendra-Type-AttributeFilter-LessThanOrEquals"></a>
 Performs a less than or equals operation on two document attributes\. Use with a document attribute of type `Date` or `Long`\.  
-Type: [DocumentAttribute](API_DocumentAttribute.md) object  
+Type: [ DocumentAttribute ](API_DocumentAttribute.md) object  
 Required: No
 
- **NotFilter**   <a name="Kendra-Type-AttributeFilter-NotFilter"></a>
+ ** NotFilter **   <a name="Kendra-Type-AttributeFilter-NotFilter"></a>
 Performs a logical `NOT` operation on all supplied filters\.  
-Type: [AttributeFilter](#API_AttributeFilter) object  
+Type: [ AttributeFilter ](#API_AttributeFilter) object  
 Required: No
 
- **OrAllFilters**   <a name="Kendra-Type-AttributeFilter-OrAllFilters"></a>
+ ** OrAllFilters **   <a name="Kendra-Type-AttributeFilter-OrAllFilters"></a>
 Performs a logical `OR` operation on all supplied filters\.  
-Type: Array of [AttributeFilter](#API_AttributeFilter) objects  
+Type: Array of [ AttributeFilter ](#API_AttributeFilter) objects  
 Required: No
 
 ## See Also<a name="API_AttributeFilter_SeeAlso"></a>

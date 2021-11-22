@@ -10,7 +10,7 @@ You can create up to 500 custom attributes\.
 
 For other data sources, you map fields in the external data source to the corresponding custom attributes in Amazon Kendra\. For more information, see [Mapping data source fields](field-mapping.md)\.
 
-Before you can use a custom attribute, you must first create a field in the index\. Use the console or the [UpdateIndex](API_UpdateIndex.md) operation to create the index fields\. The supported field types are date, long, string, and string list\. 
+Before you can use a custom attribute, you must first create a field in the index\. Use the console or the [ UpdateIndex ](API_UpdateIndex.md) operation to create the index fields\. The supported field types are date, long, string, and string list\. 
 
 With the `UpdateIndex` operation, you add custom fields using the `DocumentMetadataConfigurationUpdates` parameter
 
@@ -25,7 +25,7 @@ The following JSON example is a `DocumentMetadataConfigurationUpdates` structure
 ]
 ```
 
-Amazon Kendra has 14 reserved attributes that you can use\. The attributes are:
+Amazon Kendra has 15 reserved attributes that you can use\. The attributes are:
 + `_authors` \(String list\) – A list of one or more authors responsible for the content of the document\.
 + `_category` \(String\) – A category that places a document in a specific group\.
 + `_created_at` \(ISO 8601 encoded string\) – The date and time that the document was created\.
@@ -44,12 +44,13 @@ Amazon Kendra has 14 reserved attributes that you can use\. The attributes are:
 + `_source_uri` \(String\) – The URI where the document is available\. For example, the URI of the document on a company website\.
 + `_version` \(String\) – An identifier for the specific version of a document\.
 + `_view_count` \(Long\) – The number of times that the document has been viewed\.
++ `_language_code` \(String\) – The code for a language that applies to the document\. This defaults to English if you do not specify a language\. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-language)\.
 
 After you have created a custom attribute, you can use the attribute when you call the `Query` operation\. You can use it for faceted search, use it to filter the response, and choose whether or not the attribute should be returned in the response\. For more information, see [Filtering queries](filtering.md)\.
 
 ## Adding custom attributes with the BatchPutDocument operation<a name="custom-attributes-batch"></a>
 
-When you use the [BatchPutDocument](API_BatchPutDocument.md) operation to add a document to your index, you specify custom attributes as part of the `Attributes` structure\. You can add multiple attributes when you call the operation\. You can create up to 500 custom attributes\. The following example is a `Attributes` structure that adds "Department" and "\_category" attributes to a document\.
+When you use the [ BatchPutDocument ](API_BatchPutDocument.md) operation to add a document to your index, you specify custom attributes as part of the `Attributes` structure\. You can add multiple attributes when you call the operation\. You can create up to 500 custom attributes\. The following example is a `Attributes` structure that adds "Department" and "\_category" attributes to a document\.
 
 ```
 "Attributes": 

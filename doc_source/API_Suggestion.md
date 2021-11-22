@@ -8,16 +8,16 @@ A single query suggestion\.
 
 ## Contents<a name="API_Suggestion_Contents"></a>
 
- **Id**   <a name="Kendra-Type-Suggestion-Id"></a>
+ ** Id **   <a name="Kendra-Type-Suggestion-Id"></a>
 The unique UUID \(universally unique identifier\) of a single query suggestion\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 73\.  
 Required: No
 
- **Value**   <a name="Kendra-Type-Suggestion-Value"></a>
+ ** Value **   <a name="Kendra-Type-Suggestion-Value"></a>
 The value for the unique UUID \(universally unique identifier\) of a single query suggestion\.  
 The value is the text string of a suggestion\.  
-Type: [SuggestionValue](API_SuggestionValue.md) object  
+Type: [ SuggestionValue ](API_SuggestionValue.md) object  
 Required: No
 
 ## See Also<a name="API_Suggestion_SeeAlso"></a>

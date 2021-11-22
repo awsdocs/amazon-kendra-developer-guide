@@ -4,7 +4,7 @@
 
 # Using a ServiceNow data source<a name="data-source-servicenow"></a>
 
-Amazon Kendra can connect to your ServiceNow instance to index your knowledge bases and a service catalog\. For a walkthrough of creating a ServiceNow data source, see [Getting started with a ServiceNow data source \(Console\)](getting-started-servicenow.md)\.
+Amazon Kendra can connect to your ServiceNow instance to index your knowledge bases and a service catalog\. For a walk\-through of how to use ServiceNow in the console, see [Getting started with a ServiceNow data source \(console\)](https://docs.aws.amazon.com/kendra/latest/dg/getting-started-servicenow.html)\.
 
 When you use Amazon Kendra to index a ServiceNow instance, you can choose to index public knowledge bases and public service catalogs, or you can use a query to index specific knowledge bases, including private ones\. You can connect to a ServiceNow instance using basic authentication and a ServiceNow administrative user, or you can use an OAuth 2\.0 token and a user with read permission on instance tables\.
 
@@ -95,7 +95,7 @@ When you use OAuth authentication, you provide a user name and password\. Amazon
 
 ## Connecting to a ServiceNow instance<a name="servicenow-connection"></a>
 
-You provide ServiceNow connection information in the Amazon Kendra console or by using an instance of the [ServiceNowConfiguration](API_ServiceNowConfiguration.md) data type\. You must provide the following information:
+You provide ServiceNow connection information in the Amazon Kendra console or by using an instance of the [ ServiceNowConfiguration ](API_ServiceNowConfiguration.md) data type\. You must provide the following information:
 + The ARN of the Secrets Manager secret that contains the credentials required to access the ServiceNow instance\.
 + The version of the ServiceNow instance\. For Amazon Kendra, this is `LONDON` for the London version and `OTHERS` for all other versions\.
 + The ServiceNow instance host\. For example, if the URL of the instance is `https://your-domain.service-now.com`, the host is `your-domain.service-now.com`\.

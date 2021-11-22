@@ -8,7 +8,7 @@ Provides information about how Amazon Kendra should use the columns of a databas
 
 ## Contents<a name="API_ColumnConfiguration_Contents"></a>
 
- **ChangeDetectingColumns**   <a name="Kendra-Type-ColumnConfiguration-ChangeDetectingColumns"></a>
+ ** ChangeDetectingColumns **   <a name="Kendra-Type-ColumnConfiguration-ChangeDetectingColumns"></a>
 One to five columns that indicate when a document in the database has changed\.  
 Type: Array of strings  
 Array Members: Minimum number of 1 item\. Maximum number of 5 items\.  
@@ -16,30 +16,30 @@ Length Constraints: Minimum length of 1\. Maximum length of 100\.
 Pattern: `^[a-zA-Z][a-zA-Z0-9_]*$`   
 Required: Yes
 
- **DocumentDataColumnName**   <a name="Kendra-Type-ColumnConfiguration-DocumentDataColumnName"></a>
+ ** DocumentDataColumnName **   <a name="Kendra-Type-ColumnConfiguration-DocumentDataColumnName"></a>
 The column that contains the contents of the document\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Pattern: `^[a-zA-Z][a-zA-Z0-9_]*$`   
 Required: Yes
 
- **DocumentIdColumnName**   <a name="Kendra-Type-ColumnConfiguration-DocumentIdColumnName"></a>
+ ** DocumentIdColumnName **   <a name="Kendra-Type-ColumnConfiguration-DocumentIdColumnName"></a>
 The column that provides the document's unique identifier\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Pattern: `^[a-zA-Z][a-zA-Z0-9_]*$`   
 Required: Yes
 
- **DocumentTitleColumnName**   <a name="Kendra-Type-ColumnConfiguration-DocumentTitleColumnName"></a>
+ ** DocumentTitleColumnName **   <a name="Kendra-Type-ColumnConfiguration-DocumentTitleColumnName"></a>
 The column that contains the title of the document\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Pattern: `^[a-zA-Z][a-zA-Z0-9_]*$`   
 Required: No
 
- **FieldMappings**   <a name="Kendra-Type-ColumnConfiguration-FieldMappings"></a>
+ ** FieldMappings **   <a name="Kendra-Type-ColumnConfiguration-FieldMappings"></a>
 An array of objects that map database column names to the corresponding fields in an index\. You must first create the fields in the index using the `UpdateIndex` operation\.  
-Type: Array of [DataSourceToIndexFieldMapping](API_DataSourceToIndexFieldMapping.md) objects  
+Type: Array of [ DataSourceToIndexFieldMapping ](API_DataSourceToIndexFieldMapping.md) objects  
 Array Members: Minimum number of 1 item\. Maximum number of 100 items\.  
 Required: No
 

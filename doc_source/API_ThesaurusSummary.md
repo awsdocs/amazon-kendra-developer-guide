@@ -8,32 +8,32 @@ An array of summary information for a thesaurus or multiple thesauri\.
 
 ## Contents<a name="API_ThesaurusSummary_Contents"></a>
 
- **CreatedAt**   <a name="Kendra-Type-ThesaurusSummary-CreatedAt"></a>
+ ** CreatedAt **   <a name="Kendra-Type-ThesaurusSummary-CreatedAt"></a>
 The Unix datetime that the thesaurus was created\.  
 Type: Timestamp  
 Required: No
 
- **Id**   <a name="Kendra-Type-ThesaurusSummary-Id"></a>
+ ** Id **   <a name="Kendra-Type-ThesaurusSummary-Id"></a>
 The identifier of the thesaurus\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`   
 Required: No
 
- **Name**   <a name="Kendra-Type-ThesaurusSummary-Name"></a>
+ ** Name **   <a name="Kendra-Type-ThesaurusSummary-Name"></a>
 The name of the thesaurus\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`   
 Required: No
 
- **Status**   <a name="Kendra-Type-ThesaurusSummary-Status"></a>
+ ** Status **   <a name="Kendra-Type-ThesaurusSummary-Status"></a>
 The status of the thesaurus\.  
 Type: String  
 Valid Values:` CREATING | ACTIVE | DELETING | UPDATING | ACTIVE_BUT_UPDATE_FAILED | FAILED`   
 Required: No
 
- **UpdatedAt**   <a name="Kendra-Type-ThesaurusSummary-UpdatedAt"></a>
+ ** UpdatedAt **   <a name="Kendra-Type-ThesaurusSummary-UpdatedAt"></a>
 The Unix datetime that the thesaurus was last updated\.  
 Type: Timestamp  
 Required: No

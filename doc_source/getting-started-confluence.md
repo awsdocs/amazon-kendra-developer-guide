@@ -2,14 +2,14 @@
 
 --------
 
-# Getting started with a Confluence data source \(Console\)<a name="getting-started-confluence"></a>
+# Getting started with a Confluence data source \(console\)<a name="getting-started-confluence"></a>
 
 You can use the Amazon Kendra console to get started using a Confluence instance\. When you use the console you specify the connection information you need to index the contents of a Confluence instance\. For more information, see [Using an Atlassian Confluence data source](data-source-confluence.md)\.
 
-Use the following procedure to create a basic Confluence data source using the default configuration\. The procedure assumes that you have already created an index following the steps in step 1 of [Getting started with an S3 bucket \(Console\)](gs-console.md)\.
+Use the following procedure to create a basic Confluence data source using the default configuration\. The procedure assumes that you have already created an index following the steps in step 1 of [Getting started with an S3 bucket \(console\)](gs-console.md)\.
 + You have an administrator account on the Confluence instance\.
 + You have a password for the account on a Confluence server instance or an API token for the account on a Confluence cloud instance\.
-+ You created an index following the steps in step 1 of [Getting started with an S3 bucket \(Console\)](gs-console.md)\.
++ You created an index following the steps in step 1 of [Getting started with an S3 bucket \(console\)](gs-console.md)\.
 
 **To create a Confluence data source using the Amazon Kendra console**
 

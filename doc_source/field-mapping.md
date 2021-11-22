@@ -14,6 +14,8 @@ You can create field mappings for the following data sources:
 + Microsoft SharePoint
 + Salesforce
 + ServiceNow
++ Amazon Kendra Web Crawler
++ Amazon WorkDocs
 
 If you store your documents in an S3 bucket, or if you use an Amazon S3 data source, you can provide custom attributes directly using metadata files\. For more information, see [Creating custom document attributes](custom-attributes.md)\.
 
@@ -25,7 +27,7 @@ Mapping your data source fields to an index field is a three\-step process:
 
 1. Create a data source that maps data source fields to the index fields\.
 
-To update the index to add custom fields, use the console or the [UpdateIndex](API_UpdateIndex.md) operation\. You can add a total of 500 custom fields to your index\.
+To update the index to add custom fields, use the console or the [ UpdateIndex ](API_UpdateIndex.md) operation\. You can add a total of 500 custom fields to your index\.
 
 When you are using the console, you can choose to map a data source field to one of the seven reserved field names, or you can choose to create a new index field that maps to the field\. For database data sources, if the name of the database column matches the name of a reserved field, the field and column are automatically mapped\.
 
@@ -62,7 +64,7 @@ The following JSON example is a `DocumentMetadataConfigurationUpdates` structure
 ]
 ```
 
-Amazon Kendra has 14 reserved fields that you can map to data source fields\. You must provide values for these fields\. The fields are:
+Amazon Kendra has 15 reserved fields that you can map to data source fields\. You must provide values for these fields\. The fields are:
 + `_authors` \(String list\) – A list of one or more authors responsible for the content of the document\.
 + `_category` \(String\) – A category that places a document in a specific group\.
 + `_created_at` \(ISO 8601 encoded string\) – The date and time in ISO 8601 format that the document was created\. For example, 20120325T123010\+01:00 is the ISO 8601 date\-time format for March 25th 2012 at 12:30PM \(plus 10 seconds\) in Central European Time\.
@@ -77,5 +79,8 @@ Amazon Kendra has 14 reserved fields that you can map to data source fields\. Yo
 + `_source_uri` \(String\) – The URI where the document is available\. For example, the URI of the document on a company website\.
 + `_version` \(String\) – An identifier for the specific version of a document\.
 + `_view_count` \(Long\) – The number of times that the document has been viewed\.
++ `_language_code` \(String\) – The code for a language that applies to the document\. This defaults to English if you do not specify a language\. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-language)\.
 
-After you have created the index fields, you can map the data source fields to the index fields\. If you are using the console, you can create index fields and map data source fields using the **Custom field mappings** editor\. If you are using the API, you can add field mappings using the [CreateDataSource](API_CreateDataSource.md) or [UpdateDataSource](API_UpdateDataSource.md) operations\.
+After you have created the index fields, you can map the data source fields to the index fields\. If you are using the console, you can create index fields and map data source fields using the **Custom field mappings** editor\. If you are using the API, you can add field mappings using the [ CreateDataSource ](API_CreateDataSource.md) or [ UpdateDataSource ](API_UpdateDataSource.md) operations\.
+
+You can prevent custom index fields from being searchable\. In the console, you simply uncheck **Searchable** for a field in the index field settings\. If you use the API, you simply set `Searchable` to `FALSE` for a field using the [Search](https://docs.aws.amazon.com/kendra/latest/dg/API_Search.html) structure\.

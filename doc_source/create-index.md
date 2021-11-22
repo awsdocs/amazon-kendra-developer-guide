@@ -4,9 +4,9 @@
 
 # Creating an index<a name="create-index"></a>
 
-You can create an index using the console, the AWS Command Line Interface \(AWS CLI\), or by calling the [CreateIndex](API_CreateIndex.md) API operation\. The following procedures show how to create an index\. After you have created your index, you can add documents directly to your index or you can add them from a data source\.
+You can create an index using the console, the AWS Command Line Interface \(AWS CLI\), or by calling the [ CreateIndex ](API_CreateIndex.md) API operation\. The following procedures show how to create an index\. After you have created your index, you can add documents directly to your index or you can add them from a data source\.
 
-To create an index, you need to provide the Amazon Resource Name \(ARN\) of an AWS Identity and Access Management \(IAM\) role that has permissions to any Amazon Simple Storage Service \(Amazon S3\) bucket that you use and to perform actions on your behalf\.
+To create an index, you must provide the Amazon Resource Name \(ARN\) of an AWS Identity and Access Management \(IAM\) role that has permissions to any Amazon Simple Storage Service \(Amazon S3\) bucket that you use and to perform actions on your behalf\.
 
 **To create an index \(console\)**
 
@@ -35,7 +35,7 @@ To create an index, you need to provide the Amazon Resource Name \(ARN\) of an A
     --role-arn arn:aws:iam::account ID:role/role name
    ```
 
-1. Creating an index can take some time\. To check the state of your index, Use the index ID returned by `create-index` with the following command\. When the status of the index is `ACTIVE`, your index is ready to use\.
+1. Creating an index can take some time\. To check the state of your index, use the index ID returned by `create-index` with the following command\. When the status of the index is `ACTIVE`, your index is ready to use\.
 
    ```
    aws kendra describe-index \

@@ -2,11 +2,11 @@
 
 --------
 
-# Getting started with a Salesforce data source \(Console\)<a name="getting-started-salesforce"></a>
+# Getting started with a Salesforce data source \(console\)<a name="getting-started-salesforce"></a>
 
 You can use the Amazon Kendra console to get started using a Salesforce data store\. When you use the console you specify the connection information you need to index the contents of a Salesforce instance\. For more information, see [Using a Salesforce data source](data-source-salesforce.md)\.
 
-Use the following procedure to create a basic Salesforce data source using the default configuration\. The procedure assumes you created an index following the steps in step 1 of [Getting started with an S3 bucket \(Console\)](gs-console.md)\.
+Use the following procedure to create a basic Salesforce data source using the default configuration\. The procedure assumes you created an index following the steps in step 1 of [Getting started with an S3 bucket \(console\)](gs-console.md)\.
 
 **To create a Salesforce data source using the Amazon Kendra console**
 

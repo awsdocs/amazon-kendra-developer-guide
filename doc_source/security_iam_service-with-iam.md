@@ -25,7 +25,7 @@ The `Action` element of a JSON policy describes the actions that you can use to 
 
 Include actions in a policy to grant permissions to perform the associated operation\.
 
-Policy actions in Amazon Kendra use the following prefix before the action: `kendra:`\. For example, to grant someone permission to list Amazon Kendra indexes with the [ListIndices](API_ListIndices.md) API operation, you include the `kendra:ListIndices` action in their policy\. Policy statements must include either an `Action` or `NotAction` element\. Amazon Kendra defines its own set of actions that describe tasks that you can perform with this service\.
+Policy actions in Amazon Kendra use the following prefix before the action: `kendra:`\. For example, to grant someone permission to list Amazon Kendra indexes with the [ ListIndices ](API_ListIndices.md) API operation, you include the `kendra:ListIndices` action in their policy\. Policy statements must include either an `Action` or `NotAction` element\. Amazon Kendra defines its own set of actions that describe tasks that you can perform with this service\.
 
 To specify multiple actions in a single statement, separate them with commas as follows:
 
@@ -124,12 +124,12 @@ The following table lists the actions, corresponding resource types, and conditi
 
 | Action | Resource type | Condition keys | 
 | --- | --- | --- | 
-| [CreateDataSource](API_CreateDataSource.md) |   | aws:RequestTag, aws:TagKeys | 
-| [CreateFaq](API_CreateFaq.md) |   | aws:RequestTag, aws:TagKeys | 
-| [CreateIndex](API_CreateIndex.md) |   | aws:RequestTag, aws:TagKeys | 
-| [ListTagsForResource](API_ListTagsForResource.md) | data source, FAQ, index |   | 
-| [TagResource](API_TagResource.md) | data source, FAQ, index | aws:RequestTag, aws:TagKeys | 
-| [UntagResource](API_UntagResource.md) | data source, FAQ, index | aws:TagKeys | 
+| [ CreateDataSource ](API_CreateDataSource.md) |   | aws:RequestTag, aws:TagKeys | 
+| [ CreateFaq ](API_CreateFaq.md) |   | aws:RequestTag, aws:TagKeys | 
+| [ CreateIndex ](API_CreateIndex.md) |   | aws:RequestTag, aws:TagKeys | 
+| [ ListTagsForResource ](API_ListTagsForResource.md) | data source, FAQ, index |   | 
+| [ TagResource ](API_TagResource.md) | data source, FAQ, index | aws:RequestTag, aws:TagKeys | 
+| [ UntagResource ](API_UntagResource.md) | data source, FAQ, index | aws:TagKeys | 
 
 For information about tagging Amazon Kendra resources, see [Tags](tagging.md)\. For an example identity\-based policy that limits access to a resource based on resource tags, see [Tag\-based policy examples](security_iam_id-based-policy-examples.md#examples-tagging)\. For more information about using tags to limit access to resources, see [Controlling access using tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html) in the *IAM User Guide*\. 
 

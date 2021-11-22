@@ -8,7 +8,7 @@ Information about a document attribute
 
 ## Contents<a name="API_Facet_Contents"></a>
 
- **DocumentAttributeKey**   <a name="Kendra-Type-Facet-DocumentAttributeKey"></a>
+ ** DocumentAttributeKey **   <a name="Kendra-Type-Facet-DocumentAttributeKey"></a>
 The unique key for the document attribute\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 200\.  

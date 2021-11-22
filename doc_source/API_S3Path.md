@@ -8,14 +8,14 @@ Information required to find a specific file in an Amazon S3 bucket\.
 
 ## Contents<a name="API_S3Path_Contents"></a>
 
- **Bucket**   <a name="Kendra-Type-S3Path-Bucket"></a>
+ ** Bucket **   <a name="Kendra-Type-S3Path-Bucket"></a>
 The name of the S3 bucket that contains the file\.  
 Type: String  
 Length Constraints: Minimum length of 3\. Maximum length of 63\.  
 Pattern: `[a-z0-9][\.\-a-z0-9]{1,61}[a-z0-9]`   
 Required: Yes
 
- **Key**   <a name="Kendra-Type-S3Path-Key"></a>
+ ** Key **   <a name="Kendra-Type-S3Path-Key"></a>
 The name of the file\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1024\.  

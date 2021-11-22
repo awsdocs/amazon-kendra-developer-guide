@@ -8,21 +8,21 @@ Maps a column or attribute in the data source to an index field\. You must first
 
 ## Contents<a name="API_DataSourceToIndexFieldMapping_Contents"></a>
 
- **DataSourceFieldName**   <a name="Kendra-Type-DataSourceToIndexFieldMapping-DataSourceFieldName"></a>
+ ** DataSourceFieldName **   <a name="Kendra-Type-DataSourceToIndexFieldMapping-DataSourceFieldName"></a>
 The name of the column or attribute in the data source\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Pattern: `^[a-zA-Z][a-zA-Z0-9_.]*$`   
 Required: Yes
 
- **DateFieldFormat**   <a name="Kendra-Type-DataSourceToIndexFieldMapping-DateFieldFormat"></a>
+ ** DateFieldFormat **   <a name="Kendra-Type-DataSourceToIndexFieldMapping-DateFieldFormat"></a>
 The type of data stored in the column or attribute\.  
 Type: String  
 Length Constraints: Minimum length of 4\. Maximum length of 40\.  
 Pattern: `^(?!\s).*(?<!\s)$`   
 Required: No
 
- **IndexFieldName**   <a name="Kendra-Type-DataSourceToIndexFieldMapping-IndexFieldName"></a>
+ ** IndexFieldName **   <a name="Kendra-Type-DataSourceToIndexFieldMapping-IndexFieldName"></a>
 The name of the field in the index\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 30\.  

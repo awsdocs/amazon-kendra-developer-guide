@@ -6,6 +6,8 @@
 
 Describes the processing of `PUT` and `DELETE` actions for mapping users to their groups\. This includes information on the status of actions currently processing or yet to be processed, when actions were last updated, when actions were received by Amazon Kendra, the latest action that should process and apply after other actions, and useful error messages if an action could not be processed\.
 
+ `DescribePrincipalMapping` is currently not supported in the AWS GovCloud \(US\-West\) region\.
+
 ## Request Syntax<a name="API_DescribePrincipalMapping_RequestSyntax"></a>
 
 ```
@@ -22,21 +24,21 @@ For information about the parameters that are common to all actions, see [Common
 
 The request accepts the following data in JSON format\.
 
- ** [DataSourceId](#API_DescribePrincipalMapping_RequestSyntax) **   <a name="Kendra-DescribePrincipalMapping-request-DataSourceId"></a>
+ ** [ DataSourceId ](#API_DescribePrincipalMapping_RequestSyntax) **   <a name="Kendra-DescribePrincipalMapping-request-DataSourceId"></a>
 The identifier of the data source to check the processing of `PUT` and `DELETE` actions for mapping users to their groups\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`   
 Required: No
 
- ** [GroupId](#API_DescribePrincipalMapping_RequestSyntax) **   <a name="Kendra-DescribePrincipalMapping-request-GroupId"></a>
+ ** [ GroupId ](#API_DescribePrincipalMapping_RequestSyntax) **   <a name="Kendra-DescribePrincipalMapping-request-GroupId"></a>
 The identifier of the group required to check the processing of `PUT` and `DELETE` actions for mapping users to their groups\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1024\.  
 Pattern: `^\P{C}*$`   
 Required: Yes
 
- ** [IndexId](#API_DescribePrincipalMapping_RequestSyntax) **   <a name="Kendra-DescribePrincipalMapping-request-IndexId"></a>
+ ** [ IndexId ](#API_DescribePrincipalMapping_RequestSyntax) **   <a name="Kendra-DescribePrincipalMapping-request-IndexId"></a>
 The identifier of the index required to check the processing of `PUT` and `DELETE` actions for mapping users to their groups\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
@@ -68,29 +70,29 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
- ** [DataSourceId](#API_DescribePrincipalMapping_ResponseSyntax) **   <a name="Kendra-DescribePrincipalMapping-response-DataSourceId"></a>
+ ** [ DataSourceId ](#API_DescribePrincipalMapping_ResponseSyntax) **   <a name="Kendra-DescribePrincipalMapping-response-DataSourceId"></a>
 Shows the identifier of the data source to see information on the processing of `PUT` and `DELETE` actions for mapping users to their groups\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*` 
 
- ** [GroupId](#API_DescribePrincipalMapping_ResponseSyntax) **   <a name="Kendra-DescribePrincipalMapping-response-GroupId"></a>
+ ** [ GroupId ](#API_DescribePrincipalMapping_ResponseSyntax) **   <a name="Kendra-DescribePrincipalMapping-response-GroupId"></a>
 Shows the identifier of the group to see information on the processing of `PUT` and `DELETE` actions for mapping users to their groups\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1024\.  
 Pattern: `^\P{C}*$` 
 
- ** [GroupOrderingIdSummaries](#API_DescribePrincipalMapping_ResponseSyntax) **   <a name="Kendra-DescribePrincipalMapping-response-GroupOrderingIdSummaries"></a>
+ ** [ GroupOrderingIdSummaries ](#API_DescribePrincipalMapping_ResponseSyntax) **   <a name="Kendra-DescribePrincipalMapping-response-GroupOrderingIdSummaries"></a>
 Shows the following information on the processing of `PUT` and `DELETE` actions for mapping users to their groups:  
 + Status – the status can be either `PROCESSING`, `SUCCEEDED`, `DELETING`, `DELETED`, or `FAILED`\.
 + Last updated – the last date\-time an action was updated\.
 + Received – the last date\-time an action was received or submitted\.
 + Ordering ID – the latest action that should process and apply after other actions\.
 + Failure reason – the reason an action could not be processed\.
-Type: Array of [GroupOrderingIdSummary](API_GroupOrderingIdSummary.md) objects  
+Type: Array of [ GroupOrderingIdSummary ](API_GroupOrderingIdSummary.md) objects  
 Array Members: Maximum number of 10 items\.
 
- ** [IndexId](#API_DescribePrincipalMapping_ResponseSyntax) **   <a name="Kendra-DescribePrincipalMapping-response-IndexId"></a>
+ ** [ IndexId ](#API_DescribePrincipalMapping_ResponseSyntax) **   <a name="Kendra-DescribePrincipalMapping-response-IndexId"></a>
 Shows the identifier of the index to see information on the processing of `PUT` and `DELETE` actions for mapping users to their groups\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
@@ -100,23 +102,23 @@ Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`
 
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
- **AccessDeniedException**   
+ ** AccessDeniedException **   
   
 HTTP Status Code: 400
 
- **InternalServerException**   
+ ** InternalServerException **   
   
 HTTP Status Code: 500
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
   
 HTTP Status Code: 400
 
- **ThrottlingException**   
+ ** ThrottlingException **   
   
 HTTP Status Code: 400
 
- **ValidationException**   
+ ** ValidationException **   
   
 HTTP Status Code: 400
 

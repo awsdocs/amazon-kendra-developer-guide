@@ -4,7 +4,7 @@
 
 # Suggesting popular search queries<a name="query-suggestions"></a>
 
-*Query suggestions* make typing search queries faster for your users and helps guide their search\.
+Amazon Kendra *Query suggestions* can help customers type their search queries faster and guide their search\.
 
 Amazon Kendra suggests queries relevant to your users based on popular queries in the *query log*, or query history\. Amazon Kendra uses all of the queries your users search for and learns from these queries to make suggestions to your users\. Amazon Kendra currently suggests popular queries to users when they start typing their query\. Amazon Kendra suggests a query if the *prefix* or first few characters of the query matches what the user starts typing as their query\.
 

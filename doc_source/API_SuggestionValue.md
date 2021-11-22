@@ -8,9 +8,9 @@ The `SuggestionTextWithHighlights` structure information\.
 
 ## Contents<a name="API_SuggestionValue_Contents"></a>
 
- **Text**   <a name="Kendra-Type-SuggestionValue-Text"></a>
+ ** Text **   <a name="Kendra-Type-SuggestionValue-Text"></a>
 The `SuggestionTextWithHighlights` structure that contains the query suggestion text and highlights\.  
-Type: [SuggestionTextWithHighlights](API_SuggestionTextWithHighlights.md) object  
+Type: [ SuggestionTextWithHighlights ](API_SuggestionTextWithHighlights.md) object  
 Required: No
 
 ## See Also<a name="API_SuggestionValue_SeeAlso"></a>

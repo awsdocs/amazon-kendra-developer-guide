@@ -8,6 +8,8 @@ Deletes a block list used for query suggestions for an index\.
 
 A deleted block list might not take effect right away\. Amazon Kendra needs to refresh the entire suggestions list to add back the queries that were previously blocked\.
 
+ `DeleteQuerySuggestionsBlockList` is currently not supported in the AWS GovCloud \(US\-West\) region\.
+
 ## Request Syntax<a name="API_DeleteQuerySuggestionsBlockList_RequestSyntax"></a>
 
 ```
@@ -23,14 +25,14 @@ For information about the parameters that are common to all actions, see [Common
 
 The request accepts the following data in JSON format\.
 
- ** [Id](#API_DeleteQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-DeleteQuerySuggestionsBlockList-request-Id"></a>
+ ** [ Id ](#API_DeleteQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-DeleteQuerySuggestionsBlockList-request-Id"></a>
 The unique identifier of the block list that needs to be deleted\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`   
 Required: Yes
 
- ** [IndexId](#API_DeleteQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-DeleteQuerySuggestionsBlockList-request-IndexId"></a>
+ ** [ IndexId ](#API_DeleteQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-DeleteQuerySuggestionsBlockList-request-IndexId"></a>
 The identifier of the you want to delete a block list from\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
@@ -45,27 +47,27 @@ If the action is successful, the service sends back an HTTP 200 response with an
 
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
- **AccessDeniedException**   
+ ** AccessDeniedException **   
   
 HTTP Status Code: 400
 
- **ConflictException**   
+ ** ConflictException **   
   
 HTTP Status Code: 400
 
- **InternalServerException**   
+ ** InternalServerException **   
   
 HTTP Status Code: 500
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
   
 HTTP Status Code: 400
 
- **ThrottlingException**   
+ ** ThrottlingException **   
   
 HTTP Status Code: 400
 
- **ValidationException**   
+ ** ValidationException **   
   
 HTTP Status Code: 400
 

@@ -8,27 +8,27 @@ Provides configuration information for indexing Salesforce custom articles\.
 
 ## Contents<a name="API_SalesforceCustomKnowledgeArticleTypeConfiguration_Contents"></a>
 
- **DocumentDataFieldName**   <a name="Kendra-Type-SalesforceCustomKnowledgeArticleTypeConfiguration-DocumentDataFieldName"></a>
+ ** DocumentDataFieldName **   <a name="Kendra-Type-SalesforceCustomKnowledgeArticleTypeConfiguration-DocumentDataFieldName"></a>
 The name of the field in the custom knowledge article that contains the document data to index\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Pattern: `^[a-zA-Z][a-zA-Z0-9_.]*$`   
 Required: Yes
 
- **DocumentTitleFieldName**   <a name="Kendra-Type-SalesforceCustomKnowledgeArticleTypeConfiguration-DocumentTitleFieldName"></a>
+ ** DocumentTitleFieldName **   <a name="Kendra-Type-SalesforceCustomKnowledgeArticleTypeConfiguration-DocumentTitleFieldName"></a>
 The name of the field in the custom knowledge article that contains the document title\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Pattern: `^[a-zA-Z][a-zA-Z0-9_.]*$`   
 Required: No
 
- **FieldMappings**   <a name="Kendra-Type-SalesforceCustomKnowledgeArticleTypeConfiguration-FieldMappings"></a>
+ ** FieldMappings **   <a name="Kendra-Type-SalesforceCustomKnowledgeArticleTypeConfiguration-FieldMappings"></a>
 One or more objects that map fields in the custom knowledge article to fields in the Amazon Kendra index\.  
-Type: Array of [DataSourceToIndexFieldMapping](API_DataSourceToIndexFieldMapping.md) objects  
+Type: Array of [ DataSourceToIndexFieldMapping ](API_DataSourceToIndexFieldMapping.md) objects  
 Array Members: Minimum number of 1 item\. Maximum number of 100 items\.  
 Required: No
 
- **Name**   <a name="Kendra-Type-SalesforceCustomKnowledgeArticleTypeConfiguration-Name"></a>
+ ** Name **   <a name="Kendra-Type-SalesforceCustomKnowledgeArticleTypeConfiguration-Name"></a>
 The name of the configuration\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  

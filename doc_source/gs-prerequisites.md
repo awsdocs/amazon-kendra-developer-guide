@@ -8,13 +8,13 @@ The following steps are prerequisites for the getting started exercises\. The st
 
 1. Create an AWS account and an AWS Identity and Access Management user, as specified in [Sign up for AWS](setup.md#aws-kendra-set-up-aws-account)\.
 
-1. If you are using an S3 bucket containing documents to test Amazon Kendra, create an S3 bucket in the same region that you are using Amazon Kendra\. For instructions, see [Creating and Configuring an S3 Bucket](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/create-configure-bucket.html) in the *Amazon Simple Storage Service Console User Guide*\.
+1. If you are using an S3 bucket containing documents to test Amazon Kendra, create an S3 bucket in the same region that you are using Amazon Kendra\. For instructions, see [Creating and Configuring an S3 Bucket](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/create-configure-bucket.html) in the *Amazon Simple Storage Service User Guide*\.
 
-   Upload your documents to your S3 bucket\. For instructions, see [Uploading, Downloading, and Managing Objects](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/upload-download-objects.html) in the *Amazon Simple Storage Service Console User Guide*\.
+   Upload your documents to your S3 bucket\. For instructions, see [Uploading, Downloading, and Managing Objects](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/upload-download-objects.html) in the *Amazon Simple Storage Service User Guide*\.
 
    If you are using another data source, you must have an active site and credentials to connect to the data source\.
 
-If you are using the console to get started, do [Getting started with an S3 bucket \(Console\)](gs-console.md)\. 
+If you are using the console to get started, do [Getting started with an S3 bucket \(console\)](gs-console.md)\. 
 
 ## Prerequisites for the AWS CLI and SDK<a name="gs-prereq-cli-sdk"></a>
 

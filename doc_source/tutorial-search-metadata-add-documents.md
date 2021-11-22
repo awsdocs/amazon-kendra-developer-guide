@@ -2,27 +2,27 @@
 
 --------
 
-# Step 1: Adding documents to Amazon S3<a name="tutorial-adding-documents"></a>
+# Step 1: Adding documents to Amazon S3<a name="tutorial-search-metadata-add-documents"></a>
 
 Before you run an Amazon Comprehend entities analysis job on your dataset, you create an Amazon S3 bucket to host the data, metadata, and the Amazon Comprehend entities analysis output\.
 
 **Topics**
-+ [Downloading the sample dataset](#tutorial-adding-documents-download-extract)
-+ [Creating an Amazon S3 bucket](#tutorial-adding-documents-create-bucket)
-+ [Creating data and metadata folders in your S3 bucket](#tutorial-adding-documents-data-metadata)
-+ [Uploading the input data](#tutorial-adding-documents-upload-data)
++ [Downloading the sample dataset](#tutorial-search-metadata-add-documents-download-extract)
++ [Creating an Amazon S3 bucket](#tutorial-search-metadata-add-documents-create-bucket)
++ [Creating data and metadata folders in your S3 bucket](#tutorial-search-metadata-add-documents-data-metadata)
++ [Uploading the input data](#tutorial-search-metadata-add-documents-upload-data)
 
-## Downloading the sample dataset<a name="tutorial-adding-documents-download-extract"></a>
+## Downloading the sample dataset<a name="tutorial-search-metadata-add-documents-download-extract"></a>
 
 Before Amazon Comprehend can run an entities analysis job on your data, you must download and extract the dataset and upload it to an S3 bucket\.
 
-### To download and extract the dataset \(Console\)<a name="download-extract-console"></a>
+### To download and extract the dataset \(Console\)<a name="tutorial-search-metadata-download-extract-console"></a>
 
 1. Download the [tutorial\-dataset\.zip](https://docs.aws.amazon.com/kendra/latest/dg/samples/tutorial-dataset.zip) folder on your device\.
 
 1. Extract the `tutorial-dataset` folder to access the `data` folder\.
 
-### To download and extract the dataset \(Terminal\)<a name="download-extract-cli"></a>
+### To download and extract the dataset \(Terminal\)<a name="tutorial-search-metadata-download-extract-cli"></a>
 
 1. To download the `tutorial-dataset`, run the following command on a terminal window:
 
@@ -94,14 +94,14 @@ Before Amazon Comprehend can run an entities analysis job on your data, you must
 
 At the end of this step, you should have the extracted files in a decompressed folder called `tutorial-dataset`\. This folder contains a `README` file with an Apache 2\.0 open source attribution and a folder called `data` containing the dataset for this tutorial\. The dataset consists of 100 files with `.story` extensions\.
 
-## Creating an Amazon S3 bucket<a name="tutorial-adding-documents-create-bucket"></a>
+## Creating an Amazon S3 bucket<a name="tutorial-search-metadata-add-documents-create-bucket"></a>
 
 After downloading and extracting the sample data folder, you store it in an Amazon S3 bucket\.
 
 **Important**  
 The name of an Amazon S3 bucket must be unique across all of AWS\.
 
-### To create an S3 bucket \(Console\)<a name="create-bucket-console"></a>
+### To create an S3 bucket \(Console\)<a name="tutorial-search-metadata-create-bucket-console"></a>
 
 1. Sign in to the AWS Management Console and open the Amazon S3 console at [https://console\.aws\.amazon\.com/s3/](https://console.aws.amazon.com/s3/)\.
 
@@ -121,7 +121,7 @@ You must choose a region that supports both Amazon Comprehend and Amazon Kendra\
 
 1. Review your bucket configuration and then choose **Create bucket**\.
 
-### To create an S3 bucket \(AWS CLI\)<a name="create-bucket-cli"></a>
+### To create an S3 bucket \(AWS CLI\)<a name="tutorial-search-metadata-create-bucket-cli"></a>
 
 1. To create an S3 bucket, use the [create\-bucket](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3control/create-bucket.html) command in the AWS CLI:
 
@@ -196,11 +196,11 @@ You must choose a region that supports both Amazon Comprehend and Amazon Kendra\
 
 ------
 
-## Creating data and metadata folders in your S3 bucket<a name="tutorial-adding-documents-data-metadata"></a>
+## Creating data and metadata folders in your S3 bucket<a name="tutorial-search-metadata-add-documents-data-metadata"></a>
 
 After creating your S3 bucket, you create data and metadata folders inside it\.
 
-### To create folders in your S3 bucket \(Console\)<a name="create-folders-console"></a>
+### To create folders in your S3 bucket \(Console\)<a name="tutorial-search-metadata-create-folders-console"></a>
 
 1. Open the Amazon S3 console at [https://console\.aws\.amazon\.com/s3/](https://console.aws.amazon.com/s3/)\.
 
@@ -216,7 +216,7 @@ After creating your S3 bucket, you create data and metadata folders inside it\.
 
 1. Repeat steps 3 to 6 to create another folder for storing the Amazon Kendra metadata and name the folder created in step 4 **metadata**\.
 
-### To create folders in your S3 bucket \(AWS CLI\)<a name="create-folders-cli"></a>
+### To create folders in your S3 bucket \(AWS CLI\)<a name="tutorial-search-metadata-create-folders-cli"></a>
 
 1. To create the `data` folder in your S3 bucket, use the [put\-object](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-object.html) command in the AWS CLI:
 
@@ -332,11 +332,11 @@ After creating your S3 bucket, you create data and metadata folders inside it\.
 
 ------
 
-## Uploading the input data<a name="tutorial-adding-documents-upload-data"></a>
+## Uploading the input data<a name="tutorial-search-metadata-add-documents-upload-data"></a>
 
 After creating your data and metadata folders, you upload the sample dataset into the `data` folder\.
 
-### To upload the sample dataset into the data folder \(Console\)<a name="upload-data-console"></a>
+### To upload the sample dataset into the data folder \(Console\)<a name="tutorial-search-metadata-upload-data-console"></a>
 
 1. Open the Amazon S3 console at [https://console\.aws\.amazon\.com/s3/](https://console.aws.amazon.com/s3/)\.
 
@@ -350,7 +350,7 @@ After creating your data and metadata folders, you upload the sample dataset int
 
 1. Choose **Upload**\.
 
-### To upload the sample dataset into the data folder \(AWS CLI\)<a name="upload-data-cli"></a>
+### To upload the sample dataset into the data folder \(AWS CLI\)<a name="tutorial-search-metadata-upload-data-cli"></a>
 
 1. To upload the sample data into the `data` folder, use the [copy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/cp.html) command in the AWS CLI:
 

@@ -46,11 +46,11 @@ A complete procedure for adding Amazon Kendra search to a React application is i
 
 ## Main search page<a name="main-component"></a>
 
-The main search page contains all of the example search components\. It includes the search bar component for output, the results components to display the response from the [Query](API_Query.md) operation, and a pagination component that enables you to page through the response\.
+The main search page contains all of the example search components\. It includes the search bar component for output, the results components to display the response from the [ Query ](API_Query.md) operation, and a pagination component that enables you to page through the response\.
 
 ## Search component<a name="search-component"></a>
 
-The search component provides a text box to enter query text\. The `onSearch` function is a hook that calls the main function in `Search.tsx` to make the Amazon Kendra [Query](API_Query.md) operation call\.
+The search component provides a text box to enter query text\. The `onSearch` function is a hook that calls the main function in `Search.tsx` to make the Amazon Kendra [ Query ](API_Query.md) operation call\.
 
 ## Results component<a name="results-component"></a>
 

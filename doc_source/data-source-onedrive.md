@@ -4,7 +4,9 @@
 
 # Using a Microsoft OneDrive data source<a name="data-source-onedrive"></a>
 
-Amazon Kendra can use a data source to connect to Microsoft OneDrive sites to index the documents that your users create\. When you use a OneDrive data source to connect Amazon Kendra to your OneDrive site, you choose the users whose documents are indexed\. You can optionally provide inclusion and exclusion patterns to specify the documents to index\.
+Amazon Kendra can use a data source to connect to Microsoft OneDrive sites to index the documents that your users create\. For a walk\-through of how to use OneDrive in the console, see [Getting started with a Microsoft OneDrive for Business data source \(console\)](https://docs.aws.amazon.com/kendra/latest/dg/getting-started-onedrive.html)\.
+
+When you use a OneDrive data source to connect Amazon Kendra to your OneDrive site, you choose the users whose documents are indexed\. You can optionally provide inclusion and exclusion patterns to specify the documents to index\.
 
 To create a OneDrive data source, you must first create an Azure Active Directory \(AD\) application that Amazon Kendra connects to\. You must grant the application the following permissions on the Microsoft Graph option:
 + Read files in all site collections \(File\.Read\.All\)
@@ -30,7 +32,7 @@ The secret can contain more information, but Amazon Kendra ignores it\. For more
 
 You must create an index before you create the OneDrive data source\. For information, see [Creating an index](create-index.md)\. You provide the ID of the index when you create the data source\.
 
-You specify connection and other information in the console or using an instance of the [OneDriveConfiguration](API_OneDriveConfiguration.md) data type\. You must provide the following information: 
+You specify connection and other information in the console or using an instance of the [ OneDriveConfiguration ](API_OneDriveConfiguration.md) data type\. You must provide the following information: 
 + The credentials required to log in to the OneDrive site\.
 + The tenant domain that contains the OneDrive site\.
 + A list of users whose documents should be indexed\. You can provide a list of user names, or you can provide the user names in a file stored in an Amazon Simple Storage Service \(Amazon S3\) bucket\. If you store the list of user names in an S3 bucket, the IAM policy for the data source must provide access to the bucket and access to the key that the bucket was encrypted with, if any\.

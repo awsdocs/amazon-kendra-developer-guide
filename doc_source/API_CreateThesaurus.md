@@ -34,48 +34,48 @@ For information about the parameters that are common to all actions, see [Common
 
 The request accepts the following data in JSON format\.
 
- ** [ClientToken](#API_CreateThesaurus_RequestSyntax) **   <a name="Kendra-CreateThesaurus-request-ClientToken"></a>
+ ** [ ClientToken ](#API_CreateThesaurus_RequestSyntax) **   <a name="Kendra-CreateThesaurus-request-ClientToken"></a>
 A token that you provide to identify the request to create a thesaurus\. Multiple calls to the `CreateThesaurus` operation with the same client token will create only one thesaurus\.   
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Required: No
 
- ** [Description](#API_CreateThesaurus_RequestSyntax) **   <a name="Kendra-CreateThesaurus-request-Description"></a>
+ ** [ Description ](#API_CreateThesaurus_RequestSyntax) **   <a name="Kendra-CreateThesaurus-request-Description"></a>
 The description for the new thesaurus\.  
 Type: String  
 Length Constraints: Minimum length of 0\. Maximum length of 1000\.  
 Pattern: `^\P{C}*$`   
 Required: No
 
- ** [IndexId](#API_CreateThesaurus_RequestSyntax) **   <a name="Kendra-CreateThesaurus-request-IndexId"></a>
+ ** [ IndexId ](#API_CreateThesaurus_RequestSyntax) **   <a name="Kendra-CreateThesaurus-request-IndexId"></a>
 The unique identifier of the index for the new thesaurus\.   
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`   
 Required: Yes
 
- ** [Name](#API_CreateThesaurus_RequestSyntax) **   <a name="Kendra-CreateThesaurus-request-Name"></a>
+ ** [ Name ](#API_CreateThesaurus_RequestSyntax) **   <a name="Kendra-CreateThesaurus-request-Name"></a>
 The name for the new thesaurus\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`   
 Required: Yes
 
- ** [RoleArn](#API_CreateThesaurus_RequestSyntax) **   <a name="Kendra-CreateThesaurus-request-RoleArn"></a>
-An AWS Identity and Access Management \(IAM\) role that gives Amazon Kendra permissions to access thesaurus file specified in `SourceS3Path`\.   
+ ** [ RoleArn ](#API_CreateThesaurus_RequestSyntax) **   <a name="Kendra-CreateThesaurus-request-RoleArn"></a>
+An IAM role that gives Amazon Kendra permissions to access thesaurus file specified in `SourceS3Path`\.   
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1284\.  
 Pattern: `arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}`   
 Required: Yes
 
- ** [SourceS3Path](#API_CreateThesaurus_RequestSyntax) **   <a name="Kendra-CreateThesaurus-request-SourceS3Path"></a>
+ ** [ SourceS3Path ](#API_CreateThesaurus_RequestSyntax) **   <a name="Kendra-CreateThesaurus-request-SourceS3Path"></a>
 The thesaurus file Amazon S3 source path\.   
-Type: [S3Path](API_S3Path.md) object  
+Type: [ S3Path ](API_S3Path.md) object  
 Required: Yes
 
- ** [Tags](#API_CreateThesaurus_RequestSyntax) **   <a name="Kendra-CreateThesaurus-request-Tags"></a>
+ ** [ Tags ](#API_CreateThesaurus_RequestSyntax) **   <a name="Kendra-CreateThesaurus-request-Tags"></a>
 A list of key\-value pairs that identify the thesaurus\. You can use the tags to identify and organize your resources and to control access to resources\.   
-Type: Array of [Tag](API_Tag.md) objects  
+Type: Array of [ Tag ](API_Tag.md) objects  
 Array Members: Minimum number of 0 items\. Maximum number of 200 items\.  
 Required: No
 
@@ -93,7 +93,7 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
- ** [Id](#API_CreateThesaurus_ResponseSyntax) **   <a name="Kendra-CreateThesaurus-response-Id"></a>
+ ** [ Id ](#API_CreateThesaurus_ResponseSyntax) **   <a name="Kendra-CreateThesaurus-response-Id"></a>
 The unique identifier of the thesaurus\.   
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
@@ -103,31 +103,31 @@ Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`
 
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
- **AccessDeniedException**   
+ ** AccessDeniedException **   
   
 HTTP Status Code: 400
 
- **ConflictException**   
+ ** ConflictException **   
   
 HTTP Status Code: 400
 
- **InternalServerException**   
+ ** InternalServerException **   
   
 HTTP Status Code: 500
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
   
 HTTP Status Code: 400
 
- **ServiceQuotaExceededException**   
+ ** ServiceQuotaExceededException **   
   
 HTTP Status Code: 400
 
- **ThrottlingException**   
+ ** ThrottlingException **   
   
 HTTP Status Code: 400
 
- **ValidationException**   
+ ** ValidationException **   
   
 HTTP Status Code: 400
 

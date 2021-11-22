@@ -8,12 +8,12 @@ Provides a range of time\.
 
 ## Contents<a name="API_TimeRange_Contents"></a>
 
- **EndTime**   <a name="Kendra-Type-TimeRange-EndTime"></a>
+ ** EndTime **   <a name="Kendra-Type-TimeRange-EndTime"></a>
 The UNIX datetime of the end of the time range\.  
 Type: Timestamp  
 Required: No
 
- **StartTime**   <a name="Kendra-Type-TimeRange-StartTime"></a>
+ ** StartTime **   <a name="Kendra-Type-TimeRange-StartTime"></a>
 The UNIX datetime of the beginning of the time range\.  
 Type: Timestamp  
 Required: No

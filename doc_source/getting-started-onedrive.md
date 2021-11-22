@@ -2,11 +2,11 @@
 
 --------
 
-# Getting started with a Microsoft OneDrive for Business data source \(Console\)<a name="getting-started-onedrive"></a>
+# Getting started with a Microsoft OneDrive for Business data source \(console\)<a name="getting-started-onedrive"></a>
 
 You can use the Amazon Kendra console to get started indexing a Microsoft OneDrive for Business site\. When you use the console you can specify all of the connection information that you need to index the contents of a OneDrive site\. For more information, see [Using a Microsoft OneDrive data source](data-source-onedrive.md)\.
 
-Use the following procedure to create a basic OneDrive data source using the default configuration\. The procedure assumes that you have already created an index following the steps in step 1 of [Getting started with an S3 bucket \(Console\)](gs-console.md)\.
+Use the following procedure to create a basic OneDrive data source using the default configuration\. The procedure assumes that you have already created an index following the steps in step 1 of [Getting started with an S3 bucket \(console\)](gs-console.md)\.
 
 Before you can create a OneDrive data source, you must register an Azure Active Directory application\. Use the following procedure to register the application\.
 

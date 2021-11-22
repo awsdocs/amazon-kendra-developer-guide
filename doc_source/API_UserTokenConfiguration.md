@@ -8,14 +8,14 @@ Provides configuration information for a token configuration\.
 
 ## Contents<a name="API_UserTokenConfiguration_Contents"></a>
 
- **JsonTokenTypeConfiguration**   <a name="Kendra-Type-UserTokenConfiguration-JsonTokenTypeConfiguration"></a>
+ ** JsonTokenTypeConfiguration **   <a name="Kendra-Type-UserTokenConfiguration-JsonTokenTypeConfiguration"></a>
 Information about the JSON token type configuration\.  
-Type: [JsonTokenTypeConfiguration](API_JsonTokenTypeConfiguration.md) object  
+Type: [ JsonTokenTypeConfiguration ](API_JsonTokenTypeConfiguration.md) object  
 Required: No
 
- **JwtTokenTypeConfiguration**   <a name="Kendra-Type-UserTokenConfiguration-JwtTokenTypeConfiguration"></a>
+ ** JwtTokenTypeConfiguration **   <a name="Kendra-Type-UserTokenConfiguration-JwtTokenTypeConfiguration"></a>
 Information about the JWT token type configuration\.  
-Type: [JwtTokenTypeConfiguration](API_JwtTokenTypeConfiguration.md) object  
+Type: [ JwtTokenTypeConfiguration ](API_JwtTokenTypeConfiguration.md) object  
 Required: No
 
 ## See Also<a name="API_UserTokenConfiguration_SeeAlso"></a>

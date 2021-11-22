@@ -2,11 +2,11 @@
 
 --------
 
-# Getting started with a Google Workspace Drive data source \(Console\)<a name="getting-started-google"></a>
+# Getting started with a Google Workspace Drive data source \(console\)<a name="getting-started-google"></a>
 
 You can use the Amazon Kendra console to index a Google Workspace Drive\. Using the console, you can specify all of the connection information that you need to index the contents of a Google Drive\. For more information, see [Using a Google Workspace Drive data source](data-source-google-drive.md)\.
 
-Use the following procedure to create a basic Google Drive data source using the default configuration\. The procedure assumes that you have already created an index following the steps in step 1 of [Getting started with an S3 bucket \(Console\)](gs-console.md)\.
+Use the following procedure to create a basic Google Drive data source using the default configuration\. The procedure assumes that you have already created an index following the steps in step 1 of [Getting started with an S3 bucket \(console\)](gs-console.md)\.
 
 Before you can create a Google Drive data source, you must create a service account that Amazon Kendra uses to connect to your Google Drive\. 
 

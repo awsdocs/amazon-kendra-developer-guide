@@ -2,7 +2,7 @@
 
 --------
 
-# Step 4: Creating an Amazon Kendra index and ingesting the metadata<a name="tutorial-creating-index"></a>
+# Step 4: Creating an Amazon Kendra index and ingesting the metadata<a name="tutorial-search-metadata-create-index-ingest"></a>
 
 To implement your intelligent search solution, you create an Amazon Kendra index and ingest your S3 data and metadata into it\.
 
@@ -11,19 +11,19 @@ Before you add metadata to your Amazon Kendra index, you create custom index fie
 For more information, see [Index](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html) and [Creating custom document attributes](https://docs.aws.amazon.com/kendra/latest/dg/custom-attributes.html)\.
 
 **Topics**
-+ [Creating an Amazon Kendra index](#tutorial-creating-index-index-creation)
-+ [Updating the IAM role for Amazon S3 access](#tutorial-creating-index-update-IAM)
-+ [Creating Amazon Kendra custom search index fields](#tutorial-creating-index-custom-fields)
-+ [Adding the Amazon S3 bucket as a data source for the index](#tutorial-creating-index-connecting-data)
-+ [Syncing the Amazon Kendra index](#tutorial-creating-index-sync)
++ [Creating an Amazon Kendra index](#tutorial-search-metadata-create-index)
++ [Updating the IAM role for Amazon S3 access](#tutorial-search-metadata-create-index-update-IAM)
++ [Creating Amazon Kendra custom search index fields](#tutorial-search-metadata-create-index-custom-fields)
++ [Adding the Amazon S3 bucket as a data source for the index](#tutorial-search-metadata-create-index-connect-data)
++ [Syncing the Amazon Kendra index](#tutorial-search-metadata-create-index-sync)
 
-## Creating an Amazon Kendra index<a name="tutorial-creating-index-index-creation"></a>
+## Creating an Amazon Kendra index<a name="tutorial-search-metadata-create-index"></a>
 
 To query your source documents, you create an Amazon Kendra index\.
 
 If you are using the AWS CLI in this step, you create and attach an AWS IAM role and policy that allows Amazon Kendra to access your CloudWatch logs before creating an index\. For more information, see [Prerequisites](https://docs.aws.amazon.com/kendra/latest/dg/gs-prerequisites.html)\.
 
-### To create an Amazon Kendra index \(Console\)<a name="create-index-console"></a>
+### To create an Amazon Kendra index \(Console\)<a name="tutorial-search-metadata-create-index-console"></a>
 
 1. Open the Amazon Kendra console at [https://console\.aws\.amazon\.com/kendra/](https://console.aws.amazon.com/kendra/)\.
 **Important**  
@@ -47,7 +47,7 @@ Ensure that you are in the same region in which you created your Amazon Comprehe
 
 1. For **Provisioning editions** on the **Provisioning details** page, choose **Developer edition** and choose **Create**\.
 
-### To create an Amazon Kendra index \(AWS CLI\)<a name="create-index-cli"></a>
+### To create an Amazon Kendra index \(AWS CLI\)<a name="tutorial-search-metadata-create-index-cli"></a>
 
 1. To create and attach an IAM role for Amazon Kendra that recognizes it as a trusted entity, do the following:
 
@@ -335,11 +335,11 @@ The index creation process on average takes 15 minutes, but can take longer\. Wh
 
 If you are using the AWS CLI in this step, you create and attach an IAM policy to your Amazon Kendra IAM role that gives your index permissions to access your S3 bucket\.
 
-## Updating the IAM role for Amazon S3 access<a name="tutorial-creating-index-update-IAM"></a>
+## Updating the IAM role for Amazon S3 access<a name="tutorial-search-metadata-create-index-update-IAM"></a>
 
 While the index is being created, you update your Amazon Kendra IAM role to allow the index you created to read data from your Amazon S3 bucket\. For more information, see [IAM access roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html)\.
 
-### To update your IAM role \(Console\)<a name="update-role-console"></a>
+### To update your IAM role \(Console\)<a name="tutorial-search-metadata-update-role-console"></a>
 
 1. Open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
 
@@ -355,7 +355,7 @@ While the index is being created, you update your Amazon Kendra IAM role to allo
 
 1. Return to the Amazon Kendra console at [https://console\.aws\.amazon\.com/kendra/](https://console.aws.amazon.com/kendra/) and wait for the status of your index to change from **Creating** to **Active** before continuing to the next step\.
 
-### To update your IAM role \(AWS CLI\)<a name="update-role-cli"></a>
+### To update your IAM role \(AWS CLI\)<a name="tutorial-search-metadata-update-role-cli"></a>
 
 1. Save the following text in a JSON file called `kendra-S3-access-policy.json` in a text editor on your local device\.
 
@@ -482,7 +482,7 @@ The ARN has a format similar to *arn:aws:iam::123456789012:role/kendra\-S3\-acce
 
 ------
 
-## Creating Amazon Kendra custom search index fields<a name="tutorial-creating-index-custom-fields"></a>
+## Creating Amazon Kendra custom search index fields<a name="tutorial-search-metadata-create-index-custom-fields"></a>
 
 To prepare Amazon Kendra to recognize your metadata as custom document attributes, you create custom fields corresponding to Amazon Comprehend entity types\. You input the following nine Amazon Comprehend entity types as custom fields:
 + COMMERCIAL\_ITEM
@@ -498,7 +498,7 @@ To prepare Amazon Kendra to recognize your metadata as custom document attribute
 **Important**  
 Misspelled entity types will not be recognized by the index\.
 
-### To create custom fields for your Amazon Kendra index \(Console\)<a name="create-attributes-console"></a>
+### To create custom fields for your Amazon Kendra index \(Console\)<a name="tutorial-search-metadata-create-attributes-console"></a>
 
 1. Open the Amazon Kendra console at [https://console\.aws\.amazon\.com/kendra/](https://console.aws.amazon.com/kendra/)\.
 
@@ -520,7 +520,7 @@ Misspelled entity types will not be recognized by the index\.
 
 The console displays successful field addition messages\. You can choose to close them before you proceed with the next step\.
 
-### To create custom fields for your Amazon Kendra index \(AWS CLI\)<a name="create-attributes-cli"></a>
+### To create custom fields for your Amazon Kendra index \(AWS CLI\)<a name="tutorial-search-metadata-create-attributes-cli"></a>
 
 1. Save the following text as a JSON file called `custom-attributes.json` in a text editor on your local device\.
 
@@ -702,11 +702,11 @@ The console displays successful field addition messages\. You can choose to clos
 
 ------
 
-## Adding the Amazon S3 bucket as a data source for the index<a name="tutorial-creating-index-connecting-data"></a>
+## Adding the Amazon S3 bucket as a data source for the index<a name="tutorial-search-metadata-create-index-connect-data"></a>
 
 Before you can sync your index, you must connect your S3 data source to it\.
 
-### To connect an S3 bucket to your Amazon Kendra index \(Console\)<a name="connecting-s3-console"></a>
+### To connect an S3 bucket to your Amazon Kendra index \(Console\)<a name="tutorial-search-metadata-connect-s3-console"></a>
 
 1. Open the Amazon Kendra console at [https://console\.aws\.amazon\.com/kendra/](https://console.aws.amazon.com/kendra/)\.
 
@@ -746,7 +746,7 @@ Before you can sync your index, you must connect your S3 data source to it\.
 
 1. On the **Review and create** page, review your choices for the data source details and choose **Add data source**\.
 
-### To connect an S3 bucket to your Amazon Kendra index \(AWS CLI\)<a name="connecting-s3-cli"></a>
+### To connect an S3 bucket to your Amazon Kendra index \(AWS CLI\)<a name="tutorial-search-metadata-connect-s3-cli"></a>
 
 1. Save the following text as a JSON file called `S3-data-connector.json` in a text editor on your local device\.
 
@@ -877,11 +877,11 @@ Before you can sync your index, you must connect your S3 data source to it\.
 
 At the end of this step, your Amazon S3 data source is connected to the index\.
 
-## Syncing the Amazon Kendra index<a name="tutorial-creating-index-sync"></a>
+## Syncing the Amazon Kendra index<a name="tutorial-search-metadata-create-index-sync"></a>
 
 With the Amazon S3 data source added, you now sync your Amazon Kendra index to it\.
 
-### To sync your Amazon Kendra index \(Console\)<a name="syncing-index-console"></a>
+### To sync your Amazon Kendra index \(Console\)<a name="tutorial-search-metadata-sync-index-console"></a>
 
 1. Open the Amazon Kendra console at [https://console\.aws\.amazon\.com/kendra/](https://console.aws.amazon.com/kendra/)\.
 
@@ -893,7 +893,7 @@ With the Amazon S3 data source added, you now sync your Amazon Kendra index to i
 
 1. From the top navigation bar, choose **Sync now**\.
 
-### To sync your Amazon Kendra index \(AWS CLI\)<a name="syncing-index-cli"></a>
+### To sync your Amazon Kendra index \(AWS CLI\)<a name="tutorial-search-metadata-sync-index-cli"></a>
 
 1. To sync your index, use the [start\-data\-source\-sync\-job](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kendra/start-data-source-sync-job.html) command:
 

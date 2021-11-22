@@ -18,7 +18,7 @@ You can adjust capacity units up to 5 times per day to tune the capacity of your
 
 You can add up to 100 capacity units to your storage and query resources\. If you need additional resources, [contact AWS support](https://console.aws.amazon.com/support/home?#/)\.
 
-You can use the Amazon Kendra console or the [DescribeIndex](API_DescribeIndex.md) operation to view the resources that your index is using\. Amazon Kendra also returns exceptions when you exceed the capacity of an index\. You get a `ServiceQuotaExceededException` exception when you exceed your storage capacity and a `ThrottlingException` exception when you exceed your queries per second capacity\.
+You can use the Amazon Kendra console or the [ DescribeIndex ](API_DescribeIndex.md) operation to view the resources that your index is using\. Amazon Kendra also returns exceptions when you exceed the capacity of an index\. You get a `ServiceQuotaExceededException` when the total extracted size of all the documents exceeds the limit for an index\. You get a `InvalidRequest` for each document when the number of documents exceeds the limit for an index\. You get a `ThrottlingException` when the number of queries per second exceeds the limit\. For more information on limits, see [Quotas for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/quotas.html)\.
 
 ## Viewing capacity<a name="viewing-capacity"></a>
 
@@ -52,11 +52,11 @@ If you need additional capacity for your index, you can add it using the console
 
 After you update the capacity of your index, it can take up 60 minutes for the changes to take effect\.
 
-To add or remove capacity using the Amazon Kendra API, use the `CapacityUnits` parameter [UpdateIndex](API_UpdateIndex.md) operation\.
+To add or remove capacity using the Amazon Kendra API, use the `CapacityUnits` parameter [ UpdateIndex ](API_UpdateIndex.md) operation\.
 
 ## Query suggestions capacity<a name="query-suggestions-capacity"></a>
 
-When using [query suggestions](https://docs.aws.amazon.com/kendra/latest/dg/query-suggestions.html), there’s a base query capacity of 2\.5 [GetQuerySuggestions](https://docs.aws.amazon.com/latest/dg/API_GetQuerySuggestions.html) calls per second\. The `GetQuerySuggestions` capacity is five times the provisioned query capacity for an index, or the base capacity of 2\.5 calls per second, whichever is higher\. For example, the base capacity for an index is 0\.1 queries per second, and `GetQuerySuggestions` capacity has a base of 2\.5 calls per second\. If you add another 0\.1 queries per second to total 0\.2 queries per second for an index, the `GetQuerySuggestions` capacity is 2\.5 calls per second \(higher than five times 0\.2 queries per second\)\.
+When using [query suggestions](https://docs.aws.amazon.com/kendra/latest/dg/query-suggestions.html), there’s a base query capacity of 2\.5 [GetQuerySuggestions](https://docs.aws.amazon.com/kendra/latest/dg/API_GetQuerySuggestions.html) calls per second\. The `GetQuerySuggestions` capacity is five times the provisioned query capacity for an index, or the base capacity of 2\.5 calls per second, whichever is higher\. For example, the base capacity for an index is 0\.1 queries per second, and `GetQuerySuggestions` capacity has a base of 2\.5 calls per second\. If you add another 0\.1 queries per second to total 0\.2 queries per second for an index, the `GetQuerySuggestions` capacity is 2\.5 calls per second \(higher than five times 0\.2 queries per second\)\.
 
 ## Adaptive query bursting<a name="adaptive-query-bursting"></a>
 

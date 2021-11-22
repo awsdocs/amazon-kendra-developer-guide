@@ -4,7 +4,7 @@
 
 # Using a web crawler data source<a name="data-source-web-crawler"></a>
 
-You can use the Amazon Kendra web crawler to crawl and index webpages\. For a walk\-through of how to use the web crawler in the console, see [Getting started with Amazon Kendra web crawler \(Console\)](https://docs.aws.amazon.com/kendra/latest/dg/getting-started-webcrawler.html)\.
+You can use Amazon Kendra *Web Crawler* to crawl and index webpages\. For a walk\-through of how to use the web crawler in the console, see [Getting started with Amazon Kendra Web Crawler \(console\)](https://docs.aws.amazon.com/kendra/latest/dg/getting-started-webcrawler.html)\.
 
 You can use the web crawler to crawl webpages and index them as your documents\. For the websites you want to crawl and index, you provide either the seed or starting point URLs or the sitemap URLs\. You can only crawl websites that use the secure communication protocol, Hypertext Transfer Protocol Secure \(HTTPS\)\. If you receive an error when crawling a website, it could be that the website is blocked from crawling\.
 
@@ -22,11 +22,11 @@ You can configure the web crawler using the [CreateDataSource](https://docs.aws.
 
 You use the [SeedUrlConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_SeedUrlConfiguration.html) structure to provide a list of seed URLs and choose whether to crawl only website host names, or include subdomains, or include subdomains and other domains the webpages link to\. You also use the [SiteMapsConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_SiteMapsConfiguration.html) structure to provide a list of sitemap URLs\.
 
-*When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://aws.amazon.com/aup/) and all other Amazon terms\. Remember that you must only use the Amazon Kendra web crawler to index your own webpages, or webpages that you have authorization to index\. To learn how to stop the Amazon Kendra web crawler from indexing your website\(s\), please see [Stopping the Amazon Kendra web crawler from indexing your website](https://docs.aws.amazon.com/kendra/latest/dg/stop-web-crawler.html)\.*
+*When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://aws.amazon.com/aup/) and all other Amazon terms\. Remember that you must only use Amazon Kendra Web Crawler to index your own webpages, or webpages that you have authorization to index\. To learn how to stop Amazon Kendra Web Crawler from indexing your website\(s\), please see [Stopping Amazon Kendra Web Crawler from indexing your website](https://docs.aws.amazon.com/kendra/latest/dg/stop-web-crawler.html)\.*
 
 ## Website user authentication<a name="website-user-auth"></a>
 
-Before connecting to the web crawler, you need to check if the websites you want to crawl require authentication to access the websites\. If a website requires basic authentication, you provide web crawler with the host name of the website, the port number, and a secret in [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) that stores your basic authentication credentials of your user name and password\.
+Before connecting to the web crawler, you need to check if the websites you want to crawl require authentication to access the websites\. If a website requires basic authentication, you provide the web crawler with the host name of the website, the port number, and a secret in [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) that stores your basic authentication credentials of your user name and password\.
 
 If you use the Amazon Kendra console, you can choose an existing secret\. If you use the Amazon Kendra API, you must provide the Amazon Resource Name \(ARN\) of an existing secret that contains your user name and password\. You can create a secret in [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html)\.
 
@@ -43,9 +43,9 @@ The secret can contain other information, but Amazon Kendra ignores it\.
 
 You use the [AuthenticationConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_AuthenticationConfiguration.html) structure to provide the website host name, website port number, and the secret that stores your authentication credentials\.
 
-## IAM role for web crawler<a name="iam-role-web-crawler"></a>
+## IAM role for web crawler data sources<a name="iam-role-web-crawler"></a>
 
-When you use the web crawler, you specify an IAM role that grants Amazon Kendra permission to access web crawler resources such as your index and secret\. The secret stores your credentials for websites or web proxy servers that require basic authentication\. The IAM role for the web crawler must have permission to access the secret and to use the AWS Key Management Service \(AWS KMS\) key to decrypt it\. The IAM role also needs access to your index so that it can add and update crawled webpages to the index\. For more information, see [IAM access roles for Amazon Kendra](https://docs.aws.amazon.com/https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html)\.
+When you use the web crawler, you specify an IAM role that grants Amazon Kendra permission to access the web crawler resources such as your index and secret\. The secret stores your credentials for websites or web proxy servers that require basic authentication\. The IAM role for the web crawler must have permission to access the secret and to use the AWS Key Management Service \(AWS KMS\) key to decrypt it\. The IAM role also needs access to your index so that it can add and update crawled webpages to the index\. For more information, see [IAM access roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html)\.
 
 ## Web proxy<a name="web-proxy-web-crawler"></a>
 

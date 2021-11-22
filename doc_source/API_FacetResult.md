@@ -8,19 +8,19 @@ The facet values for the documents in the response\.
 
 ## Contents<a name="API_FacetResult_Contents"></a>
 
- **DocumentAttributeKey**   <a name="Kendra-Type-FacetResult-DocumentAttributeKey"></a>
+ ** DocumentAttributeKey **   <a name="Kendra-Type-FacetResult-DocumentAttributeKey"></a>
 The key for the facet values\. This is the same as the `DocumentAttributeKey` provided in the query\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 200\.  
 Pattern: `[a-zA-Z0-9_][a-zA-Z0-9_-]*`   
 Required: No
 
- **DocumentAttributeValueCountPairs**   <a name="Kendra-Type-FacetResult-DocumentAttributeValueCountPairs"></a>
+ ** DocumentAttributeValueCountPairs **   <a name="Kendra-Type-FacetResult-DocumentAttributeValueCountPairs"></a>
 An array of key/value pairs, where the key is the value of the attribute and the count is the number of documents that share the key value\.  
-Type: Array of [DocumentAttributeValueCountPair](API_DocumentAttributeValueCountPair.md) objects  
+Type: Array of [ DocumentAttributeValueCountPair ](API_DocumentAttributeValueCountPair.md) objects  
 Required: No
 
- **DocumentAttributeValueType**   <a name="Kendra-Type-FacetResult-DocumentAttributeValueType"></a>
+ ** DocumentAttributeValueType **   <a name="Kendra-Type-FacetResult-DocumentAttributeValueType"></a>
 The data type of the facet value\. This is the same as the type defined for the index field when it was created\.  
 Type: String  
 Valid Values:` STRING_VALUE | STRING_LIST_VALUE | LONG_VALUE | DATE_VALUE`   

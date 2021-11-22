@@ -8,22 +8,22 @@ Specifies configuration information for the knowledge article types that Amazon 
 
 ## Contents<a name="API_SalesforceKnowledgeArticleConfiguration_Contents"></a>
 
- **CustomKnowledgeArticleTypeConfigurations**   <a name="Kendra-Type-SalesforceKnowledgeArticleConfiguration-CustomKnowledgeArticleTypeConfigurations"></a>
+ ** CustomKnowledgeArticleTypeConfigurations **   <a name="Kendra-Type-SalesforceKnowledgeArticleConfiguration-CustomKnowledgeArticleTypeConfigurations"></a>
 Provides configuration information for custom Salesforce knowledge articles\.  
-Type: Array of [SalesforceCustomKnowledgeArticleTypeConfiguration](API_SalesforceCustomKnowledgeArticleTypeConfiguration.md) objects  
+Type: Array of [ SalesforceCustomKnowledgeArticleTypeConfiguration ](API_SalesforceCustomKnowledgeArticleTypeConfiguration.md) objects  
 Array Members: Minimum number of 1 item\. Maximum number of 10 items\.  
 Required: No
 
- **IncludedStates**   <a name="Kendra-Type-SalesforceKnowledgeArticleConfiguration-IncludedStates"></a>
+ ** IncludedStates **   <a name="Kendra-Type-SalesforceKnowledgeArticleConfiguration-IncludedStates"></a>
 Specifies the document states that should be included when Amazon Kendra indexes knowledge articles\. You must specify at least one state\.  
 Type: Array of strings  
 Array Members: Minimum number of 1 item\. Maximum number of 3 items\.  
 Valid Values:` DRAFT | PUBLISHED | ARCHIVED`   
 Required: Yes
 
- **StandardKnowledgeArticleTypeConfiguration**   <a name="Kendra-Type-SalesforceKnowledgeArticleConfiguration-StandardKnowledgeArticleTypeConfiguration"></a>
+ ** StandardKnowledgeArticleTypeConfiguration **   <a name="Kendra-Type-SalesforceKnowledgeArticleConfiguration-StandardKnowledgeArticleTypeConfiguration"></a>
 Provides configuration information for standard Salesforce knowledge articles\.  
-Type: [SalesforceStandardKnowledgeArticleTypeConfiguration](API_SalesforceStandardKnowledgeArticleTypeConfiguration.md) object  
+Type: [ SalesforceStandardKnowledgeArticleTypeConfiguration ](API_SalesforceStandardKnowledgeArticleTypeConfiguration.md) object  
 Required: No
 
 ## See Also<a name="API_SalesforceKnowledgeArticleConfiguration_SeeAlso"></a>

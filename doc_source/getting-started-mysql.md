@@ -2,13 +2,13 @@
 
 --------
 
-# Getting started with a MySQL database data source \(Console\)<a name="getting-started-mysql"></a>
+# Getting started with a MySQL database data source \(console\)<a name="getting-started-mysql"></a>
 
 You can use the Amazon Kendra console to get started using a MySQL database as a data source\. When you use the console you specify the connection information you need to index the contents of a MySQL database\. For more information, see [Using a database data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-database.html)\.
 
 You first need to create a MySQL database, then you can create a data source for the database\.
 
-Use the following procedure to create a basic MySQL database\. The procedure assumes that you have already created an index following step 1 of [Getting started with an S3 bucket \(Console\)](gs-console.md)\.
+Use the following procedure to create a basic MySQL database\. The procedure assumes that you have already created an index following step 1 of [Getting started with an S3 bucket \(console\)](gs-console.md)\.
 
 **To create a MySQL database**
 

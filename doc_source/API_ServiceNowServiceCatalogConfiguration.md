@@ -8,26 +8,26 @@ Provides configuration information for crawling service catalog items in the Ser
 
 ## Contents<a name="API_ServiceNowServiceCatalogConfiguration_Contents"></a>
 
- **CrawlAttachments**   <a name="Kendra-Type-ServiceNowServiceCatalogConfiguration-CrawlAttachments"></a>
+ ** CrawlAttachments **   <a name="Kendra-Type-ServiceNowServiceCatalogConfiguration-CrawlAttachments"></a>
 Indicates whether Amazon Kendra should crawl attachments to the service catalog items\.   
 Type: Boolean  
 Required: No
 
- **DocumentDataFieldName**   <a name="Kendra-Type-ServiceNowServiceCatalogConfiguration-DocumentDataFieldName"></a>
+ ** DocumentDataFieldName **   <a name="Kendra-Type-ServiceNowServiceCatalogConfiguration-DocumentDataFieldName"></a>
 The name of the ServiceNow field that is mapped to the index document contents field in the Amazon Kendra index\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Pattern: `^[a-zA-Z][a-zA-Z0-9_.]*$`   
 Required: Yes
 
- **DocumentTitleFieldName**   <a name="Kendra-Type-ServiceNowServiceCatalogConfiguration-DocumentTitleFieldName"></a>
+ ** DocumentTitleFieldName **   <a name="Kendra-Type-ServiceNowServiceCatalogConfiguration-DocumentTitleFieldName"></a>
 The name of the ServiceNow field that is mapped to the index document title field\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Pattern: `^[a-zA-Z][a-zA-Z0-9_.]*$`   
 Required: No
 
- **ExcludeAttachmentFilePatterns**   <a name="Kendra-Type-ServiceNowServiceCatalogConfiguration-ExcludeAttachmentFilePatterns"></a>
+ ** ExcludeAttachmentFilePatterns **   <a name="Kendra-Type-ServiceNowServiceCatalogConfiguration-ExcludeAttachmentFilePatterns"></a>
 A list of regular expression patterns\. Documents that match the patterns are excluded from the index\. Documents that don't match the patterns are included in the index\. If a document matches both an exclusion pattern and an inclusion pattern, the document is not included in the index\.  
 The regex is applied to the file name of the attachment\.  
 Type: Array of strings  
@@ -35,13 +35,13 @@ Array Members: Minimum number of 0 items\. Maximum number of 100 items\.
 Length Constraints: Minimum length of 1\. Maximum length of 150\.  
 Required: No
 
- **FieldMappings**   <a name="Kendra-Type-ServiceNowServiceCatalogConfiguration-FieldMappings"></a>
+ ** FieldMappings **   <a name="Kendra-Type-ServiceNowServiceCatalogConfiguration-FieldMappings"></a>
 Mapping between ServiceNow fields and Amazon Kendra index fields\. You must create the index field before you map the field\.  
-Type: Array of [DataSourceToIndexFieldMapping](API_DataSourceToIndexFieldMapping.md) objects  
+Type: Array of [ DataSourceToIndexFieldMapping ](API_DataSourceToIndexFieldMapping.md) objects  
 Array Members: Minimum number of 1 item\. Maximum number of 100 items\.  
 Required: No
 
- **IncludeAttachmentFilePatterns**   <a name="Kendra-Type-ServiceNowServiceCatalogConfiguration-IncludeAttachmentFilePatterns"></a>
+ ** IncludeAttachmentFilePatterns **   <a name="Kendra-Type-ServiceNowServiceCatalogConfiguration-IncludeAttachmentFilePatterns"></a>
 A list of regular expression patterns\. Documents that match the patterns are included in the index\. Documents that don't match the patterns are excluded from the index\. If a document matches both an exclusion pattern and an inclusion pattern, the document is not included in the index\.  
 The regex is applied to the file name of the attachment\.  
 Type: Array of strings  

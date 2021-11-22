@@ -24,7 +24,7 @@ To use a database data source, you need to identify the following:
 
 Database configuration provides the information required to connect to your database server\. The host and port tell Amazon Kendra where to find the database server on the internet\. The database name and table name tell Amazon Kendra where to find the document data on the database server\.
 
-To enable Amazon Kendra to access your documents, you must specify a user that has read access to the table that contains the documents\. Amazon Kendra requires credentials for the user to access the database\. You provide these credentials using AWS Secrets Manager\. Once you have created the secret, you provide the Amazon Resource Name \(ARN\) of the secret to Amazon Kendra\. The secret must contain the user name and password that Amazon Kendra uses to access the database in a JSON structure\. The secret may contain additional information, but Amazon Kendra uses only the user name and password\. The following is the minimum JSON structure that must be in the secret:
+To enable Amazon Kendra to access your documents, specify a user that has read access to the table that contains the documents\. Amazon Kendra requires credentials for the user to access the database\. You provide these credentials using AWS Secrets Manager\. Once you have created the secret, you provide the Amazon Resource Name \(ARN\) of the secret to Amazon Kendra\. The secret must contain the user name and password that Amazon Kendra uses to access the database in a JSON structure\. The secret may contain additional information, but Amazon Kendra uses only the user name and password\. The following is the minimum JSON structure that must be in the secret:
 
 ```
 {
@@ -56,7 +56,7 @@ By default, Amazon Kendra uses SQL identifiers—such as database name, table na
 
 A PostgreSQL database always changes unquoted table and column names to lowercase\. For example, if Amazon Kendra is configured to use the table name **SAMPLE\_TABLE**, PostgreSQL converts it internally to **sample\_table**\. If a table or column name contains uppercase letters, the SQL query won’t match the correct columns or table because PostgreSQL internally changes them to lowercase\.
 
-To configure Amazon Kendra to enclose the SQL identifiers for table and column names in quotation marks \("\), set the `QueryIdentifiersEnclosingOption` field to `DOUBLE_QUOTES` inside the[SqlConfiguration](API_SqlConfiguration.md) parameter of the [CreateDataSource](API_CreateDataSource.md) operation\. When you set this parameter, the SQL identifiers sent to databases are enclosed in quotation marks so that PostgreSQL doesn't change SQL identifiers to lowercase\. If you enclose identifiers in quotation marks when you are using MySQL, you must set the `ansi_quotes` option in the MySQL database\.
+To configure Amazon Kendra to enclose the SQL identifiers for table and column names in quotation marks \("\), set the `QueryIdentifiersEnclosingOption` field to `DOUBLE_QUOTES` inside the[ SqlConfiguration ](API_SqlConfiguration.md) parameter of the [ CreateDataSource ](API_CreateDataSource.md) operation\. When you set this parameter, the SQL identifiers sent to databases are enclosed in quotation marks so that PostgreSQL doesn't change SQL identifiers to lowercase\. If you enclose identifiers in quotation marks when you are using MySQL, you must set the `ansi_quotes` option in the MySQL database\.
 
 You add document table information to an index by mapping table columns to index fields\. There are two types of information that you add\. The first is one to five columns that Amazon Kendra uses to determine if a document has changed since the last time that an index update was run\. For example, if you have columns in your table named `LastUpdateDate` and `LastUpdateTime`, you can tell Amazon Kendra to use them to determine if a document was updated\.
 
@@ -64,7 +64,7 @@ The second type of information about columns is to map some or all of the column
 
 After you map the columns, you can also use the index fields as custom attributes to filter the results of a query\. For more information, see [Filtering queries](filtering.md)\.
 
-You must specify the `DocumentDataColumnName` and `DocumentIdColumnName` fields\. The column mapped to the `DocumentIdColumnName` field must be an integer column\.
+Specify the `DocumentDataColumnName` and `DocumentIdColumnName` fields\. The column mapped to the `DocumentIdColumnName` field must be an integer column\.
 
 The following example shows a simple column configuration for a database data source\.
 

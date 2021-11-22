@@ -8,13 +8,13 @@ Configuration information for the JSON token type\.
 
 ## Contents<a name="API_JsonTokenTypeConfiguration_Contents"></a>
 
- **GroupAttributeField**   <a name="Kendra-Type-JsonTokenTypeConfiguration-GroupAttributeField"></a>
+ ** GroupAttributeField **   <a name="Kendra-Type-JsonTokenTypeConfiguration-GroupAttributeField"></a>
 The group attribute field\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  
 Required: Yes
 
- **UserNameAttributeField**   <a name="Kendra-Type-JsonTokenTypeConfiguration-UserNameAttributeField"></a>
+ ** UserNameAttributeField **   <a name="Kendra-Type-JsonTokenTypeConfiguration-UserNameAttributeField"></a>
 The user name attribute field\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  

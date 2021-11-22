@@ -21,14 +21,14 @@ For information about the parameters that are common to all actions, see [Common
 
 The request accepts the following data in JSON format\.
 
- ** [Id](#API_StartDataSourceSyncJob_RequestSyntax) **   <a name="Kendra-StartDataSourceSyncJob-request-Id"></a>
+ ** [ Id ](#API_StartDataSourceSyncJob_RequestSyntax) **   <a name="Kendra-StartDataSourceSyncJob-request-Id"></a>
 The identifier of the data source to synchronize\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`   
 Required: Yes
 
- ** [IndexId](#API_StartDataSourceSyncJob_RequestSyntax) **   <a name="Kendra-StartDataSourceSyncJob-request-IndexId"></a>
+ ** [ IndexId ](#API_StartDataSourceSyncJob_RequestSyntax) **   <a name="Kendra-StartDataSourceSyncJob-request-IndexId"></a>
 The identifier of the index that contains the data source\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
@@ -49,7 +49,7 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
- ** [ExecutionId](#API_StartDataSourceSyncJob_ResponseSyntax) **   <a name="Kendra-StartDataSourceSyncJob-response-ExecutionId"></a>
+ ** [ ExecutionId ](#API_StartDataSourceSyncJob_ResponseSyntax) **   <a name="Kendra-StartDataSourceSyncJob-response-ExecutionId"></a>
 Identifies a particular synchronization job\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.
@@ -58,31 +58,31 @@ Length Constraints: Minimum length of 1\. Maximum length of 2048\.
 
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
- **AccessDeniedException**   
+ ** AccessDeniedException **   
   
 HTTP Status Code: 400
 
- **ConflictException**   
+ ** ConflictException **   
   
 HTTP Status Code: 400
 
- **InternalServerException**   
+ ** InternalServerException **   
   
 HTTP Status Code: 500
 
- **ResourceInUseException**   
+ ** ResourceInUseException **   
   
 HTTP Status Code: 400
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
   
 HTTP Status Code: 400
 
- **ThrottlingException**   
+ ** ThrottlingException **   
   
 HTTP Status Code: 400
 
- **ValidationException**   
+ ** ValidationException **   
   
 HTTP Status Code: 400
 

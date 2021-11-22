@@ -2,11 +2,11 @@
 
 --------
 
-# Getting started with a ServiceNow data source \(Console\)<a name="getting-started-servicenow"></a>
+# Getting started with a ServiceNow data source \(console\)<a name="getting-started-servicenow"></a>
 
 You can use the Amazon Kendra console to get started using a ServiceNow data store\. When you use the console you specify the connection information you need to index the contents of a ServiceNow instance\. For more information see [Using a ServiceNow data source](data-source-servicenow.md)\.
 
-Use the following procedure to create a basic ServiceNow data source using the default configuration\. The procedure assumes you created an index following the steps in [Getting started with an S3 bucket \(Console\)](gs-console.md)\.
+Use the following procedure to create a basic ServiceNow data source using the default configuration\. The procedure assumes you created an index following the steps in [Getting started with an S3 bucket \(console\)](gs-console.md)\.
 
 **To create a ServiceNow data source using the Amazon Kendra console**
 

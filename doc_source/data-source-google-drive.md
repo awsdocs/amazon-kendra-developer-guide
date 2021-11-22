@@ -4,7 +4,9 @@
 
 # Using a Google Workspace Drive data source<a name="data-source-google-drive"></a>
 
-You can use an Amazon Kendra data source to connect to Google Workspace Drive to index the documents stored there\. Amazon Kendra indexes the documents stored in shared drives as well as the documents stored in user My Drives\. By default, Amazon Kendra indexes all documents in your Google Drive\. You can exclude documents from the index based on the ID of a shared drive, the user that owns the document, the MIME type of the document, or their path\.
+You can use an Amazon Kendra data source to connect to Google Workspace Drive to index the documents stored there\. For a walk\-through of how to use Google Workspace Drive in the console, see [Getting started with a Google Workspace Drive data source \(console\)](https://docs.aws.amazon.com/kendra/latest/dg/getting-started-google.html)\.
+
+Amazon Kendra indexes the documents stored in shared drives as well as the documents stored in user My Drives\. By default, Amazon Kendra indexes all documents in your Google Drive\. You can exclude documents from the index based on the ID of a shared drive, the user that owns the document, the MIME type of the document, or their path\.
 
 The Google Drive data source indexes Google Workspace documents as well as the documents listed in [Types of documents](index-document-types.md)\. The supported Google Workspace document types are: 
 + Google Docs
@@ -39,7 +41,7 @@ The data source IAM role must have permissions to access the AWS Key Management 
 
 You must create an index before you create the Google Drive data source\. For more information, see [Creating an index](create-index.md)\. You provide the ID of the index when you create the data source\.
 
-You specify connection and other information in the console or in an instance of the [GoogleDriveConfiguration](API_GoogleDriveConfiguration.md) data type\. You must provide the following information:
+You specify connection and other information in the console or in an instance of the [ GoogleDriveConfiguration ](API_GoogleDriveConfiguration.md) data type\. You must provide the following information:
 + The Amazon Resource Name \(ARN\) of a AWS Secrets Manager secret that contains the credentials required for Amazon Kendra to connect\.
 
 After you create the data source, you can:
@@ -51,7 +53,7 @@ After you create the data source, you can:
 
 After you sync the data source, you can't remove the field mappings\. You can map additional fields\.
 
-By default, Amazon Kendra indexes all supported documents stored on your Google Workspace Drive and any My Drives for your users\. You can exclude documents using the console or by setting the following fields of the [GoogleDriveConfiguration](API_GoogleDriveConfiguration.md) parameter when you create the data source\. Exclusions are combined with a logical AND, so if a file matches any of the exclusions it is not included in the index\.
+By default, Amazon Kendra indexes all supported documents stored on your Google Workspace Drive and any My Drives for your users\. You can exclude documents using the console or by setting the following fields of the [ GoogleDriveConfiguration ](API_GoogleDriveConfiguration.md) parameter when you create the data source\. Exclusions are combined with a logical AND, so if a file matches any of the exclusions it is not included in the index\.
 + `ExcludeMimeTypes` – One or more MIME types of the documents to exclude\. For example, if you specify the MIME type for Microsoft Word documents, those documents aren't indexed\.
 + `ExcludeSharedDrives` – One or more shared drive identifiers to exclude\. None of the files on the shared drive are indexed\.
 + `ExcludeUserAccounts` – One or more email addresses of user accounts to exclude from the index\. None of the files in the My Drive owned by the account are indexed\. Files shared with the user are indexed unless the owner of the file is also excluded\.

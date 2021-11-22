@@ -12,6 +12,8 @@ If a block list is updating, then you need to wait for the first update to finis
 
 Amazon Kendra supports partial updates, so you only need to provide the fields you want to update\.
 
+ `UpdateQuerySuggestionsBlockList` is currently not supported in the AWS GovCloud \(US\-West\) region\.
+
 ## Request Syntax<a name="API_UpdateQuerySuggestionsBlockList_RequestSyntax"></a>
 
 ```
@@ -34,46 +36,46 @@ For information about the parameters that are common to all actions, see [Common
 
 The request accepts the following data in JSON format\.
 
- ** [Description](#API_UpdateQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-UpdateQuerySuggestionsBlockList-request-Description"></a>
+ ** [ Description ](#API_UpdateQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-UpdateQuerySuggestionsBlockList-request-Description"></a>
 The description for a block list\.  
 Type: String  
 Length Constraints: Minimum length of 0\. Maximum length of 1000\.  
 Pattern: `^\P{C}*$`   
 Required: No
 
- ** [Id](#API_UpdateQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-UpdateQuerySuggestionsBlockList-request-Id"></a>
+ ** [ Id ](#API_UpdateQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-UpdateQuerySuggestionsBlockList-request-Id"></a>
 The unique identifier of a block list\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`   
 Required: Yes
 
- ** [IndexId](#API_UpdateQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-UpdateQuerySuggestionsBlockList-request-IndexId"></a>
+ ** [ IndexId ](#API_UpdateQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-UpdateQuerySuggestionsBlockList-request-IndexId"></a>
 The identifier of the index for a block list\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`   
 Required: Yes
 
- ** [Name](#API_UpdateQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-UpdateQuerySuggestionsBlockList-request-Name"></a>
+ ** [ Name ](#API_UpdateQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-UpdateQuerySuggestionsBlockList-request-Name"></a>
 The name of a block list\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Pattern: `^[a-zA-Z0-9](-*[a-zA-Z0-9])*`   
 Required: No
 
- ** [RoleArn](#API_UpdateQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-UpdateQuerySuggestionsBlockList-request-RoleArn"></a>
+ ** [ RoleArn ](#API_UpdateQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-UpdateQuerySuggestionsBlockList-request-RoleArn"></a>
 The IAM \(Identity and Access Management\) role used to access the block list text file in S3\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1284\.  
 Pattern: `arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}`   
 Required: No
 
- ** [SourceS3Path](#API_UpdateQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-UpdateQuerySuggestionsBlockList-request-SourceS3Path"></a>
+ ** [ SourceS3Path ](#API_UpdateQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-UpdateQuerySuggestionsBlockList-request-SourceS3Path"></a>
 The S3 path where your block list text file sits in S3\.  
 If you update your block list and provide the same path to the block list text file in S3, then Amazon Kendra reloads the file to refresh the block list\. Amazon Kendra does not automatically refresh your block list\. You need to call the `UpdateQuerySuggestionsBlockList` API to refresh you block list\.  
 If you update your block list, then Amazon Kendra asynchronously refreshes all query suggestions with the latest content in the S3 file\. This means changes might not take effect immediately\.  
-Type: [S3Path](API_S3Path.md) object  
+Type: [ S3Path ](API_S3Path.md) object  
 Required: No
 
 ## Response Elements<a name="API_UpdateQuerySuggestionsBlockList_ResponseElements"></a>
@@ -84,27 +86,27 @@ If the action is successful, the service sends back an HTTP 200 response with an
 
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
- **AccessDeniedException**   
+ ** AccessDeniedException **   
   
 HTTP Status Code: 400
 
- **ConflictException**   
+ ** ConflictException **   
   
 HTTP Status Code: 400
 
- **InternalServerException**   
+ ** InternalServerException **   
   
 HTTP Status Code: 500
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
   
 HTTP Status Code: 400
 
- **ThrottlingException**   
+ ** ThrottlingException **   
   
 HTTP Status Code: 400
 
- **ValidationException**   
+ ** ValidationException **   
   
 HTTP Status Code: 400
 

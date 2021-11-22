@@ -2,9 +2,9 @@
 
 --------
 
-# Getting started with Amazon Kendra web crawler \(Console\)<a name="getting-started-webcrawler"></a>
+# Getting started with Amazon Kendra Web Crawler \(console\)<a name="getting-started-webcrawler"></a>
 
-You can use the Amazon Kendra console to get started using the Amazon Kendra web crawler\. When you use the console, you specify the connection information you need to index the contents of the webpages crawled using the web crawler\. For more information, see [Using a web crawler data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-web-crawler.html)\.
+You can use the Amazon Kendra console to get started using the Amazon Kendra *Web Crawler*\. When you use the console, you specify the connection information you need to index the contents of the webpages crawled using the web crawler\. For more information, see [Using a web crawler data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-web-crawler.html)\.
 
 If you want to use a web proxy server to connect to and crawl websites, you need to provide the website host name and port number\. Web proxy credentials \(stored in a secret in [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html)\) are optional and you can use them to connect to a web proxy server that requires basic authentication\.
 
@@ -12,7 +12,7 @@ If you want to use basic authentication of user name and password to access and 
 
 The following procedure assumes that you created an index following step 1 of [Getting started with an S3 bucket \(Console\)](https://docs.aws.amazon.com/kendra/latest/dg/gs-console.html)\.
 
-**To create the Amazon Kendra web crawler as a data source connector \(console\)**
+**To create Amazon Kendra Web Crawler as a data source connector \(console\)**
 
 1. Sign into the AWS Management Console and then open the Amazon Kendra console at [https://console\.aws\.amazon\.com/kendra/home](https://console.aws.amazon.com/kendra/home)\.
 
@@ -46,7 +46,7 @@ You can only crawl websites that use the secure communication protocol, Hypertex
 
    1. \(Optional\) In the **Hosts with authentication** section, to connect to websites that require user authentication, choose **Add additional host with authentication**\.
 
-   1. In the **IAM role** section, in **IAM role**, choose an existing role that grants Amazon Kendra permission to access your web crawler resources such as your index\. For more information about the required permissions, see [IAM access roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html)\. 
+   1. In the **IAM role** section, in **IAM role**, choose an existing role that grants Amazon Kendra permission to access the web crawler resources such as your index\. For more information about the required permissions, see [IAM access roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html)\. 
 
    1. Choose **Next**\.
 
@@ -63,14 +63,14 @@ You can only crawl websites that use the secure communication protocol, Hypertex
 
    1. Choose **Additional configuration** to use regular expression patterns to include or exclude certain URLs to crawl\.
 
-   1. In the ** Sync schedule** section, for **Frequency**, choose the frequency to sync your index with your web crawler data source\. You can sync hourly, daily, weekly, monthly, run on demand, or you can choose your own custom sync schedule\.
+   1. In the ** Sync schedule** section, for **Frequency**, choose the frequency to sync your index with the web crawler data source\. You can sync hourly, daily, weekly, monthly, run on demand, or you can choose your own custom sync schedule\.
 
    1. Choose **Next**\.
 
-1. On the **Review and Create** page, review the details of your web crawler data source\. To make changes, choose the **Edit** button next to the item that you want to change\. When you are done, choose **Add data source** to add your web crawler data source\.
+1. On the **Review and Create** page, review the details of your web crawler data source\. To make changes, choose the **Edit** button next to the item that you want to change\. When you are done, choose **Add data source** to add the web crawler data source\.
 
 After you choose **Add data source**, Amazon Kendra starts web crawling\. It can take several minutes to a few hours for the web crawling to complete, depending on the number and size of the webpages to crawl\. When it is finished, the status changes from **Creating** to **Active**\.
 
-Amazon Kendra syncs the index with web crawler in accordance with the sync schedule you set\. If you choose **Sync now** to start the sync process immediately, it can take several minutes to a few hours to synchronize, depending on the number and size of the documents\.
+Amazon Kendra syncs the index with the web crawler in accordance with the sync schedule you set\. If you choose **Sync now** to start the sync process immediately, it can take several minutes to a few hours to synchronize, depending on the number and size of the documents\.
 
-*When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://aws.amazon.com/aup/) and all other Amazon terms\. Remember that you must only use the Amazon Kendra web crawler to index your own webpages, or webpages that you have authorization to index\. To learn how to stop the Amazon Kendra web crawler from indexing your website\(s\), please see [Stopping Amazon Kendra web crawler from indexing your website](https://docs.aws.amazon.com/kendra/latest/dg/stop-web-crawler.html)\.*
+*When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://aws.amazon.com/aup/) and all other Amazon terms\. Remember that you must only use Amazon Kendra Web Crawler to index your own webpages, or webpages that you have authorization to index\. To learn how to stop Amazon Kendra Web Crawler from indexing your website\(s\), please see [Stopping Amazon Kendra Web Crawler from indexing your website](https://docs.aws.amazon.com/kendra/latest/dg/stop-web-crawler.html)\.*

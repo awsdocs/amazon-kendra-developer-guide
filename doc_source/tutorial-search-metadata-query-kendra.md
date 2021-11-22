@@ -2,7 +2,7 @@
 
 --------
 
-# Step 5: Querying the Amazon Kendra index<a name="tutorial-querying-kendra"></a>
+# Step 5: Querying the Amazon Kendra index<a name="tutorial-search-metadata-query-kendra"></a>
 
 Your Amazon Kendra index is now ready for natural language queries\. When you search your index, Amazon Kendra uses all the data and metadata you provided to return the most accurate answers to your search query\.
 
@@ -12,16 +12,16 @@ There are three kinds of queries that Amazon Kendra can answer:
 + Keyword searches \(questions whose intent and scope are not clear\)
 
 **Topics**
-+ [Querying your Amazon Kendra index](#tutorial-querying-kendra-basic)
-+ [Filtering your search results](#tutorial-querying-kendra-filters)
++ [Querying your Amazon Kendra index](#tutorial-search-metadata-query-kendra-basic)
++ [Filtering your search results](#tutorial-search-metadata-query-kendra-filters)
 
-## Querying your Amazon Kendra index<a name="tutorial-querying-kendra-basic"></a>
+## Querying your Amazon Kendra index<a name="tutorial-search-metadata-query-kendra-basic"></a>
 
 You can query your Amazon Kendra index using questions that correspond to the three kinds of queries that Amazon Kendra supports\. For more information, see [Queries](https://docs.aws.amazon.com/kendra/latest/dg/searching-example.html)\.
 
 The example questions in this section have been chosen based on the sample dataset\.
 
-### To query your Amazon Kendra index \(Console\)<a name="querying-index-console"></a>
+### To query your Amazon Kendra index \(Console\)<a name="tutorial-search-metadata-query-index-console"></a>
 
 1. Open the Amazon Kendra console at [https://console\.aws\.amazon\.com/kendra/](https://console.aws.amazon.com/kendra/)\.
 
@@ -56,7 +56,7 @@ The example questions in this section have been chosen based on the sample datas
      
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/kendra/latest/dg/images/tutorial-query3.png)
 
-### To query your Amazon Kendra index \(AWS CLI\)<a name="querying-index-cli"></a>
+### To query your Amazon Kendra index \(AWS CLI\)<a name="tutorial-search-metadata-query-index-cli"></a>
 
 1. To run a sample factoid query, use the [query](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kendra/query.html) command:
 
@@ -202,11 +202,11 @@ The example questions in this section have been chosen based on the sample datas
 
    The AWS CLI displays the returned answers to your query\.
 
-## Filtering your search results<a name="tutorial-querying-kendra-filters"></a>
+## Filtering your search results<a name="tutorial-search-metadata-query-kendra-filters"></a>
 
 You can filter and sort your search results using custom document attributes in the Amazon Kendra search console\. For more information on how Amazon Kendra processes queries, see [Filtering queries](https://docs.aws.amazon.com/kendra/latest/dg/filtering.html)\.
 
-### To filter your search results \(Console\)<a name="filtering-index-console"></a>
+### To filter your search results \(Console\)<a name="tutorial-search-metadata-filter-index-console"></a>
 
 1. Open the Amazon Kendra console at [https://console\.aws\.amazon\.com/kendra/](https://console.aws.amazon.com/kendra/)\.
 
@@ -225,7 +225,7 @@ You can filter and sort your search results using custom document attributes in 
      
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/kendra/latest/dg/images/tutorial-filter.png)
 
-### To filter your search results \(AWS CLI\)<a name="filtering-index-cli"></a>
+### To filter your search results \(AWS CLI\)<a name="tutorial-search-metadata-filter-index-cli"></a>
 
 1. To see the entities of a specific type \(such as `EVENT`\) that are available for a search, use the [query](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kendra/query.html) command:
 
@@ -278,7 +278,7 @@ You can filter and sort your search results using custom document attributes in 
 
    The AWS CLI displays the search results\. To get a list of facets of type `EVENT`, navigate to the "FacetResults" section of the AWS CLI output to see a list of filterable facets with their counts\. For example, one of the facets is "Champions League"\.
 **Note**  
-Instead of `EVENT`, you can choose any of the index fields you created in [Step 4: Creating an Amazon Kendra index and ingesting the metadata](tutorial-creating-index.md) for the `DocumentAttributeKey` value\.
+Instead of `EVENT`, you can choose any of the index fields you created in [Creating an Amazon Kendra index](tutorial-search-metadata-create-index-ingest.md#tutorial-search-metadata-create-index) for the `DocumentAttributeKey` value\.
 
 1. To run the same search but filter only by the results containing "Champions League", use the [query](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kendra/query.html) command:
 

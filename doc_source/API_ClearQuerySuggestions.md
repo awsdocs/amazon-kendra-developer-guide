@@ -8,6 +8,8 @@ Clears existing query suggestions from an index\.
 
 This deletes existing suggestions only, not the queries in the query log\. After you clear suggestions, Amazon Kendra learns new suggestions based on new queries added to the query log from the time you cleared suggestions\. If you do not see any new suggestions, then please allow Amazon Kendra to collect enough queries to learn new suggestions\.
 
+ `ClearQuerySuggestions` is currently not supported in the AWS GovCloud \(US\-West\) region\.
+
 ## Request Syntax<a name="API_ClearQuerySuggestions_RequestSyntax"></a>
 
 ```
@@ -22,7 +24,7 @@ For information about the parameters that are common to all actions, see [Common
 
 The request accepts the following data in JSON format\.
 
- ** [IndexId](#API_ClearQuerySuggestions_RequestSyntax) **   <a name="Kendra-ClearQuerySuggestions-request-IndexId"></a>
+ ** [ IndexId ](#API_ClearQuerySuggestions_RequestSyntax) **   <a name="Kendra-ClearQuerySuggestions-request-IndexId"></a>
 The identifier of the index you want to clear query suggestions from\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
@@ -37,27 +39,27 @@ If the action is successful, the service sends back an HTTP 200 response with an
 
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
- **AccessDeniedException**   
+ ** AccessDeniedException **   
   
 HTTP Status Code: 400
 
- **ConflictException**   
+ ** ConflictException **   
   
 HTTP Status Code: 400
 
- **InternalServerException**   
+ ** InternalServerException **   
   
 HTTP Status Code: 500
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
   
 HTTP Status Code: 400
 
- **ThrottlingException**   
+ ** ThrottlingException **   
   
 HTTP Status Code: 400
 
- **ValidationException**   
+ ** ValidationException **   
   
 HTTP Status Code: 400
 

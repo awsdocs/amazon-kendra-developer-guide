@@ -8,10 +8,10 @@ Provides a relative ranking that indicates how confident Amazon Kendra is that t
 
 ## Contents<a name="API_ScoreAttributes_Contents"></a>
 
- **ScoreConfidence**   <a name="Kendra-Type-ScoreAttributes-ScoreConfidence"></a>
+ ** ScoreConfidence **   <a name="Kendra-Type-ScoreAttributes-ScoreConfidence"></a>
 A relative ranking for how well the response matches the query\.  
 Type: String  
-Valid Values:` VERY_HIGH | HIGH | MEDIUM | LOW`   
+Valid Values:` VERY_HIGH | HIGH | MEDIUM | LOW | NOT_AVAILABLE`   
 Required: No
 
 ## See Also<a name="API_ScoreAttributes_SeeAlso"></a>

@@ -2,11 +2,11 @@
 
 --------
 
-# Getting started with a Microsoft SharePoint data source \(Console\)<a name="getting-started-sharepoint"></a>
+# Getting started with a Microsoft SharePoint data source \(console\)<a name="getting-started-sharepoint"></a>
 
 You can use the Amazon Kendra console to get started indexing a Microsoft SharePoint data source\. When you use the console you specify the connection information you need to index the contents of the SharePoint data source\.
 
-Use the following procedure to create a basic SharePoint data source using the default configuration\. The procedure assumes you created an index following step 1 of [Getting started with an S3 bucket \(Console\)](gs-console.md)\.
+Use the following procedure to create a basic SharePoint data source using the default configuration\. The procedure assumes you created an index following step 1 of [Getting started with an S3 bucket \(console\)](gs-console.md)\.
 
 **To create a SharePoint data source using the Amazon Kendra console**
 

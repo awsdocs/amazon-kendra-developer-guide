@@ -3,12 +3,15 @@
 --------
 
 # Document history for Amazon Kendra<a name="doc-history"></a>
-+ **Latest documentation update:** August 13, 2021
++ **Latest documentation update:** October 13, 2021
 
 The following table describes important changes in each release of Amazon Kendra\. For notification about updates to this documentation, you can subscribe to an RSS feed\.
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Region expansion](https://docs.aws.amazon.com/general/latest/gr/kendra.html) | Amazon Kendra is now available in AWS GovCloud \(US\-West\) \(us\-gov\-west\-1\)\. | October 13, 2021 | 
+| [New feature](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html) | Amazon Kendra can now index documents in multiple languages and filter search results by language\. See [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html) and [Searching in languages](https://docs.aws.amazon.com/kendra/latest/dg/searching-example.html#searching-index-languages)\. | October 7, 2021 | 
+| [New feature](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html) | Amazon Kendra now integrates with AWS Single Sign\-On identity store to fetch access levels of groups and users for [user context filtering](https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html)\. See [User\-group configuration for AWS SSO](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html)\. | October 6, 2021 | 
 | [New tutorial](https://docs.aws.amazon.com/kendra/latest/dg/tutorial.html) | Amazon Kendra now provides a tutorial that walks you through how to build a metadata\-enriched search solution\. See [Building an intelligent search solution](https://docs.aws.amazon.com/kendra/latest/dg/tutorial.html)\. | August 13, 2021 | 
 | [New feature](https://docs.aws.amazon.com/kendra/latest/dg/data-source-web-crawler.html) | Amazon Kendra now provides a data source connector for Amazon WorkDocs\. For more information, see [Using an Amazon WorkDocs data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-workdocs.html)\. | July 20, 2021 | 
 | [New feature](https://docs.aws.amazon.com/kendra/latest/dg/data-source-web-crawler.html) | Amazon Kendra now provides a web crawler to crawl and index webpages\. For more information, see [Using a web crawler data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-web-crawler.html)\. | June 17, 2021 | 

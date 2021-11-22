@@ -4,7 +4,9 @@
 
 # Using a Microsoft SharePoint data source<a name="data-source-sharepoint"></a>
 
-You can use your Microsoft SharePoint as a data source for Amazon Kendra\. When you use Amazon Kendra to index your site, you choose which SharePoint URLs to include in the index, and you specify inclusion and exclusion patterns for the documents stored on those URLs\.
+You can use your Microsoft SharePoint as a data source for Amazon Kendra\. For a walk\-through of how to use SharePoint in the console, see [Getting started with a Microsoft SharePoint data source \(console\)](https://docs.aws.amazon.com/kendra/latest/dg/getting-started-sharepoint.html)\.
+
+When you use Amazon Kendra to index your site, you choose which SharePoint URLs to include in the index, and you specify inclusion and exclusion patterns for the documents stored on those URLs\.
 
 Amazon Kendra currently supports SharePoint Online and SharePoint Server \(versions 2013 and 2016\)\.
 
@@ -12,7 +14,7 @@ Amazon Kendra requires authentication credentials to access the SharePoint site\
 
 If you use SharePoint Online, you only need to provide your user name and password in your secret\.
 
-If you use SharePoint Server, in addtion to your user name and password, you need to provide the server domain name\. The server domain name is the NetBIOS name in your active directory provider\.
+If you use SharePoint Server, in addition to your user name and password, you need to provide the server domain name\. The server domain name is the NetBIOS name in your active directory provider\.
 
 If you use SharePoint Server and need to convert your access control list \(ACL\) to email format for filtering on user context, you need to provide the LDAP server URL and LDAP search base, or use the directory domain override\. The LDAP server URL is the full domain name and the port number\. For example, 'ldap://example\.com:389'\. The LDAP search base are the domain controllers 'example' and 'com'\. The directory domain override allows you to use the email domain instead of using LDAP server URL and LDAP search base\. For example, the email domain for 'username@example\.com' is 'example\.com'\. You can use this override if you are not concerned about validating your domain and simply want to use your email domain\.
 
@@ -71,7 +73,7 @@ The data source IAM role must have permission to access the secret\. For more in
 
 You must create an index before you create the SharePoint data source\. For more information, see [Creating an index](create-index.md)\. You provide the ID of the index when you create the data source\.
 
-You specify connection and other information in the console or using an instance of the [SharePointConfiguration](API_SharePointConfiguration.md) data type\. You must provide the following information: 
+You specify connection and other information in the console or using an instance of the [ SharePointConfiguration ](API_SharePointConfiguration.md) data type\. You must provide the following information: 
 + The credentials required to log in to the SharePoint site\.
 + The URLs of the SharePoint site, SharePoint site collection, or SharePoint list to index\.
 + The ARN of an IAM role that has permission to run Amazon Kendra commands\. For the required permissions, see [IAM roles for Microsoft SharePoint data sources](iam-roles.md#iam-roles-ds-spo)\.

@@ -12,37 +12,37 @@ For information on the current quota limits for block lists, see [Quotas for Ama
 
 ## Contents<a name="API_QuerySuggestionsBlockListSummary_Contents"></a>
 
- **CreatedAt**   <a name="Kendra-Type-QuerySuggestionsBlockListSummary-CreatedAt"></a>
+ ** CreatedAt **   <a name="Kendra-Type-QuerySuggestionsBlockListSummary-CreatedAt"></a>
 The date\-time summary information for a query suggestions block list was last created\.  
 Type: Timestamp  
 Required: No
 
- **Id**   <a name="Kendra-Type-QuerySuggestionsBlockListSummary-Id"></a>
+ ** Id **   <a name="Kendra-Type-QuerySuggestionsBlockListSummary-Id"></a>
 The identifier of a block list\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`   
 Required: No
 
- **ItemCount**   <a name="Kendra-Type-QuerySuggestionsBlockListSummary-ItemCount"></a>
+ ** ItemCount **   <a name="Kendra-Type-QuerySuggestionsBlockListSummary-ItemCount"></a>
 The number of items in the block list file\.  
 Type: Integer  
 Required: No
 
- **Name**   <a name="Kendra-Type-QuerySuggestionsBlockListSummary-Name"></a>
+ ** Name **   <a name="Kendra-Type-QuerySuggestionsBlockListSummary-Name"></a>
 The name of the block list\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Pattern: `^[a-zA-Z0-9](-*[a-zA-Z0-9])*`   
 Required: No
 
- **Status**   <a name="Kendra-Type-QuerySuggestionsBlockListSummary-Status"></a>
+ ** Status **   <a name="Kendra-Type-QuerySuggestionsBlockListSummary-Status"></a>
 The status of the block list\.  
 Type: String  
 Valid Values:` ACTIVE | CREATING | DELETING | UPDATING | ACTIVE_BUT_UPDATE_FAILED | FAILED`   
 Required: No
 
- **UpdatedAt**   <a name="Kendra-Type-QuerySuggestionsBlockListSummary-UpdatedAt"></a>
+ ** UpdatedAt **   <a name="Kendra-Type-QuerySuggestionsBlockListSummary-UpdatedAt"></a>
 The date\-time the block list was last updated\.  
 Type: Timestamp  
 Required: No

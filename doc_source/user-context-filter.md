@@ -25,7 +25,7 @@ response = kendra.query(
     })
 ```
 
-Amazon Kendra can map users to groups\. When you use user\-context filtering, it is not required to include all of the groups that a user belongs to when you issue the query\. The [PutPrincipalMapping](https://docs.aws.amazon.com/kendra/latest/dg/API_PutPrincipalMapping.html) operation takes care of mapping users to their groups\. If you do not want to use the `PutPrincipalMapping` operation, you must provide the user name and all the groups the user belongs to when you issue a query\.
+You can map users to groups\. When you use user\-context filtering, it is not required to include all of the groups that a user belongs to when you issue the query\. The [PutPrincipalMapping](https://docs.aws.amazon.com/kendra/latest/dg/API_PutPrincipalMapping.html) operation allows you to map users to their groups\. If you do not want to use the `PutPrincipalMapping` operation, you must provide the user name and all the groups the user belongs to when you issue a query\. You can also fetch access levels of groups and users in your AWS Single Sign\-On identity source by using the [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html) structure\.
 
 ## Filtering by user ID<a name="context-filter-user-incl-datasources"></a>
 
@@ -33,17 +33,17 @@ When you query the index, you use the user and group name IDs to specify the use
 
 You can also filter data sources by the user's group access\.
 
-Specifying a data source is useful if a group is tied to multiple data sources, but you only want the group to access documents of a certain data source\. For example, the groups "Research", "Engineering", and "Sales and Marketing" are all tied to the company’s documents stored in the data sources Confluence and Salesforce\. However, "Sales and Marketing" team only needs access to customer\-related documents stored in Salesforce\. This means when a user who works in sales and marketing searches for customer\-related documents, the user can see documents from Salesforce in their search results\. Users who do not work in sales and marketing do not see Salesforce documents in their search results\.
+Specifying a data source is useful if a group is tied to multiple data sources, but you only want the group to access documents of a certain data source\. For example, the groups "Research", "Engineering", and "Sales and Marketing" are all tied to the company's documents stored in the data sources Confluence and Salesforce\. However, "Sales and Marketing" team only needs access to customer\-related documents stored in Salesforce\. This means when a user who works in sales and marketing searches for customer\-related documents, the user can see documents from Salesforce in their search results\. Users who do not work in sales and marketing do not see Salesforce documents in their search results\.
 
 **Warning**  
 You are required to provide one of the following:  
 User and groups information, and \(optional\) data sources information\.
-Only the user information if you map your users to groups and data sources using the [PutPrincipalMapping](https://docs.aws.amazon.com/kendra/latest/dg/API_PutPrincipalMapping.html) operation\.
-If this information is not included in the query, Amazon Kendra returns all documents\. If you provide this information, only documents with matching user IDs, groups and data sources are returned\.
+Only the user information if you map your users to groups and data sources using the [PutPrincipalMapping](https://docs.aws.amazon.com/kendra/latest/dg/API_PutPrincipalMapping.html) operation\. You can also fetch access levels of groups and users in your AWS Single Sign\-On identity source by using the [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html) structure\.
+If this information is not included in the query, Amazon Kendra returns all documents\. If you provide this information, only documents with matching user IDs, groups, and data sources are returned\.
 
 You provide the user, groups and data sources information in the [UserContext](https://docs.aws.amazon.com/kendra/latest/dg/API_UserContext.html) object and pass this in the [Query](https://docs.aws.amazon.com/kendra/latest/dg/API_Query.html)\. The user ID, and the list of groups and data sources should match the name you specify in the [Principal](https://docs.aws.amazon.com/kendra/latest/dg/API_Principal.html) object to identify the user, groups and data sources\. The `Principal` object allows you to add a user, group, or data source to either an allow list or a deny list for accessing a document\.
 
-The following shows how to include user ID, groups and data sources\.
+The following shows how to include user ID, groups, and data sources\. 
 
 ```
 response = kendra.query(
@@ -62,12 +62,12 @@ response = kendra.query(
 
 ## Filtering by user attribute<a name="context-filter-attribute"></a>
 
-When you query the index, you use the built\-in attributes `_user_id` and `_group_ids` to specify the user and group information\. You can set up to 100 group identifiers\. You can add a user or a group to either an allow list or a deny list for accessing a document using the [Principal](https://docs.aws.amazon.com/kendra/latest/dg/API_Principal.html) object\. If a user or group is added to the deny list, the document is filtered out of any query that contains the user or group\.
+When you query the index, you use the built\-in attributes `_user_id` and `_group_ids` to specify the user and group information\. You can set up to 100 group identifiers\. You can add a user or a group to an allow list or a deny list for accessing a document using the [Principal](https://docs.aws.amazon.com/kendra/latest/dg/API_Principal.html) object\. If a user or group is added to the deny list, the document is filtered out of any query that contains the user or group\.
 
 **Warning**  
 You are required to provide one of the following:  
 User and group information\.
-Only the user information if you map your users to groups and data sources using the [PutPrincipalMapping](https://docs.aws.amazon.com/kendra/latest/dg/API_PutPrincipalMapping.html) operation\.
+Only the user information if you map your users to groups and data sources using the [PutPrincipalMapping](https://docs.aws.amazon.com/kendra/latest/dg/API_PutPrincipalMapping.html) operation\. You can also fetch access levels of groups and users in your AWS Single Sign\-On identity source by using the [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html) structure\.
 If this information is not included in the query, Amazon Kendra returns all documents\. If you provide this information, only documents with matching user IDs and groups are returned\.
 
 You provide the user and groups attributes in the [AttributeFilter](https://docs.aws.amazon.com/kendra/latest/dg/API_AttributeFilter.html) object and pass this in the [Query](https://docs.aws.amazon.com/kendra/latest/dg/API_Query.html)\.
@@ -158,6 +158,8 @@ The Confluence group and user names are mapped as follows:
   + Server – The `_user_id` is the username\. The username is always lower case\.
   + Cloud – The `_user_id` is the account ID of the user\.
 
+You can add up to 200 entries in the `AccessControlList` field\.
+
 ## User context filtering for Google Drive data sources<a name="context-filter-google"></a>
 
 A Google Workspace Drive data source returns user and group information for Google Drive users and groups\. Group and domain membership are mapped to the `_group_ids` index field\. The Google Drive user name is mapped to the `_user_id` field\.
@@ -201,6 +203,8 @@ If you provide the domain in the query, all documents shared with the domain are
            }
 ```
 
+You can add up to 200 entries in the `AccessControlList` field\.
+
 ## User context filtering for Microsoft OneDrive data sources<a name="context-filter-onedrive"></a>
 
 Amazon Kendra retrieves user and group information from Microsoft OneDrive when it indexes the documents on the site\. The user and group information is taken from the underlying Microsoft SharePoint site that hosts OneDrive\.
@@ -219,7 +223,7 @@ When you use a OneDrive user or group for user context filtering, calculate the 
 
    `"430a6b90503eef95c89295c8999c7981|someone@host.onmicrosoft.com"`
 
-Send the user or group ID to Amazon Kendra as the `_user_id` or `_group_ids` attribute when you call the [Query](API_Query.md) operation\. For example, the AWS CLI command that uses a group to filter the query response looks like this:
+Send the user or group ID to Amazon Kendra as the `_user_id` or `_group_ids` attribute when you call the [ Query ](API_Query.md) operation\. For example, the AWS CLI command that uses a group to filter the query response looks like this:
 
 ```
 aws kendra  query \
@@ -231,6 +235,8 @@ aws kendra  query \
                      "Value": {"StringValue": "430a6b90503eef95c89295c8999c7981|site owners"}
                   }}'
 ```
+
+You can add up to 200 entries in the `AccessControlList` field\.
 
 ## User context filtering for Amazon S3 data sources<a name="context-filter-s3"></a>
 
@@ -261,9 +267,13 @@ For chatter feeds, the `_user_id` and `_group_ids` are used as follows:
   + The name of the chatter or collaboration group\.
   + If the group is public, `PUBLIC:ALL`\.
 
+You can add up to 200 entries in the `AccessControlList` field\.
+
 ## User context filtering for ServiceNow data sources<a name="context-filter-servicenow"></a>
 
 User context filtering isn't currently supported for ServiceNow\.
+
+You can add up to 200 entries in the `AccessControlList` field\.
 
 ## User context filtering for Microsoft SharePoint data sources<a name="context-filter-sharepoint-online"></a>
 
@@ -281,7 +291,7 @@ When you use a SharePoint group for user context filtering, calculate the group 
 
    `"430a6b90503eef95c89295c8999c7981|site owners"`
 
-Send the group ID to Amazon Kendra as the `_group_ids` attribute when you call the [Query](API_Query.md) operation\. For example, the AWS CLI command looks like this:
+Send the group ID to Amazon Kendra as the `_group_ids` attribute when you call the [ Query ](API_Query.md) operation\. For example, the AWS CLI command looks like this:
 
 ```
 aws kendra  query \
@@ -294,6 +304,8 @@ aws kendra  query \
                   }}'
 ```
 
+You can add up to 200 entries in the `AccessControlList` field\.
+
 ## User context filtering for Amazon WorkDocs data sources<a name="context-filter-workdocs"></a>
 
 When you use an Amazon WorkDocs data source, Amazon Kendra gets user and group information from the Amazon WorkDocs instance\.
@@ -301,3 +313,5 @@ When you use an Amazon WorkDocs data source, Amazon Kendra gets user and group i
 The Amazon WorkDocs group and user names are mapped as follows:
 + `_group_ids` – Group names are present on files where there are set access permissions\. They are mapped from the name of the group in Amazon WorkDocs\.
 + `_user_id` – User names are present on files where there are set access permissions\. They are mapped from the user name in Amazon WorkDocs\.
+
+You can add up to 200 entries in the `AccessControlList` field\.

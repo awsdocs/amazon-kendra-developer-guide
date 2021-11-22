@@ -8,10 +8,10 @@ Specifies the blog settings for the Confluence data source\. Blogs are always in
 
 ## Contents<a name="API_ConfluenceBlogConfiguration_Contents"></a>
 
- **BlogFieldMappings**   <a name="Kendra-Type-ConfluenceBlogConfiguration-BlogFieldMappings"></a>
+ ** BlogFieldMappings **   <a name="Kendra-Type-ConfluenceBlogConfiguration-BlogFieldMappings"></a>
 Defines how blog metadata fields should be mapped to index fields\. Before you can map a field, you must first create an index field with a matching type using the console or the `UpdateIndex` operation\.  
 If you specify the `BlogFieldMappings` parameter, you must specify at least one field mapping\.  
-Type: Array of [ConfluenceBlogToIndexFieldMapping](API_ConfluenceBlogToIndexFieldMapping.md) objects  
+Type: Array of [ ConfluenceBlogToIndexFieldMapping ](API_ConfluenceBlogToIndexFieldMapping.md) objects  
 Array Members: Minimum number of 1 item\. Maximum number of 9 items\.  
 Required: No
 

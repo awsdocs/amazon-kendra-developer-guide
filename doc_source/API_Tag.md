@@ -8,13 +8,13 @@ A list of key/value pairs that identify an index, FAQ, or data source\. Tag keys
 
 ## Contents<a name="API_Tag_Contents"></a>
 
- **Key**   <a name="Kendra-Type-Tag-Key"></a>
+ ** Key **   <a name="Kendra-Type-Tag-Key"></a>
 The key for the tag\. Keys are not case sensitive and must be unique for the index, FAQ, or data source\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 128\.  
 Required: Yes
 
- **Value**   <a name="Kendra-Type-Tag-Value"></a>
+ ** Value **   <a name="Kendra-Type-Tag-Value"></a>
 The value associated with the tag\. The value may be an empty string but it can't be null\.  
 Type: String  
 Length Constraints: Minimum length of 0\. Maximum length of 256\.  
