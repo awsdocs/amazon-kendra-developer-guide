@@ -81,7 +81,7 @@ Required: Yes
  ** [ RoleArn ](#API_CreateFaq_RequestSyntax) **   <a name="Kendra-CreateFaq-request-RoleArn"></a>
 The Amazon Resource Name \(ARN\) of a role with permission to access the S3 bucket that contains the FAQs\. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html)\.  
 Type: String  
-Length Constraints: Minimum length of 1\. Maximum length of 1284\.  
+Length Constraints: Minimum length of 0\. Maximum length of 1284\.  
 Pattern: `arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}`   
 Required: Yes
 

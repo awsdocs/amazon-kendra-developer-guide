@@ -329,6 +329,62 @@ Amazon S3 and [custom](https://docs.aws.amazon.com/kendra/latest/dg/data-source-
          "UseChangeLog": boolean
       }
    },
+   "CustomDocumentEnrichmentConfiguration": { 
+      "InlineConfigurations": [ 
+         { 
+            "Condition": { 
+               "ConditionDocumentAttributeKey": "string",
+               "ConditionOnValue": { 
+                  "DateValue": number,
+                  "LongValue": number,
+                  "StringListValue": [ "string" ],
+                  "StringValue": "string"
+               },
+               "Operator": "string"
+            },
+            "DocumentContentDeletion": boolean,
+            "Target": { 
+               "TargetDocumentAttributeKey": "string",
+               "TargetDocumentAttributeValue": { 
+                  "DateValue": number,
+                  "LongValue": number,
+                  "StringListValue": [ "string" ],
+                  "StringValue": "string"
+               },
+               "TargetDocumentAttributeValueDeletion": boolean
+            }
+         }
+      ],
+      "PostExtractionHookConfiguration": { 
+         "InvocationCondition": { 
+            "ConditionDocumentAttributeKey": "string",
+            "ConditionOnValue": { 
+               "DateValue": number,
+               "LongValue": number,
+               "StringListValue": [ "string" ],
+               "StringValue": "string"
+            },
+            "Operator": "string"
+         },
+         "LambdaArn": "string",
+         "S3Bucket": "string"
+      },
+      "PreExtractionHookConfiguration": { 
+         "InvocationCondition": { 
+            "ConditionDocumentAttributeKey": "string",
+            "ConditionOnValue": { 
+               "DateValue": number,
+               "LongValue": number,
+               "StringListValue": [ "string" ],
+               "StringValue": "string"
+            },
+            "Operator": "string"
+         },
+         "LambdaArn": "string",
+         "S3Bucket": "string"
+      },
+      "RoleArn": "string"
+   },
    "Description": "string",
    "IndexId": "string",
    "LanguageCode": "string",
@@ -364,6 +420,12 @@ The `Configuration` parameter is required for all other data sources\.
 Type: [ DataSourceConfiguration ](API_DataSourceConfiguration.md) object  
 Required: No
 
+ ** [ CustomDocumentEnrichmentConfiguration ](#API_CreateDataSource_RequestSyntax) **   <a name="Kendra-CreateDataSource-request-CustomDocumentEnrichmentConfiguration"></a>
+Configuration information for altering document metadata and content during the document ingestion process when you create a data source\.  
+For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html)\.  
+Type: [ CustomDocumentEnrichmentConfiguration ](API_CustomDocumentEnrichmentConfiguration.md) object  
+Required: No
+
  ** [ Description ](#API_CreateDataSource_RequestSyntax) **   <a name="Kendra-CreateDataSource-request-Description"></a>
 A description for the data source\.  
 Type: String  
@@ -397,7 +459,7 @@ The Amazon Resource Name \(ARN\) of a role with permission to access the data so
 You can't specify the `RoleArn` parameter when the `Type` parameter is set to `CUSTOM`\. If you do, you receive a `ValidationException` exception\.  
 The `RoleArn` parameter is required for all other data sources\.  
 Type: String  
-Length Constraints: Minimum length of 1\. Maximum length of 1284\.  
+Length Constraints: Minimum length of 0\. Maximum length of 1284\.  
 Pattern: `arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}`   
 Required: No
 

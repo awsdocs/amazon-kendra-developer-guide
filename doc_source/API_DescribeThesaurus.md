@@ -105,7 +105,7 @@ Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`
  ** [ RoleArn ](#API_DescribeThesaurus_ResponseSyntax) **   <a name="Kendra-DescribeThesaurus-response-RoleArn"></a>
 An IAM role that gives Amazon Kendra permissions to access thesaurus file specified in `SourceS3Path`\.   
 Type: String  
-Length Constraints: Minimum length of 1\. Maximum length of 1284\.  
+Length Constraints: Minimum length of 0\. Maximum length of 1284\.  
 Pattern: `arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}` 
 
  ** [ SourceS3Path ](#API_DescribeThesaurus_ResponseSyntax) **   <a name="Kendra-DescribeThesaurus-response-SourceS3Path"></a>

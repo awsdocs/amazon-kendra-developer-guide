@@ -64,7 +64,7 @@ Required: Yes
  ** [ RoleArn ](#API_CreateThesaurus_RequestSyntax) **   <a name="Kendra-CreateThesaurus-request-RoleArn"></a>
 An IAM role that gives Amazon Kendra permissions to access thesaurus file specified in `SourceS3Path`\.   
 Type: String  
-Length Constraints: Minimum length of 1\. Maximum length of 1284\.  
+Length Constraints: Minimum length of 0\. Maximum length of 1284\.  
 Pattern: `arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}`   
 Required: Yes
 

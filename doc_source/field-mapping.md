@@ -14,7 +14,6 @@ You can create field mappings for the following data sources:
 + Microsoft SharePoint
 + Salesforce
 + ServiceNow
-+ Amazon Kendra Web Crawler
 + Amazon WorkDocs
 
 If you store your documents in an S3 bucket, or if you use an Amazon S3 data source, you can provide custom attributes directly using metadata files\. For more information, see [Creating custom document attributes](custom-attributes.md)\.

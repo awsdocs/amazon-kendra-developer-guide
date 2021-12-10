@@ -14,6 +14,62 @@ The documents are indexed asynchronously\. You can see the progress of the batch
 
 ```
 {
+   "CustomDocumentEnrichmentConfiguration": { 
+      "InlineConfigurations": [ 
+         { 
+            "Condition": { 
+               "ConditionDocumentAttributeKey": "string",
+               "ConditionOnValue": { 
+                  "DateValue": number,
+                  "LongValue": number,
+                  "StringListValue": [ "string" ],
+                  "StringValue": "string"
+               },
+               "Operator": "string"
+            },
+            "DocumentContentDeletion": boolean,
+            "Target": { 
+               "TargetDocumentAttributeKey": "string",
+               "TargetDocumentAttributeValue": { 
+                  "DateValue": number,
+                  "LongValue": number,
+                  "StringListValue": [ "string" ],
+                  "StringValue": "string"
+               },
+               "TargetDocumentAttributeValueDeletion": boolean
+            }
+         }
+      ],
+      "PostExtractionHookConfiguration": { 
+         "InvocationCondition": { 
+            "ConditionDocumentAttributeKey": "string",
+            "ConditionOnValue": { 
+               "DateValue": number,
+               "LongValue": number,
+               "StringListValue": [ "string" ],
+               "StringValue": "string"
+            },
+            "Operator": "string"
+         },
+         "LambdaArn": "string",
+         "S3Bucket": "string"
+      },
+      "PreExtractionHookConfiguration": { 
+         "InvocationCondition": { 
+            "ConditionDocumentAttributeKey": "string",
+            "ConditionOnValue": { 
+               "DateValue": number,
+               "LongValue": number,
+               "StringListValue": [ "string" ],
+               "StringValue": "string"
+            },
+            "Operator": "string"
+         },
+         "LambdaArn": "string",
+         "S3Bucket": "string"
+      },
+      "RoleArn": "string"
+   },
    "Documents": [ 
       { 
          "AccessControlList": [ 
@@ -68,6 +124,12 @@ For information about the parameters that are common to all actions, see [Common
 
 The request accepts the following data in JSON format\.
 
+ ** [ CustomDocumentEnrichmentConfiguration ](#API_BatchPutDocument_RequestSyntax) **   <a name="Kendra-BatchPutDocument-request-CustomDocumentEnrichmentConfiguration"></a>
+Configuration information for altering your document metadata and content during the document ingestion process when you use the `BatchPutDocument` operation\.  
+For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html)\.  
+Type: [ CustomDocumentEnrichmentConfiguration ](API_CustomDocumentEnrichmentConfiguration.md) object  
+Required: No
+
  ** [ Documents ](#API_BatchPutDocument_RequestSyntax) **   <a name="Kendra-BatchPutDocument-request-Documents"></a>
 One or more documents to add to the index\.  
 Documents can include custom attributes\. For example, 'DataSourceId' and 'DataSourceSyncJobId' are custom attributes that provide information on the synchronization of documents running on a data source\. Note, 'DataSourceSyncJobId' could be an optional custom attribute as Amazon Kendra will use the ID of a running sync job\.  
@@ -90,7 +152,7 @@ Required: Yes
  ** [ RoleArn ](#API_BatchPutDocument_RequestSyntax) **   <a name="Kendra-BatchPutDocument-request-RoleArn"></a>
 The Amazon Resource Name \(ARN\) of a role that is allowed to run the `BatchPutDocument` operation\. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html)\.  
 Type: String  
-Length Constraints: Minimum length of 1\. Maximum length of 1284\.  
+Length Constraints: Minimum length of 0\. Maximum length of 1284\.  
 Pattern: `arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}`   
 Required: No
 

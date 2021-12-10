@@ -352,6 +352,62 @@ Required: Yes
       }
    },
    "CreatedAt": number,
+   "CustomDocumentEnrichmentConfiguration": { 
+      "InlineConfigurations": [ 
+         { 
+            "Condition": { 
+               "ConditionDocumentAttributeKey": "string",
+               "ConditionOnValue": { 
+                  "DateValue": number,
+                  "LongValue": number,
+                  "StringListValue": [ "string" ],
+                  "StringValue": "string"
+               },
+               "Operator": "string"
+            },
+            "DocumentContentDeletion": boolean,
+            "Target": { 
+               "TargetDocumentAttributeKey": "string",
+               "TargetDocumentAttributeValue": { 
+                  "DateValue": number,
+                  "LongValue": number,
+                  "StringListValue": [ "string" ],
+                  "StringValue": "string"
+               },
+               "TargetDocumentAttributeValueDeletion": boolean
+            }
+         }
+      ],
+      "PostExtractionHookConfiguration": { 
+         "InvocationCondition": { 
+            "ConditionDocumentAttributeKey": "string",
+            "ConditionOnValue": { 
+               "DateValue": number,
+               "LongValue": number,
+               "StringListValue": [ "string" ],
+               "StringValue": "string"
+            },
+            "Operator": "string"
+         },
+         "LambdaArn": "string",
+         "S3Bucket": "string"
+      },
+      "PreExtractionHookConfiguration": { 
+         "InvocationCondition": { 
+            "ConditionDocumentAttributeKey": "string",
+            "ConditionOnValue": { 
+               "DateValue": number,
+               "LongValue": number,
+               "StringListValue": [ "string" ],
+               "StringValue": "string"
+            },
+            "Operator": "string"
+         },
+         "LambdaArn": "string",
+         "S3Bucket": "string"
+      },
+      "RoleArn": "string"
+   },
    "Description": "string",
    "ErrorMessage": "string",
    "Id": "string",
@@ -379,6 +435,11 @@ Type: [ DataSourceConfiguration ](API_DataSourceConfiguration.md) object
  ** [ CreatedAt ](#API_DescribeDataSource_ResponseSyntax) **   <a name="Kendra-DescribeDataSource-response-CreatedAt"></a>
 The Unix timestamp of when the data source was created\.  
 Type: Timestamp
+
+ ** [ CustomDocumentEnrichmentConfiguration ](#API_DescribeDataSource_ResponseSyntax) **   <a name="Kendra-DescribeDataSource-response-CustomDocumentEnrichmentConfiguration"></a>
+Configuration information for altering document metadata and content during the document ingestion process when you describe a data source\.  
+For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html)\.  
+Type: [ CustomDocumentEnrichmentConfiguration ](API_CustomDocumentEnrichmentConfiguration.md) object
 
  ** [ Description ](#API_DescribeDataSource_ResponseSyntax) **   <a name="Kendra-DescribeDataSource-response-Description"></a>
 The description of the data source\.  
@@ -419,7 +480,7 @@ Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`
  ** [ RoleArn ](#API_DescribeDataSource_ResponseSyntax) **   <a name="Kendra-DescribeDataSource-response-RoleArn"></a>
 The Amazon Resource Name \(ARN\) of the role that enables the data source to access its resources\.  
 Type: String  
-Length Constraints: Minimum length of 1\. Maximum length of 1284\.  
+Length Constraints: Minimum length of 0\. Maximum length of 1284\.  
 Pattern: `arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}` 
 
  ** [ Schedule ](#API_DescribeDataSource_ResponseSyntax) **   <a name="Kendra-DescribeDataSource-response-Schedule"></a>

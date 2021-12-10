@@ -322,6 +322,62 @@ Updates an existing Amazon Kendra data source\.
          "UseChangeLog": boolean
       }
    },
+   "CustomDocumentEnrichmentConfiguration": { 
+      "InlineConfigurations": [ 
+         { 
+            "Condition": { 
+               "ConditionDocumentAttributeKey": "string",
+               "ConditionOnValue": { 
+                  "DateValue": number,
+                  "LongValue": number,
+                  "StringListValue": [ "string" ],
+                  "StringValue": "string"
+               },
+               "Operator": "string"
+            },
+            "DocumentContentDeletion": boolean,
+            "Target": { 
+               "TargetDocumentAttributeKey": "string",
+               "TargetDocumentAttributeValue": { 
+                  "DateValue": number,
+                  "LongValue": number,
+                  "StringListValue": [ "string" ],
+                  "StringValue": "string"
+               },
+               "TargetDocumentAttributeValueDeletion": boolean
+            }
+         }
+      ],
+      "PostExtractionHookConfiguration": { 
+         "InvocationCondition": { 
+            "ConditionDocumentAttributeKey": "string",
+            "ConditionOnValue": { 
+               "DateValue": number,
+               "LongValue": number,
+               "StringListValue": [ "string" ],
+               "StringValue": "string"
+            },
+            "Operator": "string"
+         },
+         "LambdaArn": "string",
+         "S3Bucket": "string"
+      },
+      "PreExtractionHookConfiguration": { 
+         "InvocationCondition": { 
+            "ConditionDocumentAttributeKey": "string",
+            "ConditionOnValue": { 
+               "DateValue": number,
+               "LongValue": number,
+               "StringListValue": [ "string" ],
+               "StringValue": "string"
+            },
+            "Operator": "string"
+         },
+         "LambdaArn": "string",
+         "S3Bucket": "string"
+      },
+      "RoleArn": "string"
+   },
    "Description": "string",
    "Id": "string",
    "IndexId": "string",
@@ -341,6 +397,12 @@ The request accepts the following data in JSON format\.
  ** [ Configuration ](#API_UpdateDataSource_RequestSyntax) **   <a name="Kendra-UpdateDataSource-request-Configuration"></a>
 Configuration information for an Amazon Kendra data source\.  
 Type: [ DataSourceConfiguration ](API_DataSourceConfiguration.md) object  
+Required: No
+
+ ** [ CustomDocumentEnrichmentConfiguration ](#API_UpdateDataSource_RequestSyntax) **   <a name="Kendra-UpdateDataSource-request-CustomDocumentEnrichmentConfiguration"></a>
+Configuration information for altering document metadata and content during the document ingestion process when you update a data source\.  
+For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html)\.  
+Type: [ CustomDocumentEnrichmentConfiguration ](API_CustomDocumentEnrichmentConfiguration.md) object  
 Required: No
 
  ** [ Description ](#API_UpdateDataSource_RequestSyntax) **   <a name="Kendra-UpdateDataSource-request-Description"></a>
@@ -381,7 +443,7 @@ Required: No
  ** [ RoleArn ](#API_UpdateDataSource_RequestSyntax) **   <a name="Kendra-UpdateDataSource-request-RoleArn"></a>
 The Amazon Resource Name \(ARN\) of the new role to use when the data source is accessing resources on your behalf\.  
 Type: String  
-Length Constraints: Minimum length of 1\. Maximum length of 1284\.  
+Length Constraints: Minimum length of 0\. Maximum length of 1284\.  
 Pattern: `arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}`   
 Required: No
 

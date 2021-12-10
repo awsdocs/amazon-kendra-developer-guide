@@ -58,6 +58,14 @@ To add or remove capacity using the Amazon Kendra API, use the `CapacityUnits` p
 
 When using [query suggestions](https://docs.aws.amazon.com/kendra/latest/dg/query-suggestions.html), there’s a base query capacity of 2\.5 [GetQuerySuggestions](https://docs.aws.amazon.com/kendra/latest/dg/API_GetQuerySuggestions.html) calls per second\. The `GetQuerySuggestions` capacity is five times the provisioned query capacity for an index, or the base capacity of 2\.5 calls per second, whichever is higher\. For example, the base capacity for an index is 0\.1 queries per second, and `GetQuerySuggestions` capacity has a base of 2\.5 calls per second\. If you add another 0\.1 queries per second to total 0\.2 queries per second for an index, the `GetQuerySuggestions` capacity is 2\.5 calls per second \(higher than five times 0\.2 queries per second\)\.
 
+## Amazon Kendra experience capacity<a name="amazon-kendra-experience-capacity"></a>
+
+### Search experience capacity<a name="search-experience-capacity"></a>
+
+Amazon Kendra starts to throttle `Query`, `QuerySuggestions`, `SubmitFeedback` for your Amazon Kendra experience at 15 requests per second and 40 requests per second for query bursting\. For an index with more than 150 query capacity unites, these limits still apply\.
+
+For example, your query capacity units for your index is 150, so your search experience application can handle 15 requests per second\. However, if you scaled to 200 query capacity units, then your search experience app would still only handle 15 requests per second\. If you limit your index to 100 query capacity units, then your search experience app would only handle 10 requests per second\.
+
 ## Adaptive query bursting<a name="adaptive-query-bursting"></a>
 
 Amazon Kendra has a provisioned base capacity of 1 query capacity unit\. You can use up to 8,000 queries per day with a minimum throughput of 0\.1 queries per second \(per query capacity unit\)\.

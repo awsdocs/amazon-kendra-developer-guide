@@ -38,7 +38,7 @@ Required: Yes
  ** SecretManagerArn **   <a name="Kendra-Type-JwtTokenTypeConfiguration-SecretManagerArn"></a>
 The Amazon Resource Name \(arn\) of the secret\.  
 Type: String  
-Length Constraints: Minimum length of 1\. Maximum length of 1284\.  
+Length Constraints: Minimum length of 0\. Maximum length of 1284\.  
 Pattern: `arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}`   
 Required: No
 

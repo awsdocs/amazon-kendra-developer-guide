@@ -45,5 +45,6 @@ Service quotas, also referred to as limits, are the maximum number of service re
 | Maximum number of block lists per index | 1 | All editions | No | 
 | Maximum size of a block list text file | 2 MB | All editions | Yes | 
 | Maximum number of items \(words or phrases\) in a block list | 20,000 | All editions | Yes | 
+| Maximum number of Amazon Kendra experiences per index | 50 | All editions | Yes | 
 
 For more information about Amazon Kendra service quotas and to request a quota increase, see [Service Quotas](https://console.aws.amazon.com/servicequotas/)\.

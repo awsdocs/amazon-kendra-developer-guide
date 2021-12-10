@@ -3,12 +3,15 @@
 --------
 
 # Document history for Amazon Kendra<a name="doc-history"></a>
-+ **Latest documentation update:** October 13, 2021
++ **Latest documentation update:** December 1, 2021
 
 The following table describes important changes in each release of Amazon Kendra\. For notification about updates to this documentation, you can subscribe to an RSS feed\.
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [New feature](https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html) | Amazon Kendra search application can be deployed in a few clicks without the need for any front\-end code\. For more information, see [Deploying a search application with no code](https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html)\. | December 1, 2021 | 
+| [New feature](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html) | Document metadata and content can be enriched during the document ingestion process\. For more information, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html)\. | December 1, 2021 | 
+| [New feature](https://docs.aws.amazon.com/kendra/latest/dg/search-analytics.html) | Amazon Kendra offers search analytics to gain useful insights into your search application\. For more information, see [Gaining insights with search analytics](https://docs.aws.amazon.com/kendra/latest/dg/search-analytics.html)\. | December 1, 2021 | 
 | [Region expansion](https://docs.aws.amazon.com/general/latest/gr/kendra.html) | Amazon Kendra is now available in AWS GovCloud \(US\-West\) \(us\-gov\-west\-1\)\. | October 13, 2021 | 
 | [New feature](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html) | Amazon Kendra can now index documents in multiple languages and filter search results by language\. See [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html) and [Searching in languages](https://docs.aws.amazon.com/kendra/latest/dg/searching-example.html#searching-index-languages)\. | October 7, 2021 | 
 | [New feature](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html) | Amazon Kendra now integrates with AWS Single Sign\-On identity store to fetch access levels of groups and users for [user context filtering](https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html)\. See [User\-group configuration for AWS SSO](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html)\. | October 6, 2021 | 

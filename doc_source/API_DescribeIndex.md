@@ -156,7 +156,7 @@ Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`
  ** [ RoleArn ](#API_DescribeIndex_ResponseSyntax) **   <a name="Kendra-DescribeIndex-response-RoleArn"></a>
 The Amazon Resource Name \(ARN\) of the IAM role that gives Amazon Kendra permission to write to your Amazon Cloudwatch logs\.  
 Type: String  
-Length Constraints: Minimum length of 1\. Maximum length of 1284\.  
+Length Constraints: Minimum length of 0\. Maximum length of 1284\.  
 Pattern: `arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}` 
 
  ** [ ServerSideEncryptionConfiguration ](#API_DescribeIndex_ResponseSyntax) **   <a name="Kendra-DescribeIndex-response-ServerSideEncryptionConfiguration"></a>

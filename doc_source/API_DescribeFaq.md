@@ -111,7 +111,7 @@ Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`
  ** [ RoleArn ](#API_DescribeFaq_ResponseSyntax) **   <a name="Kendra-DescribeFaq-response-RoleArn"></a>
 The Amazon Resource Name \(ARN\) of the role that provides access to the S3 bucket containing the input files for the FAQ\.  
 Type: String  
-Length Constraints: Minimum length of 1\. Maximum length of 1284\.  
+Length Constraints: Minimum length of 0\. Maximum length of 1284\.  
 Pattern: `arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}` 
 
  ** [ S3Path ](#API_DescribeFaq_ResponseSyntax) **   <a name="Kendra-DescribeFaq-response-S3Path"></a>

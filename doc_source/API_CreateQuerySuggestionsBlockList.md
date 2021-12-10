@@ -75,7 +75,7 @@ Required: Yes
 The IAM \(Identity and Access Management\) role used by Amazon Kendra to access the block list text file in your S3 bucket\.  
 You need permissions to the role ARN \(Amazon Resource Name\)\. The role needs S3 read permissions to your file in S3 and needs to give STS \(Security Token Service\) assume role permissions to Amazon Kendra\.  
 Type: String  
-Length Constraints: Minimum length of 1\. Maximum length of 1284\.  
+Length Constraints: Minimum length of 0\. Maximum length of 1284\.  
 Pattern: `arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}`   
 Required: Yes
 

@@ -18,6 +18,8 @@ The following topics provide details for the required policies\. If you create I
 + [IAM roles for query suggestions](#iam-roles-query-suggestions)
 + [IAM roles for principal mapping of users and groups](#iam-roles-principal-mapping)
 + [IAM roles for AWS Single Sign\-On](#iam-roles-aws-sso)
++ [IAM roles for Amazon Kendra experiences](#iam-roles-amazon-kendra-experiences)
++ [IAM roles for Custom Document Enrichment](#iam-roles-custom-document-enrichment)
 
 ## IAM roles for indexes<a name="iam-roles-index"></a>
 
@@ -1143,5 +1145,185 @@ A required role policy to allow Amazon Kendra to access AWS SSO\.
           }
         }
      ]
+}
+```
+
+## IAM roles for Amazon Kendra experiences<a name="iam-roles-amazon-kendra-experiences"></a>
+
+### IAM roles for Amazon Kendra search experience<a name="iam-roles-search-app-experience"></a>
+
+When you use the [CreateExperience](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateExperience.html) or [UpdateExperience](https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateExperience.html) operations to create or update a search application, you must supply a role that has permission to access the necessary operations and AWS Single Sign\-On\.
+
+A required role policy to allow Amazon Kendra to access `Query` operations, `QuerySuggestions` operations, `SubmitFeedback` operations, and AWS SSO that stores your user and group information\.
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowsKendraSearchAppToCallKendraApi",
+      "Effect": "Allow",
+      "Action": [
+        "kendra:GetQuerySuggestions",
+        "kendra:Query",
+        "kendra:DescribeIndex",
+        "kendra:ListFaqs",
+        "kendra:DescribeDataSource",
+        "kendra:ListDataSources",
+        "kendra:DescribeFaq"
+      ],
+      "Resource": [
+        "arn:aws:kendra:{{region}}:{{account_id}}:index/{{IndexId}}"
+      ]
+    },
+    {
+      "Sid": "AllowKendraSearchAppToDescribeDataSourcesAndFaq",
+      "Effect": "Allow",
+      "Action": [
+        "kendra:DescribeDataSource",
+        "kendra:DescribeFaq"
+      ],
+      "Resource": [
+        "arn:aws:kendra:{{region}}:{{account_id}}:index/{{IndexId}}/data-source/{{DataSourceId}}",
+        "arn:aws:kendra:{{region}}:{{account_id}}:index/{{IndexId}}/faq/{{FaqId}}"
+      ]
+    },
+    {
+      "Sid": "AllowKendraSearchAppToCallSSODescribeUsersAndGroups",
+      "Effect": "Allow",
+      "Action": [
+        "sso-directory:ListGroupsForUser",
+        "sso-directory:SearchGroups",
+        "sso-directory:SearchUsers",
+        "sso-directory:DescribeUser",
+        "sso-directory:DescribeGroup",
+        "sso-directory:DescribeGroups",
+        "sso-directory:DescribeUsers"
+      ],
+      "Resource": [
+        "*"
+      ],
+      "Condition": {
+        "StringLike": {
+          "kms:ViaService": [
+            "kendra.amazonaws.com"
+          ]
+        }
+      }
+    }
+  ]
+}
+```
+
+A required trust policy allow Amazon Kendra to assume a role\.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": {
+        "Sid": "AllowsKendraToAssumeTheAttachedRole",
+        "Effect": "Allow",
+        "Principal": { "Service": "kendra.amazonaws.com" },
+       "Action": "sts:AssumeRole"
+    }
+}
+```
+
+## IAM roles for Custom Document Enrichment<a name="iam-roles-custom-document-enrichment"></a>
+
+When you use the [CustomDocumentEnrichmentConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_CustomDocumentEnrichmentConfiguration.html) structure to apply advanced alterations of your document metadata and content, you must supply a role that has the required permissions to run `PreExtractionHookConfiguration` and/or `PostExtractionHookConfiguration`\. You configure a Lambda function for `PreExtractionHookConfiguration` and/or `PostExtractionHookConfiguration` to apply advanced alterations of your document metadata and content during the ingestion process\. If you choose to enable Server Side Encryption for your Amazon S3 bucket, you must provide permission to use the AWS KMS customer master key \(CMK\) to encrypt and decrypt the objects stored in your S3 bucket\.
+
+A required role policy to allow Amazon Kendra to run `PreExtractionHookConfiguration` and `PostExtractionHookConfiguration` with encryption for your S3 bucket\.
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [{
+    "Action": [
+      "s3:GetObject",
+      "s3:PutObject"
+    ],
+    "Resource": [
+      "arn:aws:s3:::{{input_bucket_name}}/*"
+    ],
+    "Effect": "Allow"
+  },
+  {
+    "Action": [
+      "s3:ListBucket"
+    ],
+    "Resource": [
+      "arn:aws:s3:::{{input_bucket_name}}"
+    ],
+    "Effect": "Allow"
+  },
+  {
+    "Effect": "Allow",
+    "Action": [
+      "kms:Decrypt",
+      "kms:GenerateDataKey"
+    ],
+    "Resource": [
+      "arn:aws:kms:{{region}}:{{account_id}}:key/{{key_id}}"
+    ]
+  },
+  {
+    "Effect": "Allow",
+    "Action": [
+      "lambda:InvokeFunction"
+    ],
+    "Resource": "arn:aws:lambda:{{region}}:{{account_id}}:function:{{lambda_function}}"
+  }]
+}
+```
+
+An optional role policy to allow Amazon Kendra to run `PreExtractionHookConfiguration` and `PostExtractionHookConfiguration` without encryption for your S3 bucket\.
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [{
+    "Action": [
+      "s3:GetObject",
+      "s3:PutObject"
+    ],
+    "Resource": [
+      "arn:aws:s3:::{{input_bucket_name}}/*"
+    ],
+    "Effect": "Allow"
+  },
+  {
+    "Action": [
+      "s3:ListBucket"
+    ],
+    "Resource": [
+      "arn:aws:s3:::{{input_bucket_name}}"
+    ],
+    "Effect": "Allow"
+  },
+  {
+    "Effect": "Allow",
+    "Action": [
+      "lambda:InvokeFunction"
+    ],
+    "Resource": "arn:aws:lambda:{{region}}:{{account_id}}:function:{{lambda_function}}"
+  }]
+}
+```
+
+A required trust policy allow Amazon Kendra to assume a role\.
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "kendra.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
 }
 ```
