@@ -4,7 +4,7 @@
 
 # S3 document metadata<a name="s3-metadata"></a>
 
-You can add metadata, additional information about a document, to documents in an Amazon S3 bucket using a metadata file\. Each metadata file is associated with an indexed document\. 
+You can add metadata, additional information about a document, to documents in an Amazon S3 bucket using a metadata file\. Each metadata file is associated with an indexed document\.
 
 Your metadata files must be stored in the same bucket as your indexed files\. You can specify a location within the bucket for your metadata files using the console or the `S3Prefix` field of the `DocumentsMetadataConfiguration` parameter when you create an S3 data source\. If you don't specify an S3 prefix, your metadata files must be stored in the same location as your indexed documents\.
 
@@ -20,7 +20,7 @@ Document path:
 Metadata path:
      none
 File mapping
-     s3://bucketName/documents/file.txt -> 
+     s3://bucketName/documents/file.txt ->
         s3://bucketName/documents/file.txt.metadata.json
 ```
 
@@ -32,13 +32,13 @@ Document path:
 Metadata path:
      metadata
 File mapping
-     s3://bucketName/documents/legal/file.txt -> 
+     s3://bucketName/documents/legal/file.txt ->
         s3://bucketName/metadata/documents/legal/file.txt.metadata.json
 ```
 
 Your document metadata is defined in a JSON file\. The file must be a UTF\-8 text file without a BOM marker\. The file name of the JSON file should be `document.extension.metadata.json`, where "document" is the name of the document that the metadata applies to and "extension" is the file extension for the document\.
 
-The content of the JSON file follows this template\. All of the attributes are optional\. If you don't specify the `_source_uri`, then the links returned by Amazon Kendra in search results point to the S3 bucket that contains the document\. 
+The content of the JSON file follows this template\. All of the attributes are optional\. If you don't specify the `_source_uri`, then the links returned by Amazon Kendra in search results point to the S3 bucket that contains the document\.
 
 ```
 {
