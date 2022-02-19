@@ -49,7 +49,7 @@ The content of the JSON file follows this template\. All of the attributes are o
         "_last_updated_at": "ISO 8601 encoded string",
         "_source_uri": "document URI",
         "_version": "file version",
-        "_view_count": number of times document has been viewed,
+        "_view_count": "number of times document has been viewed",
         "custom attribute key": "custom attribute value",
         additional custom attributes
     },
