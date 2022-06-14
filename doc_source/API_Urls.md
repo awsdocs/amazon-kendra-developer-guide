@@ -13,22 +13,22 @@ You can only crawl websites that use the secure communication protocol, Hypertex
 ## Contents<a name="API_Urls_Contents"></a>
 
  ** SeedUrlConfiguration **   <a name="Kendra-Type-Urls-SeedUrlConfiguration"></a>
-Provides the configuration of the seed or starting point URLs of the websites you want to crawl\.  
+Configuration of the seed or starting point URLs of the websites you want to crawl\.  
 You can choose to crawl only the website host names, or the website host names with subdomains, or the website host names with subdomains and other domains that the webpages link to\.  
 You can list up to 100 seed URLs\.  
-Type: [ SeedUrlConfiguration ](API_SeedUrlConfiguration.md) object  
+Type: [SeedUrlConfiguration](API_SeedUrlConfiguration.md) object  
 Required: No
 
  ** SiteMapsConfiguration **   <a name="Kendra-Type-Urls-SiteMapsConfiguration"></a>
-Provides the configuration of the sitemap URLs of the websites you want to crawl\.  
+Configuration of the sitemap URLs of the websites you want to crawl\.  
 Only URLs belonging to the same website host names are crawled\. You can list up to three sitemap URLs\.  
-Type: [ SiteMapsConfiguration ](API_SiteMapsConfiguration.md) object  
+Type: [SiteMapsConfiguration](API_SiteMapsConfiguration.md) object  
 Required: No
 
 ## See Also<a name="API_Urls_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/Urls) 
-+  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/Urls) 
-+  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/Urls) 
-+  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kendra-2019-02-03/Urls) 
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/Urls) 
++  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/Urls) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/Urls) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kendra-2019-02-03/Urls) 

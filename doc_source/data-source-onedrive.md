@@ -4,7 +4,7 @@
 
 # Using a Microsoft OneDrive data source<a name="data-source-onedrive"></a>
 
-Amazon Kendra can use a data source to connect to Microsoft OneDrive sites to index the documents that your users create\. For a walk\-through of how to use OneDrive in the console, see [Getting started with a Microsoft OneDrive for Business data source \(console\)](https://docs.aws.amazon.com/kendra/latest/dg/getting-started-onedrive.html)\.
+You can use your Microsoft OneDrive as a data source for Amazon Kendra\. To use OneDrive in the console, go to the [Amazon Kendra console](https://console.aws.amazon.com/kendra/), select your index and then select **Data sources** from the navigation menu to add OneDrive\.
 
 When you use a OneDrive data source to connect Amazon Kendra to your OneDrive site, you choose the users whose documents are indexed\. You can optionally provide inclusion and exclusion patterns to specify the documents to index\.
 
@@ -26,16 +26,16 @@ The secret must contain the application ID and secret key that Amazon Kendra use
 }
 ```
 
-The data source AWS Identity and Access Management \(IAM\) role must have permission to access the secret\. For more information, see [IAM roles for Microsoft OneDrive data sources](iam-roles.md#iam-roles-ds-on)\.
+The data source AWS Identity and Access Management \(IAM\) role must have permission to access the secret\. For more information, see [IAM access roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html)\.
 
-The secret can contain more information, but Amazon Kendra ignores it\. For more information, see [ What is AWS Secrets Manager ](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) in the *AWS Secrets Manager User Guide*\.
+The secret can contain more information, but Amazon Kendra ignores it\. For more information, see [ What is AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) in the *AWS Secrets Manager User Guide*\.
 
 You must create an index before you create the OneDrive data source\. For information, see [Creating an index](create-index.md)\. You provide the ID of the index when you create the data source\.
 
-You specify connection and other information in the console or using an instance of the [ OneDriveConfiguration ](API_OneDriveConfiguration.md) data type\. You must provide the following information: 
+You specify connection and other information in the console or using an instance of the [OneDriveConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_OneDriveConfiguration.html) object\. You must provide the following information:
 + The credentials required to log in to the OneDrive site\.
 + The tenant domain that contains the OneDrive site\.
-+ A list of users whose documents should be indexed\. You can provide a list of user names, or you can provide the user names in a file stored in an Amazon Simple Storage Service \(Amazon S3\) bucket\. If you store the list of user names in an S3 bucket, the IAM policy for the data source must provide access to the bucket and access to the key that the bucket was encrypted with, if any\.
++ A list of users whose documents should be indexed\. You can provide a list of user names, or you can provide the user names in a file stored in an S3 bucket\. If you store the list of user names in an S3 bucket, the IAM policy for the data source must provide access to the bucket and access to the key that the bucket was encrypted with, if any\.
 
 After you create a data source, you can:
 + Modify the list of users\.
@@ -45,7 +45,7 @@ After you create a data source, you can:
 
 You can optionally provide the following information:
 + A list of inclusion and exclusion regular expressions that filter the documents that are included in the index\. The regular expressions are applied to the file name of the document\.
-+ Field mappings that map fields from your OneDrive site to Amazon Kendra index fields\. For information, see [Mapping data source fields](field-mapping.md)\.
++ Field mappings that map fields from your OneDrive site to Amazon Kendra index fields\. For information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html)\.
 
 After you sync the data source, you can't change the inclusion and exclusion patterns or the remove field mapping\. You can map additional fields\.
 

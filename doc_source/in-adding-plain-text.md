@@ -2,13 +2,13 @@
 
 --------
 
-# Adding documents from an Amazon S3 bucket<a name="in-adding-plain-text"></a>
+# Adding documents from an S3 bucket<a name="in-adding-plain-text"></a>
 
-You can add documents directly to your index from an Amazon S3 bucket\. You can add up to 10 documents in the same call\. When you use an S3 bucket, you must provide an IAM role with permission to access the bucket containing your documents\. You specify the role in the `RoleArn` parameter\.
+You can add documents directly to your index from an Amazon S3 bucket \(S3 bucket\)\. You can add up to 10 documents in the same call\. When you use an S3 bucket, you must provide an IAM role with permission to access the bucket that contains your documents\. You specify the role in the `RoleArn` parameter\.
 
-Using the [ BatchPutDocument ](API_BatchPutDocument.md) operation to add documents from an Amazon S3 bucket is a one\-time operation\. To keep an index synchronized with the contents of a bucket, create an S3 data source\. For more information, see [Using an Amazon S3 data source](data-source-s3.md)\. 
+Using the [BatchPutDocument](API_BatchPutDocument.md) API to add documents from an S3 bucket is a one\-time operation\. To keep an index synchronized with the contents of a bucket, create an S3 data source\. For more information, see [Using an S3 data source](data-source-s3.md)\.
 
-The following example adds two Microsoft Word documents to the index using the `BatchPutDocument` operation\.
+In the following example, two Microsoft Word documents are added to the index using the `BatchPutDocument` API\.
 
 ------
 #### [ Python ]
@@ -16,31 +16,33 @@ The following example adds two Microsoft Word documents to the index using the `
 ```
 import boto3
 
-kendra = boto3.client('kendra')
+kendra = boto3.client("kendra")
 
-index_id = '${indexId}'
-role_arn = 'arn:aws:iam::${acccountID}:policy/${roleName}'
+# Provide the index ID
+index_id = "index-id"
+# Provide the IAM role ARN required to index documents in an S3 bucket
+role_arn = "arn:aws:iam::${acccountID}:policy/${roleName}"
 
 doc1_s3_file_data = {
-    'Bucket': '${bucketName}',
-    'Key': 'document1.docx'
+    "Bucket": "bucket-name",
+    "Key": "document1.docx"
 }
 
 doc1_document = {
-    'S3Path': doc1_s3_file_data,
-    'Title': 'Document 1 title',
-    'Id': 'doc_1'
+    "S3Path": doc1_s3_file_data,
+    "Title": "Document 1 title",
+    "Id": "doc_1"
 }
 
 doc2_s3_file_data = {
-    'Bucket': '${bucketName}',
-    'Key': 'document2.docx'
+    "Bucket": "bucket-name",
+    "Key": "document2.docx"
 }
 
 doc2_document = {
-    'S3Path': doc2_s3_file_data,
-    'Title': 'Document 2 title',
-    'Id': 'doc_2'
+    "S3Path": doc2_s3_file_data,
+    "Title": "Document 2 title",
+    "Id": "doc_2"
 }
 
 documents = [

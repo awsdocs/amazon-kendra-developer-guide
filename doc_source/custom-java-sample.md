@@ -6,7 +6,6 @@
 
 The following code provides a sample implementation of a custom data source using Java\. The program first creates a custom data source and then uses that data source to add and remove documents from an index\. Finally, it gets the metrics of the data source synchronization run\.
 
-**Note**  
 The following code demonstrates creating and using a custom data source in the same sample\. When you are using a custom data source in your application it isn't necessary to create a new data source each time that you synchronize your index\.
 
 ```
@@ -50,7 +49,7 @@ public class SampleSyncForCustomDataSource {
     final String datasourceId = createDataSourceResult.getId();
 
     // Wait for the custom data source to become active.
-    // You can use the DescribeDataSource operation to check the status
+    // You can use the DescribeDataSource API to check the status
     .
     .
     .
@@ -112,7 +111,7 @@ public class SampleSyncForCustomDataSource {
             , .....More documents    
 
         );
-    // Call the BatchPutRequest operation.
+    // Call the BatchPutRequest API.
     final BatchPutDocumentResult batchPutDocumentResult = awskendraClient.batchPutDocument(batchPutDocumentRequest);
     
     // To delete documents, provide you custom data source ID and job execution ID in the 
@@ -138,19 +137,19 @@ public class SampleSyncForCustomDataSource {
     // Repeat BatchPutDocument and BatchDeleteDocument requests for all the documents in your 
     // repository to sync with Amazon Kendra.
 
-    // After you are finished, call the StopDataSourceSyncJob operation to signal the end of the sync job.
+    // After you are finished, call the StopDataSourceSyncJob API to signal the end of the sync job.
     final StopDataSourceSyncJobResult stopDataSourceSyncJobResult = awskendraClient.stopDataSourceSyncJob(
         new StopDataSourceSyncJobRequest()
             .withIndexId(indexId)
             .withId(datasourceId)
     );
 
-    // After you call the StopDataSourceSyncJob operation, you can start another sync job. 
-    // You can't use the BatchPutDocument or BatchDeleteDocument operation requests with a
+    // After you call the StopDataSourceSyncJob API, you can start another sync job. 
+    // You can't use the BatchPutDocument or BatchDeleteDocument API requests with a
     // stopped job execution ID.
 
     // It can take time to index all of the documents submitted. Use the ListDataSourceSyncJobs 
-    // operation to get the status of a sync job and number of documents added, modified, failed 
+    // API to get the status of a sync job and number of documents added, modified, failed 
     // or deleted as part of this sync with your Amazon Kendra index.
 
     // If the sync job status is SYNCING_INDEXING, documents are still being indexed.

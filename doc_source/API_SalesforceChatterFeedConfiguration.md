@@ -4,7 +4,7 @@
 
 # SalesforceChatterFeedConfiguration<a name="API_SalesforceChatterFeedConfiguration"></a>
 
-Defines configuration for syncing a Salesforce chatter feed\. The contents of the object comes from the Salesforce FeedItem table\.
+The configuration information for syncing a Salesforce chatter feed\. The contents of the object comes from the Salesforce FeedItem table\.
 
 ## Contents<a name="API_SalesforceChatterFeedConfiguration_Contents"></a>
 
@@ -24,7 +24,7 @@ Required: No
 
  ** FieldMappings **   <a name="Kendra-Type-SalesforceChatterFeedConfiguration-FieldMappings"></a>
 Maps fields from a Salesforce chatter feed into Amazon Kendra index fields\.  
-Type: Array of [ DataSourceToIndexFieldMapping ](API_DataSourceToIndexFieldMapping.md) objects  
+Type: Array of [DataSourceToIndexFieldMapping](API_DataSourceToIndexFieldMapping.md) objects  
 Array Members: Minimum number of 1 item\. Maximum number of 100 items\.  
 Required: No
 
@@ -38,7 +38,7 @@ Required: No
 ## See Also<a name="API_SalesforceChatterFeedConfiguration_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/SalesforceChatterFeedConfiguration) 
-+  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/SalesforceChatterFeedConfiguration) 
-+  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/SalesforceChatterFeedConfiguration) 
-+  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kendra-2019-02-03/SalesforceChatterFeedConfiguration) 
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/SalesforceChatterFeedConfiguration) 
++  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/SalesforceChatterFeedConfiguration) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/SalesforceChatterFeedConfiguration) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kendra-2019-02-03/SalesforceChatterFeedConfiguration) 

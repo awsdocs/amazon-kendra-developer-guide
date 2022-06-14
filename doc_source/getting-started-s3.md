@@ -4,9 +4,9 @@
 
 # Getting started with an Amazon S3 data source \(console\)<a name="getting-started-s3"></a>
 
-You can use the Amazon Kendra console to get started using an Amazon S3 bucket as a data store\. When you use the console you specify all of the connection information you need to index the contents of the bucket\. For more information, see [Using an Amazon S3 data source](data-source-s3.md)\.
+You can use the Amazon Kendra console to get started using an Amazon S3 bucket as a data store\. When you use the console you specify all of the connection information you need to index the contents of the bucket\. For more information, see [Using an S3 data source](data-source-s3.md)\.
 
-Use the following procedure to create a basic S3 bucket data source using the default configuration\. The procedure assumes that you created an index following the steps in step 1 of [Getting started with an S3 bucket \(console\)](gs-console.md)\.
+Use the following procedure to create a basic S3 bucket data source using the default configuration\. The procedure assumes that you created an index following the steps in step 1 of [Getting started with the Amazon Kendra console](gs-console.md)\.
 
 **To create an S3 bucket data source using the Amazon Kendra console**
 
@@ -22,7 +22,7 @@ Use the following procedure to create a basic S3 bucket data source using the de
 
 1. In the **Enter the data source location** field, enter the name of the S3 bucket that contains your documents\. You can enter the name directly, or you can browse for the name by choosing **Browse**\. The bucket must be in the same Region as the index\.
 
-1. In **IAM role** choose **Create a new role** and then type a role name\.
+1. In **IAM role** choose **Create a new role** and then type a role name\. For more information, see [IAM roles for Amazon S3 data sources](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-ds-s3)\.
 
 1. In the **Set sync run schedule** section, choose **Run on demand**\.
 

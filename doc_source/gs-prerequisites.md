@@ -4,7 +4,7 @@
 
 # Prerequisites<a name="gs-prerequisites"></a>
 
-The following steps are prerequisites for the getting started exercises\. The steps show you how to set up your account, create an IAM role that gives Amazon Kendra permission to make calls on your behalf, and upload documents for indexing into an Amazon S3 bucket\.
+The following steps are prerequisites for the getting started exercises\. The steps show you how to set up your account, create an IAM role that gives Amazon Kendra permission to make calls on your behalf, and index documents from an Amazon S3 bucket\. S3 bucket is used as an example, but you can use other data sources that Amazon Kendra supports \- see [Data Sources](https://docs.aws.amazon.com/kendra/latest/dg/hiw-data-source.html)\.
 
 1. Create an AWS account and an AWS Identity and Access Management user, as specified in [Sign up for AWS](setup.md#aws-kendra-set-up-aws-account)\.
 
@@ -14,13 +14,78 @@ The following steps are prerequisites for the getting started exercises\. The st
 
    If you are using another data source, you must have an active site and credentials to connect to the data source\.
 
-If you are using the console to get started, do [Getting started with an S3 bucket \(console\)](gs-console.md)\. 
+If you are using the console to get started, first do [Getting started with the Amazon Kendra console](gs-console.md)\.
 
-## Prerequisites for the AWS CLI and SDK<a name="gs-prereq-cli-sdk"></a>
+## Amazon Kendra resources: AWS CLI, SDK, console<a name="gs-prereq-cli-sdk"></a>
 
-If you are using the AWS CLI or the SDK, you need to create IAM roles and polices for Kendra to use to access resources\. If you are using the console, you don't need to create IAM roles and polices\. They are created as part of the console procedure\.
+There are certain permissions required if you use CLI, SDK, or the console\.
 
-**To create an IAM policy and role for the AWS CLI and SDK that enables Kendra to access your Amazon CloudWatch Logs\.**
+To use Amazon Kendra through an IAM user for CLI, SDK, or console you must have permissions to allow Amazon Kendra to create and manage resources on your behalf\. These include access to the Amazon Kendra itself, AWS KMS keys if you want to encrypt your data through a custom CMK, and AWS SSO directory if you want to use AWS SSO integration or [create a Search Experience](https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html)\. You must attach the below permissions to your IAM user\.
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "Stmt1644430853544",
+      "Action": [
+        "kms:CreateGrant",
+        "kms:DescribeKey"
+      ],
+      "Effect": "Allow",
+      "Resource": "*"
+    },
+    {
+      "Sid": "Stmt1644430878150",
+      "Action": "kendra:*",
+      "Effect": "Allow",
+      "Resource": "*"
+    },
+    {
+      "Sid": "Stmt1644430973706",
+      "Action": [
+        "sso:AssociateProfile",
+        "sso:CreateManagedApplicationInstance",
+        "sso:DeleteManagedApplicationInstance",
+        "sso:DisassociateProfile",
+        "sso:GetManagedApplicationInstance",
+        "sso:GetProfile",
+        "sso:ListDirectoryAssociations",
+        "sso:ListProfileAssociations",
+        "sso:ListProfiles"
+      ],
+      "Effect": "Allow",
+      "Resource": "*"
+    },
+    {
+      "Sid": "Stmt1644430999558",
+      "Action": [
+        "sso-directory:DescribeGroup",
+        "sso-directory:DescribeGroups",
+        "sso-directory:DescribeUser",
+        "sso-directory:DescribeUsers"
+      ],
+      "Effect": "Allow",
+      "Resource": "*"
+    },
+    {
+      "Sid": "Stmt1644431025960",
+      "Action": [
+        "identitystore:DescribeGroup",
+        "identitystore:DescribeUser",
+        "identitystore:ListGroups",
+        "identitystore:ListUsers"
+      ],
+      "Effect": "Allow",
+      "Resource": "*"
+    }
+  ]
+}
+```
+
+If you use the CLI or SDK, you must also create an IAM role and policy to access Amazon CloudWatch Logs\. If you are using the console, you don't need to create an IAM role and policy for this\. You create this as part of the console procedure\.
+
+**To create an IAM role and policy for the AWS CLI and SDK that enables Amazon Kendra to access your Amazon CloudWatch Logs\.**
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
 
@@ -95,22 +160,24 @@ If you are using the AWS CLI or the SDK, you need to create IAM roles and police
 
    ```
    {
-     "Version": "2012-10-17",
-     "Statement": [
-       {
-         "Effect": "Allow",
-         "Principal": {
-           "Service": "kendra.amazonaws.com"
-         },
-         "Action": "sts:AssumeRole"
-       }
-     ]
+       "Version": "2012-10-17",
+       "Statement": [
+         {
+           "Effect": "Allow",
+           "Principal": {
+             "Service": "kendra.amazonaws.com"
+           },
+           "Action": "sts:AssumeRole"
+         }
+       ]
    }
    ```
 
 1. Choose **Update trust policy**\.
 
-**To create an IAM policy and role that enables Kendra to access and index your Amazon S3 bucket\.**
+**To create an IAM role and policy that enables Amazon Kendra to access and index your Amazon S3 bucket\.**
+
+If you use an Amazon S3 to store your documents or you are using S3 to test Amazon Kendra, you also must create an IAM role and policy to access your bucket\. If you are using another data source, see [IAM roles for data sources](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-ds)\.
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
 
@@ -172,16 +239,16 @@ If you are using the AWS CLI or the SDK, you need to create IAM roles and police
 
    ```
    {
-     "Version": "2012-10-17",
-     "Statement": [
-       {
-         "Effect": "Allow",
-         "Principal": {
-           "Service": "kendra.amazonaws.com"
-         },
-         "Action": "sts:AssumeRole"
-       }
-     ]
+       "Version": "2012-10-17",
+       "Statement": [
+         {
+           "Effect": "Allow",
+           "Principal": {
+             "Service": "kendra.amazonaws.com"
+           },
+           "Action": "sts:AssumeRole"
+         }
+       ]
    }
    ```
 

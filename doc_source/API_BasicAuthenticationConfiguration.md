@@ -9,7 +9,7 @@ Provides the configuration information to connect to websites that require basic
 ## Contents<a name="API_BasicAuthenticationConfiguration_Contents"></a>
 
  ** Credentials **   <a name="Kendra-Type-BasicAuthenticationConfiguration-Credentials"></a>
-Your secret ARN, which you can create in [ AWS Secrets Manager ](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html)   
+Your secret ARN, which you can create in [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html)   
 You use a secret if basic authentication credentials are required to connect to a website\. The secret stores your credentials of user name and password\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1284\.  
@@ -34,7 +34,7 @@ Required: Yes
 ## See Also<a name="API_BasicAuthenticationConfiguration_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/BasicAuthenticationConfiguration) 
-+  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/BasicAuthenticationConfiguration) 
-+  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/BasicAuthenticationConfiguration) 
-+  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kendra-2019-02-03/BasicAuthenticationConfiguration) 
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/BasicAuthenticationConfiguration) 
++  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/BasicAuthenticationConfiguration) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/BasicAuthenticationConfiguration) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kendra-2019-02-03/BasicAuthenticationConfiguration) 

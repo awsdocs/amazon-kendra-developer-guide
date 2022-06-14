@@ -11,6 +11,87 @@ Updates an existing Amazon Kendra data source\.
 ```
 {
    "Configuration": { 
+      "AlfrescoConfiguration": { 
+         "BlogFieldMappings": [ 
+            { 
+               "DataSourceFieldName": "string",
+               "DateFieldFormat": "string",
+               "IndexFieldName": "string"
+            }
+         ],
+         "CrawlComments": boolean,
+         "CrawlSystemFolders": boolean,
+         "DocumentLibraryFieldMappings": [ 
+            { 
+               "DataSourceFieldName": "string",
+               "DateFieldFormat": "string",
+               "IndexFieldName": "string"
+            }
+         ],
+         "EntityFilter": [ "string" ],
+         "ExclusionPatterns": [ "string" ],
+         "InclusionPatterns": [ "string" ],
+         "SecretArn": "string",
+         "SiteId": "string",
+         "SiteUrl": "string",
+         "SslCertificateS3Path": { 
+            "Bucket": "string",
+            "Key": "string"
+         },
+         "VpcConfiguration": { 
+            "SecurityGroupIds": [ "string" ],
+            "SubnetIds": [ "string" ]
+         },
+         "WikiFieldMappings": [ 
+            { 
+               "DataSourceFieldName": "string",
+               "DateFieldFormat": "string",
+               "IndexFieldName": "string"
+            }
+         ]
+      },
+      "BoxConfiguration": { 
+         "CommentFieldMappings": [ 
+            { 
+               "DataSourceFieldName": "string",
+               "DateFieldFormat": "string",
+               "IndexFieldName": "string"
+            }
+         ],
+         "CrawlComments": boolean,
+         "CrawlTasks": boolean,
+         "CrawlWebLinks": boolean,
+         "EnterpriseId": "string",
+         "ExclusionPatterns": [ "string" ],
+         "FileFieldMappings": [ 
+            { 
+               "DataSourceFieldName": "string",
+               "DateFieldFormat": "string",
+               "IndexFieldName": "string"
+            }
+         ],
+         "InclusionPatterns": [ "string" ],
+         "SecretArn": "string",
+         "TaskFieldMappings": [ 
+            { 
+               "DataSourceFieldName": "string",
+               "DateFieldFormat": "string",
+               "IndexFieldName": "string"
+            }
+         ],
+         "UseChangeLog": boolean,
+         "VpcConfiguration": { 
+            "SecurityGroupIds": [ "string" ],
+            "SubnetIds": [ "string" ]
+         },
+         "WebLinkFieldMappings": [ 
+            { 
+               "DataSourceFieldName": "string",
+               "DateFieldFormat": "string",
+               "IndexFieldName": "string"
+            }
+         ]
+      },
       "ConfluenceConfiguration": { 
          "AttachmentConfiguration": { 
             "AttachmentFieldMappings": [ 
@@ -96,6 +177,117 @@ Updates an existing Amazon Kendra data source\.
             "SubnetIds": [ "string" ]
          }
       },
+      "FsxConfiguration": { 
+         "ExclusionPatterns": [ "string" ],
+         "FieldMappings": [ 
+            { 
+               "DataSourceFieldName": "string",
+               "DateFieldFormat": "string",
+               "IndexFieldName": "string"
+            }
+         ],
+         "FileSystemId": "string",
+         "FileSystemType": "string",
+         "InclusionPatterns": [ "string" ],
+         "SecretArn": "string",
+         "VpcConfiguration": { 
+            "SecurityGroupIds": [ "string" ],
+            "SubnetIds": [ "string" ]
+         }
+      },
+      "GitHubConfiguration": { 
+         "ExclusionFileNamePatterns": [ "string" ],
+         "ExclusionFileTypePatterns": [ "string" ],
+         "ExclusionFolderNamePatterns": [ "string" ],
+         "GitHubCommitConfigurationFieldMappings": [ 
+            { 
+               "DataSourceFieldName": "string",
+               "DateFieldFormat": "string",
+               "IndexFieldName": "string"
+            }
+         ],
+         "GitHubDocumentCrawlProperties": { 
+            "CrawlIssue": boolean,
+            "CrawlIssueComment": boolean,
+            "CrawlIssueCommentAttachment": boolean,
+            "CrawlPullRequest": boolean,
+            "CrawlPullRequestComment": boolean,
+            "CrawlPullRequestCommentAttachment": boolean,
+            "CrawlRepositoryDocuments": boolean
+         },
+         "GitHubIssueAttachmentConfigurationFieldMappings": [ 
+            { 
+               "DataSourceFieldName": "string",
+               "DateFieldFormat": "string",
+               "IndexFieldName": "string"
+            }
+         ],
+         "GitHubIssueCommentConfigurationFieldMappings": [ 
+            { 
+               "DataSourceFieldName": "string",
+               "DateFieldFormat": "string",
+               "IndexFieldName": "string"
+            }
+         ],
+         "GitHubIssueDocumentConfigurationFieldMappings": [ 
+            { 
+               "DataSourceFieldName": "string",
+               "DateFieldFormat": "string",
+               "IndexFieldName": "string"
+            }
+         ],
+         "GitHubPullRequestCommentConfigurationFieldMappings": [ 
+            { 
+               "DataSourceFieldName": "string",
+               "DateFieldFormat": "string",
+               "IndexFieldName": "string"
+            }
+         ],
+         "GitHubPullRequestDocumentAttachmentConfigurationFieldMappings": [ 
+            { 
+               "DataSourceFieldName": "string",
+               "DateFieldFormat": "string",
+               "IndexFieldName": "string"
+            }
+         ],
+         "GitHubPullRequestDocumentConfigurationFieldMappings": [ 
+            { 
+               "DataSourceFieldName": "string",
+               "DateFieldFormat": "string",
+               "IndexFieldName": "string"
+            }
+         ],
+         "GitHubRepositoryConfigurationFieldMappings": [ 
+            { 
+               "DataSourceFieldName": "string",
+               "DateFieldFormat": "string",
+               "IndexFieldName": "string"
+            }
+         ],
+         "InclusionFileNamePatterns": [ "string" ],
+         "InclusionFileTypePatterns": [ "string" ],
+         "InclusionFolderNamePatterns": [ "string" ],
+         "OnPremiseConfiguration": { 
+            "HostUrl": "string",
+            "OrganizationName": "string",
+            "SslCertificateS3Path": { 
+               "Bucket": "string",
+               "Key": "string"
+            }
+         },
+         "RepositoryFilter": [ "string" ],
+         "SaaSConfiguration": { 
+            "HostUrl": "string",
+            "OrganizationName": "string"
+         },
+         "SecretArn": "string",
+         "Type": "string",
+         "UseChangeLog": boolean,
+         "VpcConfiguration": { 
+            "SecurityGroupIds": [ "string" ],
+            "SubnetIds": [ "string" ]
+         }
+      },
       "GoogleDriveConfiguration": { 
          "ExcludeMimeTypes": [ "string" ],
          "ExcludeSharedDrives": [ "string" ],
@@ -110,6 +302,56 @@ Updates an existing Amazon Kendra data source\.
          ],
          "InclusionPatterns": [ "string" ],
          "SecretArn": "string"
+      },
+      "JiraConfiguration": { 
+         "AttachmentFieldMappings": [ 
+            { 
+               "DataSourceFieldName": "string",
+               "DateFieldFormat": "string",
+               "IndexFieldName": "string"
+            }
+         ],
+         "CommentFieldMappings": [ 
+            { 
+               "DataSourceFieldName": "string",
+               "DateFieldFormat": "string",
+               "IndexFieldName": "string"
+            }
+         ],
+         "ExclusionPatterns": [ "string" ],
+         "InclusionPatterns": [ "string" ],
+         "IssueFieldMappings": [ 
+            { 
+               "DataSourceFieldName": "string",
+               "DateFieldFormat": "string",
+               "IndexFieldName": "string"
+            }
+         ],
+         "IssueSubEntityFilter": [ "string" ],
+         "IssueType": [ "string" ],
+         "JiraAccountUrl": "string",
+         "Project": [ "string" ],
+         "ProjectFieldMappings": [ 
+            { 
+               "DataSourceFieldName": "string",
+               "DateFieldFormat": "string",
+               "IndexFieldName": "string"
+            }
+         ],
+         "SecretArn": "string",
+         "Status": [ "string" ],
+         "UseChangeLog": boolean,
+         "VpcConfiguration": { 
+            "SecurityGroupIds": [ "string" ],
+            "SubnetIds": [ "string" ]
+         },
+         "WorkLogFieldMappings": [ 
+            { 
+               "DataSourceFieldName": "string",
+               "DateFieldFormat": "string",
+               "IndexFieldName": "string"
+            }
+         ]
       },
       "OneDriveConfiguration": { 
          "DisableLocalGroups": boolean,
@@ -131,6 +373,41 @@ Updates an existing Amazon Kendra data source\.
          },
          "SecretArn": "string",
          "TenantDomain": "string"
+      },
+      "QuipConfiguration": { 
+         "AttachmentFieldMappings": [ 
+            { 
+               "DataSourceFieldName": "string",
+               "DateFieldFormat": "string",
+               "IndexFieldName": "string"
+            }
+         ],
+         "CrawlAttachments": boolean,
+         "CrawlChatRooms": boolean,
+         "CrawlFileComments": boolean,
+         "Domain": "string",
+         "ExclusionPatterns": [ "string" ],
+         "FolderIds": [ "string" ],
+         "InclusionPatterns": [ "string" ],
+         "MessageFieldMappings": [ 
+            { 
+               "DataSourceFieldName": "string",
+               "DateFieldFormat": "string",
+               "IndexFieldName": "string"
+            }
+         ],
+         "SecretArn": "string",
+         "ThreadFieldMappings": [ 
+            { 
+               "DataSourceFieldName": "string",
+               "DateFieldFormat": "string",
+               "IndexFieldName": "string"
+            }
+         ],
+         "VpcConfiguration": { 
+            "SecurityGroupIds": [ "string" ],
+            "SubnetIds": [ "string" ]
+         }
       },
       "S3Configuration": { 
          "AccessControlListConfiguration": { 
@@ -276,6 +553,31 @@ Updates an existing Amazon Kendra data source\.
             "SubnetIds": [ "string" ]
          }
       },
+      "SlackConfiguration": { 
+         "CrawlBotMessage": boolean,
+         "ExcludeArchived": boolean,
+         "ExclusionPatterns": [ "string" ],
+         "FieldMappings": [ 
+            { 
+               "DataSourceFieldName": "string",
+               "DateFieldFormat": "string",
+               "IndexFieldName": "string"
+            }
+         ],
+         "InclusionPatterns": [ "string" ],
+         "LookBackPeriod": number,
+         "PrivateChannelFilter": [ "string" ],
+         "PublicChannelFilter": [ "string" ],
+         "SecretArn": "string",
+         "SinceCrawlDate": "string",
+         "SlackEntityList": [ "string" ],
+         "TeamId": "string",
+         "UseChangeLog": boolean,
+         "VpcConfiguration": { 
+            "SecurityGroupIds": [ "string" ],
+            "SubnetIds": [ "string" ]
+         }
+      },
       "WebCrawlerConfiguration": { 
          "AuthenticationConfiguration": { 
             "BasicAuthentication": [ 
@@ -394,60 +696,60 @@ For information about the parameters that are common to all actions, see [Common
 
 The request accepts the following data in JSON format\.
 
- ** [ Configuration ](#API_UpdateDataSource_RequestSyntax) **   <a name="Kendra-UpdateDataSource-request-Configuration"></a>
-Configuration information for an Amazon Kendra data source\.  
-Type: [ DataSourceConfiguration ](API_DataSourceConfiguration.md) object  
+ ** [Configuration](#API_UpdateDataSource_RequestSyntax) **   <a name="Kendra-UpdateDataSource-request-Configuration"></a>
+Configuration information for an Amazon Kendra data source you want to update\.  
+Type: [DataSourceConfiguration](API_DataSourceConfiguration.md) object  
 Required: No
 
- ** [ CustomDocumentEnrichmentConfiguration ](#API_UpdateDataSource_RequestSyntax) **   <a name="Kendra-UpdateDataSource-request-CustomDocumentEnrichmentConfiguration"></a>
+ ** [CustomDocumentEnrichmentConfiguration](#API_UpdateDataSource_RequestSyntax) **   <a name="Kendra-UpdateDataSource-request-CustomDocumentEnrichmentConfiguration"></a>
 Configuration information for altering document metadata and content during the document ingestion process when you update a data source\.  
 For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html)\.  
-Type: [ CustomDocumentEnrichmentConfiguration ](API_CustomDocumentEnrichmentConfiguration.md) object  
+Type: [CustomDocumentEnrichmentConfiguration](API_CustomDocumentEnrichmentConfiguration.md) object  
 Required: No
 
- ** [ Description ](#API_UpdateDataSource_RequestSyntax) **   <a name="Kendra-UpdateDataSource-request-Description"></a>
+ ** [Description](#API_UpdateDataSource_RequestSyntax) **   <a name="Kendra-UpdateDataSource-request-Description"></a>
 The new description for the data source\.  
 Type: String  
 Length Constraints: Minimum length of 0\. Maximum length of 1000\.  
 Pattern: `^\P{C}*$`   
 Required: No
 
- ** [ Id ](#API_UpdateDataSource_RequestSyntax) **   <a name="Kendra-UpdateDataSource-request-Id"></a>
+ ** [Id](#API_UpdateDataSource_RequestSyntax) **   <a name="Kendra-UpdateDataSource-request-Id"></a>
 The unique identifier of the data source to update\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`   
 Required: Yes
 
- ** [ IndexId ](#API_UpdateDataSource_RequestSyntax) **   <a name="Kendra-UpdateDataSource-request-IndexId"></a>
+ ** [IndexId](#API_UpdateDataSource_RequestSyntax) **   <a name="Kendra-UpdateDataSource-request-IndexId"></a>
 The identifier of the index that contains the data source to update\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`   
 Required: Yes
 
- ** [ LanguageCode ](#API_UpdateDataSource_RequestSyntax) **   <a name="Kendra-UpdateDataSource-request-LanguageCode"></a>
+ ** [LanguageCode](#API_UpdateDataSource_RequestSyntax) **   <a name="Kendra-UpdateDataSource-request-LanguageCode"></a>
 The code for a language\. This allows you to support a language for all documents when updating the data source\. English is supported by default\. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html)\.  
 Type: String  
 Length Constraints: Minimum length of 2\. Maximum length of 10\.  
 Pattern: `[a-zA-Z-]*`   
 Required: No
 
- ** [ Name ](#API_UpdateDataSource_RequestSyntax) **   <a name="Kendra-UpdateDataSource-request-Name"></a>
+ ** [Name](#API_UpdateDataSource_RequestSyntax) **   <a name="Kendra-UpdateDataSource-request-Name"></a>
 The name of the data source to update\. The name of the data source can't be updated\. To rename a data source you must delete the data source and re\-create it\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1000\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`   
 Required: No
 
- ** [ RoleArn ](#API_UpdateDataSource_RequestSyntax) **   <a name="Kendra-UpdateDataSource-request-RoleArn"></a>
+ ** [RoleArn](#API_UpdateDataSource_RequestSyntax) **   <a name="Kendra-UpdateDataSource-request-RoleArn"></a>
 The Amazon Resource Name \(ARN\) of the new role to use when the data source is accessing resources on your behalf\.  
 Type: String  
 Length Constraints: Minimum length of 0\. Maximum length of 1284\.  
 Pattern: `arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}`   
 Required: No
 
- ** [ Schedule ](#API_UpdateDataSource_RequestSyntax) **   <a name="Kendra-UpdateDataSource-request-Schedule"></a>
+ ** [Schedule](#API_UpdateDataSource_RequestSyntax) **   <a name="Kendra-UpdateDataSource-request-Schedule"></a>
 The new update schedule for the data source\.  
 Type: String  
 Required: No
@@ -487,12 +789,12 @@ HTTP Status Code: 400
 ## See Also<a name="API_UpdateDataSource_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [ AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/kendra-2019-02-03/UpdateDataSource) 
-+  [ AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/kendra-2019-02-03/UpdateDataSource) 
-+  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/UpdateDataSource) 
-+  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/UpdateDataSource) 
-+  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/UpdateDataSource) 
-+  [ AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/kendra-2019-02-03/UpdateDataSource) 
-+  [ AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/kendra-2019-02-03/UpdateDataSource) 
-+  [ AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/kendra-2019-02-03/UpdateDataSource) 
-+  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kendra-2019-02-03/UpdateDataSource) 
++  [AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/kendra-2019-02-03/UpdateDataSource) 
++  [AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/kendra-2019-02-03/UpdateDataSource) 
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/UpdateDataSource) 
++  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/UpdateDataSource) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/UpdateDataSource) 
++  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/kendra-2019-02-03/UpdateDataSource) 
++  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/kendra-2019-02-03/UpdateDataSource) 
++  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/kendra-2019-02-03/UpdateDataSource) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kendra-2019-02-03/UpdateDataSource) 

@@ -7,7 +7,7 @@
 The following examples show how to use a JWT with certificate token for user access control when you are create an index\. 
 
 **Warning**  
-The JSON token is a non\-validated payload\. This should only be used when requests to Kendra come from a trusted server and never from a browser\. 
+The JSON token is a non\-validated payload\. This should only be used when requests to Amazon Kendra come from a trusted server and never from a browser\. 
 
 ------
 #### [ Console ]
@@ -24,9 +24,9 @@ The JSON token is a non\-validated payload\. This should only be used when reque
 
 1. Under **Token configuration**, select **JSON** as the **Token type**\. 
 
-1. Specify a **Username** to use in the ACL check\. 
+1. Specify a **Username** to use in the ACL check\.
 
-1. Specify one or more **Groups** to use in the ACL check\. 
+1. Specify one or more **Groups** to use in the ACL check\.
 
 1. Choose**Next**\. 
 
@@ -34,7 +34,7 @@ The JSON token is a non\-validated payload\. This should only be used when reque
 
 1. Choose **Create** to create your index\.
 
-1. Wait for your index to be created\. Kendra provisions the hardware for your index\. This operation can take some time\.
+1. Wait for your index to be created\. Amazon Kendra provisions the hardware for your index\. This operation can take some time\.
 
 ------
 #### [ CLI ]
@@ -45,8 +45,8 @@ To create an index with the AWS CLI using a JSON input file, first create a JSON
 {
     "Name": "user-context",
     "Edition": "ENTERPRISE_EDITION",
-    "RoleArn": "arn:aws:iam::account id:role:/my-role",
-    "UserTokenConfigurationList": [
+    "RoleArn": "arn:aws:iam::account-id:role:/my-role",
+    "UserTokenConfigurations": [
         {
             "JsonTokenTypeConfiguration": {
                 "UserNameAttributeField": "user",
@@ -89,10 +89,10 @@ The `TokenConfiguration` would specify the user name and group field names:
 #### [ Python ]
 
 ```
-response = client.create_index(
+response = kendra.create_index(
     Name='user-context',
     Edition='ENTERPRISE_EDITION',
-    RoleArn='arn:aws:iam::account id:role:/my-role',
+    RoleArn='arn:aws:iam::account-id:role:/my-role',
     UserTokenConfigurationList=[
         {
             "JwtTokenTypeConfiguration": {

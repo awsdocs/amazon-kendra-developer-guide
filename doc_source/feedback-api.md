@@ -4,7 +4,7 @@
 
 # Using the Amazon Kendra API to submit feedback<a name="feedback-api"></a>
 
-To use the Amazon Kendra API to submit query feedback, use the [ SubmitFeedback ](API_SubmitFeedback.md) operation\. To identify the query, you supply the `IndexID` of the index that the query applies to, and the `QueryId` returned in the response from the [ Query ](API_Query.md) operation\. 
+To use the Amazon Kendra API to submit query feedback, use the [SubmitFeedback](API_SubmitFeedback.md) API\. To identify the query, you supply the `IndexID` of the index that the query applies to, and the `QueryId` returned in the response from the [Query](API_Query.md) API\.
 
 The following example shows how to submit click and relevance feedback using the Amazon Kendra API\. You can submit multiple sets of feedback through the `ClickFeedbackItems` and `RelevanceFeedbackItems` arrays\. This example submits a single click and a single relevance feedback item\. The feedback submittal uses the current time\.
 
@@ -12,7 +12,7 @@ The following example shows how to submit click and relevance feedback using the
 
 1. Use the following code and change the following values:
 
-   1. `index id`  \- Change to the ID of the index that the query applies to\.
+   1. `index id` \- Change to the ID of the index that the query applies to\.
 
    1. `query id` \- Change to the query that you want to provide feedback on\.
 
@@ -27,21 +27,26 @@ The following example shows how to submit click and relevance feedback using the
    import boto3
    import time
    
-   kendra = boto3.client('kendra')
+   kendra = boto3.client("kendra")
    
-   index_id = '${indexID}'
-   query_id = '${queryID}'
-   result_id = '${resultID}'
-   feedback_item = {'ClickTime': int(time.time()),
-       'ResultId':result_id}
+   # Provide the index ID
+   index_id = "index-id"
+   # Provide the query ID
+   query_id = "query-id"
+   # Provide the search result ID
+   result_id = "result-id"
    
+   # Configure the feedback item
+   feedback_item = {"ClickTime": int(time.time()),
+       "ResultId":result_id}
    
-   relevance_value = 'RELEVANT'
-   relevance_item = {'RelevanceValue': relevance_value,
-       'ResultId':result_id
+   # Configure the relevance value
+   relevance_value = "RELEVANT"
+   relevance_item = {"RelevanceValue": relevance_value,
+       "ResultId": result_id
        }
    
-   response=kendra.submit_feedback(
+   response = kendra.submit_feedback(
        QueryId = query_id,
        IndexId = index_id,
        ClickFeedbackItems = [feedback_item],
@@ -49,7 +54,7 @@ The following example shows how to submit click and relevance feedback using the
    )
    
    
-   print ('Submitted feedback for query: ' + query_id)
+   print("Submitted feedback for query: " + query_id)
    ```
 
 ------

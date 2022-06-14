@@ -17,7 +17,7 @@ Required: No
 
  ** DocumentAttributeValueCountPairs **   <a name="Kendra-Type-FacetResult-DocumentAttributeValueCountPairs"></a>
 An array of key/value pairs, where the key is the value of the attribute and the count is the number of documents that share the key value\.  
-Type: Array of [ DocumentAttributeValueCountPair ](API_DocumentAttributeValueCountPair.md) objects  
+Type: Array of [DocumentAttributeValueCountPair](API_DocumentAttributeValueCountPair.md) objects  
 Required: No
 
  ** DocumentAttributeValueType **   <a name="Kendra-Type-FacetResult-DocumentAttributeValueType"></a>
@@ -29,7 +29,7 @@ Required: No
 ## See Also<a name="API_FacetResult_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/FacetResult) 
-+  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/FacetResult) 
-+  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/FacetResult) 
-+  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kendra-2019-02-03/FacetResult) 
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/FacetResult) 
++  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/FacetResult) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/FacetResult) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kendra-2019-02-03/FacetResult) 

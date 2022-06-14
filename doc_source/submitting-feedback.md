@@ -4,11 +4,11 @@
 
 # Submitting feedback for incremental learning<a name="submitting-feedback"></a>
 
-Amazon Kendra uses incremental learning to improve search results\. Using feedback from queries, incremental learning improves the ranking algorithms and optimizes search results for greater accuracy\. 
+Amazon Kendra uses incremental learning to improve search results\. Using feedback from queries, incremental learning improves the ranking algorithms and optimizes search results for greater accuracy\.
 
 For example, suppose that your users search for the phrase "health care benefits\." If users consistently choose the second result from the list, over time Amazon Kendra boosts that result to the first place result\. The boost decreases over time, so if users stop selecting a result, Amazon Kendra eventually removes it and shows another more popular result instead\. This helps Amazon Kendra prioritize results based on relevance, age, and content\.
 
-Incremental learning is enabled for all indexes and for all document types\. For more information, see [Response types ](response-types.md)\.
+Incremental learning is enabled for all indexes and for all document types\. For more information, see [Response types](response-types.md)\.
 
 Amazon Kendra starts learning as soon as you provide feedback, though it can take over 24 hours to see the results of the feedback\. Amazon Kendra provides three methods for you to submit feedback: the AWS console, a JavaScript library that you can include on your search results page, and an API that you can use\.
 
@@ -50,7 +50,7 @@ For web applications, you can use cookies, locations, or browser users to genera
 
 For head queries, the largest volume of queries, providing click\-through feedback provides enough information to improve overall accuracy\. For tail queries, those that are rare, subject matter experts should submit relevant and non\-relevant feedback to improve accuracy for those queries\.
 
-In addition to the console, you can use one of two methods: a JavaScript library or the [ SubmitFeedback ](API_SubmitFeedback.md) operation\. You should only use one method of gathering feedback\. For best results, you should submit feedback within 24 hours of making the query\.
+In addition to the console, you can use one of two methods: a JavaScript library or the [SubmitFeedback](API_SubmitFeedback.md) API\. You should only use one method of gathering feedback\. For best results, you should submit feedback within 24 hours of making the query\.
 
 **Topics**
 + [Using the Amazon Kendra JavaScript library to submit feedback](feedback-javascript.md)

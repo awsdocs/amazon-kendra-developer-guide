@@ -4,7 +4,11 @@
 
 # Compliance validation for Amazon Kendra<a name="kendra-compliance"></a>
 
-Third\-party auditors assess the security and compliance of Amazon Kendra as part of multiple Amazon Kendra compliance programs\. Amazon Kendra is HIPAA compliant, SOC 2 compliant, and IRAP compliant\.
+Third\-party auditors assess the security and compliance of Amazon Kendra as part of multiple Amazon Kendra compliance programs\. Amazon Kendra is compliant with the following:
++ Health Insurance Portability and Accountability Act \(HIPAA\)
++ System and Organization Controls \(SOC\) 2
++ Information Security Registered Assessors Program \(IRAP\)
++ Federal Risk and Authorization Management Program \(FedRAMP\) Moderate in the US East/West regions
 
 For a list of AWS services in scope of specific compliance programs, see [AWS Services in Scope by Compliance Program](http://aws.amazon.com/compliance/services-in-scope/)\. For general information, see [AWS Compliance Programs](http://aws.amazon.com/compliance/programs/)\.
 

@@ -4,17 +4,17 @@
 
 # ConfluenceSpaceConfiguration<a name="API_ConfluenceSpaceConfiguration"></a>
 
-Specifies the configuration for indexing Confluence spaces\.
+Configuration information for indexing Confluence spaces\.
 
 ## Contents<a name="API_ConfluenceSpaceConfiguration_Contents"></a>
 
  ** CrawlArchivedSpaces **   <a name="Kendra-Type-ConfluenceSpaceConfiguration-CrawlArchivedSpaces"></a>
-Specifies whether Amazon Kendra should index archived spaces\.  
+ `TRUE` to index archived spaces\.  
 Type: Boolean  
 Required: No
 
  ** CrawlPersonalSpaces **   <a name="Kendra-Type-ConfluenceSpaceConfiguration-CrawlPersonalSpaces"></a>
-Specifies whether Amazon Kendra should index personal spaces\. Users can add restrictions to items in personal spaces\. If personal spaces are indexed, queries without user context information may return restricted items from a personal space in their results\. For more information, see [Filtering on user context](https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html)\.  
+ `TRUE` to index personal spaces\. You can add restrictions to items in personal spaces\. If personal spaces are indexed, queries without user context information may return restricted items from a personal space in their results\. For more information, see [Filtering on user context](https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html)\.  
 Type: Boolean  
 Required: No
 
@@ -35,16 +35,16 @@ Pattern: `^\P{C}*$`
 Required: No
 
  ** SpaceFieldMappings **   <a name="Kendra-Type-ConfluenceSpaceConfiguration-SpaceFieldMappings"></a>
-Defines how space metadata fields should be mapped to index fields\. Before you can map a field, you must first create an index field with a matching type using the console or the `UpdateIndex` operation\.  
+Maps attributes or field names of Confluence spaces to Amazon Kendra index field names\. To create custom fields, use the `UpdateIndex` API before you map to Confluence fields\. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html)\. The Confluence data source field names must exist in your Confluence custom metadata\.  
 If you specify the `SpaceFieldMappings` parameter, you must specify at least one field mapping\.  
-Type: Array of [ ConfluenceSpaceToIndexFieldMapping ](API_ConfluenceSpaceToIndexFieldMapping.md) objects  
+Type: Array of [ConfluenceSpaceToIndexFieldMapping](API_ConfluenceSpaceToIndexFieldMapping.md) objects  
 Array Members: Minimum number of 1 item\. Maximum number of 4 items\.  
 Required: No
 
 ## See Also<a name="API_ConfluenceSpaceConfiguration_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/ConfluenceSpaceConfiguration) 
-+  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/ConfluenceSpaceConfiguration) 
-+  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/ConfluenceSpaceConfiguration) 
-+  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kendra-2019-02-03/ConfluenceSpaceConfiguration) 
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/ConfluenceSpaceConfiguration) 
++  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/ConfluenceSpaceConfiguration) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/ConfluenceSpaceConfiguration) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kendra-2019-02-03/ConfluenceSpaceConfiguration) 

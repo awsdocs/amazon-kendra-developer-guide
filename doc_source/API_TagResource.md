@@ -26,15 +26,15 @@ For information about the parameters that are common to all actions, see [Common
 
 The request accepts the following data in JSON format\.
 
- ** [ ResourceARN ](#API_TagResource_RequestSyntax) **   <a name="Kendra-TagResource-request-ResourceARN"></a>
+ ** [ResourceARN](#API_TagResource_RequestSyntax) **   <a name="Kendra-TagResource-request-ResourceARN"></a>
 The Amazon Resource Name \(ARN\) of the index, FAQ, or data source to tag\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1011\.  
 Required: Yes
 
- ** [ Tags ](#API_TagResource_RequestSyntax) **   <a name="Kendra-TagResource-request-Tags"></a>
+ ** [Tags](#API_TagResource_RequestSyntax) **   <a name="Kendra-TagResource-request-Tags"></a>
 A list of tag keys to add to the index, FAQ, or data source\. If a tag already exists, the existing value is replaced with the new value\.  
-Type: Array of [ Tag ](API_Tag.md) objects  
+Type: Array of [Tag](API_Tag.md) objects  
 Array Members: Minimum number of 0 items\. Maximum number of 200 items\.  
 Required: Yes
 
@@ -69,12 +69,12 @@ HTTP Status Code: 400
 ## See Also<a name="API_TagResource_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [ AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/kendra-2019-02-03/TagResource) 
-+  [ AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/kendra-2019-02-03/TagResource) 
-+  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/TagResource) 
-+  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/TagResource) 
-+  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/TagResource) 
-+  [ AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/kendra-2019-02-03/TagResource) 
-+  [ AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/kendra-2019-02-03/TagResource) 
-+  [ AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/kendra-2019-02-03/TagResource) 
-+  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kendra-2019-02-03/TagResource) 
++  [AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/kendra-2019-02-03/TagResource) 
++  [AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/kendra-2019-02-03/TagResource) 
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/TagResource) 
++  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/TagResource) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/TagResource) 
++  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/kendra-2019-02-03/TagResource) 
++  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/kendra-2019-02-03/TagResource) 
++  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/kendra-2019-02-03/TagResource) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kendra-2019-02-03/TagResource) 

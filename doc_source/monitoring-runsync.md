@@ -2,13 +2,13 @@
 
 --------
 
-# Monitoring your index \(Console\)<a name="monitoring-runsync"></a>
+# Monitoring your index \(console\)<a name="monitoring-runsync"></a>
 
 Use the Amazon Kendra console to monitor the state of indexes and data sources\. You can use this information to track the size and storage requirements of your index and to monitor the progress and success of synchronization between your index and data sources\.
 
 
 
-**To view index metrics \(Console\)**
+**To view index metrics \(console\)**
 
 1. Sign into the AWS Management Console and open the Amazon Kendra console at [https://console\.aws\.amazon\.com/kendra/home](https://console.aws.amazon.com/kendra/home)\.
 
@@ -24,7 +24,7 @@ You can see the following metrics about your index\.
 
 To monitor the progress and success of synchronization between your index and a data source, use the Amazon Kendra console\. Use this information to help determine the health of your data source\.
 
-**To view synchronization metrics \(Console\)**
+**To view synchronization metrics \(console\)**
 
 1. Sign into the AWS Management Console and open the Amazon Kendra console at [https://console\.aws\.amazon\.com/kendra/home](https://console.aws.amazon.com/kendra/home)\.
 

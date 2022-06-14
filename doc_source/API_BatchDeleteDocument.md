@@ -4,7 +4,7 @@
 
 # BatchDeleteDocument<a name="API_BatchDeleteDocument"></a>
 
-Removes one or more documents from an index\. The documents must have been added with the `BatchPutDocument` operation\.
+Removes one or more documents from an index\. The documents must have been added with the `BatchPutDocument` API\.
 
 The documents are deleted asynchronously\. You can see the progress of the deletion by using AWS CloudWatch\. Any error messages related to the processing of the batch are sent to you CloudWatch log\.
 
@@ -27,19 +27,19 @@ For information about the parameters that are common to all actions, see [Common
 
 The request accepts the following data in JSON format\.
 
- ** [ DataSourceSyncJobMetricTarget ](#API_BatchDeleteDocument_RequestSyntax) **   <a name="Kendra-BatchDeleteDocument-request-DataSourceSyncJobMetricTarget"></a>
+ ** [DataSourceSyncJobMetricTarget](#API_BatchDeleteDocument_RequestSyntax) **   <a name="Kendra-BatchDeleteDocument-request-DataSourceSyncJobMetricTarget"></a>
 Maps a particular data source sync job to a particular data source\.  
-Type: [ DataSourceSyncJobMetricTarget ](API_DataSourceSyncJobMetricTarget.md) object  
+Type: [DataSourceSyncJobMetricTarget](API_DataSourceSyncJobMetricTarget.md) object  
 Required: No
 
- ** [ DocumentIdList ](#API_BatchDeleteDocument_RequestSyntax) **   <a name="Kendra-BatchDeleteDocument-request-DocumentIdList"></a>
+ ** [DocumentIdList](#API_BatchDeleteDocument_RequestSyntax) **   <a name="Kendra-BatchDeleteDocument-request-DocumentIdList"></a>
 One or more identifiers for documents to delete from the index\.  
 Type: Array of strings  
 Array Members: Minimum number of 1 item\. Maximum number of 10 items\.  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  
 Required: Yes
 
- ** [ IndexId ](#API_BatchDeleteDocument_RequestSyntax) **   <a name="Kendra-BatchDeleteDocument-request-IndexId"></a>
+ ** [IndexId](#API_BatchDeleteDocument_RequestSyntax) **   <a name="Kendra-BatchDeleteDocument-request-IndexId"></a>
 The identifier of the index that contains the documents to delete\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
@@ -66,9 +66,9 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
- ** [ FailedDocuments ](#API_BatchDeleteDocument_ResponseSyntax) **   <a name="Kendra-BatchDeleteDocument-response-FailedDocuments"></a>
+ ** [FailedDocuments](#API_BatchDeleteDocument_ResponseSyntax) **   <a name="Kendra-BatchDeleteDocument-response-FailedDocuments"></a>
 A list of documents that could not be removed from the index\. Each entry contains an error message that indicates why the document couldn't be removed from the index\.  
-Type: Array of [ BatchDeleteDocumentResponseFailedDocument ](API_BatchDeleteDocumentResponseFailedDocument.md) objects
+Type: Array of [BatchDeleteDocumentResponseFailedDocument](API_BatchDeleteDocumentResponseFailedDocument.md) objects
 
 ## Errors<a name="API_BatchDeleteDocument_Errors"></a>
 
@@ -101,12 +101,12 @@ HTTP Status Code: 400
 ## See Also<a name="API_BatchDeleteDocument_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [ AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/kendra-2019-02-03/BatchDeleteDocument) 
-+  [ AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/kendra-2019-02-03/BatchDeleteDocument) 
-+  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/BatchDeleteDocument) 
-+  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/BatchDeleteDocument) 
-+  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/BatchDeleteDocument) 
-+  [ AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/kendra-2019-02-03/BatchDeleteDocument) 
-+  [ AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/kendra-2019-02-03/BatchDeleteDocument) 
-+  [ AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/kendra-2019-02-03/BatchDeleteDocument) 
-+  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kendra-2019-02-03/BatchDeleteDocument) 
++  [AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/kendra-2019-02-03/BatchDeleteDocument) 
++  [AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/kendra-2019-02-03/BatchDeleteDocument) 
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/BatchDeleteDocument) 
++  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/BatchDeleteDocument) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/BatchDeleteDocument) 
++  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/kendra-2019-02-03/BatchDeleteDocument) 
++  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/kendra-2019-02-03/BatchDeleteDocument) 
++  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/kendra-2019-02-03/BatchDeleteDocument) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kendra-2019-02-03/BatchDeleteDocument) 

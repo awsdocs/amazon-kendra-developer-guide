@@ -2,11 +2,11 @@
 
 --------
 
-# Adding synonyms to an index<a name="index-synonyms"></a>
+# Adding custom synonyms to an index<a name="index-synonyms"></a>
 
-To add synonyms to an index, you specify them in a thesaurus file\. You can include business\-specific terms in Amazon Kendra using synonyms\. Generic English synonyms, such as `leader, head`, are built into Amazon Kendra and should not be included in a thesaurus file\. Amazon Kendra supports synonyms for all response types, which include `DOCUMENT` response types and `QUESTION_ANSWER` or `ANSWER` response types\.
+To add custom synonyms to an index, you specify them in a thesaurus file\. You can include business\-specific or specialized terms in Amazon Kendra using synonyms\. Generic English synonyms, such as `leader, head`, are built into Amazon Kendra and should not be included in a thesaurus file\. Amazon Kendra supports synonyms for all response types, which include `DOCUMENT` response types and `QUESTION_ANSWER` or `ANSWER` response types\. Amazon Kendra currently does not support adding synonyms flagged as stopwords\. This is to be included in a future release\.
 
-Amazon Kendra provides different results based on your synonyms\. For example, using the synonym pair `Dynamo, Amazon DynamoDB`, Amazon Kendra correlates Dynamo with Amazon DynamoDB\. The query "What is dynamo?" then returns a document such as "What is Amazon DynamoDB?"\. With synonyms, Amazon Kendra can more easily pick up the correlation\.
+Amazon Kendra makes correlations between synonyms\. For example, using the synonym pair `Dynamo, Amazon DynamoDB`, Amazon Kendra correlates Dynamo with Amazon DynamoDB\. The query "What is dynamo?" then returns a document such as "What is Amazon DynamoDB?"\. With synonyms, Amazon Kendra can more easily pick up the correlation\.
 
 The thesaurus file uses the [Solr synonym format](https://lucene.apache.org/solr/guide/6_6/filter-descriptions.html#FilterDescriptions-SynonymGraphFilter)\. Amazon Kendra has a limit on the number of thesauri per index\. See [Quotas](https://docs.aws.amazon.com/kendra/latest/dg/quotas.html)\. 
 
@@ -43,4 +43,4 @@ Alternatively, you can increase the provisioning capacity \(virtual storage unit
 + [Adding a thesaurus to an index](index-synonyms-adding-thesaurus-file.md)
 + [Updating a thesaurus](index-synonyms-update.md)
 + [Deleting a thesaurus](index-synonyms-delete.md)
-+ [Toggling highlights in search results](index-synonyms-enabling-synonyms-in-results.md)
++ [Highlights in search results](index-synonyms-enabling-synonyms-in-results.md)

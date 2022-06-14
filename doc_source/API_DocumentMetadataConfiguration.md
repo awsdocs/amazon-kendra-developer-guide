@@ -15,13 +15,13 @@ Length Constraints: Minimum length of 1\. Maximum length of 30\.
 Required: Yes
 
  ** Relevance **   <a name="Kendra-Type-DocumentMetadataConfiguration-Relevance"></a>
-Provides manual tuning parameters to determine how the field affects the search results\.  
-Type: [ Relevance ](API_Relevance.md) object  
+Provides tuning parameters to determine how the field affects the search results\.  
+Type: [Relevance](API_Relevance.md) object  
 Required: No
 
  ** Search **   <a name="Kendra-Type-DocumentMetadataConfiguration-Search"></a>
 Provides information about how the field is used during a search\.  
-Type: [ Search ](API_Search.md) object  
+Type: [Search](API_Search.md) object  
 Required: No
 
  ** Type **   <a name="Kendra-Type-DocumentMetadataConfiguration-Type"></a>
@@ -33,7 +33,7 @@ Required: Yes
 ## See Also<a name="API_DocumentMetadataConfiguration_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/DocumentMetadataConfiguration) 
-+  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/DocumentMetadataConfiguration) 
-+  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/DocumentMetadataConfiguration) 
-+  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kendra-2019-02-03/DocumentMetadataConfiguration) 
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/DocumentMetadataConfiguration) 
++  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/DocumentMetadataConfiguration) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/DocumentMetadataConfiguration) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kendra-2019-02-03/DocumentMetadataConfiguration) 

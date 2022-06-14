@@ -4,7 +4,7 @@
 
 # Using OpenID<a name="create-index-access-control-tokens-openid"></a>
 
-To configure a Amazon Kendra index to use an OpenID token for access control, you need the jwks url from the OpenID provider\. In most cases the jwks url would be in the following format \(if they are following openId discovery\) `https://domain-name/.well_known/jwks.json`\. 
+To configure an Amazon Kendra index to use an OpenID token for access control, you need the JWKS \(JSON Web Key Set\) URL from the OpenID provider\. In most cases the JWKS URL is in the following format \(if they're following openId discovery\) `https://domain-name/.well_known/jwks.json`\. 
 
 The following examples show how to use an OpenID token for user access control when you are create an index\. 
 
@@ -39,7 +39,7 @@ The following examples show how to use an OpenID token for user access control w
 
 1. Choose **Create** to create your index\.
 
-1. Wait for your index to be created\. Kendra provisions the hardware for your index\. This operation can take some time\.
+1. Wait for your index to be created\. Amazon Kendra provisions the hardware for your index\. This operation can take some time\.
 
 ------
 #### [ CLI ]
@@ -50,8 +50,8 @@ To create an index with the AWS CLI using a JSON input file, first create a JSON
 {
     "Name": "user-context",
     "Edition": "ENTERPRISE_EDITION",
-    "RoleArn": "arn:aws:iam::account id:role:/my-role",
-    "UserTokenConfigurationList": [
+    "RoleArn": "arn:aws:iam::account-id:role:/my-role",
+    "UserTokenConfigurations": [
         {
             "JwtTokenTypeConfiguration": {
                 "KeyLocation": "URL",
@@ -79,11 +79,11 @@ aws kendra create-index --cli-input-json file://create-index-openid.json
 #### [ Python ]
 
 ```
-response = client.create_index(
+response = kendra.create_index(
     Name='user-context',
     Edition='ENTERPRISE_EDITION',
-    RoleArn='arn:aws:iam::account id:role:/my-role',
-    UserTokenConfigurationList=[
+    RoleArn='arn:aws:iam::account-id:role:/my-role',
+    UserTokenConfigurations=[
         {
             "JwtTokenTypeConfiguration": {
                 "KeyLocation": "URL",

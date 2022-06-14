@@ -38,15 +38,15 @@ Pattern: `^[a-zA-Z][a-zA-Z0-9_]*$`
 Required: No
 
  ** FieldMappings **   <a name="Kendra-Type-ColumnConfiguration-FieldMappings"></a>
-An array of objects that map database column names to the corresponding fields in an index\. You must first create the fields in the index using the `UpdateIndex` operation\.  
-Type: Array of [ DataSourceToIndexFieldMapping ](API_DataSourceToIndexFieldMapping.md) objects  
+An array of objects that map database column names to the corresponding fields in an index\. You must first create the fields in the index using the `UpdateIndex` API\.  
+Type: Array of [DataSourceToIndexFieldMapping](API_DataSourceToIndexFieldMapping.md) objects  
 Array Members: Minimum number of 1 item\. Maximum number of 100 items\.  
 Required: No
 
 ## See Also<a name="API_ColumnConfiguration_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/ColumnConfiguration) 
-+  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/ColumnConfiguration) 
-+  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/ColumnConfiguration) 
-+  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kendra-2019-02-03/ColumnConfiguration) 
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/ColumnConfiguration) 
++  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/ColumnConfiguration) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/ColumnConfiguration) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kendra-2019-02-03/ColumnConfiguration) 

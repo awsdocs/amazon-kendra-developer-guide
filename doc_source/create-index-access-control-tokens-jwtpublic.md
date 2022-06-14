@@ -55,7 +55,7 @@ The following examples show how to use a JSON Web Token \(JWT\) with certificate
 
 1. Choose **Create** to create your index\.
 
-1. Wait for your index to be created\. Kendra provisions the hardware for your index\. This operation can take some time\.
+1. Wait for your index to be created\. Amazon Kendra provisions the hardware for your index\. This operation can take some time\.
 
 ------
 #### [ CLI ]
@@ -92,7 +92,7 @@ Next, call `create-index` using the input file\. For example, if the name of you
 aws kendra create-index --cli-input-json file://create-index-openid.json
 ```
 
-The secret must have the following format in AWS Secrets Manager:
+The secret must have the following format in Secrets Manager:
 
 ```
 {
@@ -119,7 +119,7 @@ For more information about JWT, see [jwt\.io](http://jwt.io)\.
 #### [ Python ]
 
 ```
-response = client.create_index(
+response = kendra.create_index(
     Name='user-context',
     Edition='ENTERPRISE_EDITION',
     RoleArn='arn:aws:iam::account id:role:/my-role',

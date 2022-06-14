@@ -4,7 +4,7 @@
 
 # GoogleDriveConfiguration<a name="API_GoogleDriveConfiguration"></a>
 
-Provides configuration information for data sources that connect to Google Drive\.
+Provides the configuration information to connect to Google Drive as your data source\.
 
 ## Contents<a name="API_GoogleDriveConfiguration_Contents"></a>
 
@@ -34,21 +34,20 @@ Pattern: `^\P{C}*$`
 Required: No
 
  ** ExclusionPatterns **   <a name="Kendra-Type-GoogleDriveConfiguration-ExclusionPatterns"></a>
-A list of regular expression patterns that apply to the path on Google Drive\. Items that match the pattern are excluded from the index from both shared drives and users' My Drives\. Items that don't match the pattern are included in the index\. If an item matches both an exclusion pattern and an inclusion pattern, it is excluded from the index\.  
+A list of regular expression patterns to exclude certain items in your Google Drive, including shared drives and users' My Drives\. Items that match the patterns are excluded from the index\. Items that don't match the patterns are included in the index\. If an item matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the item isn't included in the index\.  
 Type: Array of strings  
 Array Members: Minimum number of 0 items\. Maximum number of 100 items\.  
 Length Constraints: Minimum length of 1\. Maximum length of 150\.  
 Required: No
 
  ** FieldMappings **   <a name="Kendra-Type-GoogleDriveConfiguration-FieldMappings"></a>
-Defines mapping between a field in the Google Drive and a Amazon Kendra index field\.  
-If you are using the console, you can define index fields when creating the mapping\. If you are using the API, you must first create the field using the `UpdateIndex` operation\.  
-Type: Array of [ DataSourceToIndexFieldMapping ](API_DataSourceToIndexFieldMapping.md) objects  
+Maps Google Drive data source attributes or field names to Amazon Kendra index field names\. To create custom fields, use the `UpdateIndex` API before you map to Google Drive fields\. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html)\. The Google Drive data source field names must exist in your Google Drive custom metadata\.  
+Type: Array of [DataSourceToIndexFieldMapping](API_DataSourceToIndexFieldMapping.md) objects  
 Array Members: Minimum number of 1 item\. Maximum number of 100 items\.  
 Required: No
 
  ** InclusionPatterns **   <a name="Kendra-Type-GoogleDriveConfiguration-InclusionPatterns"></a>
-A list of regular expression patterns that apply to path on Google Drive\. Items that match the pattern are included in the index from both shared drives and users' My Drives\. Items that don't match the pattern are excluded from the index\. If an item matches both an inclusion pattern and an exclusion pattern, it is excluded from the index\.  
+A list of regular expression patterns to include certain items in your Google Drive, including shared drives and users' My Drives\. Items that match the patterns are included in the index\. Items that don't match the patterns are excluded from the index\. If an item matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the item isn't included in the index\.  
 Type: Array of strings  
 Array Members: Minimum number of 0 items\. Maximum number of 100 items\.  
 Length Constraints: Minimum length of 1\. Maximum length of 150\.  
@@ -64,7 +63,7 @@ Required: Yes
 ## See Also<a name="API_GoogleDriveConfiguration_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/GoogleDriveConfiguration) 
-+  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/GoogleDriveConfiguration) 
-+  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/GoogleDriveConfiguration) 
-+  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kendra-2019-02-03/GoogleDriveConfiguration) 
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/GoogleDriveConfiguration) 
++  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/GoogleDriveConfiguration) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/GoogleDriveConfiguration) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kendra-2019-02-03/GoogleDriveConfiguration) 

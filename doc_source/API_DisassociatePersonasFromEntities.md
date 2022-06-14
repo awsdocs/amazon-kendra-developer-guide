@@ -22,7 +22,7 @@ For information about the parameters that are common to all actions, see [Common
 
 The request accepts the following data in JSON format\.
 
- ** [ EntityIds ](#API_DisassociatePersonasFromEntities_RequestSyntax) **   <a name="Kendra-DisassociatePersonasFromEntities-request-EntityIds"></a>
+ ** [EntityIds](#API_DisassociatePersonasFromEntities_RequestSyntax) **   <a name="Kendra-DisassociatePersonasFromEntities-request-EntityIds"></a>
 The identifiers of users or groups in your AWS SSO identity source\. For example, user IDs could be user emails\.  
 Type: Array of strings  
 Array Members: Minimum number of 1 item\. Maximum number of 25 items\.  
@@ -30,14 +30,14 @@ Length Constraints: Minimum length of 1\. Maximum length of 47\.
 Pattern: `^([0-9a-f]{10}-|)[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}$`   
 Required: Yes
 
- ** [ Id ](#API_DisassociatePersonasFromEntities_RequestSyntax) **   <a name="Kendra-DisassociatePersonasFromEntities-request-Id"></a>
+ ** [Id](#API_DisassociatePersonasFromEntities_RequestSyntax) **   <a name="Kendra-DisassociatePersonasFromEntities-request-Id"></a>
 The identifier of your Amazon Kendra experience\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`   
 Required: Yes
 
- ** [ IndexId ](#API_DisassociatePersonasFromEntities_RequestSyntax) **   <a name="Kendra-DisassociatePersonasFromEntities-request-IndexId"></a>
+ ** [IndexId](#API_DisassociatePersonasFromEntities_RequestSyntax) **   <a name="Kendra-DisassociatePersonasFromEntities-request-IndexId"></a>
 The identifier of the index for your Amazon Kendra experience\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
@@ -63,9 +63,9 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
- ** [ FailedEntityList ](#API_DisassociatePersonasFromEntities_ResponseSyntax) **   <a name="Kendra-DisassociatePersonasFromEntities-response-FailedEntityList"></a>
+ ** [FailedEntityList](#API_DisassociatePersonasFromEntities_ResponseSyntax) **   <a name="Kendra-DisassociatePersonasFromEntities-response-FailedEntityList"></a>
 Lists the users or groups in your AWS SSO identity source that failed to properly remove access to your Amazon Kendra experience\.  
-Type: Array of [ FailedEntity ](API_FailedEntity.md) objects  
+Type: Array of [FailedEntity](API_FailedEntity.md) objects  
 Array Members: Minimum number of 1 item\. Maximum number of 25 items\.
 
 ## Errors<a name="API_DisassociatePersonasFromEntities_Errors"></a>
@@ -95,12 +95,12 @@ HTTP Status Code: 400
 ## See Also<a name="API_DisassociatePersonasFromEntities_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [ AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/kendra-2019-02-03/DisassociatePersonasFromEntities) 
-+  [ AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/kendra-2019-02-03/DisassociatePersonasFromEntities) 
-+  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/DisassociatePersonasFromEntities) 
-+  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/DisassociatePersonasFromEntities) 
-+  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/DisassociatePersonasFromEntities) 
-+  [ AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/kendra-2019-02-03/DisassociatePersonasFromEntities) 
-+  [ AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/kendra-2019-02-03/DisassociatePersonasFromEntities) 
-+  [ AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/kendra-2019-02-03/DisassociatePersonasFromEntities) 
-+  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kendra-2019-02-03/DisassociatePersonasFromEntities) 
++  [AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/kendra-2019-02-03/DisassociatePersonasFromEntities) 
++  [AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/kendra-2019-02-03/DisassociatePersonasFromEntities) 
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/DisassociatePersonasFromEntities) 
++  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/DisassociatePersonasFromEntities) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/DisassociatePersonasFromEntities) 
++  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/kendra-2019-02-03/DisassociatePersonasFromEntities) 
++  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/kendra-2019-02-03/DisassociatePersonasFromEntities) 
++  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/kendra-2019-02-03/DisassociatePersonasFromEntities) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kendra-2019-02-03/DisassociatePersonasFromEntities) 

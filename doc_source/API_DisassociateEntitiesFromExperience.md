@@ -27,20 +27,20 @@ For information about the parameters that are common to all actions, see [Common
 
 The request accepts the following data in JSON format\.
 
- ** [ EntityList ](#API_DisassociateEntitiesFromExperience_RequestSyntax) **   <a name="Kendra-DisassociateEntitiesFromExperience-request-EntityList"></a>
+ ** [EntityList](#API_DisassociateEntitiesFromExperience_RequestSyntax) **   <a name="Kendra-DisassociateEntitiesFromExperience-request-EntityList"></a>
 Lists users or groups in your AWS SSO identity source\.  
-Type: Array of [ EntityConfiguration ](API_EntityConfiguration.md) objects  
+Type: Array of [EntityConfiguration](API_EntityConfiguration.md) objects  
 Array Members: Minimum number of 1 item\. Maximum number of 40 items\.  
 Required: Yes
 
- ** [ Id ](#API_DisassociateEntitiesFromExperience_RequestSyntax) **   <a name="Kendra-DisassociateEntitiesFromExperience-request-Id"></a>
+ ** [Id](#API_DisassociateEntitiesFromExperience_RequestSyntax) **   <a name="Kendra-DisassociateEntitiesFromExperience-request-Id"></a>
 The identifier of your Amazon Kendra experience\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`   
 Required: Yes
 
- ** [ IndexId ](#API_DisassociateEntitiesFromExperience_RequestSyntax) **   <a name="Kendra-DisassociateEntitiesFromExperience-request-IndexId"></a>
+ ** [IndexId](#API_DisassociateEntitiesFromExperience_RequestSyntax) **   <a name="Kendra-DisassociateEntitiesFromExperience-request-IndexId"></a>
 The identifier of the index for your Amazon Kendra experience\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
@@ -66,9 +66,9 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
- ** [ FailedEntityList ](#API_DisassociateEntitiesFromExperience_ResponseSyntax) **   <a name="Kendra-DisassociateEntitiesFromExperience-response-FailedEntityList"></a>
+ ** [FailedEntityList](#API_DisassociateEntitiesFromExperience_ResponseSyntax) **   <a name="Kendra-DisassociateEntitiesFromExperience-response-FailedEntityList"></a>
 Lists the users or groups in your AWS SSO identity source that failed to properly remove access to your Amazon Kendra experience\.  
-Type: Array of [ FailedEntity ](API_FailedEntity.md) objects  
+Type: Array of [FailedEntity](API_FailedEntity.md) objects  
 Array Members: Minimum number of 1 item\. Maximum number of 25 items\.
 
 ## Errors<a name="API_DisassociateEntitiesFromExperience_Errors"></a>
@@ -98,12 +98,12 @@ HTTP Status Code: 400
 ## See Also<a name="API_DisassociateEntitiesFromExperience_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [ AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/kendra-2019-02-03/DisassociateEntitiesFromExperience) 
-+  [ AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/kendra-2019-02-03/DisassociateEntitiesFromExperience) 
-+  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/DisassociateEntitiesFromExperience) 
-+  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/DisassociateEntitiesFromExperience) 
-+  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/DisassociateEntitiesFromExperience) 
-+  [ AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/kendra-2019-02-03/DisassociateEntitiesFromExperience) 
-+  [ AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/kendra-2019-02-03/DisassociateEntitiesFromExperience) 
-+  [ AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/kendra-2019-02-03/DisassociateEntitiesFromExperience) 
-+  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kendra-2019-02-03/DisassociateEntitiesFromExperience) 
++  [AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/kendra-2019-02-03/DisassociateEntitiesFromExperience) 
++  [AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/kendra-2019-02-03/DisassociateEntitiesFromExperience) 
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/DisassociateEntitiesFromExperience) 
++  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/DisassociateEntitiesFromExperience) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/DisassociateEntitiesFromExperience) 
++  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/kendra-2019-02-03/DisassociateEntitiesFromExperience) 
++  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/kendra-2019-02-03/DisassociateEntitiesFromExperience) 
++  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/kendra-2019-02-03/DisassociateEntitiesFromExperience) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kendra-2019-02-03/DisassociateEntitiesFromExperience) 

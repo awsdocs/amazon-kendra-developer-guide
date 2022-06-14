@@ -4,29 +4,31 @@
 
 # Creating an index<a name="create-index"></a>
 
-You can create an index using the console, the AWS Command Line Interface \(AWS CLI\), or by calling the [ CreateIndex ](API_CreateIndex.md) API operation\. The following procedures show how to create an index\. After you have created your index, you can add documents directly to your index or you can add them from a data source\.
+You can create an index using the console, the AWS Command Line Interface \(AWS CLI\), or by calling the [CreateIndex](API_CreateIndex.md) API\. This chapter describes how you can create an index using any one of these methods\. After you created your index, you can add documents directly to it or from a data source\.
 
-To create an index, you must provide the Amazon Resource Name \(ARN\) of an AWS Identity and Access Management \(IAM\) role that has permissions to any Amazon Simple Storage Service \(Amazon S3\) bucket that you use and to perform actions on your behalf\.
+To create an index, you must provide the Amazon Resource Name \(ARN\) of an AWS Identity and Access Management \(IAM\) role that has access to an Amazon S3 bucket that you choose\. In particular, the IAM role must have the permissions to perform actions on your behalf\.
 
 **To create an index \(console\)**
 
-1. Sign into the AWS Management Console and open the Amazon Kendra console at [https://console\.aws\.amazon\.com/kendra/](https://console.aws.amazon.com/kendra/)\. 
+1. Sign in to the AWS Management Console and open the Amazon Kendra console at [https://console\.aws\.amazon\.com/kendra/](https://console.aws.amazon.com/kendra/)\.
+
+1. Select **Create index** in the **Indexes** section\.
 
 1. In **Specify index details**, give your index a name and a description\.
 
-1. In **IAM role** provide an IAM role\. You can either choose from roles in your account that contain the word "kendra" or you can type the name of another role\. For more information about the permissions that the role requires, see [IAM roles for indexes](iam-roles.md#iam-roles-index)\.
+1. In **IAM role** provide an IAM role\. To find a role, choose from roles in your account that contain the word "kendra" or enter the name of another role\. For more information about the permissions that the role requires, see [IAM roles for indexes](iam-roles.md#iam-roles-index)\.
 
 1. Choose **Next**\.
 
 1. On the **Configure user access control** page, choose **Next**\. You can update your index to use tokens for access control after you create an index\. For more information, see [Controlling access to documents in an index](create-index-access-control.md)\. 
 
-1. On the **Provisioning details** page, choose **Create index**\.
+1. On the **Provisioning details** page, choose **Create**\.
 
-1. Creating an index can take some time\. Check the list of indexes to watch the progress of creating your index\. When the status of the index is `ACTIVE`, your index is ready to use\.
+1. It might take some time for the index to create\. Check the list of indexes to watch the progress of creating your index\. When the status of the index is `ACTIVE`, your index is ready to use\.
 
 **To create an index \(AWS CLI\)**
 
-1. Use the following command to create an index\. The `role-arn` should be the Amazon Resource Name \(ARN\) of a role that can run Amazon Kendra actions\. For more information, see [IAM access roles for Amazon Kendra](iam-roles.md)\.
+1. Use the following command to create an index\. The `role-arn` must be the Amazon Resource Name \(ARN\) of an IAM role that can run Amazon Kendra actions\. For more information, see [IAM access roles for Amazon Kendra](iam-roles.md)\.
 
    ```
    aws kendra create-index \
@@ -35,7 +37,7 @@ To create an index, you must provide the Amazon Resource Name \(ARN\) of an AWS 
     --role-arn arn:aws:iam::account ID:role/role name
    ```
 
-1. Creating an index can take some time\. To check the state of your index, use the index ID returned by `create-index` with the following command\. When the status of the index is `ACTIVE`, your index is ready to use\.
+1. It might take some time for the index to create\. To check the state of your index, use the index ID returned by `create-index` with the following command\. When the status of the index is `ACTIVE`, your index is ready to use\.
 
    ```
    aws kendra describe-index \
@@ -44,12 +46,12 @@ To create an index, you must provide the Amazon Resource Name \(ARN\) of an AWS 
 
 **To create an index \(SDK\)**
 
-1. You need to provide values for the following variables:
-   + `description` – A description of the index that you are creating\.
-   + `index_name` – The name of the index that you are creating\.
-   + `role_arn` – The Amazon Resource Name \(ARN\) of a role that can run Amazon Kendra operations\. For more information, see [IAM access roles for Amazon Kendra](iam-roles.md)\.
+1. Provide values for the following variables:
+   + `description` – A description of the index that you're creating\. This is optional\.
+   + `index_name` – The name of the index that you're creating\.
+   + `role_arn` – The Amazon Resource Name \(ARN\) of a role that can run Amazon Kendra APIs\. For more information, see [IAM access roles for Amazon Kendra](iam-roles.md)\.
 
-1. The following examples create an index with Amazon Kendra\.
+1. In the following examples, an index with Amazon Kendra is created\.
 
 ------
 #### [ Python ]
@@ -62,16 +64,19 @@ To create an index, you must provide the Amazon Resource Name \(ARN\) of an AWS 
    
    kendra = boto3.client("kendra")
    
-   print("Create an index")
+   print("Create an index.")
    
-   description = "index description"
+   # Provide a name for the index
    index_name = "index-name"
+   # Provide an optional description for the index
+   description = "index description"
+   # Provide the IAM role ARN required for indexes
    role_arn = "arn:aws:iam::${account id}:role/${role name}"
    
    try:
        index_response = kendra.create_index(
-           Description = description,
            Name = index_name,
+           Description = description,
            RoleArn = role_arn
        )
    
@@ -79,16 +84,16 @@ To create an index, you must provide the Amazon Resource Name \(ARN\) of an AWS 
    
        index_id = index_response["Id"]
    
-       print("Wait for Kendra to create the index.")
+       print("Wait for Amazon Kendra to create the index.")
    
        while True:
-           # Get index description
+           # Get the details of the index, such as the status
            index_description = kendra.describe_index(
                Id = index_id
            )
-           # If status is not CREATING quit
+           # If status is not CREATING, then quit
            status = index_description["Status"]
-           print("    Creating index. Status: "+status)
+           print(" Creating index. Status: "+status)
            if status != "CREATING":
                break
            time.sleep(60)
@@ -154,14 +159,12 @@ To create an index, you must provide the Amazon Resource Name \(ARN\) of an AWS 
 
 ------
 
-Once you have created your index, you add documents to it\. You can either add them directly or you can create a data source that automatically updates your index on a regular schedule\.
+After you created your index, you add documents to it\. You can add them directly or create a data source that updates your index on a regular schedule\.
 
 **Topics**
 + [Controlling access to documents in an index](create-index-access-control.md)
 + [Adding documents directly to an index](in-adding-documents.md)
 + [Adding questions and answers directly to an index](in-creating-faq.md)
-+ [Adding documents from a data source](data-source.md)
-+ [Deleting data sources](delete-data-source.md)
 + [Creating custom document attributes](custom-attributes.md)
 + [Mapping data source fields](field-mapping.md)
 + [Customizing document metadata during the ingestion process](custom-document-enrichment.md)

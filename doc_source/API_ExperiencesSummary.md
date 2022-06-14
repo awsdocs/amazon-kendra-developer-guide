@@ -15,7 +15,7 @@ Required: No
 
  ** Endpoints **   <a name="Kendra-Type-ExperiencesSummary-Endpoints"></a>
 The endpoint URLs for your Amazon Kendra experiences\. The URLs are unique and fully hosted by AWS\.  
-Type: Array of [ ExperienceEndpoint ](API_ExperienceEndpoint.md) objects  
+Type: Array of [ExperienceEndpoint](API_ExperienceEndpoint.md) objects  
 Array Members: Minimum number of 1 item\. Maximum number of 2 items\.  
 Required: No
 
@@ -42,7 +42,7 @@ Required: No
 ## See Also<a name="API_ExperiencesSummary_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/ExperiencesSummary) 
-+  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/ExperiencesSummary) 
-+  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/ExperiencesSummary) 
-+  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kendra-2019-02-03/ExperiencesSummary) 
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/ExperiencesSummary) 
++  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/ExperiencesSummary) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/ExperiencesSummary) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kendra-2019-02-03/ExperiencesSummary) 

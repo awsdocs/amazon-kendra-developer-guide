@@ -36,46 +36,46 @@ For information about the parameters that are common to all actions, see [Common
 
 The request accepts the following data in JSON format\.
 
- ** [ Description ](#API_UpdateQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-UpdateQuerySuggestionsBlockList-request-Description"></a>
+ ** [Description](#API_UpdateQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-UpdateQuerySuggestionsBlockList-request-Description"></a>
 The description for a block list\.  
 Type: String  
 Length Constraints: Minimum length of 0\. Maximum length of 1000\.  
 Pattern: `^\P{C}*$`   
 Required: No
 
- ** [ Id ](#API_UpdateQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-UpdateQuerySuggestionsBlockList-request-Id"></a>
+ ** [Id](#API_UpdateQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-UpdateQuerySuggestionsBlockList-request-Id"></a>
 The unique identifier of a block list\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`   
 Required: Yes
 
- ** [ IndexId ](#API_UpdateQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-UpdateQuerySuggestionsBlockList-request-IndexId"></a>
+ ** [IndexId](#API_UpdateQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-UpdateQuerySuggestionsBlockList-request-IndexId"></a>
 The identifier of the index for a block list\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`   
 Required: Yes
 
- ** [ Name ](#API_UpdateQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-UpdateQuerySuggestionsBlockList-request-Name"></a>
+ ** [Name](#API_UpdateQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-UpdateQuerySuggestionsBlockList-request-Name"></a>
 The name of a block list\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Pattern: `^[a-zA-Z0-9](-*[a-zA-Z0-9])*`   
 Required: No
 
- ** [ RoleArn ](#API_UpdateQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-UpdateQuerySuggestionsBlockList-request-RoleArn"></a>
+ ** [RoleArn](#API_UpdateQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-UpdateQuerySuggestionsBlockList-request-RoleArn"></a>
 The IAM \(Identity and Access Management\) role used to access the block list text file in S3\.  
 Type: String  
 Length Constraints: Minimum length of 0\. Maximum length of 1284\.  
 Pattern: `arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}`   
 Required: No
 
- ** [ SourceS3Path ](#API_UpdateQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-UpdateQuerySuggestionsBlockList-request-SourceS3Path"></a>
+ ** [SourceS3Path](#API_UpdateQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-UpdateQuerySuggestionsBlockList-request-SourceS3Path"></a>
 The S3 path where your block list text file sits in S3\.  
 If you update your block list and provide the same path to the block list text file in S3, then Amazon Kendra reloads the file to refresh the block list\. Amazon Kendra does not automatically refresh your block list\. You need to call the `UpdateQuerySuggestionsBlockList` API to refresh you block list\.  
 If you update your block list, then Amazon Kendra asynchronously refreshes all query suggestions with the latest content in the S3 file\. This means changes might not take effect immediately\.  
-Type: [ S3Path ](API_S3Path.md) object  
+Type: [S3Path](API_S3Path.md) object  
 Required: No
 
 ## Response Elements<a name="API_UpdateQuerySuggestionsBlockList_ResponseElements"></a>
@@ -113,12 +113,12 @@ HTTP Status Code: 400
 ## See Also<a name="API_UpdateQuerySuggestionsBlockList_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [ AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/kendra-2019-02-03/UpdateQuerySuggestionsBlockList) 
-+  [ AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/kendra-2019-02-03/UpdateQuerySuggestionsBlockList) 
-+  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/UpdateQuerySuggestionsBlockList) 
-+  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/UpdateQuerySuggestionsBlockList) 
-+  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/UpdateQuerySuggestionsBlockList) 
-+  [ AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/kendra-2019-02-03/UpdateQuerySuggestionsBlockList) 
-+  [ AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/kendra-2019-02-03/UpdateQuerySuggestionsBlockList) 
-+  [ AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/kendra-2019-02-03/UpdateQuerySuggestionsBlockList) 
-+  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kendra-2019-02-03/UpdateQuerySuggestionsBlockList) 
++  [AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/kendra-2019-02-03/UpdateQuerySuggestionsBlockList) 
++  [AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/kendra-2019-02-03/UpdateQuerySuggestionsBlockList) 
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/UpdateQuerySuggestionsBlockList) 
++  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/UpdateQuerySuggestionsBlockList) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/UpdateQuerySuggestionsBlockList) 
++  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/kendra-2019-02-03/UpdateQuerySuggestionsBlockList) 
++  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/kendra-2019-02-03/UpdateQuerySuggestionsBlockList) 
++  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/kendra-2019-02-03/UpdateQuerySuggestionsBlockList) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kendra-2019-02-03/UpdateQuerySuggestionsBlockList) 

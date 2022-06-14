@@ -18,7 +18,7 @@ The overall process of building a search experience is as follows:
 
 1. You open the Amazon Kendra Experience Builder to design and tune your search page\. You can share your endpoint URL of your search experience with others who you assign own\-edit access rights or view\-search access rights\.
 
-You call the [CreateExperience](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateExperience.html) operation to create and configure your search experience\. If you use the console, you select your index and then select and **Experiences** in navigation menu to configure your experience\.
+You call the [CreateExperience](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateExperience.html) API to create and configure your search experience\. If you use the console, you select your index and then select and **Experiences** in navigation menu to configure your experience\.
 
 ## Design and tune your search experience<a name="design-tune-search-experience"></a>
 
@@ -66,7 +66,7 @@ You configure AWS SSO user identities with your search experience and assign *Vi
 + **Viewer**: Allowed to issue queries, receive suggested answers relevant to their search, and contribute their feedback to Amazon Kendra so that it keeps improving the search\.
 + **Owner**: Allowed to customize the design of the search page, tune the search, and use the search application as a *Viewer*\. Disabling access to viewers in the console is currently not supported\.
 
-To assign other people access to your search experience, you first configure AWS SSO user identities with your Amazon Kendra experience by using [ExperienceConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_ExperienceConfiguration.html)\. You specify the field name that contains the identifiers of your users such as user name or email address\. You then grant your list of users access to your search experience using [AssociateEntitiesToExperience](https://docs.aws.amazon.com/kendra/latest/dg/API_AssociateEntitiesToExperience.html) and define their permissions as *Viewer* or *Owner* using [AssociatePersonasToEntities](https://docs.aws.amazon.com/kendra/latest/dg/API_AssociatePersonasToEntities.html)\. You specify each user or group using [EntityConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_EntityConfiguration.html) and whether that user or group is a *Viewer* or *Owner* using [EntityPersonaConfiguraton](https://docs.aws.amazon.com/kendra/latest/dg/API_EntityPersonaConfiguration.html)\.
+To assign other people access to your search experience, you first configure AWS SSO user identities with your Amazon Kendra experience by using the [ExperienceConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_ExperienceConfiguration.html) object\. You specify the field name that contains the identifiers of your users such as user name or email address\. You then grant your list of users access to your search experience using the [AssociateEntitiesToExperience](https://docs.aws.amazon.com/kendra/latest/dg/API_AssociateEntitiesToExperience.html) API and define their permissions as *Viewer* or *Owner* using the [AssociatePersonasToEntities](https://docs.aws.amazon.com/kendra/latest/dg/API_AssociatePersonasToEntities.html) API\. You specify each user or group using the [EntityConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_EntityConfiguration.html) object and whether that user or group is a *Viewer* or *Owner* using the [EntityPersonaConfiguraton](https://docs.aws.amazon.com/kendra/latest/dg/API_EntityPersonaConfiguration.html) object\.
 
 To assign other people access to your search experience using the console, you first need to create an experience and confirm your identity and that you are an owner\. Then you can assign other users or groups as viewers or owners\. In the console, select your index and then select **Experiences** in the navigation menu\. After you create your experience, you can select your experience from the list\. Go to **Access management** to assign users or groups as viewers or owners\.
 
@@ -117,12 +117,17 @@ import time
 
 kendra = boto3.client("kendra")
 
-print("Create an experience")
+print("Create an experience.")
 
+# Provide a name for the experience
 name = "experience-name"
+# Provide an optional description for the experience
 description = "experience description"
+# Provide the index ID for the experience
 index_id = "index-id"
+# Provide the IAM role ARN required for Amazon Kendra experiences
 role_arn = "arn:aws:iam::${account-id}:role/${role-name}"
+# Configure the experience
 configuration = {"ExperienceConfiguration":
         [{
             "ContentSourceConfiguration":{"DataSourceIds":["data-source-1","data-source-2"]},
@@ -143,15 +148,15 @@ try:
 
     experience_endpoints = experience_response["Endpoints"]
 
-    print("Wait for Kendra to create the experience.")
+    print("Wait for Amazon Kendra to create the experience.")
 
     while True:
-        # Get the experience description
+        # Get the details of the experience, such as the status
         experience_description = kendra.describe_experience(
             Endpoints = experience_endpoints
         )
         status = experience_description["Status"]
-        print("    Creating experience. Status: "+status)
+        print(" Creating experience. Status: "+status)
         time.sleep(60)
         if status != "CREATING":
             break

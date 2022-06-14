@@ -25,7 +25,7 @@ Required: No
  ** TargetDocumentAttributeValue **   <a name="Kendra-Type-DocumentAttributeTarget-TargetDocumentAttributeValue"></a>
 The target value you want to create for the target attribute\.  
 For example, 'Finance' could be the target value for the target attribute key 'Department'\.  
-Type: [ DocumentAttributeValue ](API_DocumentAttributeValue.md) object  
+Type: [DocumentAttributeValue](API_DocumentAttributeValue.md) object  
 Required: No
 
  ** TargetDocumentAttributeValueDeletion **   <a name="Kendra-Type-DocumentAttributeTarget-TargetDocumentAttributeValueDeletion"></a>
@@ -36,7 +36,7 @@ Required: No
 ## See Also<a name="API_DocumentAttributeTarget_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/DocumentAttributeTarget) 
-+  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/DocumentAttributeTarget) 
-+  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/DocumentAttributeTarget) 
-+  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kendra-2019-02-03/DocumentAttributeTarget) 
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/DocumentAttributeTarget) 
++  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/DocumentAttributeTarget) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/DocumentAttributeTarget) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kendra-2019-02-03/DocumentAttributeTarget) 

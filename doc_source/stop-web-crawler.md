@@ -4,7 +4,7 @@
 
 # Stopping Amazon Kendra Web Crawler from indexing your website<a name="stop-web-crawler"></a>
 
-Amazon Kendra is an intelligent search service that AWS customers may use to index and search documents of their choice\. In order to index documents on the web, customers may use Amazon Kendra Web Crawler, indicating which URL\(s\) should be indexed and other operational parameters\. Amazon Kendra customers are required to obtain authorization before indexing any particular website\.
+Amazon Kendra is an intelligent search service that AWS customers use to index and search documents of their choice\. In order to index documents on the web, customers may use Amazon Kendra Web Crawler, indicating which URL\(s\) should be indexed and other operational parameters\. Amazon Kendra customers are required to obtain authorization before indexing any particular website\.
 
 You can stop the Amazon Kendra Web Crawler from indexing your website using the `Disallow` directive, as shown below\. You can also control which webpages are indexed and which webpages are not crawled\.
 

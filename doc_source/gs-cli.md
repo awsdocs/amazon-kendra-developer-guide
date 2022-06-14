@@ -53,7 +53,7 @@ The following procedure shows how to create an Amazon Kendra index using the AWS
     --index-id index ID
    ```
 
-1. Kendra will index your data source\. The amount of time that it takes depends on the number of documents\. You can check the status of the sync job using the following command\. When the status is `ACTIVE`, go on to the next step\.
+1. Amazon Kendra will index your data source\. The amount of time that it takes depends on the number of documents\. You can check the status of the sync job using the following command\. When the status is `ACTIVE`, go on to the next step\.
 
    ```
    aws kendra describe-data-source \

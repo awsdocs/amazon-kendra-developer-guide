@@ -27,7 +27,7 @@ Additionally, AWS supports managed policies for job functions that span multiple
 ## AWS managed policy: AmazonKendraReadOnly<a name="security-iam-awsmanpol-AmazonKendraReadOnly"></a>
 
 Grants read\-only access to Amazon Kendra resources\. This policy includes the following permissions\.
-+ `kendra` – Allows users to perform actions that return either a list of items or details about an item\. This includes API operations that start with Describe, List, Query, or GetQuerySuggestions\.
++ `kendra` – Allows users to perform actions that return either a list of items or details about an item\. This includes API operations that start with `Describe`, `List`, `Query`, `BatchGetDocumentStatus`, `GetQuerySuggestions`, or `GetSnapshots`\.
 
 ```
 {
@@ -38,7 +38,9 @@ Grants read\-only access to Amazon Kendra resources\. This policy includes the f
                 "kendra:Describe*",
                 "kendra:List*",
                 "kendra:Query",
-                "kendra:GetQuerySuggestions"
+                "kendra:BatchGetDocumentStatus",
+                "kendra:GetQuerySuggestions",
+                "kendra:GetSnapshots"
             ],
             "Effect": "Allow",
             "Resource": "*"
@@ -151,5 +153,6 @@ View details about updates to AWS managed policies for Amazon Kendra since this 
 
 | Change | Description | Date | 
 | --- | --- | --- | 
-|  [AmazonKendraReadOnly – Add permission to support GetQuerySuggestions operation](https://docs.aws.amazon.com/kendra/latest/dg/security-iam-awsmanpol.html#security-iam-awsmanpol-AmazonKendraReadOnly)  |  Amazon Kendra added a new action `GetQuerySuggestions` that allows access to get query suggestions for popular search queries, helping guide your users' search\. When users type their search query, the suggested query helps autocomplete their search\. This action is associated with the `GetQuerySuggestions` API operation\.  | May 27, 2021 | 
+|  [AmazonKendraReadOnly – Add permission to support GetSnapshots, BatchGetDocumentStatus APIs](https://docs.aws.amazon.com/kendra/latest/dg/security-iam-awsmanpol.html#security-iam-awsmanpol-AmazonKendraReadOnly)  |  Amazon Kendra added new APIs `GetSnapshots` and `BatchGetDocumentStatus`\. `GetSnapshots` provides data that shows how your users interact with your search application\. `BatchGetDocumentStatus` monitors the progress of indexing your documents\.  | January 3, 2022 | 
+|  [AmazonKendraReadOnly – Add permission to support GetQuerySuggestions operation](https://docs.aws.amazon.com/kendra/latest/dg/security-iam-awsmanpol.html#security-iam-awsmanpol-AmazonKendraReadOnly)  |  Amazon Kendra added a new API `GetQuerySuggestions` that allows access to get query suggestions for popular search queries, helping guide your users' search\. When users type their search query, the suggested query helps autocomplete their search\.  | May 27, 2021 | 
 |  Amazon Kendra started tracking changes  |  Amazon Kendra started tracking changes for its AWS managed policies\.  | May 27, 2021 | 

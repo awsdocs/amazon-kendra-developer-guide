@@ -4,7 +4,7 @@
 
 # JwtTokenTypeConfiguration<a name="API_JwtTokenTypeConfiguration"></a>
 
-Configuration information for the JWT token type\.
+Provides the configuration information for the JWT token type\.
 
 ## Contents<a name="API_JwtTokenTypeConfiguration_Contents"></a>
 
@@ -59,7 +59,7 @@ Required: No
 ## See Also<a name="API_JwtTokenTypeConfiguration_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/JwtTokenTypeConfiguration) 
-+  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/JwtTokenTypeConfiguration) 
-+  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/JwtTokenTypeConfiguration) 
-+  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kendra-2019-02-03/JwtTokenTypeConfiguration) 
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/JwtTokenTypeConfiguration) 
++  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/JwtTokenTypeConfiguration) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/JwtTokenTypeConfiguration) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kendra-2019-02-03/JwtTokenTypeConfiguration) 

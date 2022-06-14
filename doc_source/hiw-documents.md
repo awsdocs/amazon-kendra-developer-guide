@@ -4,7 +4,7 @@
 
 # Documents<a name="hiw-documents"></a>
 
-Amazon Kendra can index many types of documents\. You can also associate attributes with documents to provide information such as the source URI and the author of a document\.
+Amazon Kendra can index many types of documents\. 
 
 **Topics**
 + [Types of documents](index-document-types.md)

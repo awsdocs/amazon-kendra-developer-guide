@@ -41,4 +41,23 @@ You must also grant the required permissions to use AWS SSO with Amazon Kendra\.
 **Note**  
 If using Active Directory or an external identity provider as your identity source, you must map the email addresses of your users to AWS SSO user names when you specify the System for Cross\-domain Identity Management \(SCIM\) protocol\. For more information, see the [AWS SSO guide on SCIM for configuring AWS SSO](https://docs.aws.amazon.com/singlesignon/latest/userguide/scim-profile-saml.html)\.
 
-Once you have set up your AWS SSO identity source, you can enable this in the console when you create or edit your index\. Go to the **Configure user access control page** and under **User\-group expansion**, choose **AWS SSO**\. You can also enable AWS SSO using the [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html) structure\. You provide the `UserGroupResolutionMode` as `AWS_SSO` and create an IAM role that gives permission to call `sso:ListDirectoryAssociations`, `sso-directory:SearchUsers`, `sso-directory:ListGroupsForUser`, `sso-directory:DescribeGroups`\.
+Once you have set up your AWS SSO identity source, you can enable this in the console when you create or edit your index\. Go to **User access control** in your index settings and edit your settings to enable fetching user\-group information from AWS SSO\. You can also enable AWS SSO using the [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html) object\. You provide the `UserGroupResolutionMode` as `AWS_SSO` and create an IAM role that gives permission to call `sso:ListDirectoryAssociations`, `sso-directory:SearchUsers`, `sso-directory:ListGroupsForUser`, `sso-directory:DescribeGroups`\.
+
+**Warning**  
+Amazon Kendra currently does not support using `UserGroupResolutionConfiguration` with an AWS organization member account for your AWS SSO identify source\. You must create your index in the management account for the organization in order to use `UserGroupResolutionConfiguration`\.
+
+The following is an overview of how to set up a data source with `UserGroupResolutionConfiguration` and user access control to filter search results on user context\. This assumes you have already created an index and an IAM role that can run Amazon Kendra APIs for indexes\. You create an index and provide the IAM role using the [CreateIndex](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateIndex.html) API\.
+
+**Setting up a data source with `UserGroupResolutionConfiguration` and user context filtering**
+
+1. Create an [IAM role](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-aws-sso) that gives permission to access your AWS SSO identity source\.
+
+1. Configure [https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html) by setting the mode to `AWS_SSO` and call [UpdateIndex](https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateIndex.html) to update your index to use AWS SSO\.
+
+1. If you want to use token\-based user access control to filter search results on user context, set [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateIndex.html#Kendra-UpdateIndex-request-UserContextPolicy) to `USER_TOKEN` when you call `UpdateIndex`\. Otherwise, Amazon Kendra crawls the Access Control List for each of your documents for most data source connectors\. You can also filter search results on user context in the [Query](https://docs.aws.amazon.com/kendra/latest/dg/API_Query.html) API by providing user and group information in `UserContext`\. You can also map users to their groups using [PutPrincipalMapping](https://docs.aws.amazon.com/kendra/latest/dg/API_PutPrincipalMapping.html) so that you only need to provide the user ID when you issue the query\.
+
+1. Create an [IAM role](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-ds) that gives permission to access your data source\.
+
+1. [Configure](https://docs.aws.amazon.com/kendra/latest/dg/API_DataSourceConfiguration.html) your data source\. You must provide the required connection information to connect to your data source\.
+
+1. Create a data source using the [CreateDataSource](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html) API\. Provide the `DataSourceConfiguration` object, the ID of your index, the IAM role for your data source, the data source type, and give your data source a name\. You can also update your data source\.

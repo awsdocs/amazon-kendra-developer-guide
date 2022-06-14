@@ -12,18 +12,18 @@ For more information, see [Customizing document metadata during the ingestion pr
 
  ** InlineConfigurations **   <a name="Kendra-Type-CustomDocumentEnrichmentConfiguration-InlineConfigurations"></a>
 Configuration information to alter document attributes or metadata fields and content when ingesting documents into Amazon Kendra\.  
-Type: Array of [ InlineCustomDocumentEnrichmentConfiguration ](API_InlineCustomDocumentEnrichmentConfiguration.md) objects  
+Type: Array of [InlineCustomDocumentEnrichmentConfiguration](API_InlineCustomDocumentEnrichmentConfiguration.md) objects  
 Array Members: Minimum number of 0 items\. Maximum number of 100 items\.  
 Required: No
 
  ** PostExtractionHookConfiguration **   <a name="Kendra-Type-CustomDocumentEnrichmentConfiguration-PostExtractionHookConfiguration"></a>
 Configuration information for invoking a Lambda function in AWS Lambda on the structured documents with their metadata and text extracted\. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content\. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation)\.  
-Type: [ HookConfiguration ](API_HookConfiguration.md) object  
+Type: [HookConfiguration](API_HookConfiguration.md) object  
 Required: No
 
  ** PreExtractionHookConfiguration **   <a name="Kendra-Type-CustomDocumentEnrichmentConfiguration-PreExtractionHookConfiguration"></a>
 Configuration information for invoking a Lambda function in AWS Lambda on the original or raw documents before extracting their metadata and text\. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content\. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation)\.  
-Type: [ HookConfiguration ](API_HookConfiguration.md) object  
+Type: [HookConfiguration](API_HookConfiguration.md) object  
 Required: No
 
  ** RoleArn **   <a name="Kendra-Type-CustomDocumentEnrichmentConfiguration-RoleArn"></a>
@@ -36,7 +36,7 @@ Required: No
 ## See Also<a name="API_CustomDocumentEnrichmentConfiguration_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/CustomDocumentEnrichmentConfiguration) 
-+  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/CustomDocumentEnrichmentConfiguration) 
-+  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/CustomDocumentEnrichmentConfiguration) 
-+  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kendra-2019-02-03/CustomDocumentEnrichmentConfiguration) 
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/CustomDocumentEnrichmentConfiguration) 
++  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/CustomDocumentEnrichmentConfiguration) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/CustomDocumentEnrichmentConfiguration) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kendra-2019-02-03/CustomDocumentEnrichmentConfiguration) 

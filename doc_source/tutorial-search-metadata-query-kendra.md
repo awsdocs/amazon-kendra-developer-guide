@@ -27,7 +27,7 @@ The example questions in this section have been chosen based on the sample datas
 
 1. From the **Indexes** list, click on `kendra-index`\.
 
-1. From the left navigation menu, choose **Search console**\.
+1. From the left navigation menu, choose the option to search your index\.
 
 1. To run a sample factoid query, enter **Who is Lewis Hamilton?** in the search box and press enter\.
 
@@ -204,7 +204,7 @@ The example questions in this section have been chosen based on the sample datas
 
 ## Filtering your search results<a name="tutorial-search-metadata-query-kendra-filters"></a>
 
-You can filter and sort your search results using custom document attributes in the Amazon Kendra search console\. For more information on how Amazon Kendra processes queries, see [Filtering queries](https://docs.aws.amazon.com/kendra/latest/dg/filtering.html)\.
+You can filter and sort your search results using custom document attributes in the Amazon Kendra console\. For more information on how Amazon Kendra processes queries, see [Filtering queries](https://docs.aws.amazon.com/kendra/latest/dg/filtering.html)\.
 
 ### To filter your search results \(Console\)<a name="tutorial-search-metadata-filter-index-console"></a>
 
@@ -212,7 +212,7 @@ You can filter and sort your search results using custom document attributes in 
 
 1. From the **Indexes** list, click on `kendra-index`\.
 
-1. From the left navigation menu, choose **Search console**\.
+1. From the left navigation menu, choose the option to search your index\.
 
 1. In the search box, enter **Soccer matches** as a query and press enter\.
 

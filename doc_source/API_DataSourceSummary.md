@@ -4,7 +4,7 @@
 
 # DataSourceSummary<a name="API_DataSourceSummary"></a>
 
-Summary information for a Amazon Kendra data source\. Returned in a call to the `DescribeDataSource` operation\.
+Summary information for an Amazon Kendra data source\. Returned in a call to the `DescribeDataSource` API\.
 
 ## Contents<a name="API_DataSourceSummary_Contents"></a>
 
@@ -43,7 +43,7 @@ Required: No
  ** Type **   <a name="Kendra-Type-DataSourceSummary-Type"></a>
 The type of the data source\.  
 Type: String  
-Valid Values:` S3 | SHAREPOINT | DATABASE | SALESFORCE | ONEDRIVE | SERVICENOW | CUSTOM | CONFLUENCE | GOOGLEDRIVE | WEBCRAWLER | WORKDOCS`   
+Valid Values:` S3 | SHAREPOINT | DATABASE | SALESFORCE | ONEDRIVE | SERVICENOW | CUSTOM | CONFLUENCE | GOOGLEDRIVE | WEBCRAWLER | WORKDOCS | FSX | SLACK | BOX | QUIP | JIRA | GITHUB | ALFRESCO`   
 Required: No
 
  ** UpdatedAt **   <a name="Kendra-Type-DataSourceSummary-UpdatedAt"></a>
@@ -54,7 +54,7 @@ Required: No
 ## See Also<a name="API_DataSourceSummary_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/DataSourceSummary) 
-+  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/DataSourceSummary) 
-+  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/DataSourceSummary) 
-+  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kendra-2019-02-03/DataSourceSummary) 
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/DataSourceSummary) 
++  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/DataSourceSummary) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/DataSourceSummary) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kendra-2019-02-03/DataSourceSummary) 

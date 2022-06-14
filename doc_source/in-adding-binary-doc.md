@@ -4,16 +4,16 @@
 
 # Adding documents with the API<a name="in-adding-binary-doc"></a>
 
-The following example adds text to an index by calling the [ BatchPutDocument ](API_BatchPutDocument.md) operation\.
+The following example adds text to an index by calling [BatchPutDocument](API_BatchPutDocument.md)\.
 
-You can use the `BatchPutDocument` operation to add documents in the following formats:
+You can use the `BatchPutDocument` API to add documents in the following formats:
 + DOC
 + HTML
 + PDF
 + Plain text
 + PPT
 
-Files added to the index must be in a UTF\-8 encoded byte stream\. The following example adds UTF\-8 encoded text to the index\.
+Files added to the index must be in a UTF\-8 encoded byte stream\. In the following examples, UTF\-8 encoded text is added to the index\.
 
 ------
 #### [ Python ]
@@ -21,12 +21,14 @@ Files added to the index must be in a UTF\-8 encoded byte stream\. The following
 ```
 import boto3
 
-kendra = boto3.client('kendra')
+kendra = boto3.client("kendra")
 
-index_id = '${indexID}'
+# Provide the index ID
+index_id = "index-id"
 
-title = 'Information about Amazon.com'
-text = 'Amazon.com is an online retailer.'
+# Provide the title and text
+title = "Information about Amazon.com"
+text = "Amazon.com is an online retailer."
 
 document = {
     "Id": "1",

@@ -4,11 +4,11 @@
 
 # Customizing document metadata during the ingestion process<a name="custom-document-enrichment"></a>
 
-You can alter your document metadata or attributes and content during the document ingestion process\. Amazon Kendra *Custom Document Enrichment* tool allows you to create, modify, or delete document attributes and content when you ingest your documents into Amazon Kendra\. This means you can manipulate and ingest your data on the fly\.
+You can alter your document metadata or attributes and content during the document ingestion process\. With Amazon Kendra *Custom Document Enrichment* tool, you can create, modify, or delete document attributes and content when you ingest your documents into Amazon Kendra\. This means you can manipulate and ingest your data as you need\.
 
-This tool gives you control over how your documents should be treated and ingested into Amazon Kendra\. For example, you can scrub personally identifiable information in the document metadata while ingesting your documents into Amazon Kendra\.
+This tool gives you control over how your documents are treated and ingested into Amazon Kendra\. For example, you can scrub personally identifiable information in the document metadata while ingesting your documents into Amazon Kendra\.
 
-Another way you can use this tool is to invoke a Lambda function in AWS Lambda to run Optimal Character Recognition \(OCR\) on images, translation on text, and other tasks for preparing the data for search or analysis\. For example, you can invoke a function to run OCR on images\. The function could interpret text from images and treat each image as a textual document\. A company that receives mailed\-in customer surveys and stores these surveys as images could ingest these images as textual documents into Amazon Kendra\. The company could then search for valuable customer survey information in Amazon Kendra\. The company could also scrub or remove customer identification numbers associated with the surveys to protect customer privacy\.
+Another way that you can use this tool is to invoke a Lambda function in AWS Lambda to run Optical Character Recognition \(OCR\) on images, translation on text, and other tasks for preparing the data for search or analysis\. For example, you can invoke a function to run OCR on images\. The function could interpret text from images and treat each image as a textual document\. A company that receives mailed\-in customer surveys and stores these surveys as images could ingest these images as textual documents into Amazon Kendra\. The company can then search for valuable customer survey information in Amazon Kendra\. The company can also scrub or remove customer identification numbers associated with the surveys to protect customer privacy\.
 
 ## How Custom Document Enrichment works<a name="how-custom-document-enrichment-works"></a>
 
@@ -24,13 +24,13 @@ The overall process of Custom Document Enrichment is as follows:
 
 At any point in this process, if your configuration is not valid, Amazon Kendra throws an error\.
 
-When you call [CreateDataSource](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html), [UpdateDataSource](https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateDataSource.html), or [BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html) operations, you provide your Custom Document Enrichment configuration\. If you call `BatchPutDocument`, you must configure Custom Document Enrichment with each request\. If you use the console, you select your index and then select **Document enrichments** to configure Custom Document Enrichment\.
+When you call [CreateDataSource](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html), [UpdateDataSource](https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateDataSource.html), or [BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html) APIs, you provide your Custom Document Enrichment configuration\. If you call `BatchPutDocument`, you must configure Custom Document Enrichment with each request\. If you use the console, you select your index and then select **Document enrichments** to configure Custom Document Enrichment\.
 
 ## Basic data manipulation<a name="basic-data-maniplation"></a>
 
-You can manipulate your document metadata fields or attributes and content using basic logic\. This includes removing values in a field, modifying values in a field using a condition, or creating a field\. For advanced manipulations that go beyond what you can manipulate using basic logic, you need to invoke a Lambda function—see [Advanced data manipulation](#advanced-data-manipulation)\.
+You can manipulate your document metadata fields or attributes and content using basic logic\. This includes removing values in a field, modifying values in a field using a condition, or creating a field\. For advanced manipulations that go beyond what you can manipulate using basic logic, invoke a Lambda function\. For more information, see [Advanced data manipulation](#advanced-data-manipulation)\.
 
-To apply basic logic, you specify the target field you want to manipulate using the [DocumentAttributeTarget](https://docs.aws.amazon.com/kendra/latest/dg/API_DocumentAttributeTarget.html) structure\. You provide the attribute key\. For example, the key 'Department' is a field or attribute that holds all the department names associated with the documents\. You can also specify a value to use in the target field if a certain condition is met\. You set the condition using the [DocumentAttributeCondition](https://docs.aws.amazon.com/kendra/latest/dg/API_DocumentAttributeCondition.html) structure\. For example, if the 'Source\_URI' field contains 'financial' in its URI value, then prefill the target field 'Department' with the target value 'Finance' for the document\. You can also delete the values of the target document attribute\.
+To apply basic logic, you specify the target field you want to manipulate using the [DocumentAttributeTarget](https://docs.aws.amazon.com/kendra/latest/dg/API_DocumentAttributeTarget.html) object\. You provide the attribute key\. For example, the key 'Department' is a field or attribute that holds all the department names associated with the documents\. You can also specify a value to use in the target field if a certain condition is met\. You set the condition using the [DocumentAttributeCondition](https://docs.aws.amazon.com/kendra/latest/dg/API_DocumentAttributeCondition.html) object\. For example, if the 'Source\_URI' field contains 'financial' in its URI value, then prefill the target field 'Department' with the target value 'Finance' for the document\. You can also delete the values of the target document attribute\.
 
 To apply basic logic using the console, select your index and then select **Document enrichments** in the navigation menu\. Go to **Configure basic operations** to apply basic manipulations to your document metadata fields or attributes and content\.
 
@@ -75,7 +75,7 @@ Data after basic manipulation applied\.
 | 3 | Lorem Ipsum\. | financial/3 | Finance | 
 
 **Note**  
-Amazon Kendra cannot create a target document metadata field if it has not already created as an index field\. After you create your index field, you can create a document metadata field using `DocumentAttributeTarget`\. Amazon Kendra then will map your newly created metadata field to your index field\.
+Amazon Kendra can't create a target document metadata field if it isn't already created as an index field\. After you create your index field, you can create a document metadata field using `DocumentAttributeTarget`\. Amazon Kendra then maps your newly created metadata field to your index field\.
 
 The following code is an example of configuring basic data manipulation to remove customer identification numbers associated with the documents\.
 
@@ -118,13 +118,19 @@ kendra = boto3.client("kendra")
 
 print("Create a data source with customizations")
 
+# Provide the name of the data source
 name = "data-source-name"
+# Provide the index ID for the data source
 index_id = "index-id"
+# Provide the IAM role ARN required for data sources
 role_arn = "arn:aws:iam::${account-id}:role/${role-name}"
+# Provide the data source connection information
 data_source_type = "S3"
+S3_bucket_name = "S3-bucket-name"
+# Configure the data source with Custom Document Enrichment
 configuration = {"S3Configuration":
         {
-            "BucketName": S3-bucket-name
+            "BucketName": S3_bucket_name
         }
     }
 custom_document_enrichment_configuration = {"InlineConfigurations":[
@@ -148,21 +154,21 @@ try:
 
     data_source_id = data_source_response["Id"]
 
-    print("Wait for Kendra to create the data source with your customizations.")
+    print("Wait for Amazon Kendra to create the data source with your customizations.")
 
     while True:
-        # Get the data source description
+        # Get the details of the data source, such as the status
         data_source_description = kendra.describe_data_source(
             Id = data_source_id,
             IndexId = index_id
         )
         status = data_source_description["Status"]
-        print("    Creating data source. Status: "+status)
+        print(" Creating data source. Status: "+status)
         time.sleep(60)
         if status != "CREATING":
             break
 
-print("Synchronize the data source.")
+    print("Synchronize the data source.")
 
     sync_response = kendra.start_data_source_sync_job(
         Id = data_source_id,
@@ -176,14 +182,14 @@ print("Synchronize the data source.")
     while True:
 
         jobs = kendra.list_data_source_sync_jobs(
-            Id=data_source_id,
-            IndexId=index_id
+            Id= data_source_id,
+            IndexId= index_id
         )
 
         # For this example, there should be one job
         status = jobs["History"][0]["Status"]
 
-        print("    Syncing data source. Status: "+status)
+        print(" Syncing data source. Status: "+status)
         time.sleep(60)
         if status != "SYNCING":
             break
@@ -326,9 +332,9 @@ public class CreateDataSourceWithCustomizationsExample {
 
 ## Advanced data manipulation<a name="advanced-data-manipulation"></a>
 
-You can manipulate your document metadata fields or attributes and content using Lambda functions\. This is useful if you want to go beyond basic logic and apply advanced data manipulations\. For example, using Optimal Character Recognition \(OCR\), which interprets text from images, and treats each image as a textual document\. Or, retrieving the current date\-time in a certain time zone and inserting the date\-time where there's an empty value for a date field\. You can apply basic logic first and then use a Lambda function to further manipulate your data\.
+You can manipulate your document metadata fields or attributes and content using Lambda functions\. This is useful if you want to go beyond basic logic and apply advanced data manipulations\. For example, using Optical Character Recognition \(OCR\), which interprets text from images, and treats each image as a textual document\. Or, retrieving the current date\-time in a certain time zone and inserting the date\-time where there's an empty value for a date field\. You can apply basic logic first and then use a Lambda function to further manipulate your data\.
 
-Amazon Kendra can invoke a Lambda function to apply advanced data manipulations during the ingestion process as part of your [CustomDocumentEnrichmentConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_CustomDocumentEnrichmentConfiguration.html)\. You specify a role that includes permission to execute the Lambda function and access your S3 bucket to store the output of your data manipulations—see [IAM access roles](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html)\. Amazon Kendra can apply your advanced data manipulations on your original, raw documents or on the structured, parsed documents\. You can configure a Lambda function that takes your original or raw data and applies your data manipulations using [PreExtractionHookConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_CustomDocumentEnrichmentConfiguration.html)\. You can also configure a Lambda function that takes your structured documents and applies your data manipulations using [PostExtractionHookConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_CustomDocumentEnrichmentConfiguration.html)\. Amazon Kendra extracts the document metadata and text to structure your documents\. Your Lambda functions must follow the mandatory request and response structures\. For more information, see [Data contracts for Lambda functions](#cde-data-contracts-lambda)\.
+Amazon Kendra can invoke a Lambda function to apply advanced data manipulations during the ingestion process as part of your [CustomDocumentEnrichmentConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_CustomDocumentEnrichmentConfiguration.html)\. You specify a role that includes permission to execute the Lambda function and access your Amazon S3 bucket to store the output of your data manipulations—see [IAM access roles](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html)\. Amazon Kendra can apply your advanced data manipulations on your original, raw documents or on the structured, parsed documents\. You can configure a Lambda function that takes your original or raw data and applies your data manipulations using [PreExtractionHookConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_CustomDocumentEnrichmentConfiguration.html)\. You can also configure a Lambda function that takes your structured documents and applies your data manipulations using [PostExtractionHookConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_CustomDocumentEnrichmentConfiguration.html)\. Amazon Kendra extracts the document metadata and text to structure your documents\. Your Lambda functions must follow the mandatory request and response structures\. For more information, see [Data contracts for Lambda functions](#cde-data-contracts-lambda)\.
 
 To configure a Lambda function in the console, select your index and then select **Document enrichments** in the navigation menu\. Go to **Configure Lambda functions** to configure a Lambda function\.
 
@@ -363,18 +369,18 @@ Data before advanced manipulation applied\.
 
 | **Document\_ID** | **Body\_Text** | **Last\_Updated** | 
 | --- | --- | --- | 
-| 1 | Lorem Ipsum\. | January 1st 2020 | 
+| 1 | Lorem Ipsum\. | January 1, 2020 | 
 | 2 | Lorem Ipsum\. |   | 
-| 3 | Lorem Ipsum\. | July 1st 2020 | 
+| 3 | Lorem Ipsum\. | July 1, 2020 | 
 
 Data after advanced manipulation applied\.
 
 
 | **Document\_ID** | **Body\_Text** | **Last\_Updated** | 
 | --- | --- | --- | 
-| 1 | Lorem Ipsum\. | January 1st 2020 | 
-| 2 | Lorem Ipsum\. | December 1st 2021 | 
-| 3 | Lorem Ipsum\. | July 1st 2020 | 
+| 1 | Lorem Ipsum\. | January 1, 2020 | 
+| 2 | Lorem Ipsum\. | December 1, 2021 | 
+| 3 | Lorem Ipsum\. | July 1, 2020 | 
 
 The following code is an example of configuring a Lambda function for advanced data manipulation on the raw, original data\.
 
@@ -385,7 +391,7 @@ The following code is an example of configuring a Lambda function for advanced d
 
 1. In the left navigation pane, under **Indexes**, select **Document enrichments** and then select **Add document enrichment**\.
 
-1. On the **Configure Lambda functions** page, in the **Lambda for pre\-extraction** section, select from the dropdowns your Lambda function ARN and your S3 bucket\. Add your IAM access role by selecting your role from the dropdown to give the required permissions to create the document enrichment\.
+1. On the **Configure Lambda functions** page, in the **Lambda for pre\-extraction** section, select from the dropdowns your Lambda function ARN and your Amazon S3 bucket\. Add your IAM access role by selecting your role from the dropdown to give the required permissions to create the document enrichment\.
 
 ------
 #### [ CLI ]
@@ -415,15 +421,21 @@ import time
 
 kendra = boto3.client("kendra")
 
-print("Create a data source with customizations")
+print("Create a data source with customizations.")
 
+# Provide the name of the data source
 name = "data-source-name"
+# Provide the index ID for the data source
 index_id = "index-id"
+# Provide the IAM role ARN required for data sources
 role_arn = "arn:aws:iam::${account-id}:role/${role-name}"
+# Provide the data source connection information
 data_source_type = "S3"
+S3_bucket_name = "S3-bucket-name"
+# Configure the data source with Custom Document Enrichment
 configuration = {"S3Configuration":
         {
-            "BucketName": S3-bucket-name
+            "BucketName": S3_bucket_name
         }
     }
 custom_document_enrichment_configuration = {"PreExtractionHookConfiguration":
@@ -448,21 +460,21 @@ try:
 
     data_source_id = data_source_response["Id"]
 
-    print("Wait for Kendra to create the data source with your customizations.")
+    print("Wait for Amazon Kendra to create the data source with your customizations.")
 
     while True:
-        # Get the data source description
+        # Get the details of the data source, such as the status
         data_source_description = kendra.describe_data_source(
             Id = data_source_id,
             IndexId = index_id
         )
         status = data_source_description["Status"]
-        print("    Creating data source. Status: "+status)
+        print(" Creating data source. Status: "+status)
         time.sleep(60)
         if status != "CREATING":
             break
 
-print("Synchronize the data source.")
+    print("Synchronize the data source.")
 
     sync_response = kendra.start_data_source_sync_job(
         Id = data_source_id,
@@ -476,14 +488,14 @@ print("Synchronize the data source.")
     while True:
 
         jobs = kendra.list_data_source_sync_jobs(
-            Id=data_source_id,
-            IndexId=index_id
+            Id = data_source_id,
+            IndexId = index_id
         )
 
         # For this example, there should be one job
         status = jobs["History"][0]["Status"]
 
-        print("    Syncing data source. Status: "+status)
+        print(" Syncing data source. Status: "+status)
         time.sleep(60)
         if status != "SYNCING":
             break
@@ -624,7 +636,7 @@ public class CreateDataSourceWithCustomizationsExample {
 
 ## Data contracts for Lambda functions<a name="cde-data-contracts-lambda"></a>
 
-Your Lambda functions for advanced data manipulation interact with Amazon Kendra data contracts\. The contracts are the mandatory request and response structures of your Lambda functions\. If your Lambda functions do not follow these structures, then Amazon Kendra throws an error\.
+Your Lambda functions for advanced data manipulation interact with Amazon Kendra data contracts\. The contracts are the mandatory request and response structures of your Lambda functions\. If your Lambda functions don't follow these structures, then Amazon Kendra throws an error\.
 
 Your Lambda function for `PreExtractionHookConfiguration` should expect the following request structure:
 
@@ -647,7 +659,7 @@ The `metadata` structure, which includes the `CustomerDocumentAttribute` structu
 
 CustomerDocumentAttribute
 {
-    "key": <str>,
+    "name": <str>,
     "value": <CustomerDocumentAttributeValue>
 }
 
@@ -694,17 +706,17 @@ PostExtractionHookConfiguration Lambda Response
 }
 ```
 
-Your altered document is uploaded to your S3 bucket\. The altered document must follow the format shown in [Structured document format](#structured-document-format)\.
+Your altered document is uploaded to your Amazon S3 bucket\. The altered document must follow the format shown in [Structured document format](#structured-document-format)\.
 
 ### Structured document format<a name="structured-document-format"></a>
 
-Amazon Kendra uploads your structured document to the given S3 bucket\. The structured document follows this format:
+Amazon Kendra uploads your structured document to the given Amazon S3 bucket\. The structured document follows this format:
 
 ```
 Kendra document
 
 {
-   "text_content": <TextContent>
+   "textContent": <TextContent>
 }
 
 TextContent
@@ -715,31 +727,39 @@ TextContent
 
 ### Example of a Lambda function that adheres to data contracts<a name="example-lambda-function-advanced-manipulation"></a>
 
-The following Python code is an example of a Lambda function that applies advanced manipulation of the metadata fields `_authors`, `document_title`, and the body content on the raw or original documents\.
+The following Python code is an example of a Lambda function that applies advanced manipulation of the metadata fields `_authors`, `_document_title`, and the body content on the raw or original documents\.
 
-**In the case of the body content residing in an S3 bucket**
+**In the case of the body content residing in an Amazon S3 bucket**
 
 ```
 import json
 import boto3
      
-s3 = boto3.client('s3')
-     
+s3 = boto3.client("s3")
+
+# Lambda function for advanced data manipulation    
 def lambda_handler(event, context):
+    # Get the value of "S3Bucket" key name or item from the given event input
     s3_bucket = event.get("s3Bucket")
+    # Get the value of "S3ObjectKey" key name or item from the given event input
     s3_object_key = event.get("s3ObjectKey")
+    
     content_object_before_CDE = s3.get_object(Bucket = s3_bucket, Key = s3_object_key)
-    content_before_CDE = content_object_before_CDE['Body'].read().decode('utf-8');
+    content_before_CDE = content_object_before_CDE["Body"].read().decode("utf-8");
     content_after_CDE = "CDEInvolved " + content_before_CDE
+    
+    # Get the value of "metadata" key name or item from the given event input
     metadata = event.get("metadata")
-    document_attributes  = metadata.get("attributes")
-    s3.put_object(Bucket = s3_bucket, Key = 'dummy_updated_kendra_document', Body=json.dumps(content_after_CDE))
+    # Get the document "attributes" from the metadata 
+    document_attributes = metadata.get("attributes")
+    
+    s3.put_object(Bucket = s3_bucket, Key = "dummy_updated_kendra_document", Body=json.dumps(content_after_CDE))
     return {
-        "version" : "v0",
+        "version": "v0",
         "s3ObjectKey": "dummy_updated_kendra_document",
         "metadataUpdates": [
             {"name":"_document_title", "value":{"stringValue":"title_from_pre_extraction_lambda"}},
-            {"name": "_authors", "value":{"stringListValue":["author1", "author2"]}}
+            {"name":"_authors", "value":{"stringListValue":["author1", "author2"]}}
         ]
     }
 ```
@@ -749,45 +769,58 @@ def lambda_handler(event, context):
 ```
 import json
 import boto3
-     
+import base64
+
+# Lambda function for advanced data manipulation
 def lambda_handler(event, context):
     
+    # Get the value of "dataBlobStringEncodedInBase64" key name or item from the given event input 
     data_blob_string_encoded_in_base64 = event.get("dataBlobStringEncodedInBase64")
-    data_blob_string = base64.b64decode(data_blob_string_encoded_in_base64).decode('utf-8')    
+    # Decode the data blob string in UTF-8
+    data_blob_string = base64.b64decode(data_blob_string_encoded_in_base64).decode("utf-8")
+    # Get the value of "metadata" key name or item from the given event input    
     metadata = event.get("metadata")
-    document_attributes  = metadata.get("attributes")
-    new_data_blob = "This should be the modified data in the document by pre processing lambda ".encode('utf-8')
+    # Get the document "attributes" from the metadata
+    document_attributes = metadata.get("attributes")
+    
+    new_data_blob = "This should be the modified data in the document by pre processing lambda ".encode("utf-8")
     return {
-        "version" : "v0",
-        "dataBlobStringEncodedInBase64": base64.b64encode(new_data_blob).decode('utf-8'),
+        "version": "v0",
+        "dataBlobStringEncodedInBase64": base64.b64encode(new_data_blob).decode("utf-8"),
         "metadataUpdates": [
             {"name":"_document_title", "value":{"stringValue":"title_from_pre_extraction_lambda"}},
-            {"name": "_authors", "value":{"stringListValue":["author1", "author2"]}}
+            {"name":"_authors", "value":{"stringListValue":["author1", "author2"]}}
         ]
     }
 ```
 
-The following Python code is an example of a Lambda function that applies advanced manipulation of the metadata fields `_authors`, `document_title`, and the body content on the structured or parsed documents\.
+The following Python code is an example of a Lambda function that applies advanced manipulation of the metadata fields `_authors`, `_document_title`, and the body content on the structured or parsed documents\.
 
 ```
 import json
 import boto3
 import time
 
-s3 = boto3.client('s3')
+s3 = boto3.client("s3")
 
+# Lambda function for advanced data manipulation
 def lambda_handler(event, context):
     
+    # Get the value of "S3Bucket" key name or item from the given event input
     s3_bucket = event.get("s3Bucket")
+    # Get the value of "S3ObjectKey" key name or item from the given event input
     s3_key = event.get("s3ObjectKey")
+    # Get the value of "metadata" key name or item from the given event input
     metadata = event.get("metadata")
-    document_attributes  = metadata.get("attributes")
+    # Get the document "attributes" from the metadata 
+    document_attributes = metadata.get("attributes")
+    
     kendra_document_object = s3.get_object(Bucket = s3_bucket, Key = s3_key)
     kendra_document_string = kendra_document_object['Body'].read().decode('utf-8')
     kendra_document = json.loads(kendra_document_string)
     kendra_document["textContent"]["documentBodyText"] = "Changing document body to a short sentence."
     
-    s3.put_object(Bucket = s3_bucket, Key = 'dummy_updated_kendra_document', Body=json.dumps(kendra_document))
+    s3.put_object(Bucket = s3_bucket, Key = "dummy_updated_kendra_document", Body=json.dumps(kendra_document))
 
     return {
         "version" : "v0",

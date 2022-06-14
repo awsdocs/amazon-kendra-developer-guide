@@ -28,38 +28,38 @@ For information about the parameters that are common to all actions, see [Common
 
 The request accepts the following data in JSON format\.
 
- ** [ Id ](#API_ListDataSourceSyncJobs_RequestSyntax) **   <a name="Kendra-ListDataSourceSyncJobs-request-Id"></a>
+ ** [Id](#API_ListDataSourceSyncJobs_RequestSyntax) **   <a name="Kendra-ListDataSourceSyncJobs-request-Id"></a>
 The identifier of the data source\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`   
 Required: Yes
 
- ** [ IndexId ](#API_ListDataSourceSyncJobs_RequestSyntax) **   <a name="Kendra-ListDataSourceSyncJobs-request-IndexId"></a>
+ ** [IndexId](#API_ListDataSourceSyncJobs_RequestSyntax) **   <a name="Kendra-ListDataSourceSyncJobs-request-IndexId"></a>
 The identifier of the index that contains the data source\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`   
 Required: Yes
 
- ** [ MaxResults ](#API_ListDataSourceSyncJobs_RequestSyntax) **   <a name="Kendra-ListDataSourceSyncJobs-request-MaxResults"></a>
+ ** [MaxResults](#API_ListDataSourceSyncJobs_RequestSyntax) **   <a name="Kendra-ListDataSourceSyncJobs-request-MaxResults"></a>
 The maximum number of synchronization jobs to return in the response\. If there are fewer results in the list, this response contains only the actual results\.  
 Type: Integer  
 Valid Range: Minimum value of 1\. Maximum value of 10\.  
 Required: No
 
- ** [ NextToken ](#API_ListDataSourceSyncJobs_RequestSyntax) **   <a name="Kendra-ListDataSourceSyncJobs-request-NextToken"></a>
+ ** [NextToken](#API_ListDataSourceSyncJobs_RequestSyntax) **   <a name="Kendra-ListDataSourceSyncJobs-request-NextToken"></a>
 If the previous response was incomplete \(because there is more data to retrieve\), Amazon Kendra returns a pagination token in the response\. You can use this pagination token to retrieve the next set of jobs\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 800\.  
 Required: No
 
- ** [ StartTimeFilter ](#API_ListDataSourceSyncJobs_RequestSyntax) **   <a name="Kendra-ListDataSourceSyncJobs-request-StartTimeFilter"></a>
+ ** [StartTimeFilter](#API_ListDataSourceSyncJobs_RequestSyntax) **   <a name="Kendra-ListDataSourceSyncJobs-request-StartTimeFilter"></a>
 When specified, the synchronization jobs returned in the list are limited to jobs between the specified dates\.   
-Type: [ TimeRange ](API_TimeRange.md) object  
+Type: [TimeRange](API_TimeRange.md) object  
 Required: No
 
- ** [ StatusFilter ](#API_ListDataSourceSyncJobs_RequestSyntax) **   <a name="Kendra-ListDataSourceSyncJobs-request-StatusFilter"></a>
+ ** [StatusFilter](#API_ListDataSourceSyncJobs_RequestSyntax) **   <a name="Kendra-ListDataSourceSyncJobs-request-StatusFilter"></a>
 When specified, only returns synchronization jobs with the `Status` field equal to the specified status\.  
 Type: String  
 Valid Values:` FAILED | SUCCEEDED | SYNCING | INCOMPLETE | STOPPING | ABORTED | SYNCING_INDEXING`   
@@ -97,11 +97,11 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
- ** [ History ](#API_ListDataSourceSyncJobs_ResponseSyntax) **   <a name="Kendra-ListDataSourceSyncJobs-response-History"></a>
+ ** [History](#API_ListDataSourceSyncJobs_ResponseSyntax) **   <a name="Kendra-ListDataSourceSyncJobs-response-History"></a>
 A history of synchronization jobs for the data source\.  
-Type: Array of [ DataSourceSyncJob ](API_DataSourceSyncJob.md) objects
+Type: Array of [DataSourceSyncJob](API_DataSourceSyncJob.md) objects
 
- ** [ NextToken ](#API_ListDataSourceSyncJobs_ResponseSyntax) **   <a name="Kendra-ListDataSourceSyncJobs-response-NextToken"></a>
+ ** [NextToken](#API_ListDataSourceSyncJobs_ResponseSyntax) **   <a name="Kendra-ListDataSourceSyncJobs-response-NextToken"></a>
 If the response is truncated, Amazon Kendra returns this token that you can use in the subsequent request to retrieve the next set of jobs\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 800\.
@@ -137,12 +137,12 @@ HTTP Status Code: 400
 ## See Also<a name="API_ListDataSourceSyncJobs_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [ AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/kendra-2019-02-03/ListDataSourceSyncJobs) 
-+  [ AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/kendra-2019-02-03/ListDataSourceSyncJobs) 
-+  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/ListDataSourceSyncJobs) 
-+  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/ListDataSourceSyncJobs) 
-+  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/ListDataSourceSyncJobs) 
-+  [ AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/kendra-2019-02-03/ListDataSourceSyncJobs) 
-+  [ AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/kendra-2019-02-03/ListDataSourceSyncJobs) 
-+  [ AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/kendra-2019-02-03/ListDataSourceSyncJobs) 
-+  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kendra-2019-02-03/ListDataSourceSyncJobs) 
++  [AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/kendra-2019-02-03/ListDataSourceSyncJobs) 
++  [AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/kendra-2019-02-03/ListDataSourceSyncJobs) 
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/ListDataSourceSyncJobs) 
++  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/ListDataSourceSyncJobs) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/ListDataSourceSyncJobs) 
++  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/kendra-2019-02-03/ListDataSourceSyncJobs) 
++  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/kendra-2019-02-03/ListDataSourceSyncJobs) 
++  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/kendra-2019-02-03/ListDataSourceSyncJobs) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kendra-2019-02-03/ListDataSourceSyncJobs) 

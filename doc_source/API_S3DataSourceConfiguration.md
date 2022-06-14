@@ -4,13 +4,13 @@
 
 # S3DataSourceConfiguration<a name="API_S3DataSourceConfiguration"></a>
 
-Provides configuration information for a data source to index documents in an Amazon S3 bucket\.
+Provides the configuration information to connect to an Amazon S3 bucket\.
 
 ## Contents<a name="API_S3DataSourceConfiguration_Contents"></a>
 
  ** AccessControlListConfiguration **   <a name="Kendra-Type-S3DataSourceConfiguration-AccessControlListConfiguration"></a>
 Provides the path to the S3 bucket that contains the user context filtering files for the data source\. For the format of the file, see [Access control for S3 data sources](https://docs.aws.amazon.com/kendra/latest/dg/s3-acl.html)\.  
-Type: [ AccessControlListConfiguration ](API_AccessControlListConfiguration.md) object  
+Type: [AccessControlListConfiguration](API_AccessControlListConfiguration.md) object  
 Required: No
 
  ** BucketName **   <a name="Kendra-Type-S3DataSourceConfiguration-BucketName"></a>
@@ -22,7 +22,7 @@ Required: Yes
 
  ** DocumentsMetadataConfiguration **   <a name="Kendra-Type-S3DataSourceConfiguration-DocumentsMetadataConfiguration"></a>
 Document metadata files that contain information such as the document access control information, source URI, document author, and custom attributes\. Each metadata file contains metadata about a single document\.  
-Type: [ DocumentsMetadataConfiguration ](API_DocumentsMetadataConfiguration.md) object  
+Type: [DocumentsMetadataConfiguration](API_DocumentsMetadataConfiguration.md) object  
 Required: No
 
  ** ExclusionPatterns **   <a name="Kendra-Type-S3DataSourceConfiguration-ExclusionPatterns"></a>
@@ -57,7 +57,7 @@ Required: No
 ## See Also<a name="API_S3DataSourceConfiguration_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/S3DataSourceConfiguration) 
-+  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/S3DataSourceConfiguration) 
-+  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/S3DataSourceConfiguration) 
-+  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kendra-2019-02-03/S3DataSourceConfiguration) 
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kendra-2019-02-03/S3DataSourceConfiguration) 
++  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kendra-2019-02-03/S3DataSourceConfiguration) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kendra-2019-02-03/S3DataSourceConfiguration) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kendra-2019-02-03/S3DataSourceConfiguration) 
