@@ -6,7 +6,7 @@
 
 Provides filtering the query results based on document attributes\.
 
-When you use the `AndAllFilters` or `OrAllFilters`, filters you can use 2 layers under the first attribute filter\. For example, you can use:
+When you use the `AndAllFilters` or `OrAllFilters`, filters you can use 3 layers under the first attribute filter\. For example, you can use:
 
  `<AndAllFilters>` 
 
@@ -14,7 +14,7 @@ When you use the `AndAllFilters` or `OrAllFilters`, filters you can use 2 layers
 
 1.  ` <EqualsTo>` 
 
-If you use more than 2 layers, you receive a `ValidationException` exception with the message "`AttributeFilter` cannot have a depth of more than 2\."
+If you use more than 3 layers, you receive a `ValidationException` exception with the message "`AttributeFilter` cannot have a depth of more than 3\."
 
 If you use more than 10 attribute filters in a given list for `AndAllFilters` or `OrAllFilters`, you receive a `ValidationException` with the message "`AttributeFilter` cannot have a length of more than 10"\.
 
