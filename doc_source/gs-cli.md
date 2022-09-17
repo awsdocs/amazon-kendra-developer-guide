@@ -32,9 +32,20 @@ The following procedure shows how to create an Amazon Kendra index using the AWS
    aws kendra create-data-source \
     --index-id index id \
     --name data source name \
-    --role-arn arn:aws:iam::account id:role/KendraRoleForGettingStartedDataSource
+    --role-arn arn:aws:iam::account id:role/KendraRoleForGettingStartedDataSource \
     --type S3 \
     --configuration '{"S3Configuration":{"BucketName":"S3 bucket name"}}'
+   ```
+
+   If you connect to your data source using a template schema, configure the template schema
+
+   ```
+   aws kendra create-data-source \
+    --index-id index id \
+    --name data source name \
+    --role-arn arn:aws:iam::account id:role/KendraRoleForGettingStartedDataSource \
+    --type TEMPLATE \
+    --configuration '{"TemplateConfiguration":{"Template":{JSON schema}}}'
    ```
 
 1. It will take Amazon Kendra a while to create the data source\. Enter the following command to check the progress\. When the status is `ACTIVE`, go on to the next step\.

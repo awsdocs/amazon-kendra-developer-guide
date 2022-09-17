@@ -26,14 +26,14 @@ For information about the parameters that are common to all actions, see [Common
 The request accepts the following data in JSON format\.
 
  ** [Id](#API_DeleteQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-DeleteQuerySuggestionsBlockList-request-Id"></a>
-The unique identifier of the block list that needs to be deleted\.  
+The identifier of the block list you want to delete\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`   
 Required: Yes
 
  ** [IndexId](#API_DeleteQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-DeleteQuerySuggestionsBlockList-request-IndexId"></a>
-The identifier of the you want to delete a block list from\.  
+The identifier of the index for the block list\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`   

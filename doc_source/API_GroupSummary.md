@@ -4,19 +4,19 @@
 
 # GroupSummary<a name="API_GroupSummary"></a>
 
- Group summary information\. 
+Summary information for groups\.
 
 ## Contents<a name="API_GroupSummary_Contents"></a>
 
  ** GroupId **   <a name="Kendra-Type-GroupSummary-GroupId"></a>
- The identifier of the group you want group summary information on\.   
+The identifier of the group you want group summary information on\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1024\.  
 Pattern: `^\P{C}*$`   
 Required: No
 
  ** OrderingId **   <a name="Kendra-Type-GroupSummary-OrderingId"></a>
- The timestamp identifier used for the latest `PUT` or `DELETE` action\.   
+The timestamp identifier used for the latest `PUT` or `DELETE` action\.  
 Type: Long  
 Valid Range: Minimum value of 0\. Maximum value of 32535158400000\.  
 Required: No

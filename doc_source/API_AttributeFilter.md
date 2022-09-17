@@ -4,7 +4,7 @@
 
 # AttributeFilter<a name="API_AttributeFilter"></a>
 
-Provides filtering the query results based on document attributes\.
+Provides filtering the query results based on document attributes or metadata fields\.
 
 When you use the `AndAllFilters` or `OrAllFilters`, filters you can use 2 layers under the first attribute filter\. For example, you can use:
 
@@ -26,37 +26,37 @@ Type: Array of [AttributeFilter](#API_AttributeFilter) objects
 Required: No
 
  ** ContainsAll **   <a name="Kendra-Type-AttributeFilter-ContainsAll"></a>
-Returns true when a document contains all of the specified document attributes\. This filter is only applicable to `StringListValue` metadata\.  
+Returns true when a document contains all of the specified document attributes or metadata fields\. This filter is only applicable to `StringListValue` metadata\.  
 Type: [DocumentAttribute](API_DocumentAttribute.md) object  
 Required: No
 
  ** ContainsAny **   <a name="Kendra-Type-AttributeFilter-ContainsAny"></a>
-Returns true when a document contains any of the specified document attributes\. This filter is only applicable to `StringListValue` metadata\.  
+Returns true when a document contains any of the specified document attributes or metadata fields\. This filter is only applicable to `StringListValue` metadata\.  
 Type: [DocumentAttribute](API_DocumentAttribute.md) object  
 Required: No
 
  ** EqualsTo **   <a name="Kendra-Type-AttributeFilter-EqualsTo"></a>
-Performs an equals operation on two document attributes\.  
+Performs an equals operation on two document attributes or metadata fields\.  
 Type: [DocumentAttribute](API_DocumentAttribute.md) object  
 Required: No
 
  ** GreaterThan **   <a name="Kendra-Type-AttributeFilter-GreaterThan"></a>
-Performs a greater than operation on two document attributes\. Use with a document attribute of type `Date` or `Long`\.  
+Performs a greater than operation on two document attributes or metadata fields\. Use with a document attribute of type `Date` or `Long`\.  
 Type: [DocumentAttribute](API_DocumentAttribute.md) object  
 Required: No
 
  ** GreaterThanOrEquals **   <a name="Kendra-Type-AttributeFilter-GreaterThanOrEquals"></a>
-Performs a greater or equals than operation on two document attributes\. Use with a document attribute of type `Date` or `Long`\.  
+Performs a greater or equals than operation on two document attributes or metadata fields\. Use with a document attribute of type `Date` or `Long`\.  
 Type: [DocumentAttribute](API_DocumentAttribute.md) object  
 Required: No
 
  ** LessThan **   <a name="Kendra-Type-AttributeFilter-LessThan"></a>
-Performs a less than operation on two document attributes\. Use with a document attribute of type `Date` or `Long`\.  
+Performs a less than operation on two document attributes or metadata fields\. Use with a document attribute of type `Date` or `Long`\.  
 Type: [DocumentAttribute](API_DocumentAttribute.md) object  
 Required: No
 
  ** LessThanOrEquals **   <a name="Kendra-Type-AttributeFilter-LessThanOrEquals"></a>
-Performs a less than or equals operation on two document attributes\. Use with a document attribute of type `Date` or `Long`\.  
+Performs a less than or equals operation on two document attributes or metadata fields\. Use with a document attribute of type `Date` or `Long`\.  
 Type: [DocumentAttribute](API_DocumentAttribute.md) object  
 Required: No
 

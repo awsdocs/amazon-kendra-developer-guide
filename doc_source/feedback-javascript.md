@@ -43,8 +43,11 @@ Replace *library download URL* and *feedback endpoint* with an identifier from t
 | Region | Download URL | Feedback endpoint | 
 | --- | --- | --- | 
 | us\-east\-1 | https://d2zm0lpns956f8\.cloudfront\.net/ksf\-v1\.js | https://ujxwp5s92h\.execute\-api\.us\-east\-1\.amazonaws\.com/prod/submit | 
+| us\-east\-2 |  https://d2crv7fufeg244\.cloudfront\.net/ksf\-v1\.js | https://i6h76zwzf3\.execute\-api\.us\-east\-2\.amazonaws\.com/prod/submit | 
 | us\-west\-2 | https://d2iezfpnpcoujy\.cloudfront\.net/ksf\-v1\.js | https://wg6nim909c\.execute\-api\.us\-west\-2\.amazonaws\.com/prod/submit | 
+| ca\-central\-1 | https://d1zbkfomowykaq\.cloudfront\.net/ksf\-v1\.js | https://budi8txevj\.execute\-api\.ca\-central\-1\.amazonaws\.com/prod/submit | 
 | eu\-west\-1 | https://d3gptlxtulu4us\.cloudfront\.net/ksf\-v1\.js | https://po2b11740b\.execute\-api\.eu\-west\-1\.amazonaws\.com/prod/submit | 
+| ap\-southeast\-1 | https://d1vvuam7g4taoe\.cloudfront\.net/ksf\-v1 | https://9je5uw7t5l\.execute\-api\.ap\-southeast\-1\.amazonaws\.com/prod/submit | 
 | ap\-southeast\-2 | https://dopqntoe6z0ce\.cloudfront\.net/ksf\-v1\.js | https://oovf4nvjj7\.execute\-api\.ap\-southeast\-2\.amazonaws\.com/prod/submit | 
 
 For example, if your index is in US East \(N\. Virginia\), *library download URL* is `https://d2zm0lpns956f8.cloudfront.net/ksf-v1.js` and *feedback endpoint* is `https://ujxwp5s92h.execute-api.us-east-1.amazonaws.com/prod/submit`\.

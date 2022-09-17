@@ -43,7 +43,7 @@ Required: No
  ** Type **   <a name="Kendra-Type-DataSourceSummary-Type"></a>
 The type of the data source\.  
 Type: String  
-Valid Values:` S3 | SHAREPOINT | DATABASE | SALESFORCE | ONEDRIVE | SERVICENOW | CUSTOM | CONFLUENCE | GOOGLEDRIVE | WEBCRAWLER | WORKDOCS | FSX | SLACK | BOX | QUIP | JIRA | GITHUB | ALFRESCO`   
+Valid Values:` S3 | SHAREPOINT | DATABASE | SALESFORCE | ONEDRIVE | SERVICENOW | CUSTOM | CONFLUENCE | GOOGLEDRIVE | WEBCRAWLER | WORKDOCS | FSX | SLACK | BOX | QUIP | JIRA | GITHUB | ALFRESCO | TEMPLATE`   
 Required: No
 
  ** UpdatedAt **   <a name="Kendra-Type-DataSourceSummary-UpdatedAt"></a>

@@ -9,7 +9,7 @@ Provides the configuration information to connect to ServiceNow as your data sou
 ## Contents<a name="API_ServiceNowConfiguration_Contents"></a>
 
  ** AuthenticationType **   <a name="Kendra-Type-ServiceNowConfiguration-AuthenticationType"></a>
-The type of authentication used to connect to the ServiceNow instance\. If you choose `HTTP_BASIC`, Amazon Kendra is authenticated using the user name and password provided in the AWS Secrets Manager secret in the `SecretArn` field\. When you choose `OAUTH2`, Amazon Kendra is authenticated using the OAuth token and secret provided in the Secrets Manager secret, and the user name and password are used to determine which information Amazon Kendra has access to\.  
+The type of authentication used to connect to the ServiceNow instance\. If you choose `HTTP_BASIC`, Amazon Kendra is authenticated using the user name and password provided in the AWS Secrets Manager secret in the `SecretArn` field\. If you choose `OAUTH2`, Amazon Kendra is authenticated using the credentials of client ID, client secret, user name and password\.  
 When you use `OAUTH2` authentication, you must generate a token and a client secret using the ServiceNow console\. For more information, see [Using a ServiceNow data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-servicenow.html)\.  
 Type: String  
 Valid Values:` HTTP_BASIC | OAUTH2`   

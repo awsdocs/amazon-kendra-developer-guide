@@ -4,7 +4,7 @@
 
 # CreateDataSource<a name="API_CreateDataSource"></a>
 
-Creates a data source that you want to use with an Amazon Kendra index\. 
+Creates a data source connector that you want to use with an Amazon Kendra index\.
 
 You specify a name, data source connector type and description for your data source\. You also specify configuration information for the data source connector\.
 
@@ -112,6 +112,7 @@ For an example of creating an index and data source using the Python SDK, see [G
             ],
             "CrawlAttachments": boolean
          },
+         "AuthenticationType": "string",
          "BlogConfiguration": { 
             "BlogFieldMappings": [ 
                { 
@@ -131,6 +132,11 @@ For an example of creating an index and data source using the Python SDK, see [G
                   "IndexFieldName": "string"
                }
             ]
+         },
+         "ProxyConfiguration": { 
+            "Credentials": "string",
+            "Host": "string",
+            "Port": number
          },
          "SecretArn": "string",
          "ServerUrl": "string",
@@ -537,6 +543,7 @@ For an example of creating an index and data source using the Python SDK, see [G
          "ServiceNowBuildVersion": "string"
       },
       "SharePointConfiguration": { 
+         "AuthenticationType": "string",
          "CrawlAttachments": boolean,
          "DisableLocalGroups": boolean,
          "DocumentTitleFieldName": "string",
@@ -549,6 +556,11 @@ For an example of creating an index and data source using the Python SDK, see [G
             }
          ],
          "InclusionPatterns": [ "string" ],
+         "ProxyConfiguration": { 
+            "Credentials": "string",
+            "Host": "string",
+            "Port": number
+         },
          "SecretArn": "string",
          "SharePointVersion": "string",
          "SslCertificateS3Path": { 
@@ -586,6 +598,9 @@ For an example of creating an index and data source using the Python SDK, see [G
             "SecurityGroupIds": [ "string" ],
             "SubnetIds": [ "string" ]
          }
+      },
+      "TemplateConfiguration": { 
+         "Template": JSON value
       },
       "WebCrawlerConfiguration": { 
          "AuthenticationConfiguration": { 
@@ -701,7 +716,11 @@ For an example of creating an index and data source using the Python SDK, see [G
          "Value": "string"
       }
    ],
-   "Type": "string"
+   "Type": "string",
+   "VpcConfiguration": { 
+      "SecurityGroupIds": [ "string" ],
+      "SubnetIds": [ "string" ]
+   }
 }
 ```
 
@@ -712,54 +731,54 @@ For information about the parameters that are common to all actions, see [Common
 The request accepts the following data in JSON format\.
 
  ** [ClientToken](#API_CreateDataSource_RequestSyntax) **   <a name="Kendra-CreateDataSource-request-ClientToken"></a>
-A token that you provide to identify the request to create a data source\. Multiple calls to the `CreateDataSource` API with the same client token will create only one data source\.  
+A token that you provide to identify the request to create a data source connector\. Multiple calls to the `CreateDataSource` API with the same client token will create only one data source connector\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Required: No
 
  ** [Configuration](#API_CreateDataSource_RequestSyntax) **   <a name="Kendra-CreateDataSource-request-Configuration"></a>
-Configuration information that is required to access the data source repository\.  
+Configuration information to connect to your data source repository\.  
 You can't specify the `Configuration` parameter when the `Type` parameter is set to `CUSTOM`\. If you do, you receive a `ValidationException` exception\.  
 The `Configuration` parameter is required for all other data sources\.  
 Type: [DataSourceConfiguration](API_DataSourceConfiguration.md) object  
 Required: No
 
  ** [CustomDocumentEnrichmentConfiguration](#API_CreateDataSource_RequestSyntax) **   <a name="Kendra-CreateDataSource-request-CustomDocumentEnrichmentConfiguration"></a>
-Configuration information for altering document metadata and content during the document ingestion process when you create a data source\.  
+Configuration information for altering document metadata and content during the document ingestion process\.  
 For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html)\.  
 Type: [CustomDocumentEnrichmentConfiguration](API_CustomDocumentEnrichmentConfiguration.md) object  
 Required: No
 
  ** [Description](#API_CreateDataSource_RequestSyntax) **   <a name="Kendra-CreateDataSource-request-Description"></a>
-A description for the data source\.  
+A description for the data source connector\.  
 Type: String  
 Length Constraints: Minimum length of 0\. Maximum length of 1000\.  
 Pattern: `^\P{C}*$`   
 Required: No
 
  ** [IndexId](#API_CreateDataSource_RequestSyntax) **   <a name="Kendra-CreateDataSource-request-IndexId"></a>
-The identifier of the index that should be associated with this data source\.  
+The identifier of the index you want to use with the data source connector\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`   
 Required: Yes
 
  ** [LanguageCode](#API_CreateDataSource_RequestSyntax) **   <a name="Kendra-CreateDataSource-request-LanguageCode"></a>
-The code for a language\. This allows you to support a language for all documents when creating the data source\. English is supported by default\. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html)\.  
+The code for a language\. This allows you to support a language for all documents when creating the data source connector\. English is supported by default\. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html)\.  
 Type: String  
 Length Constraints: Minimum length of 2\. Maximum length of 10\.  
 Pattern: `[a-zA-Z-]*`   
 Required: No
 
  ** [Name](#API_CreateDataSource_RequestSyntax) **   <a name="Kendra-CreateDataSource-request-Name"></a>
-A unique name for the data source\. A data source name can't be changed without deleting and recreating the data source\.  
+A name for the data source connector\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1000\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`   
 Required: Yes
 
  ** [RoleArn](#API_CreateDataSource_RequestSyntax) **   <a name="Kendra-CreateDataSource-request-RoleArn"></a>
-The Amazon Resource Name \(ARN\) of a role with permission to access the data source\. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html)\.  
+The Amazon Resource Name \(ARN\) of a role with permission to access the data source and required resources\. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html)\.  
 You can't specify the `RoleArn` parameter when the `Type` parameter is set to `CUSTOM`\. If you do, you receive a `ValidationException` exception\.  
 The `RoleArn` parameter is required for all other data sources\.  
 Type: String  
@@ -768,22 +787,27 @@ Pattern: `arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{
 Required: No
 
  ** [Schedule](#API_CreateDataSource_RequestSyntax) **   <a name="Kendra-CreateDataSource-request-Schedule"></a>
-Sets the frequency for Amazon Kendra to check the documents in your repository and update the index\. If you don't set a schedule Amazon Kendra will not periodically update the index\. You can call the `StartDataSourceSyncJob` API to update the index\.  
+Sets the frequency for Amazon Kendra to check the documents in your data source repository and update the index\. If you don't set a schedule Amazon Kendra will not periodically update the index\. You can call the `StartDataSourceSyncJob` API to update the index\.  
 You can't specify the `Schedule` parameter when the `Type` parameter is set to `CUSTOM`\. If you do, you receive a `ValidationException` exception\.  
 Type: String  
 Required: No
 
  ** [Tags](#API_CreateDataSource_RequestSyntax) **   <a name="Kendra-CreateDataSource-request-Tags"></a>
-A list of key\-value pairs that identify the data source\. You can use the tags to identify and organize your resources and to control access to resources\.  
+A list of key\-value pairs that identify the data source connector\. You can use the tags to identify and organize your resources and to control access to resources\.  
 Type: Array of [Tag](API_Tag.md) objects  
 Array Members: Minimum number of 0 items\. Maximum number of 200 items\.  
 Required: No
 
  ** [Type](#API_CreateDataSource_RequestSyntax) **   <a name="Kendra-CreateDataSource-request-Type"></a>
-The type of repository that contains the data source\.  
+The type of data source repository\. For example, `SHAREPOINT`\.  
 Type: String  
-Valid Values:` S3 | SHAREPOINT | DATABASE | SALESFORCE | ONEDRIVE | SERVICENOW | CUSTOM | CONFLUENCE | GOOGLEDRIVE | WEBCRAWLER | WORKDOCS | FSX | SLACK | BOX | QUIP | JIRA | GITHUB | ALFRESCO`   
+Valid Values:` S3 | SHAREPOINT | DATABASE | SALESFORCE | ONEDRIVE | SERVICENOW | CUSTOM | CONFLUENCE | GOOGLEDRIVE | WEBCRAWLER | WORKDOCS | FSX | SLACK | BOX | QUIP | JIRA | GITHUB | ALFRESCO | TEMPLATE`   
 Required: Yes
+
+ ** [VpcConfiguration](#API_CreateDataSource_RequestSyntax) **   <a name="Kendra-CreateDataSource-request-VpcConfiguration"></a>
+Configuration information for an Amazon Virtual Private Cloud to connect to your data source\. For more information, see [Configuring a VPC](https://docs.aws.amazon.com/kendra/latest/dg/vpc-configuration.html)\.  
+Type: [DataSourceVpcConfiguration](API_DataSourceVpcConfiguration.md) object  
+Required: No
 
 ## Response Syntax<a name="API_CreateDataSource_ResponseSyntax"></a>
 
@@ -800,7 +824,7 @@ If the action is successful, the service sends back an HTTP 200 response\.
 The following data is returned in JSON format by the service\.
 
  ** [Id](#API_CreateDataSource_ResponseSyntax) **   <a name="Kendra-CreateDataSource-response-Id"></a>
-A unique identifier for the data source\.  
+The identifier of the data source connector\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*` 

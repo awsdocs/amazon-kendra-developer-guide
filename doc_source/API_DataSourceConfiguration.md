@@ -83,6 +83,11 @@ Provides the configuration information to connect to Slack as your data source\.
 Type: [SlackConfiguration](API_SlackConfiguration.md) object  
 Required: No
 
+ ** TemplateConfiguration **   <a name="Kendra-Type-DataSourceConfiguration-TemplateConfiguration"></a>
+Provides a template for the configuration information to connect to your data source\.  
+Type: [TemplateConfiguration](API_TemplateConfiguration.md) object  
+Required: No
+
  ** WebCrawlerConfiguration **   <a name="Kendra-Type-DataSourceConfiguration-WebCrawlerConfiguration"></a>
 Provides the configuration information required for Amazon Kendra Web Crawler\.  
 Type: [WebCrawlerConfiguration](API_WebCrawlerConfiguration.md) object  

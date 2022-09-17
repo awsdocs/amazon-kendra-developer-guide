@@ -22,14 +22,14 @@ For information about the parameters that are common to all actions, see [Common
 The request accepts the following data in JSON format\.
 
  ** [Id](#API_StopDataSourceSyncJob_RequestSyntax) **   <a name="Kendra-StopDataSourceSyncJob-request-Id"></a>
-The identifier of the data source for which to stop the synchronization jobs\.  
+The identifier of the data source connector for which to stop the synchronization jobs\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`   
 Required: Yes
 
  ** [IndexId](#API_StopDataSourceSyncJob_RequestSyntax) **   <a name="Kendra-StopDataSourceSyncJob-request-IndexId"></a>
-The identifier of the index that contains the data source\.  
+The identifier of the index used with the data source connector\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`   

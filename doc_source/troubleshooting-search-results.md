@@ -6,13 +6,17 @@
 
 This section can help you fix issues in your Amazon Kendra search results\.
 
+## My search results are not relevant to my search query<a name="troubleshooting-search-results-results-not-relevant"></a>
+
+To return the most relevant results, Amazon Kendra searches your index using multiple parameters such as document title, text, date, and custom text fields or attributes\. If your search results seem irrelevant, it may be because you've added custom synonyms for your search terms to your index\. For more details on how and when to use synonyms, see [Adding custom synonyms to an index](index-synonyms.md)\.
+
 ## Why do I only see 100 results?<a name="troubleshooting-search-results-missing-docs-only-hundred"></a>
 
 Amazon Kendra returns the total count of relevant documents\. The top 100 are returned per query by default\. The results are paginated\. You can use `PageNumber` to access different pages\. 
 
-You can enable Amazon Kendra to return up to 1000 documents or search results per query, with up to 100 results per page\. To return more than 100 results, you can request this by contacting [Quotas Support](https://console.aws.amazon.com/servicequotas/)\. Increasing the number of search results could impact latency\.
+You can enable Amazon Kendra to return up to 1,000 documents or search results per query, with up to 100 results per page\. To return more than 100 results, you can request this by contacting [Quotas Support](https://console.aws.amazon.com/servicequotas/)\. Increasing the number of search results could impact latency\.
 
-## Why are documents I expect to see missing?<a name="troubleshooting-search-results-missing-docs-expected-missing"></a>
+## Why are documents that I expect to see missing?<a name="troubleshooting-search-results-missing-docs-expected-missing"></a>
 
 Amazon Kendra supports access control lists \(ACLs\) based on user and groups\. Amazon Kendra ingests ACL policies via connectors\. If an index does not configure an ACL, only documents matching the attribute filter for user and group will be shown\. If a user or group attribute filter is provided, documents without an ACL will not be shown\. 
 
@@ -20,4 +24,4 @@ Amazon Kendra supports access control lists \(ACLs\) based on user and groups\. 
 
 ## Why do I see documents that have an ACL policy?<a name="troubleshooting-search-results-missing-docs-acl"></a>
 
-If an index does not configure an access control policy, then user and groups can be provided by the filter\. If no user and group filter is applied then all related documents will be returned\. Any ACL policy will be ignored\. 
+If an index does not configure an access control policy, then user and groups can be provided by the filter\. If no user and group filter is applied, then all related documents will be returned\. Any ACL policy will be ignored\. 

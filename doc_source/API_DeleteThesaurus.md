@@ -22,14 +22,14 @@ For information about the parameters that are common to all actions, see [Common
 The request accepts the following data in JSON format\.
 
  ** [Id](#API_DeleteThesaurus_RequestSyntax) **   <a name="Kendra-DeleteThesaurus-request-Id"></a>
-The identifier of the thesaurus to delete\.  
+The identifier of the thesaurus you want to delete\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`   
 Required: Yes
 
  ** [IndexId](#API_DeleteThesaurus_RequestSyntax) **   <a name="Kendra-DeleteThesaurus-request-IndexId"></a>
-The identifier of the index associated with the thesaurus to delete\.  
+The identifier of the index for the thesaurus\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`   

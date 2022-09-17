@@ -4,11 +4,11 @@
 
 # Creating a data source<a name="data-source"></a>
 
-You can create a data source to connect to your documents stored in Microsoft SharePoint, Google Drive, and other providers\. When you create a data source, you give Amazon Kendra the location of documents that it indexes\. Unlike adding documents directly to an index, you can periodically scan the data source to update the index\.
+You can create a data source connector for Amazon Kendra to connect to and index your documents\. Amazon Kendra can connect to Microsoft SharePoint, Google Drive, and many other providers\. When you create a data source connector, you give Amazon Kendra the configuration information required to connect to your source repository\. Unlike adding documents directly to an index, you can periodically scan the data source to update the index\.
 
-For example, say that you have a repository of tax instruction stored in an S3 bucket\. From time to time, existing documents are changed and new documents are added to the repository\. If you add the repository to Amazon Kendra as a data source, you can keep your index up to date by periodically updating your index\.
+For example, say that you have a repository of tax documents stored in an S3 bucket\. From time to time, existing documents are changed and new documents are added to the repository\. If you add the repository to Amazon Kendra as a data source, you can keep your index up to date by setting up periodic synchronizations between your data source and index\.
 
-You can update the index manually using console or the [StartDataSourceSyncJob](API_StartDataSourceSyncJob.md) API, or you can set up a schedule to update the index\. 
+You can choose to update an index manually using the console or the [StartDataSourceSyncJob](API_StartDataSourceSyncJob.md) API\. Otherwise, you set up a schedule to update an index and have it synchronize with your data source\.
 
 An index can have more than one data source\. Each data source can have its own update schedule\. For example, you might update the index of your working documents daily, or even hourly, while updating your archived documents manually whenever the archive changes\.
 

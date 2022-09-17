@@ -43,21 +43,21 @@ Length Constraints: Minimum length of 1\. Maximum length of 100\.
 Required: No
 
  ** [Description](#API_CreateThesaurus_RequestSyntax) **   <a name="Kendra-CreateThesaurus-request-Description"></a>
-The description for the new thesaurus\.  
+A description for the thesaurus\.  
 Type: String  
 Length Constraints: Minimum length of 0\. Maximum length of 1000\.  
 Pattern: `^\P{C}*$`   
 Required: No
 
  ** [IndexId](#API_CreateThesaurus_RequestSyntax) **   <a name="Kendra-CreateThesaurus-request-IndexId"></a>
-The unique identifier of the index for the new thesaurus\.   
+The identifier of the index for the thesaurus\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`   
 Required: Yes
 
  ** [Name](#API_CreateThesaurus_RequestSyntax) **   <a name="Kendra-CreateThesaurus-request-Name"></a>
-The name for the new thesaurus\.  
+A name for the thesaurus\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`   
@@ -71,7 +71,7 @@ Pattern: `arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{
 Required: Yes
 
  ** [SourceS3Path](#API_CreateThesaurus_RequestSyntax) **   <a name="Kendra-CreateThesaurus-request-SourceS3Path"></a>
-The thesaurus file Amazon S3 source path\.   
+The path to the thesaurus file in S3\.  
 Type: [S3Path](API_S3Path.md) object  
 Required: Yes
 

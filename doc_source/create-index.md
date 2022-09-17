@@ -165,7 +165,5 @@ After you created your index, you add documents to it\. You can add them directl
 + [Controlling access to documents in an index](create-index-access-control.md)
 + [Adding documents directly to an index](in-adding-documents.md)
 + [Adding questions and answers directly to an index](in-creating-faq.md)
-+ [Creating custom document attributes](custom-attributes.md)
-+ [Mapping data source fields](field-mapping.md)
++ [Creating custom document attributes or metadata fields](custom-attributes.md)
 + [Customizing document metadata during the ingestion process](custom-document-enrichment.md)
-+ [Configuring Amazon Kendra to use a VPC](vpc-configuration.md)

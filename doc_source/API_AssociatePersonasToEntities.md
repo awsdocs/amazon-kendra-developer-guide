@@ -4,7 +4,7 @@
 
 # AssociatePersonasToEntities<a name="API_AssociatePersonasToEntities"></a>
 
-Defines the specific permissions of users or groups in your AWS SSO identity source with access to your Amazon Kendra experience\. You can create an Amazon Kendra experience such as a search application\. For more information on creating a search application experience, see [Building a search experience with no code](https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html)\.
+Defines the specific permissions of users or groups in your IAM Identity Center identity source with access to your Amazon Kendra experience\. You can create an Amazon Kendra experience such as a search application\. For more information on creating a search application experience, see [Building a search experience with no code](https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html)\.
 
 ## Request Syntax<a name="API_AssociatePersonasToEntities_RequestSyntax"></a>
 
@@ -42,7 +42,7 @@ Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`
 Required: Yes
 
  ** [Personas](#API_AssociatePersonasToEntities_RequestSyntax) **   <a name="Kendra-AssociatePersonasToEntities-request-Personas"></a>
-The personas that define the specific permissions of users or groups in your AWS SSO identity source\. The available personas or access roles are `Owner` and `Viewer`\. For more information on these personas, see [Providing access to your search page](https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html#access-search-experience)\.  
+The personas that define the specific permissions of users or groups in your IAM Identity Center identity source\. The available personas or access roles are `Owner` and `Viewer`\. For more information on these personas, see [Providing access to your search page](https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html#access-search-experience)\.  
 Type: Array of [EntityPersonaConfiguration](API_EntityPersonaConfiguration.md) objects  
 Array Members: Minimum number of 1 item\. Maximum number of 25 items\.  
 Required: Yes
@@ -67,7 +67,7 @@ If the action is successful, the service sends back an HTTP 200 response\.
 The following data is returned in JSON format by the service\.
 
  ** [FailedEntityList](#API_AssociatePersonasToEntities_ResponseSyntax) **   <a name="Kendra-AssociatePersonasToEntities-response-FailedEntityList"></a>
-Lists the users or groups in your AWS SSO identity source that failed to properly configure with your Amazon Kendra experience\.  
+Lists the users or groups in your IAM Identity Center identity source that failed to properly configure with your Amazon Kendra experience\.  
 Type: Array of [FailedEntity](API_FailedEntity.md) objects  
 Array Members: Minimum number of 1 item\. Maximum number of 25 items\.
 

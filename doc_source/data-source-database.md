@@ -4,7 +4,11 @@
 
 # Using a database data source<a name="data-source-database"></a>
 
-You can index documents that are stored in a database using a database data source\. After you provided connection information for the database, Amazon Kendra connects and indexes documents\. Amazon Kendra supports the following databases:
+You can index documents that are stored in a database using a database data source\. After you provided connection information for the database, Amazon Kendra connects and indexes documents\.
+
+For troubleshooting your Amazon Kendra database data source connector, see [Troubleshooting data sources](troubleshooting-data-sources.md)\.
+
+Amazon Kendra supports the following databases:
 + Amazon Aurora MySQL
 + Amazon Aurora PostgreSQL
 + Amazon RDS for MySQL
@@ -14,9 +18,10 @@ Serverless Aurora databases are not supported\.
 
 Before you create a database data source, you need to create an index and create custom fields in the index for the data from the database\. For more information, see [Creating an index](create-index.md) and [Mapping data source fields](field-mapping.md)\.
 
-To use a database data source, you need to identify the following:
+To use a database data source, you need to specify the following in the [DatabaseConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_DatabaseConfiguration.html) object:
 + Connection information such as credentials for the database stored in AWS Secrets Manager, the host name, port, and name of the data table that contains the document data\. For PostgreSQL, the data table must be a public table\.
 + Column information such as the names of the columns in the data table that contain the document data and document ID, one to five columns to detect if a document has changed, and optional data table columns that map to custom index fields\. You can map any of the Amazon Kendra reserved field names to a table column\.
++ Database engine type information such as whether you use Amazon RDS for MySQL or another type\.
 + Optionally, VPC information to connect to the database server\. For more information about using a VPC, see [Configuring Amazon Kendra to use a VPC](https://docs.aws.amazon.com/kendra/latest/dg/vpc-configuration.html)\. If you are using a database data source with a VPC, you must provide the subnet ID and the security group ID\. You must only use a private subnet\. If your RDS instance is in a public subnet in your VPC, you can create a private subnet that has outbound access to a NAT gateway in the public subnet\. The subnets provided in the VPC configuration must be in either US West \(Oregon\), US East \(N\. Virginia\), EU \(Ireland\)\.
 
 The database configuration provides the information required to connect to your database server\. The host and port tell Amazon Kendra where to find the database server on the internet\. The database name and table name tell Amazon Kendra where to find the document data on the database server\.
@@ -53,7 +58,7 @@ By default, Amazon Kendra uses SQL identifiers—such as database name, table na
 
 A PostgreSQL database always changes unquoted table and column names to lowercase\. For example, if Amazon Kendra is configured to use the table name **SAMPLE\_TABLE**, PostgreSQL converts it internally to **sample\_table**\. If a table or column name contains uppercase letters, the SQL query won’t match the correct columns or table\. This is because PostgreSQL internally changes them to lowercase\.
 
-To configure Amazon Kendra to enclose the SQL identifiers for table and column names in quotation marks \("\), set the `QueryIdentifiersEnclosingOption` field to `DOUBLE_QUOTES` inside the[SqlConfiguration](API_SqlConfiguration.md) parameter of the [CreateDataSource](API_CreateDataSource.md) API\. When you set this parameter, the SQL identifiers sent to databases are enclosed in quotation marks\. This way, PostgreSQL doesn't change SQL identifiers to lowercase\. If you enclose identifiers in quotation marks when you use MySQL, you must set the `ansi_quotes` option in the MySQL database\.
+To configure Amazon Kendra to enclose the SQL identifiers for table and column names in quotation marks \("\), set the `QueryIdentifiersEnclosingOption` field to `DOUBLE_QUOTES` inside the [SqlConfiguration](API_SqlConfiguration.md) parameter of the [CreateDataSource](API_CreateDataSource.md) API\. When you set this parameter, the SQL identifiers sent to databases are enclosed in quotation marks\. This way, PostgreSQL doesn't change SQL identifiers to lowercase\. If you enclose identifiers in quotation marks when you use MySQL, you must set the `ansi_quotes` option in the MySQL database\.
 
 You add document table information to an index by mapping table columns to index fields\. There are two types of information that you add\. The first is one to five columns that Amazon Kendra uses to determine if a document has changed since the last time that an index update was run\. For example, if you have columns in your table named `LastUpdateDate` and `LastUpdateTime`, you can tell Amazon Kendra to use them to determine if a document was updated\.
 

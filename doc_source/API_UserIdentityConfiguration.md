@@ -9,7 +9,7 @@ Provides the configuration information for the identifiers of your users\.
 ## Contents<a name="API_UserIdentityConfiguration_Contents"></a>
 
  ** IdentityAttributeName **   <a name="Kendra-Type-UserIdentityConfiguration-IdentityAttributeName"></a>
-The AWS SSO field name that contains the identifiers of your users, such as their emails\. This is used for [user context filtering](https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html) and for granting access to your Amazon Kendra experience\. You must set up AWS SSO with Amazon Kendra\. You must include your users and groups in your Access Control List when you ingest documents into your index\. For more information, see [Getting started with an AWS SSO identity source](https://docs.aws.amazon.com/kendra/latest/dg/getting-started-aws-sso.html)\.  
+The IAM Identity Center field name that contains the identifiers of your users, such as their emails\. This is used for [user context filtering](https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html) and for granting access to your Amazon Kendra experience\. You must set up IAM Identity Center with Amazon Kendra\. You must include your users and groups in your Access Control List when you ingest documents into your index\. For more information, see [Getting started with an IAM Identity Center identity source](https://docs.aws.amazon.com/kendra/latest/dg/getting-started-aws-sso.html)\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1000\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`   

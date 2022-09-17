@@ -4,7 +4,7 @@
 
 # DocumentMetadataConfiguration<a name="API_DocumentMetadataConfiguration"></a>
 
-Specifies the properties of a custom index field\.
+Specifies the properties, such as relevance tuning and searchability, of an index field\.
 
 ## Contents<a name="API_DocumentMetadataConfiguration_Contents"></a>
 

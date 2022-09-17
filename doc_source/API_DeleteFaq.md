@@ -22,14 +22,14 @@ For information about the parameters that are common to all actions, see [Common
 The request accepts the following data in JSON format\.
 
  ** [Id](#API_DeleteFaq_RequestSyntax) **   <a name="Kendra-DeleteFaq-request-Id"></a>
-The identifier of the FAQ to remove\.  
+The identifier of the FAQ you want to remove\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`   
 Required: Yes
 
  ** [IndexId](#API_DeleteFaq_RequestSyntax) **   <a name="Kendra-DeleteFaq-request-IndexId"></a>
-The index to remove the FAQ from\.  
+The identifier of the index for the FAQ\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`   

@@ -31,7 +31,7 @@ The request accepts the following data in JSON format\.
 
  ** [DataSourceId](#API_DeletePrincipalMapping_RequestSyntax) **   <a name="Kendra-DeletePrincipalMapping-request-DataSourceId"></a>
 The identifier of the data source you want to delete a group from\.  
-This is useful if a group is tied to multiple data sources and you want to delete a group from accessing documents in a certain data source\. For example, the groups "Research", "Engineering", and "Sales and Marketing" are all tied to the company's documents stored in the data sources Confluence and Salesforce\. You want to delete "Research" and "Engineering" groups from Salesforce, so that these groups cannot access customer\-related documents stored in Salesforce\. Only "Sales and Marketing" should access documents in the Salesforce data source\.  
+A group can be tied to multiple data sources\. You can delete a group from accessing documents in a certain data source\. For example, the groups "Research", "Engineering", and "Sales and Marketing" are all tied to the company's documents stored in the data sources Confluence and Salesforce\. You want to delete "Research" and "Engineering" groups from Salesforce, so that these groups cannot access customer\-related documents stored in Salesforce\. Only "Sales and Marketing" should access documents in the Salesforce data source\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`   

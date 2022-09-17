@@ -14,4 +14,4 @@ This section shows you how to create a data source and add your documents to an 
 + [Getting started \(AWS SDK for Java\)](gs-java.md)
 + [Getting started with an Amazon S3 data source \(console\)](getting-started-s3.md)
 + [Getting started with a MySQL database data source \(console\)](getting-started-mysql.md)
-+ [Getting started with an AWS Single Sign\-On identity source \(console\)](getting-started-aws-sso.md)
++ [Getting started with an AWS IAM Identity Center \(successor to AWS Single Sign\-On\) identity source \(console\)](getting-started-aws-sso.md)

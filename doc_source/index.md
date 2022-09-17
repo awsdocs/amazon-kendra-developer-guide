@@ -4,13 +4,13 @@
 *****Copyright &copy; Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
 
 -----
-Amazon's trademarks and trade dress may not be used in 
-     connection with any product or service that is not Amazon's, 
-     in any manner that is likely to cause confusion among customers, 
-     or in any manner that disparages or discredits Amazon. All other 
-     trademarks not owned by Amazon are the property of their respective
-     owners, who may or may not be affiliated with, connected to, or 
-     sponsored by Amazon.
+Amazon's trademarks and trade dress may not be used in
+connection with any product or service that is not Amazon's,
+in any manner that is likely to cause confusion among customers,
+or in any manner that disparages or discredits Amazon. All other
+trademarks not owned by Amazon are the property of their respective
+owners, who may or may not be affiliated with, connected to, or
+sponsored by Amazon.
 
 -----
 ## Contents
@@ -38,8 +38,8 @@ Amazon's trademarks and trade dress may not be used in
    + [Getting started (AWS SDK for Java)](gs-java.md)
    + [Getting started with an Amazon S3 data source (console)](getting-started-s3.md)
    + [Getting started with a MySQL database data source (console)](getting-started-mysql.md)
-   + [Getting started with an AWS Single Sign-On identity source (console)](getting-started-aws-sso.md)
-      + [Changing your AWS SSO identity source](changing-aws-sso-source.md)
+   + [Getting started with an AWS IAM Identity Center (successor to AWS Single Sign-On) identity source (console)](getting-started-aws-sso.md)
+      + [Changing your IAM Identity Center identity source](changing-aws-sso-source.md)
 + [Creating an index](create-index.md)
    + [Controlling access to documents in an index](create-index-access-control.md)
       + [Using OpenID](create-index-access-control-tokens-openid.md)
@@ -50,12 +50,12 @@ Amazon's trademarks and trade dress may not be used in
       + [Adding documents with the API](in-adding-binary-doc.md)
       + [Adding documents from an S3 bucket](in-adding-plain-text.md)
    + [Adding questions and answers directly to an index](in-creating-faq.md)
-   + [Creating custom document attributes](custom-attributes.md)
-   + [Mapping data source fields](field-mapping.md)
+   + [Creating custom document attributes or metadata fields](custom-attributes.md)
    + [Customizing document metadata during the ingestion process](custom-document-enrichment.md)
-   + [Configuring Amazon Kendra to use a VPC](vpc-configuration.md)
 + [Creating a data source](data-source.md)
+   + [Mapping data source fields](field-mapping.md)
    + [Adding documents in languages other than English](in-adding-languages.md)
+   + [Configuring Amazon Kendra to use a VPC](vpc-configuration.md)
    + [Using an S3 data source](data-source-s3.md)
       + [Amazon S3 document metadata](s3-metadata.md)
       + [Access control for Amazon S3 data sources](s3-acl.md)
@@ -78,6 +78,8 @@ Amazon's trademarks and trade dress may not be used in
    + [Using a Quip data source](data-source-quip.md)
    + [Using a Jira data source](data-source-jira.md)
    + [Using a GitHub data source](data-source-github.md)
+   + [Using an Alfresco data source](data-source-alfresco.md)
+   + [Using a Zendesk data source](data-source-zendesk.md)
 + [Deleting an index and data source](delete-index.md)
    + [Deleting data sources](delete-data-source.md)
 + [Searching indexes](searching.md)
@@ -144,12 +146,14 @@ Amazon's trademarks and trade dress may not be used in
       + [BatchGetDocumentStatus](API_BatchGetDocumentStatus.md)
       + [BatchPutDocument](API_BatchPutDocument.md)
       + [ClearQuerySuggestions](API_ClearQuerySuggestions.md)
+      + [CreateAccessControlConfiguration](API_CreateAccessControlConfiguration.md)
       + [CreateDataSource](API_CreateDataSource.md)
       + [CreateExperience](API_CreateExperience.md)
       + [CreateFaq](API_CreateFaq.md)
       + [CreateIndex](API_CreateIndex.md)
       + [CreateQuerySuggestionsBlockList](API_CreateQuerySuggestionsBlockList.md)
       + [CreateThesaurus](API_CreateThesaurus.md)
+      + [DeleteAccessControlConfiguration](API_DeleteAccessControlConfiguration.md)
       + [DeleteDataSource](API_DeleteDataSource.md)
       + [DeleteExperience](API_DeleteExperience.md)
       + [DeleteFaq](API_DeleteFaq.md)
@@ -157,6 +161,7 @@ Amazon's trademarks and trade dress may not be used in
       + [DeletePrincipalMapping](API_DeletePrincipalMapping.md)
       + [DeleteQuerySuggestionsBlockList](API_DeleteQuerySuggestionsBlockList.md)
       + [DeleteThesaurus](API_DeleteThesaurus.md)
+      + [DescribeAccessControlConfiguration](API_DescribeAccessControlConfiguration.md)
       + [DescribeDataSource](API_DescribeDataSource.md)
       + [DescribeExperience](API_DescribeExperience.md)
       + [DescribeFaq](API_DescribeFaq.md)
@@ -169,6 +174,7 @@ Amazon's trademarks and trade dress may not be used in
       + [DisassociatePersonasFromEntities](API_DisassociatePersonasFromEntities.md)
       + [GetQuerySuggestions](API_GetQuerySuggestions.md)
       + [GetSnapshots](API_GetSnapshots.md)
+      + [ListAccessControlConfigurations](API_ListAccessControlConfigurations.md)
       + [ListDataSources](API_ListDataSources.md)
       + [ListDataSourceSyncJobs](API_ListDataSourceSyncJobs.md)
       + [ListEntityPersonas](API_ListEntityPersonas.md)
@@ -187,6 +193,7 @@ Amazon's trademarks and trade dress may not be used in
       + [SubmitFeedback](API_SubmitFeedback.md)
       + [TagResource](API_TagResource.md)
       + [UntagResource](API_UntagResource.md)
+      + [UpdateAccessControlConfiguration](API_UpdateAccessControlConfiguration.md)
       + [UpdateDataSource](API_UpdateDataSource.md)
       + [UpdateExperience](API_UpdateExperience.md)
       + [UpdateIndex](API_UpdateIndex.md)
@@ -194,6 +201,7 @@ Amazon's trademarks and trade dress may not be used in
       + [UpdateQuerySuggestionsConfig](API_UpdateQuerySuggestionsConfig.md)
       + [UpdateThesaurus](API_UpdateThesaurus.md)
    + [Data Types](API_Types.md)
+      + [AccessControlConfigurationSummary](API_AccessControlConfigurationSummary.md)
       + [AccessControlListConfiguration](API_AccessControlListConfiguration.md)
       + [AclConfiguration](API_AclConfiguration.md)
       + [AdditionalResultAttribute](API_AdditionalResultAttribute.md)
@@ -312,6 +320,7 @@ Amazon's trademarks and trade dress may not be used in
       + [SuggestionTextWithHighlights](API_SuggestionTextWithHighlights.md)
       + [SuggestionValue](API_SuggestionValue.md)
       + [Tag](API_Tag.md)
+      + [TemplateConfiguration](API_TemplateConfiguration.md)
       + [TextDocumentStatistics](API_TextDocumentStatistics.md)
       + [TextWithHighlights](API_TextWithHighlights.md)
       + [ThesaurusSummary](API_ThesaurusSummary.md)

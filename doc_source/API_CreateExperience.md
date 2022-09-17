@@ -67,7 +67,7 @@ Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`
 Required: Yes
 
  ** [RoleArn](#API_CreateExperience_RequestSyntax) **   <a name="Kendra-CreateExperience-request-RoleArn"></a>
-The Amazon Resource Name \(ARN\) of a role with permission to access `Query` API, `QuerySuggestions` API, `SubmitFeedback` API, and AWS SSO that stores your user and group information\. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html)\.  
+The Amazon Resource Name \(ARN\) of a role with permission to access `Query` API, `QuerySuggestions` API, `SubmitFeedback` API, and IAM Identity Center that stores your user and group information\. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html)\.  
 Type: String  
 Length Constraints: Minimum length of 0\. Maximum length of 1284\.  
 Pattern: `arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}`   

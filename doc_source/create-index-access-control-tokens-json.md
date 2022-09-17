@@ -20,11 +20,11 @@ The JSON token is a non\-validated payload\. This should only be used when reque
 
 1. Leave all of the other fields at their defaults\. Choose **Next**\.
 
-1. In the **Configure user access control** page, under **Acces control settings**, choose **Yes** to use tokens for access control\. 
+1. In the **Configure user access control** page, under **Access control settings**, choose **Yes** to use tokens for access control\. 
 
 1. Under **Token configuration**, select **JSON** as the **Token type**\. 
 
-1. Specify a **Username** to use in the ACL check\.
+1. Specify a **User name** to use in the ACL check\.
 
 1. Specify one or more **Groups** to use in the ACL check\.
 
@@ -64,7 +64,7 @@ Next, call `create-index` using the input file\. For example, if the name of you
 aws kendra create-index --cli-input-json file://create-index-openid.json
 ```
 
-If you are not using Open ID for SSO, you can send us the token in JSON format\. If you do, you must specify which field in the JSON token contains the user name and which field contains the groups\. The group field values must be a JSON string array\. For example, if you are using SAML, your token would be similar to the following:
+If you are not using Open ID for AWS IAM Identity Center \(successor to AWS Single Sign\-On\), you can send us the token in JSON format\. If you do, you must specify which field in the JSON token contains the user name and which field contains the groups\. The group field values must be a JSON string array\. For example, if you are using SAML, your token would be similar to the following:
 
 ```
 {

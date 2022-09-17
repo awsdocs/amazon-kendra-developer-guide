@@ -14,7 +14,7 @@ Type: [ContentSourceConfiguration](API_ContentSourceConfiguration.md) object
 Required: No
 
  ** UserIdentityConfiguration **   <a name="Kendra-Type-ExperienceConfiguration-UserIdentityConfiguration"></a>
-The AWS SSO field name that contains the identifiers of your users, such as their emails\.  
+The IAM Identity Center field name that contains the identifiers of your users, such as their emails\.  
 Type: [UserIdentityConfiguration](API_UserIdentityConfiguration.md) object  
 Required: No
 

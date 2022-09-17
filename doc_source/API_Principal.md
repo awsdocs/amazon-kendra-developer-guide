@@ -4,12 +4,12 @@
 
 # Principal<a name="API_Principal"></a>
 
-Provides user and group information for document access filtering\.
+Provides user and group information for [user context filtering](https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html)\.
 
 ## Contents<a name="API_Principal_Contents"></a>
 
  ** Access **   <a name="Kendra-Type-Principal-Access"></a>
-Whether to allow or deny access to the principal\.  
+Whether to allow or deny document access to the principal\.  
 Type: String  
 Valid Values:` ALLOW | DENY`   
 Required: Yes

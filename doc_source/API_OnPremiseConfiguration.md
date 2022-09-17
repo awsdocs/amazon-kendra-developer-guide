@@ -23,7 +23,8 @@ Pattern: `^[A-Za-z0-9_.-]+$`
 Required: Yes
 
  ** SslCertificateS3Path **   <a name="Kendra-Type-OnPremiseConfiguration-SslCertificateS3Path"></a>
-The path to the SSL certificate stored in an Amazon S3 bucket\. You use this to connect to GitHub\.   
+The path to the SSL certificate stored in an Amazon S3 bucket\. You use this to connect to GitHub if you require a secure SSL connection\.  
+You can simply generate a self\-signed X509 certificate on any computer using OpenSSL\. For an example of using OpenSSL to create an X509 certificate, see [Create and sign an X509 certificate](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/configuring-https-ssl.html)\.  
 Type: [S3Path](API_S3Path.md) object  
 Required: Yes
 

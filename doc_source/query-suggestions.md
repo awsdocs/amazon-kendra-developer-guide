@@ -6,7 +6,7 @@
 
 Amazon Kendra *Query suggestions* can help your users type their search queries faster and guide their search\.
 
-Amazon Kendra suggests queries relevant to your users based on popular queries in the *query log*, or query history\. Amazon Kendra uses all of the queries your users search for and learns from these queries to make suggestions to your users\. Amazon Kendra suggests popular queries to users when they start typing their query\. Amazon Kendra suggests a query if the *prefix* or first few characters of the query matches what the user starts typing as their query\.
+Amazon Kendra suggests queries relevant to your users based on popular queries in the query history or query log\. Amazon Kendra uses all of the queries your users search for and learns from these queries to make suggestions to your users\. Amazon Kendra suggests popular queries to users when they start typing their query\. Amazon Kendra suggests a query if the prefix or first few characters of the query matches what the user starts typing as their query\.
 
 For example, a user starts typing the query 'upcoming events'\. Amazon Kendra has learned from the query log that many users have searched for 'upcoming events 2050' many times\. The user sees 'upcoming events 2050' appear directly underneath their search bar, auto\-completing their search query\. The user selects this query suggestion by choosing the first search result, which is the document 'Upcoming events: What’s happening in 2050'\.
 
@@ -23,18 +23,18 @@ You use the `GetQuerySuggestions` API to integrate query suggestions with your c
 ## Query suggestions settings<a name="suggestions-settings"></a>
 
 You can configure the following settings using the `UpdateQuerySuggestionsConfig` API:
-+ **Mode** – Query suggestions are either `ENABLED` or `LEARN_ONLY`\. Amazon Kendra enables query suggestions by default\. `LEARN_ONLY` turns off query suggestions\. If turned off, Amazon Kendra continues to learn suggestions but doesn't make query suggestions to users\.
-+ **Query log time window** – How recent your queries are in your query log time window\. The time window is an integer value for the number of days from current day to past days\.
-+ **Queries without user information** – Set to `true` to include all queries or set to `false` to only include queries with user information\. 
-+ **Unique users** – The minimum number of unique users who must search a query for the query to be eligible to suggest to your users\. This number is an integer value\.
-+ **Query count** – The minimum number of times a query must be searched for the query to be eligible to suggest to your users\. This number is an integer value\.
++ **Mode**—Query suggestions are either `ENABLED` or `LEARN_ONLY`\. Amazon Kendra enables query suggestions by default\. `LEARN_ONLY` turns off query suggestions\. If turned off, Amazon Kendra continues to learn suggestions but doesn't make query suggestions to users\.
++ **Query log time window**—How recent your queries are in your query log time window\. The time window is an integer value for the number of days from current day to past days\.
++ **Queries without user information**—Set to `TRUE` to include all queries or set to `FALSE` to only include queries with user information\. You can use this if your search application includes user information, such as the user ID, when a user issues a query\. This setting by default doesn't filter out queries if there's no specific user information associated with the queries\. However, you can use this setting to only make suggestions based on queries that include user information\.
++ **Unique users**—The minimum number of unique users who must search a query for the query to be eligible to suggest to your users\. This number is an integer value\.
++ **Query count**—The minimum number of times a query must be searched for the query to be eligible to suggest to your users\. This number is an integer value\.
 
 These settings affect how queries are selected as popular queries to suggest to your users\. How you tune your settings will depend on your specific needs, for example:
 
 
 + If your users usually search once a month on average, then you can set the number of days in the query log time window to 30, so that you capture most of your users' recent queries before they become outdated in the time window\. 
-+ If only a small number of your queries include user information, and you don’t want to suggest queries based on a small sample size, then you can set queries to include all users\. 
-+ If you define *popular queries* as being searched by at least 10 unique users and searched at least 100 times, then you set the unique users to 10 and the query count to 100\.
++ If only a small number of your queries include user information, and you don’t want to suggest queries based on a small sample size, then you can set queries to include all users\.
++ If you define popular queries as being searched by at least 10 unique users and searched at least 100 times, then you set the unique users to 10 and the query count to 100\.
 
 Your changes to settings might not take effect right away\. You can track the settings changes by using the [DescribeQuerySuggestionsConfig](https://docs.aws.amazon.com/kendra/latest/dg/API_DescribeQuerySuggestionsConfig.html) API\. The time for your updated settings to take effect depends on the updates that you make and the number of search queries in your index\.
 
@@ -229,15 +229,15 @@ print("Program ends.")
 ------
 
 You can check your current settings by using the `DescribeQuerySuggestionsConfig` API\. Additionally, this operation shows the following information about your query suggestions for an index:
-+ **Mode** – Query suggestions are either `ENABLED` or `LEARN_ONLY`\. Amazon Kendra enables query suggestions by default\. `LEARN_ONLY` turns off query suggestions\. You can change the mode by using the `UpdateQuerySuggestionsConfig` API\. If turned off, Amazon Kendra continues to learn suggestions but doesn't make query suggestions to users\.
-+ **Status** – Query suggestions are either `ACTIVE` or `UPDATING`\.
-+ **Suggestions count** – The total number of queries ready to be suggested to your users\. If the count is much lower than you expected, it could be because Amazon Kendra needs more queries to learn from or your current query suggestions settings are too strict\.
-+ **Suggestions last build time** – The last time suggestions were updated\. Amazon Kendra automatically updates suggestions every 24 hours, or when you change a setting or when you apply a [block list](https://docs.aws.amazon.com/kendra/latest/dg/query-suggestions.html#suggestions-block-list)\. 
-+ **Suggestions last cleared time** – The last time suggestions were cleared\.
++ **Mode**—Query suggestions are either `ENABLED` or `LEARN_ONLY`\. Amazon Kendra enables query suggestions by default\. `LEARN_ONLY` turns off query suggestions\. You can change the mode by using the `UpdateQuerySuggestionsConfig` API\. If turned off, Amazon Kendra continues to learn suggestions but doesn't make query suggestions to users\.
++ **Status**—Query suggestions are either `ACTIVE` or `UPDATING`\.
++ **Suggestions count**—The total number of queries ready to be suggested to your users\. If the count is much lower than you expected, it could be because Amazon Kendra needs more queries to learn from or your current query suggestions settings are too strict\.
++ **Suggestions last build time**—The last time suggestions were updated\. Amazon Kendra automatically updates suggestions every 24 hours, or when you change a setting or when you apply a [block list](https://docs.aws.amazon.com/kendra/latest/dg/query-suggestions.html#suggestions-block-list)\.
++ **Suggestions last cleared time**—The last time suggestions were cleared\.
 
 ## Block certain queries from suggestions<a name="suggestions-block-list"></a>
 
-A *block list* stops Amazon Kendra from suggesting certain popular queries to your users\. It is a list of words or phrases you want to exclude from query suggestions\. Amazon Kendra excludes queries containing an exact match of the words or phrases in the block list\.
+A block list stops Amazon Kendra from suggesting certain popular queries to your users\. It is a list of words or phrases you want to exclude from query suggestions\. Amazon Kendra excludes queries containing an exact match of the words or phrases in the block list\.
 
 You can use a block list to safeguard against offensive words or phrases that commonly appear in your query log and that Amazon Kendra could select as suggestions\. A block list can also prevent Amazon Kendra from suggesting popular queries that contain information that is not ready to be publicly released or announced\. For example, if your users commonly query about a release of a new product that you don’t want to suggest because you are not ready to release soon, then you can block queries that contain the product name and product information from suggestions\.
 

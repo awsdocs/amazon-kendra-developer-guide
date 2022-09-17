@@ -13,6 +13,12 @@ Configuration information for indexing attachments to Confluence blogs and pages
 Type: [ConfluenceAttachmentConfiguration](API_ConfluenceAttachmentConfiguration.md) object  
 Required: No
 
+ ** AuthenticationType **   <a name="Kendra-Type-ConfluenceConfiguration-AuthenticationType"></a>
+Whether you want to connect to Confluence using basic authentication of user name and password, or a personal access token\. You can use a personal access token for Confluence Server\.  
+Type: String  
+Valid Values:` HTTP_BASIC | PAT`   
+Required: No
+
  ** BlogConfiguration **   <a name="Kendra-Type-ConfluenceConfiguration-BlogConfiguration"></a>
 Configuration information for indexing Confluence blogs\.  
 Type: [ConfluenceBlogConfiguration](API_ConfluenceBlogConfiguration.md) object  
@@ -37,8 +43,17 @@ Configuration information for indexing Confluence pages\.
 Type: [ConfluencePageConfiguration](API_ConfluencePageConfiguration.md) object  
 Required: No
 
+ ** ProxyConfiguration **   <a name="Kendra-Type-ConfluenceConfiguration-ProxyConfiguration"></a>
+Configuration information to connect to your Confluence URL instance via a web proxy\. You can use this option for Confluence Server\.  
+You must provide the website host name and port number\. For example, the host name of *https://a\.example\.com/page1\.html* is "a\.example\.com" and the port is 443, the standard port for HTTPS\.  
+Web proxy credentials are optional and you can use them to connect to a web proxy server that requires basic authentication of user name and password\. To store web proxy credentials, you use a secret in AWS Secrets Manager\.  
+It is recommended that you follow best security practices when configuring your web proxy\. This includes setting up throttling, setting up logging and monitoring, and applying security patches on a regular basis\. If you use your web proxy with multiple data sources, sync jobs that occur at the same time could strain the load on your proxy\. It is recommended you prepare your proxy beforehand for any security and load requirements\.  
+Type: [ProxyConfiguration](API_ProxyConfiguration.md) object  
+Required: No
+
  ** SecretArn **   <a name="Kendra-Type-ConfluenceConfiguration-SecretArn"></a>
-The Amazon Resource Name \(ARN\) of an AWS Secrets Manager secret that contains the user name and password required to connect to the Confluence instance\. If you use Confluence cloud, you use a generated API token as the password\. For more information, see [Using a Confluemce data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-confluence.html)\.  
+The Amazon Resource Name \(ARN\) of an AWS Secrets Manager secret that contains the user name and password required to connect to the Confluence instance\. If you use Confluence Cloud, you use a generated API token as the password\. For more information, see [Using a Confluence data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-confluence.html)\.  
+You can also provide authentication credentials in the form of a personal access token\. For more information, see [Authentication for a Confluence data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-confluence.html#confluence-authentication)\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1284\.  
 Pattern: `arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}`   
@@ -57,7 +72,7 @@ Type: [ConfluenceSpaceConfiguration](API_ConfluenceSpaceConfiguration.md) object
 Required: No
 
  ** Version **   <a name="Kendra-Type-ConfluenceConfiguration-Version"></a>
-The version or the type of the Confluence installation to connect to\.  
+The version or the type of Confluence installation to connect to\.  
 Type: String  
 Valid Values:` CLOUD | SERVER`   
 Required: Yes

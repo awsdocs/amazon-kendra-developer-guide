@@ -36,6 +36,6 @@ The following procedures show how to create and test an Amazon Kendra index by u
 
 **Step 3: To search an index \(console\)**
 
-1. In the navigation pane, choose **Search console**\.
+1. In the navigation pane, choose the option to search your index\.
 
 1. Enter a search term that's appropriate for your index\. The **top results** and **top document** results are shown\.

@@ -22,14 +22,14 @@ For information about the parameters that are common to all actions, see [Common
 The request accepts the following data in JSON format\.
 
  ** [Id](#API_DescribeFaq_RequestSyntax) **   <a name="Kendra-DescribeFaq-request-Id"></a>
-The unique identifier of the FAQ\.  
+The identifier of the FAQ you want to get information on\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`   
 Required: Yes
 
  ** [IndexId](#API_DescribeFaq_RequestSyntax) **   <a name="Kendra-DescribeFaq-request-IndexId"></a>
-The identifier of the index that contains the FAQ\.  
+The identifier of the index for the FAQ\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`   
@@ -91,7 +91,7 @@ Length Constraints: Minimum length of 1\. Maximum length of 100\.
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*` 
 
  ** [IndexId](#API_DescribeFaq_ResponseSyntax) **   <a name="Kendra-DescribeFaq-response-IndexId"></a>
-The identifier of the index that contains the FAQ\.  
+The identifier of the index for the FAQ\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*` 

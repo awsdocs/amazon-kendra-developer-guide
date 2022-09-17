@@ -6,6 +6,8 @@
 
 Use a custom data source when you have a repository that Amazon Kendra doesn’t yet provide a data source connector for\. You can use it to see the same run history metrics that Amazon Kendra data sources provide even when you can't use Amazon Kendra's data sources to sync your repositories\. Use this to create a consistent sync monitoring experience between Amazon Kendra data sources and custom ones\. Specifically, use a custom data source to see sync metrics for a data source connector that you created using the [BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html) and [BatchDeleteDocument](https://docs.aws.amazon.com/kendra/latest/dg/API_BatchDeleteDocument.html) APIs\.
 
+For troubleshooting your Amazon Kendra custom data source connector, see [Troubleshooting data sources](troubleshooting-data-sources.md)\.
+
 When you create a custom data source, you have complete control over how the documents to index are selected\. Amazon Kendra only provides metric information that you can use to monitor your data source sync jobs\. You must create and run the crawler that determines the documents your data source indexes\.
 
 You create an identifier for your custom data source using the console or by using the [CreateDataSource](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html) API\. To use the console, give your data source a name, and optionally a description and resource tags\. After the data source is created, a data source ID is shown\. Copy this ID to use when you synchronize the data source with the index\.

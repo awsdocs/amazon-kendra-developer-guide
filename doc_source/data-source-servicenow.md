@@ -6,13 +6,15 @@
 
 You can use your ServiceNow instance as a data source for Amazon Kendra\. To use ServiceNow in the console, go to the [Amazon Kendra console](https://console.aws.amazon.com/kendra/), select your index and then select **Data sources** from the navigation menu to add ServiceNow\.
 
-When you connect to ServiceNow to index your documents, you specify the host of your ServiceNow instance URL\. For example, if the URL of the instance is *https://your\-domain\.service\-now\.com*, the host is *your\-domain\.service\-now\.com*\. You also specify the instance version that the ServiceNow host is running—whether the host is running the `LONDON` instance version or `OTHERS`\. You can specify regular expression patterns to include or exclude specific attachments of ServiceNow catalogs and knowledge articles\.
+For troubleshooting your Amazon Kendra ServiceNow data source connector, see [Troubleshooting data sources](troubleshooting-data-sources.md)\.
 
 You must create an index before you create the ServiceNow data source\. For more information, see [Creating an index](https://docs.aws.amazon.com/kendra/latest/dg/create-index.html)\. You provide the ID of the index when you create the data source\.
 
-To connect to ServiceNow, you specify the connection and other information in the console or by using the [ServiceNowConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_ServiceNowConfiguration.html) object\. You provide the ServiceNow host and instance version for the host\.
-
 Before you can index your documents from your ServiceNow instance, you must use a user name and password with administrative permissions for the ServiceNow instance\.
+
+When you connect to ServiceNow to index your documents, you specify the host of your ServiceNow instance URL\. For example, if the URL of the instance is *https://your\-domain\.service\-now\.com*, the host is *your\-domain\.service\-now\.com*\. You also specify the instance version that the ServiceNow host is running—whether the host is running the `LONDON` instance version or `OTHERS`\. You can specify regular expression patterns to include or exclude specific attachments of ServiceNow catalogs and knowledge articles\.
+
+To connect to ServiceNow, you specify the connection and other information in the console or by using the [ServiceNowConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_ServiceNowConfiguration.html) object\. You provide the ServiceNow host and instance version for the host\.
 
 You also must provide the Amazon Resource Name \(ARN\) of an IAM role that gives permission to access your ServiceNow instance\. You provide the ARN of an IAM role using the [CreateDataSource](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html) API\. For more information on permissions, see [IAM roles for ServiceNow data sources](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-ds)\.
 
@@ -24,14 +26,16 @@ You also can add the following optional information:
 + Whether to index knowledge articles and service catalogs, or both of these\. You must also provide the name of the ServiceNow field that contains the document body\.
 + Whether to index attachments to knowledge articles and catalog items\.
 + Whether to use a ServiceNow query that selects documents from one or more knowledge bases\. The knowledge bases can be public or private\. For more information, see [Specifying documents to index with a query](https://docs.aws.amazon.com/kendra/latest/dg/servicenow-query.html)\.
-+ Inclusion or exclusion pattern: If you specify an inclusion pattern, any attachment of catalogs or knowledge articles with a name or type that doesn't match the pattern isn't indexed\. If you specify an inclusion and exclusion pattern, attachments that match the exclusion pattern are not indexed even if they match the inclusion pattern\.
++ Inclusion or exclusion patterns: If you specify an inclusion pattern, only content that matches the inclusion pattern is indexed\. Any attachment of catalogs or knowledge articles with a name or type that doesn't match the pattern isn't indexed\. If you specify an inclusion and exclusion pattern, attachments that match the exclusion pattern are not indexed even if they match the inclusion pattern\.
 + Field mappings that map your ServiceNow catalog and knowledge article fields to Amazon Kendra index fields\. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html)\.
 
 ## Authentication<a name="servicenow-authentication"></a>
 
-There are two forms of authentication that you can use with ServiceNow\. The first, basic authentication, enables Amazon Kendra to connect to the ServiceNow instance using a user name and password\. The user must have administrative permissions to the ServiceNow instance\.
+There are two types of authentication that you can use with ServiceNow\. The first, basic authentication, enables Amazon Kendra to connect to the ServiceNow instance using a user name and password\. The user must have administrative permissions to the ServiceNow instance\.
 
 The second, OAuth, uses the OAuth 2\.0 authentication specification to identify Amazon Kendra and a user name and password\. The user name and password must provide access to the ServiceNow knowledge base and service catalog\.
+
+It is recommended that you regularly refresh or rotate your credentials and secret, and only provide the necessary level of access for your own security\.
 
 ### Basic authentication<a name="servicenow-auth-basic"></a>
 
@@ -43,7 +47,7 @@ The basic credentials are stored as a JSON string in the Secrets Manager secret\
 
 ```
 {
-    "username": "user-name",
+    "username": "user name",
     "password": "password"
 }
 ```
@@ -58,10 +62,10 @@ The OAuth credentials are stored as a JSON string in the Secrets Manager secret\
 
 ```
 {
-    "username": "user-name",
+    "username": "user name",
     "password": "password",
-    "clientId": "client-id",
-    "clientSecret": "client-secret"
+    "clientId": "client id",
+    "clientSecret": "client secret"
 }
 ```
 

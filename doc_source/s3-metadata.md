@@ -36,9 +36,9 @@ File mapping
         s3://bucketName/metadata/documents/legal/file.txt.metadata.json
 ```
 
-Your document metadata is defined in a JSON file\. The file must be a UTF\-8 text file without a BOM marker\. The file name of the JSON file must be `document.extension.metadata.json`\. In it, "document" is the name of the document that the metadata applies to and "extension" is the file extension for the document\.
+Your document metadata is defined in a JSON file\. The file must be a UTF\-8 text file without a BOM marker\. The file name of the JSON file must be `document.extension.metadata.json`\. In this example, "document" is the name of the document that the metadata applies to and "extension" is the file extension for the document\.
 
-The content of the JSON file follows this template\. All of the attributes are optional\. If you don't specify the `_source_uri`, then the links returned by Amazon Kendra in search results point to the Amazon S3 bucket that contains the document\. 
+The content of the JSON file follows this template\. All of the attributes are optional\. If you don't specify the `_source_uri`, then the links returned by Amazon Kendra in search results point to the Amazon S3 bucket that contains the document\.
 
 ```
 {
@@ -67,6 +67,6 @@ The content of the JSON file follows this template\. All of the attributes are o
 
 The `_created_at` and `_last_updated_at` metadata fields are ISO 8601 encoded dates\. For example, 2012\-03\-25T12:30:10\+01:00 is the ISO 8601 date\-time format for March 25, 2012, at 12:30PM \(plus 10 seconds\) in the Central European Time time zone\.
 
-You can add additional information to the `Attributes` field about a document that you use to filter queries or to group query responses\. For more information, see [Creating custom document attributes](custom-attributes.md)\.
+You can add additional information to the `Attributes` field about a document that you use to filter queries or to group query responses\. For more information, see [Creating custom document attributes or metadata fields](custom-attributes.md)\.
 
 You can use the `AccessControlList` field to filter the response from a query\. This way, only certain users and groups have access to documents\. For more information, see [Filtering on user context](user-context-filter.md)\.

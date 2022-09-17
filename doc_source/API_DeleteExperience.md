@@ -29,7 +29,7 @@ Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`
 Required: Yes
 
  ** [IndexId](#API_DeleteExperience_RequestSyntax) **   <a name="Kendra-DeleteExperience-request-IndexId"></a>
-The identifier of the index for your Amazon Kendra experience you want to delete\.  
+The identifier of the index for your Amazon Kendra experience\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`   

@@ -6,17 +6,21 @@
 
 You can use your Salesforce server as a data source for Amazon Kendra\. To use Salesforce in the console, go to the [Amazon Kendra console](https://console.aws.amazon.com/kendra/), select your index and then select **Data sources** from the navigation menu to add Salesforce\.
 
-When you use Amazon Kendra to index your Salesforce server, you can choose to index up to 17 of the standard Salesforce objects\. You can also index knowledge articles, chatter feeds, and attachments\.
-
 Amazon Kendra uses the Salesforce API version 48\. The Salesforce API limits the number of requests that you can make per day\. If Amazon Kendra exceeds those requests, it retries until it is able to continue\.
 
+For troubleshooting your Amazon Kendra Salesforce data source connector, see [Troubleshooting data sources](troubleshooting-data-sources.md)\.
+
+You must create an index before you create the Salesforce data source\. For more information, see [Creating an index](create-index.md)\. You provide the ID of the index when you create the data source\.
+
 Before you can connect Amazon Kendra to your Salesforce server, you must create a Salesforce connected app with OAuth enabled so that Amazon Kendra can connect\. When you create an app, it is assigned a consumer key and a consumer secret that Amazon Kendra uses to connect to the app\.
+
+When you use Amazon Kendra to index your Salesforce server, you can choose to index up to 17 of the standard Salesforce objects\. You can also index knowledge articles, chatter feeds, and attachments\.
 
 You must provide Amazon Kendra with credentials to access your Salesforce server\. These credentials identify the user making the connection and the Salesforce connected app that Amazon Kendra connects to\.
 
 The credentials should be for a user with read\-only access to Salesforce\. To create permissions for the user, clone the ReadOnly profile and then add the View All Data and Manage Articles permissions\.
 
-You store the credentials in an AWS Secrets Manager secret\. If you are using the console to create your data source, you can create the secret there, or you can use an existing Secrets Manager secret\. If you are using the API, you must provide the Amazon Resource Name \(ARN\) of an existing secret\.
+You store the credentials in an AWS Secrets Manager secret\. It is recommended that you regularly refresh or rotate your credentials and secret, and only provide the necessary level of access for your own security\. If you are using the console to create your data source, you can create the secret there, or you can use an existing Secrets Manager secret\. If you are using the API, you must provide the Amazon Resource Name \(ARN\) of an existing secret\.
 
 The secret must contain the following information:
 + `authenticationUrl` – The URL of the OAuth authentication server used to authenticate with Salesforce\. Typically, this is https://login\.salesforce\.com/services/oauth2/token\.
@@ -42,8 +46,6 @@ The credentials are stored as a JSON string in the Secrets Manager secret\. The 
 The data source IAM role must have permission to access the secret\. For more information, see [IAM roles for Salesforce data sources](iam-roles.md#iam-roles-ds-sf)\.
 
 The secret can contain more information, however, Amazon Kendra ignores other fields\. For more information, see [ What is AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) in the *AWS Secrets Manager User Guide*\.
-
-You must create an index before you create the Salesforce data source\. For more information, see [Creating an index](create-index.md)\. You provide the ID of the index when you create the data source\.
 
 You specify connection and other information in the console or using an instance of the [SalesforceConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_SalesforceConfiguration.html) object\. You must provide the following information: 
 + The URL of the Salesforce server that contains the information to index\.

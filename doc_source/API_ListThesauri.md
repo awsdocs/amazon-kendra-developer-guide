@@ -4,7 +4,7 @@
 
 # ListThesauri<a name="API_ListThesauri"></a>
 
-Lists the Amazon Kendra thesauri associated with an index\.
+Lists the thesauri for an index\.
 
 ## Request Syntax<a name="API_ListThesauri_RequestSyntax"></a>
 
@@ -23,7 +23,7 @@ For information about the parameters that are common to all actions, see [Common
 The request accepts the following data in JSON format\.
 
  ** [IndexId](#API_ListThesauri_RequestSyntax) **   <a name="Kendra-ListThesauri-request-IndexId"></a>
-The identifier of the index associated with the thesaurus to list\.  
+The identifier of the index with one or more thesauri\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`   

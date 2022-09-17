@@ -2,14 +2,14 @@
 
 --------
 
-# Changing your AWS SSO identity source<a name="changing-aws-sso-source"></a>
+# Changing your IAM Identity Center identity source<a name="changing-aws-sso-source"></a>
 
 **Warning**  
-Changing your identity source in AWS SSO **Settings** might affect the preservation of user and group information\. To do this safely, it is recommended you review [Considerations for changing your identity source](https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-identity-source-considerations.html)\. When you change your identity source, a new identity source ID is generated\. Make sure you use the correct ID when you enable AWS SSO to integrate with Amazon Kendra\.
+Changing your identity source in IAM Identity Center **Settings** might affect the preservation of user and group information\. To do this safely, it is recommended you review [Considerations for changing your identity source](https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-identity-source-considerations.html)\. When you change your identity source, a new identity source ID is generated\. Check you are using the correct ID before you set the mode to `AWS_SSO` in [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html)\.
 
-**To change your AWS SSO identity source**
+**To change your IAM Identity Centeridentity source**
 
-1. Open the [AWS SSO console](https://console.aws.amazon.com/singlesignon)\.
+1. Open the [IAM Identity Center> console](https://console.aws.amazon.com/singlesignon)\.
 
 1. Choose **Settings**\.
 

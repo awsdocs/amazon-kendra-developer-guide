@@ -30,7 +30,7 @@ Type: Boolean
 Required: No
 
  ** Domain **   <a name="Kendra-Type-QuipConfiguration-Domain"></a>
-The Quip site domain\.  
+The Quip site domain\. For example, *https://quip\-company\.quipdomain\.com/browse*\. The domain in this example is "quipdomain"\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 63\.  
 Pattern: `^(?!-)[A-Za-z0-9-].*(?<!-)$`   
@@ -44,7 +44,7 @@ Length Constraints: Minimum length of 1\. Maximum length of 150\.
 Required: No
 
  ** FolderIds **   <a name="Kendra-Type-QuipConfiguration-FolderIds"></a>
-The identifier of the Quip folders you want to index\.  
+The identifiers of the Quip folders you want to index\. You can find the folder ID in your browser URL when you access your folder in Quip\. For example, *https://quip\-company\.quipdomain\.com/zlLuOVNSarTL/folder\-name*\. The folder ID in this example is "zlLuOVNSarTL"\.  
 Type: Array of strings  
 Length Constraints: Minimum length of 1\. Maximum length of 500\.  
 Required: No

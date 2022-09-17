@@ -4,7 +4,7 @@
 
 # DisassociatePersonasFromEntities<a name="API_DisassociatePersonasFromEntities"></a>
 
-Removes the specific permissions of users or groups in your AWS SSO identity source with access to your Amazon Kendra experience\. You can create an Amazon Kendra experience such as a search application\. For more information on creating a search application experience, see [Building a search experience with no code](https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html)\.
+Removes the specific permissions of users or groups in your IAM Identity Center identity source with access to your Amazon Kendra experience\. You can create an Amazon Kendra experience such as a search application\. For more information on creating a search application experience, see [Building a search experience with no code](https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html)\.
 
 ## Request Syntax<a name="API_DisassociatePersonasFromEntities_RequestSyntax"></a>
 
@@ -23,7 +23,7 @@ For information about the parameters that are common to all actions, see [Common
 The request accepts the following data in JSON format\.
 
  ** [EntityIds](#API_DisassociatePersonasFromEntities_RequestSyntax) **   <a name="Kendra-DisassociatePersonasFromEntities-request-EntityIds"></a>
-The identifiers of users or groups in your AWS SSO identity source\. For example, user IDs could be user emails\.  
+The identifiers of users or groups in your IAM Identity Center identity source\. For example, user IDs could be user emails\.  
 Type: Array of strings  
 Array Members: Minimum number of 1 item\. Maximum number of 25 items\.  
 Length Constraints: Minimum length of 1\. Maximum length of 47\.  
@@ -64,7 +64,7 @@ If the action is successful, the service sends back an HTTP 200 response\.
 The following data is returned in JSON format by the service\.
 
  ** [FailedEntityList](#API_DisassociatePersonasFromEntities_ResponseSyntax) **   <a name="Kendra-DisassociatePersonasFromEntities-response-FailedEntityList"></a>
-Lists the users or groups in your AWS SSO identity source that failed to properly remove access to your Amazon Kendra experience\.  
+Lists the users or groups in your IAM Identity Center identity source that failed to properly remove access to your Amazon Kendra experience\.  
 Type: Array of [FailedEntity](API_FailedEntity.md) objects  
 Array Members: Minimum number of 1 item\. Maximum number of 25 items\.
 

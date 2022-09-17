@@ -4,7 +4,7 @@
 
 # DisassociateEntitiesFromExperience<a name="API_DisassociateEntitiesFromExperience"></a>
 
-Prevents users or groups in your AWS SSO identity source from accessing your Amazon Kendra experience\. You can create an Amazon Kendra experience such as a search application\. For more information on creating a search application experience, see [Building a search experience with no code](https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html)\.
+Prevents users or groups in your IAM Identity Center identity source from accessing your Amazon Kendra experience\. You can create an Amazon Kendra experience such as a search application\. For more information on creating a search application experience, see [Building a search experience with no code](https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html)\.
 
 ## Request Syntax<a name="API_DisassociateEntitiesFromExperience_RequestSyntax"></a>
 
@@ -28,7 +28,7 @@ For information about the parameters that are common to all actions, see [Common
 The request accepts the following data in JSON format\.
 
  ** [EntityList](#API_DisassociateEntitiesFromExperience_RequestSyntax) **   <a name="Kendra-DisassociateEntitiesFromExperience-request-EntityList"></a>
-Lists users or groups in your AWS SSO identity source\.  
+Lists users or groups in your IAM Identity Center identity source\.  
 Type: Array of [EntityConfiguration](API_EntityConfiguration.md) objects  
 Array Members: Minimum number of 1 item\. Maximum number of 40 items\.  
 Required: Yes
@@ -67,7 +67,7 @@ If the action is successful, the service sends back an HTTP 200 response\.
 The following data is returned in JSON format by the service\.
 
  ** [FailedEntityList](#API_DisassociateEntitiesFromExperience_ResponseSyntax) **   <a name="Kendra-DisassociateEntitiesFromExperience-response-FailedEntityList"></a>
-Lists the users or groups in your AWS SSO identity source that failed to properly remove access to your Amazon Kendra experience\.  
+Lists the users or groups in your IAM Identity Center identity source that failed to properly remove access to your Amazon Kendra experience\.  
 Type: Array of [FailedEntity](API_FailedEntity.md) objects  
 Array Members: Minimum number of 1 item\. Maximum number of 25 items\.
 

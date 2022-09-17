@@ -9,18 +9,20 @@ Amazon Kendra doesn't use a bucket policy that grants permissions to an Amazon K
 
 You can use your S3 bucket repository of documents as a data source for Amazon Kendra\. For a walk\-through of how to use Amazon S3 in the console, see [Getting started with an Amazon S3 data source \(console\)](https://docs.aws.amazon.com/kendra/latest/dg/gs-console.html)\.
 
-When you connect to Amazon S3 to index your documents, you specify the name of the S3 bucket that contains your documents\. You can specify glob patterns to include or exclude specific documents in your name of provider\.
+For troubleshooting your Amazon Kendra Amazon S3 data source connector, see [Troubleshooting data sources](troubleshooting-data-sources.md)\.
 
 You must create an index before you create the Amazon S3 data source\. For more information, see [CreateDataSource](API_CreateDataSource.md)\. You provide the ID of the index when you create the data source\.
 
-To connect to Amazon S3, you specify the connection and other information in the console or by using the [S3DataSourceConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html) object\. You provide the name of the Amazon S3 bucket you want to index\.
+Before you can index your documents from your Amazon S3 bucket, your bucket must be in the same region as the index and Amazon Kendra must have permission to access the bucket that contains your documents\. You can configure your Access Control List for your Amazon S3 bucket\. This contains information on user and group access to documents\.
 
-Before you can index your documents from your Amazon S3 bucket, your bucket must be in the same Region as the index and Amazon Kendra must have permission to access the bucket that contains your documents\. You can configure your Access Control List for your Amazon S3 bucket\. This contains information on user and group access to documents\.
+When you connect to Amazon S3 to index your documents, you specify the name of the S3 bucket that contains your documents\. You can specify glob patterns to include or exclude specific documents in your name of provider\.
+
+To connect to Amazon S3, you specify the connection and other information in the console or by using the [S3DataSourceConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html) object\. You provide the name of the Amazon S3 bucket you want to index\.
 
 You also must provide the Amazon Resource Name \(ARN\) of an IAM role that gives permission to access your Amazon S3 bucket\. You provide the ARN of an IAM role using [CreateDataSource](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html)\. For more information on permissions, see [IAM roles for Amazon S3 data sources](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-ds)\.
 
 You also can add the following optional information:
-+ Inclusion or exclusion pattern: If you specify an inclusion pattern, any document with a file name or file type that does't match the pattern is not indexed\. If you specify an inclusion and exclusion pattern, documents that match the exclusion pattern are not indexed even if they match the inclusion pattern\.
++ Inclusion or exclusion patterns: If you specify an inclusion pattern, only content that matches the inclusion pattern is indexed\. Any document with a file name or file type that doesn't match the pattern isn;t indexed\. If you specify an inclusion and exclusion pattern, documents that match the exclusion pattern are not indexed even if they match the inclusion pattern\.
 
 The following examples demonstrate creating an Amazon S3 data source\. The examples assume that you have already created an index and an IAM role with permission to read the data from the index\. For more information about the IAM role, see [IAM roles for Amazon S3 data sources](iam-roles.md#iam-roles-ds-s3)\. For more information about creating an index, see [Creating an index](create-index.md)\.
 

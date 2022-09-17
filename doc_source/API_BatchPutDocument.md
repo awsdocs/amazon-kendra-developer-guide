@@ -74,6 +74,7 @@ For an example of ingesting inline documents using Python and Java SDKs, see [Ad
    },
    "Documents": [ 
       { 
+         "AccessControlConfigurationId": "string",
          "AccessControlList": [ 
             { 
                "Access": "string",

@@ -4,7 +4,7 @@
 
 # IndexConfigurationSummary<a name="API_IndexConfigurationSummary"></a>
 
-A summary of information on the configuration of an index\.
+Summary information on the configuration of an index\.
 
 ## Contents<a name="API_IndexConfigurationSummary_Contents"></a>
 

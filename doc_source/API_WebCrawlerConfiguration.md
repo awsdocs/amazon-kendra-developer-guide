@@ -10,8 +10,8 @@ Provides the configuration information required for Amazon Kendra Web Crawler\.
 
  ** AuthenticationConfiguration **   <a name="Kendra-Type-WebCrawlerConfiguration-AuthenticationConfiguration"></a>
 Configuration information required to connect to websites using authentication\.  
-You can connect to websites using basic authentication of user name and password\.  
-You must provide the website host name and port number\. For example, the host name of https://a\.example\.com/page1\.html is "a\.example\.com" and the port is 443, the standard port for HTTPS\. You use a secret in [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) to store your authentication credentials\.  
+You can connect to websites using basic authentication of user name and password\. You use a secret in [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) to store your authentication credentials\.  
+You must provide the website host name and port number\. For example, the host name of https://a\.example\.com/page1\.html is "a\.example\.com" and the port is 443, the standard port for HTTPS\.  
 Type: [AuthenticationConfiguration](API_AuthenticationConfiguration.md) object  
 Required: No
 

@@ -8,8 +8,15 @@ A document in an index\.
 
 ## Contents<a name="API_Document_Contents"></a>
 
+ ** AccessControlConfigurationId **   <a name="Kendra-Type-Document-AccessControlConfigurationId"></a>
+The identifier of the access control configuration that you want to apply to the document\.  
+Type: String  
+Length Constraints: Minimum length of 1\. Maximum length of 36\.  
+Pattern: `[a-zA-Z0-9-]+`   
+Required: No
+
  ** AccessControlList **   <a name="Kendra-Type-Document-AccessControlList"></a>
-Information on user and group access rights, which is used for user context filtering\.  
+Information on principals \(users and/or groups\) and which documents they should have access to\. This is useful for user context filtering, where search results are filtered based on the user or their group access to documents\.  
 Type: Array of [Principal](API_Principal.md) objects  
 Required: No
 

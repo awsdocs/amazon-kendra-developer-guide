@@ -4,7 +4,7 @@
 
 # DescribeThesaurus<a name="API_DescribeThesaurus"></a>
 
-Describes an existing Amazon Kendra thesaurus\.
+Gets information about an existing Amazon Kendra thesaurus\.
 
 ## Request Syntax<a name="API_DescribeThesaurus_RequestSyntax"></a>
 
@@ -22,14 +22,14 @@ For information about the parameters that are common to all actions, see [Common
 The request accepts the following data in JSON format\.
 
  ** [Id](#API_DescribeThesaurus_RequestSyntax) **   <a name="Kendra-DescribeThesaurus-request-Id"></a>
-The identifier of the thesaurus to describe\.  
+The identifier of the thesaurus you want to get information on\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`   
 Required: Yes
 
  ** [IndexId](#API_DescribeThesaurus_RequestSyntax) **   <a name="Kendra-DescribeThesaurus-request-IndexId"></a>
-The identifier of the index associated with the thesaurus to describe\.  
+The identifier of the index for the thesaurus\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`   
@@ -91,7 +91,7 @@ Length Constraints: Minimum length of 1\. Maximum length of 100\.
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*` 
 
  ** [IndexId](#API_DescribeThesaurus_ResponseSyntax) **   <a name="Kendra-DescribeThesaurus-response-IndexId"></a>
-The identifier of the index associated with the thesaurus to describe\.  
+The identifier of the index for the thesaurus\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*` 

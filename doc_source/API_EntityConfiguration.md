@@ -4,12 +4,12 @@
 
 # EntityConfiguration<a name="API_EntityConfiguration"></a>
 
-Provides the configuration information for users or groups in your AWS SSO identity source to grant access your Amazon Kendra experience\.
+Provides the configuration information for users or groups in your IAM Identity Center identity source to grant access your Amazon Kendra experience\.
 
 ## Contents<a name="API_EntityConfiguration_Contents"></a>
 
  ** EntityId **   <a name="Kendra-Type-EntityConfiguration-EntityId"></a>
-The identifier of a user or group in your AWS SSO identity source\. For example, a user ID could be an email\.  
+The identifier of a user or group in your IAM Identity Center identity source\. For example, a user ID could be an email\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 47\.  
 Pattern: `^([0-9a-f]{10}-|)[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}$`   

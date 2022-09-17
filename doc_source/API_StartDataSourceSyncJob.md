@@ -4,7 +4,7 @@
 
 # StartDataSourceSyncJob<a name="API_StartDataSourceSyncJob"></a>
 
-Starts a synchronization job for a data source\. If a synchronization job is already in progress, Amazon Kendra returns a `ResourceInUseException` exception\.
+Starts a synchronization job for a data source connector\. If a synchronization job is already in progress, Amazon Kendra returns a `ResourceInUseException` exception\.
 
 ## Request Syntax<a name="API_StartDataSourceSyncJob_RequestSyntax"></a>
 
@@ -22,14 +22,14 @@ For information about the parameters that are common to all actions, see [Common
 The request accepts the following data in JSON format\.
 
  ** [Id](#API_StartDataSourceSyncJob_RequestSyntax) **   <a name="Kendra-StartDataSourceSyncJob-request-Id"></a>
-The identifier of the data source to synchronize\.  
+The identifier of the data source connector to synchronize\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`   
 Required: Yes
 
  ** [IndexId](#API_StartDataSourceSyncJob_RequestSyntax) **   <a name="Kendra-StartDataSourceSyncJob-request-IndexId"></a>
-The identifier of the index that contains the data source\.  
+The identifier of the index used with the data source connector\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`   

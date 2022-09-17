@@ -4,7 +4,7 @@
 
 # DescribeQuerySuggestionsBlockList<a name="API_DescribeQuerySuggestionsBlockList"></a>
 
-Describes a block list used for query suggestions for an index\.
+Gets information about a block list used for query suggestions for an index\.
 
 This is used to check the current settings that are applied to a block list\.
 
@@ -26,7 +26,7 @@ For information about the parameters that are common to all actions, see [Common
 The request accepts the following data in JSON format\.
 
  ** [Id](#API_DescribeQuerySuggestionsBlockList_RequestSyntax) **   <a name="Kendra-DescribeQuerySuggestionsBlockList-request-Id"></a>
-The unique identifier of the block list\.  
+The identifier of the block list you want to get information on\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`   
@@ -68,49 +68,49 @@ If the action is successful, the service sends back an HTTP 200 response\.
 The following data is returned in JSON format by the service\.
 
  ** [CreatedAt](#API_DescribeQuerySuggestionsBlockList_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsBlockList-response-CreatedAt"></a>
-Shows the date\-time a block list for query suggestions was created\.  
+The date\-time a block list for query suggestions was created\.  
 Type: Timestamp
 
  ** [Description](#API_DescribeQuerySuggestionsBlockList_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsBlockList-response-Description"></a>
-Shows the description for the block list\.  
+The description for the block list\.  
 Type: String  
 Length Constraints: Minimum length of 0\. Maximum length of 1000\.  
 Pattern: `^\P{C}*$` 
 
  ** [ErrorMessage](#API_DescribeQuerySuggestionsBlockList_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsBlockList-response-ErrorMessage"></a>
-Shows the error message with details when there are issues in processing the block list\.  
+The error message containing details if there are issues processing the block list\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  
 Pattern: `^\P{C}*$` 
 
  ** [FileSizeBytes](#API_DescribeQuerySuggestionsBlockList_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsBlockList-response-FileSizeBytes"></a>
-Shows the current size of the block list text file in S3\.  
+The current size of the block list text file in S3\.  
 Type: Long
 
  ** [Id](#API_DescribeQuerySuggestionsBlockList_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsBlockList-response-Id"></a>
-Shows the unique identifier of the block list\.  
+The identifier of the block list\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*` 
 
  ** [IndexId](#API_DescribeQuerySuggestionsBlockList_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsBlockList-response-IndexId"></a>
-Shows the identifier of the index for the block list\.  
+The identifier of the index for the block list\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*` 
 
  ** [ItemCount](#API_DescribeQuerySuggestionsBlockList_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsBlockList-response-ItemCount"></a>
-Shows the current number of valid, non\-empty words or phrases in the block list text file\.  
+The current number of valid, non\-empty words or phrases in the block list text file\.  
 Type: Integer
 
  ** [Name](#API_DescribeQuerySuggestionsBlockList_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsBlockList-response-Name"></a>
-Shows the name of the block list\.  
+The name of the block list\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Pattern: `^[a-zA-Z0-9](-*[a-zA-Z0-9])*` 
 
  ** [RoleArn](#API_DescribeQuerySuggestionsBlockList_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsBlockList-response-RoleArn"></a>
-Shows the current IAM \(Identity and Access Management\) role used by Amazon Kendra to access the block list text file in S3\.  
+The IAM \(Identity and Access Management\) role used by Amazon Kendra to access the block list text file in S3\.  
 The role needs S3 read permissions to your file in S3 and needs to give STS \(Security Token Service\) assume role permissions to Amazon Kendra\.  
 Type: String  
 Length Constraints: Minimum length of 0\. Maximum length of 1284\.  
@@ -123,12 +123,12 @@ For information on the current quota limits for block lists, see [Quotas for Ama
 Type: [S3Path](API_S3Path.md) object
 
  ** [Status](#API_DescribeQuerySuggestionsBlockList_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsBlockList-response-Status"></a>
-Shows whether the current status of the block list is `ACTIVE` or `INACTIVE`\.  
+The current status of the block list\. When the value is `ACTIVE`, the block list is ready for use\.  
 Type: String  
 Valid Values:` ACTIVE | CREATING | DELETING | UPDATING | ACTIVE_BUT_UPDATE_FAILED | FAILED` 
 
  ** [UpdatedAt](#API_DescribeQuerySuggestionsBlockList_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsBlockList-response-UpdatedAt"></a>
-Shows the date\-time a block list for query suggestions was last updated\.  
+The date\-time a block list for query suggestions was last updated\.  
 Type: Timestamp
 
 ## Errors<a name="API_DescribeQuerySuggestionsBlockList_Errors"></a>

@@ -52,7 +52,7 @@ response = kendra.query(
                 }
             },
         SortingConfiguration = {
-            "DocumentAttributeKey": "_created_at',
+            "DocumentAttributeKey": "_created_at",
             "SortOrder": "DESC"})
 
 print("\nSearch results|Resultados de la búsqueda: \n")

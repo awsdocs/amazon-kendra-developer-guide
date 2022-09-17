@@ -4,7 +4,7 @@
 
 # FaqSummary<a name="API_FaqSummary"></a>
 
-Provides information about a frequently asked questions and answer contained in an index\.
+Summary information for frequently asked questions and answers included in an index\.
 
 ## Contents<a name="API_FaqSummary_Contents"></a>
 

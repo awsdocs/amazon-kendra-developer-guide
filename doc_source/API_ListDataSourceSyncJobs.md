@@ -4,7 +4,7 @@
 
 # ListDataSourceSyncJobs<a name="API_ListDataSourceSyncJobs"></a>
 
-Gets statistics about synchronizing Amazon Kendra with a data source\.
+Gets statistics about synchronizing a data source connector\.
 
 ## Request Syntax<a name="API_ListDataSourceSyncJobs_RequestSyntax"></a>
 
@@ -29,14 +29,14 @@ For information about the parameters that are common to all actions, see [Common
 The request accepts the following data in JSON format\.
 
  ** [Id](#API_ListDataSourceSyncJobs_RequestSyntax) **   <a name="Kendra-ListDataSourceSyncJobs-request-Id"></a>
-The identifier of the data source\.  
+The identifier of the data source connector\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`   
 Required: Yes
 
  ** [IndexId](#API_ListDataSourceSyncJobs_RequestSyntax) **   <a name="Kendra-ListDataSourceSyncJobs-request-IndexId"></a>
-The identifier of the index that contains the data source\.  
+The identifier of the index used with the data source connector\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`   
@@ -55,12 +55,12 @@ Length Constraints: Minimum length of 1\. Maximum length of 800\.
 Required: No
 
  ** [StartTimeFilter](#API_ListDataSourceSyncJobs_RequestSyntax) **   <a name="Kendra-ListDataSourceSyncJobs-request-StartTimeFilter"></a>
-When specified, the synchronization jobs returned in the list are limited to jobs between the specified dates\.   
+When specified, the synchronization jobs returned in the list are limited to jobs between the specified dates\.  
 Type: [TimeRange](API_TimeRange.md) object  
 Required: No
 
  ** [StatusFilter](#API_ListDataSourceSyncJobs_RequestSyntax) **   <a name="Kendra-ListDataSourceSyncJobs-request-StatusFilter"></a>
-When specified, only returns synchronization jobs with the `Status` field equal to the specified status\.  
+Only returns synchronization jobs with the `Status` field equal to the specified status\.  
 Type: String  
 Valid Values:` FAILED | SUCCEEDED | SYNCING | INCOMPLETE | STOPPING | ABORTED | SYNCING_INDEXING`   
 Required: No
@@ -98,7 +98,7 @@ If the action is successful, the service sends back an HTTP 200 response\.
 The following data is returned in JSON format by the service\.
 
  ** [History](#API_ListDataSourceSyncJobs_ResponseSyntax) **   <a name="Kendra-ListDataSourceSyncJobs-response-History"></a>
-A history of synchronization jobs for the data source\.  
+A history of synchronization jobs for the data source connector\.  
 Type: Array of [DataSourceSyncJob](API_DataSourceSyncJob.md) objects
 
  ** [NextToken](#API_ListDataSourceSyncJobs_ResponseSyntax) **   <a name="Kendra-ListDataSourceSyncJobs-response-NextToken"></a>

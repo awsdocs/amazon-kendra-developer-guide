@@ -20,7 +20,7 @@ If you are using the console to get started, first do [Getting started with the 
 
 There are certain permissions required if you use CLI, SDK, or the console\.
 
-To use Amazon Kendra through an IAM user for CLI, SDK, or console you must have permissions to allow Amazon Kendra to create and manage resources on your behalf\. These include access to the Amazon Kendra itself, AWS KMS keys if you want to encrypt your data through a custom CMK, and AWS SSO directory if you want to use AWS SSO integration or [create a Search Experience](https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html)\. You must attach the below permissions to your IAM user\.
+To use Amazon Kendra through an IAM user for CLI, SDK, or console you must have permissions to allow Amazon Kendra to create and manage resources on your behalf\. These include access to the Amazon Kendra itself, AWS KMS keys if you want to encrypt your data through a custom CMK, and Identity Center directory if you want to integrate with AWS IAM Identity Center \(successor to AWS Single Sign\-On\) or [create a Search Experience](https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html)\. You must attach the below permissions to your IAM user\.
 
 ```
 {

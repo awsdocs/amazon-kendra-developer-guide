@@ -35,12 +35,12 @@ For information about the parameters that are common to all actions, see [Common
 The request accepts the following data in JSON format\.
 
  ** [Configuration](#API_UpdateExperience_RequestSyntax) **   <a name="Kendra-UpdateExperience-request-Configuration"></a>
-Configuration information for your Amazon Kendra you want to update\.  
+Configuration information you want to update for your Amazon Kendra experience\.  
 Type: [ExperienceConfiguration](API_ExperienceConfiguration.md) object  
 Required: No
 
  ** [Description](#API_UpdateExperience_RequestSyntax) **   <a name="Kendra-UpdateExperience-request-Description"></a>
-The description of your Amazon Kendra experience you want to update\.  
+A new description for your Amazon Kendra experience\.  
 Type: String  
 Length Constraints: Minimum length of 0\. Maximum length of 1000\.  
 Pattern: `^\P{C}*$`   
@@ -54,21 +54,21 @@ Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`
 Required: Yes
 
  ** [IndexId](#API_UpdateExperience_RequestSyntax) **   <a name="Kendra-UpdateExperience-request-IndexId"></a>
-The identifier of the index for your Amazon Kendra experience you want to update\.  
+The identifier of the index for your Amazon Kendra experience\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`   
 Required: Yes
 
  ** [Name](#API_UpdateExperience_RequestSyntax) **   <a name="Kendra-UpdateExperience-request-Name"></a>
-The name of your Amazon Kendra experience you want to update\.  
+A new name for your Amazon Kendra experience\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1000\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`   
 Required: No
 
  ** [RoleArn](#API_UpdateExperience_RequestSyntax) **   <a name="Kendra-UpdateExperience-request-RoleArn"></a>
-The Amazon Resource Name \(ARN\) of a role with permission to access `Query` API, `QuerySuggestions` API, `SubmitFeedback` API, and AWS SSO that stores your user and group information\. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html)\.  
+The Amazon Resource Name \(ARN\) of a role with permission to access `Query` API, `QuerySuggestions` API, `SubmitFeedback` API, and IAM Identity Center that stores your user and group information\. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html)\.  
 Type: String  
 Length Constraints: Minimum length of 0\. Maximum length of 1284\.  
 Pattern: `arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}`   

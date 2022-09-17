@@ -8,6 +8,12 @@ Provides the configuration information to connect to Microsoft SharePoint as you
 
 ## Contents<a name="API_SharePointConfiguration_Contents"></a>
 
+ ** AuthenticationType **   <a name="Kendra-Type-SharePointConfiguration-AuthenticationType"></a>
+Whether you want to connect to SharePoint using basic authentication of user name and password, or OAuth authentication of user name, password, client ID, and client secret\. You can use OAuth authentication for SharePoint Online\.  
+Type: String  
+Valid Values:` HTTP_BASIC | OAUTH2`   
+Required: No
+
  ** CrawlAttachments **   <a name="Kendra-Type-SharePointConfiguration-CrawlAttachments"></a>
  `TRUE` to index document attachments\.  
 Type: Boolean  
@@ -47,8 +53,17 @@ Array Members: Minimum number of 0 items\. Maximum number of 100 items\.
 Length Constraints: Minimum length of 1\. Maximum length of 150\.  
 Required: No
 
+ ** ProxyConfiguration **   <a name="Kendra-Type-SharePointConfiguration-ProxyConfiguration"></a>
+Configuration information to connect to your Microsoft SharePoint site URLs via instance via a web proxy\. You can use this option for SharePoint Server\.  
+You must provide the website host name and port number\. For example, the host name of *https://a\.example\.com/page1\.html* is "a\.example\.com" and the port is 443, the standard port for HTTPS\.  
+Web proxy credentials are optional and you can use them to connect to a web proxy server that requires basic authentication of user name and password\. To store web proxy credentials, you use a secret in AWS Secrets Manager\.  
+It is recommended that you follow best security practices when configuring your web proxy\. This includes setting up throttling, setting up logging and monitoring, and applying security patches on a regular basis\. If you use your web proxy with multiple data sources, sync jobs that occur at the same time could strain the load on your proxy\. It is recommended you prepare your proxy beforehand for any security and load requirements\.  
+Type: [ProxyConfiguration](API_ProxyConfiguration.md) object  
+Required: No
+
  ** SecretArn **   <a name="Kendra-Type-SharePointConfiguration-SecretArn"></a>
 The Amazon Resource Name \(ARN\) of an AWS Secrets Manager secret that contains the user name and password required to connect to the SharePoint instance\. If you use SharePoint Server, you also need to provide the sever domain name as part of the credentials\. For more information, see [Using a Microsoft SharePoint Data Source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-sharepoint.html)\.  
+You can also provide OAuth authentication credentials of user name, password, client ID, and client secret\. For more information, see [Authentication for a SharePoint data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-sharepoint.html#sharepoint-authentication)\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1284\.  
 Pattern: `arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}`   
@@ -57,16 +72,17 @@ Required: Yes
  ** SharePointVersion **   <a name="Kendra-Type-SharePointConfiguration-SharePointVersion"></a>
 The version of Microsoft SharePoint that you use\.  
 Type: String  
-Valid Values:` SHAREPOINT_2013 | SHAREPOINT_2016 | SHAREPOINT_ONLINE`   
+Valid Values:` SHAREPOINT_2013 | SHAREPOINT_2016 | SHAREPOINT_ONLINE | SHAREPOINT_2019`   
 Required: Yes
 
  ** SslCertificateS3Path **   <a name="Kendra-Type-SharePointConfiguration-SslCertificateS3Path"></a>
-The path to the SSL certificate stored in an Amazon S3 bucket\. You use this to connect to SharePoint\.  
+The path to the SSL certificate stored in an Amazon S3 bucket\. You use this to connect to SharePoint Server if you require a secure SSL connection\.  
+You can simply generate a self\-signed X509 certificate on any computer using OpenSSL\. For an example of using OpenSSL to create an X509 certificate, see [Create and sign an X509 certificate](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/configuring-https-ssl.html)\.  
 Type: [S3Path](API_S3Path.md) object  
 Required: No
 
  ** Urls **   <a name="Kendra-Type-SharePointConfiguration-Urls"></a>
-The Microsoft SharePoint site URLs for the documents you want to indext\.  
+The Microsoft SharePoint site URLs for the documents you want to index\.  
 Type: Array of strings  
 Array Members: Minimum number of 1 item\. Maximum number of 100 items\.  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  

@@ -4,7 +4,7 @@
 
 # ListDataSources<a name="API_ListDataSources"></a>
 
-Lists the data sources that you have created\.
+Lists the data source connectors that you have created\.
 
 ## Request Syntax<a name="API_ListDataSources_RequestSyntax"></a>
 
@@ -23,20 +23,20 @@ For information about the parameters that are common to all actions, see [Common
 The request accepts the following data in JSON format\.
 
  ** [IndexId](#API_ListDataSources_RequestSyntax) **   <a name="Kendra-ListDataSources-request-IndexId"></a>
-The identifier of the index that contains the data source\.  
+The identifier of the index used with one or more data source connectors\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`   
 Required: Yes
 
  ** [MaxResults](#API_ListDataSources_RequestSyntax) **   <a name="Kendra-ListDataSources-request-MaxResults"></a>
-The maximum number of data sources to return\.  
+The maximum number of data source connectors to return\.  
 Type: Integer  
 Valid Range: Minimum value of 1\. Maximum value of 100\.  
 Required: No
 
  ** [NextToken](#API_ListDataSources_RequestSyntax) **   <a name="Kendra-ListDataSources-request-NextToken"></a>
-If the previous response was incomplete \(because there is more data to retrieve\), Amazon Kendra returns a pagination token in the response\. You can use this pagination token to retrieve the next set of data sources \(`DataSourceSummaryItems`\)\.   
+If the previous response was incomplete \(because there is more data to retrieve\), Amazon Kendra returns a pagination token in the response\. You can use this pagination token to retrieve the next set of data source connectors \(`DataSourceSummaryItems`\)\.   
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 800\.  
 Required: No
@@ -67,12 +67,12 @@ If the action is successful, the service sends back an HTTP 200 response\.
 The following data is returned in JSON format by the service\.
 
  ** [NextToken](#API_ListDataSources_ResponseSyntax) **   <a name="Kendra-ListDataSources-response-NextToken"></a>
-If the response is truncated, Amazon Kendra returns this token that you can use in the subsequent request to retrieve the next set of data sources\.   
+If the response is truncated, Amazon Kendra returns this token that you can use in the subsequent request to retrieve the next set of data source connectors\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 800\.
 
  ** [SummaryItems](#API_ListDataSources_ResponseSyntax) **   <a name="Kendra-ListDataSources-response-SummaryItems"></a>
-An array of summary information for one or more data sources\.  
+An array of summary information for one or more data source connector\.  
 Type: Array of [DataSourceSummary](API_DataSourceSummary.md) objects
 
 ## Errors<a name="API_ListDataSources_Errors"></a>

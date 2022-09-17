@@ -4,7 +4,7 @@
 
 # UpdateDataSource<a name="API_UpdateDataSource"></a>
 
-Updates an existing Amazon Kendra data source\.
+Updates an existing Amazon Kendra data source connector\.
 
 ## Request Syntax<a name="API_UpdateDataSource_RequestSyntax"></a>
 
@@ -103,6 +103,7 @@ Updates an existing Amazon Kendra data source\.
             ],
             "CrawlAttachments": boolean
          },
+         "AuthenticationType": "string",
          "BlogConfiguration": { 
             "BlogFieldMappings": [ 
                { 
@@ -122,6 +123,11 @@ Updates an existing Amazon Kendra data source\.
                   "IndexFieldName": "string"
                }
             ]
+         },
+         "ProxyConfiguration": { 
+            "Credentials": "string",
+            "Host": "string",
+            "Port": number
          },
          "SecretArn": "string",
          "ServerUrl": "string",
@@ -528,6 +534,7 @@ Updates an existing Amazon Kendra data source\.
          "ServiceNowBuildVersion": "string"
       },
       "SharePointConfiguration": { 
+         "AuthenticationType": "string",
          "CrawlAttachments": boolean,
          "DisableLocalGroups": boolean,
          "DocumentTitleFieldName": "string",
@@ -540,6 +547,11 @@ Updates an existing Amazon Kendra data source\.
             }
          ],
          "InclusionPatterns": [ "string" ],
+         "ProxyConfiguration": { 
+            "Credentials": "string",
+            "Host": "string",
+            "Port": number
+         },
          "SecretArn": "string",
          "SharePointVersion": "string",
          "SslCertificateS3Path": { 
@@ -577,6 +589,9 @@ Updates an existing Amazon Kendra data source\.
             "SecurityGroupIds": [ "string" ],
             "SubnetIds": [ "string" ]
          }
+      },
+      "TemplateConfiguration": { 
+         "Template": JSON value
       },
       "WebCrawlerConfiguration": { 
          "AuthenticationConfiguration": { 
@@ -686,7 +701,11 @@ Updates an existing Amazon Kendra data source\.
    "LanguageCode": "string",
    "Name": "string",
    "RoleArn": "string",
-   "Schedule": "string"
+   "Schedule": "string",
+   "VpcConfiguration": { 
+      "SecurityGroupIds": [ "string" ],
+      "SubnetIds": [ "string" ]
+   }
 }
 ```
 
@@ -697,61 +716,66 @@ For information about the parameters that are common to all actions, see [Common
 The request accepts the following data in JSON format\.
 
  ** [Configuration](#API_UpdateDataSource_RequestSyntax) **   <a name="Kendra-UpdateDataSource-request-Configuration"></a>
-Configuration information for an Amazon Kendra data source you want to update\.  
+Configuration information you want to update for the data source connector\.  
 Type: [DataSourceConfiguration](API_DataSourceConfiguration.md) object  
 Required: No
 
  ** [CustomDocumentEnrichmentConfiguration](#API_UpdateDataSource_RequestSyntax) **   <a name="Kendra-UpdateDataSource-request-CustomDocumentEnrichmentConfiguration"></a>
-Configuration information for altering document metadata and content during the document ingestion process when you update a data source\.  
+Configuration information you want to update for altering document metadata and content during the document ingestion process\.  
 For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html)\.  
 Type: [CustomDocumentEnrichmentConfiguration](API_CustomDocumentEnrichmentConfiguration.md) object  
 Required: No
 
  ** [Description](#API_UpdateDataSource_RequestSyntax) **   <a name="Kendra-UpdateDataSource-request-Description"></a>
-The new description for the data source\.  
+A new description for the data source connector\.  
 Type: String  
 Length Constraints: Minimum length of 0\. Maximum length of 1000\.  
 Pattern: `^\P{C}*$`   
 Required: No
 
  ** [Id](#API_UpdateDataSource_RequestSyntax) **   <a name="Kendra-UpdateDataSource-request-Id"></a>
-The unique identifier of the data source to update\.  
+The identifier of the data source connector you want to update\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`   
 Required: Yes
 
  ** [IndexId](#API_UpdateDataSource_RequestSyntax) **   <a name="Kendra-UpdateDataSource-request-IndexId"></a>
-The identifier of the index that contains the data source to update\.  
+The identifier of the index used with the data source connector\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`   
 Required: Yes
 
  ** [LanguageCode](#API_UpdateDataSource_RequestSyntax) **   <a name="Kendra-UpdateDataSource-request-LanguageCode"></a>
-The code for a language\. This allows you to support a language for all documents when updating the data source\. English is supported by default\. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html)\.  
+The code for a language you want to update for the data source connector\. This allows you to support a language for all documents when updating the data source\. English is supported by default\. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html)\.  
 Type: String  
 Length Constraints: Minimum length of 2\. Maximum length of 10\.  
 Pattern: `[a-zA-Z-]*`   
 Required: No
 
  ** [Name](#API_UpdateDataSource_RequestSyntax) **   <a name="Kendra-UpdateDataSource-request-Name"></a>
-The name of the data source to update\. The name of the data source can't be updated\. To rename a data source you must delete the data source and re\-create it\.  
+A new name for the data source connector\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1000\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`   
 Required: No
 
  ** [RoleArn](#API_UpdateDataSource_RequestSyntax) **   <a name="Kendra-UpdateDataSource-request-RoleArn"></a>
-The Amazon Resource Name \(ARN\) of the new role to use when the data source is accessing resources on your behalf\.  
+The Amazon Resource Name \(ARN\) of a role with permission to access the data source and required resources\. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html)\.  
 Type: String  
 Length Constraints: Minimum length of 0\. Maximum length of 1284\.  
 Pattern: `arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}`   
 Required: No
 
  ** [Schedule](#API_UpdateDataSource_RequestSyntax) **   <a name="Kendra-UpdateDataSource-request-Schedule"></a>
-The new update schedule for the data source\.  
+The sync schedule you want to update for the data source connector\.  
 Type: String  
+Required: No
+
+ ** [VpcConfiguration](#API_UpdateDataSource_RequestSyntax) **   <a name="Kendra-UpdateDataSource-request-VpcConfiguration"></a>
+Configuration information for an Amazon Virtual Private Cloud to connect to your data source\. For more information, see [Configuring a VPC](https://docs.aws.amazon.com/kendra/latest/dg/vpc-configuration.html)\.  
+Type: [DataSourceVpcConfiguration](API_DataSourceVpcConfiguration.md) object  
 Required: No
 
 ## Response Elements<a name="API_UpdateDataSource_ResponseElements"></a>

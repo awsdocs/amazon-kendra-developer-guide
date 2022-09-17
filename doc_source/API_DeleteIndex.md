@@ -21,7 +21,7 @@ For information about the parameters that are common to all actions, see [Common
 The request accepts the following data in JSON format\.
 
  ** [Id](#API_DeleteIndex_RequestSyntax) **   <a name="Kendra-DeleteIndex-request-Id"></a>
-The identifier of the index to delete\.  
+The identifier of the index you want to delete\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`   

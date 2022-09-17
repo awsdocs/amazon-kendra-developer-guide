@@ -5,6 +5,7 @@
 # Data Types<a name="API_Types"></a>
 
 The following data types are supported:
++  [AccessControlConfigurationSummary](API_AccessControlConfigurationSummary.md) 
 +  [AccessControlListConfiguration](API_AccessControlListConfiguration.md) 
 +  [AclConfiguration](API_AclConfiguration.md) 
 +  [AdditionalResultAttribute](API_AdditionalResultAttribute.md) 
@@ -123,6 +124,7 @@ The following data types are supported:
 +  [SuggestionTextWithHighlights](API_SuggestionTextWithHighlights.md) 
 +  [SuggestionValue](API_SuggestionValue.md) 
 +  [Tag](API_Tag.md) 
++  [TemplateConfiguration](API_TemplateConfiguration.md) 
 +  [TextDocumentStatistics](API_TextDocumentStatistics.md) 
 +  [TextWithHighlights](API_TextWithHighlights.md) 
 +  [ThesaurusSummary](API_ThesaurusSummary.md) 

@@ -4,7 +4,7 @@
 
 # UpdateThesaurus<a name="API_UpdateThesaurus"></a>
 
-Updates a thesaurus file associated with an index\.
+Updates a thesaurus for an index\.
 
 ## Request Syntax<a name="API_UpdateThesaurus_RequestSyntax"></a>
 
@@ -29,35 +29,35 @@ For information about the parameters that are common to all actions, see [Common
 The request accepts the following data in JSON format\.
 
  ** [Description](#API_UpdateThesaurus_RequestSyntax) **   <a name="Kendra-UpdateThesaurus-request-Description"></a>
-The updated description of the thesaurus\.  
+A new description for the thesaurus\.  
 Type: String  
 Length Constraints: Minimum length of 0\. Maximum length of 1000\.  
 Pattern: `^\P{C}*$`   
 Required: No
 
  ** [Id](#API_UpdateThesaurus_RequestSyntax) **   <a name="Kendra-UpdateThesaurus-request-Id"></a>
-The identifier of the thesaurus to update\.  
+The identifier of the thesaurus you want to update\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`   
 Required: Yes
 
  ** [IndexId](#API_UpdateThesaurus_RequestSyntax) **   <a name="Kendra-UpdateThesaurus-request-IndexId"></a>
-The identifier of the index associated with the thesaurus to update\.  
+The identifier of the index for the thesaurus\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`   
 Required: Yes
 
  ** [Name](#API_UpdateThesaurus_RequestSyntax) **   <a name="Kendra-UpdateThesaurus-request-Name"></a>
-The updated name of the thesaurus\.  
+A new name for the thesaurus\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`   
 Required: No
 
  ** [RoleArn](#API_UpdateThesaurus_RequestSyntax) **   <a name="Kendra-UpdateThesaurus-request-RoleArn"></a>
-The updated role ARN of the thesaurus\.  
+An IAM role that gives Amazon Kendra permissions to access thesaurus file specified in `SourceS3Path`\.  
 Type: String  
 Length Constraints: Minimum length of 0\. Maximum length of 1284\.  
 Pattern: `arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}`   

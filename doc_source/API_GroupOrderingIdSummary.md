@@ -4,7 +4,7 @@
 
 # GroupOrderingIdSummary<a name="API_GroupOrderingIdSummary"></a>
 
-Information on the processing of `PUT` and `DELETE` actions for mapping users to their groups\.
+Summary information on the processing of `PUT` and `DELETE` actions for mapping users to their groups\.
 
 ## Contents<a name="API_GroupOrderingIdSummary_Contents"></a>
 

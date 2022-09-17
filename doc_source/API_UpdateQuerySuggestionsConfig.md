@@ -44,7 +44,7 @@ Type: Boolean
 Required: No
 
  ** [IndexId](#API_UpdateQuerySuggestionsConfig_RequestSyntax) **   <a name="Kendra-UpdateQuerySuggestionsConfig-request-IndexId"></a>
-The identifier of the index you want to update query suggestions settings for\.  
+ The identifier of the index with query suggestions you want to update\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`   

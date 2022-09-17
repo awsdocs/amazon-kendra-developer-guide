@@ -6,6 +6,9 @@
 
 Provides the configuration information to connect to Alfresco as your data source\.
 
+**Note**  
+Alfresco data source connector is currently in preview mode\. Basic authentication is currently supported\. If you would like to use Alfresco connector in production, contact [Support](http://aws.amazon.com/contact-us/)\.
+
 ## Contents<a name="API_AlfrescoConfiguration_Contents"></a>
 
  ** BlogFieldMappings **   <a name="Kendra-Type-AlfrescoConfiguration-BlogFieldMappings"></a>
@@ -75,7 +78,8 @@ Pattern: `^https:\/\/[a-zA-Z0-9_\-\.]+$`
 Required: Yes
 
  ** SslCertificateS3Path **   <a name="Kendra-Type-AlfrescoConfiguration-SslCertificateS3Path"></a>
-The path to the SSL certificate stored in an Amazon S3 bucket\. You use this to connect to Alfresco\.  
+The path to the SSL certificate stored in an Amazon S3 bucket\. You use this to connect to Alfresco if you require a secure SSL connection\.  
+You can simply generate a self\-signed X509 certificate on any computer using OpenSSL\. For an example of using OpenSSL to create an X509 certificate, see [Create and sign an X509 certificate](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/configuring-https-ssl.html)\.  
 Type: [S3Path](API_S3Path.md) object  
 Required: Yes
 

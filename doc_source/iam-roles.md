@@ -17,7 +17,7 @@ The following topics provide details for the required policies\. If you create I
 + [IAM roles for frequently asked questions](#iam-roles-ds-faq)
 + [IAM roles for query suggestions](#iam-roles-query-suggestions)
 + [IAM roles for principal mapping of users and groups](#iam-roles-principal-mapping)
-+ [IAM roles for AWS Single Sign\-On](#iam-roles-aws-sso)
++ [IAM roles for AWS IAM Identity Center \(successor to AWS Single Sign\-On\)](#iam-roles-aws-sso)
 + [IAM roles for Amazon Kendra experiences](#iam-roles-amazon-kendra-experiences)
 + [IAM roles for Custom Document Enrichment](#iam-roles-custom-document-enrichment)
 
@@ -37,7 +37,7 @@ A role policy to allow Amazon Kendra to access a CloudWatch log\.
             "Resource": "*",
             "Condition": {
                 "StringEquals": {
-                    "cloudwatch:namespace": "Kendra"
+                    "cloudwatch:namespace": "AWS/Kendra"
                 }
             }
         },
@@ -76,7 +76,7 @@ A role policy to allow Amazon Kendra to access AWS Secrets Manager\. If you are 
          "Resource":"*",
          "Condition":{
             "StringEquals":{
-               "cloudwatch:namespace":"Kendra"
+               "cloudwatch:namespace":"AWS/Kendra"
             }
          }
       },
@@ -260,6 +260,8 @@ When you use the [CreateDataSource](https://docs.aws.amazon.com/kendra/latest/dg
 + [IAM roles for Quip data sources](#iam-roles-ds-quip)
 + [IAM roles for Jira data sources](#iam-roles-ds-jira)
 + [IAM roles for GitHub data sources](#iam-roles-ds-github)
++ [IAM roles for Alfresco data sources](#iam-roles-ds-alfresco)
++ [IAM roles for Zendesk data sources](#iam-roles-ds-zendesk)
 
 ### IAM roles for Amazon S3 data sources<a name="iam-roles-ds-s3"></a>
 
@@ -1772,6 +1774,158 @@ A trust policy to allow Amazon Kendra to assume a role\.
 }
 ```
 
+### IAM roles for Alfresco data sources<a name="iam-roles-ds-alfresco"></a>
+
+When you use Alfresco, you provide a role with the following policies\.
++ Permission to access your AWS Secrets Manager secret to authenticate your Alfresco\.
++ Permission to call the required public APIs for the Alfresco connector\.
++ Permission to call the `BatchPutDocument`, `BatchDeleteDocument`, `PutPrincipalMapping`, `DeletePrincipalMapping`, `DescribePrincipalMapping`, and `ListGroupsOlderThanOrderingId` APIs\.
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+  {
+    "Effect": "Allow",
+    "Action": [
+      "secretsmanager:GetSecretValue"
+    ],
+    "Resource": [
+      "arn:aws:secretsmanager:{{region}}:{{account_id}}:secret:[[secret_id]]"
+    ]
+  },
+  {
+    "Effect": "Allow",
+    "Action": [
+      "kms:Decrypt"
+    ],
+    "Resource": [
+      "arn:aws:kms:{{region}}:{{account_id}}:key/[[key_id]]"
+    ],
+    "Condition": {
+      "StringLike": {
+        "kms:ViaService": [
+          "secretsmanager.*.amazonaws.com"
+        ]
+      }
+    }
+  },
+  {
+    "Effect": "Allow",
+    "Action": [
+        "kendra:PutPrincipalMapping",
+        "kendra:DeletePrincipalMapping",
+        "kendra:ListGroupsOlderThanOrderingId",
+        "kendra:DescribePrincipalMapping"
+    ],
+    "Resource": ["arn:aws:kendra:{{region}}:{{account_id}}:index/{{index_id}}", "arn:aws:kendra:{{region}}:{{account_id}}:index/{{index_id}}/data-source/*"]
+  },
+  {
+    "Effect": "Allow",
+    "Action": [
+      "kendra:BatchPutDocument",
+      "kendra:BatchDeleteDocument"
+    ],
+    "Resource": "arn:aws:kendra:{{region}}:{{account_id}}:index/{{index_id}}"
+  }]
+}
+```
+
+#### <a name="iam-trust-policy-assume-role"></a>
+
+A trust policy to allow Amazon Kendra to assume a role\.
+
+```
+{
+   "Version":"2012-10-17",
+   "Statement":[
+      {
+         "Effect":"Allow",
+         "Principal":{
+            "Service":"kendra.amazonaws.com"
+         },
+         "Action":"sts:AssumeRole"
+      }
+   ]
+}
+```
+
+### IAM roles for Zendesk data sources<a name="iam-roles-ds-zendesk"></a>
+
+When you use Zendesk, you provide a role with the following policies\.
++ Permission to access your AWS Secrets Manager secret to authenticate your Zendesk Suite\.
++ Permission to call the required public APIs for the Zendesk connector\.
++ Permission to call the `BatchPutDocument`, `BatchDeleteDocument`, `PutPrincipalMapping`, `DeletePrincipalMapping`, `DescribePrincipalMapping`, and `ListGroupsOlderThanOrderingId` APIs\.
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+  {
+    "Effect": "Allow",
+    "Action": [
+      "secretsmanager:GetSecretValue"
+    ],
+    "Resource": [
+      "arn:aws:secretsmanager:{{region}}:{{account_id}}:secret:[[secret_id]]"
+    ]
+  },
+  {
+    "Effect": "Allow",
+    "Action": [
+      "kms:Decrypt"
+    ],
+    "Resource": [
+      "arn:aws:kms:{{region}}:{{account_id}}:key/[[key_id]]"
+    ],
+    "Condition": {
+      "StringLike": {
+        "kms:ViaService": [
+          "secretsmanager.*.amazonaws.com"
+        ]
+      }
+    }
+  },
+  {
+    "Effect": "Allow",
+    "Action": [
+        "kendra:PutPrincipalMapping",
+        "kendra:DeletePrincipalMapping",
+        "kendra:ListGroupsOlderThanOrderingId",
+        "kendra:DescribePrincipalMapping"
+    ],
+    "Resource": ["arn:aws:kendra:{{region}}:{{account_id}}:index/{{index_id}}", "arn:aws:kendra:{{region}}:{{account_id}}:index/{{index_id}}/data-source/*"]
+  },
+  {
+    "Effect": "Allow",
+    "Action": [
+      "kendra:BatchPutDocument",
+      "kendra:BatchDeleteDocument"
+    ],
+    "Resource": "arn:aws:kendra:{{region}}:{{account_id}}:index/{{index_id}}"
+  }]
+}
+```
+
+#### <a name="iam-trust-policy-assume-role"></a>
+
+A trust policy to allow Amazon Kendra to assume a role\.
+
+```
+{
+   "Version":"2012-10-17",
+   "Statement":[
+      {
+         "Effect":"Allow",
+         "Principal":{
+            "Service":"kendra.amazonaws.com"
+         },
+         "Action":"sts:AssumeRole"
+      }
+   ]
+}
+```
+
 ## IAM roles for frequently asked questions<a name="iam-roles-ds-faq"></a>
 
 When you use the [CreateFaq](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateFaq.html) API to load questions and answers into an index, you must provide Amazon Kendra with an IAM role with access to the Amazon S3 bucket that contains the source files\. If the source files are encrypted, you must provide permission to use the AWS KMS customer master key \(CMK\) to decrypt the files\.
@@ -1985,11 +2139,11 @@ It is recommended that you include `aws:sourceAccount` and `aws:sourceArn` in th
 }
 ```
 
-## IAM roles for AWS Single Sign\-On<a name="iam-roles-aws-sso"></a>
+## IAM roles for AWS IAM Identity Center \(successor to AWS Single Sign\-On\)<a name="iam-roles-aws-sso"></a>
 
-When you use the [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html) object to fetch access levels of groups and users from an AWS Single Sign\-On identity source, you need to supply a role that has permission to access AWS SSO\.
+When you use the [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html) object to fetch access levels of groups and users from an AWS IAM Identity Center \(successor to AWS Single Sign\-On\) identity source, you need to supply a role that has permission to access IAM Identity Center\.
 
-A required role policy to allow Amazon Kendra to access AWS SSO\.
+A required role policy to allow Amazon Kendra to access IAM Identity Center\.
 
 ```
 {
@@ -2047,9 +2201,9 @@ A trust policy to allow Amazon Kendra to assume a role\.
 
 ### IAM roles for Amazon Kendra search experience<a name="iam-roles-search-app-experience"></a>
 
-When you use the [CreateExperience](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateExperience.html) or [UpdateExperience](https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateExperience.html) APIs to create or update a search application, you must supply a role that has permission to access the necessary operations and AWS Single Sign\-On\.
+When you use the [CreateExperience](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateExperience.html) or [UpdateExperience](https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateExperience.html) APIs to create or update a search application, you must supply a role that has permission to access the necessary operations and IAM Identity Center>\.
 
-A required role policy to allow Amazon Kendra to access `Query` operations, `QuerySuggestions` operations, `SubmitFeedback` operations, and AWS SSO that stores your user and group information\.
+A required role policy to allow Amazon Kendra to access `Query` operations, `QuerySuggestions` operations, `SubmitFeedback` operations, and IAM Identity Center that stores your user and group information\.
 
 ```
 {
@@ -2065,7 +2219,8 @@ A required role policy to allow Amazon Kendra to access `Query` operations, `Que
         "kendra:ListFaqs",
         "kendra:DescribeDataSource",
         "kendra:ListDataSources",
-        "kendra:DescribeFaq"
+        "kendra:DescribeFaq",
+        "kendra:SubmitFeedback"
       ],
       "Resource": [
         "arn:aws:kendra:{{region}}:{{account_id}}:index/{{IndexId}}"

@@ -4,7 +4,7 @@
 
 # CreateIndex<a name="API_CreateIndex"></a>
 
-Creates a new Amazon Kendra index\. Index creation is an asynchronous API\. To determine if index creation has completed, check the `Status` field returned from a call to `DescribeIndex`\. The `Status` field is set to `ACTIVE` when the index is ready to use\.
+Creates an Amazon Kendra index\. Index creation is an asynchronous API\. To determine if index creation has completed, check the `Status` field returned from a call to `DescribeIndex`\. The `Status` field is set to `ACTIVE` when the index is ready to use\.
 
 Once the index is active you can index your documents using the `BatchPutDocument` API or using one of the supported data sources\.
 
@@ -80,7 +80,7 @@ Valid Values:` DEVELOPER_EDITION | ENTERPRISE_EDITION`
 Required: No
 
  ** [Name](#API_CreateIndex_RequestSyntax) **   <a name="Kendra-CreateIndex-request-Name"></a>
-The name for the new index\.  
+A name for the index\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1000\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`   
@@ -115,7 +115,7 @@ Valid Values:` ATTRIBUTE_FILTER | USER_TOKEN`
 Required: No
 
  ** [UserGroupResolutionConfiguration](#API_CreateIndex_RequestSyntax) **   <a name="Kendra-CreateIndex-request-UserGroupResolutionConfiguration"></a>
-Enables fetching access levels of groups and users from an AWS Single Sign\-On identity source\. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html)\.  
+Enables fetching access levels of groups and users from an AWS IAM Identity Center \(successor to AWS Single Sign\-On\) identity source\. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html)\.  
 Type: [UserGroupResolutionConfiguration](API_UserGroupResolutionConfiguration.md) object  
 Required: No
 

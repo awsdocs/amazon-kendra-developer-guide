@@ -83,27 +83,27 @@ Pattern: `^\P{C}*$`
 Required: No
 
  ** [DocumentMetadataConfigurationUpdates](#API_UpdateIndex_RequestSyntax) **   <a name="Kendra-UpdateIndex-request-DocumentMetadataConfigurationUpdates"></a>
-The document metadata you want to update\.  
+The document metadata configuration you want to update for the index\. Document metadata are fields or attributes associated with your documents\. For example, the company department name associated with each document\.  
 Type: Array of [DocumentMetadataConfiguration](API_DocumentMetadataConfiguration.md) objects  
 Array Members: Minimum number of 0 items\. Maximum number of 500 items\.  
 Required: No
 
  ** [Id](#API_UpdateIndex_RequestSyntax) **   <a name="Kendra-UpdateIndex-request-Id"></a>
-The identifier of the index to update\.  
+The identifier of the index you want to update\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`   
 Required: Yes
 
  ** [Name](#API_UpdateIndex_RequestSyntax) **   <a name="Kendra-UpdateIndex-request-Name"></a>
-The name of the index to update\.  
+The name of the index you want to update\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1000\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`   
 Required: No
 
  ** [RoleArn](#API_UpdateIndex_RequestSyntax) **   <a name="Kendra-UpdateIndex-request-RoleArn"></a>
-A new IAM role that gives Amazon Kendra permission to access your Amazon CloudWatch logs\.  
+An AWS Identity and Access Management \(IAM\) role that gives Amazon Kendra permission to access Amazon CloudWatch logs and metrics\.  
 Type: String  
 Length Constraints: Minimum length of 0\. Maximum length of 1284\.  
 Pattern: `arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}`   
@@ -116,7 +116,7 @@ Valid Values:` ATTRIBUTE_FILTER | USER_TOKEN`
 Required: No
 
  ** [UserGroupResolutionConfiguration](#API_UpdateIndex_RequestSyntax) **   <a name="Kendra-UpdateIndex-request-UserGroupResolutionConfiguration"></a>
-Enables fetching access levels of groups and users from an AWS Single Sign\-On identity source\. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html)\.  
+Enables fetching access levels of groups and users from an AWS IAM Identity Center \(successor to AWS Single Sign\-On\) identity source\. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html)\.  
 Type: [UserGroupResolutionConfiguration](API_UserGroupResolutionConfiguration.md) object  
 Required: No
 

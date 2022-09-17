@@ -4,7 +4,7 @@
 
 # DeleteDataSource<a name="API_DeleteDataSource"></a>
 
-Deletes an Amazon Kendra data source\. An exception is not thrown if the data source is already being deleted\. While the data source is being deleted, the `Status` field returned by a call to the `DescribeDataSource` API is set to `DELETING`\. For more information, see [Deleting Data Sources](https://docs.aws.amazon.com/kendra/latest/dg/delete-data-source.html)\.
+Deletes an Amazon Kendra data source connector\. An exception is not thrown if the data source is already being deleted\. While the data source is being deleted, the `Status` field returned by a call to the `DescribeDataSource` API is set to `DELETING`\. For more information, see [Deleting Data Sources](https://docs.aws.amazon.com/kendra/latest/dg/delete-data-source.html)\.
 
 ## Request Syntax<a name="API_DeleteDataSource_RequestSyntax"></a>
 
@@ -22,14 +22,14 @@ For information about the parameters that are common to all actions, see [Common
 The request accepts the following data in JSON format\.
 
  ** [Id](#API_DeleteDataSource_RequestSyntax) **   <a name="Kendra-DeleteDataSource-request-Id"></a>
-The unique identifier of the data source to delete\.  
+The identifier of the data source connector you want to delete\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`   
 Required: Yes
 
  ** [IndexId](#API_DeleteDataSource_RequestSyntax) **   <a name="Kendra-DeleteDataSource-request-IndexId"></a>
-The unique identifier of the index associated with the data source\.  
+The identifier of the index used with the data source connector\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`   

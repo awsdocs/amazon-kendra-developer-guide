@@ -29,7 +29,7 @@ Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`
 Required: Yes
 
  ** [IndexId](#API_DescribeExperience_RequestSyntax) **   <a name="Kendra-DescribeExperience-request-IndexId"></a>
-The identifier of the index for your Amazon Kendra experience you want to get information on\.  
+The identifier of the index for your Amazon Kendra experience\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`   
@@ -117,7 +117,7 @@ Length Constraints: Minimum length of 1\. Maximum length of 1000\.
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*` 
 
  ** [RoleArn](#API_DescribeExperience_ResponseSyntax) **   <a name="Kendra-DescribeExperience-response-RoleArn"></a>
-Shows the Amazon Resource Name \(ARN\) of a role with permission to access `Query` API, `QuerySuggestions` API, `SubmitFeedback` API, and AWS SSO that stores your user and group information\.  
+Shows the Amazon Resource Name \(ARN\) of a role with permission to access `Query` API, `QuerySuggestions` API, `SubmitFeedback` API, and IAM Identity Center that stores your user and group information\.  
 Type: String  
 Length Constraints: Minimum length of 0\. Maximum length of 1284\.  
 Pattern: `arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}` 

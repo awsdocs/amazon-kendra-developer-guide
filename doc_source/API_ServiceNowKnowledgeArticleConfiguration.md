@@ -9,7 +9,7 @@ Provides the configuration information for crawling knowledge articles in the Se
 ## Contents<a name="API_ServiceNowKnowledgeArticleConfiguration_Contents"></a>
 
  ** CrawlAttachments **   <a name="Kendra-Type-ServiceNowKnowledgeArticleConfiguration-CrawlAttachments"></a>
-Indicates whether Amazon Kendra should index attachments to knowledge articles\.  
+ `TRUE` to index attachments to knowledge articles\.  
 Type: Boolean  
 Required: No
 

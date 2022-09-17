@@ -8,6 +8,8 @@ To add custom synonyms to an index, you specify them in a thesaurus file\. You c
 
 Amazon Kendra makes correlations between synonyms\. For example, using the synonym pair `Dynamo, Amazon DynamoDB`, Amazon Kendra correlates Dynamo with Amazon DynamoDB\. The query "What is dynamo?" then returns a document such as "What is Amazon DynamoDB?"\. With synonyms, Amazon Kendra can more easily pick up the correlation\.
 
+The thesaurus file is a text file stored in an Amazon S3 bucket\. See [Adding a thesaurus to an index](index-synonyms-adding-thesaurus-file.md)\.
+
 The thesaurus file uses the [Solr synonym format](https://lucene.apache.org/solr/guide/6_6/filter-descriptions.html#FilterDescriptions-SynonymGraphFilter)\. Amazon Kendra has a limit on the number of thesauri per index\. See [Quotas](https://docs.aws.amazon.com/kendra/latest/dg/quotas.html)\. 
 
 Synonyms can be useful in the following scenarios:

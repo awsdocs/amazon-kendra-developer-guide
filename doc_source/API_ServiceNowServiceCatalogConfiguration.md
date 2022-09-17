@@ -9,7 +9,7 @@ Provides the configuration information for crawling service catalog items in the
 ## Contents<a name="API_ServiceNowServiceCatalogConfiguration_Contents"></a>
 
  ** CrawlAttachments **   <a name="Kendra-Type-ServiceNowServiceCatalogConfiguration-CrawlAttachments"></a>
-Indicates whether Amazon Kendra should crawl attachments to the service catalog items\.   
+ `TRUE` to index attachments to service catalog items\.  
 Type: Boolean  
 Required: No
 

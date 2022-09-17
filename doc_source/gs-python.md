@@ -75,7 +75,17 @@ try:
             "BucketName": S3_bucket_name
         }
     }
-
+    
+    """
+    If you connect to your data source using a template schema, 
+    configure the template schema
+    configuration = {"TemplateConfiguration":
+        {
+            "Template": {JSON schema}
+        }
+    }
+    """
+    
     data_source_response = kendra.create_data_source(
         Name = data_source_name,
         Description = description,

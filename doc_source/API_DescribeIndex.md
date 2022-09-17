@@ -4,7 +4,7 @@
 
 # DescribeIndex<a name="API_DescribeIndex"></a>
 
-Describes an existing Amazon Kendra index\.
+Gets information about an existing Amazon Kendra index\.
 
 ## Request Syntax<a name="API_DescribeIndex_RequestSyntax"></a>
 
@@ -21,7 +21,7 @@ For information about the parameters that are common to all actions, see [Common
 The request accepts the following data in JSON format\.
 
  ** [Id](#API_DescribeIndex_RequestSyntax) **   <a name="Kendra-DescribeIndex-request-Id"></a>
-The identifier of the index to describe\.  
+The identifier of the index you want to get information on\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`   
@@ -122,7 +122,7 @@ Length Constraints: Minimum length of 0\. Maximum length of 1000\.
 Pattern: `^\P{C}*$` 
 
  ** [DocumentMetadataConfigurations](#API_DescribeIndex_ResponseSyntax) **   <a name="Kendra-DescribeIndex-response-DocumentMetadataConfigurations"></a>
-Configuration settings for any metadata applied to the documents in the index\.  
+Configuration information for document metadata or fields\. Document metadata are fields or attributes associated with your documents\. For example, the company department name associated with each document\.  
 Type: Array of [DocumentMetadataConfiguration](API_DocumentMetadataConfiguration.md) objects  
 Array Members: Minimum number of 0 items\. Maximum number of 500 items\.
 
@@ -178,7 +178,7 @@ Type: String
 Valid Values:` ATTRIBUTE_FILTER | USER_TOKEN` 
 
  ** [UserGroupResolutionConfiguration](#API_DescribeIndex_ResponseSyntax) **   <a name="Kendra-DescribeIndex-response-UserGroupResolutionConfiguration"></a>
-Shows whether you have enabled the configuration for fetching access levels of groups and users from an AWS Single Sign\-On identity source\.  
+Whether you have enabled the configuration for fetching access levels of groups and users from an AWS IAM Identity Center \(successor to AWS Single Sign\-On\) identity source\.  
 Type: [UserGroupResolutionConfiguration](API_UserGroupResolutionConfiguration.md) object
 
  ** [UserTokenConfigurations](#API_DescribeIndex_ResponseSyntax) **   <a name="Kendra-DescribeIndex-response-UserTokenConfigurations"></a>

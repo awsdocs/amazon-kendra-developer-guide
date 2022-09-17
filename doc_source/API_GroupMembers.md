@@ -4,7 +4,7 @@
 
 # GroupMembers<a name="API_GroupMembers"></a>
 
-A list of users or sub groups that belong to a group\. Users and groups are useful for filtering search results to different users based on their group's access to documents\.
+A list of users or sub groups that belong to a group\. This is useful for user context filtering, where search results are filtered based on the user or their group access to documents\.
 
 ## Contents<a name="API_GroupMembers_Contents"></a>
 
