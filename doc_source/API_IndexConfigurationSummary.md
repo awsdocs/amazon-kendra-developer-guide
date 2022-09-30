@@ -14,7 +14,7 @@ Type: Timestamp
 Required: Yes
 
  ** Edition **   <a name="Kendra-Type-IndexConfigurationSummary-Edition"></a>
-Indicates whether the index is a enterprise edition index or a developer edition index\.   
+Indicates whether the index is a Enterprise Edition index or a Developer Edition index\.   
 Type: String  
 Valid Values:` DEVELOPER_EDITION | ENTERPRISE_EDITION`   
 Required: No

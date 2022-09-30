@@ -20,7 +20,7 @@ Type: Long
 Required: No
 
  ** StringListValue **   <a name="Kendra-Type-DocumentAttributeValue-StringListValue"></a>
-A list of strings\.   
+A list of strings\. The default maximum length or number of strings is 10\.  
 Type: Array of strings  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  
 Required: No

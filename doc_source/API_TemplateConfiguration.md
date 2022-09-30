@@ -9,9 +9,8 @@ Provides a template for the configuration information to connect to your data so
 ## Contents<a name="API_TemplateConfiguration_Contents"></a>
 
  ** Template **   <a name="Kendra-Type-TemplateConfiguration-Template"></a>
-The template schema used for the data source\.  
-The following links to the template schema for data sources where templates are supported:  
-+  [Zendesk template schema](https://docs.aws.amazon.com/kendra/latest/dg/data-source-zendesk.html#zendesk-template-schema) 
+The template schema used for the data source, where templates schemas are supported\.  
+See [Data source template schemas](https://docs.aws.amazon.com/kendra/latest/dg/ds-schemas.html)\.  
 Type: JSON value  
 Required: No
 

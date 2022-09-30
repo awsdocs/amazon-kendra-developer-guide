@@ -22,7 +22,7 @@ To use a custom data source, create an application that is responsible for updat
 
 1. Call the [StartDataSourceSyncJob](https://docs.aws.amazon.com/kendra/latest/dg/API_StartDataSourceSyncJob.html) API to signal that a sync job is starting\. You provide a data source ID to identify the data source that is synchronizing\. Amazon Kendra returns a execution ID to identify a particular sync job\.
 
-1. Call the [BatchDeleteDocument](https://docs.aws.amazon.com/kendra/latest/dg/API_StartDataSourceSyncJob.html) API to add, update, and remove documents from the index\. You provide the data source ID and execution ID to identify the data source that is synchronizing and the job that this update is associated with\.
+1. Call the [BatchDeleteDocument](https://docs.aws.amazon.com/kendra/latest/dg/API_BatchDeleteDocument.html) API to remove documents from the index\. You provide the data source ID and execution ID to identify the data source that is synchronizing and the job that this update is associated with\.
 
 1. Call the [StopDataSourceSyncJob](https://docs.aws.amazon.com/kendra/latest/dg/API_StopDataSourceSyncJob.html) API to signal the end of the sync job\. After you call the `StopDataSourceSyncJob` API, the associated execution ID is no longer valid\.
 

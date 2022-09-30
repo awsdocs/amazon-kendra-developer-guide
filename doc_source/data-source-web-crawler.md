@@ -6,11 +6,13 @@
 
 You can use Amazon Kendra *Web Crawler* to crawl and index webpages\. To use Web Crawler in the console, go to the [Amazon Kendra console](https://console.aws.amazon.com/kendra/), select your index and then select **Data sources** from the navigation menu to add Web Crawler\.
 
-For troubleshooting your Amazon Kendra web crawler data source connector, see [Troubleshooting data sources](troubleshooting-data-sources.md)\.
+For troubleshooting Amazon Kendra Web Crawler, see [Troubleshooting data sources](troubleshooting-data-sources.md)\.
 
 You must create an index before you create your data source using the web crawler\. For more information, see [Creating an index](https://docs.aws.amazon.com/kendra/latest/dg/create-index.html)\. You provide the ID of the index when you create the data source\.
 
-When you use the web crawler to crawl webpages and index them as your documents, you specify the websites you want to crawl and index\. You provide either the seed or starting point URLs or the sitemap URLs\. You can only crawl websites that use the secure communication protocol, Hypertext Transfer Protocol Secure \(HTTPS\)\. If you receive an error when crawling a website, it could be that the website is blocked from crawling\.
+When you use the web crawler to crawl webpages and index them as your documents, you specify the websites you want to crawl and index\. You provide either the seed or starting point URLs or the sitemap URLs\. You can only crawl public facing websites and websites that use the secure communication protocol, Hypertext Transfer Protocol Secure \(HTTPS\)\. If you receive an error when crawling a website, it could be that the website is blocked from crawling\.
+
+To crawl internal websites, you can set up a web proxy\. The web proxy must be be public facing\. See [Web proxy](#web-proxy-web-crawler)\.
 
 You also must provide the Amazon Resource Name \(ARN\) of an IAM role with the required permissions\. You provide the ARN of an IAM role using the [CreateDataSource](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html) API\. For more information on permissions, see [IAM roles for web crawler data sources](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-ds)\.
 
@@ -54,6 +56,6 @@ You use the [AuthenticationConfiguration](https://docs.aws.amazon.com/kendra/lat
 
 ## Web proxy<a name="web-proxy-web-crawler"></a>
 
-You can use a web proxy to connect to internal websites you want to crawl\. Amazon Kendra supports connecting to web proxy servers that are backed by basic authentication or you can connect with no authentication\. You provide the host name of the website and the port number\.
+You can use a web proxy to connect to internal websites you want to crawl\. The web proxy must be be public facing\. Amazon Kendra supports connecting to web proxy servers that are backed by basic authentication or you can connect with no authentication\. You provide the host name of the website and the port number\.
 
 You can provide web proxy credentials using a secret in [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html)\. You use the [ProxyConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_ProxyConfiguration.html) object to provide the website host name and port number, and optionally the secret that stores your web proxy credentials\. It is recommended that you regularly refresh or rotate your credentials and secret, and only provide the necessary level of access for your own security\.

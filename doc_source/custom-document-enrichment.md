@@ -26,6 +26,8 @@ At any point in this process, if your configuration is not valid, Amazon Kendra 
 
 When you call [CreateDataSource](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html), [UpdateDataSource](https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateDataSource.html), or [BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html) APIs, you provide your Custom Document Enrichment configuration\. If you call `BatchPutDocument`, you must configure Custom Document Enrichment with each request\. If you use the console, you select your index and then select **Document enrichments** to configure Custom Document Enrichment\.
 
+If you use **Document enrichments** in the console, you can only save your configurations by completing all the steps in the console\. Your document configurations are not saved if you don't complete all the steps\. If you use the `CreateDataSource`, `UpdateDataSource`, or `BatchPutDocument` APIs, you can save your configurations and apply them when you are ready\.
+
 ## Basic data manipulation<a name="basic-data-maniplation"></a>
 
 You can manipulate your document metadata fields or attributes and content using basic logic\. This includes removing values in a field, modifying values in a field using a condition, or creating a field\. For advanced manipulations that go beyond what you can manipulate using basic logic, invoke a Lambda function\. For more information, see [Advanced data manipulation](#advanced-data-manipulation)\.

@@ -26,6 +26,7 @@ Supported data sources are:
 + [GitHub](https://docs.aws.amazon.com/kendra/latest/dg/data-source-github.html)
 + [Alfresco](https://docs.aws.amazon.com/kendra/latest/dg/data-source-alfresco.html)
 + [Zendesk](https://docs.aws.amazon.com/kendra/latest/dg/data-source-zendesk.html)
++ [Dropbox](https://docs.aws.amazon.com/kendra/latest/dg/data-source-dropbox.html)
 
 Supported document formats are: plain text, Microsoft Word, Microsoft PowerPoint, HTML, and PDF\. For more information, see [Types of documents](index-document-types.md)\.
 

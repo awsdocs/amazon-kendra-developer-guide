@@ -3,12 +3,13 @@
 --------
 
 # Document history for Amazon Kendra<a name="doc-history"></a>
-+ **Latest documentation update:** August 17, 2022
++ **Latest documentation update:** September 27, 2022
 
 The following table describes important changes in each release of Amazon Kendra\. For notification about updates to this documentation, you can subscribe to an RSS feed\.
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [New feature](https://docs.aws.amazon.com/kendra/latest/dg/data-source-dropbox.html) | Amazon Kendra now provides a data source connector for Dropbox\. For more information, see [Using a Dropbox data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-dropbox.html)\. | September 27, 2022 | 
 | [New feature](https://docs.aws.amazon.com/kendra/latest/dg/data-source-zendesk.html) | Amazon Kendra now provides a data source connector for Zendesk\. For more information, see [Using a Zendesk data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-zendesk.html)\. | August 17, 2022 | 
 | [New feature](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateAccessControlConfiguration.html) | Document level access control can now be re\-configured after you index your documents\. For more information, see [Access control configuration](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateAccessControlConfiguration.html)\. | July 14, 2022 | 
 | [New feature](https://docs.aws.amazon.com/kendra/latest/dg/data-source-alfresco.html) | Amazon Kendra now provides a data source connector for Alfresco\. For more information, see [Using an Alfresco data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-alfresco.html)\. | June 30, 2022 | 

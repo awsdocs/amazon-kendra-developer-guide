@@ -139,7 +139,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
       {
          "Effect":"Allow",
          "Principal":{
-            "Service":"kendra.amazonaws.com"
+            "Service":"kendra.*.amazonaws.com"
          },
          "Action":"sts:AssumeRole"
       }
@@ -184,7 +184,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
       {
          "Effect":"Allow",
          "Principal":{
-            "Service":"kendra.amazonaws.com"
+            "Service":"kendra.*.amazonaws.com"
          },
          "Action":"sts:AssumeRole"
       }
@@ -202,7 +202,7 @@ It is recommended that you include `aws:sourceAccount` and `aws:sourceArn` in th
             "Effect": "Allow",
             "Principal": {
                 "Service": [
-                    "kendra.amazonaws.com"
+                    "kendra.*.amazonaws.com"
                 ]
             },
             "Action": "sts:AssumeRole",
@@ -262,6 +262,7 @@ When you use the [CreateDataSource](https://docs.aws.amazon.com/kendra/latest/dg
 + [IAM roles for GitHub data sources](#iam-roles-ds-github)
 + [IAM roles for Alfresco data sources](#iam-roles-ds-alfresco)
 + [IAM roles for Zendesk data sources](#iam-roles-ds-zendesk)
++ [IAM roles for Dropbox data sources](#iam-roles-ds-dropbox)
 
 ### IAM roles for Amazon S3 data sources<a name="iam-roles-ds-s3"></a>
 
@@ -338,7 +339,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
       {
          "Effect":"Allow",
          "Principal":{
-            "Service":"kendra.amazonaws.com"
+            "Service":"kendra.*.amazonaws.com"
          },
          "Action":"sts:AssumeRole"
       }
@@ -440,7 +441,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
       {
          "Effect":"Allow",
          "Principal":{
-            "Service":"kendra.amazonaws.com"
+            "Service":"kendra.*.amazonaws.com"
          },
          "Action":"sts:AssumeRole"
       }
@@ -508,7 +509,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
       {
          "Effect":"Allow",
          "Principal":{
-            "Service":"kendra.amazonaws.com"
+            "Service":"kendra.*.amazonaws.com"
          },
          "Action":"sts:AssumeRole"
       }
@@ -557,7 +558,7 @@ When you use a database as a data source, you provide Amazon Kendra with a role 
             "Condition": {
                 "StringLike": {
                     "kms:ViaService": [
-                        "kendra.amazonaws.com"
+                        "kendra.*.amazonaws.com"
                     ]
                 }
             }
@@ -609,7 +610,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
       {
          "Effect":"Allow",
          "Principal":{
-            "Service":"kendra.amazonaws.com"
+            "Service":"kendra.*.amazonaws.com"
          },
          "Action":"sts:AssumeRole"
       }
@@ -676,7 +677,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
       {
          "Effect":"Allow",
          "Principal":{
-            "Service":"kendra.amazonaws.com"
+            "Service":"kendra.*.amazonaws.com"
          },
          "Action":"sts:AssumeRole"
       }
@@ -795,7 +796,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
       {
          "Effect":"Allow",
          "Principal":{
-            "Service":"kendra.amazonaws.com"
+            "Service":"kendra.*.amazonaws.com"
          },
          "Action":"sts:AssumeRole"
       }
@@ -861,7 +862,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
       {
          "Effect":"Allow",
          "Principal":{
-            "Service":"kendra.amazonaws.com"
+            "Service":"kendra.*.amazonaws.com"
          },
          "Action":"sts:AssumeRole"
       }
@@ -927,7 +928,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
       {
          "Effect":"Allow",
          "Principal":{
-            "Service":"kendra.amazonaws.com"
+            "Service":"kendra.*.amazonaws.com"
          },
          "Action":"sts:AssumeRole"
       }
@@ -979,7 +980,7 @@ You must also attach a trust policy that allows Amazon Kendra to assume the role
             "Condition": {
                 "StringLike": {
                     "kms:ViaService": [
-                        "kendra.amazonaws.com"
+                        "kendra.*.amazonaws.com"
                     ]
                 }
             }
@@ -1027,7 +1028,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
       {
          "Effect":"Allow",
          "Principal":{
-            "Service":"kendra.amazonaws.com"
+            "Service":"kendra.*.amazonaws.com"
          },
          "Action":"sts:AssumeRole"
       }
@@ -1060,7 +1061,7 @@ If you use a virtual private cloud \(VPC\) to connect to your data source, you m
       "Resource": "*",
       "Condition": {
         "StringEquals": {
-          "ec2:AuthorizedService": "kendra.amazonaws.com"
+          "ec2:AuthorizedService": "kendra.*.amazonaws.com"
         },
         "ArnEquals": {
           "ec2:Subnet": [
@@ -1084,7 +1085,7 @@ If you use a virtual private cloud \(VPC\) to connect to your data source, you m
       "Condition": {
         "StringEquals": {
           "iam:PassedToService": [
-            "kendra.amazonaws.com"
+            "kendra.*.amazonaws.com"
           ]
         }
       }
@@ -1104,7 +1105,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
       {
          "Effect":"Allow",
          "Principal":{
-            "Service":"kendra.amazonaws.com"
+            "Service":"kendra.*.amazonaws.com"
          },
          "Action":"sts:AssumeRole"
       }
@@ -1170,7 +1171,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
       {
          "Effect":"Allow",
          "Principal":{
-            "Service":"kendra.amazonaws.com"
+            "Service":"kendra.*.amazonaws.com"
          },
          "Action":"sts:AssumeRole"
       }
@@ -1223,7 +1224,7 @@ When you use Amazon WorkDocs, you provide a role with the following policies
       "Condition": {
         "StringEquals": {
           "iam:PassedToService": [
-            "kendra.amazonaws.com"
+            "kendra.*.amazonaws.com"
           ]
         }
       }
@@ -1254,7 +1255,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
       {
          "Effect":"Allow",
          "Principal":{
-            "Service":"kendra.amazonaws.com"
+            "Service":"kendra.*.amazonaws.com"
          },
          "Action":"sts:AssumeRole"
       }
@@ -1327,7 +1328,7 @@ When you use Amazon FSx, you provide a role with the following policies\.
           "Resource": "arn:aws:ec2:{{region}}:{{account_id}}:network-interface/*",
           "Condition": {
             "StringEquals": {
-              "ec2:AuthorizedService": "kendra.amazonaws.com"
+              "ec2:AuthorizedService": "kendra.*.amazonaws.com"
             },
             "ArnEquals": {
               "ec2:Subnet": [
@@ -1358,7 +1359,7 @@ When you use Amazon FSx, you provide a role with the following policies\.
           "Condition": {
             "StringEquals": {
               "iam:PassedToService": [
-                "kendra.amazonaws.com"
+                "kendra.*.amazonaws.com"
               ]
             }
           }
@@ -1386,7 +1387,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
       {
          "Effect":"Allow",
          "Principal":{
-            "Service":"kendra.amazonaws.com"
+            "Service":"kendra.*.amazonaws.com"
          },
          "Action":"sts:AssumeRole"
       }
@@ -1462,7 +1463,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
       {
          "Effect":"Allow",
          "Principal":{
-            "Service":"kendra.amazonaws.com"
+            "Service":"kendra.*.amazonaws.com"
          },
          "Action":"sts:AssumeRole"
       }
@@ -1538,7 +1539,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
       {
          "Effect":"Allow",
          "Principal":{
-            "Service":"kendra.amazonaws.com"
+            "Service":"kendra.*.amazonaws.com"
          },
          "Action":"sts:AssumeRole"
       }
@@ -1614,7 +1615,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
       {
          "Effect":"Allow",
          "Principal":{
-            "Service":"kendra.amazonaws.com"
+            "Service":"kendra.*.amazonaws.com"
          },
          "Action":"sts:AssumeRole"
       }
@@ -1690,7 +1691,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
       {
          "Effect":"Allow",
          "Principal":{
-            "Service":"kendra.amazonaws.com"
+            "Service":"kendra.*.amazonaws.com"
          },
          "Action":"sts:AssumeRole"
       }
@@ -1766,7 +1767,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
       {
          "Effect":"Allow",
          "Principal":{
-            "Service":"kendra.amazonaws.com"
+            "Service":"kendra.*.amazonaws.com"
          },
          "Action":"sts:AssumeRole"
       }
@@ -1842,7 +1843,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
       {
          "Effect":"Allow",
          "Principal":{
-            "Service":"kendra.amazonaws.com"
+            "Service":"kendra.*.amazonaws.com"
          },
          "Action":"sts:AssumeRole"
       }
@@ -1918,7 +1919,77 @@ A trust policy to allow Amazon Kendra to assume a role\.
       {
          "Effect":"Allow",
          "Principal":{
-            "Service":"kendra.amazonaws.com"
+            "Service":"kendra.*.amazonaws.com"
+         },
+         "Action":"sts:AssumeRole"
+      }
+   ]
+}
+```
+
+### IAM roles for Dropbox data sources<a name="iam-roles-ds-dropbox"></a>
+
+When you use Dropbox, you provide a role with the following policies\.
++ Permission to access your AWS Secrets Manager secret to authenticate your Dropbox\.
++ Permission to call the required public APIs for the Dropbox connector\.
++ Permission to call the `BatchPutDocument`, `BatchDeleteDocument`, `PutPrincipalMapping`, `DeletePrincipalMapping`, `DescribePrincipalMapping`, and `ListGroupsOlderThanOrderingId` APIs\.
+
+```
+{
+"Version": "2012-10-17",
+  "Statement": [
+  {"Effect": "Allow",
+    "Action": [
+      "secretsmanager:GetSecretValue"
+    ],
+    "Resource": [
+      "arn:aws:secretsmanager:{{region}}:{{account_id}}:secret:[[secret_id]]"
+    ]
+  },
+  {"Effect": "Allow",
+    "Action": [
+      "kms:Decrypt"
+    ],
+    "Resource": [
+      "arn:aws:kms:{{region}}:{{account_id}}:key/[[key_id]]"
+    ],
+    "Condition": {"StringLike": {"kms:ViaService": [
+          "secretsmanager.*.amazonaws.com"
+        ]
+      }
+    }
+  },
+  {"Effect": "Allow",
+    "Action": [
+        "kendra:PutPrincipalMapping",
+        "kendra:DeletePrincipalMapping",
+        "kendra:ListGroupsOlderThanOrderingId",
+        "kendra:DescribePrincipalMapping"
+    ],
+    "Resource": ["arn:aws:kendra:{{region}}:{{account_id}}:index/{{index_id}}", "arn:aws:kendra:{{region}}:{{account_id}}:index/{{index_id}}/data-source/*"]
+  },
+  {"Effect": "Allow",
+    "Action": [
+      "kendra:BatchPutDocument",
+      "kendra:BatchDeleteDocument"
+    ],
+    "Resource": "arn:aws:kendra:{{region}}:{{account_id}}:index/{{index_id}}"
+  }]
+}
+```
+
+#### <a name="iam-trust-policy-assume-role"></a>
+
+A trust policy to allow Amazon Kendra to assume a role\.
+
+```
+{
+   "Version":"2012-10-17",
+   "Statement":[
+      {
+         "Effect":"Allow",
+         "Principal":{
+            "Service":"kendra.*.amazonaws.com"
          },
          "Action":"sts:AssumeRole"
       }
@@ -1966,7 +2037,7 @@ An optional role policy to allow Amazon Kendra to use an AWS KMS customer master
             "Condition": {
                 "StringLike": {
                     "kms:ViaService": [
-                        "kendra.amazonaws.com"
+                        "kendra.*.amazonaws.com"
                     ]
                 }
             }
@@ -1986,7 +2057,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
       {
          "Effect":"Allow",
          "Principal":{
-            "Service":"kendra.amazonaws.com"
+            "Service":"kendra.*.amazonaws.com"
          },
          "Action":"sts:AssumeRole"
       }
@@ -2045,7 +2116,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
       {
          "Effect":"Allow",
          "Principal":{
-            "Service":"kendra.amazonaws.com"
+            "Service":"kendra.*.amazonaws.com"
          },
          "Action":"sts:AssumeRole"
       }
@@ -2104,7 +2175,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
       {
          "Effect":"Allow",
          "Principal":{
-            "Service":"kendra.amazonaws.com"
+            "Service":"kendra.*.amazonaws.com"
          },
          "Action":"sts:AssumeRole"
       }
@@ -2122,7 +2193,7 @@ It is recommended that you include `aws:sourceAccount` and `aws:sourceArn` in th
             "Effect": "Allow",
             "Principal": {
                 "Service": [
-                    "kendra.amazonaws.com"
+                    "kendra.*.amazonaws.com"
                 ]
             },
             "Action": "sts:AssumeRole",
@@ -2169,7 +2240,7 @@ A required role policy to allow Amazon Kendra to access IAM Identity Center\.
           "Condition": {
             "StringEquals": {
               "iam:PassedToService": [
-                "kendra.amazonaws.com"
+                "kendra.*.amazonaws.com"
               ]
             }
           }
@@ -2189,7 +2260,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
       {
          "Effect":"Allow",
          "Principal":{
-            "Service":"kendra.amazonaws.com"
+            "Service":"kendra.*.amazonaws.com"
          },
          "Action":"sts:AssumeRole"
       }
@@ -2256,7 +2327,7 @@ A required role policy to allow Amazon Kendra to access `Query` operations, `Que
       "Condition": {
         "StringLike": {
           "kms:ViaService": [
-            "kendra.amazonaws.com"
+            "kendra.*.amazonaws.com"
           ]
         }
       }
@@ -2276,7 +2347,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
       {
          "Effect":"Allow",
          "Principal":{
-            "Service":"kendra.amazonaws.com"
+            "Service":"kendra.*.amazonaws.com"
          },
          "Action":"sts:AssumeRole"
       }
@@ -2294,7 +2365,7 @@ It is recommended that you include `aws:sourceAccount` and `aws:sourceArn` in th
             "Effect": "Allow",
             "Principal": {
                 "Service": [
-                    "kendra.amazonaws.com"
+                    "kendra.*.amazonaws.com"
                 ]
             },
             "Action": "sts:AssumeRole",
@@ -2404,7 +2475,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
       {
          "Effect":"Allow",
          "Principal":{
-            "Service":"kendra.amazonaws.com"
+            "Service":"kendra.*.amazonaws.com"
          },
          "Action":"sts:AssumeRole"
       }
@@ -2422,7 +2493,7 @@ It is recommended that you include `aws:sourceAccount` and `aws:sourceArn` in th
             "Effect": "Allow",
             "Principal": {
                 "Service": [
-                    "kendra.amazonaws.com"
+                    "kendra.*.amazonaws.com"
                 ]
             },
             "Action": "sts:AssumeRole",

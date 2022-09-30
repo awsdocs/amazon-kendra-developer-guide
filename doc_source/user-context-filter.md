@@ -131,6 +131,7 @@ There is an implementation of user context filtering for each data source\. The 
 + [User context filtering for GitHub data sources](#context-filter-github)
 + [User context filtering for Alfresco data sources](#context-filter-alfresco)
 + [User context filtering for Zendesk data sources](#context-filter-zendesk)
++ [User context filtering for Dropbox data sources](#context-filter-dropbox)
 
 ## User context filtering for documents added directly to an index<a name="context-filter-batch"></a>
 
@@ -404,5 +405,15 @@ When you use an Zendesk data source, Amazon Kendra gets the user and group infor
 The group and user IDs are mapped as follows:
 + `_group_ids`—Group IDs exist in Zendesk tickets and articles where there are set access permissions\. They are mapped from the names of the groups in Zendesk\.
 + `_user_id`—Group IDs exist in Zendesk tickets and articles where there are set access permissions\. They are mapped from the user emails as the IDs in Zendesk\.
+
+You can add up to 200 entries in the `AccessControlList` field\.
+
+## User context filtering for Dropbox data sources<a name="context-filter-dropbox"></a>
+
+When you use a Dropbox data source, Amazon Kendra gets the user and group information from the Dropbox instance\.
+
+The group and user IDs are mapped as follows:
++ `_group_ids` – Group IDs exist in Dropbox on files where there are set access permissions\. They are mapped from the names of the groups in Dropbox\.
++ `_user_id` – User IDs exist in Dropbox on files where there are set access permissions\. They are mapped from the user emails as the IDs in Dropbox\.
 
 You can add up to 200 entries in the `AccessControlList` field\.

@@ -23,6 +23,7 @@ You can create field mappings for the following data sources:
 + GitHub
 + Alfresco
 + Zendesk
++ Dropbox
 
 If you store your documents in an S3 bucket, or S3 data source, you can provide custom attributes directly using metadata files\. For more information, see [Creating custom document attributes or metadata fields](custom-attributes.md)\.
 
