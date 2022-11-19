@@ -4,7 +4,7 @@
 
 # How Amazon Kendra works<a name="how-it-works"></a>
 
-Amazon Kendra provides the functionality to your search application\. It indexes your documents directly or from your third\-party document repository and intelligently serves relevant information to your users\. You can use Amazon Kendra to create an updatable index of documents of a variety of types, including plain text, HTML files, Microsoft Word documents, Microsoft PowerPoint presentations, and PDF files\.
+Amazon Kendra provides search functionality to your application\. It indexes your documents directly or from your third\-party document repository and intelligently serves relevant information to your users\. You can use Amazon Kendra to create an updatable index of documents of a variety of types\. For a list of document types supported by Amazon Kendra see [Types of documents](https://docs.aws.amazon.com/kendra/latest/dg/index-document-types.html)\.
 
 Amazon Kendra integrates with other services\. For example, you can power [Amazon Lex chat bots](https://docs.aws.amazon.com/lexv2/latest/dg/faq-bot-kendra-search.html) with Amazon Kendra search to provide useful answers to users' questions\. You can use an [Amazon Simple Storage Service bucket](https://docs.aws.amazon.com/kendra/latest/dg/data-source-s3.html) as a data source for Amazon Kendra to connect to and index your documents\. And you can set up access policies or permissions to resources using [AWS Identity and Access Management](https://docs.aws.amazon.com/kendra/latest/dg/security-iam.html)\.
 

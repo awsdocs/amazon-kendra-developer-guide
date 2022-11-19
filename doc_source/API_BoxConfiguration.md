@@ -63,7 +63,7 @@ The Amazon Resource Name \(ARN\) of an AWS Secrets Manager secret that contains 
 + publicKeyId—The identifier of the public key contained within an identity certificate\.
 + privateKey—A set of characters that make up an encryption key\.
 + passphrase—A set of characters that act like a password\.
-You create an application in Box to generate the keys or credentials required for the secret\. For more information, see [Authentication for a Box data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-box.html#box-authentication)\.  
+You create an application in Box to generate the keys or credentials required for the secret\. For more information, see [Using a Box data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-box.html)\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1284\.  
 Pattern: `arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}`   

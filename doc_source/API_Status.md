@@ -9,7 +9,7 @@ Provides information about the status of documents submitted for indexing\.
 ## Contents<a name="API_Status_Contents"></a>
 
  ** DocumentId **   <a name="Kendra-Type-Status-DocumentId"></a>
-The unique identifier of the document\.  
+The identifier of the document\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  
 Required: No

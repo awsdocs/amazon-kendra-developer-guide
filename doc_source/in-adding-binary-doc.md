@@ -6,12 +6,7 @@
 
 The following example adds text to an index by calling [BatchPutDocument](API_BatchPutDocument.md)\.
 
-You can use the `BatchPutDocument` API to add documents in the following formats:
-+ DOC
-+ HTML
-+ PDF
-+ Plain text
-+ PPT
+You can use the `BatchPutDocument` API to add documents to your index\. For a list of document types supported by Amazon Kendra see [Types of documents](https://docs.aws.amazon.com/kendra/latest/dg/index-document-types.html)\.
 
 Files added to the index must be in a UTF\-8 encoded byte stream\. In the following examples, UTF\-8 encoded text is added to the index\.
 

@@ -9,8 +9,8 @@ When it comes time to deploy Amazon Kendra search to your website, we provide so
 To deploy a search application with no code and generate an endpoint URL to your search page with access control, see [Amazon Kendra Experience Builder](https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html)\.
 
 There are two examples you can use with React:
-+ [https://kendrasamples\.s3\.amazonaws\.com/kendrasamples\-react\-app\.zip](https://kendrasamples.s3.amazonaws.com/kendrasamples-react-app.zip) – An example React application that provides sample data and a search page\.
-+ [https://kendrasamples\.s3\.amazonaws\.com/kendrasamples\.zip](https://kendrasamples.s3.amazonaws.com/kendrasamples.zip) – A library that you can add to an existing React application\. 
++ [https://kendrasamples\.s3\.amazonaws\.com/kendrasamples\-react\-app\.zip](https://kendrasamples.s3.amazonaws.com/kendrasamples-react-app.zip)—An example React application that provides sample data and a search page\.
++ [https://kendrasamples\.s3\.amazonaws\.com/kendrasamples\.zip](https://kendrasamples.s3.amazonaws.com/kendrasamples.zip)—A library that you can add to an existing React application\. 
 
 The examples are modeled after the search page of the Amazon Kendra console\. They have the same features for searching and displaying search results\. You can use the whole example, or you can choose just one of the features for your own use\.
 
@@ -30,11 +30,11 @@ To see the three components of the search page in the Amazon Kendra console, cho
 ## Overview<a name="example-overview"></a>
 
 You add the example code to an existing React application to enable search\. The search files and components are structured as follows:
-+ Main search page – this is the main page that contains all of the components\. This is where you will integrate your application with the Amazon Kendra API\.
-+ Search bar – this is the component where a user enters a search term and that calls the search function\.
-+ Results – this is the component that displays the results from Amazon Kendra\. It has three components: Suggested answers, FAQ results, and recommended documents\.
-+ Facets – This is the component that shows the facets in the search results and enables you to choose a facet to limit the search\.
-+ Pagination – this is the component that paginates the response from Amazon Kendra\.
++ Main search page—This is the main page that contains all of the components\. This is where you will integrate your application with the Amazon Kendra API\.
++ Search bar—This is the component where a user enters a search term and that calls the search function\.
++ Results—This is the component that displays the results from Amazon Kendra\. It has three components: Suggested answers, FAQ results, and recommended documents\.
++ Facets—This is the component that shows the facets in the search results and enables you to choose a facet to limit the search\.
++ Pagination—This is the component that paginates the response from Amazon Kendra\.
 
 ## Prerequisites<a name="example-prereqs"></a>
 
@@ -79,9 +79,9 @@ The search component provides a text box to enter query text\. The `onSearch` fu
 ## Results component<a name="results-component"></a>
 
 The results component shows the response from the `Query` API\. The results are shown in three separate areas\.
-+ Suggested answers – These are the top results returned by the `Query` API\. It contains up to three suggested answers\. In the response, they have the result type `ANSWER`\.
-+ FAQ answers – These are the frequently asked questions results returned by the response\. FAQs are added to the index separately\. In the response, they have the type `QUESTION_ANSWER`\. For more information, see [Questions and answers](https://docs.aws.amazon.com/kendra/latest/dg/in-creating-faq.html)\. 
-+ Recommended documents – These are additional documents that Amazon Kendra returns in the response\. In the response from the `Query` API, they have the type `DOCUMENT`\.
++ Suggested answers—These are the top results returned by the `Query` API\. It contains up to three suggested answers\. In the response, they have the result type `ANSWER`\.
++ FAQ answers—These are the frequently asked questions results returned by the response\. FAQs are added to the index separately\. In the response, they have the type `QUESTION_ANSWER`\. For more information, see [Questions and answers](https://docs.aws.amazon.com/kendra/latest/dg/in-creating-faq.html)\. 
++ Recommended documents—These are additional documents that Amazon Kendra returns in the response\. In the response from the `Query` API, they have the type `DOCUMENT`\.
 
 The results components share a set of components for features like highlighting, titles, links, and more\. The shared components must be present for the result components to work\. 
 

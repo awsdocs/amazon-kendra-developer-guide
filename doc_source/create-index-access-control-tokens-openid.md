@@ -6,7 +6,7 @@
 
 To configure an Amazon Kendra index to use an OpenID token for access control, you need the JWKS \(JSON Web Key Set\) URL from the OpenID provider\. In most cases the JWKS URL is in the following format \(if they're following openId discovery\) `https://domain-name/.well_known/jwks.json`\. 
 
-The following examples show how to use an OpenID token for user access control when you are create an index\. 
+The following examples show how to use an OpenID token for user access control when you create an index\. 
 
 ------
 #### [ Console ]

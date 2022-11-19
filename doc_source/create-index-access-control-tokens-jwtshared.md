@@ -25,7 +25,7 @@ The following examples show how to use a JSON Web Token \(JWT\) with a shared se
 
    To create a new shared secret, choose **New** and then follow these steps:
 
-   1. Under **New AWS Secrets Manager secret**, specify a **Secret name**\. The prefix `AmazonKendra-` will added when you save the public key\. 
+   1. Under **New AWS Secrets Manager secret**, specify a **Secret name**\. The prefix `AmazonKendra-` will be added when you save the public key\. 
 
    1. Specify a **Key ID**\. The key id is a hint that indicates which key was used to secure the JSON web signature of the token\. 
 

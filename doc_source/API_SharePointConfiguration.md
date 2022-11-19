@@ -63,7 +63,7 @@ Required: No
 
  ** SecretArn **   <a name="Kendra-Type-SharePointConfiguration-SecretArn"></a>
 The Amazon Resource Name \(ARN\) of an AWS Secrets Manager secret that contains the user name and password required to connect to the SharePoint instance\. If you use SharePoint Server, you also need to provide the sever domain name as part of the credentials\. For more information, see [Using a Microsoft SharePoint Data Source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-sharepoint.html)\.  
-You can also provide OAuth authentication credentials of user name, password, client ID, and client secret\. For more information, see [Authentication for a SharePoint data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-sharepoint.html#sharepoint-authentication)\.  
+You can also provide OAuth authentication credentials of user name, password, client ID, and client secret\. For more information, see [Using a SharePoint data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-sharepoint.html)\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1284\.  
 Pattern: `arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}`   

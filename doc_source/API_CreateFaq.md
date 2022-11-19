@@ -115,7 +115,7 @@ If the action is successful, the service sends back an HTTP 200 response\.
 The following data is returned in JSON format by the service\.
 
  ** [Id](#API_CreateFaq_ResponseSyntax) **   <a name="Kendra-CreateFaq-response-Id"></a>
-The unique identifier of the FAQ\.  
+The identifier of the FAQ\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*` 
@@ -125,31 +125,31 @@ Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
  ** AccessDeniedException **   
-  
+You don't have sufficient access to perform this action\. Please ensure you have the required permission policies and user accounts and try again\.  
 HTTP Status Code: 400
 
  ** ConflictException **   
-  
+A conflict occurred with the request\. Please fix any inconsistences with your resources and try again\.  
 HTTP Status Code: 400
 
  ** InternalServerException **   
-  
+An issue occurred with the internal server used for your Amazon Kendra service\. Please wait a few minutes and try again, or contact [ Support](http://aws.amazon.com/aws.amazon.com/contact-us) for help\.  
 HTTP Status Code: 500
 
  ** ResourceNotFoundException **   
-  
+The resource you want to use doesn’t exist\. Please check you have provided the correct resource and try again\.  
 HTTP Status Code: 400
 
  ** ServiceQuotaExceededException **   
-  
+You have exceeded the set limits for your Amazon Kendra service\. Please see Quotas\[hyperlink Kendra Quotas pg\] for more information, or contact [ Support](http://aws.amazon.com/aws.amazon.com/contact-us) to inquire about an increase of limits\.  
 HTTP Status Code: 400
 
  ** ThrottlingException **   
-  
+The request was denied due to request throttling\. Please reduce the number of requests and try again\.  
 HTTP Status Code: 400
 
  ** ValidationException **   
-  
+The input fails to satisfy the constraints set by the Amazon Kendra service\. Please provide the correct input and try again\.  
 HTTP Status Code: 400
 
 ## See Also<a name="API_CreateFaq_SeeAlso"></a>

@@ -64,7 +64,7 @@ Required: No
 
  ** SecretArn **   <a name="Kendra-Type-QuipConfiguration-SecretArn"></a>
 The Amazon Resource Name \(ARN\) of an AWS Secrets Manager secret that contains the key\-value pairs that are required to connect to your Quip\. The secret must contain a JSON structure with the following keys:  
-+ accessToken—The token created in Quip\. For more information, see [Authentication for a Quip data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-slack.html#quip-authentication)\.
++ accessToken—The token created in Quip\. For more information, see [Using a Quip data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-slack.html)\.
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1284\.  
 Pattern: `arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}`   

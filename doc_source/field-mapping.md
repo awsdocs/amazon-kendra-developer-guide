@@ -91,4 +91,4 @@ Amazon Kendra has 15 reserved fields that you can map to data source fields\.
 
 After you created the index fields, you can map the data source fields to the index fields\. In the console, you can create index fields and map data source fields using the custom field mappings editor\. If you're using the API, you can add field mappings using the [CreateDataSource](API_CreateDataSource.md) or [UpdateDataSource](API_UpdateDataSource.md) APIs\.
 
-You can prevent custom index fields from being searchable\. In the console, you simply uncheck **Searchable** for a field in the index field settings\. If you use the API, you simply set `Searchable` to `FALSE` for a field using the [Search](https://docs.aws.amazon.com/kendra/latest/dg/API_Search.html) object\.
+You can prevent custom index fields from being searchable\. In the console, you uncheck **Searchable** for a field in the index field settings\. If you use the API, you set `Searchable` to `FALSE` for a field using the [Search](https://docs.aws.amazon.com/kendra/latest/dg/API_Search.html) object\.

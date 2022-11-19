@@ -33,7 +33,7 @@ Pattern: `^\P{C}*$`
 Required: No
 
  ** ExecutionId **   <a name="Kendra-Type-DataSourceSyncJob-ExecutionId"></a>
-A unique identifier for the synchronization job\.  
+A identifier for the synchronization job\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  
 Required: No

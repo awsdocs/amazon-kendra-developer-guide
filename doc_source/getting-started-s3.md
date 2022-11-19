@@ -4,7 +4,7 @@
 
 # Getting started with an Amazon S3 data source \(console\)<a name="getting-started-s3"></a>
 
-You can use the Amazon Kendra console to get started using an Amazon S3 bucket as a data store\. When you use the console you specify all of the connection information you need to index the contents of the bucket\. For more information, see [Using an S3 data source](data-source-s3.md)\.
+You can use the Amazon Kendra console to get started using an Amazon S3 bucket as a data store\. When you use the console you specify all of the connection information you need to index the contents of the bucket\. For more information, see [Using an Amazon S3 data source](data-source-s3.md)\.
 
 Use the following procedure to create a basic S3 bucket data source using the default configuration\. The procedure assumes that you created an index following the steps in step 1 of [Getting started with the Amazon Kendra console](gs-console.md)\.
 

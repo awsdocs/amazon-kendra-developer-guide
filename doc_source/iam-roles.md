@@ -25,6 +25,8 @@ The following topics provide details for the required policies\. If you create I
 
 When you create an index, you must provide an IAM role with permission to write to an Amazon CloudWatch\. You must also provide a trust policy that allows Amazon Kendra to assume the role\. The following are the policies that must be provided\.
 
+### IAM roles for indexes<a name="permissions-policy"></a>
+
 A role policy to allow Amazon Kendra to access a CloudWatch log\.
 
 ```
@@ -128,7 +130,7 @@ A role policy to allow Amazon Kendra to access AWS Secrets Manager\. If you are 
 }
 ```
 
-### <a name="iam-trust-policy-assume-role"></a>
+#### <a name="iam-trust-policy-assume-role"></a>
 
 A trust policy to allow Amazon Kendra to assume a role\.
 
@@ -139,7 +141,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
       {
          "Effect":"Allow",
          "Principal":{
-            "Service":"kendra.*.amazonaws.com"
+            "Service":"kendra.amazonaws.com"
          },
          "Action":"sts:AssumeRole"
       }
@@ -153,6 +155,8 @@ A trust policy to allow Amazon Kendra to assume a role\.
 Amazon Kendra doesn't use a bucket policy that grants permissions to an Amazon Kendra principal to interact with an S3 bucket\. Instead, it uses IAM roles\. Make sure that Amazon Kendra isn't included as a trusted member in your bucket policy to avoid any data security issues in accidentally granting permissions to arbitrary principals\. However, you can add a bucket policy to use an Amazon S3 bucket across different accounts\. For more information, see [Policies to use Amazon S3 across accounts](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-ds-s3-cross-accounts)\. For information about IAM roles for S3 data sources, see [IAM roles](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-ds-s3)\.
 
 When you use the [BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html) API to index documents in an Amazon S3 bucket, you must provide Amazon Kendra with an IAM role with access to the bucket\. You must also provide a trust policy that allows Amazon Kendra to assume the role\. If the documents in the bucket are encrypted, you must provide permission to use the AWS KMS customer master key \(CMK\) to decrypt the documents\.
+
+### IAM roles for the BatchPutDocument API<a name="iam-roles-batch-json"></a>
 
 A required role policy to allow Amazon Kendra to access an Amazon S3 bucket\.
 
@@ -173,7 +177,7 @@ A required role policy to allow Amazon Kendra to access an Amazon S3 bucket\.
 }
 ```
 
-### <a name="iam-trust-policy-assume-role"></a>
+#### <a name="iam-trust-policy-assume-role"></a>
 
 A trust policy to allow Amazon Kendra to assume a role\.
 
@@ -184,7 +188,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
       {
          "Effect":"Allow",
          "Principal":{
-            "Service":"kendra.*.amazonaws.com"
+            "Service":"kendra.amazonaws.com"
          },
          "Action":"sts:AssumeRole"
       }
@@ -243,26 +247,6 @@ An optional role policy to allow Amazon Kendra to use an AWS KMS customer master
 When you use the [CreateDataSource](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html) API, you must give Amazon Kendra an IAM role that has permission to access the database resources\. The specific permissions required depend on the data source\.
 
 **Topics**
-+ [IAM roles for Amazon S3 data sources](#iam-roles-ds-s3)
-+ [IAM roles for Confluence server data sources](#iam-roles-ds-cnf)
-+ [IAM roles for database data sources](#iam-roles-ds-jdbc)
-+ [IAM roles for Google Workspace Drive data sources](#iam-roles-ds-gd)
-+ [IAM roles for Microsoft OneDrive data sources](#iam-roles-ds-on)
-+ [IAM roles for Salesforce data sources](#iam-roles-ds-sf)
-+ [IAM roles for ServiceNow data sources](#iam-roles-ds-sn)
-+ [IAM roles for Microsoft SharePoint data sources](#iam-roles-ds-spo)
-+ [Virtual private cloud \(VPC\) IAM role](#iam-roles-vpc)
-+ [IAM roles for web crawler data sources](#iam-roles-ds-webcrawler)
-+ [IAM roles for Amazon WorkDocs data sources](#iam-roles-workdocs)
-+ [IAM roles for Amazon FSx data sources](#iam-roles-ds-fsx)
-+ [IAM roles for Slack data sources](#iam-roles-ds-slack)
-+ [IAM roles for Box data sources](#iam-roles-ds-box)
-+ [IAM roles for Quip data sources](#iam-roles-ds-quip)
-+ [IAM roles for Jira data sources](#iam-roles-ds-jira)
-+ [IAM roles for GitHub data sources](#iam-roles-ds-github)
-+ [IAM roles for Alfresco data sources](#iam-roles-ds-alfresco)
-+ [IAM roles for Zendesk data sources](#iam-roles-ds-zendesk)
-+ [IAM roles for Dropbox data sources](#iam-roles-ds-dropbox)
 
 ### IAM roles for Amazon S3 data sources<a name="iam-roles-ds-s3"></a>
 
@@ -339,7 +323,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
       {
          "Effect":"Allow",
          "Principal":{
-            "Service":"kendra.*.amazonaws.com"
+            "Service":"kendra.amazonaws.com"
          },
          "Action":"sts:AssumeRole"
       }
@@ -441,7 +425,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
       {
          "Effect":"Allow",
          "Principal":{
-            "Service":"kendra.*.amazonaws.com"
+            "Service":"kendra.amazonaws.com"
          },
          "Action":"sts:AssumeRole"
       }
@@ -452,7 +436,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
 ### IAM roles for Confluence server data sources<a name="iam-roles-ds-cnf"></a>
 
 When you use a Confluence server as a data source, you provide a role with the following policies:
-+ Permission to access the AWS Secrets Manager secret that contains the credentials necessary to connect to the Confluence server\. For more information about the contents of the secret, see [Using an Atlassian Confluence data source](data-source-confluence.md)\.
++ Permission to access the AWS Secrets Manager secret that contains the credentials necessary to connect to the Confluence server\. For more information about the contents of the secret, see [Using a Confluence data source](data-source-confluence.md)\.
 + Permission to use the AWS KMS customer master key \(CMK\) to decrypt the user name and password secret stored by Secrets Manager\.
 + Permission to use the `BatchPutDocument` and `BatchDeleteDocument` operations to update the index\.
 
@@ -509,7 +493,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
       {
          "Effect":"Allow",
          "Principal":{
-            "Service":"kendra.*.amazonaws.com"
+            "Service":"kendra.amazonaws.com"
          },
          "Action":"sts:AssumeRole"
       }
@@ -520,7 +504,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
 ### IAM roles for database data sources<a name="iam-roles-ds-jdbc"></a>
 
 When you use a database as a data source, you provide Amazon Kendra with a role that has the permissions necessary for connecting to the database\. These include:
-+ Permission to access the AWS Secrets Manager secret that contains the user name and password for the database site\. For more information about the contents of the secret, see [Using a database data source](data-source-database.md)\.
++ Permission to access the AWS Secrets Manager secret that contains the user name and password for the database site\. For more information about the contents of the secret, see [Using an Amazon Kendra database data source](data-source-database.md)\.
 + Permission to use the AWS KMS customer master key \(CMK\) to decrypt the user name and password secret stored by Secrets Manager\.
 + Permission to use the `BatchPutDocument` and `BatchDeleteDocument` operations to update the index\.
 + Permission to access the Amazon S3 bucket that contains the SSL certificate used to communicate with the database site\.
@@ -610,7 +594,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
       {
          "Effect":"Allow",
          "Principal":{
-            "Service":"kendra.*.amazonaws.com"
+            "Service":"kendra.amazonaws.com"
          },
          "Action":"sts:AssumeRole"
       }
@@ -621,7 +605,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
 ### IAM roles for Google Workspace Drive data sources<a name="iam-roles-ds-gd"></a>
 
 When you use a Google Workspace Drive data source, you provide Amazon Kendra with a role that has the permissions necessary for connecting to the site\. These include: 
-+ Permission to get and decrypt the AWS Secrets Manager secret that contains the client account email, admin account email, and private key necessary to connect to the Google Drive site\. For more information about the contents of the secret, see [Using a Google Workspace Drive data source](data-source-google-drive.md)\.
++ Permission to get and decrypt the AWS Secrets Manager secret that contains the client account email, admin account email, and private key necessary to connect to the Google Drive site\. For more information about the contents of the secret, see [Using a Google Drive data source](data-source-google-drive.md)\.
 + Permission to use the [BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html) and [BatchDeleteDocument](https://docs.aws.amazon.com/kendra/latest/dg/API_BatchDeleteDocument.html) APIs\.
 
 The following IAM policy provides the necessary permissions:
@@ -677,7 +661,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
       {
          "Effect":"Allow",
          "Principal":{
-            "Service":"kendra.*.amazonaws.com"
+            "Service":"kendra.amazonaws.com"
          },
          "Action":"sts:AssumeRole"
       }
@@ -688,7 +672,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
 ### IAM roles for Microsoft OneDrive data sources<a name="iam-roles-ds-on"></a>
 
 When you use a Microsoft OneDrive data source, you provide Amazon Kendra with a role that has the permissions necessary for connecting to the site\. These include: 
-+ Permission to get and decrypt the AWS Secrets Manager secret that contains the application ID and secret key necessary to connect to the OneDrive site\. For more information about the contents of the secret, see [Using a Microsoft OneDrive data source](data-source-onedrive.md)\.
++ Permission to get and decrypt the AWS Secrets Manager secret that contains the application ID and secret key necessary to connect to the OneDrive site\. For more information about the contents of the secret, see [Using a OneDrive data source](data-source-onedrive.md)\.
 + Permission to use the [BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html) and [BatchDeleteDocument](https://docs.aws.amazon.com/kendra/latest/dg/API_BatchDeleteDocument.html) APIs\.
 
 The following IAM policy provides the necessary permissions:
@@ -796,7 +780,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
       {
          "Effect":"Allow",
          "Principal":{
-            "Service":"kendra.*.amazonaws.com"
+            "Service":"kendra.amazonaws.com"
          },
          "Action":"sts:AssumeRole"
       }
@@ -862,7 +846,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
       {
          "Effect":"Allow",
          "Principal":{
-            "Service":"kendra.*.amazonaws.com"
+            "Service":"kendra.amazonaws.com"
          },
          "Action":"sts:AssumeRole"
       }
@@ -928,7 +912,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
       {
          "Effect":"Allow",
          "Principal":{
-            "Service":"kendra.*.amazonaws.com"
+            "Service":"kendra.amazonaws.com"
          },
          "Action":"sts:AssumeRole"
       }
@@ -939,7 +923,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
 ### IAM roles for Microsoft SharePoint data sources<a name="iam-roles-ds-spo"></a>
 
 For a Microsoft SharePoint data source, you provide a role with the following policies\.
-+ Permission to access the AWS Secrets Manager secret that contains the user name and password for the SharePoint site\. For more information about the contents of the secret, see [Using a Microsoft SharePoint data source](data-source-sharepoint.md)\.
++ Permission to access the AWS Secrets Manager secret that contains the user name and password for the SharePoint site\. For more information about the contents of the secret, see [Using a SharePoint data source](data-source-sharepoint.md)\.
 + Permission to use the AWS KMS customer master key \(CMK\) to decrypt the user name and password secret stored by AWS Secrets Manager\.
 + Permission to use the `BatchPutDocument` and `BatchDeleteDocument` operations to update the index\.
 + Permission to access the Amazon S3 bucket that contains the SSL certificate used to communicate with the SharePoint site\.
@@ -1028,7 +1012,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
       {
          "Effect":"Allow",
          "Principal":{
-            "Service":"kendra.*.amazonaws.com"
+            "Service":"kendra.amazonaws.com"
          },
          "Action":"sts:AssumeRole"
       }
@@ -1105,7 +1089,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
       {
          "Effect":"Allow",
          "Principal":{
-            "Service":"kendra.*.amazonaws.com"
+            "Service":"kendra.amazonaws.com"
          },
          "Action":"sts:AssumeRole"
       }
@@ -1171,7 +1155,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
       {
          "Effect":"Allow",
          "Principal":{
-            "Service":"kendra.*.amazonaws.com"
+            "Service":"kendra.amazonaws.com"
          },
          "Action":"sts:AssumeRole"
       }
@@ -1255,7 +1239,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
       {
          "Effect":"Allow",
          "Principal":{
-            "Service":"kendra.*.amazonaws.com"
+            "Service":"kendra.amazonaws.com"
          },
          "Action":"sts:AssumeRole"
       }
@@ -1387,7 +1371,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
       {
          "Effect":"Allow",
          "Principal":{
-            "Service":"kendra.*.amazonaws.com"
+            "Service":"kendra.amazonaws.com"
          },
          "Action":"sts:AssumeRole"
       }
@@ -1463,7 +1447,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
       {
          "Effect":"Allow",
          "Principal":{
-            "Service":"kendra.*.amazonaws.com"
+            "Service":"kendra.amazonaws.com"
          },
          "Action":"sts:AssumeRole"
       }
@@ -1539,7 +1523,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
       {
          "Effect":"Allow",
          "Principal":{
-            "Service":"kendra.*.amazonaws.com"
+            "Service":"kendra.amazonaws.com"
          },
          "Action":"sts:AssumeRole"
       }
@@ -1615,7 +1599,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
       {
          "Effect":"Allow",
          "Principal":{
-            "Service":"kendra.*.amazonaws.com"
+            "Service":"kendra.amazonaws.com"
          },
          "Action":"sts:AssumeRole"
       }
@@ -1691,7 +1675,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
       {
          "Effect":"Allow",
          "Principal":{
-            "Service":"kendra.*.amazonaws.com"
+            "Service":"kendra.amazonaws.com"
          },
          "Action":"sts:AssumeRole"
       }
@@ -1767,7 +1751,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
       {
          "Effect":"Allow",
          "Principal":{
-            "Service":"kendra.*.amazonaws.com"
+            "Service":"kendra.amazonaws.com"
          },
          "Action":"sts:AssumeRole"
       }
@@ -1843,7 +1827,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
       {
          "Effect":"Allow",
          "Principal":{
-            "Service":"kendra.*.amazonaws.com"
+            "Service":"kendra.amazonaws.com"
          },
          "Action":"sts:AssumeRole"
       }
@@ -1919,7 +1903,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
       {
          "Effect":"Allow",
          "Principal":{
-            "Service":"kendra.*.amazonaws.com"
+            "Service":"kendra.amazonaws.com"
          },
          "Action":"sts:AssumeRole"
       }
@@ -1989,7 +1973,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
       {
          "Effect":"Allow",
          "Principal":{
-            "Service":"kendra.*.amazonaws.com"
+            "Service":"kendra.amazonaws.com"
          },
          "Action":"sts:AssumeRole"
       }
@@ -2000,6 +1984,8 @@ A trust policy to allow Amazon Kendra to assume a role\.
 ## IAM roles for frequently asked questions<a name="iam-roles-ds-faq"></a>
 
 When you use the [CreateFaq](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateFaq.html) API to load questions and answers into an index, you must provide Amazon Kendra with an IAM role with access to the Amazon S3 bucket that contains the source files\. If the source files are encrypted, you must provide permission to use the AWS KMS customer master key \(CMK\) to decrypt the files\.
+
+### IAM roles for FAQs<a name="iam-roles-faq"></a>
 
 A required role policy to allow Amazon Kendra to access an Amazon S3 bucket\.
 
@@ -2046,7 +2032,7 @@ An optional role policy to allow Amazon Kendra to use an AWS KMS customer master
 }
 ```
 
-### <a name="iam-trust-policy-assume-role"></a>
+#### <a name="iam-trust-policy-assume-role"></a>
 
 A trust policy to allow Amazon Kendra to assume a role\.
 
@@ -2057,7 +2043,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
       {
          "Effect":"Allow",
          "Principal":{
-            "Service":"kendra.*.amazonaws.com"
+            "Service":"kendra.amazonaws.com"
          },
          "Action":"sts:AssumeRole"
       }
@@ -2068,6 +2054,8 @@ A trust policy to allow Amazon Kendra to assume a role\.
 ## IAM roles for query suggestions<a name="iam-roles-query-suggestions"></a>
 
 When you use an Amazon S3 file as a query suggestions block list, you supply a role that has permission to access the Amazon S3 file and the Amazon S3 bucket\. If the block list text file \(the Amazon S3 file\) in the Amazon S3 bucket is encrypted, you must provide permission to use the AWS KMS customer master key \(CMK\) to decrypt the documents\.
+
+### IAM roles for query suggestions<a name="iam-roles-query-sugestions-json"></a>
 
 A required role policy to allow Amazon Kendra to use the Amazon S3 file as your query suggestions block list\.
 
@@ -2105,7 +2093,7 @@ An optional role policy to allow Amazon Kendra to use an AWS KMS customer master
 }
 ```
 
-### <a name="iam-trust-policy-assume-role"></a>
+#### <a name="iam-trust-policy-assume-role"></a>
 
 A trust policy to allow Amazon Kendra to assume a role\.
 
@@ -2116,7 +2104,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
       {
          "Effect":"Allow",
          "Principal":{
-            "Service":"kendra.*.amazonaws.com"
+            "Service":"kendra.amazonaws.com"
          },
          "Action":"sts:AssumeRole"
       }
@@ -2127,6 +2115,8 @@ A trust policy to allow Amazon Kendra to assume a role\.
 ## IAM roles for principal mapping of users and groups<a name="iam-roles-principal-mapping"></a>
 
 When you use the [PutPrincipalMapping](https://docs.aws.amazon.com/kendra/latest/dg/API_PutPrincipalMapping.html) API to map users to their groups for filtering search results by user context, you need to provide a list of users or sub groups that belong to a group\. If your list is more than 1000 users or sub groups for a group, you need to supply a role that has permission to access the Amazon S3 file of your list and the Amazon S3 bucket\. If the text file \(the Amazon S3 file\) of the list in the Amazon S3 bucket is encrypted, you must provide permission to use the AWS KMS customer master key \(CMK\) to decrypt the documents\.
+
+### IAM roles for principal mapping<a name="iam-roles-principal-mapping-json"></a>
 
 A required role policy to allow Amazon Kendra to use the Amazon S3 file as your list of users and sub groups that belong to a group\.
 
@@ -2164,7 +2154,7 @@ An optional role policy to allow Amazon Kendra to use an AWS KMS customer master
 }
 ```
 
-### <a name="iam-trust-policy-assume-role"></a>
+#### <a name="iam-trust-policy-assume-role"></a>
 
 A trust policy to allow Amazon Kendra to assume a role\.
 
@@ -2175,7 +2165,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
       {
          "Effect":"Allow",
          "Principal":{
-            "Service":"kendra.*.amazonaws.com"
+            "Service":"kendra.amazonaws.com"
          },
          "Action":"sts:AssumeRole"
       }
@@ -2214,6 +2204,8 @@ It is recommended that you include `aws:sourceAccount` and `aws:sourceArn` in th
 
 When you use the [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html) object to fetch access levels of groups and users from an AWS IAM Identity Center \(successor to AWS Single Sign\-On\) identity source, you need to supply a role that has permission to access IAM Identity Center\.
 
+### IAM roles for AWS IAM Identity Center \(successor to AWS Single Sign\-On\)<a name="iam-roles-aws-sso-json"></a>
+
 A required role policy to allow Amazon Kendra to access IAM Identity Center\.
 
 ```
@@ -2249,7 +2241,7 @@ A required role policy to allow Amazon Kendra to access IAM Identity Center\.
 }
 ```
 
-### <a name="iam-trust-policy-assume-role"></a>
+#### <a name="iam-trust-policy-assume-role"></a>
 
 A trust policy to allow Amazon Kendra to assume a role\.
 
@@ -2260,7 +2252,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
       {
          "Effect":"Allow",
          "Principal":{
-            "Service":"kendra.*.amazonaws.com"
+            "Service":"kendra.amazonaws.com"
          },
          "Action":"sts:AssumeRole"
       }
@@ -2270,9 +2262,9 @@ A trust policy to allow Amazon Kendra to assume a role\.
 
 ## IAM roles for Amazon Kendra experiences<a name="iam-roles-amazon-kendra-experiences"></a>
 
-### IAM roles for Amazon Kendra search experience<a name="iam-roles-search-app-experience"></a>
+When you use the [CreateExperience](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateExperience.html) or [UpdateExperience](https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateExperience.html) APIs to create or update a search application, you must supply a role that has permission to access the necessary operations and IAM Identity Center\.
 
-When you use the [CreateExperience](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateExperience.html) or [UpdateExperience](https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateExperience.html) APIs to create or update a search application, you must supply a role that has permission to access the necessary operations and IAM Identity Center>\.
+### IAM roles for Amazon Kendra search experience<a name="iam-roles-search-app-experience"></a>
 
 A required role policy to allow Amazon Kendra to access `Query` operations, `QuerySuggestions` operations, `SubmitFeedback` operations, and IAM Identity Center that stores your user and group information\.
 
@@ -2347,7 +2339,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
       {
          "Effect":"Allow",
          "Principal":{
-            "Service":"kendra.*.amazonaws.com"
+            "Service":"kendra.amazonaws.com"
          },
          "Action":"sts:AssumeRole"
       }
@@ -2385,6 +2377,8 @@ It is recommended that you include `aws:sourceAccount` and `aws:sourceArn` in th
 ## IAM roles for Custom Document Enrichment<a name="iam-roles-custom-document-enrichment"></a>
 
 When you use the [CustomDocumentEnrichmentConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_CustomDocumentEnrichmentConfiguration.html) object to apply advanced alterations of your document metadata and content, you must supply a role that has the required permissions to run `PreExtractionHookConfiguration` and/or `PostExtractionHookConfiguration`\. You configure a Lambda function for `PreExtractionHookConfiguration` and/or `PostExtractionHookConfiguration` to apply advanced alterations of your document metadata and content during the ingestion process\. If you choose to enable Server Side Encryption for your Amazon S3 bucket, you must provide permission to use the AWS KMS customer master key \(CMK\) to encrypt and decrypt the objects stored in your Amazon S3 bucket\.
+
+### IAM roles for Custom Document Enrichment<a name="iam-roles-custom-document-enrichment-json"></a>
 
 A required role policy to allow Amazon Kendra to run `PreExtractionHookConfiguration` and `PostExtractionHookConfiguration` with encryption for your Amazon S3 bucket\.
 
@@ -2464,7 +2458,7 @@ An optional role policy to allow Amazon Kendra to run `PreExtractionHookConfigur
 }
 ```
 
-### <a name="iam-trust-policy-assume-role"></a>
+#### <a name="iam-trust-policy-assume-role"></a>
 
 A trust policy to allow Amazon Kendra to assume a role\.
 
@@ -2475,7 +2469,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
       {
          "Effect":"Allow",
          "Principal":{
-            "Service":"kendra.*.amazonaws.com"
+            "Service":"kendra.amazonaws.com"
          },
          "Action":"sts:AssumeRole"
       }

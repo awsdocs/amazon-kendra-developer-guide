@@ -52,8 +52,8 @@ Type: [ProxyConfiguration](API_ProxyConfiguration.md) object
 Required: No
 
  ** SecretArn **   <a name="Kendra-Type-ConfluenceConfiguration-SecretArn"></a>
-The Amazon Resource Name \(ARN\) of an AWS Secrets Manager secret that contains the user name and password required to connect to the Confluence instance\. If you use Confluence Cloud, you use a generated API token as the password\. For more information, see [Using a Confluence data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-confluence.html)\.  
-You can also provide authentication credentials in the form of a personal access token\. For more information, see [Authentication for a Confluence data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-confluence.html#confluence-authentication)\.  
+The Amazon Resource Name \(ARN\) of an AWS Secrets Manager secret that contains the user name and password required to connect to the Confluence instance\. If you use Confluence Cloud, you use a generated API token as the password\.  
+You can also provide authentication credentials in the form of a personal access token\. For more information, see [Using a Confluence data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-confluence.html)\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1284\.  
 Pattern: `arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}`   

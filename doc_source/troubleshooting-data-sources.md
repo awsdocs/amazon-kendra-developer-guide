@@ -54,12 +54,7 @@ Occasionally, an index synchronization job run will be marked as **Succeeded** b
 
 ## I am running into file format issues while syncing my data source<a name="troubleshooting-data-sources-file-format-issues"></a>
 
-If you run into file format issues while adding files to your data source or syncing your data source, make sure that your document types are Kendra supported\. Kendra only supports the following document types:
-+ PDF
-+ HTML
-+ MS\_WORD
-+ PLAIN\_TEXT
-+ PPT
+If you run into file format issues while adding files to your data source or syncing your data source, make sure that your document types are Kendra supported\. For a list of document types supported by Amazon Kendra see [Types of documents](https://docs.aws.amazon.com/kendra/latest/dg/index-document-types.html)\.
 
 If you are using the `BatchPutDocument` API with plain text files, specify `PLAIN_TEXT` as content type\.
 

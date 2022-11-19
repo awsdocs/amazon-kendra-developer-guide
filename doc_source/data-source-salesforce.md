@@ -4,120 +4,150 @@
 
 # Using a Salesforce data source<a name="data-source-salesforce"></a>
 
-You can use your Salesforce server as a data source for Amazon Kendra\. To use Salesforce in the console, go to the [Amazon Kendra console](https://console.aws.amazon.com/kendra/), select your index and then select **Data sources** from the navigation menu to add Salesforce\.
+Salesforce is a customer relationship management \(CRM\) tool for managing support, sales, and marketing teams\. If you are a Salesforce user, you can use Amazon Kendra to index your Salesforce standard objects, knowledge articles, chatter feeds, and all attachments You can't choose to index attachments for individual objects\.\.
 
-Amazon Kendra uses the Salesforce API version 48\. The Salesforce API limits the number of requests that you can make per day\. If Amazon Kendra exceeds those requests, it retries until it is able to continue\.
+When you use Amazon Kendra to index your Salesforce server, you can choose to index up to 17 of the standard Salesforce objects\.
+
+You can connect Amazon Kendra to your Salesforce data source using the [Amazon Kendra console](https://console.aws.amazon.com/kendra/) and the [SalesforceConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_SalesforceConfiguration.html) API\.
 
 For troubleshooting your Amazon Kendra Salesforce data source connector, see [Troubleshooting data sources](troubleshooting-data-sources.md)\.
 
-You must create an index before you create the Salesforce data source\. For more information, see [Creating an index](create-index.md)\. You provide the ID of the index when you create the data source\.
+**Note**  
+Amazon Kendra uses the Salesforce API version 48\. The Salesforce API limits the number of requests that you can make per day\. If Salesforce exceeds those requests, it retries until it is able to continue\.
 
-Before you can connect Amazon Kendra to your Salesforce server, you must create a Salesforce connected app with OAuth enabled so that Amazon Kendra can connect\. When you create an app, it is assigned a consumer key and a consumer secret that Amazon Kendra uses to connect to the app\.
+**Topics**
++ [Supported features](#supported-features-salesforce)
++ [Prerequisites](#prerequisites-salesforce)
++ [Connecting Amazon Kendra to your Salesforce data source](#data-source-procedure-salesforce)
 
-When you use Amazon Kendra to index your Salesforce server, you can choose to index up to 17 of the standard Salesforce objects\. You can also index knowledge articles, chatter feeds, and attachments\.
+## Supported features<a name="supported-features-salesforce"></a>
++ Field mappings
++ User context filtering
++ Inclusion/exclusion filters
 
-You must provide Amazon Kendra with credentials to access your Salesforce server\. These credentials identify the user making the connection and the Salesforce connected app that Amazon Kendra connects to\.
+## Prerequisites<a name="prerequisites-salesforce"></a>
 
-The credentials should be for a user with read\-only access to Salesforce\. To create permissions for the user, clone the ReadOnly profile and then add the View All Data and Manage Articles permissions\.
+Before you can use Amazon Kendra to index your Salesforce data source, you must meet the following requirements:
++ You have created an Amazon Kendra index\. You must create an index before you create the data source\. You need the index id to connect your data source\. For more information on how to create an Amazon Kendra index, see [Creating an index](https://docs.aws.amazon.com/kendra/latest/dg/create-index.html)\.
++ You have an IAM role for your data source\. Amazon Kendra uses this role to access the AWS resources required to create the Amazon Kendra resource\. You provide the Amazon Resource Name \(ARN\) of the IAM role with the policy attached when you connect your data source to Amazon Kendra\. If you are using the API, you must create an IAM role before you connect your datasource\. If you use the AWS console, you can choose to use an existing IAM role or create a new one when you configure your Amazon Kendra connector\. For more information on using an IAM role for your Salesforce data source, see [IAM roles for data sources](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-ds)\.
++ You have created a Salesforce administrative account and have copied the username and password you use to connect to Salesforce\. You will need this information to connect to Amazon Kendra\.
++ You have copied the Salesforce security token associated with the account used to connect to Salesforce\. You will need this information to connect to Amazon Kendra\.
++ You have created a Salesforce connected app account with OAuth enabled and have copied the consumer key \(client ID\) and consumer secret \(client secret\) assigned to your Salesforce connect app\. You will need this information to connect to Amazon Kendra\.
++ You have copied the URL of the Salesforce server that you want to index\. Typically, this is *https://login\.salesforce\.com/services/oauth2/token*\. The server must be running a Salesforce connected app\. You will need this information to connect to Amazon Kendra\.
++ You have added credentials to your Salesforce server for a user with read\-only access to Salesforce by cloning the ReadOnly profile and then adding the View All Data and Manage Articles permissions\. These credentials identify the user making the connection and the Salesforce connected app that Amazon Kendra connects to\.
++ You can find more information on how to configure your Salesforce account on the [Salesforce Developer Documentation](https://developer.salesforce.com/docs) page\.
++ You have an AWS Secrets Manager secret containing the authentication credentials you are using to connect your Salesforce data source with your Amazon Kendra index\. If you are using the console to create your data source, you can create the secret there, or you can use an existing Secrets Manager secret\. If you are using the API, you must provide the Amazon Resource Name \(ARN\) of an existing secret\. It is recommended that you regularly refresh or rotate your credentials and secret, and only provide the necessary level of access for your own security\.
++ \(Optional\) If you want to map attributes or custom index fields from your Salesforce data source to your Amazon Kendra index, you must make sure that these attributes and custom fields already exist in your data source file system custom metadata\.
 
-You store the credentials in an AWS Secrets Manager secret\. It is recommended that you regularly refresh or rotate your credentials and secret, and only provide the necessary level of access for your own security\. If you are using the console to create your data source, you can create the secret there, or you can use an existing Secrets Manager secret\. If you are using the API, you must provide the Amazon Resource Name \(ARN\) of an existing secret\.
+## Connecting Amazon Kendra to your Salesforce data source<a name="data-source-procedure-salesforce"></a>
 
-The secret must contain the following information:
-+ `authenticationUrl` – The URL of the OAuth authentication server used to authenticate with Salesforce\. Typically, this is https://login\.salesforce\.com/services/oauth2/token\.
-+ `consumerKey` – The consumer key, also called the client ID, of the Salesforce Connected App that is used to index the server\. The app must have permission that allows access to the REST API\.
-+ `consumerSecret` – The consumer secret, also called the client secret, of the Salesforce Connected App used to index the server\.
-+ `securityToken` – The Salesforce security token associated with the account used to connect to Salesforce\.
-+ `password` – The password associated with the account used to connect to Salesforce\.
-+ `username` – The user name of the account used to connect to Salesforce\. The account must have read access to the objects and fields that you want to index\.
+To connect Amazon Kendra to your Salesforce data source you must provide details of your Salesforce credentials so that Amazon Kendra can access your data\. If you have not yet configured Salesforce for Amazon Kendra see [Prerequisites](#prerequisites-salesforce)\.
 
-The credentials are stored as a JSON string in the Secrets Manager secret\. The following is the minimum JSON structure that must be in the secret:
+### <a name="salesforce-adding-procedure"></a>
 
-```
-{
-    "username": "user name",
-    "password": "password",
-    "securityToken": "token",
-    "consumerKey": "key",
-    "consumerSecret": "secret",
-    "authenticationUrl": "https://login.salesforce.com/services/oauth2/token"
-}
-```
+------
+#### [ Console ]
 
-The data source IAM role must have permission to access the secret\. For more information, see [IAM roles for Salesforce data sources](iam-roles.md#iam-roles-ds-sf)\.
+**To connect Amazon Kendra to Salesforce** 
 
-The secret can contain more information, however, Amazon Kendra ignores other fields\. For more information, see [ What is AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) in the *AWS Secrets Manager User Guide*\.
+1. Sign in to the Amazon Kendra at [AWS Console](https://console.aws.amazon.com/kendra/)\.
 
-You specify connection and other information in the console or using an instance of the [SalesforceConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_SalesforceConfiguration.html) object\. You must provide the following information: 
-+ The URL of the Salesforce server that contains the information to index\.
-+ The credentials required to connect to the Salesforce server\.
+1. From the left navigation pane, choose **Indexes** and then choose the index you want to connect from the list of indexes\.
 
-You must provide configuration information for indexing at least one of the following:
-+ Salesforce objects
-+ Salesforce knowledge articles
-+ Salesforce chatter feeds
+1. On the **Getting started** page, choose **Add data sources**\.
+**Note**  
+You can choose to configure or edit your **User access control** settings under **Index settings**\. 
 
-You can optionally:
-+ Provide configuration information for indexing attachments\.
-+ Indicate whether Amazon Kendra should gather access control information for user context filtering\.
+1. On the **Add data source** page, choose **Salesforce**, and then choose **Add connector**\.
 
-## Standard objects<a name="salesforce-standard-objects"></a>
+1. On the **Specify data source details** page, enter the following information:
 
-Salesforce provides an extensive list of standard objects that contain information about your customer relations\. You can choose to index any of these standard objects:
-+ Account
-+ Campaign
-+ Case
-+ Contact
-+ Contract
-+ Chatter
-+ Document
-+ Group
-+ Idea
-+ Lead
-+ Opportunity
-+ Partner
-+ Pricebook
-+ Product
-+ Profile
-+ Solution
-+ Task
-+ User
+   1. **Data source name**—Enter a name for your data source\. You can include hyphens but not spaces\.
 
-For each object, you must map an object field to the Amazon Kendra built\-in `_body` field so that Amazon Kendra knows where to find the object content to index\. You can map additional object fields to custom Amazon Kendra fields\. 
+   1. \(Optional\)** Description**—Enter an optional description for your data source\.
 
-Salesforce enables you to add custom fields to standard objects\. To use the custom field with Amazon Kendra, you must use the internal Salesforce field name\. The internal name is the name of the field followed by "\_\_c" \(two underscores and the character c\)\. For example, if you have a custom field named `AccountOriginalOwner`, the internal name is `AccountOriginalOwner__c`\.
+   1. **Default language**—A language to filter your documents for the index\. Unless you specify otherwise, the language defaults to English\. Language specified in metadata overrides selected language\.
 
-You can map fields from multiple objects to a single Amazon Kendra field\. For example, you can map the Account object `Name` field and the Partner object `Name` field to the same Amazon Kendra custom field\.
+   1. **Add new tag**—Tags to search and filter your resources or track your AWS costs\.
 
-Once you save the mapping between an Amazon Kendra field and a Salesforce object field, you can't change the mapping\. However, you can add more mappings between Amazon Kendra and Salesforce\.
+   1. Choose **Next**\.
 
-For more information, see [Mapping data source fields](field-mapping.md)\.
+1. On the **Define access and security** page, enter the following information:
 
-## Knowledge articles<a name="salesforce-knowledge-article"></a>
+   1. **Salesforce URL**—Enter your Salesforce server URL\.
 
-You can use Amazon Kendra to index the contents of standard knowledge articles or custom knowledge articles\. 
+   1. For **Type of authentication**, choose between **Existing** and **New** to store your Salesforce authentication credentials\. If you choose to create a new secret an AWS Secrets Manager secret window opens\. 
 
-When you index standard knowledge articles, Amazon Kendra will index every article on your server, including the standard fields of custom knowledge articles\. If you index custom knowledge articles, Amazon Kendra indexes only articles of that type\. It won't index the contents of standard knowledge articles\. 
+      1. Enter following information in the **Create an AWS Secrets Manager secret window**:
 
-You configure indexing of knowledge articles using the console or the [SalesforceKnowledgeArticleConfiguration](https://docs.aws.amazon.com/latest/dg/API_SalesforceKnowledgeArticleConfiguration.html) object\. You can indicate the status of the articles that you want to index, you can tell Amazon Kendra to index draft, published, or archived articles\.
+        1. **Secret name**—A name for your secret\. The prefix ‘AmazonKendra\-Salesforce\-’ is automatically added to your secret name\.
 
-For custom knowledge articles, you must specify the name of the custom article type\. You must specify the internal name of the article type, which is the name of the type plus "\_\_kav" \(two underscores followed by the characters kav\)\. For example, if you have a customer article type called `CustomKnowledgeArticleForTech`, the internal name is `CustomKnowledgeArticleForTech__kav`\. You can specify up to 10 article types\.
+        1. For **User name**, **Password**, **Security token**, **Consumer key**, **Consumer secret**, and **Authentication URL**—Enter the authentication credential values you generated and downloaded from your Salesforce account\. 
 
-For both custom and standard knowledge articles, you must specify the name of the field that contains the content of the article\. You can optionally specify the field that contains the title\. You can map additional article fields to custom Amazon Kendra fields using the console or the [DataSourceToIndexFieldMapping](https://docs.aws.amazon.com/kendra/latest/dg/API_DataSourceToIndexFieldMapping.html) object\.
+        1. Choose **Save authentication**\.
 
-## Chatter feeds<a name="salesforce-chatter-feeds"></a>
+   1. **IAM role**—Choose an existing IAM role or create a new IAM role to access your repository credentials and index content\.
+**Note**  
+IAM roles used for indexes cannot be used for data sources\. If you are unsure if an existing role is used for an index or FAQ, choose **Create a new role** to avoid errors\.
 
-You can index the contents of your Salesforce chatter feeds\. You configure indexing using the console or the [SalesforceChatterFeedConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_SalesforceChatterFeedConfiguration.html) object\.
+   1. Choose **Next**\.
 
-You must specify the field in the Salesforce FeedItem table that contains the content of the item\. Typically this is the "Body" column\. You have the option of specifying the title of the item\. Typically, this is the "Title" column of the FeedItem table\. You can map additional fields to custom Amazon Kendra fields using the console or the [DataSourceToIndexFieldMapping](https://docs.aws.amazon.com/kendra/latest/dg/API_DataSourceToIndexFieldMapping.html) object\.
+1. On the **Configure sync settings** page, enter the following information:
 
-By default, Amazon Kendra indexes all items on the chatter feed\. You can use the console or the `IncludeFilterType` field of the `SalesforceChatterFeedConfiguration` object to limit indexing to only those items that are from standard Salesforce users or from active user accounts\.
+   1. For **Crawl attachments**—Select to crawl all attached objects, articles, and feeds\.
 
-You can map additional fields to custom Amazon Kendra fields using the console or the `DataSourceToIndexFieldMapping` object\.
+   1. For **Standard objects**, **Knowledge articles**, and **Chatter feeds**—Select Salesforce entities or content types you want to crawl\.
+**Note**  
+You must provide configuration information for indexing at least one of standard objects, knowledge articles, or chatter feeds\. If you choose to crawl **Knowledge articles** you must specify the types of knowledge articles to index, the name of the articles, and whether to index the standard fields of all knowledge articles or only the fields of a custom article type\. If you choose to index custom articles, you must specify the internal name of the article type\. You can specify upto 10 article types\.
 
-## Attachments<a name="salesforce-attachments"></a>
+   1. **Frequency**—How often Amazon Kendra will sync with your data source\.
 
-You can choose to have Amazon Kendra index attachments to standard objects, knowledge articles, and chatter feeds\. You can use the console or the `CrawlAttachments` option on the [SalesforceConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_SalesforceConfiguration.html) object to indicate whether attachments should be indexed\.
+   1. Choose **Next**\.
 
-By default, Amazon Kendra indexes all attachments\. You can use the console or the API to filter attachments from the list that is indexed\. To filter an attachment, you use a regular expression that is evaluated against the file name of the attachment\. For example, to remove JSON files from the list of indexed files, use a regular expression that filters out files that end with "\.json"\.
+1. On the **Set field mappings** page, enter the following information:
 
-You can also restrict indexed documents by specifying the attachments to index\. For example, to index only Microsoft Word files, specify a regular expression that selects files that end with "\.doc" or "\.docx\."
+   1. For **Standard knowledge article**, **Standard object attachments**, and **Additional suggested field mappings** —Select from the Amazon Kendra generated default data source fields you want to map to your index\.
+**Note**  
+An index mapping to `_document_body` is required\. You can't change the mapping between the `Salesforce ID` field and the Amazon Kendra `_document_id `field\. 
+
+   1.  **Add field**—To add custom data source fields to create an index field name to map to and the field data type\.
+
+   1. Choose **Next**\.
+
+1. On the **Review and create** page, check that the information you have entered is correct and then select **Add data source**\. Your data source will appear on the **Data sources** page once it is added successfully\.
+
+------
+#### [ SalesforceConfiguration API ]
+
+**To connect Amazon Kendra to Salesforce**
+
+You must specify the following the [SalesforceConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/SalesforceConfiguration.html) API:
++ **ServerUrl**—The instance URL for the Salesforce site that you want to index\.
++ **Secret Amazon Resource Name \(ARN\)**—You must provide the Amazon Resource Name \(ARN\) of a Secrets Manager secret that contains the authentication credentials you created in your Salesforce account\. You provide the ARN using the `CreateDataSource` API\. The secret is stored in a JSON structure with the following keys: 
+
+  ```
+  {
+      "authenticationUrl": "The OAUTH endpoint that Amazon Kendra connects to get an OAUTH token.",
+      "consumerKey": "The application public key generated when you created your Salesforce application.",
+      "consumerSecret": "The application private key generated when you created your Salesforce application.",
+      "password": "The password associated with the user logging in to the Salesforce instance.",
+      "securityToken": "The token associated with the user account logging in to the Salesforce instance.",
+      "username": "The user name of the user logging in to the Salesforce instance."
+  }
+  ```
+**Note**  
+It is recommended that you regularly refresh or rotate your credentials and secret, and only provide the necessary level of access for your own security\. For more information on permissions, see [IAM roles for Salesforce data sources](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-ds)\.
++ **IAM role**—You must provide an IAM role with permissions to access your Secrets Manager secret and to call the required public APIs for the Salesforce connector and Amazon Kendra\. For more information, see [IAM roles for Salesforce data sources](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-ds)\.
++ You must provide configuration information for indexing at least one of standard objects, knowledge articles, or chatter feeds\.
+  + **Standard objects**—If you choose to crawl **Standard objects**, you must specify the name of the standard object and the name of the field in the standard object table that contains the document contents\.
+  + **Knowledge articles**—If you choose to crawl **Knowledge articles**, you must specify the types of knowledge articles to index, the states of the knowledge articles to index, and whether to index the standard fields of all knowledge articles or only the fields of a custom article type\.
+  + **Chatter feeds**—If you choose to crawl **Chatter feeds**, you must specify the name of the column in the Salesforce FeedItem table that contains the content to index\.
+
+You can also add the following optional features:
++  **Inclusion and exclusion filters**—You can specify whether to include standard objects, knowledge articles, chatter feeds, attachments\. You can also specify regular expression patterns to include or exclude specific standard objects, knowledge articles, chatter feeds, attachments\.\.
+**Note**  
+If you specify an inclusion filter, only content that matches the inclusion filter is indexed\. Any document that doesn’t match the inclusion filter isn’t indexed\. If you specify an inclusion and exclusion filter, documents that match the exclusion filter are not indexed, even if they match the inclusion filter\.
++  **Context filtering**—You can choose to filter a user’s results based on their user or group access to documents\. For more information, see [User context filtering for Salesforce data sources](https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html)\.
++  **Field mappings**—You can choose to map your Salesforce data source fields to your Amazon Kendra index fields\. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html)\.
+
+------

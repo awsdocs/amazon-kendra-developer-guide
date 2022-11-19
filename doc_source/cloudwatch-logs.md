@@ -4,12 +4,12 @@
 
 # Monitoring Amazon Kendra with Amazon CloudWatch Logs<a name="cloudwatch-logs"></a>
 
-Amazon Kendra uses Amazon CloudWatch Logs to give you insight into the operation of your data sources\. Amazon Kendra logs process details for the documents that as they are indexed\. It logs errors from your data source that occur while your documents are being indexed\. You use CloudWatch Logs to monitor, store and access the log files\.
+Amazon Kendra uses Amazon CloudWatch Logs to give you insight into the operation of your data sources\. Amazon Kendra logs process details for the documents as they are indexed\. It logs errors from your data source that occur while your documents are being indexed\. You use CloudWatch Logs to monitor, store and access the log files\.
 
 CloudWatch Logs stores log events in a log stream that is part of a log group\. Amazon Kendra uses these features as follows:
-+ Log groups – Amazon Kendra stores all of your log streams in a single log group for each index\. Amazon Kendra creates the log group when the index is created\. The log group identifier always begins with "aws/kendra/"\.
-+ Log stream – creates a new data source log stream in the log group for each index synchronization job that you run\. It also creates a new document log stream when a stream reaches approximately 500 entries\. 
-+ Log entries – Amazon Kendra creates a log entry in the log stream as it indexes documents\. Each entry provides information about processing the document or any errors that are encountered\.
++ Log groups—Amazon Kendra stores all of your log streams in a single log group for each index\. Amazon Kendra creates the log group when the index is created\. The log group identifier always begins with "aws/kendra/"\.
++ Log stream—Amazon Kendra creates a new data source log stream in the log group for each index synchronization job that you run\. It also creates a new document log stream when a stream reaches approximately 500 entries\. 
++ Log entries—Amazon Kendra creates a log entry in the log stream as it indexes documents\. Each entry provides information about processing the document or any errors that are encountered\.
 
 For more information about using CloudWatch Logs, see [ What Is Amazon Cloud Watch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html) in the *Amazon Cloud Watch Logs User Guide*\. 
 
@@ -72,7 +72,7 @@ There are three types of log messages published to a data source log stream:
 
 ## Document log streams<a name="document-log-stream"></a>
 
-Amazon Kendra logs information about processing documents while the are being indexed\. It logs a set of messages for documents stored in an Amazon S3 data source\. It logs errors only for documents stored in a Microsoft SharePoint or a database data source\.
+Amazon Kendra logs information about processing documents while they are being indexed\. It logs a set of messages for documents stored in an Amazon S3 data source\. It logs errors only for documents stored in a Microsoft SharePoint or a database data source\.
 
 If the documents were added to the index using the [BatchPutDocument](API_BatchPutDocument.md) operation, the log stream is named as follows:
 

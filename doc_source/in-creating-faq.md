@@ -95,7 +95,7 @@ How many free clinics are in Spokane WA?, 13, userID4565, "userID6201, userID755
 
 ## JSON file<a name="faq-custom-json"></a>
 
-You can use a JSON file to provide questions, answers, and attributes for your index\. You can add any of the built\-in attributes and custom attributes to the FAQ\. This is the schema schema for the JSON file\.
+You can use a JSON file to provide questions, answers, and attributes for your index\. You can add any of the built\-in attributes and custom attributes to the FAQ\. This is the schema for the JSON file\.
 
 ```
 {

@@ -26,7 +26,7 @@ Type: [TextWithHighlights](API_TextWithHighlights.md) object
 Required: No
 
  ** DocumentId **   <a name="Kendra-Type-QueryResultItem-DocumentId"></a>
-The unique identifier for the document\.  
+The identifier for the document\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  
 Required: No
@@ -51,7 +51,7 @@ Pattern: `^\P{C}*.\P{C}*$`
 Required: No
 
  ** Id **   <a name="Kendra-Type-QueryResultItem-Id"></a>
-The unique identifier for the query result\.  
+The identifier for the query result\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 73\.  
 Required: No

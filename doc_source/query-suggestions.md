@@ -2,7 +2,7 @@
 
 --------
 
-# Suggesting popular search queries<a name="query-suggestions"></a>
+# Query suggestions<a name="query-suggestions"></a>
 
 Amazon Kendra *Query suggestions* can help your users type their search queries faster and guide their search\.
 

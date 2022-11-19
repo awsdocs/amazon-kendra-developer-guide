@@ -28,7 +28,7 @@ Type: [ServiceNowKnowledgeArticleConfiguration](API_ServiceNowKnowledgeArticleCo
 Required: No
 
  ** SecretArn **   <a name="Kendra-Type-ServiceNowConfiguration-SecretArn"></a>
-The Amazon Resource Name \(ARN\) of the AWS Secrets Manager secret that contains the user name and password required to connect to the ServiceNow instance\. You can also provide OAuth authentication credentials of user name, password, client ID, and client secret\. For more information, see [Authentication for a ServiceNow data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-servicenow.html#servicenow-authentication)\.  
+The Amazon Resource Name \(ARN\) of the AWS Secrets Manager secret that contains the user name and password required to connect to the ServiceNow instance\. You can also provide OAuth authentication credentials of user name, password, client ID, and client secret\. For more information, see [Using a ServiceNow data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-servicenow.html)\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1284\.  
 Pattern: `arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}`   

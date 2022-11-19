@@ -22,13 +22,13 @@ For information about the parameters that are common to all actions, see [Common
 The request accepts the following data in JSON format\.
 
  ** [MaxResults](#API_ListIndices_RequestSyntax) **   <a name="Kendra-ListIndices-request-MaxResults"></a>
-The maximum number of data sources to return\.  
+The maximum number of indices to return\.  
 Type: Integer  
 Valid Range: Minimum value of 1\. Maximum value of 100\.  
 Required: No
 
  ** [NextToken](#API_ListIndices_RequestSyntax) **   <a name="Kendra-ListIndices-request-NextToken"></a>
-If the previous response was incomplete \(because there is more data to retrieve\), Amazon Kendra returns a pagination token in the response\. You can use this pagination token to retrieve the next set of indexes \(`DataSourceSummaryItems`\)\.   
+If the previous response was incomplete \(because there is more data to retrieve\), Amazon Kendra returns a pagination token in the response\. You can use this pagination token to retrieve the next set of indexes\.   
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 800\.  
 Required: No
@@ -71,19 +71,19 @@ Length Constraints: Minimum length of 1\. Maximum length of 800\.
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
  ** AccessDeniedException **   
-  
+You don't have sufficient access to perform this action\. Please ensure you have the required permission policies and user accounts and try again\.  
 HTTP Status Code: 400
 
  ** InternalServerException **   
-  
+An issue occurred with the internal server used for your Amazon Kendra service\. Please wait a few minutes and try again, or contact [ Support](http://aws.amazon.com/aws.amazon.com/contact-us) for help\.  
 HTTP Status Code: 500
 
  ** ThrottlingException **   
-  
+The request was denied due to request throttling\. Please reduce the number of requests and try again\.  
 HTTP Status Code: 400
 
  ** ValidationException **   
-  
+The input fails to satisfy the constraints set by the Amazon Kendra service\. Please provide the correct input and try again\.  
 HTTP Status Code: 400
 
 ## See Also<a name="API_ListIndices_SeeAlso"></a>

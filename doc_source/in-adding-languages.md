@@ -13,43 +13,43 @@ The following languages and their codes are supported \(English or `en` is suppo
 
 | **Language name** | **Language code** | 
 | --- | --- | 
-| Spanish | es | 
-| French | fr | 
-| German | de | 
-| Portuguese | pt | 
-| Japanese | ja | 
-| Korean | ko | 
-| Chinese | zh | 
-| Italian | it | 
-| Hindi | hi | 
 | Arabic | ar | 
 | Armenian | hy | 
 | Basque | eu | 
 | Bengali | bn | 
-| Brazilian | pt\-BR | 
 | Bulgarian | bg | 
 | Catalan | ca | 
+| Chinese \(simplified and traditional\) | zh | 
 | Czech | cs | 
 | Danish | da | 
 | Dutch | nl | 
 | Finnish | fi | 
+| French | fr | 
 | Galician | gl | 
+| German | de | 
 | Greek | el | 
+| Hindi | hi | 
 | Hungarian | hu | 
 | Indonesian | id | 
 | Irish | ga | 
+| Italian | it | 
+| Japanese | ja | 
+| Korean | ko | 
 | Latvian | lv | 
 | Lithuanian | lt | 
 | Norwegian | no | 
 | Persian | fa | 
+| Portuguese | pt | 
+| Portuguese \(Brazil\) | pt\-BR | 
 | Romanian | ro | 
 | Russian | ru | 
 | Sorani | ckb | 
+| Spanish | es | 
 | Swedish | sv | 
 | Turkish | tr | 
 
 Not all Amazon Kendra features are currently available for languages other than English\. The following features aren't available for non\-English indexes:
 + Semantic search of [FAQs](https://docs.aws.amazon.com/kendra/latest/dg/in-creating-faq.html) and extracted answers from documents\. Keyword search is used for retrieving relevant FAQs and for document ranking\.
-+ [Custom synonyms](https://docs.aws.amazon.com/kendra/latest/dg/index-synonyms.html) for domain\-specific, business\-specific, or specialized terms\.
++ [Synonyms](https://docs.aws.amazon.com/kendra/latest/dg/index-synonyms.html), including custom synonyms for domain specific or specialized terms\.
 + [Query suggestions](https://docs.aws.amazon.com/kendra/latest/dg/query-suggestions-overview.html) of popular queries relevant to a search\.
-+ [Confidence scores](https://docs.aws.amazon.com/kendra/latest/dg/API_ScoreAttributes.html) of the search results\.
++ [Confidence ranks](https://docs.aws.amazon.com/kendra/latest/dg/API_ScoreAttributes.html) of the search results\.

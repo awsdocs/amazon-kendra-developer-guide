@@ -36,7 +36,7 @@ Valid Range: Minimum value of 1\. Maximum value of 100\.
 Required: No
 
  ** [NextToken](#API_ListDataSources_RequestSyntax) **   <a name="Kendra-ListDataSources-request-NextToken"></a>
-If the previous response was incomplete \(because there is more data to retrieve\), Amazon Kendra returns a pagination token in the response\. You can use this pagination token to retrieve the next set of data source connectors \(`DataSourceSummaryItems`\)\.   
+If the previous response was incomplete \(because there is more data to retrieve\), Amazon Kendra returns a pagination token in the response\. You can use this pagination token to retrieve the next set of data source connectors\.   
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 800\.  
 Required: No
@@ -80,23 +80,23 @@ Type: Array of [DataSourceSummary](API_DataSourceSummary.md) objects
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
  ** AccessDeniedException **   
-  
+You don't have sufficient access to perform this action\. Please ensure you have the required permission policies and user accounts and try again\.  
 HTTP Status Code: 400
 
  ** InternalServerException **   
-  
+An issue occurred with the internal server used for your Amazon Kendra service\. Please wait a few minutes and try again, or contact [ Support](http://aws.amazon.com/aws.amazon.com/contact-us) for help\.  
 HTTP Status Code: 500
 
  ** ResourceNotFoundException **   
-  
+The resource you want to use doesn’t exist\. Please check you have provided the correct resource and try again\.  
 HTTP Status Code: 400
 
  ** ThrottlingException **   
-  
+The request was denied due to request throttling\. Please reduce the number of requests and try again\.  
 HTTP Status Code: 400
 
  ** ValidationException **   
-  
+The input fails to satisfy the constraints set by the Amazon Kendra service\. Please provide the correct input and try again\.  
 HTTP Status Code: 400
 
 ## See Also<a name="API_ListDataSources_SeeAlso"></a>

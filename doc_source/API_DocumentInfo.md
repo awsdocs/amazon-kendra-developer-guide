@@ -22,7 +22,7 @@ Type: Array of [DocumentAttribute](API_DocumentAttribute.md) objects
 Required: No
 
  ** DocumentId **   <a name="Kendra-Type-DocumentInfo-DocumentId"></a>
-The unique identifier of the document\.  
+The identifier of the document\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  
 Required: Yes

@@ -20,14 +20,14 @@ Valid Values:` DEVELOPER_EDITION | ENTERPRISE_EDITION`
 Required: No
 
  ** Id **   <a name="Kendra-Type-IndexConfigurationSummary-Id"></a>
-A unique identifier for the index\. Use this to identify the index when you are using APIs such as `Query`, `DescribeIndex`, `UpdateIndex`, and `DeleteIndex`\.  
+A identifier for the index\. Use this to identify the index when you are using APIs such as `Query`, `DescribeIndex`, `UpdateIndex`, and `DeleteIndex`\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`   
 Required: No
 
  ** Name **   <a name="Kendra-Type-IndexConfigurationSummary-Name"></a>
-The identifier of the index\.  
+The name of the index\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1000\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`   

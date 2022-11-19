@@ -29,8 +29,9 @@ Service quotas, also referred to as limits, are the maximum number of service re
 | Maximum number of queries per second for an index or a single unit of query capacity\. You can add up to 100 extra units\. | 0\.1 | Enterprise | Yes | 
 | Maximum number of additional storage capacity units per index | 100 | Enterprise | Yes | 
 | Maximum number of additional query capacity units per index | 100 | Enterprise | Yes | 
-| Maximum number of search results per query\. Default is 100\. To enable more than 100 results, see [Quotas Support](https://console.aws.amazon.com/servicequotas/)\. | 100 | All editions | Yes | 
+| Maximum number of search results per query\. Default is 100\. To enable more than 100 results, see [Quotas Support](http://aws.amazon.com/contact-us/)\. | 100 | All editions | Yes | 
 | Maximum number of search results per page | 100 | All editions | Yes | 
+| Maximum number of token words per query text before truncation\. Default is 30\. To enable more than 30 words, see [Quotas Support](http://aws.amazon.com/contact-us/)\. | 30 | All editions | Yes | 
 | Maximum size of a single document | 50 MB | All editions | Yes | 
 | Maximum amount of text extracted from a single document | 5 MB | All editions | No | 
 | Maximum user group list size per query attribute | 10 | All editions | Yes | 

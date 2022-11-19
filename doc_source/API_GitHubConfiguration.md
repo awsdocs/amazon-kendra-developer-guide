@@ -116,7 +116,7 @@ Required: No
 
  ** SecretArn **   <a name="Kendra-Type-GitHubConfiguration-SecretArn"></a>
 The Amazon Resource Name \(ARN\) of an AWS Secrets Manager secret that contains the key\-value pairs required to connect to your GitHub\. The secret must contain a JSON structure with the following keys:  
-+ personalToken—The access token created in GitHub\. For more information on creating a token in GitHub, see [Authentication for a GitHub data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-github.html#github-authentication)\.
++ personalToken—The access token created in GitHub\. For more information on creating a token in GitHub, see [Using a GitHub data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-github.html)\.
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1284\.  
 Pattern: `arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}`   

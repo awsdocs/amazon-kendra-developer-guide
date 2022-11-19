@@ -20,7 +20,7 @@ Valid Values:` CSV | CSV_WITH_HEADER | JSON`
 Required: No
 
  ** Id **   <a name="Kendra-Type-FaqSummary-Id"></a>
-The unique identifier of the FAQ\.  
+The identifier of the FAQ\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`   

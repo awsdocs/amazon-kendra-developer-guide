@@ -4,7 +4,7 @@
 
 # Prerequisites<a name="gs-prerequisites"></a>
 
-The following steps are prerequisites for the getting started exercises\. The steps show you how to set up your account, create an IAM role that gives Amazon Kendra permission to make calls on your behalf, and index documents from an Amazon S3 bucket\. S3 bucket is used as an example, but you can use other data sources that Amazon Kendra supports \- see [Data Sources](https://docs.aws.amazon.com/kendra/latest/dg/hiw-data-source.html)\.
+The following steps are prerequisites for the getting started exercises\. The steps show you how to set up your account, create an IAM role that gives Amazon Kendra permission to make calls on your behalf, and index documents from an Amazon S3 bucket\. S3 bucket is used as an example, but you can use other data sources that Amazon Kendra supports\. See [Data Sources](https://docs.aws.amazon.com/kendra/latest/dg/hiw-data-source.html)\.
 
 1. Create an AWS account and an AWS Identity and Access Management user, as specified in [Sign up for AWS](setup.md#aws-kendra-set-up-aws-account)\.
 
@@ -14,7 +14,7 @@ The following steps are prerequisites for the getting started exercises\. The st
 
    If you are using another data source, you must have an active site and credentials to connect to the data source\.
 
-If you are using the console to get started, first do [Getting started with the Amazon Kendra console](gs-console.md)\.
+If you are using the console to get started, start with [Getting started with the Amazon Kendra console](gs-console.md)\.
 
 ## Amazon Kendra resources: AWS CLI, SDK, console<a name="gs-prereq-cli-sdk"></a>
 

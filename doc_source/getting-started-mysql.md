@@ -23,12 +23,12 @@ Use the following procedure to create a basic MySQL database\. The procedure ass
 1. From the navigation pane, choose **Databases** and then choose **Create database\.**
 
 1. Use the following parameters to create the database\. Leave all of the other parameters at their defaults\.
-   + **Engine options** – MySQL
-   + **Templates** – Free tier
-   + **Credential Settings** – Enter and confirm a password
+   + **Engine options**—MySQL
+   + **Templates**—Free tier
+   + **Credential Settings**—Enter and confirm a password
    + Under **Connectivity**, choose **Additional connectivity configuration**\. Make the following choices\.
-     + **Subnet group** – Choose the subnet group that you created in step 4\.
-     + **VPC security group** – Choose the group that contains both inbound and outbound rules that you created in your VPC\. For example, **DataSourceSecurityGroup**\. For more information on configuring a VPC, see [Configuring Amazon Kendra to use a VPC](https://docs.aws.amazon.com/kendra/latest/dg/vpc-configuration.html)\.
+     + **Subnet group**—Choose the subnet group that you created in step 4\.
+     + **VPC security group**—Choose the group that contains both inbound and outbound rules that you created in your VPC\. For example, **DataSourceSecurityGroup**\. For more information on configuring a VPC, see [Configuring Amazon Kendra to use a VPC](https://docs.aws.amazon.com/kendra/latest/dg/vpc-configuration.html)\.
    + Under **Additional configuration**, set the **Initial database name** to **content**\.
 
 1. Choose **Create database**\.
@@ -36,9 +36,9 @@ Use the following procedure to create a basic MySQL database\. The procedure ass
 1. From the list of databases, choose your new database\. Make a note of the database endpoint\.
 
 1. After you create your database, you must create a table to hold your documents\. Creating a table is outside the scope of these instructions\. When you create your table, note the following:
-   + Database name – **content**
-   + Table name – **documents**
-   + Columns – **ID**, **Title**, **Body**, and **LastUpdate**\. You can include additional columns if you want\.
+   + Database name—**content**
+   + Table name—**documents**
+   + Columns—**ID**, **Title**, **Body**, and **LastUpdate**\. You can include additional columns if you want\.
 
 Now that you have created your MySQL database, you can create a data source for the database\.
 
@@ -55,23 +55,23 @@ Now that you have created your MySQL database, you can create a data source for 
 1. Choose **MySQL**\.
 
 1. Under **Connection access**, enter the following information:
-   + **Endpoint** – The endpoint of the database that you created earlier\.
-   + **Port** – The port number for the database\. For MySQL, the default is 3306\.
-   + **Type of authentication** – Choose **New**\.
-   + **New secret container name** – A name for the Secrets Manager container for the database credentials\.
-   + **Username** – The name of a user with administrative access to the database\.
-   + **Password** – The password for the user, and then choose **Save authentication**\.
-   + **Database name** – **content**\.
-   + **Table name** – **documents**\.
-   + **IAM role** – Choose **Create a new role**, and then type a name for the role\.
+   + **Endpoint**—The endpoint of the database that you created earlier\.
+   + **Port**—The port number for the database\. For MySQL, the default is 3306\.
+   + **Type of authentication**—Choose **New**\.
+   + **New secret container name**—A name for the Secrets Manager container for the database credentials\.
+   + **Username**—The name of a user with administrative access to the database\.
+   + **Password**—The password for the user, and then choose **Save authentication**\.
+   + **Database name**—**content**\.
+   + **Table name**—**documents**\.
+   + **IAM role**—Choose **Create a new role**, and then type a name for the role\.
 
 1. In **Column configuration** enter the following:
-   + **Document ID column name** – **ID**
-   + **Document title column name** – **Title**
-   + **Document data column name** – **Body**
+   + **Document ID column name**—**ID**
+   + **Document title column name**—**Title**
+   + **Document data column name**—**Body**
 
 1. In **Column change detection** enter the following:
-   + **Change detecting columns** – **LastUpdate**
+   + **Change detecting columns**—**LastUpdate**
 
 1. In **Configure VPC & security group** provide the following:
    + In **Virtual Private Cloud \(VPC\)**, choose your VPC\.

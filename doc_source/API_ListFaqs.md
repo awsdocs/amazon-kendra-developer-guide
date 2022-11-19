@@ -80,23 +80,23 @@ Length Constraints: Minimum length of 1\. Maximum length of 800\.
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
  ** AccessDeniedException **   
-  
+You don't have sufficient access to perform this action\. Please ensure you have the required permission policies and user accounts and try again\.  
 HTTP Status Code: 400
 
  ** InternalServerException **   
-  
+An issue occurred with the internal server used for your Amazon Kendra service\. Please wait a few minutes and try again, or contact [ Support](http://aws.amazon.com/aws.amazon.com/contact-us) for help\.  
 HTTP Status Code: 500
 
  ** ResourceNotFoundException **   
-  
+The resource you want to use doesn’t exist\. Please check you have provided the correct resource and try again\.  
 HTTP Status Code: 400
 
  ** ThrottlingException **   
-  
+The request was denied due to request throttling\. Please reduce the number of requests and try again\.  
 HTTP Status Code: 400
 
  ** ValidationException **   
-  
+The input fails to satisfy the constraints set by the Amazon Kendra service\. Please provide the correct input and try again\.  
 HTTP Status Code: 400
 
 ## See Also<a name="API_ListFaqs_SeeAlso"></a>

@@ -75,7 +75,7 @@ Required: No
  ** SecretArn **   <a name="Kendra-Type-JiraConfiguration-SecretArn"></a>
 The Amazon Resource Name \(ARN\) of a secret in AWS Secrets Manager contains the key\-value pairs required to connect to your Jira data source\. The secret must contain a JSON structure with the following keys:  
 + jiraId—The Jira username\.
-+ jiraCredentials—The Jira API token\. For more information on creating an API token in Jira, see [ Authentication for a Jira data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-jira.html#jira-authentication)\.
++ jiraCredentials—The Jira API token\. For more information on creating an API token in Jira, see [ Using a Jira data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-jira.html)\.
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1284\.  
 Pattern: `arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}`   

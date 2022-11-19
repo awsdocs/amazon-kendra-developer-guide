@@ -2,143 +2,223 @@
 
 --------
 
-# Using a Microsoft SharePoint data source<a name="data-source-sharepoint"></a>
+# Using a SharePoint data source<a name="data-source-sharepoint"></a>
 
-You can use your Microsoft SharePoint as a data source for Amazon Kendra\. To use SharePoint in the console, go to the [Amazon Kendra console](https://console.aws.amazon.com/kendra/), select your index and then select **Data sources** from the navigation menu to add SharePoint\.
-
-For troubleshooting the Amazon Kendra SharePoint data source connector, see [Troubleshooting data sources](troubleshooting-data-sources.md)\.
+SharePoint is a collaborative website building service that you can use to customize web content and create pages, sites, document libraries, and lists\. If you are a SharePoint user, you can use Amazon Kendra to index your SharePoint data source\.
 
 Amazon Kendra currently supports SharePoint Online and SharePoint Server \(versions 2013, 2016, and 2019\)\.
 
-You must create an index before you create the SharePoint data source\. For more information, see [Creating an index](https://docs.aws.amazon.com/kendra/latest/dg/create-index.html)\. You provide the ID of the index when you create the data source\.
+You can connect Amazon Kendra to your SharePoint data source using the [Amazon Kendra console](https://console.aws.amazon.com/kendra/) and the [SharePointConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_SharePointConfiguration.html) API\.
 
-Before you can index your documents from your SharePoint, you must be a SharePoint user with administrative permissions\. For SharePoint lists, you must have the following permissions:
-+ Open Items—View the source of documents with server\-side file handlers\.
-+ View Application Pages – View forms, views, and application pages\. Enumerate lists\.
-+ View Items—View items in lists and documents in document libraries\.
-+ View Versions—View past versions of a list item or document\.
+For troubleshooting your Amazon Kendra SharePoint data source connector, see [Troubleshooting data sources](troubleshooting-data-sources.md)\.
 
-For SharePoint websites, you must have the following permissions:
-+ Browse Directories—Enumerate files and folders in a website using SharePoint Designer and Web DAV interfaces\.
-+ Browse User Information—View information about users of the website\.
-+ Enumerate Permissions—Enumerate permissions on the website, list, folder, document, or list item\.
-+ Open—Open a website, list, or folder to access items inside the container\.
-+ Use Client Integration Features—Use SOAP, WebDAV, the client object model, or SharePoint Designer interfaces to access the website\.
-+ Use Remote Interfaces—Use features that launch client applications\.
-+ View Pages—View pages on a website\.
+**Topics**
++ [Supported features](#supported-features-sharepoint)
++ [Prerequisites](#prerequisites-sharepoint)
++ [Connecting Amazon Kendra to your SharePoint data source](#data-source-procedure-sharepoint)
++ [Learn more](#sharepoint-learn-more)
 
-You must also use an Amazon Virtual Private Cloud if you use SharePoint Server\.
+## Supported features<a name="supported-features-sharepoint"></a>
++ Change log
++ Field mappings
++ User context filtering
++ Inclusion/exclusion filters
++ Virtual private cloud \(VPC\)
 
-When you connect to SharePoint to index your documents, you specify which SharePoint URLs to include in the index\. You can specify regular expression patterns to include or exclude specific documents in your SharePoint\.
+## Prerequisites<a name="prerequisites-sharepoint"></a>
 
-To connect to SharePoint, you specify the connection and other information in the console or by using the [SharePointConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_SharePointConfiguration.html) object\. You provide the site URLs in SharePoint you want to index\.
+Before you can use Amazon Kendra to index your SharePoint data source, you must meet the following requirements:
++ You have created an Amazon Kendra index\. You must create an index before you create the data source\. You need the index id to connect your data source\. For more information on how to create an Amazon Kendra index, see [Creating an index](https://docs.aws.amazon.com/kendra/latest/dg/create-index.html)\.
++ You have an IAM role for your data source\. Amazon Kendra uses this role to access the AWS resources required to create the Amazon Kendra resource\. You provide the Amazon Resource Name \(ARN\) of the IAM role with the policy attached when you connect your data source to Amazon Kendra\. If you are using the API, you must create an IAM role before you connect your datasource\. If you use the AWS console, you can choose to use an existing IAM role or create a new one when you configure your Amazon Kendra connector\. For more information on using an IAM role for your SharePoint data source, see [IAM roles for data sources](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-ds)\.
++ You are a SharePoint user with administrative permissions\.
++ You have copied the URL of the SharePoint sites you want to index\. You need this information to connect SharePoint to Amazon Kendra\.
++ In your SharePoint account, you have:
+  + Generated a client ID and client secret in your SharePoint account\.
+  + Created SharePoint basic authentication credentials that connect to Amazon Kendra using a user name and password\.
 
-You must specify the version of SharePoint you use when configuring SharePoint\. This is the case no matter if you use SharePoint Server 2013, SharePoint Server 2016, SharePoint Server 2019, or SharePoint Online\.
+    You can use basic authentication to connect to SharePoint Online to Amazon Kendra\. If you are using SharePoint Server you must provide your server domain name and your user name and password\. The server domain name is the NetBIOS name in your Active Directory provider\.
+**Note**  
+If you use SharePoint Server and need to convert your Access Control List \(ACL\) to email format for filtering on user context, provide the LDAP server URL and LDAP search base\. Or you can use the directory domain override\. The LDAP server URL is the full domain name and the port number \(for example, ldap://example\.com:389\)\. The LDAP search base are the domain controllers 'example' and 'com'\. With the directory domain override, you can use the email domain instead of using LDAP server URL and LDAP search base\. For example, the email domain for username@example\.com is 'example\.com'\. You can use this override if you aren't concerned about validating your domain and simply want to use your email domain\.
+  + Created OAuth2 authentication credentials that identifies Amazon Kendra and a user name, password, client ID and client secret\.
+  + Added the following permissions to your SharePoint account:
 
-You also must provide the Amazon Resource Name \(ARN\) of an IAM role that gives permission to access your AWS Secrets Manager secret\. The secret stores your SharePoint authentication credentials, and the AWS Key Management Service key used to decrypt it\. You provide the ARN of an IAM role using [CreateDataSource](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html)\. For more information about permissions, see [IAM roles for Microsoft SharePoint data sources](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-ds)\.
+     **For SharePoint lists:**
+    + Open Items—View the source of documents with server\-side file handlers\.
+    + View Application Pages—View forms, views, and application pages\. Enumerate lists\.
+    + View Items—View items in lists and documents in document libraries\.
+    + View Versions—View past versions of a list item or document\.
 
-Amazon Kendra requires authentication credentials to access your SharePoint instance\. See [Authentication](#sharepoint-authentication)\.
+    **For SharePoint websites**
+    + Browse Directories—Enumerate files and folders in a website using SharePoint Designer and Web DAV interface\.
+    + Browse User Information—View information about users of the website\.
+    + Enumerate Permissions—Enumerate permissions on the website, list, folder, document, or list item\.
+    + Open—Open a website, list, or folder to access items inside the container\.
+    + Use Client Integration Features—Use SOAP, WebDAV, the client object model, or SharePoint Designer interfaces to access the website\.
+    + Use Remote Interfaces—Use features that launch client applications\.
+    + View Pages—View pages on a website\.
 
-Amazon Kendra also crawls user and group information from the SharePoint instance\. This is useful for user context filtering, where search results are filtered based on the user or their group access to documents\. For more information, see [User context filtering for SharePoint data sources](https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html#context-filter-sharepoint-online)\.
+    You can find more information on how to configure your SharePoint account on the [Sharepoint Developer Documentation](https://learn.microsoft.com/en-us/sharepoint/dev/) page\.
++ You have an AWS Secrets Manager secret containing the authentication credentials you are using to connect your SharePoint data source with your Amazon Kendra index\. If you are using the console to create your data source, you can create the secret there, or you can use an existing Secrets Manager secret\. If you are using the API, you must provide the Amazon Resource Name \(ARN\) of an existing secret\. It is recommended that you regularly refresh or rotate your credentials and secret, and only provide the necessary level of access for your own security\.
++ \(Optional\) If you want to map attributes or custom index fields from your SharePoint data source to your Amazon Kendra index, you must make sure that these attributes and custom fields already exist in your data source file system custom metadata\.
 
-You also can add the following optional information:
-+ Whether Amazon Kendra should index the contents of attachments to SharePoint list items\.
-+ Whether to connect to your Microsoft SharePoint site URLs via a web proxy\. You can use this option for SharePoint Server\.
-+ Whether Amazon Kendra should use the SharePoint change log mechanism to determine if a document must be added, updated, or deleted in the index\. Use the change log if you don't want Amazon Kendra to scan all of the documents\. If your change log is large, it might take Amazon Kendra less time to scan the documents in SharePoint than to process the change log\. If you're syncing your SharePoint data source with your index for the first time, all documents are scanned\.
-+ Inclusion or exclusion patterns: If you specify an inclusion pattern, only content that matches the inclusion pattern is indexed\. Any document with a file name or file type that doesn't match the pattern isn't indexed\. If you specify an inclusion and exclusion pattern, documents that match the exclusion pattern are not indexed even if they match the inclusion pattern\.
-+ Field mappings that map your SharePoint fields to Amazon Kendra index fields\. For more information, see [Mapping data source fields](field-mapping.md)\.
+## Connecting Amazon Kendra to your SharePoint data source<a name="data-source-procedure-sharepoint"></a>
 
-## Authentication<a name="sharepoint-authentication"></a>
+To connect Amazon Kendra to your SharePoint data source you must provide details of your SharePoint credentials so that Amazon Kendra can access your data\. If you have not yet configured SharePoint for Amazon Kendra see [Prerequisites](#prerequisites-sharepoint)\.
 
-There are two types of authentication that you can use with Microsoft SharePoint\. The first, basic authentication, permits Amazon Kendra to connect to the SharePoint instance using a user name and password\.
+### <a name="sharepoint-adding-procedure"></a>
 
-The second, OAuth, uses the OAuth 2\.0 authentication specification to identify Amazon Kendra and a user name and password\. You can use OAuth authentication for SharePoint Online\.
+------
+#### [ Console ]
 
-You must have administrative permissions to the SharePoint instance, whether you use basic authentication or OAuth authentication\.
+**To connect Amazon Kendra to SharePoint** 
 
-It is recommended that you regularly refresh or rotate your credentials and secret, and only provide the necessary level of access for your own security\.
+1. Sign in to the Amazon Kendra at [AWS Console](https://console.aws.amazon.com/kendra/)\.
 
-### Basic authentication<a name="sharepoint-auth-basic"></a>
+1. From the left navigation pane, choose **Indexes** and then choose the index you want to connect from the list of indexes\.
 
-When you use basic authentication, you provide the user name and password of an administrator of your SharePoint instance\. Amazon Kendra uses these credentials to connect to SharePoint\.
+1. On the **Getting started** page, choose **Add data sources**\.
+**Note**  
+You can choose to configure or edit your **User access control** settings under **Index settings**\. 
 
-You store your user name and password in an AWS Secrets Manager secret\. If you are using the Amazon Kendra console to create your data source, you can create the secret while creating the data source\. Or you can use an existing Secrets Manager secret\. If you are using the API to create your data source, you must provide the Amazon Resource Name \(ARN\) of an existing secret\.
+1. On the **Add data source** page, choose **SharePoint**, and then choose **Add connector**\.
 
-If you use SharePoint Online, you only need to provide your user name and password in your secret\. If you use SharePoint Server, in addition to your user name and password, provide the server domain name\. The server domain name is the NetBIOS name in your Active Directory provider\.
+1. On the **Specify data source details** page, enter the following information:
 
-The basic credentials are stored as a JSON string in the Secrets Manager secret\.
+   1. **Data source name**—Enter a name for your data source\. You can include hyphens but not spaces\.
 
-If you use SharePoint Online, the following is the minimum JSON structure that must be in your secret:
+   1. \(Optional\)** Description**—Enter an optional description for your data source\.
 
-```
-{
-    "username": "user name",
-    "password": "password"
-}
-```
+   1. **Default language**—A language to filter your documents for the index\. Unless you specify otherwise, the language defaults to English\. Language specified in metadata overrides selected language\.
 
-If you use SharePoint Server, the following is the minimum JSON structure that must be in your secret:
+   1. **Add new tag**—Tags to search and filter your resources or track your AWS costs\.
 
-```
-{
-    "username": "user name",
-    "password": "password",
-    "domain": "server domain name"
-}
-```
+   1. Choose **Next**\.
 
-If you use SharePoint Server and need to convert your Access Control List \(ACL\) to email format for filtering on user context, provide the LDAP server URL and LDAP search base\. Or you can use the directory domain override\. The LDAP server URL is the full domain name and the port number \(for example, *ldap://example\.com:389*\)\. The LDAP search base are the domain controllers 'example' and 'com'\. With the directory domain override, you can use the email domain instead of using LDAP server URL and LDAP search base\. For example, the email domain for *username@example\.com* is 'example\.com'\. You can use this override if you aren't concerned about validating your domain and simply want to use your email domain\.
+1. On the **Define access and security** page, enter the following information:
 
-You can include the LDAP server URL and LDAP search base in your secret for SharePoint Server using the following JSON structure:
+   1. For **Hosting method**—Choose between **SharePoint Online** and **SharePoint Server**\.
 
-```
-{
-    "username": "user name",
-    "password": "password",
-    "domain": "server domain name",
-    "ldapServerUrl": "ldap://example.com:389",
-    "ldapSearchBase": "dc=example,dc=com",
-    "directoryDomainOverride": "example.com"
-}
-```
+   1. If choosing **SharePoint Server** you will also have to choose **SharePoint version**, **Site URLs specific to your SharePoint repository**, and **SSL certificate location**\.
 
-### OAuth authentication<a name="sharepoint-auth-oauth"></a>
+   1. For **Web proxy**—Enter the **Host name** and **Port number** of your internal SharePoint instance\.
 
-When you use OAuth authentication to connect to Microsoft SharePoint, you provide the client ID and secret that identifies Amazon Kendra to SharePoint Online\. You also provide a user name and password that is used to access your SharePoint instance\.
+   1. For **Authentication**—Choose between **None**, and **LDAP**, and **Manual** based on your use case\. 
 
-You store your client ID, client secret, user name, and password in an AWS Secrets Manager secret\. You generate the client ID and client secret in SharePoint\. If you are using the Amazon Kendra console to create your data source, you can create the secret while creating the data source\. Or you can use an existing Secrets Manager secret\. If you are using the API to create your data source, you must provide the Amazon Resource Name \(ARN\) of an existing secret\.
+   1. **AWS Secrets Manager secret**—Choose an existing secret or create a new Secrets Manager secret to store your SharePoint authentication credentials\. If you choose to create a new secret an AWS Secrets Manager secret window opens\.
 
-The OAuth credentials are stored as a JSON string in the Secrets Manager secret\.
+      1. Enter following information in the **Create an AWS Secrets Manager secret window**:
 
-```
-{
-    "username": "user name",
-    "password": "password",
-    "clientId": "client id",
-    "clientSecret": "client secret"
-}
-```
+        1. **Secret name**—A name for your secret\. The prefix ‘AmazonKendra\-SharePoint\-’ is automatically added to your secret name\.
 
-#### Generating the client ID and secret<a name="sharepoint-generate-oauth"></a>
+        1. For **User name**, **Password**, and **Email Domain Override**—Enter the authentication credential values you generated and downloaded from your SharePoint account\. 
 
-**To create a SharePoint Online client ID and secret**
+        1. Choose **Save**\.
 
-1. Log in to the Azure portal desktop application\. You must be a user with administrative permissions\.
+   1. **Virtual Private Cloud \(VPC\)**— You must also add **Subnets** and **VPC security groups**\.
+**Note**  
+You must use a VPC if you use SharePoint Server\. Amazon VPC is optional for other SharePoint versions\.
 
-1. Select **Azure Active Directory** in the side navigation menu\.
+   1. **IAM role**—Choose an existing IAM role or create a new IAM role to access your repository credentials and index content\.
+**Note**  
+IAM roles used for indexes cannot be used for data sources\. If you are unsure if an existing role is used for an index or FAQ, choose **Create a new role** to avoid errors\.
 
-1. Select **App registrations** in the side navigation menu, then select **New registration**\.
+   1. Choose **Next**\.
 
-1. Enter a name for your app\. For example, *kendra\_sharepoint\_app*\. You can default to only giving access to accounts in the organizational directory\. You don't need to provide a redirect URI\. Select **Register**\.
+1. On the **Configure sync settings** page, enter the following information:
 
-1. You are directed to the app's **Overview** page, or you can go to this page by selecting **Overview** from the side navigation menu\. Copy the **Application \(client\) ID**\. You'll need this when you create the Secrets Manager secret for the SharePoint data source\.
+   1. **Use Change log**—Select to update your index instead of syncing all your files\.
 
-1. Select **Certificates & secrets** from the side navigation menu, then select **New client secret**\.
+   1. **Crawl attachments**—Select to crawl attachments\.
 
-1. Enter a description and choose an expiration date option\. Select **Add**\.
+   1. **Use local group mappings**—Select to make sure that documents are properly filtered\.
 
-1. Copy the secret\. You'll need this when you create the Secrets Manager secret for the SharePoint data source\.
+   1. **Additional configuration**—Add regular expression patterns to include or exclude certain files\. You can add up to 100 patterns\.
 
-1. You must grant permissions to use your app\. Only admin users can grant permissions\. Select **API permissions** from the side navigation menu, then select **Add a permission**\.
+   1. **Frequency**—How often Amazon Kendra will sync with your data source\.
 
-1. Choose the **SharePoint** option, then choose **Delegated permissions**\. You must choose the option for full control of all sites \(admin consent is required by default\)\. Select **Add permissions**\.
+   1. Choose **Next**\.
+
+1. On the **Set field mappings** page, enter the following information:
+
+   1. **Amazon Kendra default field mappings**—Select from the Amazon Kendra generated default data source fields you want to map to your index\. 
+
+   1. For **Custom field mappings**—Add custom data source fields to create an index field name to map to and the field data type\.
+
+   1. Choose **Next**\.
+
+1. On the **Review and create** page, check that the information you have entered is correct and then select **Add data source**\. Your data source will appear on the **Data sources** page once it is added successfully\.
+
+------
+#### [ SharePointConfiguration API ]
+
+**To connect Amazon Kendra to SharePoint**
+
+You must specify the following using [SharePointConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_SharePointConfiguration.html) API:
++ **SharePoint Version**—You must specify the SharePoint version you use when configuring SharePoint\. This is the case no matter if you use SharePoint Server 2013, SharePoint Server 2016, SharePoint Server 2019, or SharePoint Online\.
++ **Secret Amazon Resource Name \(ARN\)**—You must provide the Amazon Resource Name \(ARN\) of a Secrets Manager secret that contains the authentication credentials you created in your SharePoint account\. You provide the ARN using the `CreateDataSource` API\.The secret is stored in a JSON structure\.
+
+  If you use SharePoint Online, the following is the minimum JSON structure that must be in your secret:
+
+  ```
+  {
+      "username": "user name",
+      "password": "password"
+  }
+  ```
+
+  If you use SharePoint Server, the following is the minimum JSON structure that must be in your secret:
+
+  ```
+  {
+      "username": "user name",
+      "password": "password",
+      "domain": "server domain name"
+  }
+  ```
+
+  If you use SharePoint Server and need to convert your Access Control List \(ACL\) to email format for filtering on user context you can include the LDAP server URL and LDAP search base in your secret for SharePoint Server using the following JSON structure:
+
+  ```
+  {
+      "username": "user name",
+      "password": "password",
+      "domain": "server domain name"
+      "ldapServerUrl": "ldap://example.com:389",
+      "ldapSearchBase": "dc=example,dc=com"
+      "directoryDomainOverride": "example.com"
+  }
+  ```
+
+  If you use OAuth authentication to connect to SharePoint you provide the client ID and secret that identifies Amazon Kendra to SharePoint Online\. You also provide a user name and password that is used to access your SharePoint instance\. You use the following JSON structure:
+
+  ```
+  {
+      "username": "user name",
+      "password": "password",
+      "clientId": "client id"
+      "clientSecret": "client secret"
+  }
+  ```
+**Note**  
+It is recommended that you regularly refresh or rotate your credentials and secret, and only provide the necessary level of access for your own security\. For more information on permissions, see [IAM roles for SharePoint data sources](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-ds)\.
++ **IAM role**—You must provide an IAM role with permissions to access your Secrets Manager secret and to call the required public APIs for the SharePoint connector and Amazon Kendra\. For more information, see [IAM roles for SharePoint data sources](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-ds)\.
++  **Amazon VPC**—If you use SharePoint Server you must use a you must choose to specify `VpcConfiguration` when you call `CreateDataSource`\. See [Configuring Amazon Kendra to use a VPC](vpc-configuration.md)\.
+
+You can also add the following optional features:
++ **Web proxy**—Whether to connect to your SharePoint site URLs via a web proxy\. You can use this option for SharePoint Server\.
++ **Indexing lists**—Whether Amazon Kendra should index the contents of attachments to SharePoint list items\.
++  **Change log**—Whether Amazon Kendra should use the SharePoint data source change log mechanism to determine if a document must be added, updated, or deleted in the index\.
+**Note**  
+Use the change log if you don’t want Amazon Kendra to scan all of the documents\. If your change log is large, it might take Amazon Kendra less time to scan the documents in the SharePoint data source than to process the change log\. If you are syncing your SharePoint data source with your index for the first time, all documents are scanned\. 
++  **Inclusion and exclusion filters**—You can specify whether to include or exclude content\. You can also specify regular expression patterns to include or exclude\.
+**Note**  
+If you specify an inclusion filter, only content that matches the inclusion filter is indexed\. Any document that doesn’t match the inclusion filter isn’t indexed\. If you specify an inclusion and exclusion filter, documents that match the exclusion filter are not indexed, even if they match the inclusion filter\.
++  **Context filtering**—You can choose to filter a user’s results based on their user or group access to documents\. For more information, see [User context filtering for SharePoint data sources](https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html)\.
++  **Field mappings**—You can choose to map your SharePoint data source fields to your Amazon Kendra index fields\. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html)\.
+
+------
+
+## Learn more<a name="sharepoint-learn-more"></a>
+
+To learn more about integrating Amazon Kendra with your SharePoint data source, see:
++ [Getting started with the Amazon Kendra SharePoint Online connector](https://aws.amazon.com/blogs/machine-learning/getting-started-with-the-amazon-kendra-sharepoint-online-connector/)

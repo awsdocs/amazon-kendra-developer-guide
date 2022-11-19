@@ -4,7 +4,7 @@
 
 # DataSourceSummary<a name="API_DataSourceSummary"></a>
 
-Summary information for an Amazon Kendra data source\. Returned in a call to the `DescribeDataSource` API\.
+Summary information for a Amazon Kendra data source\.
 
 ## Contents<a name="API_DataSourceSummary_Contents"></a>
 
@@ -14,7 +14,7 @@ Type: Timestamp
 Required: No
 
  ** Id **   <a name="Kendra-Type-DataSourceSummary-Id"></a>
-The unique identifier for the data source\.  
+The identifier for the data source\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`   

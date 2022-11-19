@@ -18,7 +18,7 @@ The overall process of building a search experience is as follows:
 
 1. You open the Amazon Kendra Experience Builder to design and tune your search page\. You can share your endpoint URL of your search experience with others who you assign own\-edit access rights or view\-search access rights\.
 
-You call the [CreateExperience](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateExperience.html) API to create and configure your search experience\. If you use the console, you select your index and then select and **Experiences** in navigation menu to configure your experience\.
+You call the [CreateExperience](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateExperience.html) API to create and configure your search experience\. If you use the console, you select your index and then select and **Experiences** in the navigation menu to configure your experience\.
 
 ## Design and tune your search experience<a name="design-tune-search-experience"></a>
 

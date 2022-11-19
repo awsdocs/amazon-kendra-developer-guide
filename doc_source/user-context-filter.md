@@ -70,7 +70,7 @@ response = kendra.query(
 
 When you query an index, you can use built\-in attributes `_user_id` and `_group_id` to filter search results based on the user and their group access to documents\. You can set up to 100 group identifiers\. When you issue a query, Amazon Kendra checks the user and group information and runs the query\. All documents relevant to the query that the user has access to, including public documents, are returned\.
 
-You provide the user and groups attributes in the [AttributeFilter](https://docs.aws.amazon.com/kendra/latest/dg/API_AttributeFilter.html) object and pass this in the [Query](https://docs.aws.amazon.com/kendra/latest/dg/API_Query.html) API\.
+You provide the user and group attributes in the [AttributeFilter](https://docs.aws.amazon.com/kendra/latest/dg/API_AttributeFilter.html) object and pass this in the [Query](https://docs.aws.amazon.com/kendra/latest/dg/API_Query.html) API\.
 
 The following example shows a request that filters the query response based on the user ID and the groups "HR" and "IT", which the user belongs to\. The query will return any document that has the user or the "HR" or "IT" groups in the allow list\. If the user or either group is in the deny list for a document, the document is not returned\.
 
@@ -162,7 +162,7 @@ When you use a database data source, such as Amazon Aurora PostgreSQL, Amazon Ke
 A database data source has the following limitations:
 + You can only specify an allow list for a database data source\. You can't specify a deny list\. 
 + You can only specify groups\. You can't specify individual users for the allow list\.
-+ The database column should be string containing a semicolon delimited list of groups\.
++ The database column should be a string containing a semicolon delimited list of groups\.
 
 ## User context filtering for Confluence data sources<a name="context-filter-confluence"></a>
 
@@ -289,7 +289,15 @@ You can add up to 200 entries in the `AccessControlList` field\.
 
 ## User context filtering for ServiceNow data sources<a name="context-filter-servicenow"></a>
 
-User context filtering isn't currently supported for ServiceNow\.
+User context filtering for ServiceNow is supported only for the TemplateConfiguration API and the Console\. ServiceNowConfiguration API does not support user context filtering\.
+
+When you use a ServiceNow data source, Amazon Kendra gets the user and group information from the ServiceNow instance\.
+
+The group and user IDs are mapped as follows:
++ `_group_ids` – Group IDs exist in ServiceNow on files where there are set access permissions\. They are mapped from the names of the groups in ServiceNow\.
++ `_user_id` – User IDs exist in ServiceNow on files where there are set access permissions\. They are mapped from the user emails as the IDs in ServiceNow\.
+
+You can add up to 200 entries in the `AccessControlList` field\.
 
 ## User context filtering for Microsoft SharePoint data sources<a name="context-filter-sharepoint-online"></a>
 
@@ -338,7 +346,7 @@ When you use an Amazon FSx data source, Amazon Kendra gets user and group inform
 
 The Amazon FSx group and user IDs are mapped as follows:
 + `_group_ids`—Group IDs exist in Amazon FSx on files where there are set access permissions\. They are mapped from the system group names in the directory service of Amazon FSx\.
-+ `_user_id`—User IDs exist Amazon FSx on files where there are set access permissions\. They are mapped from the system user names in the directory service of Amazon FSx\.
++ `_user_id`—User IDs exist in Amazon FSx on files where there are set access permissions\. They are mapped from the system user names in the directory service of Amazon FSx\.
 
 You can add up to 200 entries in the `AccessControlList` field\.
 
@@ -413,7 +421,7 @@ You can add up to 200 entries in the `AccessControlList` field\.
 When you use a Dropbox data source, Amazon Kendra gets the user and group information from the Dropbox instance\.
 
 The group and user IDs are mapped as follows:
-+ `_group_ids` – Group IDs exist in Dropbox on files where there are set access permissions\. They are mapped from the names of the groups in Dropbox\.
-+ `_user_id` – User IDs exist in Dropbox on files where there are set access permissions\. They are mapped from the user emails as the IDs in Dropbox\.
++ `_group_ids`—Group IDs exist in Dropbox on files where there are set access permissions\. They are mapped from the names of the groups in Dropbox\.
++ `_user_id`—User IDs exist in Dropbox on files where there are set access permissions\. They are mapped from the user emails as the IDs in Dropbox\.
 
 You can add up to 200 entries in the `AccessControlList` field\.

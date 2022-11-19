@@ -9,7 +9,7 @@ Provides a response when the status of a document could not be retrieved\.
 ## Contents<a name="API_BatchGetDocumentStatusResponseError_Contents"></a>
 
  ** DocumentId **   <a name="Kendra-Type-BatchGetDocumentStatusResponseError-DocumentId"></a>
-The unique identifier of the document whose status could not be retrieved\.  
+The identifier of the document whose status could not be retrieved\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  
 Required: No

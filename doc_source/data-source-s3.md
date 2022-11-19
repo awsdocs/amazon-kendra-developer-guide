@@ -2,138 +2,106 @@
 
 --------
 
-# Using an S3 data source<a name="data-source-s3"></a>
+# Using an Amazon S3 data source<a name="data-source-s3"></a>
+
+Amazon S3 is an object storage service that stores data as objects within buckets\. If you are a Amazon S3 user, you can use Amazon Kendra to index your Amazon S3 bucket repository of documents\.
 
 **Warning**  
 Amazon Kendra doesn't use a bucket policy that grants permissions to an Amazon Kendra principal to interact with an S3 bucket\. Instead, it uses IAM roles\. Make sure that Amazon Kendra isn't included as a trusted member in your bucket policy to avoid any data security issues in accidentally granting permissions to arbitrary principals\. However, you can add a bucket policy to use an Amazon S3 bucket across different accounts\. For more information, see [Policies to use Amazon S3 across accounts](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-ds-s3-cross-accounts)\. For information about IAM roles for S3 data sources, see [IAM roles](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-ds-s3)\.
 
-You can use your S3 bucket repository of documents as a data source for Amazon Kendra\. For a walk\-through of how to use Amazon S3 in the console, see [Getting started with an Amazon S3 data source \(console\)](https://docs.aws.amazon.com/kendra/latest/dg/gs-console.html)\.
+You can connect Amazon Kendra to your Amazon S3 data source using the [Amazon Kendra console](https://console.aws.amazon.com/kendra/) and the [S3DataSourceConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html) API\.
 
-For troubleshooting your Amazon Kendra Amazon S3 data source connector, see [Troubleshooting data sources](troubleshooting-data-sources.md)\.
+For troubleshooting your Amazon Kendra S3 data source connector, see [Troubleshooting data sources](troubleshooting-data-sources.md)\.
 
-You must create an index before you create the Amazon S3 data source\. For more information, see [CreateDataSource](API_CreateDataSource.md)\. You provide the ID of the index when you create the data source\.
+**Topics**
++ [Supported features](#supported-features-s3)
++ [Prerequisites](#prerequisites-s3)
++ [Connecting Amazon Kendra to your Amazon S3 data source](#data-source-procedure-s3)
++ [Creating an Amazon S3 data source](create-ds-s3.md)
++ [Amazon S3 document metadata](s3-metadata.md)
++ [Access control for Amazon S3 data sources](s3-acl.md)
 
-Before you can index your documents from your Amazon S3 bucket, your bucket must be in the same region as the index and Amazon Kendra must have permission to access the bucket that contains your documents\. You can configure your Access Control List for your Amazon S3 bucket\. This contains information on user and group access to documents\.
+## Supported features<a name="supported-features-s3"></a>
++ Field mappings
++ User context filtering
++ Inclusion/exclusion filters
 
-When you connect to Amazon S3 to index your documents, you specify the name of the S3 bucket that contains your documents\. You can specify glob patterns to include or exclude specific documents in your name of provider\.
+## Prerequisites<a name="prerequisites-s3"></a>
 
-To connect to Amazon S3, you specify the connection and other information in the console or by using the [S3DataSourceConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html) object\. You provide the name of the Amazon S3 bucket you want to index\.
+Before you can use Amazon Kendra to index your Amazon S3 data source, you must meet the following requirements:
++ You have created an Amazon Kendra index\. You must create an index before you create the data source\. You need the index id to connect your data source\. For more information on how to create an Amazon Kendra index, see [Creating an index](https://docs.aws.amazon.com/kendra/latest/dg/create-index.html)\.
++ You have an IAM role for your data source\. Amazon Kendra uses this role to access the AWS resources required to create the Amazon Kendra resource\. You provide the Amazon Resource Name \(ARN\) of the IAM role with the policy attached when you connect your data source to Amazon Kendra\. If you are using the API, you must create an IAM role before you connect your datasource\. If you use the AWS console, you can choose to use an existing IAM role or create a new one when you configure your Amazon Kendra connector\. For more information on using an IAM role for your S3 data source, see [IAM roles for data sources](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-ds)\.
++ Your bucket must be in the same region as your Amazon Kendra index and your index must have permission to access the bucket that contains your documents\.
++ You have copied the name of your Amazon S3 bucket name\. You need this information to connect Amazon Kendra to Amazon S3\.
 
-You also must provide the Amazon Resource Name \(ARN\) of an IAM role that gives permission to access your Amazon S3 bucket\. You provide the ARN of an IAM role using [CreateDataSource](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html)\. For more information on permissions, see [IAM roles for Amazon S3 data sources](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-ds)\.
+## Connecting Amazon Kendra to your Amazon S3 data source<a name="data-source-procedure-s3"></a>
 
-You also can add the following optional information:
-+ Inclusion or exclusion patterns: If you specify an inclusion pattern, only content that matches the inclusion pattern is indexed\. Any document with a file name or file type that doesn't match the pattern isn;t indexed\. If you specify an inclusion and exclusion pattern, documents that match the exclusion pattern are not indexed even if they match the inclusion pattern\.
+To connect Amazon Kendra to your Amazon S3 data source you must provide details of your Amazon S3 credentials so that Amazon Kendra can access your data\. If you have not yet configured Amazon S3 for Amazon Kendra see [Prerequisites](#prerequisites-s3)\.
 
-The following examples demonstrate creating an Amazon S3 data source\. The examples assume that you have already created an index and an IAM role with permission to read the data from the index\. For more information about the IAM role, see [IAM roles for Amazon S3 data sources](iam-roles.md#iam-roles-ds-s3)\. For more information about creating an index, see [Creating an index](create-index.md)\.
-
-------
-#### [ CLI ]
-
-```
-aws kendra create-data-source \
- --index-id index ID \
- --name example-data-source \
- --type S3 \
- --configuration '{"S3Configuration":{"BucketName":"bucket name"}}' 
- --role-arn 'arn:aws:iam::account id:role:/role name
-```
-
-------
-#### [ Python ]
-
-The following snippet of Python code creates an Amazon S3 data source\. For the complete example, see [Getting started \(AWS SDK for Python \(Boto3\)\)](gs-python.md)\.
-
-```
-print("Create an Amazon S3 data source.")
-    
-    # Provide a name for the data source
-    name = "getting-started-data-source"
-    # Provide an optional description for the data source
-    description = "Getting started data source."
-    # Provide the IAM role ARN required for data sources
-    role_arn = "arn:aws:iam::${accountID}:role/${roleName}"
-    # Provide the data soource connection information
-    s3_bucket_name = "S3-bucket-name"
-    type = "S3"
-    # Configure the data source
-    configuration = {"S3DataSourceConfiguration":
-        {
-            "BucketName": s3_bucket_name
-        }
-    }
-
-    data_source_response = kendra.create_data_source(
-        Configuration = configuration,
-        Name = name,
-        Description = description,
-        RoleArn = role_arn,
-        Type = type,
-        IndexId = index_id
-    )
-```
+### <a name="s3-adding-procedure"></a>
 
 ------
+#### [ Console ]
 
-It can take some time to create your data source\. You can monitor the progress by using the [DescribeDataSource](API_DescribeDataSource.md) API\. When the data source status is `ACTIVE` the data source is ready to use\. 
+**To connect Amazon Kendra to Amazon S3 ** 
 
-The following examples demonstrate getting the status of a data source\.
+1. Sign in to the Amazon Kendra at [AWS Console](https://console.aws.amazon.com/kendra/)\.
+
+1. From the left navigation pane, choose **Indexes** and then choose the index you want to connect from the list of indexes\.
+
+1. On the **Getting started** page, choose **Add data sources**\.
+**Note**  
+You can choose to configure or edit your **User access control** settings under **Index settings**\. 
+
+1. On the **Add data source** page, choose **S3**, and then choose **Add connector**\.
+
+1. On the **Specify data source details** page, enter the following information:
+
+   1. **Data source name**—Enter a name for your data source\. You can include hyphens but not spaces\.
+
+   1. \(Optional\)** Description**—Enter an optional description for your data source\.
+
+   1. **Default language**—A language to filter your documents for the index\. Unless you specify otherwise, the language defaults to English\. Language specified in metadata overrides selected language\.
+
+   1. **Add new tag**—Tags to search and filter your resources or track your AWS costs\.
+
+   1. Choose **Next**\.
+
+1. On the **Configure sync settings** page, enter the following information:
+
+   1. **Enter the data source location**—The path to the Amazon S3 bucket where your data is stored\. Select **Browse S3** to choose your bucket\.
+
+   1. \(Optional\) **Metadata files prefix folder location**—The path to the folder in which your metadata is stored\. Select **Browse S3** to locate your metadata folder\.
+
+   1. \(Optional\) **Access control list configuration file location**—The path to the location of a file containing a JSON structure that specifies access settings for the files stored in your S3 data source\. Select **Browse S3** to locate your ACL file\.
+
+   1. \(Optional\) **Decription key**—Select to use a decription key\. You can choose to use an existing one or create a new one\.
+
+   1. \(Optional\) **Additional configurations**—Add patterns to include or exclude documents from your index\.All paths are relative to the data source location S3 bucket\. You can have a combined total of 100 patterns\.
+
+   1. **Frequency**—How often Amazon Kendra will sync with your data source\.
+
+   1. **IAM role**—Choose an existing IAM role or create a new IAM role to access your repository credentials and index content\.
+**Note**  
+IAM roles used for indexes cannot be used for data sources\. If you are unsure if an existing role is used for an index or FAQ, choose **Create a new role** to avoid errors\.
+
+   1. Choose **Next**\.
+
+1. On the **Review and create** page, check that the information you have entered is correct and then select **Add data source**\. Your data source will appear on the **Data sources** page once it is added successfully\.
 
 ------
-#### [ CLI ]
+#### [ S3DataSourceConfiguration API ]
 
-```
-aws kendra describe-data-source \
- --index-id index ID \
- --id data source ID
-```
+**To connect Amazon Kendra to Amazon S3**
 
-------
-#### [ Python ]
+You must specify the following using the [S3DataSourceConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html) API:
++  **BucketName**—The name of the bucket that contains the documents\.
++ **IAM role**—You must provide an IAM role with permissions to access your Secrets Manager secret and to call the required public APIs for the S3 connector and Amazon Kendra\. For more information, see [IAM roles for S3 data sources](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-ds)\.
 
-The following snippet of Python code gets information about an S3 data source\. For the complete example, see [Getting started \(AWS SDK for Python \(Boto3\)\)](gs-python.md)\.
-
-```
-print("Wait for Amazon Kendra to create the data source.")
-
-    while True:
-        data_source_description = kendra.describe_data_source(
-            Id = "data-source-id",
-            IndexId = "index-id"
-        )
-        status = data_source_description["Status"]
-        print(" Creating data source. Status: "+status)
-        time.sleep(60)
-        if status != "CREATING":
-            break
-```
-
-------
-
-This data source doesn't have a schedule, so it doesn't run automatically\. To index the data source, you call [StartDataSourceSyncJob](API_StartDataSourceSyncJob.md) to synchronize the index with the data source\.
-
-The following examples demonstrate synchronizing a data source\.
-
-------
-#### [ CLI ]
-
-```
-aws kendra start-data-source-sync-job \
- --index-id index ID \
- --id data source ID
-```
-
-------
-#### [ Python ]
-
-The following snippet of Python code synchronizes an Amazon S3 data source\. For the complete example, see [Getting started \(AWS SDK for Python \(Boto3\)\)](gs-python.md)\.
-
-```
-print("Synchronize the data source.")
-
-    sync_response = kendra.start_data_source_sync_job(
-        Id = "data-source-id",
-        IndexId = "index-id"
-    )
-```
+You can also add the following optional features:
++  **Inclusion and exclusion filters**—You can specify glob patterns to include or exclude certain files\.
+**Note**  
+If you specify an inclusion filter, only content that matches the inclusion filter is indexed\. Any document that doesn’t match the inclusion filter isn’t indexed\. If you specify an inclusion and exclusion filter, documents that match the exclusion filter are not indexed, even if they match the inclusion filter\.
++  **Context filtering**—You can choose to filter a user’s results based on their user or group access to documents\. For more information, see [User context filtering for S3 data sources](https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html)\.
 
 ------

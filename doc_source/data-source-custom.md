@@ -2,7 +2,7 @@
 
 --------
 
-# Using a custom data source<a name="data-source-custom"></a>
+# Using an Amazon Kendra custom data source<a name="data-source-custom"></a>
 
 Use a custom data source when you have a repository that Amazon Kendra doesn’t yet provide a data source connector for\. You can use it to see the same run history metrics that Amazon Kendra data sources provide even when you can't use Amazon Kendra's data sources to sync your repositories\. Use this to create a consistent sync monitoring experience between Amazon Kendra data sources and custom ones\. Specifically, use a custom data source to see sync metrics for a data source connector that you created using the [BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html) and [BatchDeleteDocument](https://docs.aws.amazon.com/kendra/latest/dg/API_BatchDeleteDocument.html) APIs\.
 
@@ -35,8 +35,8 @@ After you call the `StopDataSourceSyncJob` API, you can't use a sync job identif
 ## Required attributes<a name="custom-required-attributes"></a>
 
 When you submit a document to Amazon Kendra using the `BatchPutDocument` API, each document requires two attributes to identify the data source and synchronization run that it belongs to\. You must provide the following two attributes:
-+ `_data_source_id` – The identifier of the data source\. This is returned when you create the data source with the console or the `CreateDataSource` API\.
-+ `_data_source_sync_job_execution_id` – The identifier of the sync run\. This is returned when you start the index synchronization with the `StartDataSourceSyncJob` API\.
++ `_data_source_id`—The identifier of the data source\. This is returned when you create the data source with the console or the `CreateDataSource` API\.
++ `_data_source_sync_job_execution_id`—The identifier of the sync run\. This is returned when you start the index synchronization with the `StartDataSourceSyncJob` API\.
 
 The following is the JSON required to index a document using a custom data source\.
 
@@ -70,8 +70,8 @@ The following is the JSON required to index a document using a custom data sourc
 ```
 
 When you remove a document from the index using the `BatchDeleteDocument` API, you need to specify the following two fields in the `DataSourceSyncJobMetricTarget` parameter:
-+ `DataSourceId` – The identifier of the data source\. This is returned when you create the data source with the console or the `CreateDataSource` API\.
-+ `DataSourceSyncJobId` – The identifier of the sync run\. This is returned when you start the index synchronization with the `StartDataSourceSyncJob` API\.
++ `DataSourceId`—The identifier of the data source\. This is returned when you create the data source with the console or the `CreateDataSource` API\.
++ `DataSourceSyncJobId`—The identifier of the sync run\. This is returned when you start the index synchronization with the `StartDataSourceSyncJob` API\.
 
 The following is the JSON required to delete a document from the index using the `BatchDeleteDocument` API\.
 
@@ -93,11 +93,16 @@ The following is the JSON required to delete a document from the index using the
 After a sync job is finished, you can use the [DataSourceSyncJobMetrics](https://docs.aws.amazon.com/kendra/latest/dg/API_DataSourceSyncJobMetrics.html) API to get the metrics associated with the sync job\. Use this to monitor your custom data source syncs\.
 
 If you submit the same document multiple times, either as part of the `BatchPutDocument` API, the `BatchDeleteDocument` API, or if the document is submitted for both addition and deletion, the document is only counted once in the metrics\.
-+ `DocumentsAdded` – The number of documents submitted using the `BatchPutDocument` API associated with this sync job added to the index for the first time\. If a document is submitted for addition more than once in a sync, the document is only counted once in the metrics\.
-+ `DocumentsDeleted` – The number of documents submitted using the `BatchDeleteDocument` API associated with this sync job deleted from the index\. If a document is submitted for deletion more than once in a sync, the document is only counted once in the metrics\.
-+ `DocumentsFailed` – The number of documents associated with this sync job that failed indexing\. These are documents that were accepted by Amazon Kendra for indexing but could not be indexed or deleted\. If a document isn't accepted by Amazon Kendra, the identifier for the document is returned in the `FailedDocuments` response property of the `BatchPutDocument` and `BatchDeleteDocument` APIs\.
-+ `DocumentsModified` – The number of modified documents submitted using the `BatchPutDocument` API associated with this sync job that were modified in the Amazon Kendra index\.
++ `DocumentsAdded`—The number of documents submitted using the `BatchPutDocument` API associated with this sync job added to the index for the first time\. If a document is submitted for addition more than once in a sync, the document is only counted once in the metrics\.
++ `DocumentsDeleted`—The number of documents submitted using the `BatchDeleteDocument` API associated with this sync job deleted from the index\. If a document is submitted for deletion more than once in a sync, the document is only counted once in the metrics\.
++ `DocumentsFailed`—The number of documents associated with this sync job that failed indexing\. These are documents that were accepted by Amazon Kendra for indexing but could not be indexed or deleted\. If a document isn't accepted by Amazon Kendra, the identifier for the document is returned in the `FailedDocuments` response property of the `BatchPutDocument` and `BatchDeleteDocument` APIs\.
++ `DocumentsModified`—The number of modified documents submitted using the `BatchPutDocument` API associated with this sync job that were modified in the Amazon Kendra index\.
 
 Amazon Kendra also emits Amazon CloudWatch metrics while indexing documents\. For more information, see [Monitoring Amazon Kendra with Amazon CloudWatch](https://docs.aws.amazon.com/kendra/latest/dg/cloudwatch-metrics.html)\.
 
 Amazon Kendra doesn't return the `DocumentsScanned` metric for custom data sources\. It also emits the CloudWatch metrics listed in the document [Metrics for Amazon Kendra data sources](https://docs.aws.amazon.com/kendra/latest/dg/cloudwatch-metrics.html#cloudwatch-metrics-data-source)\.
+
+## Learn more<a name="custom-learn-more"></a>
+
+To learn more about integrating Amazon Kendra with your custom data source, see:
++ [Adding custom data sources to Amazon Kendra](https://aws.amazon.com/blogs/machine-learning/adding-custom-data-sources-to-amazon-kendra/)

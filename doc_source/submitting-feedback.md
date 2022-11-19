@@ -13,10 +13,10 @@ Incremental learning is enabled for all indexes and for all document types\. For
 Amazon Kendra starts learning as soon as you provide feedback, though it can take over 24 hours to see the results of the feedback\. Amazon Kendra provides three methods for you to submit feedback: the AWS console, a JavaScript library that you can include on your search results page, and an API that you can use\.
 
 Amazon Kendra accepts two types of user feedback:
-+ **Clicks** \- Information about which query results the user chose\. The feedback includes the result ID and the Unix timestamp of the date and time that the search result was chosen\. 
++ **Clicks**—Information about which query results the user chose\. The feedback includes the result ID and the Unix timestamp of the date and time that the search result was chosen\. 
 
   To submit click feedback, your application must collect click information from the activities of your users, and then submit that information to Amazon Kendra\. You can collect click information with the console, the JavaScript library, and the Amazon Kendra API\.
-+ **Relevance** \- Information about the relevance of a search result, which the user typically provides\. The feedback contains the result ID and a relevance indicator \(`RELEVANT` or `NOT_RELEVANT`\)\. The user determines the relevance information\. 
++ **Relevance**—Information about the relevance of a search result, which the user typically provides\. The feedback contains the result ID and a relevance indicator \(`RELEVANT` or `NOT_RELEVANT`\)\. The user determines the relevance information\. 
 
   To submit relevance feedback, your application must provide a feedback mechanism that enables the user to choose the appropriate relevance for a query result, and then submit that information to Amazon Kendra\. You can only collect relevance information with the console and the Amazon Kendra API\.
 

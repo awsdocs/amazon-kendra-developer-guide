@@ -22,7 +22,7 @@ Pattern: `^\P{C}*$`
 Required: No
 
  ** Id **   <a name="Kendra-Type-BatchPutDocumentResponseFailedDocument-Id"></a>
-The unique identifier of the document\.  
+The identifier of the document\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  
 Required: No

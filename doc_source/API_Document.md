@@ -45,7 +45,7 @@ Array Members: Minimum number of 1 item\. Maximum number of 30 items\.
 Required: No
 
  ** Id **   <a name="Kendra-Type-Document-Id"></a>
-A unique identifier of the document in the index\.  
+A identifier of the document in the index\.  
 Note, each document ID must be unique per index\. You cannot create a data source to index your documents with their unique IDs and then use the `BatchPutDocument` API to index the same documents, or vice versa\. You can delete a data source and then use the `BatchPutDocument` API to index the same documents, or vice versa\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  

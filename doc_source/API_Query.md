@@ -171,7 +171,7 @@ Type: Array of [Facet](API_Facet.md) objects
 Required: No
 
  ** [IndexId](#API_Query_RequestSyntax) **   <a name="Kendra-Query-request-IndexId"></a>
-The unique identifier of the index to search\. The identifier is returned in the response from the `CreateIndex` API\.  
+The identifier of the index to search\. The identifier is returned in the response from the `CreateIndex` API\.  
 Type: String  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*`   
@@ -194,7 +194,7 @@ Valid Values:` DOCUMENT | QUESTION_ANSWER | ANSWER`
 Required: No
 
  ** [QueryText](#API_Query_RequestSyntax) **   <a name="Kendra-Query-request-QueryText"></a>
-The text to search for\.  
+The input query text for the search\. Amazon Kendra truncates queries at 30 token words, which excludes punctuation and stop words\. Truncation still applies if you use Boolean or more advanced, complex queries\.   
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1000\.  
 Required: No
@@ -353,7 +353,7 @@ Contains the facet results\. A `FacetResult` contains the counts for each attrib
 Type: Array of [FacetResult](API_FacetResult.md) objects
 
  ** [QueryId](#API_Query_ResponseSyntax) **   <a name="Kendra-Query-response-QueryId"></a>
-The unique identifier for the search\. You use `QueryId` to identify the search when using the feedback API\.  
+The identifier for the search\. You use `QueryId` to identify the search when using the feedback API\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 36\.  
 Pattern: `[a-zA-Z0-9][a-zA-Z0-9-]*` 
@@ -381,31 +381,31 @@ Array Members: Fixed number of 1 item\.
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
  ** AccessDeniedException **   
-  
+You don't have sufficient access to perform this action\. Please ensure you have the required permission policies and user accounts and try again\.  
 HTTP Status Code: 400
 
  ** ConflictException **   
-  
+A conflict occurred with the request\. Please fix any inconsistences with your resources and try again\.  
 HTTP Status Code: 400
 
  ** InternalServerException **   
-  
+An issue occurred with the internal server used for your Amazon Kendra service\. Please wait a few minutes and try again, or contact [ Support](http://aws.amazon.com/aws.amazon.com/contact-us) for help\.  
 HTTP Status Code: 500
 
  ** ResourceNotFoundException **   
-  
+The resource you want to use doesn’t exist\. Please check you have provided the correct resource and try again\.  
 HTTP Status Code: 400
 
  ** ServiceQuotaExceededException **   
-  
+You have exceeded the set limits for your Amazon Kendra service\. Please see Quotas\[hyperlink Kendra Quotas pg\] for more information, or contact [ Support](http://aws.amazon.com/aws.amazon.com/contact-us) to inquire about an increase of limits\.  
 HTTP Status Code: 400
 
  ** ThrottlingException **   
-  
+The request was denied due to request throttling\. Please reduce the number of requests and try again\.  
 HTTP Status Code: 400
 
  ** ValidationException **   
-  
+The input fails to satisfy the constraints set by the Amazon Kendra service\. Please provide the correct input and try again\.  
 HTTP Status Code: 400
 
 ## See Also<a name="API_Query_SeeAlso"></a>

@@ -61,7 +61,7 @@ The content of the JSON file follows this template\. All of the attributes are o
          }
     ],
     "Title": "document title",
-    "ContentType": "HTML | MS_WORD | PDF | PLAIN_TEXT | PPT"
+    "ContentType": "For example HTML | PDF. For supported content types, see [Types of documents](https://docs.aws.amazon.com/kendra/latest/dg/index-document-types.html)."
 }
 ```
 

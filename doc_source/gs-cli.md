@@ -10,7 +10,7 @@ The following procedure shows how to create an Amazon Kendra index using the AWS
 
 1. Do the [Prerequisites](gs-prerequisites.md)\.
 
-1. Enter the following command to create an index
+1. Enter the following command to create an index\.
 
    ```
    aws kendra create-index \
@@ -37,7 +37,7 @@ The following procedure shows how to create an Amazon Kendra index using the AWS
     --configuration '{"S3Configuration":{"BucketName":"S3 bucket name"}}'
    ```
 
-   If you connect to your data source using a template schema, configure the template schema
+   If you connect to your data source using a template schema, configure the template schema\.
 
    ```
    aws kendra create-data-source \

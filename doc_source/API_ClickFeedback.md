@@ -14,7 +14,7 @@ Type: Timestamp
 Required: Yes
 
  ** ResultId **   <a name="Kendra-Type-ClickFeedback-ResultId"></a>
-The unique identifier of the search result that was clicked\.  
+The identifier of the search result that was clicked\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 73\.  
 Required: Yes

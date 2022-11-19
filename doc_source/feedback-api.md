@@ -12,13 +12,13 @@ The following example shows how to submit click and relevance feedback using the
 
 1. Use the following code and change the following values:
 
-   1. `index id` \- Change to the ID of the index that the query applies to\.
+   1. `index id`—Change to the ID of the index that the query applies to\.
 
-   1. `query id` \- Change to the query that you want to provide feedback on\.
+   1. `query id`—Change to the query that you want to provide feedback on\.
 
-   1. `result id` \- Change to the ID of the query result that you want to provide feedback on\. The query response contains the result ID\.
+   1. `result id`—Change to the ID of the query result that you want to provide feedback on\. The query response contains the result ID\.
 
-   1. `relevance value` \- Change to either `RELEVANT` \(the query result is relevant\) or `NOT_RELEVANT` \(the query result is not relevant\)\.
+   1. `relevance value`—Change to either `RELEVANT` \(the query result is relevant\) or `NOT_RELEVANT` \(the query result is not relevant\)\.
 
 ------
 #### [ Python ]

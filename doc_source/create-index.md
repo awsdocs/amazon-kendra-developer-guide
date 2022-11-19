@@ -47,9 +47,9 @@ To create an index, you must provide the Amazon Resource Name \(ARN\) of an AWS 
 **To create an index \(SDK\)**
 
 1. Provide values for the following variables:
-   + `description` – A description of the index that you're creating\. This is optional\.
-   + `index_name` – The name of the index that you're creating\.
-   + `role_arn` – The Amazon Resource Name \(ARN\) of a role that can run Amazon Kendra APIs\. For more information, see [IAM access roles for Amazon Kendra](iam-roles.md)\.
+   + `description`—A description of the index that you're creating\. This is optional\.
+   + `index_name`—The name of the index that you're creating\.
+   + `role_arn`—The Amazon Resource Name \(ARN\) of a role that can run Amazon Kendra APIs\. For more information, see [IAM access roles for Amazon Kendra](iam-roles.md)\.
 
 1. In the following examples, an index with Amazon Kendra is created\.
 
@@ -166,4 +166,3 @@ After you created your index, you add documents to it\. You can add them directl
 + [Adding documents directly to an index](in-adding-documents.md)
 + [Adding questions and answers directly to an index](in-creating-faq.md)
 + [Creating custom document attributes or metadata fields](custom-attributes.md)
-+ [Customizing document metadata during the ingestion process](custom-document-enrichment.md)

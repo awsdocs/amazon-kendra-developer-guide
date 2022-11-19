@@ -4,7 +4,7 @@
 
 # Using JSON<a name="create-index-access-control-tokens-json"></a>
 
-The following examples show how to use a JWT with certificate token for user access control when you are create an index\. 
+The following examples show how to use a JWT with certificate token for user access control when you create an index\. 
 
 **Warning**  
 The JSON token is a non\-validated payload\. This should only be used when requests to Amazon Kendra come from a trusted server and never from a browser\. 

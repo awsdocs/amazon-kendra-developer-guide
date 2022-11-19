@@ -24,7 +24,7 @@ Pattern: `^[a-zA-Z][a-zA-Z0-9_]*$`
 Required: Yes
 
  ** DocumentIdColumnName **   <a name="Kendra-Type-ColumnConfiguration-DocumentIdColumnName"></a>
-The column that provides the document's unique identifier\.  
+The column that provides the document's identifier\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Pattern: `^[a-zA-Z][a-zA-Z0-9_]*$`   

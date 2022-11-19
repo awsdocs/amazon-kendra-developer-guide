@@ -107,7 +107,7 @@ The following code is an example of retrieving data on the top queries for the p
 
 1. In the left navigation pane, under **Indexes**, select your index, and then select **Analytics**\.
 
-1. On the **Analytics** page, select the button **This week**, to change the time window to for retrieving the data to **Previous month**\.
+1. On the **Analytics** page, select the button **This week**, to change the time window for retrieving the data to **Previous month**\.
 
 1. On the **Analytics** page, under **Query lists**, select **Top queries**\.
 

@@ -4,16 +4,11 @@
 
 # Adding documents directly to an index<a name="in-adding-documents"></a>
 
-You can add documents directly to an index using the [BatchPutDocument](API_BatchPutDocument.md) API\. You can't add documents directly using the console\. When you're using the console, you use a data source to add documents\.
-
-You can add only the following types of documents with the `BatchPutDocuments` API\.
-+ Plain text
-+ HTML
-+ PDF
-+ Microsoft PowerPoint
-+ Microsoft Word
+You can add documents directly to an index using the [BatchPutDocument](API_BatchPutDocument.md) API\. You can't add documents directly using the console\. When you're using the console, you use a data source to add documents\. 
 
 Documents can be added from an S3 bucket or supplied as binary data\.
+
+For a list of document types supported by Amazon Kendra see [Types of documents](https://docs.aws.amazon.com/kendra/latest/dg/index-document-types.html)\.
 
 Adding documents to an index is an asynchronous operation\. After you call the `BatchPutDocument` API, you use the [BatchGetDocumentStatus](API_BatchGetDocumentStatus.md) API to monitor the progress of indexing your documents\. When you call the `BatchGetDocumentStatus` API with a list of document IDs, it returns the status of the document\. When the status of the document is `INDEXED` or `FAILED`, processing of the document is complete\. When the status is `FAILED`, the `BatchGetDocumentStatus` API returns the reason that the document couldn't be indexed\.
 

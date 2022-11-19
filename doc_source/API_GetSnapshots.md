@@ -107,19 +107,19 @@ Type: [TimeRange](API_TimeRange.md) object
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
  ** AccessDeniedException **   
-  
+You don't have sufficient access to perform this action\. Please ensure you have the required permission policies and user accounts and try again\.  
 HTTP Status Code: 400
 
  ** InternalServerException **   
-  
+An issue occurred with the internal server used for your Amazon Kendra service\. Please wait a few minutes and try again, or contact [ Support](http://aws.amazon.com/aws.amazon.com/contact-us) for help\.  
 HTTP Status Code: 500
 
  ** InvalidRequestException **   
-The input to the request is not valid\.  
+The input to the request is not valid\. Please provide the correct input and try again\.  
 HTTP Status Code: 400
 
  ** ResourceNotFoundException **   
-  
+The resource you want to use doesn’t exist\. Please check you have provided the correct resource and try again\.  
 HTTP Status Code: 400
 
 ## See Also<a name="API_GetSnapshots_SeeAlso"></a>

@@ -14,7 +14,7 @@ To search documents that you have indexed with Amazon Kendra for Amazon Lex, use
 + [Filtering queries](filtering.md)
 + [Filtering on user context](user-context-filter.md)
 + [Query responses](query-response.md)
-+ [Query suggestions](query-suggestions-overview.md)
++ [Query suggestions](query-suggestions.md)
 + [Query spell checker](query-spell-check.md)
 + [Tuning responses](tuning-responses.md)
 + [Sorting responses](sorting.md)

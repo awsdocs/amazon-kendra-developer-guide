@@ -15,7 +15,7 @@ Valid Values:` RELEVANT | NOT_RELEVANT`
 Required: Yes
 
  ** ResultId **   <a name="Kendra-Type-RelevanceFeedback-ResultId"></a>
-The unique identifier of the search result that the user provided relevance feedback for\.  
+The identifier of the search result that the user provided relevance feedback for\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 73\.  
 Required: Yes

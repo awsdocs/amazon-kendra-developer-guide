@@ -2,7 +2,7 @@
 
 --------
 
-# Customizing document metadata during the ingestion process<a name="custom-document-enrichment"></a>
+# Enriching your documents during ingestion<a name="custom-document-enrichment"></a>
 
 You can alter your document metadata or attributes and content during the document ingestion process\. With Amazon Kendra *Custom Document Enrichment* tool, you can create, modify, or delete document attributes and content when you ingest your documents into Amazon Kendra\. This means you can manipulate and ingest your data as you need\.
 
@@ -16,9 +16,9 @@ The overall process of Custom Document Enrichment is as follows:
 
 1. You configure Custom Document Enrichment when you create or update your data source, or index your documents directly into Amazon Kendra\.
 
-1. Amazon Kendra applies inline configurations or basic logic to alter your data\. For more information, see [Basic data manipulation](#basic-data-maniplation)\.
+1. Amazon Kendra applies inline configurations or basic logic to alter your data\. For more information, see [Basic operations to change metadata](#basic-data-maniplation)\.
 
-1. If you choose to configure advanced data manipulation, Amazon Kendra can apply this on your original, raw documents or on the structured, parsed documents\. For more information, see [Advanced data manipulation](#advanced-data-manipulation)\.
+1. If you choose to configure advanced data manipulation, Amazon Kendra can apply this on your original, raw documents or on the structured, parsed documents\. For more information, see [Lambda functions: extract and change metadata or content](#advanced-data-manipulation)\.
 
 1. Your altered documents are ingested into Amazon Kendra\.
 
@@ -28,9 +28,9 @@ When you call [CreateDataSource](https://docs.aws.amazon.com/kendra/latest/dg/AP
 
 If you use **Document enrichments** in the console, you can only save your configurations by completing all the steps in the console\. Your document configurations are not saved if you don't complete all the steps\. If you use the `CreateDataSource`, `UpdateDataSource`, or `BatchPutDocument` APIs, you can save your configurations and apply them when you are ready\.
 
-## Basic data manipulation<a name="basic-data-maniplation"></a>
+## Basic operations to change metadata<a name="basic-data-maniplation"></a>
 
-You can manipulate your document metadata fields or attributes and content using basic logic\. This includes removing values in a field, modifying values in a field using a condition, or creating a field\. For advanced manipulations that go beyond what you can manipulate using basic logic, invoke a Lambda function\. For more information, see [Advanced data manipulation](#advanced-data-manipulation)\.
+You can manipulate your document metadata fields or attributes and content using basic logic\. This includes removing values in a field, modifying values in a field using a condition, or creating a field\. For advanced manipulations that go beyond what you can manipulate using basic logic, invoke a Lambda function\. For more information, see [Lambda functions: extract and change metadata or content](#advanced-data-manipulation)\.
 
 To apply basic logic, you specify the target field you want to manipulate using the [DocumentAttributeTarget](https://docs.aws.amazon.com/kendra/latest/dg/API_DocumentAttributeTarget.html) object\. You provide the attribute key\. For example, the key 'Department' is a field or attribute that holds all the department names associated with the documents\. You can also specify a value to use in the target field if a certain condition is met\. You set the condition using the [DocumentAttributeCondition](https://docs.aws.amazon.com/kendra/latest/dg/API_DocumentAttributeCondition.html) object\. For example, if the 'Source\_URI' field contains 'financial' in its URI value, then prefill the target field 'Department' with the target value 'Finance' for the document\. You can also delete the values of the target document attribute\.
 
@@ -332,7 +332,7 @@ public class CreateDataSourceWithCustomizationsExample {
 
 ------
 
-## Advanced data manipulation<a name="advanced-data-manipulation"></a>
+## Lambda functions: extract and change metadata or content<a name="advanced-data-manipulation"></a>
 
 You can manipulate your document metadata fields or attributes and content using Lambda functions\. This is useful if you want to go beyond basic logic and apply advanced data manipulations\. For example, using Optical Character Recognition \(OCR\), which interprets text from images, and treats each image as a textual document\. Or, retrieving the current date\-time in a certain time zone and inserting the date\-time where there's an empty value for a date field\. You can apply basic logic first and then use a Lambda function to further manipulate your data\.
 
