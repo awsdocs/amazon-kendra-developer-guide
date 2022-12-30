@@ -4,11 +4,15 @@
 
 # Adding documents with the API<a name="in-adding-binary-doc"></a>
 
-The following example adds text to an index by calling [BatchPutDocument](API_BatchPutDocument.md)\.
+The following example adds a blob of text to an index by calling [BatchPutDocument](API_BatchPutDocument.md)\. You can also [add documents from an S3 bucket](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-plain-text.html) and call the `BatchPutDocument` API\.
 
 You can use the `BatchPutDocument` API to add documents to your index\. For a list of document types supported by Amazon Kendra see [Types of documents](https://docs.aws.amazon.com/kendra/latest/dg/index-document-types.html)\.
 
-Files added to the index must be in a UTF\-8 encoded byte stream\. In the following examples, UTF\-8 encoded text is added to the index\.
+Files added to the index must be in a UTF\-8 encoded byte stream\.
+
+For an example of creating an index using the AWS CLI and SDKs, see [Creating an index](https://docs.aws.amazon.com/kendra/latest/dg/create-index.html)\. To set up the CLI and SDKs, see [Setting up Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/setup.html)\.
+
+In the following examples, UTF\-8 encoded text is added to the index\.
 
 ------
 #### [ Python ]
@@ -49,6 +53,7 @@ print(result)
 
 ```
 package com.amazonaws.kendra;
+
 
 import software.amazon.awssdk.core.SdkBytes;
 import software.amazon.awssdk.services.kendra.KendraClient;

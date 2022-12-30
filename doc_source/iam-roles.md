@@ -436,7 +436,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
 ### IAM roles for Confluence server data sources<a name="iam-roles-ds-cnf"></a>
 
 When you use a Confluence server as a data source, you provide a role with the following policies:
-+ Permission to access the AWS Secrets Manager secret that contains the credentials necessary to connect to the Confluence server\. For more information about the contents of the secret, see [Using a Confluence data source](data-source-confluence.md)\.
++ Permission to access the AWS Secrets Manager secret that contains the credentials necessary to connect to the Confluence server\. For more information about the contents of the secret, see [Confluence](data-source-confluence.md)\.
 + Permission to use the AWS KMS customer master key \(CMK\) to decrypt the user name and password secret stored by Secrets Manager\.
 + Permission to use the `BatchPutDocument` and `BatchDeleteDocument` operations to update the index\.
 
@@ -504,7 +504,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
 ### IAM roles for database data sources<a name="iam-roles-ds-jdbc"></a>
 
 When you use a database as a data source, you provide Amazon Kendra with a role that has the permissions necessary for connecting to the database\. These include:
-+ Permission to access the AWS Secrets Manager secret that contains the user name and password for the database site\. For more information about the contents of the secret, see [Using an Amazon Kendra database data source](data-source-database.md)\.
++ Permission to access the AWS Secrets Manager secret that contains the user name and password for the database site\. For more information about the contents of the secret, see [Amazon RDS/Aurora](data-source-database.md)\.
 + Permission to use the AWS KMS customer master key \(CMK\) to decrypt the user name and password secret stored by Secrets Manager\.
 + Permission to use the `BatchPutDocument` and `BatchDeleteDocument` operations to update the index\.
 + Permission to access the Amazon S3 bucket that contains the SSL certificate used to communicate with the database site\.
@@ -605,7 +605,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
 ### IAM roles for Google Workspace Drive data sources<a name="iam-roles-ds-gd"></a>
 
 When you use a Google Workspace Drive data source, you provide Amazon Kendra with a role that has the permissions necessary for connecting to the site\. These include: 
-+ Permission to get and decrypt the AWS Secrets Manager secret that contains the client account email, admin account email, and private key necessary to connect to the Google Drive site\. For more information about the contents of the secret, see [Using a Google Drive data source](data-source-google-drive.md)\.
++ Permission to get and decrypt the AWS Secrets Manager secret that contains the client account email, admin account email, and private key necessary to connect to the Google Drive site\. For more information about the contents of the secret, see [Google Drive](data-source-google-drive.md)\.
 + Permission to use the [BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html) and [BatchDeleteDocument](https://docs.aws.amazon.com/kendra/latest/dg/API_BatchDeleteDocument.html) APIs\.
 
 The following IAM policy provides the necessary permissions:
@@ -672,7 +672,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
 ### IAM roles for Microsoft OneDrive data sources<a name="iam-roles-ds-on"></a>
 
 When you use a Microsoft OneDrive data source, you provide Amazon Kendra with a role that has the permissions necessary for connecting to the site\. These include: 
-+ Permission to get and decrypt the AWS Secrets Manager secret that contains the application ID and secret key necessary to connect to the OneDrive site\. For more information about the contents of the secret, see [Using a OneDrive data source](data-source-onedrive.md)\.
++ Permission to get and decrypt the AWS Secrets Manager secret that contains the application ID and secret key necessary to connect to the OneDrive site\. For more information about the contents of the secret, see [OneDrive](data-source-onedrive.md)\.
 + Permission to use the [BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html) and [BatchDeleteDocument](https://docs.aws.amazon.com/kendra/latest/dg/API_BatchDeleteDocument.html) APIs\.
 
 The following IAM policy provides the necessary permissions:
@@ -791,7 +791,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
 ### IAM roles for Salesforce data sources<a name="iam-roles-ds-sf"></a>
 
 When you use a Salesforce as a data source, you provide a role with the following policies:
-+ Permission to access the AWS Secrets Manager secret that contains the user name and password for the Salesforce site\. For more information about the contents of the secret, see [Using a Salesforce data source](data-source-salesforce.md)\.
++ Permission to access the AWS Secrets Manager secret that contains the user name and password for the Salesforce site\. For more information about the contents of the secret, see [Salesforce](data-source-salesforce.md)\.
 + Permission to use the AWS KMS customer master key \(CMK\) to decrypt the user name and password secret stored by Secrets Manager\.
 + Permission to use the `BatchPutDocument` and `BatchDeleteDocument` operations to update the index\.
 
@@ -857,7 +857,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
 ### IAM roles for ServiceNow data sources<a name="iam-roles-ds-sn"></a>
 
 When you use a ServiceNow as a data source, you provide a role with the following policies:
-+ Permission to access the Secrets Manager secret that contains the user name and password for the ServiceNow site\. For more information about the contents of the secret, see [Using a ServiceNow data source](data-source-servicenow.md)\.
++ Permission to access the Secrets Manager secret that contains the user name and password for the ServiceNow site\. For more information about the contents of the secret, see [ServiceNow](data-source-servicenow.md)\.
 + Permission to use the AWS KMS customer master key \(CMK\) to decrypt the user name and password secret stored by Secrets Manager\.
 + Permission to use the `BatchPutDocument` and `BatchDeleteDocument` operations to update the index\.
 
@@ -923,7 +923,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
 ### IAM roles for Microsoft SharePoint data sources<a name="iam-roles-ds-spo"></a>
 
 For a Microsoft SharePoint data source, you provide a role with the following policies\.
-+ Permission to access the AWS Secrets Manager secret that contains the user name and password for the SharePoint site\. For more information about the contents of the secret, see [Using a SharePoint data source](data-source-sharepoint.md)\.
++ Permission to access the AWS Secrets Manager secret that contains the user name and password for the SharePoint site\. For more information about the contents of the secret, see [SharePoint](data-source-sharepoint.md)\.
 + Permission to use the AWS KMS customer master key \(CMK\) to decrypt the user name and password secret stored by AWS Secrets Manager\.
 + Permission to use the `BatchPutDocument` and `BatchDeleteDocument` operations to update the index\.
 + Permission to access the Amazon S3 bucket that contains the SSL certificate used to communicate with the SharePoint site\.

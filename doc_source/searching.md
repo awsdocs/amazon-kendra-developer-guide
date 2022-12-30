@@ -10,6 +10,7 @@ To search documents that you have indexed with Amazon Kendra for Amazon Lex, use
 
 **Topics**
 + [Querying an index](searching-example.md)
++ [Tabular search for HTML](searching-tables.md)
 + [Browsing an index](browsing.md)
 + [Filtering queries](filtering.md)
 + [Filtering on user context](user-context-filter.md)

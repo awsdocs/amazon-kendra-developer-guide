@@ -8,4 +8,4 @@ Amazon Kendra can index many types of documents\.
 
 **Topics**
 + [Types of documents](index-document-types.md)
-+ [Document attributes](hiw-document-attributes.md)
++ [Document attributes or fields](hiw-document-attributes.md)

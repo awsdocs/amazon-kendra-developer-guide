@@ -2,7 +2,7 @@
 
 --------
 
-# Using an Amazon Kendra custom data source<a name="data-source-custom"></a>
+# Custom data source<a name="data-source-custom"></a>
 
 Use a custom data source when you have a repository that Amazon Kendra doesn’t yet provide a data source connector for\. You can use it to see the same run history metrics that Amazon Kendra data sources provide even when you can't use Amazon Kendra's data sources to sync your repositories\. Use this to create a consistent sync monitoring experience between Amazon Kendra data sources and custom ones\. Specifically, use a custom data source to see sync metrics for a data source connector that you created using the [BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html) and [BatchDeleteDocument](https://docs.aws.amazon.com/kendra/latest/dg/API_BatchDeleteDocument.html) APIs\.
 

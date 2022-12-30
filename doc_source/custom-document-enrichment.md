@@ -4,11 +4,13 @@
 
 # Enriching your documents during ingestion<a name="custom-document-enrichment"></a>
 
-You can alter your document metadata or attributes and content during the document ingestion process\. With Amazon Kendra *Custom Document Enrichment* tool, you can create, modify, or delete document attributes and content when you ingest your documents into Amazon Kendra\. This means you can manipulate and ingest your data as you need\.
+You can alter your content and document metadata fields or attributes during the document ingestion process\. With Amazon Kendra's *Custom Document Enrichment* feature, you can create, modify, or delete document attributes and content when you ingest your documents into Amazon Kendra\. This means you can manipulate and ingest your data as you need\.
 
-This tool gives you control over how your documents are treated and ingested into Amazon Kendra\. For example, you can scrub personally identifiable information in the document metadata while ingesting your documents into Amazon Kendra\.
+This feature gives you control over how your documents are treated and ingested into Amazon Kendra\. For example, you can scrub personally identifiable information in the document metadata while ingesting your documents into Amazon Kendra\.
 
-Another way that you can use this tool is to invoke a Lambda function in AWS Lambda to run Optical Character Recognition \(OCR\) on images, translation on text, and other tasks for preparing the data for search or analysis\. For example, you can invoke a function to run OCR on images\. The function could interpret text from images and treat each image as a textual document\. A company that receives mailed\-in customer surveys and stores these surveys as images could ingest these images as textual documents into Amazon Kendra\. The company can then search for valuable customer survey information in Amazon Kendra\. The company can also scrub or remove customer identification numbers associated with the surveys to protect customer privacy\.
+Another way that you can use this feature is to invoke a Lambda function in AWS Lambda to run Optical Character Recognition \(OCR\) on images, translation on text, and other tasks for preparing the data for search or analysis\. For example, you can invoke a function to run OCR on images\. The function could interpret text from images and treat each image as a textual document\. A company that receives mailed\-in customer surveys and stores these surveys as images could ingest these images as textual documents into Amazon Kendra\. The company can then search for valuable customer survey information in Amazon Kendra\.
+
+You can use basic operations to apply as a first parse of your data, and then use a Lambda function to apply more complex operations on your data\. For example, you could use a basic operation to simply remove all values in the document metadata field 'Customer\_ID', and then apply a Lambda function to extract text from images of the text in the documents\.
 
 ## How Custom Document Enrichment works<a name="how-custom-document-enrichment-works"></a>
 
@@ -26,17 +28,17 @@ At any point in this process, if your configuration is not valid, Amazon Kendra 
 
 When you call [CreateDataSource](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html), [UpdateDataSource](https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateDataSource.html), or [BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html) APIs, you provide your Custom Document Enrichment configuration\. If you call `BatchPutDocument`, you must configure Custom Document Enrichment with each request\. If you use the console, you select your index and then select **Document enrichments** to configure Custom Document Enrichment\.
 
-If you use **Document enrichments** in the console, you can only save your configurations by completing all the steps in the console\. Your document configurations are not saved if you don't complete all the steps\. If you use the `CreateDataSource`, `UpdateDataSource`, or `BatchPutDocument` APIs, you can save your configurations and apply them when you are ready\.
+If you use **Document enrichments** in the console, you can choose to only configure basic operations or only Lambda functions or both, like you can using the API\. You can select **Next** in the console steps to choose not to configure basic operations and only Lambda functions, including whether to apply to the original \(pre\-extraction\) or structured \(post\-extraction\) data\. You can only save your configurations by completing all the steps in the console\. Your document configurations are not saved if you don't complete all the steps\.
 
 ## Basic operations to change metadata<a name="basic-data-maniplation"></a>
 
-You can manipulate your document metadata fields or attributes and content using basic logic\. This includes removing values in a field, modifying values in a field using a condition, or creating a field\. For advanced manipulations that go beyond what you can manipulate using basic logic, invoke a Lambda function\. For more information, see [Lambda functions: extract and change metadata or content](#advanced-data-manipulation)\.
+You can manipulate your document fields and content using basic logic\. This includes removing values in a field, modifying values in a field using a condition, or creating a field\. For advanced manipulations that go beyond what you can manipulate using basic logic, invoke a Lambda function\. For more information, see [Lambda functions: extract and change metadata or content](#advanced-data-manipulation)\.
 
 To apply basic logic, you specify the target field you want to manipulate using the [DocumentAttributeTarget](https://docs.aws.amazon.com/kendra/latest/dg/API_DocumentAttributeTarget.html) object\. You provide the attribute key\. For example, the key 'Department' is a field or attribute that holds all the department names associated with the documents\. You can also specify a value to use in the target field if a certain condition is met\. You set the condition using the [DocumentAttributeCondition](https://docs.aws.amazon.com/kendra/latest/dg/API_DocumentAttributeCondition.html) object\. For example, if the 'Source\_URI' field contains 'financial' in its URI value, then prefill the target field 'Department' with the target value 'Finance' for the document\. You can also delete the values of the target document attribute\.
 
-To apply basic logic using the console, select your index and then select **Document enrichments** in the navigation menu\. Go to **Configure basic operations** to apply basic manipulations to your document metadata fields or attributes and content\.
+To apply basic logic using the console, select your index and then select **Document enrichments** in the navigation menu\. Go to **Configure basic operations** to apply basic manipulations to your document fields and content\.
 
-The following is an example of using basic logic to remove all customer identification numbers in the document metadata field called 'Customer\_ID'\.
+The following is an example of using basic logic to remove all customer identification numbers in the document field called 'Customer\_ID'\.
 
 Data before basic manipulation applied\.
 
@@ -56,7 +58,7 @@ Data after basic manipulation applied\.
 | 2 | Lorem Ipsum\. |   | 
 | 3 | Lorem Ipsum\. |   | 
 
-The following is an example of using basic logic to create a metadata field called 'Department' and prefill this field with the department names based on information from the 'Source\_URI' field\. This uses the condition that if the 'Source\_URI' field contains 'financial' in its URI value, then prefill the target field 'Department' with the target value 'Finance' for the document\.
+The following is an example of using basic logic to create a field called 'Department' and prefill this field with the department names based on information from the 'Source\_URI' field\. This uses the condition that if the 'Source\_URI' field contains 'financial' in its URI value, then prefill the target field 'Department' with the target value 'Finance' for the document\.
 
 Data before basic manipulation applied\.
 
@@ -77,7 +79,7 @@ Data after basic manipulation applied\.
 | 3 | Lorem Ipsum\. | financial/3 | Finance | 
 
 **Note**  
-Amazon Kendra can't create a target document metadata field if it isn't already created as an index field\. After you create your index field, you can create a document metadata field using `DocumentAttributeTarget`\. Amazon Kendra then maps your newly created metadata field to your index field\.
+Amazon Kendra can't create a target document field if it isn't already created as an index field\. After you create your index field, you can create a document field using `DocumentAttributeTarget`\. Amazon Kendra then maps your newly created document metadata field to your index field\.
 
 The following code is an example of configuring basic data manipulation to remove customer identification numbers associated with the documents\.
 
@@ -88,7 +90,7 @@ The following code is an example of configuring basic data manipulation to remov
 
 1. In the left navigation pane, under **Indexes**, select **Document enrichments** and then select **Add document enrichment**\.
 
-1. On the **Configure basic operations** page, choose from the dropdown your data source that you want to alter document metadata fields and content\. Then choose from the dropdown the document field name 'Customer\_ID', select from the dropdown the index field name 'Customer\_ID', and select from the dropdown the target action **Delete**\. Then select **Add basic operation**\.
+1. On the **Configure basic operations** page, choose from the dropdown your data source that you want to alter document fields and content\. Then choose from the dropdown the document field name 'Customer\_ID', select from the dropdown the index field name 'Customer\_ID', and select from the dropdown the target action **Delete**\. Then select **Add basic operation**\.
 
 ------
 #### [ CLI ]
@@ -334,9 +336,13 @@ public class CreateDataSourceWithCustomizationsExample {
 
 ## Lambda functions: extract and change metadata or content<a name="advanced-data-manipulation"></a>
 
-You can manipulate your document metadata fields or attributes and content using Lambda functions\. This is useful if you want to go beyond basic logic and apply advanced data manipulations\. For example, using Optical Character Recognition \(OCR\), which interprets text from images, and treats each image as a textual document\. Or, retrieving the current date\-time in a certain time zone and inserting the date\-time where there's an empty value for a date field\. You can apply basic logic first and then use a Lambda function to further manipulate your data\.
+You can manipulate your document fields and content using Lambda functions\. This is useful if you want to go beyond basic logic and apply advanced data manipulations\. For example, using Optical Character Recognition \(OCR\), which interprets text from images, and treats each image as a textual document\. Or, retrieving the current date\-time in a certain time zone and inserting the date\-time where there's an empty value for a date field\.
 
-Amazon Kendra can invoke a Lambda function to apply advanced data manipulations during the ingestion process as part of your [CustomDocumentEnrichmentConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_CustomDocumentEnrichmentConfiguration.html)\. You specify a role that includes permission to execute the Lambda function and access your Amazon S3 bucket to store the output of your data manipulations—see [IAM access roles](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html)\. Amazon Kendra can apply your advanced data manipulations on your original, raw documents or on the structured, parsed documents\. You can configure a Lambda function that takes your original or raw data and applies your data manipulations using [PreExtractionHookConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_CustomDocumentEnrichmentConfiguration.html)\. You can also configure a Lambda function that takes your structured documents and applies your data manipulations using [PostExtractionHookConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_CustomDocumentEnrichmentConfiguration.html)\. Amazon Kendra extracts the document metadata and text to structure your documents\. Your Lambda functions must follow the mandatory request and response structures\. For more information, see [Data contracts for Lambda functions](#cde-data-contracts-lambda)\.
+You can apply basic logic first and then use a Lambda function to further manipulate your data, or vice versa\. You can also choose to only apply a Lambda function\.
+
+Amazon Kendra can invoke a Lambda function to apply advanced data manipulations during the ingestion process as part of your [CustomDocumentEnrichmentConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_CustomDocumentEnrichmentConfiguration.html)\. You specify a role that includes permission to execute the Lambda function and access your Amazon S3 bucket to store the output of your data manipulations—see [IAM access roles](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html)\.
+
+Amazon Kendra can apply a Lambda function on your original, raw documents or on the structured, parsed documents\. You can configure a Lambda function that takes your original or raw data and applies your data manipulations using [PreExtractionHookConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_CustomDocumentEnrichmentConfiguration.html)\. You can also configure a Lambda function that takes your structured documents and applies your data manipulations using [PostExtractionHookConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_CustomDocumentEnrichmentConfiguration.html)\. Amazon Kendra extracts the document metadata and text to structure your documents\. Your Lambda functions must follow the mandatory request and response structures\. For more information, see [Data contracts for Lambda functions](#cde-data-contracts-lambda)\.
 
 To configure a Lambda function in the console, select your index and then select **Document enrichments** in the navigation menu\. Go to **Configure Lambda functions** to configure a Lambda function\.
 
@@ -393,7 +399,7 @@ The following code is an example of configuring a Lambda function for advanced d
 
 1. In the left navigation pane, under **Indexes**, select **Document enrichments** and then select **Add document enrichment**\.
 
-1. On the **Configure Lambda functions** page, in the **Lambda for pre\-extraction** section, select from the dropdowns your Lambda function ARN and your Amazon S3 bucket\. Add your IAM access role by selecting your role from the dropdown to give the required permissions to create the document enrichment\.
+1. On the **Configure Lambda functions** page, in the **Lambda for pre\-extraction** section, select from the dropdowns your Lambda function ARN and your Amazon S3 bucket\. Add your IAM access role by selecting the option to create a new role from the dropdown\. This creates the required Amazon Kendra permissions to create the document enrichment\.
 
 ------
 #### [ CLI ]
@@ -682,7 +688,7 @@ Your Lambda function for `PreExtractionHookConfiguration` must adhere to the fol
     "version": <str>,
     "dataBlobStringEncodedInBase64": <str>, //In the case of a data blob
     "s3ObjectKey": <str>, //In the case of an S3 bucket
-    "metadataUpdates": [<CustomerDocumentAttribute>]
+    "metadataUpdates": [<CustomDocumentAttribute>]
 }
 ```
 
@@ -704,7 +710,7 @@ PostExtractionHookConfiguration Lambda Response
 {
     "version": <str>,
     "s3ObjectKey": <str>,
-    "metadataUpdates": [<CustomerDocumentAttribute>]
+    "metadataUpdates": [<CustomDocumentAttribute>]
 }
 ```
 

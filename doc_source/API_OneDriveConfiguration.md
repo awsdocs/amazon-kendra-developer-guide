@@ -41,7 +41,7 @@ Type: [OneDriveUsers](API_OneDriveUsers.md) object
 Required: Yes
 
  ** SecretArn **   <a name="Kendra-Type-OneDriveConfiguration-SecretArn"></a>
-The Amazon Resource Name \(ARN\) of an AWS Secrets Managersecret that contains the user name and password to connect to OneDrive\. The user namd should be the application ID for the OneDrive application, and the password is the application key for the OneDrive application\.  
+The Amazon Resource Name \(ARN\) of an AWS Secrets Managersecret that contains the user name and password to connect to OneDrive\. The user name should be the application ID for the OneDrive application, and the password is the application key for the OneDrive application\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1284\.  
 Pattern: `arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}`   

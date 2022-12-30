@@ -11,11 +11,9 @@ An index holds the contents of your documents and is structured in a way to make
 
 You can create indexes with the Amazon Kendra console, the AWS CLI, or an AWS SDK\. For information about the types of documents that can be indexed, see [Types of documents](index-document-types.md)\.
 
-## Index fields<a name="index-fields"></a>
+## Using Amazon Kendra built\-in document fields<a name="index-reserved-fields"></a>
 
-An index contains fields that you map to the attributes of your document\. Attributes could include, for example, the document title, main body text, last updated date, and other attributes contained within the structure of your documents\. You can also create custom attributes such as the figure description, or the business department the document is associated with\. Index fields, which you map to your document attributes, provide the schema for your index\. Amazon Kendra uses the fields to search your documents\. After you map your fields to your document attributes, you can use the information in the field for searching on\.
-
-Amazon Kendra has 15 reserved fields, which you can map to your document attributes:
+Amazon Kendra has the following reserved or built\-in document fields that you can use:
 + `_authors`—A list of one or more authors responsible for the content of the document\.
 + `_category`—A category that places a document in a specific group\.
 + `_created_at`—The date and time in ISO 8601 format that the document was created\. For example, 2012\-03\-25T12:30:10\+01:00 is the ISO 8601 date\-time format for March 25th 2012 at 12:30PM \(plus 10 seconds\) in Central European Time\.

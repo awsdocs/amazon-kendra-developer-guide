@@ -6,7 +6,9 @@
 
 You can add documents directly to your index from an Amazon S3 bucket\. You can add up to 10 documents in the same call\. When you use an S3 bucket, you must provide an IAM role with permission to access the bucket that contains your documents\. You specify the role in the `RoleArn` parameter\.
 
-Using the [BatchPutDocument](API_BatchPutDocument.md) API to add documents from an S3 bucket is a one\-time operation\. To keep an index synchronized with the contents of a bucket, create an S3 data source\. For more information, see [Using an Amazon S3 data source](data-source-s3.md)\.
+Using the [BatchPutDocument](API_BatchPutDocument.md) API to add documents from an S3 bucket is a one\-time operation\. To keep an index synchronized with the contents of a bucket, create an S3 data source\. For more information, see [Amazon S3](data-source-s3.md)\.
+
+For an example of creating an index using the AWS CLI and SDKs, see [Creating an index](https://docs.aws.amazon.com/kendra/latest/dg/create-index.html)\. To set up the CLI and SDKs, see [Setting up Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/setup.html)\. For information on creating an S3 bucket, see [Amazon Simple Storage Service documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html)\.
 
 In the following example, two Microsoft Word documents are added to the index using the `BatchPutDocument` API\.
 

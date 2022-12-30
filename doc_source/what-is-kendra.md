@@ -11,7 +11,7 @@ For information on Amazon Kendra API operations, see the [API Reference document
 Amazon Kendra users can ask the following types of questions, or queries:
 + **Factoid questions**—Simple who, what, when, or where questions, such as *Where is the nearest service center to Seattle?* Factoid questions have fact\-based answers that can be returned in the form of a single word or phrase\. The answer is retrieved from a FAQ or from your indexed documents\.
 + **Descriptive questions**—Questions where the answer could be a sentence, passage, or an entire document\. For example, *How do I connect my Echo Plus to my network?* or *How do I get tax benefits for lower income families?*\. 
-+ **Keyword searches**—Questions where the intent and scope are not clear\. For example, *keynote address*\. As 'address' can often have several meanings, Amazon Kendra can infer the user's intent behind the search query to return relevant information aligned with the user's intended meaning\. Amazon Kendra uses deep learning models to handle this kind of query\.
++ **Keyword and natural language searches**—Questions that not only include keywords to search on but also complex, conversational questions\. This includes questions where the intended meaning isn't always clear\. For example, *keynote address*\. Since 'address' can often have several meanings, Amazon Kendra can infer the user's intended meaning behind the search query to return relevant information\. Amazon Kendra uses deep learning models to handle this kind of query\.
 
 ## Benefits of Amazon Kendra<a name="what-is-benefits"></a>
 

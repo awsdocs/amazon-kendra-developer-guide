@@ -2,7 +2,7 @@
 
 --------
 
-# Using a Amazon Kendra web crawler data source<a name="data-source-webcrawler"></a>
+# Web crawler<a name="data-source-webcrawler"></a>
 
 You can use Amazon Kendra Web Crawler to crawl and index webpages\. 
 
@@ -17,25 +17,29 @@ For troubleshooting your Amazon Kendra Web crawler data source connector, see [T
 **Topics**
 + [Supported features](#supported-features-webcrawler)
 + [Prerequisites](#prerequisites-webcrawler)
-+ [Connecting Amazon Kendra to your Web crawler data source](#data-source-procedure-webcrawler)
++ [Connection instructions](#data-source-procedure-webcrawler)
 + [Learn more](#webcrawler-learn-more)
 + [Stopping Amazon Kendra Web Crawler from indexing your website](stop-web-crawler.md)
 
 ## Supported features<a name="supported-features-webcrawler"></a>
+
+Amazon Kendra Web crawler data source connector supports the following features:
 + Web proxy
 + Inclusion/exclusion filters
 
 ## Prerequisites<a name="prerequisites-webcrawler"></a>
 
-Before you can use Amazon Kendra to index your Web crawler data source, you must meet the following requirements:
-+ You have created an Amazon Kendra index\. You must create an index before you create the data source\. You need the index id to connect your data source\. For more information on how to create an Amazon Kendra index, see [Creating an index](https://docs.aws.amazon.com/kendra/latest/dg/create-index.html)\.
-+ You have copied the seed or sitemap URLs of the website you want to index\.
-+ For websites that require basic authentication to crawl, you have copied the host name of the website and the port number\. You need this information to crawl the website using Amazon Kendra\.
-+ \(Optional\) You can use a web proxy to connect to internal websites you want to crawl\. The web proxy must be public facing\. Amazon Kendra supports connecting to web proxy servers that are backed by basic authentication or you can connect with no authentication\. You provide the host name of the website and the port number\.
-**Note**  
- It is recommended that you regularly refresh or rotate your credentials and secret, and only provide the necessary level of access for your own security\.
+Before you can use Amazon Kendra to index your Web crawler data source, make these changes in your Web crawler and AWS accounts\.
 
-## Connecting Amazon Kendra to your Web crawler data source<a name="data-source-procedure-webcrawler"></a>
+**In your Web crawler data source, make sure you have:**
++ Copied the seed or sitemap URLs of the website you want to index\.
++ **For websites that require basic authentication to crawl**: Copied the host name of the website and the port number\.
++ **Optional:** Copied the host name of the website and the port number if you want to use a web proxy to connect to internal websites you want to crawl\. The web proxy must be public facing\. Amazon Kendra supports connecting to web proxy servers that are backed by basic authentication or you can connect with no authentication\.
+
+**In your AWS account, make sure you have:**
++ Created an Amazon Kendra index and, if using the API, noted the index id\.
+
+## Connection instructions<a name="data-source-procedure-webcrawler"></a>
 
 To connect Amazon Kendra to your Web crawler data source you must provide details of your Web crawler credentials so that Amazon Kendra can access your data\. If you have not yet configured Web crawler for Amazon Kendra see [Prerequisites](#prerequisites-webcrawler)\.
 
@@ -58,13 +62,13 @@ You can choose to configure or edit your **User access control** settings under 
 
 1. On the **Specify data source details** page, enter the following information:
 
-   1. **Data source name**—Enter a name for your data source\. You can include hyphens but not spaces\.
+   1. In **Name and description**, for **Data source name**—Enter a name for your data source\. You can include hyphens but not spaces\.
 
    1. \(Optional\)** Description**—Enter an optional description for your data source\.
 
-   1. **Default language**—A language to filter your documents for the index\. Unless you specify otherwise, the language defaults to English\. Language specified in metadata overrides selected language\.
+   1. In **Language**, for **Default language**—A language to filter your documents for the index\. Unless you specify otherwise, the language defaults to English\. Language specified in metadata overrides selected language\.
 
-   1. **Add new tag**—Tags to search and filter your resources or track your AWS costs\.
+   1. In **Tags**, for **Add new tag**—Tags to search and filter your resources or track your AWS costs\.
 
    1. Choose **Next**\.
 
@@ -72,7 +76,8 @@ You can choose to configure or edit your **User access control** settings under 
 
    1. For **Source**, choose between **Source URLs** and **Source sitemaps** depending on your use case and enter the values for each\.
 **Note**  
-You can add up to 10 source URLs and 3 sitemaps\.
+You can add up to 10 source URLs and 3 sitemaps\.  
+If you want to crawl a sitemap, it is important to check if the base or root URL is the same base URL used for the URLs listed on your sitemap page\. For example, if your sitemap URL is *https://example\.com/sitemap\-page\.html*, the URLs listed on this sitemap page should also use the base URL "https://example\.com/"\.
 
    1. \(Optional\) For **Web proxy**— enter the following information:
 
@@ -114,19 +119,21 @@ IAM roles used for indexes cannot be used for data sources\. If you are unsure i
 
       1. **Regex patterns**—Add a pattern to include only certain URLs, or to exclude URLs, file types or specific files in your repository\. You can have a combined total of 100 patterns\.
 
-   1. **Frequency**—How often Amazon Kendra will sync with your data source\.
+   1. In **Sync run schedule**, for **Frequency**—Choose how often Amazon Kendra will sync with your data source\.
 
    1. Choose **Next**\.
 
-1. On the **Review and create** page, check that the information you have entered is correct and then select **Add data source**\. Your data source will appear on the **Data sources** page once it is added successfully\.
+1. On the **Review and create** page, check that the information you have entered is correct and then select **Add data source**\. You can also choose to edit your information from this page\. Your data source will appear on the **Data sources** page once it is added successfully\.
 
 ------
-#### [ WebCrawlerConfiguration API ]
+#### [ API ]
 
 **To connect Amazon Kendra to Web crawler**
 
 You must specify the following the [WebCrawlerConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/Web crawlerConfiguration.html) API:
-+ **Urls**—You must specify the seed or starting point URLs of the websites or the sitemap URLs of the websites you want to crawl using [SeedUrlConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_SeedUrlConfiguration.html) and [SiteMapsConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_SiteMapsConfiguration.html)\.
++ **Urls**—Specify the seed or starting point URLs of the websites or the sitemap URLs of the websites you want to crawl using [SeedUrlConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_SeedUrlConfiguration.html) and [SiteMapsConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_SiteMapsConfiguration.html)\.
+
+  If you want to crawl a sitemap, it is important to check if the base or root URL is the same base URL used for the URLs listed on your sitemap page\. For example, if your sitemap URL is *https://example\.com/sitemap\-page\.html*, the URLs listed on this sitemap page should also use the base URL "https://example\.com/"\.
 + **Secret Amazon Resource Name \(ARN\)**—If a website requires basic authentication, you provide the host name, port number and a secret that stores your basic authentication credentials of your user name and password\.You provide the ARN using the [AuthenticationConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_AuthenticationConfiguration.html) API\. The secret is stored in a JSON structure with the following keys:
 
   ```
@@ -138,7 +145,7 @@ You must specify the following the [WebCrawlerConfiguration](https://docs.aws.am
 
   You can provide web proxy credentials using a secret in AWS Secrets Manager secret\. You use the [ProxyConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_ProxyConfiguration.html) API to provide the website host name and port number, and optionally the secret that stores your web proxy credentials\.
 **Note**  
-It is recommended that you regularly refresh or rotate your credentials and secret, and only provide the necessary level of access for your own security\. For more information on permissions, see [IAM roles for Web crawler data sources](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-ds)\.
+Be sure to regularly refresh or rotate your credentials and secret\. Provide only the necessary access level for your own security\.
 
 You can also add the following optional features:
 + The 'depth' or number of levels in a website from the seed level to crawl\. For example, if a website has 3 levels—index level \(the seed level in this example\), sections level, and subsections level—and you are only interested in crawling information from the index level to the sections level \(levels 0 to 1\), you can set your depth to 1\.
@@ -148,7 +155,7 @@ You can also add the following optional features:
 + The web proxy information to connect to and crawl internal websites\.
 + The authentication information to access and crawl websites that require user authentication\.
 + You can extract HTML meta tags as fields using the *Custom Document Enrichment* tool\. For more information, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html)\. For an example of extracting HTML meta tags, see [CDE examples](https://github.com/aws-samples/amazon-kendra-cde-examples)\.
-+  **Inclusion and exclusion filters**—You can specify whether to include certain URLs\.
++  **Inclusion and exclusion filters**—Specify whether to include certain URLs\.
 **Note**  
 If you specify an inclusion filter, only content that matches the inclusion filter is indexed\. Any document that doesn’t match the inclusion filter isn’t indexed\. If you specify an inclusion and exclusion filter, documents that match the exclusion filter are not indexed, even if they match the inclusion filter\.
 

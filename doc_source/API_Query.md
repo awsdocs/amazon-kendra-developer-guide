@@ -13,7 +13,7 @@ Amazon Kendra searches your index for text content and question and answer \(FAQ
 + Matching FAQs
 + Relevant documents
 
-You can specify that the query return only one type of result using the `QueryResultTypeConfig` parameter\.
+You can specify that the query return only one type of result using the `QueryResultTypeFilter` parameter\.
 
 Each query returns the 100 most relevant results\. 
 
@@ -312,9 +312,25 @@ Required: No
          },
          "DocumentURI": "string",
          "FeedbackToken": "string",
+         "Format": "string",
          "Id": "string",
          "ScoreAttributes": { 
             "ScoreConfidence": "string"
+         },
+         "TableExcerpt": { 
+            "Rows": [ 
+               { 
+                  "Cells": [ 
+                     { 
+                        "Header": boolean,
+                        "Highlighted": boolean,
+                        "TopAnswer": boolean,
+                        "Value": "string"
+                     }
+                  ]
+               }
+            ],
+            "TotalNumberOfRows": number
          },
          "Type": "string"
       }

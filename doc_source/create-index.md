@@ -162,7 +162,7 @@ To create an index, you must provide the Amazon Resource Name \(ARN\) of an AWS 
 After you created your index, you add documents to it\. You can add them directly or create a data source that updates your index on a regular schedule\.
 
 **Topics**
-+ [Controlling access to documents in an index](create-index-access-control.md)
 + [Adding documents directly to an index](in-adding-documents.md)
-+ [Adding questions and answers directly to an index](in-creating-faq.md)
-+ [Creating custom document attributes or metadata fields](custom-attributes.md)
++ [Adding frequently asked questions \(FAQs\) directly to an index](in-creating-faq.md)
++ [Creating custom document fields](custom-attributes.md)
++ [Controlling access to documents in an index](create-index-access-control.md)

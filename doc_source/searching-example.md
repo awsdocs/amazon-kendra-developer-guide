@@ -10,7 +10,7 @@ When you search your index, Amazon Kendra uses all the information that you prov
 + Custom text fields that you have marked searchable\.
 + The date field that you have indicated should be used to determine the "freshness" of a document\.
 
-When a set of relevant documents has been selected from the index, Amazon Kendra filters the response based on any attribute filters that you have requested for the search\. For example, if you have a custom attribute called "department", you can filter the response to return only documents from a department called "legal"\. For more information, see [Creating custom document attributes or metadata fields](custom-attributes.md)\.
+When a set of relevant documents has been selected from the index, Amazon Kendra filters the response based on any attribute filters that you have requested for the search\. For example, if you have a custom attribute called "department", you can filter the response to return only documents from a department called "legal"\. For more information, see [Creating custom document fields](custom-attributes.md)\.
 
 After finding the relevant documents and then filtering based on the attributes that you set, Amazon Kendra returns the results\. The results are sorted by the relevance that Amazon Kendra determined for each doc\. The results are paginated so that you can show a page at a time to your user\.
 
@@ -319,7 +319,7 @@ Invalid Boolean\. Operators must be used with terms and placed between terms\.
 
 ## Searching in languages<a name="searching-index-languages"></a>
 
-You can search for documents in a supported language\. That makes it possible for users to search and find documents in their native language\. You pass the language code in the [AttributeFilter](https://docs.aws.amazon.com/kendra/latest/dg/API_AttributeFilter.html) to return filtered documents in your chosen language\. You can type the query in a supported language\. 
+You can search for documents in a supported language\. You pass the language code in the [AttributeFilter](https://docs.aws.amazon.com/kendra/latest/dg/API_AttributeFilter.html) to return filtered documents in your chosen language\. You can type the query in a supported language\. 
 
 If you do not specify a language, Amazon Kendra queries documents in English by default\. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html)\.
 

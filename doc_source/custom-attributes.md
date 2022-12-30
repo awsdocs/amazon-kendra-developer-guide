@@ -2,7 +2,7 @@
 
 --------
 
-# Creating custom document attributes or metadata fields<a name="custom-attributes"></a>
+# Creating custom document fields<a name="custom-attributes"></a>
 
 You can apply custom attributes or metadata fields relevant to your particular documents\. For example, you can create a custom field or attribute called "Department" with the values of "HR", "Sales", and "Manufacturing"\. You can use these fields or attributes to limit the response \(the search results\) to documents in the "HR" department, for example\.
 
@@ -11,6 +11,8 @@ You can create up to 500 custom fields or attributes\.
 For most data sources, you map fields in the external data source to the corresponding fields in Amazon Kendra\. For more information, see [Mapping data source fields](field-mapping.md)\. For S3 data sources, you can apply custom fields or attributes using metadata files\.
 
 Before you can use a custom field or attribute, you must first create the field in the index\. Use the console or the [UpdateIndex](API_UpdateIndex.md) API to create the index fields\. The supported field types are date, long, string, and string list\.
+
+You can also use Amazon Kendra's built\-in or reserved fields\.
 
 With the `UpdateIndex` API, you add custom fields or attributes using the `DocumentMetadataConfigurationUpdates` parameter\.
 
@@ -25,28 +27,34 @@ The following JSON example uses `DocumentMetadataConfigurationUpdates` to add a 
 ]
 ```
 
-Amazon Kendra has 15 reserved fields or attributes that you can use\.
-+ `_authors` \(String list\)—A list of one or more authors that are responsible for the content of the document\.
-+ `_category` \(String\)—A category that places a document in a specific group\.
-+ `_created_at` \(ISO 8601 encoded string\)—The date and time that the document was created\.
+## Using Amazon Kendra built\-in document fields<a name="index-reserved-fields"></a>
 
-  You can also include the time zone in the ISO 8601 date\-time format if required\. For example, 2012\-03\-25T12:30:10\+01:00 is the ISO 8601 date\-time format for March 25, 2012, at 12:30PM \(plus 10 seconds\) in the Central European Time time zone\.
-+ `_data_source_id` \(String\)—The identifier of the data source that contains the document\.
-+ `_document_body` \(String\)—The content of the document\.
-+ `_document_id` \(String\)—A unique identifier for the document\.
-+ `_document_title` \(String\)—The title of the document\.
-+ `_excerpt_page_number` \(Long\)—The page number in a PDF file where the document excerpt appears\. If your index was created before September 8, 2020, you must re\-index your documents before you can use this attribute\.
-+ `_faq_id` \(String\)—If this is an FAQ question and answer, a unique identifier for them\.
-+ `_file_type` \(String\)—The file type of the document, such as PDF or DOC\.
-+ `_last_updated_at` \(ISO 8601 encoded string\)—The date and time that the document was last updated\.
+Amazon Kendra has the following reserved or built\-in document fields that you can use:
++ `_authors`—A list of one or more authors responsible for the content of the document\.
++ `_category`—A category that places a document in a specific group\.
++ `_created_at`—The date and time in ISO 8601 format that the document was created\. For example, 2012\-03\-25T12:30:10\+01:00 is the ISO 8601 date\-time format for March 25th 2012 at 12:30PM \(plus 10 seconds\) in Central European Time\.
++ `_data_source_id`—The identifier of the data source that contains the document\.
++ `_document_body`—The content of the document\.
++ `_document_id`—A unique identifier for the document\.
++ `_document_title`—The title of the document\.
++ `_excerpt_page_number`—The page number in a PDF file where the document excerpt appears\. If your index was created before September 8, 2020, you must re\-index your documents before you can use this attribute\.
++ `_faq_id`—If this is an FAQ question and answer, a unique identifier for them\.
++ `_file_type`—The file type of the document, such as pdf or doc\.
++ `_last_updated_at`—The date and time in ISO 8601 format that the document was last updated\. For example, 2012\-03\-25T12:30:10\+01:00 is the ISO 8601 date\-time format for March 25th 2012 at 12:30PM \(plus 10 seconds\) in Central European Time\.
++ `_source_uri`—The URI where the document is available\. For example, the URI of the document on a company website\.
++ `_version`—An identifier for the specific version of a document\.
++ `_view_count`—The number of times that the document has been viewed\.
++ `_language_code` \(String\)—The code for a language that applies to the document\. This defaults to English if you do not specify a language\. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html)\.
 
-  You can also include the time zone in the ISO 8601 date\-time format if required\. For example, 2012\-03\-25T12:30:10\+01:00 is the ISO 8601 date\-time format for March 25, 2012, at 12:30PM \(plus 10 seconds\) in the Central European Time time zone\.
-+ `_source_uri` \(String\)—The URI where the document is available\. For example, the URI of the document on a company website\.
-+ `_version` \(String\)—An identifier for the specific version of a document\.
-+ `_view_count` \(Long\)—The number of times that the document is viewed\.
-+ `_language_code` \(String\)—The code for a language that applies to the document\. This defaults to English if you don't specify a language\. For more information about the supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html)\.
+You can also create custom fields, which you can use like the reserved fields for search and display, and to create facets\. 
 
-After you have created a custom field or attribute, you can use the field when you call the `Query` API\. You can use it for faceted search, use it to filter the response or search results, and choose whether the field or attribute is returned in the response\. For more information, see [Filtering queries](filtering.md)\.
+There are four types of custom fields:
++ Date
++ Number
++ String
++ String list
+
+You create a custom field using the console or by using the [UpdateIndex](https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateIndex.html) API\. After you create a custom field, you map it to a document attribute, just as you do with a reserved field\. If you added a document to the index with [BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html) API, you map the attributes with the API\. For documents indexed from an Amazon S3 data source, you map the attributes using a metadata file that contains a JSON structure that describes the document attributes\. For documents indexed with a database or a data source that allows field mapping, you map attributes with the console or the data source configuration\. For more information, see [Searching indexes](https://docs.aws.amazon.com/kendra/latest/dg/searching.html)\.
 
 ## Adding custom attributes or fields with the BatchPutDocument API<a name="custom-attributes-batch"></a>
 

@@ -2,9 +2,9 @@
 
 --------
 
-# Using a GitHub data source<a name="data-source-github"></a>
+# GitHub<a name="data-source-github"></a>
 
-GitHub is a web\-based hosting service for software development providing code storage and management services with version control\. If you are a GitHub user, you can use Amazon Kendra to index your GitHub Enterprise Cloud \(SaaS\) and GitHub Enterprise Server \(on premises\) repository files, issue and pull requests, issue and pull request comments, and issue and pull request comment attachments\. You can also choose to include or exclude certain files\.
+GitHub is a web\-based hosting service for software development providing code storage and management services with version control\. You can use Amazon Kendra to index your GitHub Enterprise Cloud \(SaaS\) and GitHub Enterprise Server \(On Prem\) repository files, issue and pull requests, issue and pull request comments, and issue and pull request comment attachments\. You can also choose to include or exclude certain files\.
 
 You can connect Amazon Kendra to your GitHub data source using the [Amazon Kendra console](https://console.aws.amazon.com/kendra/) and the [GitHubConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_GitHubConfiguration.html) API\.
 
@@ -13,10 +13,12 @@ For troubleshooting your Amazon Kendra GitHub data source connector, see [Troubl
 **Topics**
 + [Supported features](#supported-features-github)
 + [Prerequisites](#prerequisites-github)
-+ [Connecting Amazon Kendra to your GitHub data source](#data-source-procedure-github)
++ [Connection instructions](#data-source-procedure-github)
 + [Learn more](#github-learn-more)
 
 ## Supported features<a name="supported-features-github"></a>
+
+Amazon Kendra GitHub data source connector supports the following features:
 + Change log
 + Field mappings
 + User context filtering
@@ -24,16 +26,18 @@ For troubleshooting your Amazon Kendra GitHub data source connector, see [Troubl
 
 ## Prerequisites<a name="prerequisites-github"></a>
 
-Before you can use Amazon Kendra to index your GitHub data source, you must meet the following requirements:
-+ You have created an Amazon Kendra index\. You must create an index before you create the data source\. You need the index id to connect your data source\. For more information on how to create an Amazon Kendra index, see [Creating an index](https://docs.aws.amazon.com/kendra/latest/dg/create-index.html)\.
-+ You have an IAM role for your data source\. Amazon Kendra uses this role to access the AWS resources required to create the Amazon Kendra resource\. You provide the Amazon Resource Name \(ARN\) of the IAM role with the policy attached when you connect your data source to Amazon Kendra\. If you are using the API, you must create an IAM role before you connect your datasource\. If you use the AWS console, you can choose to use an existing IAM role or create a new one when you configure your Amazon Kendra connector\. For more information on using an IAM role for your GitHub data source, see [IAM roles for data sources](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-ds)\.
-+ You have a GitHub user with administrative permissions to the GitHub organization in your GitHub enterprise account\.
-+ In your GitHub administrative account, you have created authentication credentials that include a GitHub personal access token\. You will need this when you create your AWS Secrets Manager secret for your data source\. 
-+ You have noted the GitHub host URL for the type of GitHub service that you use\. For example, the host URL for GitHub cloud could be * https://api\.github\.com* and the host URL for GitHub server could be *https://on\-prem\-host\-url/api/v3/*\.
-+ You have noted the GitHub organization name for your repositories from your GitHub settings\. You will need this information to connect your GitHub with Amazon Kendra\.
-+ You have added the following permissions to your GitHub account:
+Before you can use Amazon Kendra to index your GitHub data source, make these changes in your GitHub and AWS accounts\.
 
-  **For GitHub Enterprise Cloud \(Saas\)**:
+**In GitHub, make sure you have:**
++ Created a GitHub user with administrative permissions to the GitHub organization\.
++ Created a personal access token for authentication credentials\.
++ **Recommended:**Created an OAuth token for authentication credentials\. Use OAuth token for better API throttle limits and connector performance\.
++ **Optional:** Installed a SSL certificate\.
++ Noted the GitHub host URL for the type of GitHub service that you use\. For example, the host URL for GitHub cloud could be *https://api\.github\.com* and the host URL for GitHub server could be *https://on\-prem\-host\-url/api/v3/*\.
++ Noted the GitHub organization name for your respositories from your GitHub settings\.
++ Added the following permissions:
+
+  **For GitHub Enterprise Cloud \(SaaS\)**
   + repo:status
   + public\_repo
   + repo:invite
@@ -41,7 +45,7 @@ Before you can use Amazon Kendra to index your GitHub data source, you must meet
   + user:email
   + read:user
 
-  **For GitHub Enterprise Server \(on premises\)**:
+  **For GitHub Enterprise Server \(On Prem\)**
   + repo:status
   + public\_repo
   + repo:invite
@@ -50,11 +54,16 @@ Before you can use Amazon Kendra to index your GitHub data source, you must meet
   + read:user
   + site\_admin
 
-  You can find more information on how to configure your GitHub account on the [GitHub Docs](https://docs.github.com/en) page\.
-+ You have an AWS Secrets Manager secret containing the authentication credentials you are using to connect your GitHub data source with your Amazon Kendra index\. If you are using the console to create your data source, you can create the secret there, or you can use an existing Secrets Manager secret\. If you are using the API, you must provide the Amazon Resource Name \(ARN\) of an existing secret\. It is recommended that you regularly refresh or rotate your credentials and secret, and only provide the necessary level of access for your own security\.
-+ \(Optional\) If you want to map attributes or custom index fields from your GitHub data source to your Amazon Kendra index, you must make sure that these attributes and custom fields already exist in your data source file system custom metadata\.
+**In your AWS account, make sure you have:**
++ Created an Amazon Kendra index and, if using the API, noted the index id\.
++ Created an IAM role for your data source and, if using the API, noted the ARN of the IAM role\.
++ Stored your GitHub authentication credentials in an AWS Secrets Manager secret and, if using the API, noted the ARN of the secret\.
+**Note**  
+Be sure to regularly refresh or rotate your credentials and secret\. Provide only the necessary access level for your own security\.
 
-## Connecting Amazon Kendra to your GitHub data source<a name="data-source-procedure-github"></a>
+If you don’t have an existing IAM role or secret, you can use the console to create a new IAM role and Secrets Manager secret when you connect your GitHub data source to Amazon Kendra\. If you are using the API, you must provide the ARN of an existing IAM role and Secrets Manager secret, and an index id\.
+
+## Connection instructions<a name="data-source-procedure-github"></a>
 
 To connect Amazon Kendra to your GitHub data source you must provide details of your GitHub credentials so that Amazon Kendra can access your data\. If you have not yet configured GitHub for Amazon Kendra see [Prerequisites](#prerequisites-github)\.
 
@@ -77,13 +86,13 @@ You can choose to configure or edit your **User access control** settings under 
 
 1. On the **Specify data source details** page, enter the following information:
 
-   1. **Data source name**—Enter a name for your data source\. You can include hyphens but not spaces\.
+   1. In **Name and description**, for **Data source name**—Enter a name for your data source\. You can include hyphens but not spaces\.
 
    1. \(Optional\)** Description**—Enter an optional description for your data source\.
 
-   1. **Default language**—A language to filter your documents for the index\. Unless you specify otherwise, the language defaults to English\. Language specified in metadata overrides selected language\.
+   1. In **Language**, for **Default language**—A language to filter your documents for the index\. Unless you specify otherwise, the language defaults to English\. Language specified in metadata overrides selected language\.
 
-   1. **Add new tag**—Tags to search and filter your resources or track your AWS costs\.
+   1. In **Tags**, for **Add new tag**—Tags to search and filter your resources or track your AWS costs\.
 
    1. Choose **Next**\.
 
@@ -123,7 +132,7 @@ IAM roles used for indexes cannot be used for data sources\. If you are unsure i
 
    1. **Regex patterns**—Regular expression patterns to include or exclude certain files\. You can add up to 100 patterns\.
 
-   1. **Frequency**—How often Amazon Kendra will sync with your data source\.
+   1. In **Sync run schedule**, for **Frequency**—How often Amazon Kendra will sync with your data source\.
 
    1. Choose **Next**\.
 
@@ -135,16 +144,16 @@ IAM roles used for indexes cannot be used for data sources\. If you are unsure i
 
    1. Choose **Next**\.
 
-1. On the **Review and create** page, check that the information you have entered is correct and then select **Add data source**\. Your data source will appear on the **Data sources** page once it is added successfully\.
+1. On the **Review and create** page, check that the information you have entered is correct and then select **Add data source**\. You can also choose to edit your information from this page\. Your data source will appear on the **Data sources** page once it is added successfully\.
 
 ------
-#### [ GitHub Configuration API ]
+#### [ API ]
 
 **To connect Amazon Kendra to GitHub**
 
 You must specify the following using the [GitHubConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_GitHubConfiguration.html) API object:
-+ **Data source type**—You must specify the data source type as either `SAAS` or `ON_PREMISE`\.
-+ **Secret Amazon Resource Name \(ARN\)**—You must provide the Amazon Resource Name \(ARN\) of a Secrets Manager secret that contains the authentication credentials you created in your GitHub account\. You provide the ARN using the `CreateDataSource` API\. The secret is stored in a JSON structure with the following keys: 
++ **Data source type**—Specify the data source type as either `SAAS` or `ON_PREMISE`\.
++ **Secret Amazon Resource Name \(ARN\)**—Provide the Amazon Resource Name \(ARN\) of a Secrets Manager secret that contains the authentication credentials you created in your GitHub account\. The secret is stored in a JSON structure with the following keys: 
 
   ```
   {
@@ -152,21 +161,21 @@ You must specify the following using the [GitHubConfiguration](https://docs.aws.
   }
   ```
 **Note**  
-It is recommended that you regularly refresh or rotate your credentials and secret, and only provide the necessary level of access for your own security\. For more information on permissions, see [IAM roles for GitHub data sources](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-ds)\.
-+ **IAM role**—You must provide an IAM role with permissions to access your Secrets Manager secret and to call the required public APIs for the GitHub connector and Amazon Kendra\. For more information, see [IAM roles for GitHub data sources](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-ds)\.
+Be sure to regularly refresh or rotate your credentials and secret\. Provide only the necessary access level for your own security\.
++ **IAM role**—Provide an IAM role with permissions to access your Secrets Manager secret and to call the required public APIs for the GitHub connector and Amazon Kendra\. For more information, see [IAM roles for GitHub data sources](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-ds)\.
 
 You can also add the following optional features:
-+  **Virtual Private Cloud \(VPC\)**—You can choose to specify `VpcConfiguration` when you call `CreateDataSource`\. See [Configuring Amazon Kendra to use a VPC](vpc-configuration.md)\.
++  **Virtual Private Cloud \(VPC\)**—Specify `VpcConfiguration` when you call `CreateDataSource`\. See [Configuring Amazon Kendra to use a VPC](vpc-configuration.md)\.
 **Note**  
 If you use GitHub server, you must use an Amazon VPC to connect to your GitHub server\.
 +  **Change log**—Whether Amazon Kendra should use the GitHub data source change log mechanism to determine if a document must be added, updated, or deleted in the index\.
 **Note**  
 Use the change log if you don’t want Amazon Kendra to scan all of the documents\. If your change log is large, it might take Amazon Kendra less time to scan the documents in the GitHub data source than to process the change log\. If you are syncing your GitHub data source with your index for the first time, all documents are scanned\. 
-+  **Inclusion and exclusion filters**—You can specify whether to include repository files, issue and pull requests, issue and pull request comments, and issue and pull request comment attachments\. You can also specify regular expression patterns to include or exclude \[repository files, issue and pull requests, issue and pull request comments, and issue and pull request comment attachments\.
++  **Inclusion and exclusion filters**—Specify whether to include repository files, issue and pull requests, issue and pull request comments, and issue and pull request comment attachments\. You can also specify regular expression patterns to include or exclude \[repository files, issue and pull requests, issue and pull request comments, and issue and pull request comment attachments\.
 **Note**  
 If you specify an inclusion filter, only content that matches the inclusion filter is indexed\. Any document that doesn’t match the inclusion filter isn’t indexed\. If you specify an inclusion and exclusion filter, documents that match the exclusion filter are not indexed, even if they match the inclusion filter\.
-+  **Context filtering**—You can choose to filter a user’s results based on their user or group access to documents\. For more information, see [User context filtering for GitHub data sources](https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html)\.
-+  **Field mappings**—You can choose to map your GitHub data source fields to your Amazon Kendra index fields\. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html)\.
++  **Context filtering**—Choose to filter a user’s results based on their user or group access to documents\. For more information, see [User context filtering for GitHub data sources](https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html)\.
++  **Field mappings**—Choose to map your GitHub data source fields to your Amazon Kendra index fields\. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html)\.
 
 ------
 

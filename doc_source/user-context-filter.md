@@ -289,13 +289,13 @@ You can add up to 200 entries in the `AccessControlList` field\.
 
 ## User context filtering for ServiceNow data sources<a name="context-filter-servicenow"></a>
 
-User context filtering for ServiceNow is supported only for the TemplateConfiguration API and the Console\. ServiceNowConfiguration API does not support user context filtering\.
+User context filtering for ServiceNow is supported only for the TemplateConfiguration API and ServiceNow Connector v2\.0\. ServiceNowConfiguration API and ServiceNow Connector v1\.0\. do not support user context filtering\.
 
 When you use a ServiceNow data source, Amazon Kendra gets the user and group information from the ServiceNow instance\.
 
 The group and user IDs are mapped as follows:
-+ `_group_ids` – Group IDs exist in ServiceNow on files where there are set access permissions\. They are mapped from the names of the groups in ServiceNow\.
-+ `_user_id` – User IDs exist in ServiceNow on files where there are set access permissions\. They are mapped from the user emails as the IDs in ServiceNow\.
++ `_group_ids`—Group IDs exist in ServiceNow on files where there are set access permissions\. They are mapped from the role names of `sys_ids` in ServiceNow\.
++ `_user_id`—User IDs exist in ServiceNow on files where there are set access permissions\. They are mapped from the user emails as the IDs in ServiceNow\.
 
 You can add up to 200 entries in the `AccessControlList` field\.
 

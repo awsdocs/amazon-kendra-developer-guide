@@ -12,9 +12,9 @@ For a list of document types supported by Amazon Kendra see [Types of documents]
 
 Adding documents to an index is an asynchronous operation\. After you call the `BatchPutDocument` API, you use the [BatchGetDocumentStatus](API_BatchGetDocumentStatus.md) API to monitor the progress of indexing your documents\. When you call the `BatchGetDocumentStatus` API with a list of document IDs, it returns the status of the document\. When the status of the document is `INDEXED` or `FAILED`, processing of the document is complete\. When the status is `FAILED`, the `BatchGetDocumentStatus` API returns the reason that the document couldn't be indexed\.
 
-If you want to alter your document metadata or attributes and content during the document ingestion process, see [Amazon Kendra Custom Document Enrichment](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html)\.
+If you want to alter your content and document metadata fields or attributes during the document ingestion process, see [Amazon Kendra Custom Document Enrichment](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html)\.
 
-If you want to use a custom data source, each document you submit using the `BatchPutDocument` API requires a data source ID and execution ID as attributes\. For more information, see [Required attributes for custom data sources](https://docs.aws.amazon.com/kendra/latest/dg/data-source-custom.html#custom-required-attributes)\.
+If you want to use a custom data source, each document you submit using the `BatchPutDocument` API requires a data source ID and execution ID as attributes or fields\. For more information, see [Required attributes for custom data sources](https://docs.aws.amazon.com/kendra/latest/dg/data-source-custom.html#custom-required-attributes)\.
 
 Note, each document ID must be unique per index\. You cannot create a data source to index your documents with their unique IDs and then use the `BatchPutDocument` API to index the same documents, or vice versa\. You can delete a data source and then use the `BatchPutDocument` API to index the same documents, or vice versa\.
 

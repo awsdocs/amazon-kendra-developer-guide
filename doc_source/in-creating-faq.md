@@ -2,7 +2,7 @@
 
 --------
 
-# Adding questions and answers directly to an index<a name="in-creating-faq"></a>
+# Adding frequently asked questions \(FAQs\) directly to an index<a name="in-creating-faq"></a>
 
 You can add frequently asked questions \(FAQs\) directly to your index using the console or the [CreateFaq](API_CreateFaq.md) API\. Adding FAQs to an index is an asynchronous operation\. You put the data for the FAQ in a file that you store in an Amazon Simple Storage Service bucket\. You can use CSV or JSON files as input for your FAQ:
 + Basic CSV—A CSV file where each line contains a question, answer, and an optional URL with more information about the answer\.

@@ -9,13 +9,13 @@ Provides the configuration information to connect to Jira as your data source\.
 ## Contents<a name="API_JiraConfiguration_Contents"></a>
 
  ** AttachmentFieldMappings **   <a name="Kendra-Type-JiraConfiguration-AttachmentFieldMappings"></a>
-A list of DataSourceToIndexFieldMapping objects that map attributes or field names of Jira attachments to Amazon Kendra index field names\. To create custom fields, use the UpdateIndex API before you map to Jira fields\. For more information, see [ Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html)\. The Jira data source field names must exist in your Jira custom metadata\.  
+A list of `DataSourceToIndexFieldMapping` objects that map attributes or field names of Jira attachments to Amazon Kendra index field names\. To create custom fields, use the `UpdateIndex` API before you map to Jira fields\. For more information, see [ Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html)\. The Jira data source field names must exist in your Jira custom metadata\.  
 Type: Array of [DataSourceToIndexFieldMapping](API_DataSourceToIndexFieldMapping.md) objects  
 Array Members: Minimum number of 1 item\. Maximum number of 100 items\.  
 Required: No
 
  ** CommentFieldMappings **   <a name="Kendra-Type-JiraConfiguration-CommentFieldMappings"></a>
-A list of DataSourceToIndexFieldMapping objects that map attributes or field names of Jira comments to Amazon Kendra index field names\. To create custom fields, use the UpdateIndex API before you map to Jira fields\. For more information, see [ Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html)\. The Jira data source field names must exist in your Jira custom metadata\.  
+A list of `DataSourceToIndexFieldMapping` objects that map attributes or field names of Jira comments to Amazon Kendra index field names\. To create custom fields, use the `UpdateIndex` API before you map to Jira fields\. For more information, see [ Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html)\. The Jira data source field names must exist in your Jira custom metadata\.  
 Type: Array of [DataSourceToIndexFieldMapping](API_DataSourceToIndexFieldMapping.md) objects  
 Array Members: Minimum number of 1 item\. Maximum number of 100 items\.  
 Required: No
@@ -35,7 +35,7 @@ Length Constraints: Minimum length of 1\. Maximum length of 150\.
 Required: No
 
  ** IssueFieldMappings **   <a name="Kendra-Type-JiraConfiguration-IssueFieldMappings"></a>
-A list of DataSourceToIndexFieldMapping objects that map attributes or field names of Jira issues to Amazon Kendra index field names\. To create custom fields, use the UpdateIndex API before you map to Jira fields\. For more information, see [ Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html)\. The Jira data source field names must exist in your Jira custom metadata\.  
+A list of `DataSourceToIndexFieldMapping` objects that map attributes or field names of Jira issues to Amazon Kendra index field names\. To create custom fields, use the `UpdateIndex` API before you map to Jira fields\. For more information, see [ Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html)\. The Jira data source field names must exist in your Jira custom metadata\.  
 Type: Array of [DataSourceToIndexFieldMapping](API_DataSourceToIndexFieldMapping.md) objects  
 Array Members: Minimum number of 1 item\. Maximum number of 100 items\.  
 Required: No
@@ -54,7 +54,7 @@ Length Constraints: Minimum length of 1\. Maximum length of 2048\.
 Required: No
 
  ** JiraAccountUrl **   <a name="Kendra-Type-JiraConfiguration-JiraAccountUrl"></a>
-The URL of the Jira account\. For example, *company\.atlassian\.net* or *https://jira\.company\.com*\. You can find your Jira account URL in the URL of your profile page for Jira desktop\.  
+The URL of the Jira account\. For example, *company\.atlassian\.net*\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  
 Pattern: `^https:\/\/[a-zA-Z0-9_\-\.]+(\.atlassian\.net\/)$`   
@@ -67,15 +67,15 @@ Length Constraints: Minimum length of 1\. Maximum length of 2048\.
 Required: No
 
  ** ProjectFieldMappings **   <a name="Kendra-Type-JiraConfiguration-ProjectFieldMappings"></a>
-A list of DataSourceToIndexFieldMapping objects that map attributes or field names of Jira projects to Amazon Kendra index field names\. To create custom fields, use the UpdateIndex API before you map to Jira fields\. For more information, see [ Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html)\. The Jira data source field names must exist in your Jira custom metadata\.  
+A list of `DataSourceToIndexFieldMapping` objects that map attributes or field names of Jira projects to Amazon Kendra index field names\. To create custom fields, use the `UpdateIndex` API before you map to Jira fields\. For more information, see [ Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html)\. The Jira data source field names must exist in your Jira custom metadata\.  
 Type: Array of [DataSourceToIndexFieldMapping](API_DataSourceToIndexFieldMapping.md) objects  
 Array Members: Minimum number of 1 item\. Maximum number of 100 items\.  
 Required: No
 
  ** SecretArn **   <a name="Kendra-Type-JiraConfiguration-SecretArn"></a>
 The Amazon Resource Name \(ARN\) of a secret in AWS Secrets Manager contains the key\-value pairs required to connect to your Jira data source\. The secret must contain a JSON structure with the following keys:  
-+ jiraId—The Jira username\.
-+ jiraCredentials—The Jira API token\. For more information on creating an API token in Jira, see [ Using a Jira data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-jira.html)\.
++ jiraId—The Jira user name or email\.
++ jiraCredentials—The Jira API token\. For more information, see [Using a Jira data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-jira.html)\.
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1284\.  
 Pattern: `arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}`   
@@ -93,12 +93,12 @@ Type: Boolean
 Required: No
 
  ** VpcConfiguration **   <a name="Kendra-Type-JiraConfiguration-VpcConfiguration"></a>
-Configuration information for an Amazon Virtual Private Cloud to connect to your Jira\. Your Jira account must reside inside your VPC\.  
+Configuration information for an Amazon Virtual Private Cloud to connect to your Jira\. For more information, see [Configuring a VPC](https://docs.aws.amazon.com/kendra/latest/dg/vpc-configuration.html)\.  
 Type: [DataSourceVpcConfiguration](API_DataSourceVpcConfiguration.md) object  
 Required: No
 
  ** WorkLogFieldMappings **   <a name="Kendra-Type-JiraConfiguration-WorkLogFieldMappings"></a>
-A list of DataSourceToIndexFieldMapping objects that map attributes or field names of Jira work logs to Amazon Kendra index field names\. To create custom fields, use the UpdateIndex API before you map to Jira fields\. For more information, see [ Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html)\. The Jira data source field names must exist in your Jira custom metadata\.  
+A list of `DataSourceToIndexFieldMapping` objects that map attributes or field names of Jira work logs to Amazon Kendra index field names\. To create custom fields, use the `UpdateIndex` API before you map to Jira fields\. For more information, see [ Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html)\. The Jira data source field names must exist in your Jira custom metadata\.  
 Type: Array of [DataSourceToIndexFieldMapping](API_DataSourceToIndexFieldMapping.md) objects  
 Array Members: Minimum number of 1 item\. Maximum number of 100 items\.  
 Required: No

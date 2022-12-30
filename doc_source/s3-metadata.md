@@ -67,6 +67,6 @@ The content of the JSON file follows this template\. All of the attributes are o
 
 The `_created_at` and `_last_updated_at` metadata fields are ISO 8601 encoded dates\. For example, 2012\-03\-25T12:30:10\+01:00 is the ISO 8601 date\-time format for March 25, 2012, at 12:30PM \(plus 10 seconds\) in the Central European Time time zone\.
 
-You can add additional information to the `Attributes` field about a document that you use to filter queries or to group query responses\. For more information, see [Creating custom document attributes or metadata fields](custom-attributes.md)\.
+You can add additional information to the `Attributes` field about a document that you use to filter queries or to group query responses\. For more information, see [Creating custom document fields](custom-attributes.md)\.
 
 You can use the `AccessControlList` field to filter the response from a query\. This way, only certain users and groups have access to documents\. For more information, see [Filtering on user context](user-context-filter.md)\.

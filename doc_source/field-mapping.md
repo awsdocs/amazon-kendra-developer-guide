@@ -4,7 +4,9 @@
 
 # Mapping data source fields<a name="field-mapping"></a>
 
-You can map document or content fields from your data source to fields in your index\. For example, if you have a field in your data source called "dept" that contains department information for a document, you can map it to an index field called "Department"\. That way, you can use the field when querying documents\. You can also map standard or reserved fields such `_created_at`\. If your data source has a field called "creation\_date", you can map this to the equivalent Amazon Kendra reserved field called `_created_at`\. You can map fields for most data sources\.
+You can map document or content fields from your data source to fields in your index\. For example, if you have a field in your data source called "dept" that contains department information for a document, you can map it to an index field called "Department"\. That way, you can use the field when querying documents\. 
+
+You can also map standard or reserved fields such as `_created_at`\. If your data source has a field called "creation\_date", you can map this to the equivalent Amazon Kendra reserved field called `_created_at`\. You can map fields for most data sources\.
 
 You can create field mappings for the following data sources:
 + Confluence
@@ -25,7 +27,7 @@ You can create field mappings for the following data sources:
 + Zendesk
 + Dropbox
 
-If you store your documents in an S3 bucket, or S3 data source, you can provide custom attributes directly using metadata files\. For more information, see [Creating custom document attributes or metadata fields](custom-attributes.md)\.
+If you store your documents in an S3 bucket, or S3 data source, you can provide custom attributes directly using metadata files\. For more information, see [Creating custom document fields](custom-attributes.md)\.
 
 Mapping your data source fields to an index field is a three\-step process:
 
@@ -72,23 +74,31 @@ The following JSON example uses `DocumentMetadataConfigurationUpdates` to add a 
 ]
 ```
 
-Amazon Kendra has 15 reserved fields that you can map to data source fields\.
-+ `_authors` \(String list\)—A list of one or more authors responsible for the content of the document\.
-+ `_category` \(String\)—A category that places a document in a specific group\.
-+ `_created_at` \(ISO 8601 encoded string\)—The date and time in ISO 8601 format that the document was created\. For example, 2012\-03\-25T12:30:10\+01:00 is the ISO 8601 date\-time format for March 25, 2012, at 12:30PM \(plus 10 seconds\) in the Central European Time time zone\.
-+ `_data_source_id` \(String\)—The identifier of the data source that contains the document\.
-+ `_document_body` \(String\)—The content of the document\.
-+ `_document_id` \(String\)—A unique identifier for the document\.
-+ `_document_title` \(String\)—The title of the document\.
-+ `_excerpt_page_number` \(Long\)—The page number in a PDF file where the document excerpt appears\. If your index was created before September 8, 2020, you must re\-index your documents before you can use this attribute\.
-+ `_faq_id` \(String\)—If this is an FAQ question and answer, a unique identifier for them\.
-+ `_file_type` \(String\)—The file type of the document, such as pdf or doc\.
-+ `_last_updated_at` \(ISO 8601 encoded string\)—The date and time in ISO 8601 format that the document was last updated\. For example, 2012\-03\-25T12:30:10\+01:00 is the ISO 8601 date\-time format for March 25, 2012, at 12:30PM \(plus 10 seconds\) in the Central European Time time zone\.
-+ `_source_uri` \(String\)—The URI where the document is available\. For example, the URI of the document on a company website\.
-+ `_version` \(String\)—An identifier for the specific version of a document\.
-+ `_view_count` \(Long\)—The number of times that the document has been viewed\.
-+ `_language_code` \(String\)—The code for a language that applies to the document\. This defaults to English if you don't specify a language\. For more information about the supported languages including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-language)\.
+## Using Amazon Kendra built\-in document fields<a name="index-reserved-fields"></a>
 
-After you created the index fields, you can map the data source fields to the index fields\. In the console, you can create index fields and map data source fields using the custom field mappings editor\. If you're using the API, you can add field mappings using the [CreateDataSource](API_CreateDataSource.md) or [UpdateDataSource](API_UpdateDataSource.md) APIs\.
+Amazon Kendra has the following reserved or built\-in document fields that you can use:
++ `_authors`—A list of one or more authors responsible for the content of the document\.
++ `_category`—A category that places a document in a specific group\.
++ `_created_at`—The date and time in ISO 8601 format that the document was created\. For example, 2012\-03\-25T12:30:10\+01:00 is the ISO 8601 date\-time format for March 25th 2012 at 12:30PM \(plus 10 seconds\) in Central European Time\.
++ `_data_source_id`—The identifier of the data source that contains the document\.
++ `_document_body`—The content of the document\.
++ `_document_id`—A unique identifier for the document\.
++ `_document_title`—The title of the document\.
++ `_excerpt_page_number`—The page number in a PDF file where the document excerpt appears\. If your index was created before September 8, 2020, you must re\-index your documents before you can use this attribute\.
++ `_faq_id`—If this is an FAQ question and answer, a unique identifier for them\.
++ `_file_type`—The file type of the document, such as pdf or doc\.
++ `_last_updated_at`—The date and time in ISO 8601 format that the document was last updated\. For example, 2012\-03\-25T12:30:10\+01:00 is the ISO 8601 date\-time format for March 25th 2012 at 12:30PM \(plus 10 seconds\) in Central European Time\.
++ `_source_uri`—The URI where the document is available\. For example, the URI of the document on a company website\.
++ `_version`—An identifier for the specific version of a document\.
++ `_view_count`—The number of times that the document has been viewed\.
++ `_language_code` \(String\)—The code for a language that applies to the document\. This defaults to English if you do not specify a language\. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html)\.
 
-You can prevent custom index fields from being searchable\. In the console, you uncheck **Searchable** for a field in the index field settings\. If you use the API, you set `Searchable` to `FALSE` for a field using the [Search](https://docs.aws.amazon.com/kendra/latest/dg/API_Search.html) object\.
+You can also create custom fields, which you can use like the reserved fields for search and display, and to create facets\. 
+
+There are four types of custom fields:
++ Date
++ Number
++ String
++ String list
+
+You create a custom field using the console or by using the [UpdateIndex](https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateIndex.html) API\. After you create a custom field, you map it to a document attribute, just as you do with a reserved field\. If you added a document to the index with [BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html) API, you map the attributes with the API\. For documents indexed from an Amazon S3 data source, you map the attributes using a metadata file that contains a JSON structure that describes the document attributes\. For documents indexed with a database or a data source that allows field mapping, you map attributes with the console or the data source configuration\. For more information, see [Searching indexes](https://docs.aws.amazon.com/kendra/latest/dg/searching.html)\.
