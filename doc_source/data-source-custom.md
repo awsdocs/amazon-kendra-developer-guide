@@ -10,6 +10,8 @@ For troubleshooting your Amazon Kendra custom data source connector, see [Troubl
 
 When you create a custom data source, you have complete control over how the documents to index are selected\. Amazon Kendra only provides metric information that you can use to monitor your data source sync jobs\. You must create and run the crawler that determines the documents your data source indexes\.
 
+You must specify the main title of your documents using the [Document](https://docs.aws.amazon.com/kendra/latest/dg/API_Document.html) object, and `_source_uri` in [DocumentAttribute](https://docs.aws.amazon.com/kendra/latest/dg/API_DocumentAttribute.html) in order to have `DocumentTitle` and `DocumentURI` included in the response of the `Query` result\.
+
 You create an identifier for your custom data source using the console or by using the [CreateDataSource](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html) API\. To use the console, give your data source a name, and optionally a description and resource tags\. After the data source is created, a data source ID is shown\. Copy this ID to use when you synchronize the data source with the index\.
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/kendra/latest/dg/images/CustomDataSource.png)

@@ -10,8 +10,6 @@ You specify a name, data source connector type and description for your data sou
 
  `CreateDataSource` is a synchronous operation\. The operation returns 200 if the data source was successfully created\. Otherwise, an exception is raised\.
 
-Amazon S3 and [custom](https://docs.aws.amazon.com/kendra/latest/dg/data-source-custom.html) data sources are the only supported data sources in the AWS GovCloud \(US\-West\) region\.
-
 For an example of creating an index and data source using the Python SDK, see [Getting started with Python SDK](https://docs.aws.amazon.com/kendra/latest/dg/gs-python.html)\. For an example of creating an index and data source using the Java SDK, see [Getting started with Java SDK](https://docs.aws.amazon.com/kendra/latest/dg/gs-java.html)\.
 
 ## Request Syntax<a name="API_CreateDataSource_RequestSyntax"></a>
@@ -778,7 +776,7 @@ Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`
 Required: Yes
 
  ** [RoleArn](#API_CreateDataSource_RequestSyntax) **   <a name="Kendra-CreateDataSource-request-RoleArn"></a>
-The Amazon Resource Name \(ARN\) of a role with permission to access the data source and required resources\. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html)\.  
+The Amazon Resource Name \(ARN\) of an IAM role with permission to access the data source and required resources\. For more information, see [IAM access roles for Amazon Kendra\.](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html)\.  
 You can't specify the `RoleArn` parameter when the `Type` parameter is set to `CUSTOM`\. If you do, you receive a `ValidationException` exception\.  
 The `RoleArn` parameter is required for all other data sources\.  
 Type: String  
@@ -788,12 +786,13 @@ Required: No
 
  ** [Schedule](#API_CreateDataSource_RequestSyntax) **   <a name="Kendra-CreateDataSource-request-Schedule"></a>
 Sets the frequency for Amazon Kendra to check the documents in your data source repository and update the index\. If you don't set a schedule Amazon Kendra will not periodically update the index\. You can call the `StartDataSourceSyncJob` API to update the index\.  
+Specify a `cron-` format schedule string or an empty string to indicate that the index is updated on demand\.  
 You can't specify the `Schedule` parameter when the `Type` parameter is set to `CUSTOM`\. If you do, you receive a `ValidationException` exception\.  
 Type: String  
 Required: No
 
  ** [Tags](#API_CreateDataSource_RequestSyntax) **   <a name="Kendra-CreateDataSource-request-Tags"></a>
-A list of key\-value pairs that identify the data source connector\. You can use the tags to identify and organize your resources and to control access to resources\.  
+A list of key\-value pairs that identify or categorize the data source connector\. You can also use tags to help control access to the data source connector\. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: \_ \. : / = \+ \- @\.  
 Type: Array of [Tag](API_Tag.md) objects  
 Array Members: Minimum number of 0 items\. Maximum number of 200 items\.  
 Required: No
@@ -842,7 +841,7 @@ A conflict occurred with the request\. Please fix any inconsistences with your r
 HTTP Status Code: 400
 
  ** InternalServerException **   
-An issue occurred with the internal server used for your Amazon Kendra service\. Please wait a few minutes and try again, or contact [ Support](http://aws.amazon.com/aws.amazon.com/contact-us) for help\.  
+An issue occurred with the internal server used for your Amazon Kendra service\. Please wait a few minutes and try again, or contact [Support](http://aws.amazon.com/contact-us/) for help\.  
 HTTP Status Code: 500
 
  ** ResourceAlreadyExistException **   
@@ -854,7 +853,7 @@ The resource you want to use doesn’t exist\. Please check you have provided th
 HTTP Status Code: 400
 
  ** ServiceQuotaExceededException **   
-You have exceeded the set limits for your Amazon Kendra service\. Please see Quotas\[hyperlink Kendra Quotas pg\] for more information, or contact [ Support](http://aws.amazon.com/aws.amazon.com/contact-us) to inquire about an increase of limits\.  
+You have exceeded the set limits for your Amazon Kendra service\. Please see [Quotas](https://docs.aws.amazon.com/kendra/latest/dg/quotas.html) for more information, or contact [Support](http://aws.amazon.com/contact-us/) to inquire about an increase of limits\.  
 HTTP Status Code: 400
 
  ** ThrottlingException **   

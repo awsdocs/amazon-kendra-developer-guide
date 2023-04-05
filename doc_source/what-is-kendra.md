@@ -4,13 +4,13 @@
 
 # What is Amazon Kendra?<a name="what-is-kendra"></a>
 
-Amazon Kendra is a highly accurate and intelligent search service that enables your users to search unstructured and structured data using natural language processing and advanced search algorithms\. It returns specific answers to questions, giving users an experience that's close to interacting with a human expert\. It is highly scalable and capable of meeting performance demands, tightly integrated with other AWS services such as [Amazon S3](https://docs.aws.amazon.com/kendra/latest/dg/data-source-s3.html) and [Amazon Lex](https://docs.aws.amazon.com/lexv2/latest/dg/faq-bot-kendra-search.html), and offers enterprise\-grade security\.
+Amazon Kendra is a highly accurate and intelligent search service that allows your users to search unstructured and structured data using natural language processing and advanced search algorithms\. It returns specific answers to questions, giving users an experience that's close to interacting with a human expert\. It is highly scalable and capable of meeting performance demands, tightly integrated with other AWS services such as [Amazon S3](https://docs.aws.amazon.com/kendra/latest/dg/data-source-s3.html) and [Amazon Lex](https://docs.aws.amazon.com/lexv2/latest/dg/faq-bot-kendra-search.html), and offers enterprise\-grade security\.
 
-For information on Amazon Kendra API operations, see the [API Reference documentation](https://docs.aws.amazon.com/kendra/latest/dg/API_Reference.html)\.
+For information on Amazon Kendra and Amazon Kendra Intelligent Ranking API operations, see the [API reference documentation](https://docs.aws.amazon.com/kendra/latest/dg/API_Reference.html)\.
 
 Amazon Kendra users can ask the following types of questions, or queries:
 + **Factoid questions**—Simple who, what, when, or where questions, such as *Where is the nearest service center to Seattle?* Factoid questions have fact\-based answers that can be returned in the form of a single word or phrase\. The answer is retrieved from a FAQ or from your indexed documents\.
-+ **Descriptive questions**—Questions where the answer could be a sentence, passage, or an entire document\. For example, *How do I connect my Echo Plus to my network?* or *How do I get tax benefits for lower income families?*\. 
++ **Descriptive questions**—Questions where the answer could be a sentence, passage, or an entire document\. For example, *How do I connect my Echo Plus to my network?* Or, *How do I get tax benefits for lower income families?*\. 
 + **Keyword and natural language searches**—Questions that not only include keywords to search on but also complex, conversational questions\. This includes questions where the intended meaning isn't always clear\. For example, *keynote address*\. Since 'address' can often have several meanings, Amazon Kendra can infer the user's intended meaning behind the search query to return relevant information\. Amazon Kendra uses deep learning models to handle this kind of query\.
 
 ## Benefits of Amazon Kendra<a name="what-is-benefits"></a>

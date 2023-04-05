@@ -14,7 +14,7 @@ The following topics provide details for the required policies\. If you create I
 + [IAM roles for indexes](#iam-roles-index)
 + [IAM roles for the BatchPutDocument API](#iam-roles-batch)
 + [IAM roles for data sources](#iam-roles-ds)
-+ [IAM roles for frequently asked questions](#iam-roles-ds-faq)
++ [IAM roles for frequently asked questions \(FAQs\)](#iam-roles-ds-faq)
 + [IAM roles for query suggestions](#iam-roles-query-suggestions)
 + [IAM roles for principal mapping of users and groups](#iam-roles-principal-mapping)
 + [IAM roles for AWS IAM Identity Center \(successor to AWS Single Sign\-On\)](#iam-roles-aws-sso)
@@ -246,12 +246,86 @@ An optional role policy to allow Amazon Kendra to use an AWS KMS customer master
 
 When you use the [CreateDataSource](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html) API, you must give Amazon Kendra an IAM role that has permission to access the database resources\. The specific permissions required depend on the data source\.
 
-**Topics**
+### IAM roles for Alfresco data sources<a name="iam-roles-ds-alfresco"></a>
+
+When you use Alfresco, you provide a role with the following policies\.
++ Permission to access your AWS Secrets Manager secret to authenticate your Alfresco\.
++ Permission to call the required public APIs for the Alfresco connector\.
++ Permission to call the `BatchPutDocument`, `BatchDeleteDocument`, `PutPrincipalMapping`, `DeletePrincipalMapping`, `DescribePrincipalMapping`, and `ListGroupsOlderThanOrderingId` APIs\.
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+  {
+    "Effect": "Allow",
+    "Action": [
+      "secretsmanager:GetSecretValue"
+    ],
+    "Resource": [
+      "arn:aws:secretsmanager:{{region}}:{{account_id}}:secret:[[secret_id]]"
+    ]
+  },
+  {
+    "Effect": "Allow",
+    "Action": [
+      "kms:Decrypt"
+    ],
+    "Resource": [
+      "arn:aws:kms:{{region}}:{{account_id}}:key/[[key_id]]"
+    ],
+    "Condition": {
+      "StringLike": {
+        "kms:ViaService": [
+          "secretsmanager.*.amazonaws.com"
+        ]
+      }
+    }
+  },
+  {
+    "Effect": "Allow",
+    "Action": [
+        "kendra:PutPrincipalMapping",
+        "kendra:DeletePrincipalMapping",
+        "kendra:ListGroupsOlderThanOrderingId",
+        "kendra:DescribePrincipalMapping"
+    ],
+    "Resource": ["arn:aws:kendra:{{region}}:{{account_id}}:index/{{index_id}}", "arn:aws:kendra:{{region}}:{{account_id}}:index/{{index_id}}/data-source/*"]
+  },
+  {
+    "Effect": "Allow",
+    "Action": [
+      "kendra:BatchPutDocument",
+      "kendra:BatchDeleteDocument"
+    ],
+    "Resource": "arn:aws:kendra:{{region}}:{{account_id}}:index/{{index_id}}"
+  }]
+}
+```
+
+#### <a name="iam-trust-policy-assume-role"></a>
+
+A trust policy to allow Amazon Kendra to assume a role\.
+
+```
+{
+   "Version":"2012-10-17",
+   "Statement":[
+      {
+         "Effect":"Allow",
+         "Principal":{
+            "Service":"kendra.amazonaws.com"
+         },
+         "Action":"sts:AssumeRole"
+      }
+   ]
+}
+```
 
 ### IAM roles for Amazon S3 data sources<a name="iam-roles-ds-s3"></a>
 
 **Warning**  
-Amazon Kendra doesn't use a bucket policy that grants permissions to an Amazon Kendra principal to interact with an S3 bucket\. Instead, it uses IAM roles\. Make sure that Amazon Kendra isn't included as a trusted member in your bucket policy to avoid any data security issues in accidentally granting permissions to arbitrary principals\. However, you can add a bucket policy to use an Amazon S3 bucket across different accounts\. For more information, see [Policies to use Amazon S3 across accounts](#iam-roles-ds-s3-cross-accounts)\.
+Amazon Kendra doesn't use a bucket policy that grants permissions to an Amazon Kendra principal to interact with an S3 bucket\. Instead, it uses IAM roles\. Make sure that Amazon Kendra isn't included as a trusted member in your bucket policy to avoid any data security issues in accidentally granting permissions to arbitrary principals\. However, you can add a bucket policy to use an Amazon S3 bucket across different accounts\. For more information, see [Policies to use Amazon S3 across accounts](#iam-roles-ds-s3-cross-accounts) \(scroll down\)\.
 
 When you use an Amazon S3 bucket as a data source, you supply a role that has permission to access the bucket, and to use the `BatchPutDocument` and `BatchDeleteDocument` operations\. If the documents in the Amazon S3 bucket are encrypted, you must provide permission to use the AWS KMS customer master key \(CMK\) to decrypt the documents\.
 
@@ -309,6 +383,275 @@ An optional role policy to allow Amazon Kendra to use an AWS KMS customer master
             ]
         }
     ]
+}
+```
+
+An optional role policy to allow Amazon Kendra to access an Amazon S3 bucket, while using a Amazon VPC, and without activating AWS KMS or sharing AWS KMS permissions\.
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": [
+        "s3:GetObject"
+      ],
+      "Resource": [
+        "arn:aws:s3:::{{input_bucket_name}}/*"
+      ],
+      "Effect": "Allow"
+    },
+    {
+      "Action": [
+        "s3:ListBucket"
+      ],
+      "Resource": [
+        "arn:aws:s3:::{{input_bucket_name}}"
+      ],
+      "Effect": "Allow"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ec2:CreateNetworkInterface"
+      ],
+      "Resource": [
+        "arn:aws:ec2:{{region}}:{{account_id}}:subnet/[[subnet_ids]]",
+        "arn:aws:ec2:{{region}}:{{account_id}}:security-group/[[security_group]]"
+      ]
+    },
+    {
+        "Effect": "Allow",
+        "Action": [
+            "ec2:CreateNetworkInterface"
+        ],
+        "Resource": "arn:aws:ec2:{{region}}:{{account_id}}:network-interface/*",
+        "Condition": {
+            "StringLike": {
+                "aws:RequestTag/AWS_KENDRA": "kendra_{{account_id}}_{{index_id}}_{datasource_id}}_*"
+            }
+        }
+    },
+    {
+        "Effect": "Allow",
+        "Action": [
+            "ec2:CreateTags"
+        ],
+        "Resource": "arn:aws:ec2:{{region}}:{{account_id}}:network-interface/*",
+        "Condition": {
+            "StringEquals": {
+                "ec2:CreateAction": "CreateNetworkInterface"
+            }
+        }
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ec2:DescribeSubnets"
+      ],
+      "Resource": ["arn:aws:ec2:{{region}}:{{account_id}}:subnet/[[subnet_ids]]"]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ec2:DescribeNetworkInterfaces"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ec2:CreateNetworkInterfacePermission"
+      ],
+      "Resource": "arn:aws:ec2:{{region}}:{{account_id}}:network-interface/*",
+      "Condition": {
+        "StringEquals": {
+          "ec2:AuthorizedService": "kendra.amazonaws.com"
+        },
+        "ArnEquals": {
+          "ec2:Subnet": [
+            "arn:aws:ec2:{{region}}:{{account_id}}:subnet/[[subnet_ids]]"
+          ]
+        }
+      }
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "kendra:PutPrincipalMapping",
+        "kendra:DeletePrincipalMapping",
+        "kendra:ListGroupsOlderThanOrderingId",
+        "kendra:DescribePrincipalMapping"
+      ],
+      "Resource": [
+        "arn:aws:kendra:{{region}}:{{account_id}}:index/{{index_id}}",
+        "arn:aws:kendra:{{region}}:{{account_id}}:index/{{index_id}}/data-source/*"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "kendra:BatchPutDocument",
+        "kendra:BatchDeleteDocument"
+      ],
+      "Resource": "arn:aws:kendra:{{region}}:{{account_id}}:index/{{index_id}}"
+    }
+  ]
+}
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "kendra.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
+```
+
+An optional role policy to allow Amazon Kendra to access an Amazon S3 bucket while using a Amazon VPC, and with AWS KMS permissions activated\.
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": [
+        "s3:GetObject"
+      ],
+      "Resource": [
+        "arn:aws:s3:::{{input_bucket_name}}/*"
+      ],
+      "Effect": "Allow"
+    },
+    {
+      "Action": [
+        "s3:ListBucket"
+      ],
+      "Resource": [
+        "arn:aws:s3:::{{input_bucket_name}}"
+      ],
+      "Effect": "Allow"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "kms:Decrypt"
+      ],
+      "Resource": [
+        "arn:aws:kms:{{region}}:{{account_id}}:key/{{key_id}}"
+      ],
+      "Condition": {
+        "StringLike": {
+          "kms:ViaService": [
+            "s3.*.amazonaws.com"
+          ]
+        }
+      }
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ec2:CreateNetworkInterface"
+      ],
+      "Resource": [
+        "arn:aws:ec2:{{region}}:{{account_id}}:subnet/[[subnet_ids]]",
+        "arn:aws:ec2:{{region}}:{{account_id}}:security-group/[[security_group]]"
+      ]
+    },
+    {
+        "Effect": "Allow",
+        "Action": [
+            "ec2:CreateNetworkInterface"
+        ],
+        "Resource": "arn:aws:ec2:{{region}}:{{account_id}}:network-interface/*",
+        "Condition": {
+            "StringLike": {
+                "aws:RequestTag/AWS_KENDRA": "kendra_{{account_id}}_{{index_id}}_{datasource_id}}_*"
+            }
+        }
+    },
+    {
+        "Effect": "Allow",
+        "Action": [
+            "ec2:CreateTags"
+        ],
+        "Resource": "arn:aws:ec2:{{region}}:{{account_id}}:network-interface/*",
+        "Condition": {
+            "StringEquals": {
+                "ec2:CreateAction": "CreateNetworkInterface"
+            }
+        }
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ec2:DescribeSubnets"
+      ],
+      "Resource": ["arn:aws:ec2:{{region}}:{{account_id}}:subnet/[[subnet_ids]]"]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ec2:DescribeNetworkInterfaces"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ec2:CreateNetworkInterfacePermission"
+      ],
+      "Resource": "arn:aws:ec2:{{region}}:{{account_id}}:network-interface/*",
+      "Condition": {
+        "StringEquals": {
+          "ec2:AuthorizedService": "kendra.amazonaws.com"
+        },
+        "ArnEquals": {
+          "ec2:Subnet": [
+            "arn:aws:ec2:{{region}}:{{account_id}}:subnet/[[subnet_ids]]"
+          ]
+        }
+      }
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "kendra:PutPrincipalMapping",
+        "kendra:DeletePrincipalMapping",
+        "kendra:ListGroupsOlderThanOrderingId",
+        "kendra:DescribePrincipalMapping"
+      ],
+      "Resource": [
+        "arn:aws:kendra:{{region}}:{{account_id}}:index/{{index_id}}",
+        "arn:aws:kendra:{{region}}:{{account_id}}:index/{{index_id}}/data-source/*"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "kendra:BatchPutDocument",
+        "kendra:BatchDeleteDocument"
+      ],
+      "Resource": "arn:aws:kendra:{{region}}:{{account_id}}:index/{{index_id}}"
+    }
+  ]
+}
+
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "kendra.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
 }
 ```
 
@@ -433,74 +776,6 @@ A trust policy to allow Amazon Kendra to assume a role\.
 }
 ```
 
-### IAM roles for Confluence server data sources<a name="iam-roles-ds-cnf"></a>
-
-When you use a Confluence server as a data source, you provide a role with the following policies:
-+ Permission to access the AWS Secrets Manager secret that contains the credentials necessary to connect to the Confluence server\. For more information about the contents of the secret, see [Confluence](data-source-confluence.md)\.
-+ Permission to use the AWS KMS customer master key \(CMK\) to decrypt the user name and password secret stored by Secrets Manager\.
-+ Permission to use the `BatchPutDocument` and `BatchDeleteDocument` operations to update the index\.
-
-```
-{
-  "Version": "2012-10-17",
-  "Statement": [
-  {
-    "Effect": "Allow",
-    "Action": [
-      "secretsmanager:GetSecretValue"
-    ],
-    "Resource": [
-      "arn:aws:secretsmanager:region:account ID:secret:secret ID"
-    ]
-  },
-  {
-    "Effect": "Allow",
-    "Action": [
-      "kms:Decrypt"
-    ],
-    "Resource": [
-      "arn:aws:kms:region:account ID:key/key ID"
-    ],
-    "Condition": {
-      "StringLike": {
-        "kms:ViaService": [
-          "secretsmanager.*.amazonaws.com"
-        ]
-      }
-    }
-  },
-  {
-    "Effect": "Allow",
-    "Action": [
-      "kendra:BatchPutDocument",
-      "kendra:BatchDeleteDocument"
-    ],
-    "Resource": "arn:aws:kendra:region:account ID:index/index ID"
-  }]
-}
-```
-
-If you are using a VPC, provide a policy that gives Amazon Kendra access to the required resources\. See [Virtual private cloud \(VPC\) IAM role](#iam-roles-vpc) for the required policy\.
-
-#### <a name="iam-trust-policy-assume-role"></a>
-
-A trust policy to allow Amazon Kendra to assume a role\.
-
-```
-{
-   "Version":"2012-10-17",
-   "Statement":[
-      {
-         "Effect":"Allow",
-         "Principal":{
-            "Service":"kendra.amazonaws.com"
-         },
-         "Action":"sts:AssumeRole"
-      }
-   ]
-}
-```
-
 ### IAM roles for database data sources<a name="iam-roles-ds-jdbc"></a>
 
 When you use a database as a data source, you provide Amazon Kendra with a role that has the permissions necessary for connecting to the database\. These include:
@@ -602,479 +877,116 @@ A trust policy to allow Amazon Kendra to assume a role\.
 }
 ```
 
-### IAM roles for Google Workspace Drive data sources<a name="iam-roles-ds-gd"></a>
+### IAM roles for Amazon FSx data sources<a name="iam-roles-ds-fsx"></a>
 
-When you use a Google Workspace Drive data source, you provide Amazon Kendra with a role that has the permissions necessary for connecting to the site\. These include: 
-+ Permission to get and decrypt the AWS Secrets Manager secret that contains the client account email, admin account email, and private key necessary to connect to the Google Drive site\. For more information about the contents of the secret, see [Google Drive](data-source-google-drive.md)\.
-+ Permission to use the [BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html) and [BatchDeleteDocument](https://docs.aws.amazon.com/kendra/latest/dg/API_BatchDeleteDocument.html) APIs\.
-
-The following IAM policy provides the necessary permissions:
-
-```
-{
-  "Version": "2012-10-17",
-  "Statement": [
-  {
-    "Effect": "Allow",
-    "Action": [
-      "secretsmanager:GetSecretValue"
-    ],
-    "Resource": [
-      "arn:aws:secretsmanager:region:account ID:secret:secret ID"
-    ]
-  },
-  {
-    "Effect": "Allow",
-    "Action": [
-      "kms:Decrypt"
-    ],
-    "Resource": [
-      "arn:aws:kms:region:account ID:key/key ID"
-    ],
-    "Condition": {
-      "StringLike": {
-        "kms:ViaService": [
-          "secretsmanager.*.amazonaws.com"
-        ]
-      }
-    }
-  },
-  {
-    "Effect": "Allow",
-    "Action": [
-      "kendra:BatchPutDocument",
-      "kendra:BatchDeleteDocument"
-    ],
-    "Resource": "arn:aws:kendra:region:account ID:index/index ID"
-  }]
-}
-```
-
-#### <a name="iam-trust-policy-assume-role"></a>
-
-A trust policy to allow Amazon Kendra to assume a role\.
-
-```
-{
-   "Version":"2012-10-17",
-   "Statement":[
-      {
-         "Effect":"Allow",
-         "Principal":{
-            "Service":"kendra.amazonaws.com"
-         },
-         "Action":"sts:AssumeRole"
-      }
-   ]
-}
-```
-
-### IAM roles for Microsoft OneDrive data sources<a name="iam-roles-ds-on"></a>
-
-When you use a Microsoft OneDrive data source, you provide Amazon Kendra with a role that has the permissions necessary for connecting to the site\. These include: 
-+ Permission to get and decrypt the AWS Secrets Manager secret that contains the application ID and secret key necessary to connect to the OneDrive site\. For more information about the contents of the secret, see [OneDrive](data-source-onedrive.md)\.
-+ Permission to use the [BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html) and [BatchDeleteDocument](https://docs.aws.amazon.com/kendra/latest/dg/API_BatchDeleteDocument.html) APIs\.
-
-The following IAM policy provides the necessary permissions:
-
-```
-{
-  "Version": "2012-10-17",
-  "Statement": [
-  {
-    "Effect": "Allow",
-    "Action": [
-      "secretsmanager:GetSecretValue"
-    ],
-    "Resource": [
-      "arn:aws:secretsmanager:region:account ID:secret:secret ID"
-    ]
-  },
-  {
-    "Effect": "Allow",
-    "Action": [
-      "kms:Decrypt"
-    ],
-    "Resource": [
-      "arn:aws:kms:region:account ID:key/key ID"
-    ],
-    "Condition": {
-      "StringLike": {
-        "kms:ViaService": [
-          "secretsmanager.*.amazonaws.com"
-        ]
-      }
-    }
-  },
-  {
-    "Effect": "Allow",
-    "Action": [
-      "kendra:BatchPutDocument",
-      "kendra:BatchDeleteDocument"
-    ],
-    "Resource": "arn:aws:kendra:region:account ID:index/index ID"
-  }]
-}
-```
-
-If you are storing the list of users to index in an Amazon S3 bucket, you must also provide permission to use the S3 `GetObject` operation\. The following IAM policy provides the necessary permissions:
-
-```
-{
-  "Version": "2012-10-17",
-  "Statement": [
-  {
-    "Effect": "Allow",
-    "Action": [
-      "secretsmanager:GetSecretValue"
-    ],
-    "Resource": [
-      "arn:aws:secretsmanager:region:account ID:secret:secret ID"
-    ]
-  },
-  {
-    "Action": [
-      "s3:GetObject"
-    ],
-    "Resource": [
-      "arn:aws:s3:::input_bucket_name/*"
-    ],
-    "Effect": "Allow"
-  },
-  {
-    "Effect": "Allow",
-    "Action": [
-      "kms:Decrypt"
-    ],
-    "Resource": [
-      "arn:aws:kms:region:account ID:key/[[key IDs]]"
-    ],
-    "Condition": {
-      "StringLike": {
-        "kms:ViaService": [
-          "secretsmanager.*.amazonaws.com",
-          "s3.*.amazonaws.com"
-        ]
-      }
-    }
-  },
-  {
-    "Effect": "Allow",
-    "Action": [
-      "kendra:BatchPutDocument",
-      "kendra:BatchDeleteDocument"
-    ],
-    "Resource": "arn:aws:kendra:region:account ID:index/index ID"
-  }]
-}
-```
-
-#### <a name="iam-trust-policy-assume-role"></a>
-
-A trust policy to allow Amazon Kendra to assume a role\.
-
-```
-{
-   "Version":"2012-10-17",
-   "Statement":[
-      {
-         "Effect":"Allow",
-         "Principal":{
-            "Service":"kendra.amazonaws.com"
-         },
-         "Action":"sts:AssumeRole"
-      }
-   ]
-}
-```
-
-### IAM roles for Salesforce data sources<a name="iam-roles-ds-sf"></a>
-
-When you use a Salesforce as a data source, you provide a role with the following policies:
-+ Permission to access the AWS Secrets Manager secret that contains the user name and password for the Salesforce site\. For more information about the contents of the secret, see [Salesforce](data-source-salesforce.md)\.
-+ Permission to use the AWS KMS customer master key \(CMK\) to decrypt the user name and password secret stored by Secrets Manager\.
-+ Permission to use the `BatchPutDocument` and `BatchDeleteDocument` operations to update the index\.
-
-```
-{
-  "Version": "2012-10-17",
-  "Statement": [
-  {
-    "Effect": "Allow",
-    "Action": [
-      "secretsmanager:GetSecretValue"
-    ],
-    "Resource": [
-      "arn:aws:secretsmanager:region:account ID:secret:secret ID"
-    ]
-  },
-  {
-    "Effect": "Allow",
-    "Action": [
-      "kms:Decrypt"
-    ],
-    "Resource": [
-      "arn:aws:kms:region:account ID:key/key ID"
-    ],
-    "Condition": {
-      "StringLike": {
-        "kms:ViaService": [
-          "secretsmanager.*.amazonaws.com"
-        ]
-      }
-    }
-  },
-  {
-    "Effect": "Allow",
-    "Action": [
-      "kendra:BatchPutDocument",
-      "kendra:BatchDeleteDocument"
-    ],
-    "Resource": "arn:aws:kendra:region:account ID:index/index ID"
-  }]
-}
-```
-
-#### <a name="iam-trust-policy-assume-role"></a>
-
-A trust policy to allow Amazon Kendra to assume a role\.
-
-```
-{
-   "Version":"2012-10-17",
-   "Statement":[
-      {
-         "Effect":"Allow",
-         "Principal":{
-            "Service":"kendra.amazonaws.com"
-         },
-         "Action":"sts:AssumeRole"
-      }
-   ]
-}
-```
-
-### IAM roles for ServiceNow data sources<a name="iam-roles-ds-sn"></a>
-
-When you use a ServiceNow as a data source, you provide a role with the following policies:
-+ Permission to access the Secrets Manager secret that contains the user name and password for the ServiceNow site\. For more information about the contents of the secret, see [ServiceNow](data-source-servicenow.md)\.
-+ Permission to use the AWS KMS customer master key \(CMK\) to decrypt the user name and password secret stored by Secrets Manager\.
-+ Permission to use the `BatchPutDocument` and `BatchDeleteDocument` operations to update the index\.
-
-```
-{
-  "Version": "2012-10-17",
-  "Statement": [
-  {
-    "Effect": "Allow",
-    "Action": [
-      "secretsmanager:GetSecretValue"
-    ],
-    "Resource": [
-      "arn:aws:secretsmanager:region:account ID:secret:secret ID"
-    ]
-  },
-  {
-    "Effect": "Allow",
-    "Action": [
-      "kms:Decrypt"
-    ],
-    "Resource": [
-      "arn:aws:kms:region:account ID:key/key ID"
-    ],
-    "Condition": {
-      "StringLike": {
-        "kms:ViaService": [
-          "secretsmanager.*.amazonaws.com"
-        ]
-      }
-    }
-  },
-  {
-    "Effect": "Allow",
-    "Action": [
-      "kendra:BatchPutDocument",
-      "kendra:BatchDeleteDocument"
-    ],
-    "Resource": "arn:aws:kendra:region:account ID:index/index ID"
-  }]
-}
-```
-
-#### <a name="iam-trust-policy-assume-role"></a>
-
-A trust policy to allow Amazon Kendra to assume a role\.
-
-```
-{
-   "Version":"2012-10-17",
-   "Statement":[
-      {
-         "Effect":"Allow",
-         "Principal":{
-            "Service":"kendra.amazonaws.com"
-         },
-         "Action":"sts:AssumeRole"
-      }
-   ]
-}
-```
-
-### IAM roles for Microsoft SharePoint data sources<a name="iam-roles-ds-spo"></a>
-
-For a Microsoft SharePoint data source, you provide a role with the following policies\.
-+ Permission to access the AWS Secrets Manager secret that contains the user name and password for the SharePoint site\. For more information about the contents of the secret, see [SharePoint](data-source-sharepoint.md)\.
-+ Permission to use the AWS KMS customer master key \(CMK\) to decrypt the user name and password secret stored by AWS Secrets Manager\.
-+ Permission to use the `BatchPutDocument` and `BatchDeleteDocument` operations to update the index\.
-+ Permission to access the Amazon S3 bucket that contains the SSL certificate used to communicate with the SharePoint site\.
-
-You must also attach a trust policy that allows Amazon Kendra to assume the role\.
+When you use Amazon FSx, you provide a role with the following policies\.
++ Permission to access your AWS Secrets Manager secret to authenticate your Amazon FSx\.
++ Permission to access Amazon Virtual Private Cloud \(VPC\) where your Amazon FSx resides\.
++ Permission to get the domain name of your Active Directory for your Amazon FSx Windows file system\.
++ Permission to call the required public APIs for the Amazon FSx connector\.
++ Permission to call the `BatchPutDocument` and `BatchDeleteDocument` APIs to update the index\.
 
 ```
 {
     "Version": "2012-10-17",
-    "Statement": [
+        "Statement": [
         {
-            "Effect": "Allow",
-            "Action": [
-                "secretsmanager:GetSecretValue"
-            ],
-            "Resource": [
-                "arn:aws:secretsmanager:region:account ID:secret:secret ID"
-            ]
+          "Effect": "Allow",
+          "Action": [
+            "secretsmanager:GetSecretValue"
+          ],
+          "Resource": [
+            "arn:aws:secretsmanager:{{region}}:{{account_id}}:secret:{{secret_id}}"
+          ]
         },
         {
-            "Effect": "Allow",
-            "Action": [
-                "kms:Decrypt"
-            ],
-            "Resource": [
-                "arn:aws:kms:region:account ID:key/key ID"
-            ]
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "kendra:BatchPutDocument",
-                "kendra:BatchDeleteDocument"
-            ],
-            "Resource": [
-                "arn:aws:kendra:region:account ID:index/index ID"
-            ],
-            "Condition": {
-                "StringLike": {
-                    "kms:ViaService": [
-                        "kendra.*.amazonaws.com"
-                    ]
-                }
+          "Effect": "Allow",
+          "Action": [
+            "kms:Decrypt"
+          ],
+          "Resource": [
+            "arn:aws:kms:{{region}}:{{account_id}}:key/{{key_id}}"
+          ],
+          "Condition": {
+            "StringLike": {
+              "kms:ViaService": [
+                "secretsmanager.{{region}}.amazonaws.com"
+              ]
             }
+          }
         },
         {
-            "Effect": "Allow",
-            "Action": [
-                "s3:GetObject"
-            ],
-            "Resource": [
-                "arn:aws:s3:::bucket name/*"
-            ]
-        }
-    ]
-}
-```
-
-If you have encrypted the Amazon S3 bucket that contains the SSL certificate used to communicate with the SharePoint site, provide a policy to give Amazon Kendra access to the key\. 
-
-```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": [
-                "kms:Decrypt"
-            ],
-            "Resource": [
-                "arn:aws:kms:region:account ID:key/key ID"
-            ]
-        }
-    ]
-}
-```
-
-#### <a name="iam-trust-policy-assume-role"></a>
-
-A trust policy to allow Amazon Kendra to assume a role\.
-
-```
-{
-   "Version":"2012-10-17",
-   "Statement":[
-      {
-         "Effect":"Allow",
-         "Principal":{
-            "Service":"kendra.amazonaws.com"
-         },
-         "Action":"sts:AssumeRole"
-      }
-   ]
-}
-```
-
-### Virtual private cloud \(VPC\) IAM role<a name="iam-roles-vpc"></a>
-
-If you use a virtual private cloud \(VPC\) to connect to your data source, you must provide the following permissions\.
-
-```
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": [
-        "ec2:CreateNetworkInterface",
-        "ec2:DescribeNetworkInterfaces",
-        "ec2:DeleteNetworkInterface"
-      ],
-      "Resource": "*"
-    },
-    {
-      "Effect": "Allow",
-      "Action": [
-        "ec2:CreateNetworkInterfacePermission"
-      ],
-      "Resource": "*",
-      "Condition": {
-        "StringEquals": {
-          "ec2:AuthorizedService": "kendra.*.amazonaws.com"
+          "Effect": "Allow",
+          "Action":[
+            "ec2:CreateNetworkInterface",
+            "ec2:DeleteNetworkInterface"
+          ],
+          "Resource": [
+                "arn:aws:ec2:{{region}}:{{account_id}}:network-interface/*",
+                "arn:aws:ec2:{{region}}:{{account_id}}:subnet/[[subnet_ids]]"
+          ]   
         },
-        "ArnEquals": {
-          "ec2:Subnet": [
-            "arn:aws:ec2:region:account ID:subnet/subnet IDs"
-          ]
+        {
+          "Effect": "Allow",
+          "Action": [
+            "ec2:DescribeSubnets",
+            "ec2:DescribeNetworkInterfaces"
+          ],
+          "Resource": "*"
+        },
+        {
+          "Effect": "Allow",
+          "Action": [
+            "ec2:CreateNetworkInterfacePermission"
+          ],
+          "Resource": "arn:aws:ec2:{{region}}:{{account_id}}:network-interface/*",
+          "Condition": {
+            "StringEquals": {
+              "ec2:AuthorizedService": "kendra.*.amazonaws.com"
+            },
+            "ArnEquals": {
+              "ec2:Subnet": [
+                "arn:aws:ec2:{{region}}:{{account_id}}:subnet/[[subnet_ids]]"
+              ]
+            }
+          }
+        },
+        {
+          "Sid": "AllowsKendraToGetDomainNameOfActiveDirectory",
+          "Effect": "Allow",
+          "Action": "ds:DescribeDirectories",
+          "Resource": "*"
+        },
+        {
+          "Sid": "AllowsKendraToCallRequiredFsxAPIs",
+          "Effect": "Allow",
+          "Action": [
+              "fsx:DescribeFileSystems"
+          ],
+          "Resource": "*"
+        },
+        {
+          "Sid": "iamPassRole",
+          "Effect": "Allow",
+          "Action": "iam:PassRole",
+          "Resource": "*",
+          "Condition": {
+            "StringEquals": {
+              "iam:PassedToService": [
+                "kendra.*.amazonaws.com"
+              ]
+            }
+          }
+        },
+        {
+          "Effect": "Allow",
+          "Action": [
+            "kendra:BatchPutDocument",
+            "kendra:BatchDeleteDocument"
+          ],
+          "Resource": "arn:aws:kendra:{{region}}:{{account_id}}:index/{{index_id}}"
         }
-      }
-    },
-    {
-      "Effect": "Allow",
-      "Action": [
-        "ec2:DescribeSubnets"
-      ],
-      "Resource": "*"
-    },
-    {
-      "Sid": "iamPassRole",
-      "Effect": "Allow",
-      "Action": "iam:PassRole",
-      "Resource": "*",
-      "Condition": {
-        "StringEquals": {
-          "iam:PassedToService": [
-            "kendra.*.amazonaws.com"
-          ]
-        }
-      }
-    }
-  ]
+        ]
 }
 ```
 
@@ -1247,214 +1159,6 @@ A trust policy to allow Amazon Kendra to assume a role\.
 }
 ```
 
-### IAM roles for Amazon FSx data sources<a name="iam-roles-ds-fsx"></a>
-
-When you use Amazon FSx, you provide a role with the following policies\.
-+ Permission to access your AWS Secrets Manager secret to authenticate your Amazon FSx\.
-+ Permission to access Amazon Virtual Private Cloud \(VPC\) where your Amazon FSx resides\.
-+ Permission to get the domain name of your Active Directory for your Amazon FSx Windows file system\.
-+ Permission to call the required public APIs for the Amazon FSx connector\.
-+ Permission to call the `BatchPutDocument` and `BatchDeleteDocument` APIs to update the index\.
-
-```
-{
-    "Version": "2012-10-17",
-        "Statement": [
-        {
-          "Effect": "Allow",
-          "Action": [
-            "secretsmanager:GetSecretValue"
-          ],
-          "Resource": [
-            "arn:aws:secretsmanager:{{region}}:{{account_id}}:secret:{{secret_id}}"
-          ]
-        },
-        {
-          "Effect": "Allow",
-          "Action": [
-            "kms:Decrypt"
-          ],
-          "Resource": [
-            "arn:aws:kms:{{region}}:{{account_id}}:key/{{key_id}}"
-          ],
-          "Condition": {
-            "StringLike": {
-              "kms:ViaService": [
-                "secretsmanager.{{region}}.amazonaws.com"
-              ]
-            }
-          }
-        },
-        {
-          "Effect": "Allow",
-          "Action":[
-            "ec2:CreateNetworkInterface",
-            "ec2:DeleteNetworkInterface"
-          ],
-          "Resource": [
-                "arn:aws:ec2:{{region}}:{{account_id}}:network-interface/*",
-                "arn:aws:ec2:{{region}}:{{account_id}}:subnet/[[subnet_ids]]"
-          ]   
-        },
-        {
-          "Effect": "Allow",
-          "Action": [
-            "ec2:DescribeSubnets",
-            "ec2:DescribeNetworkInterfaces"
-          ],
-          "Resource": "*"
-        },
-        {
-          "Effect": "Allow",
-          "Action": [
-            "ec2:CreateNetworkInterfacePermission"
-          ],
-          "Resource": "arn:aws:ec2:{{region}}:{{account_id}}:network-interface/*",
-          "Condition": {
-            "StringEquals": {
-              "ec2:AuthorizedService": "kendra.*.amazonaws.com"
-            },
-            "ArnEquals": {
-              "ec2:Subnet": [
-                "arn:aws:ec2:{{region}}:{{account_id}}:subnet/[[subnet_ids]]"
-              ]
-            }
-          }
-        },
-        {
-          "Sid": "AllowsKendraToGetDomainNameOfActiveDirectory",
-          "Effect": "Allow",
-          "Action": "ds:DescribeDirectories",
-          "Resource": "*"
-        },
-        {
-          "Sid": "AllowsKendraToCallRequiredFsxAPIs",
-          "Effect": "Allow",
-          "Action": [
-              "fsx:DescribeFileSystems"
-          ],
-          "Resource": "*"
-        },
-        {
-          "Sid": "iamPassRole",
-          "Effect": "Allow",
-          "Action": "iam:PassRole",
-          "Resource": "*",
-          "Condition": {
-            "StringEquals": {
-              "iam:PassedToService": [
-                "kendra.*.amazonaws.com"
-              ]
-            }
-          }
-        },
-        {
-          "Effect": "Allow",
-          "Action": [
-            "kendra:BatchPutDocument",
-            "kendra:BatchDeleteDocument"
-          ],
-          "Resource": "arn:aws:kendra:{{region}}:{{account_id}}:index/{{index_id}}"
-        }
-        ]
-}
-```
-
-#### <a name="iam-trust-policy-assume-role"></a>
-
-A trust policy to allow Amazon Kendra to assume a role\.
-
-```
-{
-   "Version":"2012-10-17",
-   "Statement":[
-      {
-         "Effect":"Allow",
-         "Principal":{
-            "Service":"kendra.amazonaws.com"
-         },
-         "Action":"sts:AssumeRole"
-      }
-   ]
-}
-```
-
-### IAM roles for Slack data sources<a name="iam-roles-ds-slack"></a>
-
-When you use Slack, you provide a role with the following policies\.
-+ Permission to access your AWS Secrets Manager secret to authenticate your Slack\.
-+ Permission to call the required public APIs for the Slack connector\.
-+ Permission to call the `BatchPutDocument`, `BatchDeleteDocument`, `PutPrincipalMapping`, `DeletePrincipalMapping`, `DescribePrincipalMapping`, and `ListGroupsOlderThanOrderingId` APIs\.
-
-```
-{
-  "Version": "2012-10-17",
-  "Statement": [
-  {
-    "Effect": "Allow",
-    "Action": [
-      "secretsmanager:GetSecretValue"
-    ],
-    "Resource": [
-      "arn:aws:secretsmanager:{{region}}:{{account_id}}:secret:[[secret_id]]"
-    ]
-  },
-  {
-    "Effect": "Allow",
-    "Action": [
-      "kms:Decrypt"
-    ],
-    "Resource": [
-      "arn:aws:kms:{{region}}:{{account_id}}:key/[[key_id]]"
-    ],
-    "Condition": {
-      "StringLike": {
-        "kms:ViaService": [
-          "secretsmanager.*.amazonaws.com"
-        ]
-      }
-    }
-  },
-  {
-    "Effect": "Allow",
-    "Action": [
-        "kendra:PutPrincipalMapping",
-        "kendra:DeletePrincipalMapping",
-        "kendra:ListGroupsOlderThanOrderingId",
-        "kendra:DescribePrincipalMapping"
-    ],
-    "Resource": ["arn:aws:kendra:{{region}}:{{account_id}}:index/{{index_id}}", "arn:aws:kendra:{{region}}:{{account_id}}:index/{{index_id}}/data-source/*"]
-  },
-  {
-    "Effect": "Allow",
-    "Action": [
-      "kendra:BatchPutDocument",
-      "kendra:BatchDeleteDocument"
-    ],
-    "Resource": "arn:aws:kendra:{{region}}:{{account_id}}:index/{{index_id}}"
-  }]
-}
-```
-
-#### <a name="iam-trust-policy-assume-role"></a>
-
-A trust policy to allow Amazon Kendra to assume a role\.
-
-```
-{
-   "Version":"2012-10-17",
-   "Statement":[
-      {
-         "Effect":"Allow",
-         "Principal":{
-            "Service":"kendra.amazonaws.com"
-         },
-         "Action":"sts:AssumeRole"
-      }
-   ]
-}
-```
-
 ### IAM roles for Box data sources<a name="iam-roles-ds-box"></a>
 
 When you use Box, you provide a role with the following policies\.
@@ -1531,12 +1235,14 @@ A trust policy to allow Amazon Kendra to assume a role\.
 }
 ```
 
-### IAM roles for Quip data sources<a name="iam-roles-ds-quip"></a>
+### IAM roles for Confluence data sources<a name="iam-roles-ds-cnf"></a>
 
-When you use Quip, you provide a role with the following policies\.
-+ Permission to access your AWS Secrets Manager secret to authenticate your Quip\.
-+ Permission to call the required public APIs for the Quip connector\.
-+ Permission to call the `BatchPutDocument`, `BatchDeleteDocument`, `PutPrincipalMapping`, `DeletePrincipalMapping`, `DescribePrincipalMapping`, and `ListGroupsOlderThanOrderingId` APIs\.
+#### IAM roles for Confluence Connector v1\.0<a name="iam-roles-confluence-v1"></a>
+
+When you use a Confluence server as a data source, you provide a role with the following policies:
++ Permission to access the AWS Secrets Manager secret that contains the credentials necessary to connect to Confluence\. For more information about the contents of the secret, see [Confluence](data-source-confluence.md)\.
++ Permission to use the AWS KMS customer master key \(CMK\) to decrypt the user name and password secret stored by Secrets Manager\.
++ Permission to use the `BatchPutDocument` and `BatchDeleteDocument` operations to update the index\.
 
 ```
 {
@@ -1548,7 +1254,7 @@ When you use Quip, you provide a role with the following policies\.
       "secretsmanager:GetSecretValue"
     ],
     "Resource": [
-      "arn:aws:secretsmanager:{{region}}:{{account_id}}:secret:[[secret_id]]"
+      "arn:aws:secretsmanager:region:account ID:secret:secret ID"
     ]
   },
   {
@@ -1557,7 +1263,7 @@ When you use Quip, you provide a role with the following policies\.
       "kms:Decrypt"
     ],
     "Resource": [
-      "arn:aws:kms:{{region}}:{{account_id}}:key/[[key_id]]"
+      "arn:aws:kms:region:account ID:key/key ID"
     ],
     "Condition": {
       "StringLike": {
@@ -1570,25 +1276,17 @@ When you use Quip, you provide a role with the following policies\.
   {
     "Effect": "Allow",
     "Action": [
-        "kendra:PutPrincipalMapping",
-        "kendra:DeletePrincipalMapping",
-        "kendra:ListGroupsOlderThanOrderingId",
-        "kendra:DescribePrincipalMapping"
-    ],
-    "Resource": ["arn:aws:kendra:{{region}}:{{account_id}}:index/{{index_id}}", "arn:aws:kendra:{{region}}:{{account_id}}:index/{{index_id}}/data-source/*"]
-  },
-  {
-    "Effect": "Allow",
-    "Action": [
       "kendra:BatchPutDocument",
       "kendra:BatchDeleteDocument"
     ],
-    "Resource": "arn:aws:kendra:{{region}}:{{account_id}}:index/{{index_id}}"
+    "Resource": "arn:aws:kendra:region:account ID:index/index ID"
   }]
 }
 ```
 
-#### <a name="iam-trust-policy-assume-role"></a>
+If you are using a VPC, provide a policy that gives Amazon Kendra access to the required resources\. See [Virtual private cloud \(VPC\) IAM role](#iam-roles-vpc) for the required policy\.
+
+##### <a name="iam-trust-policy-assume-role"></a>
 
 A trust policy to allow Amazon Kendra to assume a role\.
 
@@ -1607,19 +1305,218 @@ A trust policy to allow Amazon Kendra to assume a role\.
 }
 ```
 
-### IAM roles for Jira data sources<a name="iam-roles-ds-jira"></a>
+#### IAM roles for Confluence Connector v2\.0<a name="iam-roles-confluence-v2"></a>
 
-When you use Jira, you provide a role with the following policies\.
-+ Permission to access your AWS Secrets Manager secret to authenticate your Jira\.
-+ Permission to call the required public APIs for the Jira connector\.
-+ Permission to call the `BatchPutDocument`, `BatchDeleteDocument`, `PutPrincipalMapping`, `DeletePrincipalMapping`, `DescribePrincipalMapping`, and `ListGroupsOlderThanOrderingId` APIs\.
+For a Confluence connector v2\.0 data source, you provide a role with the following policies\.
++ Permission to access the AWS Secrets Manager secret that contains the authentication credentials for Confluence\. For more information about the contents of the secret, see [Confluence](data-source-confluence.md)\.
++ Permission to use the AWS KMS customer master key \(CMK\) to decrypt the user name and password secret stored by AWS Secrets Manager\.
++ Permission to use the `BatchPutDocument` and `BatchDeleteDocument` operations to update the index\.
+
+You must also attach a trust policy that allows Amazon Kendra to assume the role\.
+
+A role policy to allow Amazon Kendra to connect to Confluence\.
 
 ```
 {
   "Version": "2012-10-17",
   "Statement": [
-  {
-    "Effect": "Allow",
+    {
+      "Effect": "Allow",
+      "Action": [
+        "secretsmanager:GetSecretValue"
+      ],
+      "Resource": [
+        "arn:aws:secretsmanager:region:account_id:secret:secret_id"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "kms:Decrypt"
+      ],
+      "Resource": [
+        "arn:aws:kms:region:account_id:key/key_id"
+      ],
+      "Condition": {
+        "StringLike": {
+          "kms:ViaService": [
+            "secretsmanager.*.amazonaws.com"
+          ]
+        }
+      }
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "kendra:PutPrincipalMapping",
+        "kendra:DeletePrincipalMapping",
+        "kendra:ListGroupsOlderThanOrderingId",
+        "kendra:DescribePrincipalMapping"
+      ],
+      "Resource": [
+        "arn:aws:kendra:region:account_id:index/index_id",
+        "arn:aws:kendra:region:account_id:index/index_id/data-source/*"
+      ]
+    }
+    {
+      "Effect": "Allow",
+      "Action": [
+        "kendra:BatchPutDocument",
+        "kendra:BatchDeleteDocument"
+      ],
+      "Resource": "arn:aws:kendra:region:account_id:index/index_id"
+    }
+  ]
+}
+```
+
+An role policy to allow Amazon Kendra to connect to Confluence with VPC configuration\.
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "secretsmanager:GetSecretValue"
+      ],
+      "Resource": [
+        "arn:aws:secretsmanager:region:account_id:secret:secret_id"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "kms:Decrypt"
+      ],
+      "Resource": [
+        "arn:aws:kms:region:account_id:key/key_id"
+      ],
+      "Condition": {
+        "StringLike": {
+          "kms:ViaService": [
+            "secretsmanager.*.amazonaws.com"
+          ]
+        }
+      }
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "kendra:PutPrincipalMapping",
+        "kendra:DeletePrincipalMapping",
+        "kendra:ListGroupsOlderThanOrderingId",
+        "kendra:DescribePrincipalMapping"
+      ],
+      "Resource": [
+        "arn:aws:kendra:region:account_id:index/index_id",
+        "arn:aws:kendra:region:account_id:index/index_id/data-source/*"
+      ]
+    }
+    {
+      "Effect": "Allow",
+      "Action": [
+        "kendra:BatchPutDocument",
+        "kendra:BatchDeleteDocument"
+      ],
+      "Resource": "arn:aws:kendra:region:account_id:index/index_id"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ec2:CreateNetworkInterface"
+      ],
+      "Resource": [
+        "arn:aws:ec2:region:account_id:subnet/subnet_ids",
+        "arn:aws:ec2:region:account_id:security-group/security_group"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ec2:CreateNetworkInterface"
+      ],
+      "Resource": "arn:aws:ec2:region:account_id:network-interface/*",
+      "Condition": {
+        "StringLike": {
+          "aws:RequestTag/AWS_KENDRA": "kendra_account_id_index_id_*"
+        }
+      }
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ec2:CreateTags"
+      ],
+      "Resource": "arn:aws:ec2:region:account_id:network-interface/*",
+      "Condition": {
+        "StringEquals": {
+          "ec2:CreateAction": "CreateNetworkInterface"
+        }
+      }
+    },
+    
+{
+      "Effect": "Allow",
+      "Action": [
+        "ec2:CreateNetworkInterfacePermission"
+      ],
+      "Resource": "arn:aws:ec2:region:account_id:network-interface/*",
+      "Condition": {
+        "StringLike": {
+          "aws:ResourceTag/AWS_KENDRA": "kendra_account_id_index_id_*"
+        }
+      }
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ec2:DescribeNetworkInterfaces",
+        "ec2:DescribeAvailabilityZones",
+        "ec2:DescribeNetworkInterfaceAttribute",
+        "ec2:DescribeVpcs",
+        "ec2:DescribeRegions",
+        "ec2:DescribeNetworkInterfacePermissions",
+        "ec2:DescribeSubnets"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+```
+
+##### <a name="iam-trust-policy-assume-role"></a>
+
+A trust policy to allow Amazon Kendra to assume a role\.
+
+```
+{
+   "Version":"2012-10-17",
+   "Statement":[
+      {
+         "Effect":"Allow",
+         "Principal":{
+            "Service":"kendra.amazonaws.com"
+         },
+         "Action":"sts:AssumeRole"
+      }
+   ]
+}
+```
+
+### IAM roles for Dropbox data sources<a name="iam-roles-ds-dropbox"></a>
+
+When you use Dropbox, you provide a role with the following policies\.
++ Permission to access your AWS Secrets Manager secret to authenticate your Dropbox\.
++ Permission to call the required public APIs for the Dropbox connector\.
++ Permission to call the `BatchPutDocument`, `BatchDeleteDocument`, `PutPrincipalMapping`, `DeletePrincipalMapping`, `DescribePrincipalMapping`, and `ListGroupsOlderThanOrderingId` APIs\.
+
+```
+{
+"Version": "2012-10-17",
+  "Statement": [
+  {"Effect": "Allow",
     "Action": [
       "secretsmanager:GetSecretValue"
     ],
@@ -1627,24 +1524,20 @@ When you use Jira, you provide a role with the following policies\.
       "arn:aws:secretsmanager:{{region}}:{{account_id}}:secret:[[secret_id]]"
     ]
   },
-  {
-    "Effect": "Allow",
+  {"Effect": "Allow",
     "Action": [
       "kms:Decrypt"
     ],
     "Resource": [
       "arn:aws:kms:{{region}}:{{account_id}}:key/[[key_id]]"
     ],
-    "Condition": {
-      "StringLike": {
-        "kms:ViaService": [
+    "Condition": {"StringLike": {"kms:ViaService": [
           "secretsmanager.*.amazonaws.com"
         ]
       }
     }
   },
-  {
-    "Effect": "Allow",
+  {"Effect": "Allow",
     "Action": [
         "kendra:PutPrincipalMapping",
         "kendra:DeletePrincipalMapping",
@@ -1653,8 +1546,7 @@ When you use Jira, you provide a role with the following policies\.
     ],
     "Resource": ["arn:aws:kendra:{{region}}:{{account_id}}:index/{{index_id}}", "arn:aws:kendra:{{region}}:{{account_id}}:index/{{index_id}}/data-source/*"]
   },
-  {
-    "Effect": "Allow",
+  {"Effect": "Allow",
     "Action": [
       "kendra:BatchPutDocument",
       "kendra:BatchDeleteDocument"
@@ -1759,11 +1651,1059 @@ A trust policy to allow Amazon Kendra to assume a role\.
 }
 ```
 
-### IAM roles for Alfresco data sources<a name="iam-roles-ds-alfresco"></a>
+### IAM roles for Google Drive data sources<a name="iam-roles-ds-gd"></a>
 
-When you use Alfresco, you provide a role with the following policies\.
-+ Permission to access your AWS Secrets Manager secret to authenticate your Alfresco\.
-+ Permission to call the required public APIs for the Alfresco connector\.
+When you use a Google Workspace Drive data source, you provide Amazon Kendra with a role that has the permissions necessary for connecting to the site\. These include: 
++ Permission to get and decrypt the AWS Secrets Manager secret that contains the client account email, admin account email, and private key necessary to connect to the Google Drive site\. For more information about the contents of the secret, see [Google Drive](data-source-google-drive.md)\.
++ Permission to use the [BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html) and [BatchDeleteDocument](https://docs.aws.amazon.com/kendra/latest/dg/API_BatchDeleteDocument.html) APIs\.
+
+The following IAM policy provides the necessary permissions:
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+  {
+    "Effect": "Allow",
+    "Action": [
+      "secretsmanager:GetSecretValue"
+    ],
+    "Resource": [
+      "arn:aws:secretsmanager:region:account ID:secret:secret ID"
+    ]
+  },
+  {
+    "Effect": "Allow",
+    "Action": [
+      "kms:Decrypt"
+    ],
+    "Resource": [
+      "arn:aws:kms:region:account ID:key/key ID"
+    ],
+    "Condition": {
+      "StringLike": {
+        "kms:ViaService": [
+          "secretsmanager.*.amazonaws.com"
+        ]
+      }
+    }
+  },
+  {
+    "Effect": "Allow",
+    "Action": [
+      "kendra:BatchPutDocument",
+      "kendra:BatchDeleteDocument"
+    ],
+    "Resource": "arn:aws:kendra:region:account ID:index/index ID"
+  }]
+}
+```
+
+#### <a name="iam-trust-policy-assume-role"></a>
+
+A trust policy to allow Amazon Kendra to assume a role\.
+
+```
+{
+   "Version":"2012-10-17",
+   "Statement":[
+      {
+         "Effect":"Allow",
+         "Principal":{
+            "Service":"kendra.amazonaws.com"
+         },
+         "Action":"sts:AssumeRole"
+      }
+   ]
+}
+```
+
+### IAM roles for Jira data sources<a name="iam-roles-ds-jira"></a>
+
+When you use Jira, you provide a role with the following policies\.
++ Permission to access your AWS Secrets Manager secret to authenticate your Jira\.
++ Permission to call the required public APIs for the Jira connector\.
++ Permission to call the `BatchPutDocument`, `BatchDeleteDocument`, `PutPrincipalMapping`, `DeletePrincipalMapping`, `DescribePrincipalMapping`, and `ListGroupsOlderThanOrderingId` APIs\.
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+  {
+    "Effect": "Allow",
+    "Action": [
+      "secretsmanager:GetSecretValue"
+    ],
+    "Resource": [
+      "arn:aws:secretsmanager:{{region}}:{{account_id}}:secret:[[secret_id]]"
+    ]
+  },
+  {
+    "Effect": "Allow",
+    "Action": [
+      "kms:Decrypt"
+    ],
+    "Resource": [
+      "arn:aws:kms:{{region}}:{{account_id}}:key/[[key_id]]"
+    ],
+    "Condition": {
+      "StringLike": {
+        "kms:ViaService": [
+          "secretsmanager.*.amazonaws.com"
+        ]
+      }
+    }
+  },
+  {
+    "Effect": "Allow",
+    "Action": [
+        "kendra:PutPrincipalMapping",
+        "kendra:DeletePrincipalMapping",
+        "kendra:ListGroupsOlderThanOrderingId",
+        "kendra:DescribePrincipalMapping"
+    ],
+    "Resource": ["arn:aws:kendra:{{region}}:{{account_id}}:index/{{index_id}}", "arn:aws:kendra:{{region}}:{{account_id}}:index/{{index_id}}/data-source/*"]
+  },
+  {
+    "Effect": "Allow",
+    "Action": [
+      "kendra:BatchPutDocument",
+      "kendra:BatchDeleteDocument"
+    ],
+    "Resource": "arn:aws:kendra:{{region}}:{{account_id}}:index/{{index_id}}"
+  }]
+}
+```
+
+#### <a name="iam-trust-policy-assume-role"></a>
+
+A trust policy to allow Amazon Kendra to assume a role\.
+
+```
+{
+   "Version":"2012-10-17",
+   "Statement":[
+      {
+         "Effect":"Allow",
+         "Principal":{
+            "Service":"kendra.amazonaws.com"
+         },
+         "Action":"sts:AssumeRole"
+      }
+   ]
+}
+```
+
+### IAM roles for Microsoft Exchange data sources<a name="iam-roles-ds-exchange"></a>
+
+When you use a Microsoft Exchange data source, you provide Amazon Kendra with a role that has the permissions necessary for connecting to the site\. These include: 
++ Permission to get and decrypt the AWS Secrets Manager secret that contains the application ID and secret key necessary to connect to the Microsoft Exchange site\. For more information about the contents of the secret, see [Microsoft Yammer](data-source-yammer.md)\.
++ Permission to use the [BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html) and [BatchDeleteDocument](https://docs.aws.amazon.com/kendra/latest/dg/API_BatchDeleteDocument.html) APIs\.
+
+The following IAM policy provides the necessary permissions:
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+  {
+    "Effect": "Allow",
+    "Action": [
+      "secretsmanager:GetSecretValue"
+    ],
+    "Resource": [
+      "arn:aws:secretsmanager:region:account ID:secret:secret ID"
+    ]
+  },
+  {
+    "Effect": "Allow",
+    "Action": [
+      "kms:Decrypt"
+    ],
+    "Resource": [
+      "arn:aws:kms:region:account ID:key/key ID"
+    ],
+    "Condition": {
+      "StringLike": {
+        "kms:ViaService": [
+          "secretsmanager.*.amazonaws.com"
+        ]
+      }
+    }
+  },
+  {
+    "Effect": "Allow",
+    "Action": [
+      "kendra:BatchPutDocument",
+      "kendra:BatchDeleteDocument"
+    ],
+    "Resource": "arn:aws:kendra:region:account ID:index/index ID"
+  }]
+}
+```
+
+If you are storing the list of users to index in an Amazon S3 bucket, you must also provide permission to use the S3 `GetObject` operation\. The following IAM policy provides the necessary permissions:
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+  {
+    "Effect": "Allow",
+    "Action": [
+      "secretsmanager:GetSecretValue"
+    ],
+    "Resource": [
+      "arn:aws:secretsmanager:region:account ID:secret:secret ID"
+    ]
+  },
+  {
+    "Action": [
+      "s3:GetObject"
+    ],
+    "Resource": [
+      "arn:aws:s3:::input_bucket_name/*"
+    ],
+    "Effect": "Allow"
+  },
+  {
+    "Effect": "Allow",
+    "Action": [
+      "kms:Decrypt"
+    ],
+    "Resource": [
+      "arn:aws:kms:region:account ID:key/[[key IDs]]"
+    ],
+    "Condition": {
+      "StringLike": {
+        "kms:ViaService": [
+          "secretsmanager.*.amazonaws.com",
+          "s3.*.amazonaws.com"
+        ]
+      }
+    }
+  },
+  {
+    "Effect": "Allow",
+    "Action": [
+      "kendra:BatchPutDocument",
+      "kendra:BatchDeleteDocument"
+    ],
+    "Resource": "arn:aws:kendra:region:account ID:index/index ID"
+  }]
+}
+```
+
+#### <a name="iam-trust-policy-assume-role"></a>
+
+A trust policy to allow Amazon Kendra to assume a role\.
+
+```
+{
+   "Version":"2012-10-17",
+   "Statement":[
+      {
+         "Effect":"Allow",
+         "Principal":{
+            "Service":"kendra.amazonaws.com"
+         },
+         "Action":"sts:AssumeRole"
+      }
+   ]
+}
+```
+
+### IAM roles for Microsoft OneDrive data sources<a name="iam-roles-ds-on"></a>
+
+When you use a Microsoft OneDrive data source, you provide Amazon Kendra with a role that has the permissions necessary for connecting to the site\. These include: 
++ Permission to get and decrypt the AWS Secrets Manager secret that contains the application ID and secret key necessary to connect to the OneDrive site\. For more information about the contents of the secret, see [Microsoft OneDrive](data-source-onedrive.md)\.
++ Permission to use the [BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html) and [BatchDeleteDocument](https://docs.aws.amazon.com/kendra/latest/dg/API_BatchDeleteDocument.html) APIs\.
+
+The following IAM policy provides the necessary permissions:
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+  {
+    "Effect": "Allow",
+    "Action": [
+      "secretsmanager:GetSecretValue"
+    ],
+    "Resource": [
+      "arn:aws:secretsmanager:region:account ID:secret:secret ID"
+    ]
+  },
+  {
+    "Effect": "Allow",
+    "Action": [
+      "kms:Decrypt"
+    ],
+    "Resource": [
+      "arn:aws:kms:region:account ID:key/key ID"
+    ],
+    "Condition": {
+      "StringLike": {
+        "kms:ViaService": [
+          "secretsmanager.*.amazonaws.com"
+        ]
+      }
+    }
+  },
+  {
+    "Effect": "Allow",
+    "Action": [
+      "kendra:BatchPutDocument",
+      "kendra:BatchDeleteDocument"
+    ],
+    "Resource": "arn:aws:kendra:region:account ID:index/index ID"
+  }]
+}
+```
+
+If you are storing the list of users to index in an Amazon S3 bucket, you must also provide permission to use the S3 `GetObject` operation\. The following IAM policy provides the necessary permissions:
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+  {
+    "Effect": "Allow",
+    "Action": [
+      "secretsmanager:GetSecretValue"
+    ],
+    "Resource": [
+      "arn:aws:secretsmanager:region:account ID:secret:secret ID"
+    ]
+  },
+  {
+    "Action": [
+      "s3:GetObject"
+    ],
+    "Resource": [
+      "arn:aws:s3:::input_bucket_name/*"
+    ],
+    "Effect": "Allow"
+  },
+  {
+    "Effect": "Allow",
+    "Action": [
+      "kms:Decrypt"
+    ],
+    "Resource": [
+      "arn:aws:kms:region:account ID:key/[[key IDs]]"
+    ],
+    "Condition": {
+      "StringLike": {
+        "kms:ViaService": [
+          "secretsmanager.*.amazonaws.com",
+          "s3.*.amazonaws.com"
+        ]
+      }
+    }
+  },
+  {
+    "Effect": "Allow",
+    "Action": [
+      "kendra:BatchPutDocument",
+      "kendra:BatchDeleteDocument"
+    ],
+    "Resource": "arn:aws:kendra:region:account ID:index/index ID"
+  }]
+}
+```
+
+#### <a name="iam-trust-policy-assume-role"></a>
+
+A trust policy to allow Amazon Kendra to assume a role\.
+
+```
+{
+   "Version":"2012-10-17",
+   "Statement":[
+      {
+         "Effect":"Allow",
+         "Principal":{
+            "Service":"kendra.amazonaws.com"
+         },
+         "Action":"sts:AssumeRole"
+      }
+   ]
+}
+```
+
+### IAM roles for Microsoft SharePoint data sources<a name="iam-roles-ds-spo"></a>
+
+#### IAM roles for SharePoint Connector v1\.0<a name="iam-roles-sharepoint-v1"></a>
+
+For a Microsoft SharePoint connector v1\.0 data source, you provide a role with the following policies\.
++ Permission to access the AWS Secrets Manager secret that contains the user name and password for the SharePoint site\. For more information about the contents of the secret, see [Microsoft SharePoint](data-source-sharepoint.md)\.
++ Permission to use the AWS KMS customer master key \(CMK\) to decrypt the user name and password secret stored by AWS Secrets Manager\.
++ Permission to use the `BatchPutDocument` and `BatchDeleteDocument` operations to update the index\.
++ Permission to access the Amazon S3 bucket that contains the SSL certificate used to communicate with the SharePoint site\.
+
+You must also attach a trust policy that allows Amazon Kendra to assume the role\.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "secretsmanager:GetSecretValue"
+            ],
+            "Resource": [
+                "arn:aws:secretsmanager:region:account ID:secret:secret ID"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "kms:Decrypt"
+            ],
+            "Resource": [
+                "arn:aws:kms:region:account ID:key/key ID"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "kendra:BatchPutDocument",
+                "kendra:BatchDeleteDocument"
+            ],
+            "Resource": [
+                "arn:aws:kendra:region:account ID:index/index ID"
+            ],
+            "Condition": {
+                "StringLike": {
+                    "kms:ViaService": [
+                        "kendra.*.amazonaws.com"
+                    ]
+                }
+            }
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::bucket name/*"
+            ]
+        }
+    ]
+}
+```
+
+If you have encrypted the Amazon S3 bucket that contains the SSL certificate used to communicate with the SharePoint site, provide a policy to give Amazon Kendra access to the key\. 
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "kms:Decrypt"
+            ],
+            "Resource": [
+                "arn:aws:kms:region:account ID:key/key ID"
+            ]
+        }
+    ]
+}
+```
+
+##### <a name="iam-trust-policy-assume-role"></a>
+
+A trust policy to allow Amazon Kendra to assume a role\.
+
+```
+{
+   "Version":"2012-10-17",
+   "Statement":[
+      {
+         "Effect":"Allow",
+         "Principal":{
+            "Service":"kendra.amazonaws.com"
+         },
+         "Action":"sts:AssumeRole"
+      }
+   ]
+}
+```
+
+#### IAM roles for SharePoint Connector v2\.0<a name="iam-roles-sharepoint-v2"></a>
+
+For a Microsoft SharePoint connector v2\.0 data source, you provide a role with the following policies\.
++ Permission to access the AWS Secrets Manager secret that contains the authentication credentials for the SharePoint site\. For more information about the contents of the secret, see [Microsoft SharePoint](data-source-sharepoint.md)\.
++ Permission to use the AWS KMS customer master key \(CMK\) to decrypt the user name and password secret stored by AWS Secrets Manager\.
++ Permission to use the `BatchPutDocument` and `BatchDeleteDocument` operations to update the index\.
++ Permission to access the Amazon S3 bucket that contains the SSL certificate used to communicate with the SharePoint site\.
+
+You must also attach a trust policy that allows Amazon Kendra to assume the role\.
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "secretsmanager:GetSecretValue"
+      ],
+      "Resource": [
+        "arn:aws:secretsmanager:region:account_id:secret:secret_id"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "kms:Decrypt"
+      ],
+      "Resource": [
+        "arn:aws:kms:region:account_id:key/key_id"
+      ],
+      "Condition": {
+        "StringLike": {
+          "kms:ViaService": [
+            "secretsmanager.*.amazonaws.com"
+          ]
+        }
+      }
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "kendra:PutPrincipalMapping",
+        "kendra:DeletePrincipalMapping",
+        "kendra:ListGroupsOlderThanOrderingId",
+        "kendra:DescribePrincipalMapping"
+      ],
+      "Resource": [
+        "arn:aws:kendra:region:account_id:index/index_id",
+        "arn:aws:kendra:region:account_id:index/index_id/data-source/*"
+      ]
+    },
+    {
+      "Action": [
+        "s3:GetObject"
+      ],
+      "Resource": [
+        "arn:aws:s3:::input_bucket_name/input_key_name"
+      ],
+      "Effect": "Allow"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "kendra:BatchPutDocument",
+        "kendra:BatchDeleteDocument"
+      ],
+      "Resource": "arn:aws:kendra:region:account_id:index/index_id"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ec2:CreateNetworkInterface"
+      ],
+      "Resource": [
+        "arn:aws:ec2:region:account_id:subnet/subnet_ids",
+        "arn:aws:ec2:region:account_id:security-group/security_group"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ec2:CreateNetworkInterface"
+      ],
+      "Resource": "arn:aws:ec2:region:account_id:network-interface/*",
+      "Condition": {
+        "StringLike": {
+          "aws:RequestTag/AWS_KENDRA": "kendra_account_id_index_id_*"
+        }
+      }
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ec2:CreateTags"
+      ],
+      "Resource": "arn:aws:ec2:region:account_id:network-interface/*",
+      "Condition": {
+        "StringEquals": {
+          "ec2:CreateAction": "CreateNetworkInterface"
+        }
+      }
+    },
+    
+{
+      "Effect": "Allow",
+      "Action": [
+        "ec2:CreateNetworkInterfacePermission"
+      ],
+      "Resource": "arn:aws:ec2:region:account_id:network-interface/*",
+      "Condition": {
+        "StringLike": {
+          "aws:ResourceTag/AWS_KENDRA": "kendra_account_id_index_id_*"
+        }
+      }
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ec2:DescribeNetworkInterfaces",
+        "ec2:DescribeAvailabilityZones",
+        "ec2:DescribeNetworkInterfaceAttribute",
+        "ec2:DescribeVpcs",
+        "ec2:DescribeRegions",
+        "ec2:DescribeNetworkInterfacePermissions",
+        "ec2:DescribeSubnets"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+```
+
+If you have encrypted the Amazon S3 bucket that contains the SSL certificate used to communicate with the SharePoint site, provide a policy to give Amazon Kendra access to the key\. 
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "kms:Decrypt"
+            ],
+            "Resource": [
+                "arn:aws:kms:region:account ID:key/key ID"
+            ]
+        }
+    ]
+}
+```
+
+##### <a name="iam-trust-policy-assume-role"></a>
+
+A trust policy to allow Amazon Kendra to assume a role\.
+
+```
+{
+   "Version":"2012-10-17",
+   "Statement":[
+      {
+         "Effect":"Allow",
+         "Principal":{
+            "Service":"kendra.amazonaws.com"
+         },
+         "Action":"sts:AssumeRole"
+      }
+   ]
+}
+```
+
+### IAM roles for Microsoft Teams data sources<a name="iam-roles-ds-teams"></a>
+
+When you use a Microsoft Teams data source, you provide Amazon Kendra with a role that has the permissions necessary for connecting to the site\. These include: 
++ Permission to get and decrypt the AWS Secrets Manager secret that contains the client ID and client secret necessary to connect to Microsoft Teams\. For more information about the contents of the secret, see [Microsoft Teams](data-source-teams.md)\.
++ 
+
+#### <a name="iam-trust-policy-assume-role"></a>
+
+  A trust policy to allow Amazon Kendra to assume a role\.
+
+  ```
+  {
+     "Version":"2012-10-17",
+     "Statement":[
+        {
+           "Effect":"Allow",
+           "Principal":{
+              "Service":"kendra.amazonaws.com"
+           },
+           "Action":"sts:AssumeRole"
+        }
+     ]
+  }
+  ```
+
+The following IAM policy provides the necessary permissions:
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+  {
+    "Effect": "Allow",
+    "Action": [
+      "secretsmanager:GetSecretValue"
+    ],
+    "Resource": [
+      "arn:aws:secretsmanager:region:client ID:secret:secret ID"
+    ]
+  },
+  {
+    "Effect": "Allow",
+    "Action": [
+      "kms:Decrypt"
+    ],
+    "Resource": [
+      "arn:aws:kms:region:account ID:key/key ID"
+    ],
+    "Condition": {
+      "StringLike": {
+        "kms:ViaService": [
+          "secretsmanager.*.amazonaws.com"
+        ]
+      }
+    }
+  },
+  {
+    "Effect": "Allow",
+    "Action": [
+      "kendra:BatchPutDocument",
+      "kendra:BatchDeleteDocument"
+    ],
+    "Resource": "arn:aws:kendra:region:account ID:index/index ID"
+  }]
+}
+```
+
+### IAM roles for Microsoft Yammer data sources<a name="iam-roles-ds-yammer"></a>
+
+When you use a Microsoft Yammer data source, you provide Amazon Kendra with a role that has the permissions necessary for connecting to the site\. These include: 
++ Permission to get and decrypt the AWS Secrets Manager secret that contains the application ID and secret key necessary to connect to the Microsoft Yammer site\. For more information about the contents of the secret, see [Microsoft Yammer](data-source-yammer.md)\.
++ Permission to use the [BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html) and [BatchDeleteDocument](https://docs.aws.amazon.com/kendra/latest/dg/API_BatchDeleteDocument.html) APIs\.
+
+The following IAM policy provides the necessary permissions:
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+  {
+    "Effect": "Allow",
+    "Action": [
+      "secretsmanager:GetSecretValue"
+    ],
+    "Resource": [
+      "arn:aws:secretsmanager:region:account ID:secret:secret ID"
+    ]
+  },
+  {
+    "Effect": "Allow",
+    "Action": [
+      "kms:Decrypt"
+    ],
+    "Resource": [
+      "arn:aws:kms:region:account ID:key/key ID"
+    ],
+    "Condition": {
+      "StringLike": {
+        "kms:ViaService": [
+          "secretsmanager.*.amazonaws.com"
+        ]
+      }
+    }
+  },
+  {
+    "Effect": "Allow",
+    "Action": [
+      "kendra:BatchPutDocument",
+      "kendra:BatchDeleteDocument"
+    ],
+    "Resource": "arn:aws:kendra:region:account ID:index/index ID"
+  }]
+}
+```
+
+If you are storing the list of users to index in an Amazon S3 bucket, you must also provide permission to use the S3 `GetObject` operation\. The following IAM policy provides the necessary permissions:
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+  {
+    "Effect": "Allow",
+    "Action": [
+      "secretsmanager:GetSecretValue"
+    ],
+    "Resource": [
+      "arn:aws:secretsmanager:region:account ID:secret:secret ID"
+    ]
+  },
+  {
+    "Action": [
+      "s3:GetObject"
+    ],
+    "Resource": [
+      "arn:aws:s3:::input_bucket_name/*"
+    ],
+    "Effect": "Allow"
+  },
+  {
+    "Effect": "Allow",
+    "Action": [
+      "kms:Decrypt"
+    ],
+    "Resource": [
+      "arn:aws:kms:region:account ID:key/[[key IDs]]"
+    ],
+    "Condition": {
+      "StringLike": {
+        "kms:ViaService": [
+          "secretsmanager.*.amazonaws.com",
+          "s3.*.amazonaws.com"
+        ]
+      }
+    }
+  },
+  {
+    "Effect": "Allow",
+    "Action": [
+      "kendra:BatchPutDocument",
+      "kendra:BatchDeleteDocument"
+    ],
+    "Resource": "arn:aws:kendra:region:account ID:index/index ID"
+  }]
+}
+```
+
+#### <a name="iam-trust-policy-assume-role"></a>
+
+A trust policy to allow Amazon Kendra to assume a role\.
+
+```
+{
+   "Version":"2012-10-17",
+   "Statement":[
+      {
+         "Effect":"Allow",
+         "Principal":{
+            "Service":"kendra.amazonaws.com"
+         },
+         "Action":"sts:AssumeRole"
+      }
+   ]
+}
+```
+
+### IAM roles for Quip data sources<a name="iam-roles-ds-quip"></a>
+
+When you use Quip, you provide a role with the following policies\.
++ Permission to access your AWS Secrets Manager secret to authenticate your Quip\.
++ Permission to call the required public APIs for the Quip connector\.
++ Permission to call the `BatchPutDocument`, `BatchDeleteDocument`, `PutPrincipalMapping`, `DeletePrincipalMapping`, `DescribePrincipalMapping`, and `ListGroupsOlderThanOrderingId` APIs\.
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+  {
+    "Effect": "Allow",
+    "Action": [
+      "secretsmanager:GetSecretValue"
+    ],
+    "Resource": [
+      "arn:aws:secretsmanager:{{region}}:{{account_id}}:secret:[[secret_id]]"
+    ]
+  },
+  {
+    "Effect": "Allow",
+    "Action": [
+      "kms:Decrypt"
+    ],
+    "Resource": [
+      "arn:aws:kms:{{region}}:{{account_id}}:key/[[key_id]]"
+    ],
+    "Condition": {
+      "StringLike": {
+        "kms:ViaService": [
+          "secretsmanager.*.amazonaws.com"
+        ]
+      }
+    }
+  },
+  {
+    "Effect": "Allow",
+    "Action": [
+        "kendra:PutPrincipalMapping",
+        "kendra:DeletePrincipalMapping",
+        "kendra:ListGroupsOlderThanOrderingId",
+        "kendra:DescribePrincipalMapping"
+    ],
+    "Resource": ["arn:aws:kendra:{{region}}:{{account_id}}:index/{{index_id}}", "arn:aws:kendra:{{region}}:{{account_id}}:index/{{index_id}}/data-source/*"]
+  },
+  {
+    "Effect": "Allow",
+    "Action": [
+      "kendra:BatchPutDocument",
+      "kendra:BatchDeleteDocument"
+    ],
+    "Resource": "arn:aws:kendra:{{region}}:{{account_id}}:index/{{index_id}}"
+  }]
+}
+```
+
+#### <a name="iam-trust-policy-assume-role"></a>
+
+A trust policy to allow Amazon Kendra to assume a role\.
+
+```
+{
+   "Version":"2012-10-17",
+   "Statement":[
+      {
+         "Effect":"Allow",
+         "Principal":{
+            "Service":"kendra.amazonaws.com"
+         },
+         "Action":"sts:AssumeRole"
+      }
+   ]
+}
+```
+
+### IAM roles for Salesforce data sources<a name="iam-roles-ds-sf"></a>
+
+When you use a Salesforce as a data source, you provide a role with the following policies:
++ Permission to access the AWS Secrets Manager secret that contains the user name and password for the Salesforce site\. For more information about the contents of the secret, see [Salesforce](data-source-salesforce.md)\.
++ Permission to use the AWS KMS customer master key \(CMK\) to decrypt the user name and password secret stored by Secrets Manager\.
++ Permission to use the `BatchPutDocument` and `BatchDeleteDocument` operations to update the index\.
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+  {
+    "Effect": "Allow",
+    "Action": [
+      "secretsmanager:GetSecretValue"
+    ],
+    "Resource": [
+      "arn:aws:secretsmanager:region:account ID:secret:secret ID"
+    ]
+  },
+  {
+    "Effect": "Allow",
+    "Action": [
+      "kms:Decrypt"
+    ],
+    "Resource": [
+      "arn:aws:kms:region:account ID:key/key ID"
+    ],
+    "Condition": {
+      "StringLike": {
+        "kms:ViaService": [
+          "secretsmanager.*.amazonaws.com"
+        ]
+      }
+    }
+  },
+  {
+    "Effect": "Allow",
+    "Action": [
+      "kendra:BatchPutDocument",
+      "kendra:BatchDeleteDocument"
+    ],
+    "Resource": "arn:aws:kendra:region:account ID:index/index ID"
+  }]
+}
+```
+
+#### <a name="iam-trust-policy-assume-role"></a>
+
+A trust policy to allow Amazon Kendra to assume a role\.
+
+```
+{
+   "Version":"2012-10-17",
+   "Statement":[
+      {
+         "Effect":"Allow",
+         "Principal":{
+            "Service":"kendra.amazonaws.com"
+         },
+         "Action":"sts:AssumeRole"
+      }
+   ]
+}
+```
+
+### IAM roles for ServiceNow data sources<a name="iam-roles-ds-sn"></a>
+
+When you use a ServiceNow as a data source, you provide a role with the following policies:
++ Permission to access the Secrets Manager secret that contains the user name and password for the ServiceNow site\. For more information about the contents of the secret, see [ServiceNow](data-source-servicenow.md)\.
++ Permission to use the AWS KMS customer master key \(CMK\) to decrypt the user name and password secret stored by Secrets Manager\.
++ Permission to use the `BatchPutDocument` and `BatchDeleteDocument` operations to update the index\.
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+  {
+    "Effect": "Allow",
+    "Action": [
+      "secretsmanager:GetSecretValue"
+    ],
+    "Resource": [
+      "arn:aws:secretsmanager:region:account ID:secret:secret ID"
+    ]
+  },
+  {
+    "Effect": "Allow",
+    "Action": [
+      "kms:Decrypt"
+    ],
+    "Resource": [
+      "arn:aws:kms:region:account ID:key/key ID"
+    ],
+    "Condition": {
+      "StringLike": {
+        "kms:ViaService": [
+          "secretsmanager.*.amazonaws.com"
+        ]
+      }
+    }
+  },
+  {
+    "Effect": "Allow",
+    "Action": [
+      "kendra:BatchPutDocument",
+      "kendra:BatchDeleteDocument"
+    ],
+    "Resource": "arn:aws:kendra:region:account ID:index/index ID"
+  }]
+}
+```
+
+#### <a name="iam-trust-policy-assume-role"></a>
+
+A trust policy to allow Amazon Kendra to assume a role\.
+
+```
+{
+   "Version":"2012-10-17",
+   "Statement":[
+      {
+         "Effect":"Allow",
+         "Principal":{
+            "Service":"kendra.amazonaws.com"
+         },
+         "Action":"sts:AssumeRole"
+      }
+   ]
+}
+```
+
+### IAM roles for Slack data sources<a name="iam-roles-ds-slack"></a>
+
+When you use Slack, you provide a role with the following policies\.
++ Permission to access your AWS Secrets Manager secret to authenticate your Slack\.
++ Permission to call the required public APIs for the Slack connector\.
 + Permission to call the `BatchPutDocument`, `BatchDeleteDocument`, `PutPrincipalMapping`, `DeletePrincipalMapping`, `DescribePrincipalMapping`, and `ListGroupsOlderThanOrderingId` APIs\.
 
 ```
@@ -1911,54 +2851,61 @@ A trust policy to allow Amazon Kendra to assume a role\.
 }
 ```
 
-### IAM roles for Dropbox data sources<a name="iam-roles-ds-dropbox"></a>
+### Virtual private cloud \(VPC\) IAM role<a name="iam-roles-vpc"></a>
 
-When you use Dropbox, you provide a role with the following policies\.
-+ Permission to access your AWS Secrets Manager secret to authenticate your Dropbox\.
-+ Permission to call the required public APIs for the Dropbox connector\.
-+ Permission to call the `BatchPutDocument`, `BatchDeleteDocument`, `PutPrincipalMapping`, `DeletePrincipalMapping`, `DescribePrincipalMapping`, and `ListGroupsOlderThanOrderingId` APIs\.
+If you use a virtual private cloud \(VPC\) to connect to your data source, you must provide the following permissions\.
 
 ```
 {
-"Version": "2012-10-17",
+  "Version": "2012-10-17",
   "Statement": [
-  {"Effect": "Allow",
-    "Action": [
-      "secretsmanager:GetSecretValue"
-    ],
-    "Resource": [
-      "arn:aws:secretsmanager:{{region}}:{{account_id}}:secret:[[secret_id]]"
-    ]
-  },
-  {"Effect": "Allow",
-    "Action": [
-      "kms:Decrypt"
-    ],
-    "Resource": [
-      "arn:aws:kms:{{region}}:{{account_id}}:key/[[key_id]]"
-    ],
-    "Condition": {"StringLike": {"kms:ViaService": [
-          "secretsmanager.*.amazonaws.com"
-        ]
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ec2:CreateNetworkInterface",
+        "ec2:DescribeNetworkInterfaces",
+        "ec2:DeleteNetworkInterface"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ec2:CreateNetworkInterfacePermission"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "ec2:AuthorizedService": "kendra.*.amazonaws.com"
+        },
+        "ArnEquals": {
+          "ec2:Subnet": [
+            "arn:aws:ec2:region:account ID:subnet/subnet IDs"
+          ]
+        }
+      }
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ec2:DescribeSubnets"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "iamPassRole",
+      "Effect": "Allow",
+      "Action": "iam:PassRole",
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "iam:PassedToService": [
+            "kendra.*.amazonaws.com"
+          ]
+        }
       }
     }
-  },
-  {"Effect": "Allow",
-    "Action": [
-        "kendra:PutPrincipalMapping",
-        "kendra:DeletePrincipalMapping",
-        "kendra:ListGroupsOlderThanOrderingId",
-        "kendra:DescribePrincipalMapping"
-    ],
-    "Resource": ["arn:aws:kendra:{{region}}:{{account_id}}:index/{{index_id}}", "arn:aws:kendra:{{region}}:{{account_id}}:index/{{index_id}}/data-source/*"]
-  },
-  {"Effect": "Allow",
-    "Action": [
-      "kendra:BatchPutDocument",
-      "kendra:BatchDeleteDocument"
-    ],
-    "Resource": "arn:aws:kendra:{{region}}:{{account_id}}:index/{{index_id}}"
-  }]
+  ]
 }
 ```
 
@@ -1981,7 +2928,7 @@ A trust policy to allow Amazon Kendra to assume a role\.
 }
 ```
 
-## IAM roles for frequently asked questions<a name="iam-roles-ds-faq"></a>
+## IAM roles for frequently asked questions \(FAQs\)<a name="iam-roles-ds-faq"></a>
 
 When you use the [CreateFaq](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateFaq.html) API to load questions and answers into an index, you must provide Amazon Kendra with an IAM role with access to the Amazon S3 bucket that contains the source files\. If the source files are encrypted, you must provide permission to use the AWS KMS customer master key \(CMK\) to decrypt the files\.
 
@@ -2376,7 +3323,7 @@ It is recommended that you include `aws:sourceAccount` and `aws:sourceArn` in th
 
 ## IAM roles for Custom Document Enrichment<a name="iam-roles-custom-document-enrichment"></a>
 
-When you use the [CustomDocumentEnrichmentConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_CustomDocumentEnrichmentConfiguration.html) object to apply advanced alterations of your document metadata and content, you must supply a role that has the required permissions to run `PreExtractionHookConfiguration` and/or `PostExtractionHookConfiguration`\. You configure a Lambda function for `PreExtractionHookConfiguration` and/or `PostExtractionHookConfiguration` to apply advanced alterations of your document metadata and content during the ingestion process\. If you choose to enable Server Side Encryption for your Amazon S3 bucket, you must provide permission to use the AWS KMS customer master key \(CMK\) to encrypt and decrypt the objects stored in your Amazon S3 bucket\.
+When you use the [CustomDocumentEnrichmentConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_CustomDocumentEnrichmentConfiguration.html) object to apply advanced alterations of your document metadata and content, you must supply a role that has the required permissions to run `PreExtractionHookConfiguration` and/or `PostExtractionHookConfiguration`\. You configure a Lambda function for `PreExtractionHookConfiguration` and/or `PostExtractionHookConfiguration` to apply advanced alterations of your document metadata and content during the ingestion process\. If you choose to activate Server Side Encryption for your Amazon S3 bucket, you must provide permission to use the AWS KMS customer master key \(CMK\) to encrypt and decrypt the objects stored in your Amazon S3 bucket\.
 
 ### IAM roles for Custom Document Enrichment<a name="iam-roles-custom-document-enrichment-json"></a>
 

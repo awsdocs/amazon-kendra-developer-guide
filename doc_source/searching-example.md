@@ -10,15 +10,15 @@ When you search your index, Amazon Kendra uses all the information that you prov
 + Custom text fields that you have marked searchable\.
 + The date field that you have indicated should be used to determine the "freshness" of a document\.
 
-When a set of relevant documents has been selected from the index, Amazon Kendra filters the response based on any attribute filters that you have requested for the search\. For example, if you have a custom attribute called "department", you can filter the response to return only documents from a department called "legal"\. For more information, see [Creating custom document fields](custom-attributes.md)\.
+When a set of relevant documents has been selected from the index, Amazon Kendra filters the response based on any attribute filters that you have requested for the search\. For example, if you have a custom attribute called "department", you can filter the response to return only documents from a department called "legal"\. For more information, see [Custom fields or attributes](https://docs.aws.amazon.com/kendra/latest/dg/custom-attributes.html)\.
 
 After finding the relevant documents and then filtering based on the attributes that you set, Amazon Kendra returns the results\. The results are sorted by the relevance that Amazon Kendra determined for each doc\. The results are paginated so that you can show a page at a time to your user\.
 
 To search documents that you have indexed with Amazon Kendra for Amazon Lex, use [AMAZON\.KendraSearchIntent](https://docs.aws.amazon.com/lexv2/latest/dg/API_KendraConfiguration.html)\. For an example of configuring Amazon Kendra with Amazon Lex, see [Creating a FAQ Bot for an Amazon Kendra Index](https://docs.aws.amazon.com/lexv2/latest/dg/faq-bot-kendra-search.html)\.
 
-The following Python example shows how to search an index by using the [Query](API_Query.md) API\. The example determines the type of the search result \(answer, document, question/answer\) and displays the answer text\. 
+The following Python example shows how to search an index by using the [Query](https://docs.aws.amazon.com/kendra/latest/dg/API_Query.html) API\. The example determines the type of the search result \(answer, document, question/answer\) and displays the answer text\.
 
-For information about the query responses, see [Query responses](query-response.md)\.
+For information about the query responses, see [Query responses and response types](query-responses-types.md)\.
 
 **Note**  
 You can use this code to filter document attributes\. The topic [Filtering queries](filtering.md) contains examples that you can use to replace the following code\.  
@@ -32,9 +32,9 @@ response=kendra.query(
 ## Prerequisites<a name="searching-prerequisites"></a>
 
 To run this example, you must:
-+ Set up permissions\. For more information, see [IAM access roles for Amazon Kendra](iam-roles.md)\.
-+ Set up the AWS CLI\. For more information, see [Setting up the AWS CLI](aws-kendra-set-up-aws-cli.md)\.
-+ Create a data source and index\. For more information, see [Getting started with the Amazon Kendra console](gs-console.md)\.
++ Set up permissions\. For more information, see [IAM roles](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html)\.
++ Set up the AWS CLI\. For more information, see [Setting up the CLI](https://docs.aws.amazon.com/kendra/latest/dg/aws-kendra-set-up-aws-cli.html)\.
++ Create a data source and index\. For more information, see [Getting started in the console](https://docs.aws.amazon.com/kendra/latest/dg/gs-console.html)\.
 
 ## Searching an index \(console\)<a name="searching-index-console"></a>
 
@@ -329,7 +329,7 @@ The following examples show how to search for documents in Spanish\.
 
 **To search an index in Spanish in the console**
 
-1. Sign in to the AWS Management Console and open the Amazon Kendra console at [http://console\.aws\.amazon\.com/kendra/](https://console.aws.amazon.com/kendra/)\.
+1. Sign in to the AWS Management Console and open the Amazon Kendra console at [http://console\.aws\.amazon\.com/kendra/](https://console.aws.amazon.com/kendra)\.
 
 1. In the navigation menu, choose **Indexes** and choose your index\.
 

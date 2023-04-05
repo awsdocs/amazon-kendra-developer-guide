@@ -53,8 +53,8 @@ Required: Yes
 
  ** [OrderingId](#API_DeletePrincipalMapping_RequestSyntax) **   <a name="Kendra-DeletePrincipalMapping-request-OrderingId"></a>
 The timestamp identifier you specify to ensure Amazon Kendra does not override the latest `DELETE` action with previous actions\. The highest number ID, which is the ordering ID, is the latest action you want to process and apply on top of other actions with lower number IDs\. This prevents previous actions with lower number IDs from possibly overriding the latest action\.  
-The ordering ID can be the UNIX time of the last update you made to a group members list\. You would then provide this list when calling `PutPrincipalMapping`\. This ensures your `DELETE` action for that updated group with the latest members list doesn't get overwritten by earlier `DELETE` actions for the same group which are yet to be processed\.  
-The default ordering ID is the current UNIX time in milliseconds that the action was received by Amazon Kendra\.   
+The ordering ID can be the Unix time of the last update you made to a group members list\. You would then provide this list when calling `PutPrincipalMapping`\. This ensures your `DELETE` action for that updated group with the latest members list doesn't get overwritten by earlier `DELETE` actions for the same group which are yet to be processed\.  
+The default ordering ID is the current Unix time in milliseconds that the action was received by Amazon Kendra\.   
 Type: Long  
 Valid Range: Minimum value of 0\. Maximum value of 32535158400000\.  
 Required: No
@@ -76,7 +76,7 @@ A conflict occurred with the request\. Please fix any inconsistences with your r
 HTTP Status Code: 400
 
  ** InternalServerException **   
-An issue occurred with the internal server used for your Amazon Kendra service\. Please wait a few minutes and try again, or contact [ Support](http://aws.amazon.com/aws.amazon.com/contact-us) for help\.  
+An issue occurred with the internal server used for your Amazon Kendra service\. Please wait a few minutes and try again, or contact [Support](http://aws.amazon.com/contact-us/) for help\.  
 HTTP Status Code: 500
 
  ** ResourceNotFoundException **   

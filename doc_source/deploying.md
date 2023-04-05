@@ -4,7 +4,7 @@
 
 # Deploying Amazon Kendra<a name="deploying"></a>
 
-When it comes time to deploy Amazon Kendra search to your website, we provide source code that you can use with React to get a head start on your application\. The source code is provided with no charge under a modified MIT license\. You can use it as is or change it for your own needs\.
+When it comes time to deploy Amazon Kendra search to your website, we provide source code that you can use with React to get a head start on your application\. The source code is provided with no charge under a modified MIT license\. You can use it as is or change it for your own needs\. The provided React app is an example to help you get started\. It's not a production ready app\.
 
 To deploy a search application with no code and generate an endpoint URL to your search page with access control, see [Amazon Kendra Experience Builder](https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html)\.
 
@@ -29,11 +29,11 @@ To see the three components of the search page in the Amazon Kendra console, cho
 
 ## Overview<a name="example-overview"></a>
 
-You add the example code to an existing React application to enable search\. The search files and components are structured as follows:
+You add the example code to an existing React application to activate search\. The search files and components are structured as follows:
 + Main search page—This is the main page that contains all of the components\. This is where you will integrate your application with the Amazon Kendra API\.
 + Search bar—This is the component where a user enters a search term and that calls the search function\.
 + Results—This is the component that displays the results from Amazon Kendra\. It has three components: Suggested answers, FAQ results, and recommended documents\.
-+ Facets—This is the component that shows the facets in the search results and enables you to choose a facet to limit the search\.
++ Facets—This is the component that shows the facets in the search results and allows you to choose a facet to limit the search\.
 + Pagination—This is the component that paginates the response from Amazon Kendra\.
 
 ## Prerequisites<a name="example-prereqs"></a>
@@ -66,7 +66,9 @@ A complete procedure for adding Amazon Kendra search to a React application is i
 
 1. If you have a registered website domain, you can specify this in `package.json` after your app name\. For example, `"homepage": "https://mywebsite.com"`\. You must run `npm install` again to update new dependencies, and then run `npm start`\.
 
-1. To build the app for production run `npm build`\. Upload the contents of the build directory to your hosting provider\.
+1. To build the app, run `npm build`\. Upload the contents of the build directory to your hosting provider\.
+**Warning**  
+The React app is **not** production ready\. It's an example of deploying an app for Amazon Kendra search\.
 
 ## Main search page<a name="main-component"></a>
 
@@ -93,4 +95,4 @@ After you select a facet, the component calls `Query` with an attribute filter t
 
 ## Pagination component<a name="pagination-component"></a>
 
-The pagination component enables you to display the search results from the `Query` API in multiple pages\. It calls the `Query` API with the `PageSize` and `PageNumber` parameters to get a specific page of results\.
+The pagination component allows you to display the search results from the `Query` API in multiple pages\. It calls the `Query` API with the `PageSize` and `PageNumber` parameters to get a specific page of results\.

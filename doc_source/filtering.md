@@ -4,9 +4,9 @@
 
 # Filtering queries<a name="filtering"></a>
 
-You can improve the response from the [Query](API_Query.md) API by using filters\. Filters restrict the documents in the response to ones that directly apply to the query\. To create faceted search suggestions, use Boolean logic to filter out specific document attributes from the response or documents that don't match specific criteria\. You can specify facets using the `Facets` parameter in the `Query` API\.
+You can improve the response from the [Query](https://docs.aws.amazon.com/kendra/latest/dg/API_Query.html) API by using filters\. Filters restrict the documents in the response to ones that directly apply to the query\. To create faceted search suggestions, use Boolean logic to filter out specific document attributes from the response or documents that don't match specific criteria\. You can specify facets using the `Facets` parameter in the `Query` API\.
 
-To search documents that you have indexed with Amazon Kendra for Amazon Lex, use [AMAZON\.KendraSearchIntent](https://docs.aws.amazon.com/lexv2/latest/dg/API_KendraConfiguration.html)\. For an example of configuring Amazon Kendra with Amazon Lex, see [Creating a FAQ Bot for an Amazon Kendra Index](https://docs.aws.amazon.com/lexv2/latest/dg/faq-bot-kendra-search.html)\. You can also provide a filter for the response by using [AttributeFilter](https://docs.aws.amazon.com/kendra/latest/dg/API_AttributeFilter.html)\. This is the query filter in JSON when configuring `AMAZON.KendraSearchIntent`\. To provide an attribute filter when configuring a search intent in the console, go to the intent editor and choose Amazon Kendra query to provide a query filter in JSON\. For examples of using an attribute filter in JSON, see [Using document attributes to filter search results](#search-filtering)\. For more information about `AMAZON.KendraSearchIntent`, see the [Amazon Lex documentation guide](https://docs.aws.amazon.com/lexv2/latest/dg/built-in-intent-kendra-search.html)\.
+To search documents that you have indexed with Amazon Kendra for Amazon Lex, use [AMAZON\.KendraSearchIntent](https://docs.aws.amazon.com/lexv2/latest/dg/API_KendraConfiguration.html)\. For an example of configuring Amazon Kendra with Amazon Lex, see [Creating a FAQ Bot for an Amazon Kendra Index](https://docs.aws.amazon.com/lexv2/latest/dg/faq-bot-kendra-search.html)\. You can also provide a filter for the response by using [AttributeFilter](https://docs.aws.amazon.com/kendra/latest/dg/API_AttributeFilter.html)\. This is the query filter in JSON when configuring `AMAZON.KendraSearchIntent`\. To provide an attribute filter when configuring a search intent in the console, go to the intent editor and choose Amazon Kendra query to provide a query filter in JSON\. For more information about `AMAZON.KendraSearchIntent`, see the [Amazon Lex documentation guide](https://docs.aws.amazon.com/lexv2/latest/dg/built-in-intent-kendra-search.html)\.
 
 ## Facets<a name="search-facets"></a>
 
@@ -51,7 +51,7 @@ response=kendra.query(
         )
 ```
 
-Facet information, such as the document count, is returned in the `FacetResults` response array\. You use the contents to display faceted search suggestions in your application\. For example, if the document attribute "City" contains the city that a search could apply to, use that information to display a list of city searches\. Users can choose a city to filter their search results\. To make the faceted search, call [Query](API_Query.md) and use the chosen document attribute to filter the results\. For an example, see [Using document attributes to filter search results](#search-filtering)\.
+Facet information, such as the document count, is returned in the `FacetResults` response array\. You use the contents to display faceted search suggestions in your application\. For example, if the document attribute "City" contains the city that a search could apply to, use that information to display a list of city searches\. Users can choose a city to filter their search results\. To make the faceted search, call the [Query](https://docs.aws.amazon.com/kendra/latest/dg/API_Query.html) API and use the chosen document attribute to filter the results\.
 
 You can display up to 10 facet values per facet for a query, and only one nested facet within a facet\. If you want to increase these limits, contact [Support](http://aws.amazon.com/contact-us/)\. If you want to limit the number of facet values per facet to less than 10, you can specify this in the `Facet` object\.
 
@@ -172,13 +172,13 @@ The following sample JSON response shows facets scoped to the "CityRegion" docum
 
 When you use a string list field to create facets, the facet results returned are based on the contents of the string list\. For example, if you have a string list field that contains two items, one with the list "dachshund", "sausage dog" and one with the value "husky", you get `FacetResults` with three facets\.
 
-For more information, see [Query responses](query-response.md)\.
+For more information, see [Query responses and response types](query-responses-types.md)\.
 
 ## Using document attributes to filter search results<a name="search-filtering"></a>
 
-By default, `Query` returns all search results\. To filter responses, you can perform logical operations on the document attributes\. For example, if you only want documents for a specific city, you can filter on the "City" and "State" custom document attributes\. You use the [AttributeFilter](API_AttributeFilter.md) input parameter to create a Boolean operation on filters that you supply\.
+By default, `Query` returns all search results\. To filter responses, you can perform logical operations on the document attributes\. For example, if you only want documents for a specific city, you can filter on the "City" and "State" custom document attributes\. You use [AttributeFilter](https://docs.aws.amazon.com/kendra/latest/dg/API_AttributeFilter.html) to create a Boolean operation on filters that you supply\.
 
-Most attributes can be used to filter responses for all [response types](https://docs.aws.amazon.com/kendra/latest/dg/response-types.html)\. However, the `_excerpt_page_number` attribute is only applicable to `ANSWER` response types when filtering responses\.
+Most attributes can be used to filter responses for all [response types](https://docs.aws.amazon.com/kendra/latest/dg/query-responses-types.html)\. However, the `_excerpt_page_number` attribute is only applicable to `ANSWER` response types when filtering responses\.
 
 The following example shows how to perform a logical AND operation by filtering on a specific city, *Seattle*, and state, *Washington*\. 
 

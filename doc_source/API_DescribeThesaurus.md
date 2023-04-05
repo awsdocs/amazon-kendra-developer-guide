@@ -65,7 +65,7 @@ If the action is successful, the service sends back an HTTP 200 response\.
 The following data is returned in JSON format by the service\.
 
  ** [CreatedAt](#API_DescribeThesaurus_ResponseSyntax) **   <a name="Kendra-DescribeThesaurus-response-CreatedAt"></a>
-The Unix datetime that the thesaurus was created\.  
+The Unix timestamp when the thesaurus was created\.  
 Type: Timestamp
 
  ** [Description](#API_DescribeThesaurus_ResponseSyntax) **   <a name="Kendra-DescribeThesaurus-response-Description"></a>
@@ -127,7 +127,7 @@ The number of unique terms in the thesaurus file\. For example, the synonyms `a,
 Type: Long
 
  ** [UpdatedAt](#API_DescribeThesaurus_ResponseSyntax) **   <a name="Kendra-DescribeThesaurus-response-UpdatedAt"></a>
-The Unix datetime that the thesaurus was last updated\.  
+The Unix timestamp when the thesaurus was last updated\.  
 Type: Timestamp
 
 ## Errors<a name="API_DescribeThesaurus_Errors"></a>
@@ -139,7 +139,7 @@ You don't have sufficient access to perform this action\. Please ensure you have
 HTTP Status Code: 400
 
  ** InternalServerException **   
-An issue occurred with the internal server used for your Amazon Kendra service\. Please wait a few minutes and try again, or contact [ Support](http://aws.amazon.com/aws.amazon.com/contact-us) for help\.  
+An issue occurred with the internal server used for your Amazon Kendra service\. Please wait a few minutes and try again, or contact [Support](http://aws.amazon.com/contact-us/) for help\.  
 HTTP Status Code: 500
 
  ** ResourceNotFoundException **   

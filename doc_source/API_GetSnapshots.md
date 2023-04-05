@@ -99,7 +99,7 @@ Type: Array of strings
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.
 
  ** [SnapShotTimeFilter](#API_GetSnapshots_ResponseSyntax) **   <a name="Kendra-GetSnapshots-response-SnapShotTimeFilter"></a>
-The date\-time for the beginning and end of the time window for the search metrics data\.  
+The Unix timestamp for the beginning and end of the time window for the search metrics data\.  
 Type: [TimeRange](API_TimeRange.md) object
 
 ## Errors<a name="API_GetSnapshots_Errors"></a>
@@ -111,7 +111,7 @@ You don't have sufficient access to perform this action\. Please ensure you have
 HTTP Status Code: 400
 
  ** InternalServerException **   
-An issue occurred with the internal server used for your Amazon Kendra service\. Please wait a few minutes and try again, or contact [ Support](http://aws.amazon.com/aws.amazon.com/contact-us) for help\.  
+An issue occurred with the internal server used for your Amazon Kendra service\. Please wait a few minutes and try again, or contact [Support](http://aws.amazon.com/contact-us/) for help\.  
 HTTP Status Code: 500
 
  ** InvalidRequestException **   

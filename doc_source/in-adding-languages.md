@@ -58,8 +58,6 @@ For languages that support semantic search, the following features are supported
 + Extracting answers from documents based on Amazon Kendra's reading comprehension\.
 + Confidence buckets \(very high, high, medium, and low\) of the search results\.
 
-Semantic search for languages other than English are currently not supported in Asia Pacific \(Mumbai\)\.
-
 For languages that don't support semantic search, simple keyword matching is supported for document relevance and FAQs\.
 
-Synonyms \(including custom synonyms\), incremental learning and feedback, and query suggestions are only supported for English \(default language\)\.
+[Synonyms](https://docs.aws.amazon.com/kendra/latest/dg/index-synonyms.html) \(including custom synonyms\), [incremental learning and feedback](https://docs.aws.amazon.com/kendra/latest/dg/submitting-feedback.html), and [query suggestions](https://docs.aws.amazon.com/kendra/latest/dg/query-suggestions.html) are only supported for English \(default language\)\.

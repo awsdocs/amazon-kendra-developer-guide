@@ -9,7 +9,7 @@ Gathers information about when a particular result was clicked by a user\. Your 
 ## Contents<a name="API_ClickFeedback_Contents"></a>
 
  ** ClickTime **   <a name="Kendra-Type-ClickFeedback-ClickTime"></a>
-The Unix timestamp of the date and time that the result was clicked\.  
+The Unix timestamp when the result was clicked\.  
 Type: Timestamp  
 Required: Yes
 

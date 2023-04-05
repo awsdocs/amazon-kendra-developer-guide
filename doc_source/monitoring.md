@@ -9,5 +9,6 @@
 **Topics**
 + [Monitoring your index \(console\)](monitoring-runsync.md)
 + [Logging Amazon Kendra API calls with AWS CloudTrail logs](cloudtrail.md)
++ [Logging Amazon Kendra Intelligent Ranking API calls with AWS CloudTrail logs](cloudtrail-intelligent-ranking.md)
 + [Monitoring Amazon Kendra with Amazon CloudWatch](cloudwatch-metrics.md)
 + [Monitoring Amazon Kendra with Amazon CloudWatch Logs](cloudwatch-logs.md)

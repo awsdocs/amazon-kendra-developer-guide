@@ -78,7 +78,7 @@ Shows the configuration information for your Amazon Kendra experience\. This inc
 Type: [ExperienceConfiguration](API_ExperienceConfiguration.md) object
 
  ** [CreatedAt](#API_DescribeExperience_ResponseSyntax) **   <a name="Kendra-DescribeExperience-response-CreatedAt"></a>
-Shows the date\-time your Amazon Kendra experience was created\.  
+The Unix timestamp when your Amazon Kendra experience was created\.  
 Type: Timestamp
 
  ** [Description](#API_DescribeExperience_ResponseSyntax) **   <a name="Kendra-DescribeExperience-response-Description"></a>
@@ -128,7 +128,7 @@ Type: String
 Valid Values:` CREATING | ACTIVE | DELETING | FAILED` 
 
  ** [UpdatedAt](#API_DescribeExperience_ResponseSyntax) **   <a name="Kendra-DescribeExperience-response-UpdatedAt"></a>
-Shows the date\-time your Amazon Kendra experience was last updated\.  
+The Unix timestamp when your Amazon Kendra experience was last updated\.  
 Type: Timestamp
 
 ## Errors<a name="API_DescribeExperience_Errors"></a>
@@ -140,7 +140,7 @@ You don't have sufficient access to perform this action\. Please ensure you have
 HTTP Status Code: 400
 
  ** InternalServerException **   
-An issue occurred with the internal server used for your Amazon Kendra service\. Please wait a few minutes and try again, or contact [ Support](http://aws.amazon.com/aws.amazon.com/contact-us) for help\.  
+An issue occurred with the internal server used for your Amazon Kendra service\. Please wait a few minutes and try again, or contact [Support](http://aws.amazon.com/contact-us/) for help\.  
 HTTP Status Code: 500
 
  ** ResourceNotFoundException **   

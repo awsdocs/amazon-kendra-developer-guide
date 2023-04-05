@@ -10,7 +10,7 @@ If your data source or database isn't running on an Amazon VPC, you can connect 
 
 
 
-To use a VPC, you must tell Amazon Kendra the identifier of the subnet that the database belongs to and the identifiers of any security groups that Amazon Kendra must use to access the subnet\. For example, if you're using the default port for a MySQL database, the security groups must enable Amazon Kendra to access port 3306 on the host that runs the database\.
+To use a VPC, you must tell Amazon Kendra the identifier of the subnet that the database belongs to and the identifiers of any security groups that Amazon Kendra must use to access the subnet\. For example, if you're using the default port for a MySQL database, the security groups must allow Amazon Kendra to access port 3306 on the host that runs the database\.
 
 Only use private subnets in the VPC configuration of your data source or database\. If your RDS instance is in a public subnet in your VPC, then you can't use that subnet directly to sync your data source or database\. Instead, create a private subnet that has outbound access to a NAT gateway in the public subnet\. When you configure the VPC for your data source or database, specify that private subnet\. For a database data source configured with a VPC, the subnets must be in one of the following Availability Zone IDs:
 + US West \(Oregon\)—usw2\-az1, usw2\-az2, usw2\-az3

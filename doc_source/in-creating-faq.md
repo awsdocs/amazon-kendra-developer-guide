@@ -32,7 +32,7 @@ In addition to the custom attributes, you can also use the following built\-in a
   You can also include the time zone in the ISO 8601 date\-time format if required\. For example, 2012\-03\-25T12:30:10\+01:00 is the ISO 8601 date\-time format for March 25, 2012, at 12:30PM \(plus 10 seconds\) in the Central European Time time zone\.
 + `_last_updated_at` \(ISO 8601\-encoded string\)—The date and time that the FAQ question was updated\. The date and time must be fromatted as an ISO 8601\-encoded string\.
 
-  You can also include the time zone in the ISO 8601 date\-time format if required\. For example, 2012\-03\-25T12:30:10\+01:00 is the ISO 8601 date\-time format for March 25, 2012, at 12:30PM \(plus 10 seconds\) in the Central European Time time zone\.
+  For example, 2012\-03\-25T12:30:10\+01:00 is the ISO 8601 date\-time format for March 25, 2012, at 12:30PM \(plus 10 seconds\) in the Central European Time time zone\.
 + `_source_uri` \(String\)—A URL for a document with more information about the FAQ answer\.
 + `_version` \(String\)—The version of the FAQ question\.
 + `_view_count` \(Long\)—The number of times that the FAQ question was viewed in search results\.
@@ -71,7 +71,7 @@ The contents of the custom attributes file must follow the [RFC 4180 Common Form
 There are four types of custom attributes:
 + Date—ISO 8601\-encoded date and time values\.
 
-  It's important for the time zone to be included in the ISO 8601 date\-time format\. For example, 2012\-03\-25T12:30:10\+01:00 is the ISO 8601 date\-time format for March 25, 2012, at 12:30PM \(plus 10 seconds\) in the Central European Time time zone\.
+  For example, 2012\-03\-25T12:30:10\+01:00 is the ISO 8601 date\-time format for March 25, 2012, at 12:30PM \(plus 10 seconds\) in the Central European Time time zone\.
 + Long—Numbers, such as `1234`\.
 + String—String values\. If your string contains commas, enclose the entire value in double quotation marks \("\) \(for example, `"custom attribute, and more"`\)\.
 + String list—A list of string values\. List the values in a comma\-separated list that's enclosed in quotation marks \("\) \(for example, `"item1, item2, item3"`\)\. If the list contains only a single entry, you can omit the quotation marks \(for example, `item1`\)\.

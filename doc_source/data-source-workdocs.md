@@ -32,16 +32,17 @@ Before you can use Amazon Kendra to index your WorkDocs data source, make these 
 
 **In WorkDocs, make sure you have:**
 + Noted the Amazon WorkDocs directory ID \(organization ID\) for your Amazon WorkDocs repository\.
++ Checked each document is unique in WorkDocs and across other data sources you plan to use for the same index\. Each data source that you want to use for an index must not contain the same document across the data sources\. Document IDs are global to an index and must be unique per index\.
 
 **In your AWS account, make sure you have:**
-+ Created an Amazon Kendra index and, if using the API, noted the index id\.
-+ Created an IAM role for your data source and, if using the API, noted the ARN of the IAM role\.
++ [Created an Amazon Kendra index](https://docs.aws.amazon.com/kendra/latest/dg/create-index.html) and, if using the API, noted the index ID\.
++ [Created an IAM role](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-ds) for your data source and, if using the API, noted the ARN of the IAM role\.
 
-If you don’t have an existing IAM role, you can use the console to create a new IAM role when you connect your WorkDocs data source to Amazon Kendra\. If you are using the API, you must provide the ARN of an existing IAM role and an index id\.
+If you don’t have an existing IAM role, you can use the console to create a new IAM role when you connect your WorkDocs data source to Amazon Kendra\. If you are using the API, you must provide the ARN of an existing IAM role and an index ID\.
 
 ## Connection instructions<a name="data-source-procedure-workdocs"></a>
 
-To connect Amazon Kendra to your Amazon WorkDocs data source you must provide details of your Amazon WorkDocs credentials so that Amazon Kendra can access your data\. If you have not yet configured Amazon WorkDocs for Amazon Kendra see [Prerequisites](#prerequisites-workdocs)\.
+To connect Amazon Kendra to your WorkDocs data source, you must provide the necessary details of your WorkDocs data source so that Amazon Kendra can access your data\. If you have not yet configured WorkDocs for Amazon Kendra see [Prerequisites](#prerequisites-workdocs)\.
 
 ### <a name="workdocs-adding-procedure"></a>
 
@@ -50,15 +51,15 @@ To connect Amazon Kendra to your Amazon WorkDocs data source you must provide de
 
 **To connect Amazon Kendra to Amazon WorkDocs** 
 
-1. Sign in to the Amazon Kendra at [AWS Console](https://console.aws.amazon.com/kendra/)\.
+1. Sign in to the AWS Management Console and open the [Amazon Kendra console](https://console.aws.amazon.com/kendra/)\.
 
-1. From the left navigation pane, choose **Indexes** and then choose the index you want to connect from the list of indexes\.
-
-1. On the **Getting started** page, choose **Add data sources**\.
+1. From the left navigation pane, choose **Indexes** and then choose the index you want to use from the list of indexes\.
 **Note**  
 You can choose to configure or edit your **User access control** settings under **Index settings**\. 
 
-1. On the **Add data source** page, choose **WorkDocs**, and then choose **Add connector**\.
+1. On the **Getting started** page, choose **Add data source**\.
+
+1. On the **Add data source** page, choose **WorkDocs connector**, and then choose **Add data source**\.
 
 1. On the **Specify data source details** page, enter the following information:
 
@@ -111,17 +112,17 @@ IAM roles used for indexes cannot be used for data sources\. If you are unsure i
 
 You must specify the following using the [WorkDocsConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_WorkDocsConfiguration.html) API:
 + **Amazon WorkDocs directory ID**—Specify the organization ID of your Amazon WorkDocs directory\. You can find the organization ID in the AWS Directory Service by going to **Active Directory** and then **Directories**\.
-+ **IAM role**—Provide an IAM role with permissions to access your Secrets Manager secret and to call the required public APIs for the WorkDocs connector and Amazon Kendra\. For more information, see [IAM roles for WorkDocs data sources](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-ds)\.
++ **IAM role**—Specify `RoleArn` when you call `CreateDataSource` to provide an IAM role with permissions to access the WorkDocs dirtectory and to call the required public APIs for the WorkDocs connector and Amazon Kendra\. For more information, see [IAM roles for WorkDocs data sources](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-ds)\.
 
 You can also add the following optional features:
 +  **Change log**—Whether Amazon Kendra should use the WorkDocs data source change log mechanism to determine if a document must be added, updated, or deleted in the index\.
 **Note**  
 Use the change log if you don’t want Amazon Kendra to scan all of the documents\. If your change log is large, it might take Amazon Kendra less time to scan the documents in the WorkDocs data source than to process the change log\. If you are syncing your WorkDocs data source with your index for the first time, all documents are scanned\. 
-+  **Inclusion and exclusion filters**—Specify whether to include documents and document comments\. You can also specify regular expression patterns to include or exclude documents and document comments\. Each comment is indexed as a separate document\.
++  **Inclusion and exclusion filters**—Specify whether to include or exclude certain documents and document comments\. Each comment is indexed as a separate document\.
 **Note**  
-If you specify an inclusion filter, only content that matches the inclusion filter is indexed\. Any document that doesn’t match the inclusion filter isn’t indexed\. If you specify an inclusion and exclusion filter, documents that match the exclusion filter are not indexed, even if they match the inclusion filter\.
-+  **Context filtering**—Choose to filter a user’s results based on their user or group access to documents\. For more information, see [User context filtering for WorkDocs data sources](https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html)\.
+Most data sources use regular expression patterns, which are inclusion or exclusion patterns referred to as filters\. If you specify an inclusion filter, only content that matches the inclusion filter is indexed\. Any document that doesn’t match the inclusion filter isn’t indexed\. If you specify an inclusion and exclusion filter, documents that match the exclusion filter are not indexed, even if they match the inclusion filter\.
 +  **Field mappings**—Choose to map your WorkDocs data source fields to your Amazon Kendra index fields\. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html)\.
++  **User context filtering**—Amazon Kendra crawls the Access Control List \(ACL\) for your data source by default\. The ACL information is used to filter search results based on the user or their group access to documents\. For more information, see [User context filtering for WorkDocs data sources](https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html)\.
 
 ------
 

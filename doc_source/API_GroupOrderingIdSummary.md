@@ -16,7 +16,7 @@ Pattern: `^\P{C}*$`
 Required: No
 
  ** LastUpdatedAt **   <a name="Kendra-Type-GroupOrderingIdSummary-LastUpdatedAt"></a>
-The last date\-time an action was updated\. An action can be a `PUT` or `DELETE` action for mapping users to their groups\.  
+The Unix timestamp when an action was last updated\. An action can be a `PUT` or `DELETE` action for mapping users to their groups\.  
 Type: Timestamp  
 Required: No
 
@@ -27,7 +27,7 @@ Valid Range: Minimum value of 0\. Maximum value of 32535158400000\.
 Required: No
 
  ** ReceivedAt **   <a name="Kendra-Type-GroupOrderingIdSummary-ReceivedAt"></a>
-The date\-time an action was received by Amazon Kendra\. An action can be a `PUT` or `DELETE` action for mapping users to their groups\.  
+The Unix timestamp when an action was received by Amazon Kendra\. An action can be a `PUT` or `DELETE` action for mapping users to their groups\.  
 Type: Timestamp  
 Required: No
 

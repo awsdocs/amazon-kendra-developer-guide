@@ -9,7 +9,7 @@ Summary information for your Amazon Kendra experience\. You can create an Amazon
 ## Contents<a name="API_ExperiencesSummary_Contents"></a>
 
  ** CreatedAt **   <a name="Kendra-Type-ExperiencesSummary-CreatedAt"></a>
-The date\-time your Amazon Kendra experience was created\.  
+The Unix timestamp when your Amazon Kendra experience was created\.  
 Type: Timestamp  
 Required: No
 

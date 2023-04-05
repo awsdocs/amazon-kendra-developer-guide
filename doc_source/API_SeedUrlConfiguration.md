@@ -6,7 +6,7 @@
 
 Provides the configuration information for the seed or starting point URLs to crawl\.
 
- *When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://aws.amazon.com/aup/) and all other Amazon terms\. Remember that you must only use Amazon Kendra Web Crawler to index your own webpages, or webpages that you have authorization to index\.* 
+ *When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://aws.amazon.com/aup/) and all other Amazon terms\. Remember that you must only use Amazon Kendra Web Crawler to index your own web pages, or web pages that you have authorization to index\.* 
 
 ## Contents<a name="API_SeedUrlConfiguration_Contents"></a>
 
@@ -23,7 +23,7 @@ Required: Yes
 You can choose one of the following modes:  
 +  `HOST_ONLY` – crawl only the website host names\. For example, if the seed URL is "abc\.example\.com", then only URLs with host name "abc\.example\.com" are crawled\.
 +  `SUBDOMAINS` – crawl the website host names with subdomains\. For example, if the seed URL is "abc\.example\.com", then "a\.abc\.example\.com" and "b\.abc\.example\.com" are also crawled\.
-+  `EVERYTHING` – crawl the website host names with subdomains and other domains that the webpages link to\.
++  `EVERYTHING` – crawl the website host names with subdomains and other domains that the web pages link to\.
 The default mode is set to `HOST_ONLY`\.  
 Type: String  
 Valid Values:` HOST_ONLY | SUBDOMAINS | EVERYTHING`   

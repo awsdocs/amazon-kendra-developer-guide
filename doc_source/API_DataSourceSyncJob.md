@@ -15,7 +15,7 @@ Length Constraints: Minimum length of 1\. Maximum length of 2048\.
 Required: No
 
  ** EndTime **   <a name="Kendra-Type-DataSourceSyncJob-EndTime"></a>
-The UNIX datetime that the synchronization job completed\.  
+The Unix timestamp when the synchronization job completed\.  
 Type: Timestamp  
 Required: No
 
@@ -44,7 +44,7 @@ Type: [DataSourceSyncJobMetrics](API_DataSourceSyncJobMetrics.md) object
 Required: No
 
  ** StartTime **   <a name="Kendra-Type-DataSourceSyncJob-StartTime"></a>
-The UNIX datetime that the synchronization job started\.  
+The Unix timestamp when the synchronization job started\.  
 Type: Timestamp  
 Required: No
 

@@ -30,7 +30,7 @@ Amazon Kendra Slack data source connector supports the following features:
 Before you can use Amazon Kendra to index your Slack data source, make these changes in your Slack and AWS accounts\.
 
 **In Slack, make sure you have:**
-+ Created a Slack Bot User OAuth token or Slack User OAuth token\. You can choose either token to connect Amazon Kendra to your Slack data source\.
++ Created a Slack Bot User OAuth token or Slack User OAuth token\. You can choose either token to connect Amazon Kendra to your Slack data source\. See [Slack documentation on access tokens](https://api.slack.com/authentication/token-types) for more information\.
 **Note**  
 If you use the bot token as part of your Slack credentials, you cannot index direct messages and group messages and you must add the bot token to the channel you want to index\.
 + Noted your Slack workspace team ID from your Slack workspace main page URL\. For example, *https://app\.slack\.com/client/T0123456789/\.\.\. * where *T0123456789* is the team ID\.
@@ -48,19 +48,20 @@ If you use the bot token as part of your Slack credentials, you cannot index dir
   + emoji:read
   + files:read
   + usergroups:read
++ Checked each document is unique in Slack and across other data sources you plan to use for the same index\. Each data source that you want to use for an index must not contain the same document across the data sources\. Document IDs are global to an index and must be unique per index\.
 
 **In your AWS account, make sure you have:**
-+ Created an Amazon Kendra index and, if using the API, noted the index id\.
-+ Created an IAM role for your data source and, if using the API, noted the ARN of the IAM role\.
++ [Created an Amazon Kendra index](https://docs.aws.amazon.com/kendra/latest/dg/create-index.html) and, if using the API, noted the index ID\.
++ [Created an IAM role](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-ds) for your data source and, if using the API, noted the ARN of the IAM role\.
 + Stored your Slack authentication credentials in an AWS Secrets Manager secret and, if using the API, noted the ARN of the secret\.
 **Note**  
-Be sure to regularly refresh or rotate your credentials and secret\. Provide only the necessary access level for your own security\.
+Be sure to regularly refresh or rotate your credentials and secret\. Provide only the necessary access level for your own security\. Re\-using credentials and secrets across data sources, and connector versions v1\.0 and v2\.0 \(where applicable\), is not recommended\.
 
-If you don’t have an existing IAM role or secret, you can use the console to create a new IAM role and Secrets Manager secret when you connect your Slack data source to Amazon Kendra\. If you are using the API, you must provide the ARN of an existing IAM role and Secrets Manager secret, and an index id\.
+If you don’t have an existing IAM role or secret, you can use the console to create a new IAM role and Secrets Manager secret when you connect your Slack data source to Amazon Kendra\. If you are using the API, you must provide the ARN of an existing IAM role and Secrets Manager secret, and an index ID\.
 
 ## Connection instructions<a name="data-source-procedure-slack"></a>
 
-To connect Amazon Kendra to your Slack data source you must provide details of your Slack credentials so that Amazon Kendra can access your data\. If you have not yet configured Slack for Amazon Kendra see [Prerequisites](#prerequisites-slack)\.
+To connect Amazon Kendra to your Slack data source, you must provide the necessary details of your Slack data source so that Amazon Kendra can access your data\. If you have not yet configured Slack for Amazon Kendra see [Prerequisites](#prerequisites-slack)\.
 
 ### <a name="slack-adding-procedure"></a>
 
@@ -69,15 +70,15 @@ To connect Amazon Kendra to your Slack data source you must provide details of y
 
 **To connect Amazon Kendra to Slack** 
 
-1. Sign in to the Amazon Kendra at [AWS Console](https://console.aws.amazon.com/kendra/)\.
+1. Sign in to the AWS Management Console and open the [Amazon Kendra console](https://console.aws.amazon.com/kendra/)\.
 
-1. From the left navigation pane, choose **Indexes** and then choose the index you want to connect from the list of indexes\.
-
-1. On the **Getting started** page, choose **Add data sources**\.
+1. From the left navigation pane, choose **Indexes** and then choose the index you want to use from the list of indexes\.
 **Note**  
 You can choose to configure or edit your **User access control** settings under **Index settings**\. 
 
-1. On the **Add data source** page, choose **Slack**, and then choose **Add connector**\.
+1. On the **Getting started** page, choose **Add data source**\.
+
+1. On the **Add data source** page, choose **Slack connector**, and then choose **Add data source**\.
 
 1. On the **Specify data source details** page, enter the following information:
 
@@ -101,7 +102,7 @@ You can choose to configure or edit your **User access control** settings under 
 
          1. **Secret name**—A name for your secret\. The prefix ‘AmazonKendra\-Slack\-’ is automatically added to your secret name\.
 
-         1. For **Slack token**—Enter the authentication credential values you generated and downloaded from your Slack account\. 
+         1. For **Slack token**—Enter the authentication credential values you created in your Slack account\. 
 
       1. Choose **Save**\.
 
@@ -146,7 +147,7 @@ You must specify the following using [SlackConfiguration](https://docs.aws.amazo
 + **Slack workspace team ID**—The Slack team ID you copied from your Slack main page URL\.
 + **List of entities to index**—Whether Amazon Kendra should index your public and private channels, and your group and direct messages\.
 + **Crawl date**—The date to start crawling your data from your Slack workspace team\. The date must follow this format: yyyy\-mm\-dd\.
-+ **Secret Amazon Resource Name \(ARN\)**—Provide the Amazon Resource Name \(ARN\) of a Secrets Manager secret that contains the authentication credentials you created in your Slack account\. The secret is stored in a JSON structure with the following keys: 
++ **Secret Amazon Resource Name \(ARN\)**—Provide the Amazon Resource Name \(ARN\) of a Secrets Manager secret that contains the authentication credentials for your Slack account\. The secret is stored in a JSON structure with the following keys:
 
   ```
   {
@@ -154,19 +155,19 @@ You must specify the following using [SlackConfiguration](https://docs.aws.amazo
   }
   ```
 **Note**  
-Be sure to regularly refresh or rotate your credentials and secret\. Provide only the necessary access level for your own security\.
-+ **IAM role**—Provide an IAM role with permissions to access your Secrets Manager secret and to call the required public APIs for the Slack connector and Amazon Kendra\. For more information, see [IAM roles for Slack data sources](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-ds)\.
+Be sure to regularly refresh or rotate your credentials and secret\. Provide only the necessary access level for your own security\. Re\-using credentials and secrets across data sources, and connector versions v1\.0 and v2\.0 \(where applicable\), is not recommended\.
++ **IAM role**—Specify `RoleArn` when you call `CreateDataSource` to provide an IAM role with permissions to access your Secrets Manager secret and to call the required public APIs for the Slack connector and Amazon Kendra\. For more information, see [IAM roles for Slack data sources](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-ds)\.
 
 You can also add the following optional features:
-+  **Virtual Private Cloud \(VPC\)**—Specify `VpcConfiguration` when you call `CreateDataSource`\. See [Configuring Amazon Kendra to use a VPC](vpc-configuration.md)\.
++ **Virtual Private Cloud \(VPC\)**—Specify `VpcConfiguration` as part of the data source configuration\. See [Configuring Amazon Kendra to use a VPC](https://docs.aws.amazon.com/kendra/latest/dg/vpc-configuration.html)\.
 +  **Change log**—Whether Amazon Kendra should use the Slack data source change log mechanism to determine if a document must be added, updated, or deleted in the index\.
 **Note**  
 Use the change log if you don’t want Amazon Kendra to scan all of the documents\. If your change log is large, it might take Amazon Kendra less time to scan the documents in the Slack data source than to process the change log\. If you are syncing your Slack data source with your index for the first time, all documents are scanned\. 
-+  **Inclusion and exclusion filters**—Specify whether to include public and private channels, group and private messages, and bot and archived messages\. You can also specify regular expression patterns to include or exclude public and private channels, group and private messages, and bot and archived messages\.If you use a bot token as part of your Slack authentication credentials, you must add the bot token to the channel you want to index\. You cannot index direct messages and group messages using a bot token\.
++  **Inclusion and exclusion filters**—Specify whether to include or exclude certain public and private channels, group and private messages, and bot and archived messages\. If you use a bot token as part of your Slack authentication credentials, you must add the bot token to the channel you want to index\. You cannot index direct messages and group messages using a bot token\.
 **Note**  
-If you specify an inclusion filter, only content that matches the inclusion filter is indexed\. Any document that doesn’t match the inclusion filter isn’t indexed\. If you specify an inclusion and exclusion filter, documents that match the exclusion filter are not indexed, even if they match the inclusion filter\.
-+  **Context filtering**—Choose to filter a user’s results based on their user or group access to documents\. For more information, see [User context filtering for Slack data sources](https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html)\.
+Most data sources use regular expression patterns, which are inclusion or exclusion patterns referred to as filters\. If you specify an inclusion filter, only content that matches the inclusion filter is indexed\. Any document that doesn’t match the inclusion filter isn’t indexed\. If you specify an inclusion and exclusion filter, documents that match the exclusion filter are not indexed, even if they match the inclusion filter\.
 +  **Field mappings**—Choose to map your Slack data source fields to your Amazon Kendra index fields\. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html)\.
++  **User context filtering**—Amazon Kendra crawls the Access Control List \(ACL\) for your data source by default\. The ACL information is used to filter search results based on the user or their group access to documents\. For more information, see [User context filtering for Slack data sources](https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html)\.
 
 ------
 

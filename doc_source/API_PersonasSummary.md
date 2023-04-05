@@ -9,7 +9,7 @@ Summary information for users or groups in your IAM Identity Center identity sou
 ## Contents<a name="API_PersonasSummary_Contents"></a>
 
  ** CreatedAt **   <a name="Kendra-Type-PersonasSummary-CreatedAt"></a>
-The date\-time the summary information was created\.  
+The Unix timestamp when the summary information was created\.  
 Type: Timestamp  
 Required: No
 
@@ -27,7 +27,7 @@ Valid Values:` OWNER | VIEWER`
 Required: No
 
  ** UpdatedAt **   <a name="Kendra-Type-PersonasSummary-UpdatedAt"></a>
-The date\-time the summary information was last updated\.  
+The Unix timestamp when the summary information was last updated\.  
 Type: Timestamp  
 Required: No
 

@@ -14,7 +14,7 @@ You can specify how Amazon Kendra selects eligible queries to suggest to your us
 
 Query suggestions are case insensitive\. Amazon Kendra converts the query prefix and the suggested query to lower case, ignores all single and double quotation marks, and replaces multiple white space characters with a single space\. Amazon Kendra matches all other special characters as they are\. Amazon Kendra does not show any suggestions if a user types fewer than two characters or more than 60 characters\.
 
-You can retrieve query suggestions relevant to your users by using the [GetQuerySuggestions](https://docs.aws.amazon.com/kendra/latest/dg/API_GetQuerySuggestions.html) API\. Query suggestions are enabled by default at no additional cost\. You can disable query suggestions at any time by using the [UpdateQuerySuggestionsConfig](https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateQuerySuggestionsConfig.html) API\. You can test your settings before you apply suggestions to your search application in two ways:
+You can retrieve query suggestions relevant to your users by using the [GetQuerySuggestions](https://docs.aws.amazon.com/kendra/latest/dg/API_GetQuerySuggestions.html) API\. Query suggestions are activated by default at no additional cost\. You can disable query suggestions at any time by using the [UpdateQuerySuggestionsConfig](https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateQuerySuggestionsConfig.html) API\. You can test your settings before you apply suggestions to your search application in two ways:
 + By using the `UpdateQuerySuggestionsConfig` API\.
 + In the console in **Query suggestions settings**\.
 
@@ -23,7 +23,7 @@ You use the `GetQuerySuggestions` API to integrate query suggestions with your c
 ## Query suggestions settings<a name="suggestions-settings"></a>
 
 You can configure the following settings using the `UpdateQuerySuggestionsConfig` API:
-+ **Mode**—Query suggestions are either `ENABLED` or `LEARN_ONLY`\. Amazon Kendra enables query suggestions by default\. `LEARN_ONLY` turns off query suggestions\. If turned off, Amazon Kendra continues to learn suggestions but doesn't make query suggestions to users\.
++ **Mode**—Query suggestions are either `ENABLED` or `LEARN_ONLY`\. Amazon Kendra activates query suggestions by default\. `LEARN_ONLY` turns off query suggestions\. If turned off, Amazon Kendra continues to learn suggestions but doesn't make query suggestions to users\.
 + **Query log time window**—How recent your queries are in your query log time window\. The time window is an integer value for the number of days from current day to past days\.
 + **Queries without user information**—Set to `TRUE` to include all queries or set to `FALSE` to only include queries with user information\. You can use this if your search application includes user information, such as the user ID, when a user issues a query\. This setting by default doesn't filter out queries if there's no specific user information associated with the queries\. However, you can use this setting to only make suggestions based on queries that include user information\.
 + **Unique users**—The minimum number of unique users who must search a query for the query to be eligible to suggest to your users\. This number is an integer value\.
@@ -41,7 +41,7 @@ Your changes to settings might not take effect right away\. You can track the se
 ------
 #### [ Console ]
 
-**To check that query suggestions are enabled and ready**
+**To check that query suggestions are activated and ready**
 
 1. In the left navigation pane, under **Indexes**, go to your index, and then for **Enrichments**, select **Query suggestions**\.
 
@@ -229,7 +229,7 @@ print("Program ends.")
 ------
 
 You can check your current settings by using the `DescribeQuerySuggestionsConfig` API\. Additionally, this operation shows the following information about your query suggestions for an index:
-+ **Mode**—Query suggestions are either `ENABLED` or `LEARN_ONLY`\. Amazon Kendra enables query suggestions by default\. `LEARN_ONLY` turns off query suggestions\. You can change the mode by using the `UpdateQuerySuggestionsConfig` API\. If turned off, Amazon Kendra continues to learn suggestions but doesn't make query suggestions to users\.
++ **Mode**—Query suggestions are either `ENABLED` or `LEARN_ONLY`\. Amazon Kendra activates query suggestions by default\. `LEARN_ONLY` turns off query suggestions\. You can change the mode by using the `UpdateQuerySuggestionsConfig` API\. If turned off, Amazon Kendra continues to learn suggestions but doesn't make query suggestions to users\.
 + **Status**—Query suggestions are either `ACTIVE` or `UPDATING`\.
 + **Suggestions count**—The total number of queries ready to be suggested to your users\. If the count is much lower than you expected, it could be because Amazon Kendra needs more queries to learn from or your current query suggestions settings are too strict\.
 + **Suggestions last build time**—The last time suggestions were updated\. Amazon Kendra automatically updates suggestions every 24 hours, or when you change a setting or when you apply a [block list](https://docs.aws.amazon.com/kendra/latest/dg/query-suggestions.html#suggestions-block-list)\.

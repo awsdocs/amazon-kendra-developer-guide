@@ -35,7 +35,7 @@ In your client code that renders the Amazon Kendra search results, insert a <scr
 </script>
 ```
 
-The script asynchronously downloads the JavaScript library from an Amazon Kendra hosted CDN and initializes a global variable called `kendraFeedback` that enables you to set optional parameters\.
+The script asynchronously downloads the JavaScript library from an Amazon Kendra hosted CDN and initializes a global variable called `kendraFeedback` that allows you to set optional parameters\.
 
 Replace *library download URL* and *feedback endpoint* with an identifier from the following table based on the region that hosts your Amazon Kendra index\.
 
@@ -49,6 +49,8 @@ Replace *library download URL* and *feedback endpoint* with an identifier from t
 | eu\-west\-1 | https://d3gptlxtulu4us\.cloudfront\.net/ksf\-v1\.js | https://po2b11740b\.execute\-api\.eu\-west\-1\.amazonaws\.com/prod/submit | 
 | ap\-southeast\-1 | https://d1vvuam7g4taoe\.cloudfront\.net/ksf\-v1 | https://9je5uw7t5l\.execute\-api\.ap\-southeast\-1\.amazonaws\.com/prod/submit | 
 | ap\-southeast\-2 | https://dopqntoe6z0ce\.cloudfront\.net/ksf\-v1\.js | https://oovf4nvjj7\.execute\-api\.ap\-southeast\-2\.amazonaws\.com/prod/submit | 
+| ap\-south\-1 | https://d1ts9ouelsmk3g\.cloudfront\.net/ksf\-v1\.js | https://k1abnmd43b\.execute\-api\.ap\-south\-1\.amazonaws\.com/prod/submit | 
+| ap\-northeast\-1 | https://d3w0ybsa293kb4\.cloudfront\.net/ksf\-v1\.js | https://wg7rz0uzjh\.execute\-api\.ap\-northeast\-1\.amazonaws\.com/prod/submit | 
 
 For example, if your index is in US East \(N\. Virginia\), *library download URL* is `https://d2zm0lpns956f8.cloudfront.net/ksf-v1.js` and *feedback endpoint* is `https://ujxwp5s92h.execute-api.us-east-1.amazonaws.com/prod/submit`\.
 

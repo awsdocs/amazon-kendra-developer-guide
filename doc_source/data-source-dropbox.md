@@ -33,33 +33,34 @@ Before you can use Amazon Kendra to index your Dropbox data source, make these c
 
 **In Dropbox, make sure you have:**
 + Created a Dropbox Advanced account and set up an admin user\.
-+ Created a Dropbox app with a unique **App name**, activated **Scoped Access**, and **Full Dropbox** permissions\.
-+ Set up basic authentication credentials that include an app name, an app key, an app secret, and an access token using your admin user\.
-+ Generated and copied a temporary Oauth 2\.0 access token for your Dropbox app\. This token is temporary and expires after 4 hours\.
++ Created a Dropbox app with a unique **App name**, activated **Scoped Access**\. See [Dropbox documentation on creating an app](https://www.dropbox.com/developers/reference/getting-started#app%20console)\.
++ Activated **Full Dropbox** permissions on the Dropbox console and added the following permissions:
+  + files\.content\.read
+  + files\.metadata\.read
+  + sharing\.read
+  + file\_requests\.read
+  + groups\.read
+  + team\_info\.read
+  + team\_data\.content\.read
++ Noted your Dropbox app key, Dropbox app secret, and Dropbox access token for basic authentication credentials\.
++ Generated and copied a temporary Oauth 2\.0 access token for your Dropbox app\. This token is temporary and expires after 4 hours\. See [Dropbox documentation on OAuth authentication](https://developers.dropbox.com/oauth-guide)\.
 **Note**  
 It is recommended that you create a Dropbox refresh access token that never expires, rather that relying on a one\-time access token that expires after 4 hours\. A refresh access token is permanent and never expires so that you can continue to sync your data source in the future\.
-+ **Recommended:** Configured a Dropbox permanent refresh token that never expires to allow Amazon Kendra to continue to sync your data source without any disruptions\.
-+ Added the following Oauth scopes and read permissions:
-  +  files\.content\.read
-  +  files\.metadata\.read
-  +  sharing\.read
-  +  file\_requests\.read
-  +  groups\.read
-  + team\_info\.read
-  +  team\_data\.content\.read
++ **Recommended:** Configured a Dropbox permanent refresh token that never expires to allow Amazon Kendra to continue to sync your data source without any disruptions\. See [Dropbox documentation on refresh tokens](https://developers.dropbox.com/oauth-guide)\.
++ Checked each document is unique in Dropbox and across other data sources you plan to use for the same index\. Each data source that you want to use for an index must not contain the same document across the data sources\. Document IDs are global to an index and must be unique per index\.
 
 **In your AWS account, make sure you have:**
-+ Created an Amazon Kendra index and, if using the API, noted the index id\.
-+ Created an IAM role for your data source and, if using the API, noted the ARN of the IAM role\.
++ [Created an Amazon Kendra index](https://docs.aws.amazon.com/kendra/latest/dg/create-index.html) and, if using the API, noted the index ID\.
++ [Created an IAM role](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-ds) for your data source and, if using the API, noted the ARN of the IAM role\.
 + Stored your Dropbox authentication credentials in an AWS Secrets Manager secret and, if using the API, noted the ARN of the secret\.
 **Note**  
-Be sure to regularly refresh or rotate your credentials and secret\. Provide only the necessary access level for your own security\.
+Be sure to regularly refresh or rotate your credentials and secret\. Provide only the necessary access level for your own security\. Re\-using credentials and secrets across data sources, and connector versions v1\.0 and v2\.0 \(where applicable\), is not recommended\.
 
-If you don’t have an existing IAM role or secret, you can use the console to create a new IAM role and Secrets Manager secret when you connect your Dropbox data source to Amazon Kendra\. If you are using the API, you must provide the ARN of an existing IAM role and Secrets Manager secret, and an index id\.
+If you don’t have an existing IAM role or secret, you can use the console to create a new IAM role and Secrets Manager secret when you connect your Dropbox data source to Amazon Kendra\. If you are using the API, you must provide the ARN of an existing IAM role and Secrets Manager secret, and an index ID\.
 
 ## Connection instructions<a name="data-source-procedure-dropbox"></a>
 
-To connect Amazon Kendra to your Dropbox data source you must provide details of your Dropbox credentials so that Amazon Kendra can access your data\. If you have not yet configured Dropbox for Amazon Kendra see [Prerequisites](#prerequisites-dropbox)\.
+To connect Amazon Kendra to your Dropbox data source, you must provide the necessary details of your Dropbox data source so that Amazon Kendra can access your data\. If you have not yet configured Dropbox for Amazon Kendra see [Prerequisites](#prerequisites-dropbox)\.
 
 ### <a name="dropbox-adding-procedure"></a>
 
@@ -68,15 +69,15 @@ To connect Amazon Kendra to your Dropbox data source you must provide details of
 
 **To connect Amazon Kendra to Dropbox** 
 
-1. Sign in to the Amazon Kendra at [AWS Console](https://console.aws.amazon.com/kendra/)\.
+1. Sign in to the AWS Management Console and open the [Amazon Kendra console](https://console.aws.amazon.com/kendra/)\.
 
-1. From the left navigation pane, choose **Indexes** and then choose the index you want to connect from the list of indexes\.
-
-1. On the **Getting started** page, choose **Add data sources**\.
+1. From the left navigation pane, choose **Indexes** and then choose the index you want to use from the list of indexes\.
 **Note**  
 You can choose to configure or edit your **User access control** settings under **Index settings**\. 
 
-1. On the **Add data source** page, choose **Dropbox**, and then choose **Add connector**\.
+1. On the **Getting started** page, choose **Add data source**\.
+
+1. On the **Add data source** page, choose **Dropbox connector**, and then choose **Add data source**\.
 
 1. On the **Specify data source details** page, enter the following information:
 
@@ -100,7 +101,7 @@ You can choose to configure or edit your **User access control** settings under 
 
          1. **Secret name**—A name for your secret\. The prefix ‘AmazonKendra\-Dropbox\-’ is automatically added to your secret name\.
 
-         1. For **App key**, **App secret**, and **Permanent token**—Enter the authentication credential values you generated and downloaded from your Dropbox account\. 
+         1. For **App key**, **App secret**, and token information \(permanent or temporary\)—Enter the authentication credential values you generated from your Dropbox account\.
 
       1. Choose **Save**\.
 
@@ -118,7 +119,7 @@ IAM roles used for indexes cannot be used for data sources\. If you are unsure i
 
    1. **Change log mode**—Choose to update your index instead of syncing all files\.
 
-   1. In **Additional configuration** for **Regex patterns**—Add regular expression patterns to include or exclude specific files\.
+   1. In **Additional configuration** for **Regex patterns**—Add regular expression patterns to include or exclude certain files\.
 
    1. In **Sync run schedule**, for **Frequency**— Choose how often Amazon Kendra will sync with your data source\.
 
@@ -135,15 +136,14 @@ IAM roles used for indexes cannot be used for data sources\. If you are unsure i
 1. On the **Review and create** page, check that the information you have entered is correct and then select **Add data source**\. You can also choose to edit your information from this page\. Your data source will appear on the **Data sources** page once it is added successfully\.
 
 ------
-#### [ TemplateConfiguration API ]
+#### [ API ]
 
 **To connect Amazon Kendra to Dropbox**
 
-You must specify the following using [TemplateConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_TemplateConfiguration.html) API:
+You must specify a JSON of the [data source schema](https://docs.aws.amazon.com/kendra/latest/dg/ds-schemas.html) using the [TemplateConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_TemplateConfiguration.html) API\. You must provide the following information:
 + **Data source**—You must specify the data source as `DROPBOX`\.
-+ **Data source schema**—Include a JSON that contains the data source schema\. To view the template schema, see [Data source schemas](https://docs.aws.amazon.com/kendra/latest/dg/ds-schemas.html)\.
 + **Type**—Specify `TEMPLATE` as the Type when you call `CreateDataSource`\.
-+ **Secret Amazon Resource Name \(ARN\)**—Provide the Amazon Resource Name \(ARN\) of a Secrets Manager secret that contains the authentication credentials you created in your Dropbox account\. The secret is stored in a JSON structure with the following keys: 
++ **Secret Amazon Resource Name \(ARN\)**—Provide the Amazon Resource Name \(ARN\) of a Secrets Manager secret that contains the authentication credentials for your Dropbox account\. The secret is stored in a JSON structure with the following keys:
 
   ```
   {
@@ -153,19 +153,19 @@ You must specify the following using [TemplateConfiguration](https://docs.aws.am
   }
   ```
 **Note**  
-Be sure to regularly refresh or rotate your credentials and secret\. Provide only the necessary access level for your own security\.
-+ **IAM role**—Provide an IAM role with permissions to access your Secrets Manager secret and to call the required public APIs for the Dropbox connector and Amazon Kendra\. For more information, see [IAM roles for Dropbox data sources](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-ds)\.
+Be sure to regularly refresh or rotate your credentials and secret\. Provide only the necessary access level for your own security\. Re\-using credentials and secrets across data sources, and connector versions v1\.0 and v2\.0 \(where applicable\), is not recommended\.
++ **IAM role**—Specify `RoleArn` when you call `CreateDataSource` to provide an IAM role with permissions to access your Secrets Manager secret and to call the required public APIs for the Dropbox connector and Amazon Kendra\. For more information, see [IAM roles for Dropbox data sources](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-ds)\.
 
 You can also add the following optional features:
 +  **Virtual Private Cloud \(VPC\)**—Specify `VpcConfiguration` when you call `CreateDataSource`\. See [Configuring Amazon Kendra to use a VPC](vpc-configuration.md)\.
 +  **Change log**—Whether Amazon Kendra should use the Dropbox data source change log mechanism to determine if a document must be added, updated, or deleted in the index\.
 **Note**  
 Use the change log if you don’t want Amazon Kendra to scan all of the documents\. If your change log is large, it might take Amazon Kendra less time to scan the documents in the Dropbox data source than to process the change log\. If you are syncing your Dropbox data source with your index for the first time, all documents are scanned\. 
-+  **Inclusion and exclusion filters**—Specify whether to include Dropbox files\. Dropbox Paper, or Dropbox templates\. You can also specify regular expression patterns to include or exclude Dropbox files\. Dropbox Paper, or Dropbox templates\.
++  **Inclusion and exclusion filters**—Specify whether to include or exclude certain files\.
 **Note**  
-If you specify an inclusion filter, only content that matches the inclusion filter is indexed\. Any document that doesn’t match the inclusion filter isn’t indexed\. If you specify an inclusion and exclusion filter, documents that match the exclusion filter are not indexed, even if they match the inclusion filter\.
-+  **Context filtering**—Choose to filter a user’s results based on their user or group access to documents\. For more information, see [User context filtering for Dropbox data sources](https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html)\.
+Most data sources use regular expression patterns, which are inclusion or exclusion patterns referred to as filters\. If you specify an inclusion filter, only content that matches the inclusion filter is indexed\. Any document that doesn’t match the inclusion filter isn’t indexed\. If you specify an inclusion and exclusion filter, documents that match the exclusion filter are not indexed, even if they match the inclusion filter\.
 +  **Field mappings**—Choose to map your Dropbox data source fields to your Amazon Kendra index fields\. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html)\.
++  **User context filtering**—Amazon Kendra crawls the Access Control List \(ACL\) for your data source by default\. The ACL information is used to filter search results based on the user or their group access to documents\. For more information, see [User context filtering for Dropbox data sources](https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html)\.
 
 For a list of other important JSON keys to configure, see [Dropbox template schema](ds-schemas.md#ds-dropbox-schema)\.
 

@@ -16,15 +16,15 @@ For hyphenated words, such as 'year\-end', Spell Checker treats these as individ
 
 For `DOCUMENT` and `QUESTION_ANSWER` query response types, Spell Checker suggests corrections to misspelled words based on words in the document body\. The document body is more reliable than the title for suggesting corrections that closely match the misspelled words\. For `ANSWER` query response types, Spell Checker suggests corrections based on words in the default question and answer document in your index\.
 
-You can enable Spell Checker using the [SpellCorrectionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_SpellCorrectionConfiguration.html) object\. You set `IncludeQuerySpellCheckSuggestions` to `TRUE`\. Spell Checker is enabled by default in the console\. It is built into the console by default\.
+You can activate Spell Checker using the [SpellCorrectionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_SpellCorrectionConfiguration.html) object\. You set `IncludeQuerySpellCheckSuggestions` to `TRUE`\. Spell Checker is activated by default in the console\. It is built into the console by default\.
 
 Spell Checker can also suggest spell corrections for queries in multiple languages, not only English\. For a list of languages supported for Spell Checker, see [Amazon Kendra supported languages](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html)\.
 
 ## Using the query spell checker with default limits<a name="query-spell-check-defaults"></a>
 
-Spell Checker is designed with certain defaults or limits\. The following is a list of current limits that apply when you enable spell correction suggestions\.
+Spell Checker is designed with certain defaults or limits\. The following is a list of current limits that apply when you activate spell correction suggestions\.
 + Suggested spell corrections cannot be returned for words that are less than three characters or more than 30 characters in length\. To allow for more than 30 characters or less than three characters, contact [Support](http://aws.amazon.com/contact-us/)\.
-+ Suggested spell corrections cannot restrict suggestions based on user access control or your Access Control List for [user context filtering](https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html)\. Spell corrections are based on all words in your indexed documents, whether the words are restricted to certain users or not\. If you want to avoid certain words appearing in the suggested spell corrections for queries, then do not enable `SpellCorrectionConfiguration`\.
++ Suggested spell corrections cannot restrict suggestions based on user access control or your Access Control List for [user context filtering](https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html)\. Spell corrections are based on all words in your indexed documents, whether the words are restricted to certain users or not\. If you want to avoid certain words appearing in the suggested spell corrections for queries, then do not activate `SpellCorrectionConfiguration`\.
 + Suggested spell corrections cannot be returned for words that include numbers\. For example, 'how 2 not br8k ubun2'\.
 + Suggested spell corrections cannot use words that don't appear in your indexed documents\.
 + Suggested spell corrections cannot use words that are frequented less than 0\.01 percent in your indexed documents\. To change the 0\.01% threshold, contact [Support](http://aws.amazon.com/contact-us/)\.

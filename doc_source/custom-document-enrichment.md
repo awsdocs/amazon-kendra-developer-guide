@@ -40,6 +40,8 @@ To apply basic logic using the console, select your index and then select **Docu
 
 The following is an example of using basic logic to remove all customer identification numbers in the document field called 'Customer\_ID'\.
 
+**Example 1: Removing customer identification numbers associated with the documents**
+
 Data before basic manipulation applied\.
 
 
@@ -59,6 +61,8 @@ Data after basic manipulation applied\.
 | 3 | Lorem Ipsum\. |   | 
 
 The following is an example of using basic logic to create a field called 'Department' and prefill this field with the department names based on information from the 'Source\_URI' field\. This uses the condition that if the 'Source\_URI' field contains 'financial' in its URI value, then prefill the target field 'Department' with the target value 'Finance' for the document\.
+
+**Example 2: Creating 'Department' field and prefilling it with department names associated with the documents using a condition\.**
 
 Data before basic manipulation applied\.
 
@@ -352,6 +356,8 @@ You can configure Amazon Kendra to invoke a Lambda function only if a condition 
 
 The following is an example of using a Lambda function to run OCR to interpret text from images and store this text in a field called 'Document\_Image\_Text'\.
 
+**Example 1: Extracting text from images to create textual documents**
+
 Data before advanced manipulation applied\.
 
 
@@ -371,6 +377,8 @@ Data after advanced manipulation applied\.
 | 3 | image\_3\.png | Mailed survey response | 
 
 The following is an example of using a Lambda function to insert the current date\-time for empty date values\. This uses the condition that if a date field value is 'null', then replace this with the current date\-time\.
+
+**Example 2: Replacing empty values in the Last\_Updated field with the current date\-time\.**
 
 Data before advanced manipulation applied\.
 

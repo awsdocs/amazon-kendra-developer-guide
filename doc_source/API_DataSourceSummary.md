@@ -9,7 +9,7 @@ Summary information for a Amazon Kendra data source\.
 ## Contents<a name="API_DataSourceSummary_Contents"></a>
 
  ** CreatedAt **   <a name="Kendra-Type-DataSourceSummary-CreatedAt"></a>
-The UNIX datetime that the data source was created\.  
+The Unix timestamp when the data source connector was created\.  
 Type: Timestamp  
 Required: No
 
@@ -47,7 +47,7 @@ Valid Values:` S3 | SHAREPOINT | DATABASE | SALESFORCE | ONEDRIVE | SERVICENOW |
 Required: No
 
  ** UpdatedAt **   <a name="Kendra-Type-DataSourceSummary-UpdatedAt"></a>
-The UNIX datetime that the data source was lasted updated\.   
+The Unix timestamp when the data source connector was last updated\.  
 Type: Timestamp  
 Required: No
 

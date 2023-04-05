@@ -17,11 +17,13 @@ Table excerpts can be displayed in the search results whether the information is
 
 Amazon Kendra highlights the table cell or cells that are most relevant to the query\. The most relevant cells with their corresponding rows, columns and column names are displayed in the search result\. The table excerpt displays up to five columns and three rows, depending on how many table cells are relevant to the query and how many columns are available in the original table\. The top most relevant cell is displayed in the table excerpt, along with the next most relevant cells\.
 
+The response includes the confidence bucket \(`MEDIUM`, `HIGH`, `VERY_HIGH`\) to show how relevant the table answer is to the query\. If a table cell value is `VERY_HIGH` in confidence, then it becomes the 'top answer' and is highlighted\. For table cell values that are `HIGH` in confidence, then they are highlighted\. For table cell values that are `MEDIUM` in confidence, then they are not highlighted\. The overall confidence for the table answer is returned in the response\. For example, if a table contains mostly table cells with `HIGH` confidence, then the overall confidence returned in the response for the table answer is `HIGH` confidence\.
+
 By default, tables aren't given a higher level of importance or more weight than other components of a document\. Within a document, if a table is only slightly relevant to a query, but there's a highly relevant paragraph, Amazon Kendra returns an excerpt of the paragraph\. Search results display the piece of content that provides the best possible answer and most useful information, in the same document or other documents\. If the confidence for a table falls below `MEDIUM` confidence, then the table excerpt is not returned in the response\.
 
 To use tabular search on an existing index, you must re\-index your content\.
 
-Amazon Kendra only supports documents in English with HTML tables that are within the table tag\. Tabular search is currently not supported in Asia Pacific \(Mumbai\)\.
+Amazon Kendra only supports documents in English with HTML tables that are within the table tag\.
 
 The following example shows a query response, which includes table excerpts\.
 

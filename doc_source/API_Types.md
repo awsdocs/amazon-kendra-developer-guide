@@ -4,7 +4,7 @@
 
 # Data Types<a name="API_Types"></a>
 
-The following data types are supported:
+The following data types are supported by Amazon Kendra:
 +  [AccessControlConfigurationSummary](API_AccessControlConfigurationSummary.md) 
 +  [AccessControlListConfiguration](API_AccessControlListConfiguration.md) 
 +  [AclConfiguration](API_AclConfiguration.md) 
@@ -15,12 +15,14 @@ The following data types are supported:
 +  [AuthenticationConfiguration](API_AuthenticationConfiguration.md) 
 +  [BasicAuthenticationConfiguration](API_BasicAuthenticationConfiguration.md) 
 +  [BatchDeleteDocumentResponseFailedDocument](API_BatchDeleteDocumentResponseFailedDocument.md) 
++  [BatchDeleteFeaturedResultsSetError](API_BatchDeleteFeaturedResultsSetError.md) 
 +  [BatchGetDocumentStatusResponseError](API_BatchGetDocumentStatusResponseError.md) 
 +  [BatchPutDocumentResponseFailedDocument](API_BatchPutDocumentResponseFailedDocument.md) 
 +  [BoxConfiguration](API_BoxConfiguration.md) 
 +  [CapacityUnitsConfiguration](API_CapacityUnitsConfiguration.md) 
 +  [ClickFeedback](API_ClickFeedback.md) 
 +  [ColumnConfiguration](API_ColumnConfiguration.md) 
++  [ConflictingItem](API_ConflictingItem.md) 
 +  [ConfluenceAttachmentConfiguration](API_ConfluenceAttachmentConfiguration.md) 
 +  [ConfluenceAttachmentToIndexFieldMapping](API_ConfluenceAttachmentToIndexFieldMapping.md) 
 +  [ConfluenceBlogConfiguration](API_ConfluenceBlogConfiguration.md) 
@@ -65,6 +67,12 @@ The following data types are supported:
 +  [FailedEntity](API_FailedEntity.md) 
 +  [FaqStatistics](API_FaqStatistics.md) 
 +  [FaqSummary](API_FaqSummary.md) 
++  [FeaturedDocument](API_FeaturedDocument.md) 
++  [FeaturedDocumentMissing](API_FeaturedDocumentMissing.md) 
++  [FeaturedDocumentWithMetadata](API_FeaturedDocumentWithMetadata.md) 
++  [FeaturedResultsItem](API_FeaturedResultsItem.md) 
++  [FeaturedResultsSet](API_FeaturedResultsSet.md) 
++  [FeaturedResultsSetSummary](API_FeaturedResultsSetSummary.md) 
 +  [FsxConfiguration](API_FsxConfiguration.md) 
 +  [GitHubConfiguration](API_GitHubConfiguration.md) 
 +  [GitHubDocumentCrawlProperties](API_GitHubDocumentCrawlProperties.md) 
@@ -140,3 +148,10 @@ The following data types are supported:
 +  [Warning](API_Warning.md) 
 +  [WebCrawlerConfiguration](API_WebCrawlerConfiguration.md) 
 +  [WorkDocsConfiguration](API_WorkDocsConfiguration.md) 
+
+The following data types are supported by Amazon Kendra Intelligent Ranking:
++  [CapacityUnitsConfiguration](API_Ranking_CapacityUnitsConfiguration.md) 
++  [Document](API_Ranking_Document.md) 
++  [RescoreExecutionPlanSummary](API_Ranking_RescoreExecutionPlanSummary.md) 
++  [RescoreResultItem](API_Ranking_RescoreResultItem.md) 
++  [Tag](API_Ranking_Tag.md) 

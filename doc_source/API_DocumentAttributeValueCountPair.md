@@ -21,6 +21,8 @@ Required: No
  ** FacetResults **   <a name="Kendra-Type-DocumentAttributeValueCountPair-FacetResults"></a>
 Contains the results of a document attribute that is a nested facet\. A `FacetResult` contains the counts for each facet nested within a facet\.  
 For example, the document attribute or facet "Department" includes a value called "Engineering"\. In addition, the document attribute or facet "SubDepartment" includes the values "Frontend" and "Backend" for documents assigned to "Engineering"\. You can display nested facets in the search results so that documents can be searched not only by department but also by a sub department within a department\. The counts for documents that belong to "Frontend" and "Backend" within "Engineering" are returned for a query\.  
+  
+  
 Type: Array of [FacetResult](API_FacetResult.md) objects  
 Required: No
 

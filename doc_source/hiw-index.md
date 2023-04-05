@@ -13,6 +13,8 @@ You can create indexes with the Amazon Kendra console, the AWS CLI, or an AWS SD
 
 ## Using Amazon Kendra built\-in document fields<a name="index-reserved-fields"></a>
 
+With the [UpdateIndex API](https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateIndex.html), you can create reserved or built\-in fields using `DocumentMetadataConfigurationUpdates` and specifying the reserved field name to map to your equivalent document attribute or document field\. You can also create custom fields this way\. If you use a data source connector, most include field mappings that map your data source document fields to Amazon Kendra index fields\. When you create a field, you can configure the `Search` object to set the field as displayable, facetable, searchable, and sortable\. You can configure the `Relevance` object to set the field's relevance boosting duration, freshness, importance, rank order, and importance values\. You cannot change the field type once you have created the field\.
+
 Amazon Kendra has the following reserved or built\-in document fields that you can use:
 + `_authors`—A list of one or more authors responsible for the content of the document\.
 + `_category`—A category that places a document in a specific group\.
@@ -30,15 +32,15 @@ Amazon Kendra has the following reserved or built\-in document fields that you c
 + `_view_count`—The number of times that the document has been viewed\.
 + `_language_code` \(String\)—The code for a language that applies to the document\. This defaults to English if you do not specify a language\. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html)\.
 
-You can also create custom fields, which you can use like the reserved fields for search and display, and to create facets\. 
+For custom fields, you create these fields using `DocumentMetadataConfigurationUpdates` with the `UpdateIndex` API, just as you do when creating a reserved or built\-in field\. You must set the appropriate data type for your custom field\. You cannot change the field type once you have created the field\.
 
-There are four types of custom fields:
+The following are the types you can set for custom fields:
 + Date
 + Number
 + String
 + String list
 
-You create a custom field using the console or by using the [UpdateIndex](https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateIndex.html) API\. After you create a custom field, you map it to a document attribute, just as you do with a reserved field\. If you added a document to the index with [BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html) API, you map the attributes with the API\. For documents indexed from an Amazon S3 data source, you map the attributes using a metadata file that contains a JSON structure that describes the document attributes\. For documents indexed with a database or a data source that allows field mapping, you map attributes with the console or the data source configuration\. For more information, see [Searching indexes](https://docs.aws.amazon.com/kendra/latest/dg/searching.html)\.
+You create a custom field using the console or by using the [UpdateIndex](https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateIndex.html) API\. After you create a custom field, you map it to a document attribute, just as you do with a reserved field\. If you added a document to the index with [BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html) API, you map the attributes with the API\. For documents indexed from an Amazon S3 data source, you map the attributes using a metadata file that contains a JSON structure that describes the document attributes\. For documents indexed with a database or a data source that allows field mapping, you map attributes with the console or the data source configuration\.
 
 ## Searching indexes<a name="index-searching"></a>
 

@@ -68,7 +68,7 @@ If the action is successful, the service sends back an HTTP 200 response\.
 The following data is returned in JSON format by the service\.
 
  ** [CreatedAt](#API_DescribeQuerySuggestionsBlockList_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsBlockList-response-CreatedAt"></a>
-The date\-time a block list for query suggestions was created\.  
+The Unix timestamp when a block list for query suggestions was created\.  
 Type: Timestamp
 
  ** [Description](#API_DescribeQuerySuggestionsBlockList_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsBlockList-response-Description"></a>
@@ -128,7 +128,7 @@ Type: String
 Valid Values:` ACTIVE | CREATING | DELETING | UPDATING | ACTIVE_BUT_UPDATE_FAILED | FAILED` 
 
  ** [UpdatedAt](#API_DescribeQuerySuggestionsBlockList_ResponseSyntax) **   <a name="Kendra-DescribeQuerySuggestionsBlockList-response-UpdatedAt"></a>
-The date\-time a block list for query suggestions was last updated\.  
+The Unix timestamp when a block list for query suggestions was last updated\.  
 Type: Timestamp
 
 ## Errors<a name="API_DescribeQuerySuggestionsBlockList_Errors"></a>
@@ -140,7 +140,7 @@ You don't have sufficient access to perform this action\. Please ensure you have
 HTTP Status Code: 400
 
  ** InternalServerException **   
-An issue occurred with the internal server used for your Amazon Kendra service\. Please wait a few minutes and try again, or contact [ Support](http://aws.amazon.com/aws.amazon.com/contact-us) for help\.  
+An issue occurred with the internal server used for your Amazon Kendra service\. Please wait a few minutes and try again, or contact [Support](http://aws.amazon.com/contact-us/) for help\.  
 HTTP Status Code: 500
 
  ** ResourceNotFoundException **   

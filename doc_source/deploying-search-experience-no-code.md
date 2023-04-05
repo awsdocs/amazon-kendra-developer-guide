@@ -18,7 +18,7 @@ The overall process of building a search experience is as follows:
 
 1. You open the Amazon Kendra Experience Builder to design and tune your search page\. You can share your endpoint URL of your search experience with others who you assign own\-edit access rights or view\-search access rights\.
 
-You call the [CreateExperience](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateExperience.html) API to create and configure your search experience\. If you use the console, you select your index and then select and **Experiences** in the navigation menu to configure your experience\.
+You call the [CreateExperience](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateExperience.html) API to create and configure your search experience\. If you use the console, you select your index and then select **Experiences** in the navigation menu to configure your experience\.
 
 ## Design and tune your search experience<a name="design-tune-search-experience"></a>
 
@@ -32,7 +32,7 @@ Add faceted search or filter by document attributes\. This includes custom attri
 
 ### Suggested answer<a name="search-experience-suggested-answer"></a>
 
-Add machine learning generated answers to your users' queries\. For example, *'How difficult is this course?'*\. Amazon Kendra can retrieve the most relevant text across all documents referring to a course's difficultly and suggest the most relevant answer\.
+Add machine learning generated answers to your users' queries\. For example, *'How difficult is this course?'*\. Amazon Kendra can retrieve the most relevant text across all documents referring to a course's difficulty and suggest the most relevant answer\.
 
 ### FAQ<a name="search-experience-faq"></a>
 
@@ -44,7 +44,7 @@ Add sorting of the search results so that your users can organize the results by
 
 ### Documents<a name="search-experience-documents"></a>
 
-Configure how documents or search results are displayed on your search page\. You can configure how many results display on the page, include pagination such as page numbers, enable a user feedback button, and arrange how document metadata fields are displayed in a search result\.
+Configure how documents or search results are displayed on your search page\. You can configure how many results display on the page, include pagination such as page numbers, activate a user feedback button, and arrange how document metadata fields are displayed in a search result\.
 
 ### Language<a name="search-experience-language"></a>
 
@@ -52,7 +52,7 @@ Select a language to filter the search results or documents in the selected lang
 
 ### Search box<a name="search-experience-search-box"></a>
 
-Configure the size and placeholder text of your search box, as well as enable query suggestions\.
+Configure the size and placeholder text of your search box, as well as allow query suggestions\.
 
 ### Relevance tuning<a name="search-experience-relevance-tuning"></a>
 
@@ -62,11 +62,11 @@ Add boosting to document metadata fields to place more weight on these fields wh
 
 Access to your search experience is through IAM Identity Center\. When you configure your search experience, you grant other people listed in your Identity Center directory access to your Amazon Kendra search page\. They receive an email that directs them to sign in using their credentials in IAM Identity Center to access the search page\. You must set up IAM Identity Center at the organization level or account holder level in AWS Organizations\. For more information on setting up IAM Identity Center, see [Getting started with IAM Identity Center](https://docs.aws.amazon.com/kendra/latest/dg/getting-started-aws-sso.html)\.
 
-You enable user identities in IAM Identity Center with your search experience and assign *Viewer* or *Owner* access permissions using the API or the console\.
+You activate user identities in IAM Identity Center with your search experience and assign *Viewer* or *Owner* access permissions using the API or the console\.
 + **Viewer**: Allowed to issue queries, receive suggested answers relevant to their search, and contribute their feedback to Amazon Kendra so that it keeps improving the search\.
 + **Owner**: Allowed to customize the design of the search page, tune the search, and use the search application as a *Viewer*\. Disabling access to viewers in the console is currently not supported\.
 
-To assign other people access to your search experience, you first enable user identities in IAM Identity Center with your Amazon Kendra experience by using the [ExperienceConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_ExperienceConfiguration.html) object\. You specify the field name that contains the identifiers of your users such as user name or email address\. You then grant your list of users access to your search experience using the [AssociateEntitiesToExperience](https://docs.aws.amazon.com/kendra/latest/dg/API_AssociateEntitiesToExperience.html) API and define their permissions as *Viewer* or *Owner* using the [AssociatePersonasToEntities](https://docs.aws.amazon.com/kendra/latest/dg/API_AssociatePersonasToEntities.html) API\. You specify each user or group using the [EntityConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_EntityConfiguration.html) object and whether that user or group is a *Viewer* or *Owner* using the [EntityPersonaConfiguraton](https://docs.aws.amazon.com/kendra/latest/dg/API_EntityPersonaConfiguration.html) object\.
+To assign other people access to your search experience, you first activate user identities in IAM Identity Center with your Amazon Kendra experience by using the [ExperienceConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_ExperienceConfiguration.html) object\. You specify the field name that contains the identifiers of your users such as user name or email address\. You then grant your list of users access to your search experience using the [AssociateEntitiesToExperience](https://docs.aws.amazon.com/kendra/latest/dg/API_AssociateEntitiesToExperience.html) API and define their permissions as *Viewer* or *Owner* using the [AssociatePersonasToEntities](https://docs.aws.amazon.com/kendra/latest/dg/API_AssociatePersonasToEntities.html) API\. You specify each user or group using the [EntityConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_EntityConfiguration.html) object and whether that user or group is a *Viewer* or *Owner* using the [EntityPersonaConfiguraton](https://docs.aws.amazon.com/kendra/latest/dg/API_EntityPersonaConfiguration.html) object\.
 
 To assign other people access to your search experience using the console, you first need to create an experience and confirm your identity and that you are an owner\. Then you can assign other users or groups as viewers or owners\. In the console, select your index and then select **Experiences** in the navigation menu\. After you create your experience, you can select your experience from the list\. Go to **Access management** to assign users or groups as viewers or owners\.
 

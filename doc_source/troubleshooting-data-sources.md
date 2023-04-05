@@ -64,7 +64,7 @@ If there are no updates to documents, sync time for a Amazon Kendra index increa
 
 ## What is the charge for syncing a data source?<a name="troubleshooting-data-sources-sync-charge"></a>
 
-When you sync your index, it takes two minutes to warm up and activate Amazon EC2 to establish the necessary connections\. You are not charged during this process\. Your usage meter begins only after the sync job starts\. For more information on Kendra pricing, see [http://aws.amazon.com/https://aws.amazon.com/kendra/pricing/](http://aws.amazon.com/https://aws.amazon.com/kendra/pricing/)\.
+When you sync your index, it takes two minutes to warm up and activate Amazon EC2 to establish the necessary connections\. You are not charged during this process\. Your usage meter begins only after the sync job starts\. For more information on Kendra pricing, see [http://aws.amazon.com/kendra/pricing/](http://aws.amazon.com/kendra/pricing/)\.
 
 ## I am getting an Amazon EC2 authorization error<a name="troubleshooting-data-sources-ec2-error"></a>
 
@@ -72,13 +72,13 @@ If an Amazon EC2 unauthorized operation error occurs during a sync for a virtual
 
 ## I am unable to use search index links to open my Amazon S3 objects<a name="troubleshooting-data-unable-to-open-s3-links"></a>
 
-Your Kendra index can only access files that an Amazon S3 data source grants it permissions to access\. For example, Kendra cannot modify the Amazon S3 permissions that determine if an object is meant to be public or encrypted\. Kendra also does not have the default permissions to create or return a signed link for Amazon S3 objects\. If you want to enable signed linking for Amazon S3 objects in a Kendra index, you have two options:
-+ You can use sign your index query results with the source uri object before returning the result to the search page\. For a step\-by\-step walkthrough of this process, see [https://docs.aws.amazon.com/https://docs.aws.amazon.com/AmazonS3/latest/userguide/ShareObjectPreSignedURL.html](https://docs.aws.amazon.com/https://docs.aws.amazon.com/AmazonS3/latest/userguide/ShareObjectPreSignedURL.html)\.
+Your Kendra index can only access files that an Amazon S3 data source grants it permissions to access\. For example, Kendra cannot modify the Amazon S3 permissions that determine if an object is meant to be public or encrypted\. Kendra also does not have the default permissions to create or return a signed link for Amazon S3 objects\. If you want to activate signed linking for Amazon S3 objects in a Kendra index, you have two options:
++ You can use sign your index query results with the source uri object before returning the result to the search page\. For a step\-by\-step walkthrough of this process, see [https://docs.aws.amazon.com/AmazonS3/latest/userguide/ShareObjectPreSignedURL.html](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ShareObjectPreSignedURL.html)\.
 + You can override the Amazon S3 object metadata source uri and make your service available through an CloudFront content delivery network \(CDN\) connected to an Amazon S3 bucket\. Or, you can use an API Gateway proxy endpoint that returns a presigned URL and redirect to it\.
 
 ## I am getting an AccessDenied When Using SSL Certificate File error message<a name="troubleshooting-data-sources-ssl-certificate-access-denied"></a>
 
-If you are getting an access denied error when using an SSL certificate with your data source, make sure that your IAM role has the permission to access the SSL certificate file in its specified location\. If the certificate is encrypted with an AWS KMS key, your IAM role should also have permission to decrypt using the AWS KMS key\. For more information, see [https://docs.aws.amazon.com/https://docs.aws.amazon.com/kms/latest/developerguide/control-access.html](https://docs.aws.amazon.com/https://docs.aws.amazon.com/kms/latest/developerguide/control-access.html)\.
+If you are getting an access denied error when using an SSL certificate with your data source, make sure that your IAM role has the permission to access the SSL certificate file in its specified location\. If the certificate is encrypted with an AWS KMS key, your IAM role should also have permission to decrypt using the AWS KMS key\. For more information, see [https://docs.aws.amazon.com/kms/latest/developerguide/control-access.html](https://docs.aws.amazon.com/kms/latest/developerguide/control-access.html)\.
 
 ## I am getting an authorization error when using a SharePoint data source<a name="troubleshooting-data-sources-sharepoint-authorization-error"></a>
 

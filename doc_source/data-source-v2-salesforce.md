@@ -2,12 +2,12 @@
 
 --------
 
-# Salesforce Connector v2\.0<a name="data-source-v2-salesforce"></a>
+# Salesforce connector v2\.0<a name="data-source-v2-salesforce"></a>
 
 Salesforce is a customer relationship management \(CRM\) tool for managing support, sales, and marketing teams\. You can use Amazon Kendra to index your Salesforce standard objects and even custom objects\.
 
 **Note**  
-Support for Salesforce Connector v1\.0 / SalesforceConfiguration API is scheduled to end by June 2023\. We recommend using Salesforce Connector v2\.0 / TemplateConfiguration API\.
+Support for Salesforce connector v1\.0 / SalesforceConfiguration API is scheduled to end by June 2023\. We recommend using Salesforce connector v2\.0 / TemplateConfiguration API\.
 
 For troubleshooting your Amazon Kendra Salesforce data source connector, see [Troubleshooting data sources](troubleshooting-data-sources.md)\.
 
@@ -26,37 +26,39 @@ Amazon Kendra Salesforce data source connector supports the following features:
 + Entity attachment support
 + Identity crawling
 + VPC support
++ Sync all documents/Sync only new, modified, or deleted documents
 
 ## Prerequisites<a name="prerequisites-v2-salesforce"></a>
 
 Before you can use Amazon Kendra to index your Salesforce data source, make these changes in your Salesforce and AWS accounts\.
 
 **In Salesforce, make sure you have:**
-+ Created a Salesforce administrative account and have copied the username and password you use to connect to Salesforce\.
++ Created a Salesforce administrative account and have noted the user name and password you use to connect to Salesforce\.
 + Copied the Salesforce security token associated with the account used to connect to Salesforce\.
-+ Created a Salesforce connected app account with OAuth enabled and have copied the consumer key \(client ID\) and consumer secret \(client secret\) assigned to your Salesforce connect app\.
-+ Copied the URL of the Salesforce server that you want to index\. Typically, this is *https://login\.salesforce\.com/services/oauth2/token*\. The server must be running a Salesforce connected app\.
++ Created a Salesforce Connected App account with OAuth activated and have copied the consumer key \(client ID\) and consumer secret \(client secret\) assigned to your Salesforce Connected App\. See [Salesforce documentation on Connected Apps](https://help.salesforce.com/s/articleView?id=sf.connected_app_overview.htm&type=5) for more information\.
++ Copied the URL of the Salesforce server that you want to index\. Typically, this is *https://login\.salesforce\.com/services*\. The server must be running a Salesforce connected app\.
 + Added credentials to your Salesforce server for a user with read\-only access to Salesforce by cloning the ReadOnly profile and then adding the View All Data and Manage Articles permissions\. These credentials identify the user making the connection and the Salesforce connected app that Amazon Kendra connects to\.
++ Checked each document is unique in Salesforce and across other data sources you plan to use for the same index\. Each data source that you want to use for an index must not contain the same document across the data sources\. Document IDs are global to an index and must be unique per index\.
 
 **In your AWS account, make sure you have:**
-+ Created an Amazon Kendra index and, if using the API, noted the index id\.
-+ Created an IAM role for your data source and, if using the API, noted the ARN of the IAM role\.
++ [Created an Amazon Kendra index](https://docs.aws.amazon.com/kendra/latest/dg/create-index.html) and, if using the API, noted the index ID\.
++ [Created an IAM role](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-ds) for your data source and, if using the API, noted the ARN of the IAM role\.
 + Stored your Salesforce authentication credentials in an AWS Secrets Manager secret and, if using the API, noted the ARN of the secret\.
 **Note**  
-Be sure to regularly refresh or rotate your credentials and secret\. Provide only the necessary access level for your own security\.
+Be sure to regularly refresh or rotate your credentials and secret\. Provide only the necessary access level for your own security\. Re\-using credentials and secrets across data sources, and connector versions v1\.0 and v2\.0 \(where applicable\), is not recommended\.
 
-If you don’t have an existing IAM role or secret, you can use the console to create a new IAM role and Secrets Manager secret when you connect your Salesforce data source to Amazon Kendra\. If you are using the API, you must provide the ARN of an existing IAM role and Secrets Manager secret, and an index id\.
+If you don’t have an existing IAM role or secret, you can use the console to create a new IAM role and Secrets Manager secret when you connect your Salesforce data source to Amazon Kendra\. If you are using the API, you must provide the ARN of an existing IAM role and Secrets Manager secret, and an index ID\.
 
 ## Connection instructions<a name="data-source-procedure-v2-salesforce"></a>
 
-To connect Amazon Kendra to your Salesforce data source, you must provide details of your Salesforce credentials so that Amazon Kendra can access your data\. If you have not yet configured Salesforce for Amazon Kendra see [Prerequisites](#prerequisites-v2-salesforce)\.
+To connect Amazon Kendra to your Salesforce data source, you must provide the necessary details of your Salesforce data source so that Amazon Kendra can access your data\. If you have not yet configured Salesforce for Amazon Kendra see [Prerequisites](#prerequisites-v2-salesforce)\.
 
 ### <a name="salesforce-v2-adding-procedure"></a>
 
 ------
 #### [ Console ]
 
-**To connect Amazon Kendra to Salesforce** Connector v2\.0:
+**To connect Amazon Kendra to Salesforce** connector v2\.0:
 
 1. Sign in to the Amazon Kendra at [AWS Console](https://console.aws.amazon.com/kendra/)\.
 
@@ -64,7 +66,7 @@ To connect Amazon Kendra to your Salesforce data source, you must provide detail
 
 1. On the **Getting started** page, choose **Add data sources**\.
 
-1. On the **Add data source** page, choose **Salesforce Connector v2\.0**, and then choose **Add connector**\.
+1. On the **Add data source** page, choose **Salesforce connector v2\.0**, and then choose **Add connector**\.
 
 1. On the **Specify data source details** page, enter the following information: 
 
@@ -78,9 +80,9 @@ To connect Amazon Kendra to your Salesforce data source, you must provide detail
 
 1. On the **Define access and security** page, enter the following information:
 
-   1. **Salesforce URL**—Enter your Salesforce server URL\.
+   1. **Salesforce URL**—Enter The instance URL for the Salesforce site that you want to index\.
 
-   1. Enter an existing secret or if you create a new secret, an AWS Secrets Manager secret window opens\. 
+   1. Enter an existing secret or if you create a new secret, an AWS Secrets Manager secret window opens\.
 
       1. Enter following information in the **Create an AWS Secrets Manager secret window**:
 
@@ -90,7 +92,7 @@ To connect Amazon Kendra to your Salesforce data source, you must provide detail
 
         1. Choose **Save authentication**\.
 
-   1. You must choose whether or not to enable **Identity crawler** If identity crawler is deactivated, you must upload the principal infromation into the principal store using the [https://docs.aws.amazon.com/kendra/latest/dg/API_PutPrincipalMapping.html](https://docs.aws.amazon.com/kendra/latest/dg/API_PutPrincipalMapping.html)\.
+   1. **Identity crawler** If identity crawler is deactivated, you must upload the principal information using the [PutPrincipalMapping API](https://docs.aws.amazon.com/kendra/latest/dg/API_PutPrincipalMapping.html)\.
 
    1. **IAM role**—Choose an existing IAM role or create a new IAM role to access your repository credentials and index content\.
 **Note**  
@@ -137,13 +139,12 @@ An index mapping to `_document_body` is required\. You can't change the mapping 
 
 **To connect Amazon Kendra to Salesforce**
 
-You must specify the following using [TemplateConfiguration API](https://docs.aws.amazon.com/kendra/latest/dg/API_TemplateConfiguration.html):
+You must specify a JSON of the [data source schema](https://docs.aws.amazon.com/kendra/latest/dg/ds-schemas.html) using the [TemplateConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_TemplateConfiguration.html) API\. You must provide the following information:
 + **Data source**—Specify the data source as `SALESFORCEV2`\.
 + **Host URL**—Specify the Salesforce host instance version\.
-+ **Data source schema**—Include a JSON that contains the data source schema\. To view the template schema, see [Data source schemas](https://docs.aws.amazon.com/kendra/latest/dg/ds-schemas.html)\.
 + **Type**—Specify `TEMPLATE` as the Type when you call `CreateDataSource`\.
 +  **Sync mode**—Specify whether Amazon Kendra should update your index by syncing all documents or only new, modified, and deleted documents\. You can choose either `FORCED_FULL_CRAWL` to sync all content to your index or `FULL_CRAWL` to sync only new, modified, or deleted content\.
-+ **Secret Amazon Resource Name \(ARN\)**—Provide the Amazon Resource Name \(ARN\) of a Secrets Manager secret that contains the authentication credentials you created in your Salesforce account\. The secret is stored in a JSON structure with the following keys: 
++ **Secret Amazon Resource Name \(ARN\)**—Provide the Amazon Resource Name \(ARN\) of a Secrets Manager secret that contains the authentication credentials for your Salesforce account\. The secret is stored in a JSON structure with the following keys:
 
   ```
   {
@@ -152,20 +153,24 @@ You must specify the following using [TemplateConfiguration API](https://docs.aw
   }
   ```
 **Note**  
-Be sure to regularly refresh or rotate your credentials and secret\. Provide only the necessary access level for your own security\.
-+ **IAM role**—Provide an IAM role with permissions to access your Secrets Manager secret and to call the required public APIs for the Salesforce connector and Amazon Kendra\. For more information, see [IAM roles for Salesforce data sources](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-ds)\.
+Be sure to regularly refresh or rotate your credentials and secret\. Provide only the necessary access level for your own security\. Re\-using credentials and secrets across data sources, and connector versions v1\.0 and v2\.0 \(where applicable\), is not recommended\.
++ **IAM role**—Specify `RoleArn` when you call `CreateDataSource` to provide an IAM role with permissions to access your Secrets Manager secret and to call the required public APIs for the Salesforce connector and Amazon Kendra\. For more information, see [IAM roles for Salesforce data sources](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-ds)\.
 
 You can also add the following optional features:
-+ **Inclusion and exclusion filters**—You can specify whether to include standard objects, knowledge articles, chatter feeds, attachments\. You can also specify regular expression patterns to include or exclude specific standard objects, knowledge articles, chatter feeds, attachments\.
++ **Inclusion and exclusion filters**—You can specify whether to include or exclude certain documents, accounts, campaigns, cases, contacts, leads, opportunities, solutions, tasks, groups, chatters, and custom entity files\.
 **Note**  
-If you specify an inclusion filter, only content that matches the inclusion filter is indexed\. Any document that doesn’t match the inclusion filter isn’t indexed\. If you specify an inclusion and exclusion filter, documents that match the exclusion filter are not indexed, even if they match the inclusion filter\.
-+ ** Enable identity crawler **— For Salesforce Connector v2\.0, You must specify whether to activate identity crawler\. If identity crawler is deactivated, you must upload the principal infromation into the principal store using the [PutPrincipalMapping](https://docs.aws.amazon.com/kendra/latest/dg/API_PutPrincipalMapping.html)\.
-+  **Context filtering**—Choose to filter a user’s results based on their user or group access to documents\. For more information, see [User context filtering for Salesforce data sources](https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html)\.
+Most data sources use regular expression patterns, which are inclusion or exclusion patterns referred to as filters\. If you specify an inclusion filter, only content that matches the inclusion filter is indexed\. Any document that doesn’t match the inclusion filter isn’t indexed\. If you specify an inclusion and exclusion filter, documents that match the exclusion filter are not indexed, even if they match the inclusion filter\.
++  **Virtual Private Cloud \(VPC\)**—Specify `VpcConfiguration` when you call `CreateDataSource`\. See [Configuring Amazon Kendra to use a VPC](vpc-configuration.md)\.
++ **Enable identity crawler**—For Salesforce connector v2\.0, You must specify whether to activate identity crawler\. If identity crawler is deactivated, you must upload the principal information using the [PutPrincipalMapping](https://docs.aws.amazon.com/kendra/latest/dg/API_PutPrincipalMapping.html)\.
 +  **Field mappings**—Choose to map your Salesforce data source fields to your Amazon Kendra index fields\. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html)\.
+
+For a list of other important JSON keys to configure, see [Salesforce template schema](ds-schemas.md#ds-salesforce-schema)\.
 
 ------
 
 ## Learn more<a name="salesforce-v2-learn-more"></a>
 
 To learn more about integrating Amazon Kendra with your Salesforce data source, see:
-+ [Getting started with Amazon Kendra ServiceNow Online connector](https://aws.amazon.com/blogs/machine-learning/getting-started-with-amazon-kendra-servicenow-online-connector/)
+
+
++ [Announcing the updated Salesforce connector \(V2\) for Amazon Kendra](https://aws.amazon.com/blogs/machine-learning/announcing-the-updated-salesforce-connector-v2-for-amazon-kendra/)

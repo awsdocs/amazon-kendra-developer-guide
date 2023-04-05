@@ -4,7 +4,7 @@
 
 # Creating an Amazon S3 data source<a name="create-ds-s3"></a>
 
-The following examples demonstrate creating an Amazon S3 data source\. The examples assume that you have already created an index and an IAM role with permission to read the data from the index\. For more information about the IAM role, see [IAM roles for Amazon S3 data sources](iam-roles.md#iam-roles-ds-s3)\. For more information about creating an index, see [Creating an index](create-index.md)\.
+The following examples demonstrate creating an Amazon S3 data source\. The examples assume that you have already created an index and an IAM role with permission to read the data from the index\. For more information about the IAM role, see [IAM access roles](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-ds)\. For more information about creating an index, see [Creating an index](https://docs.aws.amazon.com/kendra/latest/dg/create-index.html)\.
 
 ------
 #### [ CLI ]

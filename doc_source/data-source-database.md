@@ -15,7 +15,7 @@ Amazon Kendra supports the following databases:
 **Note**  
 Serverless Aurora databases are not supported\.
 
-You can connect Amazon Kendra to your database data source using the [Amazon Kendra console](https://console.aws.amazon.com/kendra/) and the [DatabaseConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/DatabaseTemplateConfiguration.html) API\.
+You can connect Amazon Kendra to your database data source using the [Amazon Kendra console](https://console.aws.amazon.com/kendra/) and the [DatabaseConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_DatabaseConfiguration.html) API\.
 
 For troubleshooting your Amazon Kendra database data source connector, see [Troubleshooting data sources](troubleshooting-data-sources.md)\.
 
@@ -29,7 +29,6 @@ For troubleshooting your Amazon Kendra database data source connector, see [Trou
 Amazon Kendra database data source connector supports the following features:
 + Field mappings
 + User context filtering
-+ Inclusion/exclusion filters
 + Virtual private cloud \(VPC\)
 
 ## Prerequisites<a name="prerequisites-database"></a>
@@ -37,25 +36,26 @@ Amazon Kendra database data source connector supports the following features:
 Before you can use Amazon Kendra to index your database data source, make these changes in your database and AWS accounts\.
 
 **In your database, make sure you have:**
-+ Copied a user/password pair as authentication credentials for your data source\.
++ Noted your user\-password pair as basic authentication credentials for your data source\.
 + Copied the host name, port number, host address, and the name of the data table that contains the database data\. For PostgreSQL, the data table must be a public table\.
 **Note**  
 The host and port tell Amazon Kendra where to find the database server on the internet\. The database name and table name tell Amazon Kendra where to find the document data on the database server\.
 + Copied the names of the columns in the data table that contain the document data, the document ID, one to five columns to detect if a document has changed, and optional data table columns that map to custom index fields\. You can map any of the Amazon Kendra reserved field names to a table column\.
 + Copied the database engine type information such as whether you use Amazon RDS for MySQL or another type\.
++ Checked each document is unique in database and across other data sources you plan to use for the same index\. Each data source that you want to use for an index must not contain the same document across the data sources\. Document IDs are global to an index and must be unique per index\.
 
 **In your AWS account, make sure you have:**
-+ Created an Amazon Kendra index and, if using the API, noted the index id\.
-+ Created an IAM role for your data source and, if using the API, noted the ARN of the IAM role\.
++ [Created an Amazon Kendra index](https://docs.aws.amazon.com/kendra/latest/dg/create-index.html) and, if using the API, noted the index ID\.
++ [Created an IAM role](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-ds) for your data source and, if using the API, noted the ARN of the IAM role\.
 + Stored your database authentication credentials in an AWS Secrets Manager secret and, if using the API, noted the ARN of the secret\.
 **Note**  
-Be sure to regularly refresh or rotate your credentials and secret\. Provide only the necessary access level for your own security\.
+Be sure to regularly refresh or rotate your credentials and secret\. Provide only the necessary access level for your own security\. Re\-using credentials and secrets across data sources, and connector versions v1\.0 and v2\.0 \(where applicable\), is not recommended\.
 
-If you don’t have an existing IAM role or secret, you can use the console to create a new IAM role and Secrets Manager secret when you connect your database data source to Amazon Kendra\. If you are using the API, you must provide the ARN of an existing IAM role and Secrets Manager secret, and an index id\.
+If you don’t have an existing IAM role or secret, you can use the console to create a new IAM role and Secrets Manager secret when you connect your database data source to Amazon Kendra\. If you are using the API, you must provide the ARN of an existing IAM role and Secrets Manager secret, and an index ID\.
 
 ## Connection instructions<a name="data-source-procedure-database"></a>
 
-To connect Amazon Kendra to your database data source you must provide details of your database credentials so that Amazon Kendra can access your data\. If you have not yet configured database for Amazon Kendra see [Prerequisites](#prerequisites-database)\.
+To connect Amazon Kendra to your database data source, you must provide the necessary details of your database data source so that Amazon Kendra can access your data\. If you have not yet configured database for Amazon Kendra see [Prerequisites](#prerequisites-database)\.
 
 ### <a name="database-adding-procedure"></a>
 
@@ -64,15 +64,15 @@ To connect Amazon Kendra to your database data source you must provide details o
 
 **To connect Amazon Kendra to a database** 
 
-1. Sign in to the Amazon Kendra at [AWS Console](https://console.aws.amazon.com/kendra/)\.
+1. Sign in to the AWS Management Console and open the [Amazon Kendra console](https://console.aws.amazon.com/kendra/)\.
 
-1. From the left navigation pane, choose **Indexes** and then choose the index you want to connect from the list of indexes\.
-
-1. On the **Getting started** page, choose **Add data sources**\.
+1. From the left navigation pane, choose **Indexes** and then choose the index you want to use from the list of indexes\.
 **Note**  
 You can choose to configure or edit your **User access control** settings under **Index settings**\. 
 
-1. On the **Add data source** page, choose **database**, and then choose **Add connector**\.
+1. On the **Getting started** page, choose **Add data source**\.
+
+1. On the **Add data source** page, choose **database connector**, and then choose **Add data source**\.
 
 1. On the **Specify data source details** page, enter the following information:
 
@@ -102,7 +102,7 @@ You can choose to configure or edit your **User access control** settings under 
 
         1. **Secret name**—A name for your secret\. The prefix ‘AmazonKendra\-database\-’ is automatically added to your secret name\.
 
-        1. For **User name** and **Password**—Enter the authentication credential values you generated and downloaded from your database account\.
+        1. For **User name** and **Password**—Enter the authentication credential values from your database account\.
 
         1. Choose **Save authentication**\.
 
@@ -165,7 +165,7 @@ You must specify the following the [DatabaseConfiguration](https://docs.aws.amaz
   ```
 + **ConnectionConfiguration**—The type of database engine that runs the database\. The `DatabaseHost` field must be the Amazon Relational Database Service \(Amazon RDS\) instance endpoint for the database\. Don't use the cluster endpoint\.
 + **DatabaseEngineType**—Configuration information that's required to connect to a database\. For more details, see [ConnectionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_ConnectionConfiguration.html)\.
-+ **Secret Amazon Resource Name \(ARN\)**—Provide the Amazon Resource Name \(ARN\) of a Secrets Manager secret that contains the authentication credentials you created in your database account\. The secret is stored in a JSON structure with the following keys: 
++ **Secret Amazon Resource Name \(ARN\)**—Provide the Amazon Resource Name \(ARN\) of a Secrets Manager secret that contains the authentication credentials for your database account\. The secret is stored in a JSON structure with the following keys:
 
   ```
   {
@@ -188,14 +188,14 @@ You must specify the following the [DatabaseConfiguration](https://docs.aws.amaz
   }
   ```
 **Note**  
-Be sure to regularly refresh or rotate your credentials and secret\. Provide only the necessary access level for your own security\.
-+ **IAM role**—Provide an IAM role with permissions to access your Secrets Manager secret and to call the required public APIs for the database connector and Amazon Kendra\. For more information, see [IAM roles for database data sources](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-ds)\.
+Be sure to regularly refresh or rotate your credentials and secret\. Provide only the necessary access level for your own security\. Re\-using credentials and secrets across data sources, and connector versions v1\.0 and v2\.0 \(where applicable\), is not recommended\.
++ **IAM role**—Specify `RoleArn` when you call `CreateDataSource` to provide an IAM role with permissions to access your Secrets Manager secret and to call the required public APIs for the database connector and Amazon Kendra\. For more information, see [IAM roles for database data sources](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-ds)\.
 
 You can also add the following optional features:
-+  **Virtual Private Cloud \(VPC\)**—Specify `VpcConfiguration` when you call `CreateDataSource`\. See [Configuring Amazon Kendra to use a VPC](vpc-configuration.md)\.
++ **Virtual Private Cloud \(VPC\)**—Specify `VpcConfiguration` as part of the data source configuration\. See [Configuring Amazon Kendra to use a VPC](https://docs.aws.amazon.com/kendra/latest/dg/vpc-configuration.html)\.
 **Note**  
 You must only use a private subnet\. If your RDS instance is in a public subnet in your VPC, you can create a private subnet that has outbound access to a NAT gateway in the public subnet\. The subnets provided in the VPC configuration must be in either US West \(Oregon\), US East \(N\. Virginia\), EU \(Ireland\)\.
-+  **Context filtering**—Choose to filter a user’s results based on their user or group access to documents\. For more information, see [User context filtering for database data sources](https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html)\.
 +  **Field mappings**—Choose to map your database data source fields to your Amazon Kendra index fields\. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html)\.
++  **User context filtering**—Amazon Kendra crawls the Access Control List \(ACL\) for your data source by default\. The ACL information is used to filter search results based on the user or their group access to documents\. For more information, see [User context filtering for database data sources](https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html)\.
 
 ------

@@ -9,7 +9,7 @@ Provides feedback on how relevant a document is to a search\. Your application u
 ## Contents<a name="API_RelevanceFeedback_Contents"></a>
 
  ** RelevanceValue **   <a name="Kendra-Type-RelevanceFeedback-RelevanceValue"></a>
-Whether to document was relevant or not relevant to the search\.  
+Whether the document was relevant or not relevant to the search\.  
 Type: String  
 Valid Values:` RELEVANT | NOT_RELEVANT`   
 Required: Yes

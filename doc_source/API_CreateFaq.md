@@ -4,7 +4,7 @@
 
 # CreateFaq<a name="API_CreateFaq"></a>
 
-Creates an new set of frequently asked question \(FAQ\) questions and answers\.
+Creates a set of frequently ask questions \(FAQs\) using a specified FAQ file stored in an Amazon S3 bucket\.
 
 Adding FAQs to an index is an asynchronous operation\.
 
@@ -83,7 +83,7 @@ Pattern: `[a-zA-Z0-9][a-zA-Z0-9_-]*`
 Required: Yes
 
  ** [RoleArn](#API_CreateFaq_RequestSyntax) **   <a name="Kendra-CreateFaq-request-RoleArn"></a>
-The Amazon Resource Name \(ARN\) of a role with permission to access the S3 bucket that contains the FAQs\. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html)\.  
+The Amazon Resource Name \(ARN\) of an IAM role with permission to access the S3 bucket that contains the FAQs\. For more information, see [IAM access roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html)\.  
 Type: String  
 Length Constraints: Minimum length of 0\. Maximum length of 1284\.  
 Pattern: `arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}`   
@@ -133,7 +133,7 @@ A conflict occurred with the request\. Please fix any inconsistences with your r
 HTTP Status Code: 400
 
  ** InternalServerException **   
-An issue occurred with the internal server used for your Amazon Kendra service\. Please wait a few minutes and try again, or contact [ Support](http://aws.amazon.com/aws.amazon.com/contact-us) for help\.  
+An issue occurred with the internal server used for your Amazon Kendra service\. Please wait a few minutes and try again, or contact [Support](http://aws.amazon.com/contact-us/) for help\.  
 HTTP Status Code: 500
 
  ** ResourceNotFoundException **   
@@ -141,7 +141,7 @@ The resource you want to use doesn’t exist\. Please check you have provided th
 HTTP Status Code: 400
 
  ** ServiceQuotaExceededException **   
-You have exceeded the set limits for your Amazon Kendra service\. Please see Quotas\[hyperlink Kendra Quotas pg\] for more information, or contact [ Support](http://aws.amazon.com/aws.amazon.com/contact-us) to inquire about an increase of limits\.  
+You have exceeded the set limits for your Amazon Kendra service\. Please see [Quotas](https://docs.aws.amazon.com/kendra/latest/dg/quotas.html) for more information, or contact [Support](http://aws.amazon.com/contact-us/) to inquire about an increase of limits\.  
 HTTP Status Code: 400
 
  ** ThrottlingException **   

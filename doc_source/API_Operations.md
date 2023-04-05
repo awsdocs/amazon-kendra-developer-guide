@@ -4,10 +4,11 @@
 
 # Actions<a name="API_Operations"></a>
 
-The following actions are supported:
+The following actions are supported by Amazon Kendra:
 +  [AssociateEntitiesToExperience](API_AssociateEntitiesToExperience.md) 
 +  [AssociatePersonasToEntities](API_AssociatePersonasToEntities.md) 
 +  [BatchDeleteDocument](API_BatchDeleteDocument.md) 
++  [BatchDeleteFeaturedResultsSet](API_BatchDeleteFeaturedResultsSet.md) 
 +  [BatchGetDocumentStatus](API_BatchGetDocumentStatus.md) 
 +  [BatchPutDocument](API_BatchPutDocument.md) 
 +  [ClearQuerySuggestions](API_ClearQuerySuggestions.md) 
@@ -15,6 +16,7 @@ The following actions are supported:
 +  [CreateDataSource](API_CreateDataSource.md) 
 +  [CreateExperience](API_CreateExperience.md) 
 +  [CreateFaq](API_CreateFaq.md) 
++  [CreateFeaturedResultsSet](API_CreateFeaturedResultsSet.md) 
 +  [CreateIndex](API_CreateIndex.md) 
 +  [CreateQuerySuggestionsBlockList](API_CreateQuerySuggestionsBlockList.md) 
 +  [CreateThesaurus](API_CreateThesaurus.md) 
@@ -30,6 +32,7 @@ The following actions are supported:
 +  [DescribeDataSource](API_DescribeDataSource.md) 
 +  [DescribeExperience](API_DescribeExperience.md) 
 +  [DescribeFaq](API_DescribeFaq.md) 
++  [DescribeFeaturedResultsSet](API_DescribeFeaturedResultsSet.md) 
 +  [DescribeIndex](API_DescribeIndex.md) 
 +  [DescribePrincipalMapping](API_DescribePrincipalMapping.md) 
 +  [DescribeQuerySuggestionsBlockList](API_DescribeQuerySuggestionsBlockList.md) 
@@ -46,6 +49,7 @@ The following actions are supported:
 +  [ListExperienceEntities](API_ListExperienceEntities.md) 
 +  [ListExperiences](API_ListExperiences.md) 
 +  [ListFaqs](API_ListFaqs.md) 
++  [ListFeaturedResultsSets](API_ListFeaturedResultsSets.md) 
 +  [ListGroupsOlderThanOrderingId](API_ListGroupsOlderThanOrderingId.md) 
 +  [ListIndices](API_ListIndices.md) 
 +  [ListQuerySuggestionsBlockLists](API_ListQuerySuggestionsBlockLists.md) 
@@ -61,7 +65,19 @@ The following actions are supported:
 +  [UpdateAccessControlConfiguration](API_UpdateAccessControlConfiguration.md) 
 +  [UpdateDataSource](API_UpdateDataSource.md) 
 +  [UpdateExperience](API_UpdateExperience.md) 
++  [UpdateFeaturedResultsSet](API_UpdateFeaturedResultsSet.md) 
 +  [UpdateIndex](API_UpdateIndex.md) 
 +  [UpdateQuerySuggestionsBlockList](API_UpdateQuerySuggestionsBlockList.md) 
 +  [UpdateQuerySuggestionsConfig](API_UpdateQuerySuggestionsConfig.md) 
 +  [UpdateThesaurus](API_UpdateThesaurus.md) 
+
+The following actions are supported by Amazon Kendra Intelligent Ranking:
++  [CreateRescoreExecutionPlan](API_Ranking_CreateRescoreExecutionPlan.md) 
++  [DeleteRescoreExecutionPlan](API_Ranking_DeleteRescoreExecutionPlan.md) 
++  [DescribeRescoreExecutionPlan](API_Ranking_DescribeRescoreExecutionPlan.md) 
++  [ListRescoreExecutionPlans](API_Ranking_ListRescoreExecutionPlans.md) 
++  [ListTagsForResource](API_Ranking_ListTagsForResource.md) 
++  [Rescore](API_Ranking_Rescore.md) 
++  [TagResource](API_Ranking_TagResource.md) 
++  [UntagResource](API_Ranking_UntagResource.md) 
++  [UpdateRescoreExecutionPlan](API_Ranking_UpdateRescoreExecutionPlan.md) 

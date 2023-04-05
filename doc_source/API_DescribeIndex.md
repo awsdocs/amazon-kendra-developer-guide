@@ -112,7 +112,7 @@ For Enterprise Edition indexes, you can choose to use additional capacity to mee
 Type: [CapacityUnitsConfiguration](API_CapacityUnitsConfiguration.md) object
 
  ** [CreatedAt](#API_DescribeIndex_ResponseSyntax) **   <a name="Kendra-DescribeIndex-response-CreatedAt"></a>
-The Unix datetime that the index was created\.  
+The Unix timestamp when the index was created\.  
 Type: Timestamp
 
  ** [Description](#API_DescribeIndex_ResponseSyntax) **   <a name="Kendra-DescribeIndex-response-Description"></a>
@@ -169,7 +169,7 @@ Type: String
 Valid Values:` CREATING | ACTIVE | DELETING | FAILED | UPDATING | SYSTEM_UPDATING` 
 
  ** [UpdatedAt](#API_DescribeIndex_ResponseSyntax) **   <a name="Kendra-DescribeIndex-response-UpdatedAt"></a>
-The Unix datetime that the index was last updated\.  
+The Unix when the index was last updated\.  
 Type: Timestamp
 
  ** [UserContextPolicy](#API_DescribeIndex_ResponseSyntax) **   <a name="Kendra-DescribeIndex-response-UserContextPolicy"></a>
@@ -195,7 +195,7 @@ You don't have sufficient access to perform this action\. Please ensure you have
 HTTP Status Code: 400
 
  ** InternalServerException **   
-An issue occurred with the internal server used for your Amazon Kendra service\. Please wait a few minutes and try again, or contact [ Support](http://aws.amazon.com/aws.amazon.com/contact-us) for help\.  
+An issue occurred with the internal server used for your Amazon Kendra service\. Please wait a few minutes and try again, or contact [Support](http://aws.amazon.com/contact-us/) for help\.  
 HTTP Status Code: 500
 
  ** ResourceNotFoundException **   

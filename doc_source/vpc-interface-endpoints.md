@@ -4,7 +4,7 @@
 
 # Amazon Kendra and interface VPC endpoints \(AWS PrivateLink\)<a name="vpc-interface-endpoints"></a>
 
-You can establish a private connection between your VPC and Amazon Kendra by creating an *interface VPC endpoint*\. Interface endpoints are powered by [AWS PrivateLink](http://aws.amazon.com/privatelink), a technology that enables you to privately access Amazon Kendra APIs without an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection\. Instances in your VPC don't need public IP addresses to communicate with Amazon Kendra APIs\. Traffic between your VPC and Amazon Kendra does not leave the Amazon network\. 
+You can establish a private connection between your VPC and Amazon Kendra by creating an *interface VPC endpoint*\. Interface endpoints are powered by [AWS PrivateLink](http://aws.amazon.com/privatelink), a technology that allows you to privately access Amazon Kendra APIs without an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection\. Instances in your VPC don't need public IP addresses to communicate with Amazon Kendra APIs\. Traffic between your VPC and Amazon Kendra does not leave the Amazon network\. 
 
 Each interface endpoint is represented by one or more [Elastic Network Interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html) in your subnets\. 
 
@@ -31,7 +31,7 @@ aws kendra list-indices --endpoint-url https://VPC endpoint
 
  where *VPC endpoint* is the DNS name generated when the interface endpoint is created\. This name includes the VPC endpoint ID, Amazon Kendra service name and Region name\. For example, `vpce-1234-abcdef.kendra.us-west-2.vpce.amazonaws.com`\.
 
-If you enable private DNS for the endpoint, you can make API requests to Amazon Kendra using its default DNS name for the Region, for example, `kendra.us-east-1.amazonaws.com`\. 
+If you activate private DNS for the endpoint, you can make API requests to Amazon Kendra using its default DNS name for the Region, for example, `kendra.us-east-1.amazonaws.com`\. 
 
 For more information, see [Accessing a service through an interface endpoint](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html#access-service-though-endpoint) in the *Amazon VPC User Guide*\.
 

@@ -35,7 +35,7 @@ Required: No
  ** ContentType **   <a name="Kendra-Type-Document-ContentType"></a>
 The file type of the document in the `Blob` field\.  
 Type: String  
-Valid Values:` PDF | HTML | MS_WORD | PLAIN_TEXT | PPT`   
+Valid Values:` PDF | HTML | MS_WORD | PLAIN_TEXT | PPT | RTF | XML | XSLT | MS_EXCEL | CSV | JSON | MD`   
 Required: No
 
  ** HierarchicalAccessControlList **   <a name="Kendra-Type-Document-HierarchicalAccessControlList"></a>

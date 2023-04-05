@@ -2,63 +2,67 @@
 
 --------
 
-# Web crawler<a name="data-source-webcrawler"></a>
+# Amazon Kendra Web Crawler<a name="data-source-web-crawler"></a>
 
-You can use Amazon Kendra Web Crawler to crawl and index webpages\. 
+You can use Amazon Kendra Web Crawler to crawl and index web pages\.
 
 You can only crawl public facing websites and websites that use the secure communication protocol Hypertext Transfer Protocol Secure \(HTTPS\)\. If you receive an error when crawling a website, it could be that the website is blocked from crawling\. To crawl internal websites, you can set up a web proxy\. The web proxy must be public facing\.
 
-*When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://aws.amazon.com/aup/) and all other Amazon terms\. Remember that you must only use Amazon Kendra Web Crawler to index your own webpages, or webpages that you have authorization to index\. To learn how to stop Amazon Kendra Web Crawler from indexing your website\(s\), please see [Stopping Amazon Kendra Web Crawler from indexing your website](https://docs.aws.amazon.com/kendra/latest/dg/stop-web-crawler.html)\.*
+*When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://aws.amazon.com/aup/) and all other Amazon terms\. Remember that you must only use Amazon Kendra Web Crawler to index your own web pages, or web pages that you have authorization to index\. To learn how to stop Amazon Kendra Web Crawler from indexing your website\(s\), please see [Configuring the `robots.txt` file for Amazon Kendra Web Crawler](stop-web-crawler.md)\.*
 
-You can connect Amazon Kendra to your Web crawler data source using the [Amazon Kendra console](https://console.aws.amazon.com/kendra/) and the [WebCrawlerConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/WebCrawlerConfiguration.html) API\.
+You can connect Amazon Kendra to your web crawler data source using the [Amazon Kendra console](https://console.aws.amazon.com/kendra/) and the [WebCrawlerConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_WebCrawlerConfiguration.html) API\.
 
-For troubleshooting your Amazon Kendra Web crawler data source connector, see [Troubleshooting data sources](troubleshooting-data-sources.md)\.
+For troubleshooting your Amazon Kendra web crawler data source connector, see [Troubleshooting data sources](troubleshooting-data-sources.md)\.
 
 **Topics**
-+ [Supported features](#supported-features-webcrawler)
-+ [Prerequisites](#prerequisites-webcrawler)
-+ [Connection instructions](#data-source-procedure-webcrawler)
-+ [Learn more](#webcrawler-learn-more)
-+ [Stopping Amazon Kendra Web Crawler from indexing your website](stop-web-crawler.md)
++ [Supported features](#supported-features-web-crawler)
++ [Prerequisites](#prerequisites-web-crawler)
++ [Connection instructions](#data-source-procedure-web-crawler)
++ [Learn more](#web-crawler-learn-more)
++ [Configuring the `robots.txt` file for Amazon Kendra Web Crawler](stop-web-crawler.md)
 
-## Supported features<a name="supported-features-webcrawler"></a>
+## Supported features<a name="supported-features-web-crawler"></a>
 
-Amazon Kendra Web crawler data source connector supports the following features:
+Amazon Kendra Web Crawler data source connector supports the following features:
 + Web proxy
 + Inclusion/exclusion filters
 
-## Prerequisites<a name="prerequisites-webcrawler"></a>
+## Prerequisites<a name="prerequisites-web-crawler"></a>
 
-Before you can use Amazon Kendra to index your Web crawler data source, make these changes in your Web crawler and AWS accounts\.
+Before you can use Amazon Kendra to index your wesbites, check the details of your websites and AWS accounts\.
 
-**In your Web crawler data source, make sure you have:**
-+ Copied the seed or sitemap URLs of the website you want to index\.
+**For your websites, make sure you have:**
++ Copied the seed or sitemap URLs of the websites you want to index\.
 + **For websites that require basic authentication to crawl**: Copied the host name of the website and the port number\.
 + **Optional:** Copied the host name of the website and the port number if you want to use a web proxy to connect to internal websites you want to crawl\. The web proxy must be public facing\. Amazon Kendra supports connecting to web proxy servers that are backed by basic authentication or you can connect with no authentication\.
++ Checked each web page document you want to index is unique and across other data sources you plan to use for the same index\. Each data source that you want to use for an index must not contain the same document across the data sources\. Document IDs are global to an index and must be unique per index\.
 
 **In your AWS account, make sure you have:**
-+ Created an Amazon Kendra index and, if using the API, noted the index id\.
++ [Created an Amazon Kendra index](https://docs.aws.amazon.com/kendra/latest/dg/create-index.html) and, if using the API, noted the index ID\.
++ [Created an IAM role](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-ds) for your data source and, if using the API, noted the ARN of the IAM role\.
 
-## Connection instructions<a name="data-source-procedure-webcrawler"></a>
+If you don’t have an existing IAM role, you can use the console to create a new IAM role when you connect your web crawler data source to Amazon Kendra\. If you are using the API, you must provide the ARN of an existing IAM role, and an index ID\.
 
-To connect Amazon Kendra to your Web crawler data source you must provide details of your Web crawler credentials so that Amazon Kendra can access your data\. If you have not yet configured Web crawler for Amazon Kendra see [Prerequisites](#prerequisites-webcrawler)\.
+## Connection instructions<a name="data-source-procedure-web-crawler"></a>
 
-### <a name="webcrawler-adding-procedure"></a>
+To connect Amazon Kendra to your web crawler data source, you must provide the necessary details of your web crawler data source so that Amazon Kendra can access your data\. If you have not yet configured web crawler for Amazon Kendra see [Prerequisites](#prerequisites-web-crawler)\.
+
+### <a name="web-crawler-adding-procedure"></a>
 
 ------
 #### [ Console ]
 
-**To connect Amazon Kendra to Web crawler** 
+**To connect Amazon Kendra to web crawler** 
 
-1. Sign in to the Amazon Kendra at [AWS Console](https://console.aws.amazon.com/kendra/)\.
+1. Sign in to the AWS Management Console and open the [Amazon Kendra console](https://console.aws.amazon.com/kendra/)\.
 
-1. From the left navigation pane, choose **Indexes** and then choose the index you want to connect from the list of indexes\.
-
-1. On the **Getting started** page, choose **Add data sources**\.
+1. From the left navigation pane, choose **Indexes** and then choose the index you want to use from the list of indexes\.
 **Note**  
 You can choose to configure or edit your **User access control** settings under **Index settings**\. 
 
-1. On the **Add data source** page, choose **Web crawler**, and then choose **Add connector**\.
+1. On the **Getting started** page, choose **Add data source**\.
+
+1. On the **Add data source** page, choose **web crawler connector**, and then choose **Add data source**\.
 
 1. On the **Specify data source details** page, enter the following information:
 
@@ -85,13 +89,13 @@ If you want to crawl a sitemap, it is important to check if the base or root URL
 
       1. **Port number**—The port used by the host URL transport protocol\. The port number should be a numeric value between 0 and 65535\.
 
-      1. For **Web proxy credentials**—Choose an existing secret or create a new secret to store your web crawler authentication credentials\. If you choose to create a new secret an AWS Secrets Manager secret window opens\. 
+      1. For **Web proxy credentials**—Choose an existing secret or create a new secret to store your web crawler authentication credentials\. If you choose to create a new secret an AWS Secrets Manager secret window opens\.
 
-      1. Enter following information in the **Create an AWS Secrets Manager secret window**:
+      1. Enter the following information in the **Create an AWS Secrets Manager secret window**:
 
          1. **Secret name**—A name for your secret\. The prefix ‘AmazonKendra\-WebCrawler\-’ is automatically added to your secret name\.
 
-         1. For **User name** and **Password**—Enter the authentication credential values you generated and downloaded from your Web crawler account\. 
+         1. For **User name** and **Password**—Enter these basic authentication credentials for your websites\.
 
          1. Choose **Save**\.
 
@@ -128,13 +132,13 @@ IAM roles used for indexes cannot be used for data sources\. If you are unsure i
 ------
 #### [ API ]
 
-**To connect Amazon Kendra to Web crawler**
+**To connect Amazon Kendra to web crawler**
 
-You must specify the following the [WebCrawlerConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/Web crawlerConfiguration.html) API:
+You must specify the following the [WebCrawlerConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_WebCrawlerConfiguration.html) API:
 + **Urls**—Specify the seed or starting point URLs of the websites or the sitemap URLs of the websites you want to crawl using [SeedUrlConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_SeedUrlConfiguration.html) and [SiteMapsConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_SiteMapsConfiguration.html)\.
 
   If you want to crawl a sitemap, it is important to check if the base or root URL is the same base URL used for the URLs listed on your sitemap page\. For example, if your sitemap URL is *https://example\.com/sitemap\-page\.html*, the URLs listed on this sitemap page should also use the base URL "https://example\.com/"\.
-+ **Secret Amazon Resource Name \(ARN\)**—If a website requires basic authentication, you provide the host name, port number and a secret that stores your basic authentication credentials of your user name and password\.You provide the ARN using the [AuthenticationConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_AuthenticationConfiguration.html) API\. The secret is stored in a JSON structure with the following keys:
++ **Secret Amazon Resource Name \(ARN\)**—If a website requires basic authentication, you provide the host name, port number and a secret that stores your basic authentication credentials of your user name and password\. You provide the ARN using the [AuthenticationConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_AuthenticationConfiguration.html) API\. The secret is stored in a JSON structure with the following keys:
 
   ```
   {
@@ -145,23 +149,24 @@ You must specify the following the [WebCrawlerConfiguration](https://docs.aws.am
 
   You can provide web proxy credentials using a secret in AWS Secrets Manager secret\. You use the [ProxyConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_ProxyConfiguration.html) API to provide the website host name and port number, and optionally the secret that stores your web proxy credentials\.
 **Note**  
-Be sure to regularly refresh or rotate your credentials and secret\. Provide only the necessary access level for your own security\.
+Be sure to regularly refresh or rotate your credentials and secret\. Provide only the necessary access level for your own security\. Re\-using credentials and secrets across data sources, and connector versions v1\.0 and v2\.0 \(where applicable\), is not recommended\.
 
 You can also add the following optional features:
++ Crawl mode—Choose to crawl website host names only, or host names with subdomains, or also crawl other domains the web pages link to\.
 + The 'depth' or number of levels in a website from the seed level to crawl\. For example, if a website has 3 levels—index level \(the seed level in this example\), sections level, and subsections level—and you are only interested in crawling information from the index level to the sections level \(levels 0 to 1\), you can set your depth to 1\.
-+ The maximum number of URLs on a single webpage to crawl\.
-+ The maximum size in MB of a webpage to crawl\.
++ The maximum number of URLs on a single web page to crawl\.
++ The maximum size in MB of a web page to crawl\.
 + The maximum number of URLs crawled per website host per minute\.
 + The web proxy information to connect to and crawl internal websites\.
 + The authentication information to access and crawl websites that require user authentication\.
 + You can extract HTML meta tags as fields using the *Custom Document Enrichment* tool\. For more information, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html)\. For an example of extracting HTML meta tags, see [CDE examples](https://github.com/aws-samples/amazon-kendra-cde-examples)\.
-+  **Inclusion and exclusion filters**—Specify whether to include certain URLs\.
++  **Inclusion and exclusion filters**—Specify whether to include or exclude certain URLs\.
 **Note**  
-If you specify an inclusion filter, only content that matches the inclusion filter is indexed\. Any document that doesn’t match the inclusion filter isn’t indexed\. If you specify an inclusion and exclusion filter, documents that match the exclusion filter are not indexed, even if they match the inclusion filter\.
+Most data sources use regular expression patterns, which are inclusion or exclusion patterns referred to as filters\. If you specify an inclusion filter, only content that matches the inclusion filter is indexed\. Any document that doesn’t match the inclusion filter isn’t indexed\. If you specify an inclusion and exclusion filter, documents that match the exclusion filter are not indexed, even if they match the inclusion filter\.
 
 ------
 
-## Learn more<a name="webcrawler-learn-more"></a>
+## Learn more<a name="web-crawler-learn-more"></a>
 
-To learn more about integrating Amazon Kendra with your Web crawler data source, see:
+To learn more about integrating Amazon Kendra with your web crawler data source, see:
 + [Reimagine knowledge discovery using Amazon Kendra’s Web Crawler](https://aws.amazon.com/blogs/machine-learning/reimagine-knowledge-discovery-using-amazon-kendras-web-crawler/)

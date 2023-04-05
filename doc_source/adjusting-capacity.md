@@ -12,9 +12,9 @@ A document storage capacity unit provides the following additional storage for y
 A query capacity unit provides the following additional queries for your index\.
 + 0\.1 queries per second or approximately 8,000 queries per day\.
 
-Each index comes with a base capacity equal to 1 capacity unit\. There is an additional cost for each additional capacity unit\. For details, see [Amazon Kendra pricing](http://aws.amazon.com/kendra/pricing/)\.
+Each index comes with a base capacity equal to 1 capacity unit \(30 GB of storage and 0\.1 queries per second\)\. There is an additional cost for each additional capacity unit\. For details, see [Amazon Kendra pricing](http://aws.amazon.com/kendra/pricing/)\.
 
-You can add up to 100 extra capacity units to your storage and query resources\. If you need more than 100 additional units, [contact AWS support](http://aws.amazon.com/contact-us/)\.
+You can add up to 100 extra capacity units to your storage and query resources for an index\. If you need more units, [contact AWS support](http://aws.amazon.com/contact-us/)\.
 
 You can adjust capacity units up to 5 times per day to fit your usage requirements\. You can't reduce document storage capacity below the number of documents stored in your index\. For example, if you are storing 150,000 documents, you can't reduce the storage capacity below 1 additional unit\.
 
@@ -55,6 +55,15 @@ If you need additional capacity for your index, you can add it using the console
 After you update the capacity of your index, it can take several minutes for the changes to take effect\.
 
 To add or remove capacity using the Amazon Kendra API, use the `CapacityUnits` parameter in the [UpdateIndex](API_UpdateIndex.md) API\.
+
+## Amazon Kendra Intelligent Ranking capacity<a name="intelligent-ranking-capacity"></a>
+
+A capacity unit provides the following additional rescore requests per second for a rescore execution plan\. A rescore execution plan is a resource used to provision the [Rescore](https://docs.aws.amazon.com/kendra/latest/dg/API_Ranking_Rescore.html) API\.
++ 0\.01 requests per second\.
+
+Each rescore execution plan comes with a base capacity equal to 1 capacity unit \(0\.01 requests per second\)\. There is an additional cost for each additional capacity unit\. For details, see [Amazon Kendra pricing](http://aws.amazon.com/kendra/pricing/)\.
+
+You can add up to 1000 extra capacity units for a rescore execution plan\. If you need more units, [contact AWS support](http://aws.amazon.com/contact-us/)\.
 
 ## Query suggestions capacity<a name="query-suggestions-capacity"></a>
 

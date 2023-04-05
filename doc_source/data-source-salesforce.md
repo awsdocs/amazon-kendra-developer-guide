@@ -10,24 +10,25 @@ You can connect Amazon Kendra to your Salesforce data source using either the [A
 
 Amazon Kendra has two versions of the Salesforce connector\. Supported features of each version include:
 
-**Salesforce Connector v1\.0 / [SalesforceConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_SalesforceConfiguration.html) API**
+**Salesforce connector v1\.0 / [SalesforceConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_SalesforceConfiguration.html) API**
 + Field mappings
 + User context filtering
 + Inclusion/exclusion filters
 
-**Salesforce Connector v2\.0 / [TemplateConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_TemplateConfiguration.html) API**
+**Salesforce connector v2\.0 / [TemplateConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_TemplateConfiguration.html) API**
 + Field mappings
 + User context filtering
 + Inclusion/exclusion filters
 + Entity attachment support
 + Identity crawling
 + VPC support
++ Sync all documents/Sync only new, modified, or deleted documents
 
 **Note**  
-Support for Salesforce Connector v1\.0 / SalesforceConfiguration API is scheduled to end by June 2023\. We recommend using Salesforce Connector v2\.0 / TemplateConfiguration API\.
+Support for Salesforce connector v1\.0 / SalesforceConfiguration API is scheduled to end by June 2023\. We recommend using Salesforce connector v2\.0 / TemplateConfiguration API\.
 
 For troubleshooting your Amazon Kendra Salesforce data source connector, see [Troubleshooting data sources](troubleshooting-data-sources.md)\.
 
 **Topics**
-+ [Salesforce Connector v1\.0](data-source-v1-salesforce.md)
-+ [Salesforce Connector v2\.0](data-source-v2-salesforce.md)
++ [Salesforce connector v1\.0](data-source-v1-salesforce.md)
++ [Salesforce connector v2\.0](data-source-v2-salesforce.md)

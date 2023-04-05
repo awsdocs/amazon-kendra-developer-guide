@@ -254,6 +254,67 @@ Required: No
          "DocumentAttributeValueType": "string"
       }
    ],
+   "FeaturedResultsItems": [ 
+      { 
+         "AdditionalAttributes": [ 
+            { 
+               "Key": "string",
+               "Value": { 
+                  "TextWithHighlightsValue": { 
+                     "Highlights": [ 
+                        { 
+                           "BeginOffset": number,
+                           "EndOffset": number,
+                           "TopAnswer": boolean,
+                           "Type": "string"
+                        }
+                     ],
+                     "Text": "string"
+                  }
+               },
+               "ValueType": "string"
+            }
+         ],
+         "DocumentAttributes": [ 
+            { 
+               "Key": "string",
+               "Value": { 
+                  "DateValue": number,
+                  "LongValue": number,
+                  "StringListValue": [ "string" ],
+                  "StringValue": "string"
+               }
+            }
+         ],
+         "DocumentExcerpt": { 
+            "Highlights": [ 
+               { 
+                  "BeginOffset": number,
+                  "EndOffset": number,
+                  "TopAnswer": boolean,
+                  "Type": "string"
+               }
+            ],
+            "Text": "string"
+         },
+         "DocumentId": "string",
+         "DocumentTitle": { 
+            "Highlights": [ 
+               { 
+                  "BeginOffset": number,
+                  "EndOffset": number,
+                  "TopAnswer": boolean,
+                  "Type": "string"
+               }
+            ],
+            "Text": "string"
+         },
+         "DocumentURI": "string",
+         "FeedbackToken": "string",
+         "Id": "string",
+         "Type": "string"
+      }
+   ],
    "QueryId": "string",
    "ResultItems": [ 
       { 
@@ -368,6 +429,10 @@ The following data is returned in JSON format by the service\.
 Contains the facet results\. A `FacetResult` contains the counts for each attribute key that was specified in the `Facets` input parameter\.  
 Type: Array of [FacetResult](API_FacetResult.md) objects
 
+ ** [FeaturedResultsItems](#API_Query_ResponseSyntax) **   <a name="Kendra-Query-response-FeaturedResultsItems"></a>
+The list of featured result items\. Featured results are displayed at the top of the search results page, placed above all other results for certain queries\. If there's an exact match of a query, then certain documents are featured in the search results\.  
+Type: Array of [FeaturedResultsItem](API_FeaturedResultsItem.md) objects
+
  ** [QueryId](#API_Query_ResponseSyntax) **   <a name="Kendra-Query-response-QueryId"></a>
 The identifier for the search\. You use `QueryId` to identify the search when using the feedback API\.  
 Type: String  
@@ -405,7 +470,7 @@ A conflict occurred with the request\. Please fix any inconsistences with your r
 HTTP Status Code: 400
 
  ** InternalServerException **   
-An issue occurred with the internal server used for your Amazon Kendra service\. Please wait a few minutes and try again, or contact [ Support](http://aws.amazon.com/aws.amazon.com/contact-us) for help\.  
+An issue occurred with the internal server used for your Amazon Kendra service\. Please wait a few minutes and try again, or contact [Support](http://aws.amazon.com/contact-us/) for help\.  
 HTTP Status Code: 500
 
  ** ResourceNotFoundException **   
@@ -413,7 +478,7 @@ The resource you want to use doesn’t exist\. Please check you have provided th
 HTTP Status Code: 400
 
  ** ServiceQuotaExceededException **   
-You have exceeded the set limits for your Amazon Kendra service\. Please see Quotas\[hyperlink Kendra Quotas pg\] for more information, or contact [ Support](http://aws.amazon.com/aws.amazon.com/contact-us) to inquire about an increase of limits\.  
+You have exceeded the set limits for your Amazon Kendra service\. Please see [Quotas](https://docs.aws.amazon.com/kendra/latest/dg/quotas.html) for more information, or contact [Support](http://aws.amazon.com/contact-us/) to inquire about an increase of limits\.  
 HTTP Status Code: 400
 
  ** ThrottlingException **   

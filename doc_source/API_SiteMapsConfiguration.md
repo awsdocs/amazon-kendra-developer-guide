@@ -6,7 +6,7 @@
 
 Provides the configuration information for the sitemap URLs to crawl\.
 
- *When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://aws.amazon.com/aup/) and all other Amazon terms\. Remember that you must only use Amazon Kendra Web Crawler to index your own webpages, or webpages that you have authorization to index\.* 
+ *When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://aws.amazon.com/aup/) and all other Amazon terms\. Remember that you must only use Amazon Kendra Web Crawler to index your own web pages, or web pages that you have authorization to index\.* 
 
 ## Contents<a name="API_SiteMapsConfiguration_Contents"></a>
 

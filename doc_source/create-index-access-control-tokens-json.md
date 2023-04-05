@@ -28,7 +28,7 @@ The JSON token is a non\-validated payload\. This should only be used when reque
 
 1. Specify one or more **Groups** to use in the ACL check\.
 
-1. Choose**Next**\. 
+1. Choose **Next**\.
 
 1. In the **Provisioning details** page, choose **Developer edition**\.
 
@@ -68,10 +68,10 @@ If you are not using Open ID for AWS IAM Identity Center \(successor to AWS Sing
 
 ```
 {
-     "username" : "saligram", 
+     "username" : "user1", 
      "groups": [
-        "aws-kendra-dev", 
-        "aws-kendra-engg"
+        "group1", 
+        "group2"
      ]
 }
 ```

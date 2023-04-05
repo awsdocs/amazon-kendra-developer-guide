@@ -84,11 +84,11 @@ Pattern: `^\P{C}*$`
 
  ** [GroupOrderingIdSummaries](#API_DescribePrincipalMapping_ResponseSyntax) **   <a name="Kendra-DescribePrincipalMapping-response-GroupOrderingIdSummaries"></a>
 Shows the following information on the processing of `PUT` and `DELETE` actions for mapping users to their groups:  
-+ Status – the status can be either `PROCESSING`, `SUCCEEDED`, `DELETING`, `DELETED`, or `FAILED`\.
-+ Last updated – the last date\-time an action was updated\.
-+ Received – the last date\-time an action was received or submitted\.
-+ Ordering ID – the latest action that should process and apply after other actions\.
-+ Failure reason – the reason an action could not be processed\.
++ Status—the status can be either `PROCESSING`, `SUCCEEDED`, `DELETING`, `DELETED`, or `FAILED`\.
++ Last updated—the last date\-time an action was updated\.
++ Received—the last date\-time an action was received or submitted\.
++ Ordering ID—the latest action that should process and apply after other actions\.
++ Failure reason—the reason an action could not be processed\.
 Type: Array of [GroupOrderingIdSummary](API_GroupOrderingIdSummary.md) objects  
 Array Members: Maximum number of 10 items\.
 
@@ -107,7 +107,7 @@ You don't have sufficient access to perform this action\. Please ensure you have
 HTTP Status Code: 400
 
  ** InternalServerException **   
-An issue occurred with the internal server used for your Amazon Kendra service\. Please wait a few minutes and try again, or contact [ Support](http://aws.amazon.com/aws.amazon.com/contact-us) for help\.  
+An issue occurred with the internal server used for your Amazon Kendra service\. Please wait a few minutes and try again, or contact [Support](http://aws.amazon.com/contact-us/) for help\.  
 HTTP Status Code: 500
 
  ** ResourceNotFoundException **   

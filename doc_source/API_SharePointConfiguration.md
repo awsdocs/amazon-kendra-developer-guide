@@ -9,7 +9,7 @@ Provides the configuration information to connect to Microsoft SharePoint as you
 ## Contents<a name="API_SharePointConfiguration_Contents"></a>
 
  ** AuthenticationType **   <a name="Kendra-Type-SharePointConfiguration-AuthenticationType"></a>
-Whether you want to connect to SharePoint using basic authentication of user name and password, or OAuth authentication of user name, password, client ID, and client secret\. You can use OAuth authentication for SharePoint Online\.  
+Whether you want to connect to SharePoint Online using basic authentication of user name and password, or OAuth authentication of user name, password, client ID, and client secret, or AD App\-only authentication of client secret\.  
 Type: String  
 Valid Values:` HTTP_BASIC | OAUTH2`   
 Required: No
@@ -62,8 +62,7 @@ Type: [ProxyConfiguration](API_ProxyConfiguration.md) object
 Required: No
 
  ** SecretArn **   <a name="Kendra-Type-SharePointConfiguration-SecretArn"></a>
-The Amazon Resource Name \(ARN\) of an AWS Secrets Manager secret that contains the user name and password required to connect to the SharePoint instance\. If you use SharePoint Server, you also need to provide the sever domain name as part of the credentials\. For more information, see [Using a Microsoft SharePoint Data Source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-sharepoint.html)\.  
-You can also provide OAuth authentication credentials of user name, password, client ID, and client secret\. For more information, see [Using a SharePoint data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-sharepoint.html)\.  
+The Amazon Resource Name \(ARN\) of an AWS Secrets Manager secret that contains the user name and password required to connect to the SharePoint instance\. For more information, see [Microsoft SharePoint](https://docs.aws.amazon.com/kendra/latest/dg/data-source-sharepoint.html)\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1284\.  
 Pattern: `arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}`   
@@ -77,7 +76,7 @@ Required: Yes
 
  ** SslCertificateS3Path **   <a name="Kendra-Type-SharePointConfiguration-SslCertificateS3Path"></a>
 The path to the SSL certificate stored in an Amazon S3 bucket\. You use this to connect to SharePoint Server if you require a secure SSL connection\.  
-You can simply generate a self\-signed X509 certificate on any computer using OpenSSL\. For an example of using OpenSSL to create an X509 certificate, see [Create and sign an X509 certificate](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/configuring-https-ssl.html)\.  
+You can generate a self\-signed X509 certificate on any computer using OpenSSL\. For an example of using OpenSSL to create an X509 certificate, see [Create and sign an X509 certificate](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/configuring-https-ssl.html)\.  
 Type: [S3Path](API_S3Path.md) object  
 Required: No
 

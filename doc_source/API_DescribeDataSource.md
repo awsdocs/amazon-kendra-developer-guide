@@ -754,7 +754,7 @@ Configuration details for the data source connector\. This shows how the data so
 Type: [DataSourceConfiguration](API_DataSourceConfiguration.md) object
 
  ** [CreatedAt](#API_DescribeDataSource_ResponseSyntax) **   <a name="Kendra-DescribeDataSource-response-CreatedAt"></a>
-The Unix timestamp of when the data source connector was created\.  
+The Unix timestamp when the data source connector was created\.  
 Type: Timestamp
 
  ** [CustomDocumentEnrichmentConfiguration](#API_DescribeDataSource_ResponseSyntax) **   <a name="Kendra-DescribeDataSource-response-CustomDocumentEnrichmentConfiguration"></a>
@@ -819,7 +819,7 @@ Type: String
 Valid Values:` S3 | SHAREPOINT | DATABASE | SALESFORCE | ONEDRIVE | SERVICENOW | CUSTOM | CONFLUENCE | GOOGLEDRIVE | WEBCRAWLER | WORKDOCS | FSX | SLACK | BOX | QUIP | JIRA | GITHUB | ALFRESCO | TEMPLATE` 
 
  ** [UpdatedAt](#API_DescribeDataSource_ResponseSyntax) **   <a name="Kendra-DescribeDataSource-response-UpdatedAt"></a>
-The Unix timestamp of when the data source connector was last updated\.  
+The Unix timestamp when the data source connector was last updated\.  
 Type: Timestamp
 
  ** [VpcConfiguration](#API_DescribeDataSource_ResponseSyntax) **   <a name="Kendra-DescribeDataSource-response-VpcConfiguration"></a>
@@ -835,7 +835,7 @@ You don't have sufficient access to perform this action\. Please ensure you have
 HTTP Status Code: 400
 
  ** InternalServerException **   
-An issue occurred with the internal server used for your Amazon Kendra service\. Please wait a few minutes and try again, or contact [ Support](http://aws.amazon.com/aws.amazon.com/contact-us) for help\.  
+An issue occurred with the internal server used for your Amazon Kendra service\. Please wait a few minutes and try again, or contact [Support](http://aws.amazon.com/contact-us/) for help\.  
 HTTP Status Code: 500
 
  ** ResourceNotFoundException **   

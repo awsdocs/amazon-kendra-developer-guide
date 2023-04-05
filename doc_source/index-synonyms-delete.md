@@ -21,7 +21,7 @@ The following procedures show how to delete a thesaurus\.
 To delete a thesarus to an index with the AWS CLI, call `delete-thesaurus`: 
 
 ```
-aws kendra create-thesaurus \
+aws kendra delete-thesaurus \
 --index-id index-id \
 --id thesaurus-id
 ```

@@ -13,7 +13,7 @@ For information on the current quota limits for block lists, see [Quotas for Ama
 ## Contents<a name="API_QuerySuggestionsBlockListSummary_Contents"></a>
 
  ** CreatedAt **   <a name="Kendra-Type-QuerySuggestionsBlockListSummary-CreatedAt"></a>
-The date\-time summary information for a query suggestions block list was last created\.  
+The Unix timestamp when the block list was created\.  
 Type: Timestamp  
 Required: No
 
@@ -43,7 +43,7 @@ Valid Values:` ACTIVE | CREATING | DELETING | UPDATING | ACTIVE_BUT_UPDATE_FAILE
 Required: No
 
  ** UpdatedAt **   <a name="Kendra-Type-QuerySuggestionsBlockListSummary-UpdatedAt"></a>
-The date\-time the block list was last updated\.  
+The Unix timestamp when the block list was last updated\.  
 Type: Timestamp  
 Required: No
 

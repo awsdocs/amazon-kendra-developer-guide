@@ -9,7 +9,7 @@ Summary information for frequently asked questions and answers included in an in
 ## Contents<a name="API_FaqSummary_Contents"></a>
 
  ** CreatedAt **   <a name="Kendra-Type-FaqSummary-CreatedAt"></a>
-The UNIX datetime that the FAQ was added to the index\.  
+The Unix timestamp when the FAQ was created\.  
 Type: Timestamp  
 Required: No
 
@@ -47,7 +47,7 @@ Valid Values:` CREATING | UPDATING | ACTIVE | DELETING | FAILED`
 Required: No
 
  ** UpdatedAt **   <a name="Kendra-Type-FaqSummary-UpdatedAt"></a>
-The UNIX datetime that the FAQ was last updated\.  
+The Unix timestamp when the FAQ was last updated\.  
 Type: Timestamp  
 Required: No
 

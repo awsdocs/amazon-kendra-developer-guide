@@ -32,11 +32,13 @@ The following example sets the "\_last\_updated\_at" field as the `Freshness` fi
 
 ```
 "DocumentMetadataConfigurationUpdates" : [
-    "Name": "_last_updated_at",
-    "Type": "DATE_VALUE",
-    "Relevance": {
-        "Freshness": TRUE,
-        "Importance": 2
+    {
+        "Name": "_last_updated_at",
+        "Type": "DATE_VALUE",
+        "Relevance": {
+            "Freshness": TRUE,
+            "Importance": 2
+        }
     }
 ]
 ```
@@ -45,13 +47,15 @@ The following example applies different importance to the different categories i
 
 ```
 "DocumentMetadataConfigurationUpdates" : [
-    "Name": "department",
-    "Type": "STRING_VALUE",
-    "Relevance": {
-        "Importance": 2,
-        "ValueImportanceMap": {
-            "HR": 3,
-            "Legal": 1
+    {
+        "Name": "department",
+        "Type": "STRING_VALUE",
+        "Relevance": {
+            "Importance": 2,
+            "ValueImportanceMap": {
+                "HR": 3,
+                "Legal": 1
+            }
         }
     }
 ]
@@ -69,13 +73,15 @@ The following example overrides the importance applied to the "department" field
 
 ```
 "DocumentRelevanceOverrideConfigurations" : [
-    "Name": "department",
-    "Type": "STRING_VALUE",
-    "Relevance": {
-        "Importance": 5,
-        "ValueImportanceMap": {
-            "HR": 2,
-            "Legal": 8
+    {
+        "Name": "department",
+        "Type": "STRING_VALUE",
+        "Relevance": {
+            "Importance": 2,
+            "ValueImportanceMap": {
+                "HR": 2,
+                "Legal": 8
+            }
         }
     }
 ]

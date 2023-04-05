@@ -2,31 +2,53 @@
 
 --------
 
-# Stopping Amazon Kendra Web Crawler from indexing your website<a name="stop-web-crawler"></a>
+# Configuring the `robots.txt` file for Amazon Kendra Web Crawler<a name="stop-web-crawler"></a>
 
 Amazon Kendra is an intelligent search service that AWS customers use to index and search documents of their choice\. In order to index documents on the web, customers may use Amazon Kendra Web Crawler, indicating which URL\(s\) should be indexed and other operational parameters\. Amazon Kendra customers are required to obtain authorization before indexing any particular website\.
 
-You can stop the Amazon Kendra Web Crawler from indexing your website using the `Disallow` directive, as shown below\. You can also control which webpages are indexed and which webpages are not crawled\.
+Amazon Kendra Web Crawler respects standard robots\.txt directives like `Allow` and `Disallow`\. You can modify the `robot.txt` file of your website to control how Amazon Kendra Web Crawler crawls your website\.
 
-Amazon Kendra Web Crawler respects standard robots\.txt directives like `Allow` and `Disallow`\. Each Amazon Kendra customer using the web crawler has a unique user agent or customer ID\. You can identify the user agent or customer ID that you would like to control and configure it in the robots\.txt directives\.
+## Configuring how Amazon Kendra Web Crawler accesses your website<a name="configure-web-crawler-website-access"></a>
 
-For example, the below directives stop an Amazon Kendra customer from being able to index a directory of your webpages under `/do-not-crawl/`, but allow indexing a sub\-directory `/do-not-crawl/except-this/`:
+You can control how the Amazon Kendra Web Crawler indexes your website using `Allow` and `Disallow` directives\. You can also control which web pages are indexed and which web pages are not crawled\.
+
+**To allow Amazon Kendra Web Crawler to crawl all web pages except disallowed web pages, use the following directive:**
 
 ```
-User-agent: amazon-kendra-customer-id-[id] # Amazon customer's user agent/ID
-Disallow: /do-not-crawl/ # disallow this directory
-Allow: /do-not-crawl/except-this/ # allow this subdirectory
-
-User-agent: * # any robot
-Disallow: /not-allowed/ # disallow this directory
-
-User-agent: amazon-kendra-web-crawler-* # all customers of Amazon Kendra Web Crawler
-Disallow: /confidential/ # disallow this directory
+User-agent: amazon-kendra    # Amazon Kendra Web Crawler
+Disallow: /credential-pages/ # disallow access to specific pages
 ```
 
-Amazon Kendra Web Crawler also supports the robots `noindex` and `nofollow` directives in meta tags in HTML pages\. These directives stop the web crawler from indexing a webpage and stops following any links on the webpage\. You put the meta tags in the section of the document to specify the rules of robots rules\.
+**To allow Amazon Kendra Web Crawler to crawl only specific web pages, use the following directive:**
 
-For example, the below webpage includes the directives robots `noindex` and `nofollow`:
+```
+User-agent: amazon-kendra    # Amazon Kendra Web Crawler
+Allow: /pages/ # allow access to specific pages
+```
+
+**To allow Amazon Kendra Web Crawler to crawl all website content and disallow crawling for any other robots, use the following directive:**
+
+```
+User-agent: amazon-kendra # Amazon Kendra Web Crawler
+Allow: / # allow access to all pages
+User-agent: * # any (other) robot
+Disallow: / # disallow access to any pages
+```
+
+## Stopping Amazon Kendra Web Crawler from crawling your website<a name="stop-web-crawler-access"></a>
+
+You can stop Amazon Kendra Web Crawler from indexing your website using the `Disallow` directive\. You can also control which web pages are crawled and which are not\.
+
+**To stop Amazon Kendra Web Crawler from crawling the website, use the following directive:**
+
+```
+User-agent: amazon-kendra # Amazon Kendra Web Crawler
+Disallow: / # disallow access to any pages
+```
+
+Amazon Kendra Web Crawler also supports the robots `noindex` and `nofollow` directives in meta tags in HTML pages\. These directives stop the web crawler from indexing a web page and stops following any links on the web page\. You put the meta tags in the section of the document to specify the rules of robots rules\.
+
+For example, the below web page includes the directives robots `noindex` and `nofollow`:
 
 ```
             <html>

@@ -14,7 +14,7 @@ To return the most relevant results, Amazon Kendra searches your index using mul
 
 Amazon Kendra returns the total count of relevant documents\. The top 100 are returned per query by default\. The results are paginated\. You can use `PageNumber` to access different pages\. 
 
-You can enable Amazon Kendra to return up to 1,000 documents or search results per query, with up to 100 results per page\. To return more than 100 results, you can request this by contacting [Quotas Support](https://console.aws.amazon.com/servicequotas/)\. Increasing the number of search results could impact latency\.
+You can configure Amazon Kendra to return up to 1,000 documents or search results per query, with up to 100 results per page\. To return more than 100 results, you can request this by contacting [Quotas Support](https://console.aws.amazon.com/servicequotas/)\. Increasing the number of search results could impact latency\.
 
 ## Why are documents that I expect to see missing?<a name="troubleshooting-search-results-missing-docs-expected-missing"></a>
 

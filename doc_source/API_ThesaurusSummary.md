@@ -9,7 +9,7 @@ An array of summary information for a thesaurus or multiple thesauri\.
 ## Contents<a name="API_ThesaurusSummary_Contents"></a>
 
  ** CreatedAt **   <a name="Kendra-Type-ThesaurusSummary-CreatedAt"></a>
-The Unix datetime that the thesaurus was created\.  
+The Unix timestamp when the thesaurus was created\.  
 Type: Timestamp  
 Required: No
 
@@ -34,7 +34,7 @@ Valid Values:` CREATING | ACTIVE | DELETING | UPDATING | ACTIVE_BUT_UPDATE_FAILE
 Required: No
 
  ** UpdatedAt **   <a name="Kendra-Type-ThesaurusSummary-UpdatedAt"></a>
-The Unix datetime that the thesaurus was last updated\.  
+The Unix timestamp when the thesaurus was last updated\.  
 Type: Timestamp  
 Required: No
 

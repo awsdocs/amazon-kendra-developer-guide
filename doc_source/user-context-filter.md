@@ -114,24 +114,28 @@ There is an implementation of user context filtering for each data source\. The 
 + [Filtering by user attribute](#context-filter-attribute)
 + [User context filtering for documents added directly to an index](#context-filter-batch)
 + [User context filtering for frequently asked questions](#context-filter-faq)
-+ [User context filtering for database data sources](#context-filter-jdbc)
-+ [User context filtering for Confluence data sources](#context-filter-confluence)
-+ [User context filtering for Google Drive data sources](#context-filter-google)
-+ [User context filtering for Microsoft OneDrive data sources](#context-filter-onedrive)
++ [User context filtering for Alfresco data sources](#context-filter-alfresco)
 + [User context filtering for Amazon S3 data sources](#context-filter-s3)
++ [User context filtering for database data sources](#context-filter-jdbc)
++ [User context filtering for Amazon FSx data sources](#context-filter-fsx)
++ [User context filtering for Amazon WorkDocs data sources](#context-filter-workdocs)
++ [User context filtering for Box data sources](#context-filter-box)
++ [User context filtering for Confluence data sources](#context-filter-confluence)
++ [User context filtering for Dropbox data sources](#context-filter-dropbox)
++ [User context filtering for GitHub data sources](#context-filter-github)
++ [User context filtering for Google Drive data sources](#context-filter-google)
++ [User context filtering for Jira data sources](#context-filter-jira)
++ [User context filtering for Microsoft Exchange data sources](#context-filter-exchange)
++ [User context filtering for Microsoft Teams data sources](#context-filter-teams)
++ [User context filtering for Microsoft OneDrive data sources](#context-filter-onedrive)
++ [User context filtering for Microsoft OneDrive v2\.0 data sources](#context-filter-onedrivev2)
++ [User context filtering for Microsoft Yammer data sources](#context-filter-yammer)
++ [User context filtering for Microsoft SharePoint data sources](#context-filter-sharepoint-online)
++ [User context filtering for Quip data sources](#context-filter-quip)
 + [User context filtering for Salesforce data sources](#context-filter-salesforce)
 + [User context filtering for ServiceNow data sources](#context-filter-servicenow)
-+ [User context filtering for Microsoft SharePoint data sources](#context-filter-sharepoint-online)
-+ [User context filtering for Amazon WorkDocs data sources](#context-filter-workdocs)
-+ [User context filtering for Amazon FSx data sources](#context-filter-fsx)
 + [User context filtering for Slack data sources](#context-filter-slack)
-+ [User context filtering for Box data sources](#context-filter-box)
-+ [User context filtering for Quip data sources](#context-filter-quip)
-+ [User context filtering for Jira data sources](#context-filter-jira)
-+ [User context filtering for GitHub data sources](#context-filter-github)
-+ [User context filtering for Alfresco data sources](#context-filter-alfresco)
 + [User context filtering for Zendesk data sources](#context-filter-zendesk)
-+ [User context filtering for Dropbox data sources](#context-filter-dropbox)
 
 ## User context filtering for documents added directly to an index<a name="context-filter-batch"></a>
 
@@ -155,6 +159,27 @@ You provide the following information:
 
 For more information, see [FAQ files](https://docs.aws.amazon.com/kendra/latest/dg/in-creating-faq.html)\.
 
+## User context filtering for Alfresco data sources<a name="context-filter-alfresco"></a>
+
+When you use an Alfresco data source, Amazon Kendra gets the user and group information from the Alfresco instance\.
+
+The group and user IDs are mapped as follows:
++ `_group_ids`—Group IDs exist in Alfresco on files where there are set access permissions\. They are mapped from the system names of the groups \(not display names\) in Alfresco\.
++ `_user_id`—User IDs exist in Alfresco on files where there are set access permissions\. They are mapped from the user emails as the IDs in Alfresco\.
+
+You can add up to 200 entries in the `AccessControlList` field\.
+
+## User context filtering for Amazon S3 data sources<a name="context-filter-s3"></a>
+
+You add user context filtering to a document in an Amazon S3 data source using a metadata file associated with the document\. You add the information to the `AccessControlList` field in the JSON document\. For more information about adding metadata to the documents indexed from an Amazon S3 data source, see [S3 document metadata](https://docs.aws.amazon.com/kendra/latest/dg/s3-metadata.html)\.
+
+You provide three pieces of information:
++ The access that the entity should have\. You can say `ALLOW` or `DENY`\.
++ The type of entity\. You can say `USER` or `GROUP`\.
++ The name of the entity\.
+
+You can add up to 200 entries in the `AccessControlList` field\.
+
 ## User context filtering for database data sources<a name="context-filter-jdbc"></a>
 
 When you use a database data source, such as Amazon Aurora PostgreSQL, Amazon Kendra gets user and group information from a column in the source table\. You specify this column in the [AclConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_AclConfiguration.html) object as part of the [DatabaseConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_DatabaseConfiguration.html) object in the [CreateDataSource](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html) API\.
@@ -164,17 +189,72 @@ A database data source has the following limitations:
 + You can only specify groups\. You can't specify individual users for the allow list\.
 + The database column should be a string containing a semicolon delimited list of groups\.
 
+## User context filtering for Amazon FSx data sources<a name="context-filter-fsx"></a>
+
+When you use an Amazon FSx data source, Amazon Kendra gets user and group information from the directory service of the Amazon FSx instance\.
+
+The Amazon FSx group and user IDs are mapped as follows:
++ `_group_ids`—Group IDs exist in Amazon FSx on files where there are set access permissions\. They are mapped from the system group names in the directory service of Amazon FSx\.
++ `_user_id`—User IDs exist in Amazon FSx on files where there are set access permissions\. They are mapped from the system user names in the directory service of Amazon FSx\.
+
+You can add up to 200 entries in the `AccessControlList` field\.
+
+## User context filtering for Amazon WorkDocs data sources<a name="context-filter-workdocs"></a>
+
+When you use an Amazon WorkDocs data source, Amazon Kendra gets user and group information from the Amazon WorkDocs instance\.
+
+The Amazon WorkDocs group and user IDs are mapped as follows:
++ `_group_ids`—Group IDs exist in Amazon WorkDocs on files where there are set access permissions\. They are mapped from the names of the groups in Amazon WorkDocs\.
++ `_user_id`—User IDs exist in Amazon WorkDocs on files where there are set access permissions\. They are mapped from the user names in Amazon WorkDocs\.
+
+You can add up to 200 entries in the `AccessControlList` field\.
+
+## User context filtering for Box data sources<a name="context-filter-box"></a>
+
+When you use a Box data source, Amazon Kendra gets user and group information from the Box instance\.
+
+The Box group and user IDs are mapped as follows:
++ `_group_ids`—Group IDs exist in Box on files where there are set access permissions\. They are mapped from the names of the groups in Box\.
++ `_user_id`—User IDs exist in Box on files where there are set access permissions\. They are mapped from the user emails as the user IDs in Box\.
+
+You can add up to 200 entries in the `AccessControlList` field\.
+
 ## User context filtering for Confluence data sources<a name="context-filter-confluence"></a>
 
 When you use a Confluence data source, Amazon Kendra gets user and group information from the Confluence instance\.
 
-You configure user and group access to spaces using the space permissions page\. For pages and blogs, you use the restrictions page\. For more information about space permissions, see [ Space Permissions Overview ](https://confluence.atlassian.com/doc/space-permissions-overview-139521.html) on the Confluence Support website\. For more information about page and blog restrictions, see [ Page Restrictions ](https://confluence.atlassian.com/doc/page-restrictions-139414.html) on the Confluence Support website\.
+You configure user and group access to spaces using the space permissions page\. For pages and blogs, you use the restrictions page\. For more information about space permissions, see [Space Permissions Overview](https://confluence.atlassian.com/doc/space-permissions-overview-139521.html) on the Confluence Support website\. For more information about page and blog restrictions, see [ Page Restrictions ](https://confluence.atlassian.com/doc/page-restrictions-139414.html) on the Confluence Support website\.
 
 The Confluence group and user names are mapped as follows:
 + `_group_ids`—Group names are present on spaces, pages, and blogs where there are restrictions\. They are mapped from the name of the group in Confluence\. Group names are always lower case\.
 + `_user_id`—User names are present on the space, page, or blog where there are restrictions\. They are mapped depending on the type of Confluence instance that you are using\.
+
+  **For Confluence connector v1\.0**
   + Server—The `_user_id` is the username\. The username is always lower case\.
   + Cloud—The `_user_id` is the account ID of the user\.
+
+  **For Confluence connector v2\.0**
+  + Server—The `_user_id` is the username\. The username is always lower case\.
+  + Cloud—The `_user_id` is the email ID of the user\.
+
+You can add up to 200 entries in the `AccessControlList` field\.
+
+## User context filtering for Dropbox data sources<a name="context-filter-dropbox"></a>
+
+When you use a Dropbox data source, Amazon Kendra gets the user and group information from the Dropbox instance\.
+
+The group and user IDs are mapped as follows:
++ `_group_ids`—Group IDs exist in Dropbox on files where there are set access permissions\. They are mapped from the names of the groups in Dropbox\.
++ `_user_id`—User IDs exist in Dropbox on files where there are set access permissions\. They are mapped from the user emails as the IDs in Dropbox\.
+
+You can add up to 200 entries in the `AccessControlList` field\.
+
+## User context filtering for GitHub data sources<a name="context-filter-github"></a>
+
+When you use a GitHub data source, Amazon Kendra gets user information from the GitHub instance\.
+
+The GitHub user IDs are mapped as follows:
++ `_user_id`—User IDs exist in GitHub on files where there are set access permissions\. They are mapped from the user emails as the IDs in GitHub\.
 
 You can add up to 200 entries in the `AccessControlList` field\.
 
@@ -223,6 +303,35 @@ If you provide the domain in the query, all documents shared with the domain are
 
 You can add up to 200 entries in the `AccessControlList` field\.
 
+
+
+## User context filtering for Jira data sources<a name="context-filter-jira"></a>
+
+When you use a Jira data source, Amazon Kendra gets user and group information from the Jira instance\.
+
+The Jira user IDs are mapped as follows:
++ `_user_id`—User IDs exist in Jira on files where there are set access permissions\. They are mapped from the user emails as the user IDs in Jira\.
+
+You can add up to 200 entries in the `AccessControlList` field\.
+
+## User context filtering for Microsoft Exchange data sources<a name="context-filter-exchange"></a>
+
+Amazon Kendra retrieves user information from Microsoft Exchange when it indexes the documents on the site\. The user information is taken from the underlying Microsoft Exchange host site\.
+
+When you use an Exchange user for user context filtering, Amazon Kendra gets the user information from the Microsoft Exchange instance\. The Exchange IDs are mapped as follows: 
++ `_tenant_id`— Your Microsoft tenant ID is a globally unique identifier that is necessary to configure each connector instance\. Your tenant ID is different from your organization name or domain and can be found in the properties section of your Microsoft account dashboard\. 
+
+You can add up to 200 entries in the `AccessControlList` field\.
+
+## User context filtering for Microsoft Teams data sources<a name="context-filter-teams"></a>
+
+Amazon Kendra retrieves user information from Microsoft Teams when it indexes the documents on the site\. The user information is taken from the underlying Microsoft Teams host site\.
+
+When you use a Teams user for user context filtering, Amazon Kendra gets the user information from the Microsoft Teams instance\. The Teams tenant IDs are mapped as follows: 
++ `_tenant_id`— Your Microsoft tenant ID is a globally unique identifier that is necessary to configure each connector instance\. Your tenant ID is different from your organization name or domain and can be found in the properties section of your Microsoft account dashboard\. 
+
+You can add up to 200 entries in the `AccessControlList` field\.
+
 ## User context filtering for Microsoft OneDrive data sources<a name="context-filter-onedrive"></a>
 
 Amazon Kendra retrieves user and group information from Microsoft OneDrive when it indexes the documents on the site\. The user and group information is taken from the underlying Microsoft SharePoint site that hosts OneDrive\.
@@ -241,7 +350,7 @@ When you use a OneDrive user or group for user context filtering, calculate the 
 
    `"430a6b90503eef95c89295c8999c7981|someone@host.onmicrosoft.com"`
 
-Send the user or group ID to Amazon Kendra as the `_user_id` or `_group_ids` attribute when you call the [Query](API_Query.md) API\. For example, the AWS CLI command that uses a group to filter the query response looks like this:
+Send the user or group ID to Amazon Kendra as the `_user_id` or `_group_ids` attribute when you call the [Query](https://docs.aws.amazon.com/kendra/latest/dg/API_Query.html) API\. For example, the AWS CLI command that uses a group to filter the query response looks like this:
 
 ```
 aws kendra  query \
@@ -256,14 +365,84 @@ aws kendra  query \
 
 You can add up to 200 entries in the `AccessControlList` field\.
 
-## User context filtering for Amazon S3 data sources<a name="context-filter-s3"></a>
+## User context filtering for Microsoft OneDrive v2\.0 data sources<a name="context-filter-onedrivev2"></a>
 
-You add user context filtering to a document in an Amazon S3 data source using a metadata file associated with the document\. You add the information to the `AccessControlList` field in the JSON document\. For more information about adding metadata to the documents indexed from an Amazon S3 data source, see [Amazon S3 document metadata](s3-metadata.md)\.
+A Microsoft OneDrive v2\.0 data source returns section and page information from OneDrive access control list \(ACL\) entities\. Amazon Kendra uses the OneDrive tenant domain to connect to the OneDrive instance and can filter based on section name, page type, file name, file type and file contents\. 
 
-You provide three pieces of information:
-+ The access that the entity should have\. You can say `ALLOW` or `DENY`\.
-+ The type of entity\. You can say `USER` or `GROUP`\.
-+ The name of the entity\.
+For standard objects, the `_user_id` and `_group_id` are used as follows:
++ `_user_id`— Your Microsoft OneDrive user email ID is mapped to the `_user_id` field\.
++ `_group_id`— Your Microsoft OneDrive group email is mapped to the `_group_id` field\.
+
+You can add up to 200 entries in the `AccessControlList` field\.
+
+## User context filtering for Microsoft Yammer data sources<a name="context-filter-yammer"></a>
+
+Amazon Kendra retrieves user and group information from Microsoft Yammer when it indexes the documents on the site\. The user and group information is taken from the underlying Microsoft Yammer host site\.
+
+When you use a Yammer user for user context filtering, Amazon Kendra gets the user information from the Microsoft Yammer instance\. The Microsoft Yammer user IDs are mapped as follows: 
++ `_email_id`— Your Microsoft email ID is an identifier that is necessary to configure each connector instance\. Your email ID can be found in the properties section of your Microsoft account dashboard\. 
++  `_group_id`— Group IDs exist in Microsoft Yammer Instances where there are set access permissions\. They are mapped from the names of the groups in Microsoft Yammer\. 
+
+You can add up to 200 entries in the `AccessControlList` field\.
+
+
+
+## User context filtering for Microsoft SharePoint data sources<a name="context-filter-sharepoint-online"></a>
+
+Amazon Kendra retrieves user and group information from Microsoft SharePoint when it indexes the documents on the site\. To filter your documents, provide user and group information when you call the `Query` API\.
+
+To filter using a user name, use the user's email address\. For example, johnstiles@example\.com\.
+
+When you use a SharePoint group for user context filtering, calculate the group ID as follows:
+
+**For local groups**
+
+1. Get the site name\. For example, `https://host.onmicrosoft.com/sites/siteName.`
+
+1. Take the SHA256 hash of the site name\. For example, `430a6b90503eef95c89295c8999c7981`\.
+
+1. Create the group ID by concatenating the SHA256 hash with a vertical bar \(\|\) and the group name\. For example, if the group name is "site owners", the group ID would be:
+
+   `"430a6b90503eef95c89295c8999c7981|site owners"`
+
+Send the group ID to Amazon Kendra as the `_group_ids` attribute when you call the [Query API](https://docs.aws.amazon.com/kendra/latest/dg/API_Query.html)\. For example, the AWS CLI command looks like this:
+
+```
+aws kendra  query \
+                --index-id index ID  
+                --query-text "query text" 
+                --attribute-filter '{
+                   "EqualsTo":{
+                     "Key": "_group_ids", 
+                     "Value": {"StringValue": "430a6b90503eef95c89295c8999c7981|site owners"}
+                  }}'
+```
+
+**For AD groups**
+
+1. Use the AD group ID for configuring user context\.
+
+Send the group ID to Amazon Kendra as the `_group_ids` attribute when you call the [Query](https://docs.aws.amazon.com/kendra/latest/dg/API_Query.html) API\. For example, the AWS CLI command looks like this:
+
+```
+aws kendra  query \
+                --index-id index ID  
+                --query-text "query text" 
+                --attribute-filter '{
+                   "EqualsTo":{
+                     "Key": "_group_ids", 
+                     "Value": {"StringValue": "AD group"}
+                  }}'
+```
+
+You can add up to 200 entries in the `AccessControlList` field\.
+
+## User context filtering for Quip data sources<a name="context-filter-quip"></a>
+
+When you use a Quip data source, Amazon Kendra gets the user information from the Quip instance\.
+
+The Quip user IDs are mapped as follows:
++ `_user_id`—User IDs exist in Quip on files where there are set access permissions\. They are mapped from the user emails as the IDs in Quip\.
 
 You can add up to 200 entries in the `AccessControlList` field\.
 
@@ -299,110 +478,12 @@ The group and user IDs are mapped as follows:
 
 You can add up to 200 entries in the `AccessControlList` field\.
 
-## User context filtering for Microsoft SharePoint data sources<a name="context-filter-sharepoint-online"></a>
-
-Amazon Kendra retrieves user and group information from Microsoft SharePoint when it indexes the documents on the site\. To filter your documents, provide user and group information when you call the `Query` API\. 
-
-To filter using a user name, use the user's email address\. For example, johnstiles@example\.com\.
-
-When you use a SharePoint group for user context filtering, calculate the group ID as follows:
-
-1. Get the site name\. For example, `https://host.onmicrosoft.com/sites/siteName.`
-
-1. Take the SHA256 hash of the site name\. For example, `430a6b90503eef95c89295c8999c7981`\.
-
-1. Create the group ID by concatenating the SHA256 hash with a vertical bar \(\|\) and the group name\. For example, if the group name is "site owners", the group ID would be:
-
-   `"430a6b90503eef95c89295c8999c7981|site owners"`
-
-Send the group ID to Amazon Kendra as the `_group_ids` attribute when you call the [Query](API_Query.md) API\. For example, the AWS CLI command looks like this:
-
-```
-aws kendra  query \
-                --index-id index ID  
-                --query-text "query text" 
-                --attribute-filter '{
-                   "EqualsTo":{
-                     "Key": "_group_ids", 
-                     "Value": {"StringValue": "430a6b90503eef95c89295c8999c7981|site owners"}
-                  }}'
-```
-
-You can add up to 200 entries in the `AccessControlList` field\.
-
-## User context filtering for Amazon WorkDocs data sources<a name="context-filter-workdocs"></a>
-
-When you use an Amazon WorkDocs data source, Amazon Kendra gets user and group information from the Amazon WorkDocs instance\.
-
-The Amazon WorkDocs group and user IDs are mapped as follows:
-+ `_group_ids`—Group IDs exist in Amazon WorkDocs on files where there are set access permissions\. They are mapped from the names of the groups in Amazon WorkDocs\.
-+ `_user_id`—User IDs exist in Amazon WorkDocs on files where there are set access permissions\. They are mapped from the user names in Amazon WorkDocs\.
-
-You can add up to 200 entries in the `AccessControlList` field\.
-
-## User context filtering for Amazon FSx data sources<a name="context-filter-fsx"></a>
-
-When you use an Amazon FSx data source, Amazon Kendra gets user and group information from the directory service of the Amazon FSx instance\.
-
-The Amazon FSx group and user IDs are mapped as follows:
-+ `_group_ids`—Group IDs exist in Amazon FSx on files where there are set access permissions\. They are mapped from the system group names in the directory service of Amazon FSx\.
-+ `_user_id`—User IDs exist in Amazon FSx on files where there are set access permissions\. They are mapped from the system user names in the directory service of Amazon FSx\.
-
-You can add up to 200 entries in the `AccessControlList` field\.
-
 ## User context filtering for Slack data sources<a name="context-filter-slack"></a>
 
 When you use a Slack data source, Amazon Kendra gets the user information from the Slack instance\.
 
 The Slack user IDs are mapped as follows:
 + `_user_id`—User IDs exist in Slack on messages and channels where there are set access permissions\. They are mapped from the user emails as the IDs in Slack\.
-
-You can add up to 200 entries in the `AccessControlList` field\.
-
-## User context filtering for Box data sources<a name="context-filter-box"></a>
-
-When you use a Box data source, Amazon Kendra gets user and group information from the Box instance\.
-
-The Box group and user IDs are mapped as follows:
-+ `_group_ids`—Group IDs exist in Box on files where there are set access permissions\. They are mapped from the names of the groups in Box\.
-+ `_user_id`—User IDs exist in Box on files where there are set access permissions\. They are mapped from the user emails as the user IDs in Box\.
-
-You can add up to 200 entries in the `AccessControlList` field\.
-
-## User context filtering for Quip data sources<a name="context-filter-quip"></a>
-
-When you use a Quip data source, Amazon Kendra gets the user information from the Quip instance\.
-
-The Quip user IDs are mapped as follows:
-+ `_user_id`—User IDs exist in Quip on files where there are set access permissions\. They are mapped from the user emails as the IDs in Quip\.
-
-You can add up to 200 entries in the `AccessControlList` field\.
-
-## User context filtering for Jira data sources<a name="context-filter-jira"></a>
-
-When you use a Jira data source, Amazon Kendra gets user and group information from the Jira instance\.
-
-The Jira user IDs are mapped as follows:
-+ `_user_id`—User IDs exist in Jira on files where there are set access permissions\. They are mapped from the user emails as the user IDs in Jira\.
-
-You can add up to 200 entries in the `AccessControlList` field\.
-
-## User context filtering for GitHub data sources<a name="context-filter-github"></a>
-
-When you use a GitHub data source, Amazon Kendra gets user information from the GitHub instance\.
-
-The GitHub user IDs are mapped as follows:
-+ `_user_id`—User IDs exist in GitHub on files where there are set access permissions\. They are mapped from the user emails as the IDs in GitHub\.
-
-You can add up to 200 entries in the `AccessControlList` field\.
-
-## User context filtering for Alfresco data sources<a name="context-filter-alfresco"></a>
-
-When you use an Alfresco data source, Amazon Kendra gets the user and group information from the Alfresco instance\.
-
-The group and user IDs are mapped as follows:
-+ `_group_ids`—Group IDs exist in Alfresco on files where there are set access permissions\. They are mapped from the system names of the groups \(not display names\) in Alfresco\.
-+ `_user_id`—User IDs exist in Alfresco on files where there are set access permissions\. They are mapped from the user emails as the IDs in Alfresco\.
 
 You can add up to 200 entries in the `AccessControlList` field\.
 
@@ -413,15 +494,5 @@ When you use an Zendesk data source, Amazon Kendra gets the user and group infor
 The group and user IDs are mapped as follows:
 + `_group_ids`—Group IDs exist in Zendesk tickets and articles where there are set access permissions\. They are mapped from the names of the groups in Zendesk\.
 + `_user_id`—Group IDs exist in Zendesk tickets and articles where there are set access permissions\. They are mapped from the user emails as the IDs in Zendesk\.
-
-You can add up to 200 entries in the `AccessControlList` field\.
-
-## User context filtering for Dropbox data sources<a name="context-filter-dropbox"></a>
-
-When you use a Dropbox data source, Amazon Kendra gets the user and group information from the Dropbox instance\.
-
-The group and user IDs are mapped as follows:
-+ `_group_ids`—Group IDs exist in Dropbox on files where there are set access permissions\. They are mapped from the names of the groups in Dropbox\.
-+ `_user_id`—User IDs exist in Dropbox on files where there are set access permissions\. They are mapped from the user emails as the IDs in Dropbox\.
 
 You can add up to 200 entries in the `AccessControlList` field\.

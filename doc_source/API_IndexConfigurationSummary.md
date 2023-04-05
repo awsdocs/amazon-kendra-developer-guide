@@ -40,7 +40,7 @@ Valid Values:` CREATING | ACTIVE | DELETING | FAILED | UPDATING | SYSTEM_UPDATIN
 Required: Yes
 
  ** UpdatedAt **   <a name="Kendra-Type-IndexConfigurationSummary-UpdatedAt"></a>
-The Unix timestamp when the index was last updated by the `UpdateIndex` API\.  
+The Unix timestamp when the index was last updated\.  
 Type: Timestamp  
 Required: Yes
 
